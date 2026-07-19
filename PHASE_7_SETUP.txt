@@ -1,0 +1,75 @@
+FISH FINDER OUTDOORS — PHASE 7 SETUP
+
+Phase 7 gives you:
+- One shared submission database
+- Private email/password administrator login
+- Pending, approved and rejected queues
+- Editing before publication
+- Public display of approved community reports
+- Private contact details stored separately
+- Existing official-source monitor preserved
+
+PART 1 — UPLOAD THE FILES
+
+Upload/replace all Phase 7 files in the existing GitHub repository.
+Keep the .github/workflows/update-fishing-reports.yml workflow.
+
+PART 2 — CREATE THE FREE SUPABASE PROJECT
+
+1. Go to Supabase and create a new project.
+2. Give it a name such as Fish Finder Outdoors.
+3. Save the database password somewhere private.
+4. Wait for the project to finish creating.
+
+PART 3 — CREATE THE DATABASE
+
+1. In Supabase, open SQL Editor.
+2. Choose New query.
+3. Open SUPABASE_SETUP_COPY.sql from this package.
+4. Copy all of it into the SQL Editor.
+5. Click Run.
+
+PART 4 — CREATE YOUR ADMIN LOGIN
+
+1. In Supabase, open Authentication → Users.
+2. Choose Add user.
+3. Create your administrator email and password.
+4. Return to SQL Editor.
+5. Run this statement after replacing the email:
+
+insert into public.admin_users(user_id, email)
+select id, email from auth.users
+where lower(email) = lower('YOUR-REAL-ADMIN-EMAIL')
+on conflict (user_id) do update set email = excluded.email;
+
+PART 5 — CONNECT THE WEBSITE
+
+1. In Supabase, open Project Settings → API.
+2. Copy the Project URL.
+3. Copy the Publishable key. Do NOT copy a secret/service-role key.
+4. Open site_config.js in GitHub.
+5. Paste the two values here:
+
+supabase_url: "PASTE-PROJECT-URL-HERE",
+supabase_publishable_key: "PASTE-PUBLISHABLE-KEY-HERE",
+
+6. Commit the edit to main.
+7. Let Wasmer redeploy.
+
+PART 6 — TEST
+
+1. Open /submit-report.html.
+2. Submit a test report.
+3. Open /admin.html.
+4. Sign in with the administrator email and password.
+5. Approve the test report.
+6. Search that exact waterbody on the main report generator.
+7. The approved report should appear in Approved Community Reports.
+
+SECURITY
+
+- The publishable key is designed for browser use with Row Level Security.
+- Never put a Supabase secret key or service_role key in GitHub or site_config.js.
+- Public visitors cannot approve reports.
+- Public visitors can read only approved public report fields.
+- Private contact details are kept in a separate table and visible only to an administrator.

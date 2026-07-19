@@ -3,50 +3,235 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Source Review Dashboard | Fish Finder Outdoors</title>
+<title>Private Admin | Fish Finder Outdoors</title>
 <style>
-:root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}}
+:root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32;--purple:#704484}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1240px,calc(100% - 28px));margin:auto}header{padding:30px 0 18px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:18px 0 8px}.lede,.meta{color:var(--muted)}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.login{max-width:520px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}label{display:block;font-weight:850;font-size:13px;margin-bottom:6px}input,select,textarea{width:100%;padding:11px;border:1px solid #bdc7c1;border-radius:11px;background:white;font:inherit}textarea{min-height:100px}.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:13px}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}.primary{background:var(--green);color:white}.approve{background:#dcefe5;color:#176354}.reject{background:#f7dedb;color:#8e3029}.secondary{background:#e5ebe7;color:var(--green)}.summary{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:1100px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.pending{background:#fff0c6;color:#77591b}.approved,.ok,.current{background:#dff0e7;color:#176354}.rejected,.bad,.stale{background:#f7dedb;color:#943229}.review{background:#eadff1;color:var(--purple)}.aging{background:#fff0c6;color:#77591b}.notice{padding:13px;border-radius:12px;background:#e8f1ec;margin:12px 0}.notice.error{background:#f8dedb;color:#842e28}.hidden{display:none}.report-card{background:white;border:1px solid var(--line);border-radius:15px;padding:15px;margin:10px 0}.report-card h3{margin:0 0 6px}.edit-panel{border:2px solid var(--gold)}@media(max-width:850px){.summary{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}}
 </style>
 <script src="site_config.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="update_status.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase_client.js"></script>
 </head>
 <body>
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><h1>Source review dashboard</h1><p class="lede">Review stale reports, changed official pages, unreachable sources and locally saved angler submissions.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><h1>Private administration</h1><p class="lede">Sign in to receive, edit, approve, reject and publish community fishing reports. Official source monitoring remains visible below.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Public submission form</a><button id="logout" class="reject hidden">Sign out</button></div></div></header>
 <main class="wrap">
-<section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
-<section class="panel"><div class="actions"><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>
-<section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
-<section class="panel"><h2>Local angler submissions</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
+<section id="setupNotice" class="panel hidden"></section>
+<section id="loginPanel" class="panel login">
+<h2>Administrator sign in</h2>
+<form id="loginForm">
+<label for="email">Email</label><input id="email" type="email" required autocomplete="username">
+<label for="password" style="margin-top:12px">Password</label><input id="password" type="password" required autocomplete="current-password">
+<div class="actions"><button class="primary" type="submit">Sign in</button></div>
+<div id="loginStatus" class="notice hidden"></div>
+</form>
+</section>
+
+<div id="dashboard" class="hidden">
+<section class="panel"><div id="summary" class="summary"></div><p id="sessionLine" class="meta"></p></section>
+
+<section id="editPanel" class="panel edit-panel hidden">
+<h2>Edit report</h2>
+<form id="editForm">
+<input id="editId" type="hidden">
+<div class="grid">
+<div><label>Waterbody</label><input id="editWater" maxlength="140" required></div>
+<div><label>State</label><input id="editState" maxlength="60" required></div>
+<div><label>Fishing date</label><input id="editDate" type="date" required></div>
+<div><label>Time period</label><input id="editTime" maxlength="60"></div>
+<div><label>Species</label><input id="editSpecies" maxlength="160" required></div>
+<div><label>Bait or lure</label><input id="editBait" maxlength="240" required></div>
+<div><label>Caught</label><input id="editCaught" type="number" min="0" max="999"></div>
+<div><label>Kept</label><input id="editKept" type="number" min="0" max="999"></div>
+<div><label>Size</label><input id="editSize" maxlength="100"></div>
+<div><label>Method</label><input id="editMethod" maxlength="80"></div>
+<div class="full"><label>Notes</label><textarea id="editNotes" maxlength="2000"></textarea></div>
+<div class="full"><label>Photo URL</label><input id="editPhoto" type="url" maxlength="500"></div>
+<div><label>Display name</label><input id="editName" maxlength="100"></div>
+<div><label>Private contact</label><input id="editContact" maxlength="240"></div>
+<div class="full"><label>Administrator notes</label><textarea id="editReviewerNotes" maxlength="2000"></textarea></div>
+</div>
+<div class="actions"><button class="primary" type="submit">Save changes</button><button id="cancelEdit" class="secondary" type="button">Cancel</button></div>
+</form>
+</section>
+
+<section class="panel">
+<div class="actions">
+<label>Community reports <select id="communityFilter"><option value="pending">Pending</option><option value="approved">Approved</option><option value="rejected">Rejected</option><option value="all">All</option></select></label>
+<button id="refreshCommunity" class="secondary">Refresh</button>
+<button id="exportCommunity" class="secondary">Export visible reports</button>
+</div>
+<div id="communityReports"></div>
+</section>
+
+<section class="panel"><h2>Official-source monitor</h2><div id="sourceSummary" class="summary"></div><p id="lastRun" class="meta"></p><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="sourceRows"></tbody></table></div></section>
+</div>
 </main>
 <script>
 const $=id=>document.getElementById(id);
-const cfg=window.FFO_SITE_CONFIG||{},data=window.FFO_RECENT_REPORTS||{reports:[]},status=window.FFO_UPDATE_STATUS||{};
-const reports=data.reports||[];
+const staticData=window.FFO_RECENT_REPORTS||{reports:[]};
+const monitor=window.FFO_UPDATE_STATUS||{};
+let session=null,communityRows=[],contactMap={};
+
 function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
-function fmtDate(v){if(!v)return"—";const d=new Date(v);return isNaN(d)?v:d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
-function pclass(r){if(r.review_required)return"review";if(r.source_status==="unreachable"||r.freshness_status==="stale")return"bad";if(r.freshness_status==="aging")return"aging";return"ok";}
-function label(r){if(r.review_required)return"Review required";if(r.source_status==="unreachable")return"Unreachable";return r.source_status||"Pending";}
-function matches(r,f){if(f==="all")return true;if(f==="review")return!!r.review_required;if(f==="stale"||f==="aging"||f==="current")return r.freshness_status===f;if(f==="unreachable")return r.source_status==="unreachable";return true;}
-function render(){
- const f=$("filter").value;
- $("reportRows").innerHTML=reports.filter(r=>matches(r,f)).map(r=>`<tr><td><b>${esc((r.names||[])[0]||r.specificity||"Report")}</b><div class="meta">${esc(r.headline||"")}</div></td><td>${esc(r.agency)}</td><td>${esc(r.published_date||"—")}<div class="meta">${esc(r.freshness_days??"—")} days old</div></td><td><span class="pill ${pclass(r)}">${esc(r.freshness_status||"unknown")}</span></td><td><span class="pill ${pclass(r)}">${esc(label(r))}</span>${r.source_error?`<div class="meta">${esc(r.source_error)}</div>`:""}</td><td>${esc(fmtDate(r.last_checked_at))}</td><td><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Official source ↗</a></td></tr>`).join("")||'<tr><td colspan="7">No reports match this filter.</td></tr>';
-}
+function fmtDate(v){if(!v)return"—";const d=new Date(v);return isNaN(d)?String(v):d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
+function showLogin(message,error=false){const box=$("loginStatus");box.className="notice"+(error?" error":"");box.textContent=message;}
 function download(name,value){const blob=new Blob([JSON.stringify(value,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
-const fresh=status.freshness||{};
-$("summary").innerHTML=[
- ["Reports",status.reports_total??reports.length],["Current",fresh.current??0],["Aging",fresh.aging??0],["Stale",fresh.stale??0],["Review",status.review_required??reports.filter(r=>r.review_required).length]
-].map(x=>`<div class="metric"><span class="meta">${x[0]}</span><b>${x[1]}</b></div>`).join("");
-$("lastRun").textContent=`Last automatic check: ${fmtDate(status.last_run)} · ${status.unique_sources??0} unique official sources · ${status.unreachable_sources??0} unreachable.`;
-$("filter").addEventListener("change",render);render();
-$("exportReview").addEventListener("click",()=>download("ffo-review-queue.json",reports.filter(r=>r.review_required||r.freshness_status==="stale"||r.source_status==="unreachable")));
-function localRows(){try{return JSON.parse(localStorage.getItem("ffo:pending-submissions")||"[]");}catch{return[];}}
-function saveRows(rows){localStorage.setItem("ffo:pending-submissions",JSON.stringify(rows));renderSubmissions();}
-function renderSubmissions(){const rows=localRows();$("submissions").innerHTML=rows.length?rows.map((r,i)=>`<div class="submission"><h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3><div class="meta">${esc(r.fishing_date)} · ${esc(r.bait_or_lure)} · ${esc(r.status||"pending")}</div><p>${esc(r.notes||"No notes")}</p><div class="actions"><button class="secondary" data-action="approve" data-i="${i}">Mark approved locally</button><button class="secondary" data-action="reject" data-i="${i}">Reject locally</button><button class="secondary" data-action="remove" data-i="${i}">Remove</button></div></div>`).join(""):'<p class="meta">No local submissions in this browser.</p>';document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const rows=localRows(),i=Number(b.dataset.i);if(b.dataset.action==="remove")rows.splice(i,1);else rows[i].status=b.dataset.action==="approve"?"approved-local":"rejected-local";saveRows(rows);}));}
-renderSubmissions();
-$("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
-if(cfg.github_repository_url){const a=$("actionsLink");a.href=cfg.github_repository_url.replace(/\/$/,"")+"/actions";a.classList.remove("hidden");}
+function statusClass(value){return["approved","current","ok"].includes(value)?"approved":["rejected","stale","unreachable"].includes(value)?"rejected":["pending","aging"].includes(value)?"pending":"review";}
+
+async function verifyAdmin(user){
+  const {data,error}=await window.FFO_DB.from("admin_users").select("user_id,email").eq("user_id",user.id).maybeSingle();
+  if(error)throw error;
+  return data;
+}
+async function start(){
+  if(!window.FFO_DB_READY){
+    $("setupNotice").classList.remove("hidden");
+    $("setupNotice").innerHTML="<strong>Phase 7 database is not connected.</strong> "+window.ffoDatabaseMessage();
+    return;
+  }
+  const {data}=await window.FFO_DB.auth.getSession();
+  session=data.session;
+  if(session)await enterDashboard();
+}
+async function enterDashboard(){
+  try{
+    const admin=await verifyAdmin(session.user);
+    if(!admin){
+      await window.FFO_DB.auth.signOut();
+      session=null;
+      return showLogin("This account is signed in but is not listed as a Fish Finder Outdoors administrator.",true);
+    }
+    $("loginPanel").classList.add("hidden");
+    $("dashboard").classList.remove("hidden");
+    $("logout").classList.remove("hidden");
+    $("sessionLine").textContent="Signed in as "+session.user.email+". Approved reports become public immediately.";
+    renderOfficialSources();
+    await loadCommunity();
+  }catch(error){showLogin(error.message||"Administrator verification failed.",true);}
+}
+$("loginForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(!window.FFO_DB_READY)return showLogin(window.ffoDatabaseMessage(),true);
+  showLogin("Signing in…");
+  const {data,error}=await window.FFO_DB.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});
+  if(error)return showLogin(error.message,true);
+  session=data.session;
+  await enterDashboard();
+});
+$("logout").addEventListener("click",async()=>{await window.FFO_DB.auth.signOut();location.reload();});
+
+async function loadCommunity(){
+  const filter=$("communityFilter").value;
+  let query=window.FFO_DB.from("angler_reports").select("*").order("submitted_at",{ascending:false}).limit(300);
+  if(filter!=="all")query=query.eq("status",filter);
+  const [{data:rows,error},{data:contacts,error:contactError}]=await Promise.all([
+    query,
+    window.FFO_DB.from("angler_report_contacts").select("report_id,private_contact")
+  ]);
+  if(error)throw error;
+  if(contactError)throw contactError;
+  communityRows=rows||[];
+  contactMap=Object.fromEntries((contacts||[]).map(x=>[x.report_id,x.private_contact]));
+  renderCommunity();
+}
+function renderCommunity(){
+  const counts={pending:0,approved:0,rejected:0};
+  communityRows.forEach(r=>counts[r.status]=(counts[r.status]||0)+1);
+  const allReportsNote=communityRows.length;
+  $("summary").innerHTML=[
+    ["Visible",allReportsNote],["Pending",counts.pending||0],["Approved",counts.approved||0],["Rejected",counts.rejected||0],
+    ["Official reports",staticData.reports?.length||0],["Monitor flags",monitor.review_required||0]
+  ].map(x=>`<div class="metric"><span class="meta">${x[0]}</span><b>${x[1]}</b></div>`).join("");
+
+  $("communityReports").innerHTML=communityRows.length?communityRows.map(r=>`<article class="report-card">
+    <div class="actions"><span class="pill ${statusClass(r.status)}">${esc(r.status)}</span><span class="meta">${esc(fmtDate(r.submitted_at))}</span></div>
+    <h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3>
+    <p><strong>${esc(r.caught_count)} caught · ${esc(r.kept_count)} kept</strong>${r.size_text?` · ${esc(r.size_text)}`:""}<br>Bait/lure: ${esc(r.bait_or_lure)} · ${esc(r.method||"Method not supplied")}</p>
+    <p>${esc(r.notes||"No additional notes.")}</p>
+    <p class="meta">Fishing date: ${esc(r.fishing_date)} · ${esc(r.time_period||"Time not supplied")} · Submitted by ${esc(r.display_name||"Anonymous angler")}<br>Private contact: ${esc(contactMap[r.id]||"Not supplied")}${r.reviewer_notes?`<br>Admin notes: ${esc(r.reviewer_notes)}`:""}</p>
+    <div class="actions">
+      <button class="secondary" data-action="edit" data-id="${esc(r.id)}">Edit</button>
+      ${r.status!=="approved"?`<button class="approve" data-action="approve" data-id="${esc(r.id)}">Approve & publish</button>`:""}
+      ${r.status!=="rejected"?`<button class="reject" data-action="reject" data-id="${esc(r.id)}">Reject</button>`:""}
+      <button class="reject" data-action="delete" data-id="${esc(r.id)}">Delete</button>
+      ${r.photo_url?`<a class="button secondary" href="${esc(r.photo_url)}" target="_blank" rel="noopener">Photo ↗</a>`:""}
+    </div>
+  </article>`).join(""):'<p class="meta">No reports match this filter.</p>';
+
+  document.querySelectorAll("[data-action]").forEach(button=>button.addEventListener("click",()=>handleAction(button.dataset.action,button.dataset.id)));
+}
+async function handleAction(action,id){
+  const row=communityRows.find(x=>x.id===id);
+  if(!row)return;
+  if(action==="edit")return openEdit(row);
+  if(action==="delete"){
+    if(!confirm("Permanently delete this report?"))return;
+    const {error}=await window.FFO_DB.from("angler_reports").delete().eq("id",id);
+    if(error)return alert(error.message);
+    return loadCommunity();
+  }
+  const status=action==="approve"?"approved":"rejected";
+  if(!confirm(status==="approved"?"Approve and publish this report now?":"Reject this report?"))return;
+  const update={status,reviewed_by:session.user.id,approved_at:status==="approved"?new Date().toISOString():null};
+  const {error}=await window.FFO_DB.from("angler_reports").update(update).eq("id",id);
+  if(error)return alert(error.message);
+  await loadCommunity();
+}
+function openEdit(r){
+  $("editPanel").classList.remove("hidden");
+  $("editId").value=r.id;$("editWater").value=r.waterbody;$("editState").value=r.state;
+  $("editDate").value=r.fishing_date;$("editTime").value=r.time_period||"";$("editSpecies").value=r.species;
+  $("editBait").value=r.bait_or_lure;$("editCaught").value=r.caught_count;$("editKept").value=r.kept_count;
+  $("editSize").value=r.size_text||"";$("editMethod").value=r.method||"";$("editNotes").value=r.notes||"";
+  $("editPhoto").value=r.photo_url||"";$("editName").value=r.display_name||"";
+  $("editContact").value=contactMap[r.id]||"";$("editReviewerNotes").value=r.reviewer_notes||"";
+  $("editPanel").scrollIntoView({behavior:"smooth",block:"start"});
+}
+$("cancelEdit").addEventListener("click",()=>$("editPanel").classList.add("hidden"));
+$("editForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const id=$("editId").value;
+  const caught=Number($("editCaught").value||0),kept=Number($("editKept").value||0);
+  if(kept>caught)return alert("Kept count cannot exceed caught count.");
+  const reportUpdate={
+    waterbody:$("editWater").value.trim(),state:$("editState").value.trim(),
+    fishing_date:$("editDate").value,time_period:$("editTime").value.trim(),
+    species:$("editSpecies").value.trim(),bait_or_lure:$("editBait").value.trim(),
+    caught_count:caught,kept_count:kept,size_text:$("editSize").value.trim(),
+    method:$("editMethod").value.trim(),notes:$("editNotes").value.trim(),
+    photo_url:$("editPhoto").value.trim(),display_name:$("editName").value.trim(),
+    reviewer_notes:$("editReviewerNotes").value.trim(),reviewed_by:session.user.id
+  };
+  const {error}=await window.FFO_DB.from("angler_reports").update(reportUpdate).eq("id",id);
+  if(error)return alert(error.message);
+  const contact=$("editContact").value.trim();
+  if(contactMap[id]!==undefined){
+    const result=contact
+      ?await window.FFO_DB.from("angler_report_contacts").update({private_contact:contact}).eq("report_id",id)
+      :await window.FFO_DB.from("angler_report_contacts").delete().eq("report_id",id);
+    if(result.error)return alert(result.error.message);
+  }else if(contact){
+    alert("This report did not originally include a private-contact row. For security, add contact information directly in the Supabase table if needed.");
+  }
+  $("editPanel").classList.add("hidden");
+  await loadCommunity();
+});
+$("communityFilter").addEventListener("change",loadCommunity);
+$("refreshCommunity").addEventListener("click",loadCommunity);
+$("exportCommunity").addEventListener("click",()=>download("ffo-community-reports.json",communityRows.map(r=>({...r,private_contact:contactMap[r.id]||null}))));
+
+function renderOfficialSources(){
+  const reports=staticData.reports||[],fresh=monitor.freshness||{};
+  $("sourceSummary").innerHTML=[
+    ["Reports",monitor.reports_total??reports.length],["Current",fresh.current??0],["Aging",fresh.aging??0],
+    ["Stale",fresh.stale??0],["Review",monitor.review_required??0],["Unreachable",monitor.unreachable_sources??0]
+  ].map(x=>`<div class="metric"><span class="meta">${x[0]}</span><b>${x[1]}</b></div>`).join("");
+  $("lastRun").textContent=`Last automatic source check: ${fmtDate(monitor.last_run)} · ${monitor.unique_sources??0} unique official sources.`;
+  $("sourceRows").innerHTML=reports.map(r=>`<tr><td><b>${esc((r.names||[])[0]||r.specificity||"Report")}</b><div class="meta">${esc(r.headline||"")}</div></td><td>${esc(r.agency)}</td><td>${esc(r.published_date||"—")}<div class="meta">${esc(r.freshness_days??"—")} days old</div></td><td><span class="pill ${statusClass(r.freshness_status)}">${esc(r.freshness_status||"unknown")}</span></td><td><span class="pill ${statusClass(r.source_status)}">${esc(r.review_required?"review required":r.source_status||"pending")}</span></td><td>${esc(fmtDate(r.last_checked_at))}</td><td><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Official source ↗</a></td></tr>`).join("");
+}
+start();
 </script>
 </body>
 </html>

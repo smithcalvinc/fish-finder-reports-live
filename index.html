@@ -102,19 +102,28 @@
     .automation-badge{display:inline-flex;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;background:#e4f0ea;color:#176354}
     @media(max-width:760px){.monitor-grid{grid-template-columns:1fr 1fr}}
 
+
+    .community-card{border:2px solid #6c527e;background:linear-gradient(135deg,#f5eff8,#fff)}
+    .community-report-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+    .community-report{background:white;border:1px solid #d9cbe0;border-radius:15px;padding:14px}
+    .community-report h4{font-family:Georgia,serif;font-size:19px;margin:5px 0 8px}
+    .community-report .catch-meta{margin-top:9px}
+    .community-loading{padding:14px;border-radius:12px;background:#f4f0f6;color:var(--muted)}
+    @media(max-width:760px){.community-report-grid{grid-template-columns:1fr}}
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 6 v0.7.0">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 7 v0.8.0">
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, automatic source checks, fish species, bait suggestions, live conditions, official records and maps.</p>
-      <span class="badge">Phase 6 · Automatic freshness monitor</span>
+      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines official reports, approved community catches, automatic source checks, fish species, bait suggestions, live conditions and maps.</p>
+      <span class="badge">Phase 7 · Shared angler reports + private admin</span>
       <nav class="utility-nav" aria-label="Fishing report tools">
         <a href="submit-report.html">Submit a fishing report</a>
-        <a href="admin.html">Source review dashboard</a>
+        <a href="admin.html">Private administration</a>
       </nav>
     </div>
   </header>
@@ -175,6 +184,8 @@
 
 
 <script src="site_config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase_client.js"></script>
 <script src="official_species_data.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -765,6 +776,49 @@ function mapLinks(locationData){
     coordinates:`${lat.toFixed(5)}, ${lon.toFixed(5)}`
   };
 }
+
+function normalizedWaterMatch(a,b){
+  const x=normalize(a||""),y=normalize(b||"");
+  if(!x||!y)return false;
+  return x===y||x.includes(y)||y.includes(x);
+}
+async function loadApprovedCommunityReports(locationData){
+  const card=document.getElementById("communityReportsCard");
+  if(!card)return;
+  if(!window.FFO_DB_READY){
+    card.innerHTML=`<div class="eyebrow">Approved community reports</div><h3>Community database not connected yet</h3><p class="meta">${esc(window.ffoDatabaseMessage?window.ffoDatabaseMessage():"Phase 7 setup is incomplete.")}</p>`;
+    return;
+  }
+  card.innerHTML='<div class="eyebrow">Approved community reports</div><h3>Loading recent angler reports…</h3><div class="community-loading">Checking the shared Fish Finder Outdoors database.</div>';
+  try{
+    const cutoff=new Date(Date.now()-120*86400000).toISOString().slice(0,10);
+    const {data,error}=await window.FFO_DB
+      .from("angler_reports")
+      .select("id,submitted_at,waterbody,state,fishing_date,time_period,species,caught_count,kept_count,size_text,bait_or_lure,method,notes,photo_url,display_name,latitude,longitude")
+      .eq("status","approved")
+      .eq("state",locationData.state)
+      .gte("fishing_date",cutoff)
+      .order("fishing_date",{ascending:false})
+      .limit(100);
+    if(error)throw error;
+    const rows=(data||[]).filter(row=>normalizedWaterMatch(row.waterbody,locationData.name)).slice(0,8);
+    if(!rows.length){
+      card.innerHTML=`<div class="eyebrow">Approved community reports</div><h3>No approved angler reports matched this water</h3><p class="meta">Official reports and conditions are still shown above. A community report appears here only after private administrator review.</p><div class="quick-links"><a href="submit-report.html">Submit a fishing report</a></div>`;
+      return;
+    }
+    card.innerHTML=`<div class="eyebrow">Approved community reports</div><h3>What Fish Finder Outdoors anglers reported</h3><p class="meta">These reports were submitted by anglers and approved before publication. They are not government-verified catch counts.</p><div class="community-report-grid">${rows.map(row=>`<article class="community-report">
+      <span class="species-source-label">Approved angler report</span>
+      <h4>${esc(row.species)} · ${esc(row.fishing_date)}</h4>
+      <p><strong>${esc(row.caught_count)} caught${row.kept_count?` · ${esc(row.kept_count)} kept`:""}</strong>${row.size_text?` · ${esc(row.size_text)}`:""}</p>
+      <p><strong>Bait/lure:</strong> ${esc(row.bait_or_lure)}<br><strong>Method:</strong> ${esc(row.method||"Not supplied")}<br><strong>Time:</strong> ${esc(row.time_period||"Not supplied")}</p>
+      ${row.notes?`<p>${esc(row.notes)}</p>`:""}
+      <div class="catch-meta"><span class="catch-pill">${esc(row.waterbody)}</span><span class="catch-pill">${esc(row.display_name||"Anonymous angler")}</span></div>
+      ${row.photo_url?`<div class="quick-links" style="margin-top:10px"><a href="${esc(row.photo_url)}" target="_blank" rel="noopener">View angler photo ↗</a></div>`:""}
+    </article>`).join("")}</div>`;
+  }catch(error){
+    card.innerHTML=`<div class="eyebrow">Approved community reports</div><h3>Community reports could not load</h3><p class="meta">${esc(error.message||"Database request failed.")}</p>`;
+  }
+}
 function metric(l,v,s=""){return`<div class="metric"><span class="meta">${esc(l)}</span><b>${esc(v)}</b>${s?`<span class="meta">${esc(s)}</span>`:""}</div>`;}
 function list(x){return x?.length?`<ul class="list">${x.map(v=>`<li>${esc(v)}</li>`).join("")}</ul>`:'<p class="meta">No additional items available.</p>';}
 function truth(label,value,type){return`<div class="truth-item"><span class="meta">${esc(label)}</span><b class="${type==="yes"?"truth-yes":type==="no"?"truth-no":"truth-est"}">${esc(value)}</b></div>`;}
@@ -830,6 +884,11 @@ function renderReport(r){
     <div class="conditions-adjustment"><strong>Adjustment for current conditions</strong><span>${esc(baitPlan.adjustment)}</span></div>
     <p class="bait-warning">Always verify local bait restrictions, live-bait rules, hook rules, seasons and protected-species regulations before fishing.</p>
   </article>`);
+  cards.push(`<article id="communityReportsCard" class="card full community-card">
+    <div class="eyebrow">Approved community reports</div>
+    <h3>Loading recent angler reports…</h3>
+    <div class="community-loading">Approved reports for this water will appear here.</div>
+  </article>`);
   cards.push(`<article class="card full map-card">
     <h3>Fishing location map</h3>
     <div class="map-copy"><p class="meta">The marker shows the exact point selected in the location search. A river, reservoir or catch-report area may cover a much larger area, so verify the correct launch, access point and legal boundary.</p><span class="coords">${esc(map.coordinates)}</span></div>
@@ -856,6 +915,7 @@ function renderReport(r){
   if(g)cards.push(`<article class="card full"><h3>Official planning tools for ${esc(r.location.state)}</h3><p class="meta">These are direct agency links. Open them before the trip to verify rules, stocking records, closures and water-specific information.</p><div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Official fishing information ↗</a><a href="${esc(g.rules)}" target="_blank" rel="noopener">Current regulations ↗</a>${g.stocking?`<a href="${esc(g.stocking)}" target="_blank" rel="noopener">Stocking information ↗</a>`:""}${g.finder?`<a href="${esc(g.finder)}" target="_blank" rel="noopener">Water finder ↗</a>`:""}${g.emergency?`<a href="${esc(g.emergency)}" target="_blank" rel="noopener">Emergency rules ↗</a>`:""}</div></article>`);
   cards.push(`<article class="card full"><h3>Sources and verification</h3><div class="source-list">${(r.sources||[]).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${s.kind==="live"?"● Live data":s.kind==="official-catch"?"✓ Official catch report":s.kind==="official-species"?"★ Official species record":"◆ Official reference"} · ${esc(s.name)} ↗</a>`).join("")}</div><p class="disclaimer">${esc(r.disclaimer)}</p></article>`);
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
+  loadApprovedCommunityReports(r.location);
 }
 function reportText(r){
   const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport),baitPlan=buildBaitSuggestions(r),sourceHealth=reportSourceHealth(catchReport);
