@@ -125,16 +125,25 @@
       .utility-nav a{justify-content:center;text-align:center}
     }
 
+
+    .regional-coverage{margin-top:12px;padding:12px 14px;border:1px solid #bdd1c7;background:#f2f8f5;border-radius:13px}
+    .regional-coverage strong{display:block;color:var(--green);margin-bottom:7px}
+    .state-chips{display:flex;flex-wrap:wrap;gap:6px}
+    .state-chip{font-size:11px;font-weight:850;padding:5px 8px;border-radius:999px;background:white;border:1px solid #cfddd6;color:#315a4d}
+    .gnis-result{border-left:5px solid #245f80;background:#f3f8fb}
+    .gnis-note{padding:11px 13px;border-radius:12px;background:#eef6fa;border:1px solid #c8dce7;margin-top:12px}
+    .gnis-note strong{color:#245f80}
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.1.1 v0.7.2">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.2 v0.8.0">
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search a lake, river, reservoir, town, coordinates or coastal area. Phase 6.1 adds local-water aliases, official small-reservoir records and better failed-search recovery.</p>
-      <span class="badge">Phase 6.1.1 · Pocatello local-water fix</span>
+      <p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official USGS water names are searched before map fallbacks.</p>
+      <span class="badge">Phase 6.2 · Full Northwest regional water search</span>
       <span id="sourceStamp" class="source-stamp">Checking source status…</span>
       <nav class="utility-nav" aria-label="Fishing report tools">
         <a href="submit-report.html">Submit a fishing report</a>
@@ -161,7 +170,17 @@
         <button type="button" data-quick-water="Alexander Reservoir, Idaho">Alexander Reservoir</button>
         <button type="button" data-quick-water="Oneida Narrows Reservoir, Idaho">Oneida Narrows</button>
       </div>
-      <div class="search-help"><strong>Small reservoir not showing?</strong> Try the official name, an alternate name, the nearest town, or paste coordinates such as <code>42.32, -112.73</code>.</div>
+      <div class="search-help"><strong>Full regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. Searches accept common abbreviations such as <code>Res.</code>, <code>Lk.</code> and <code>Rvr.</code>, plus coordinates such as <code>42.32, -112.73</code>.</div>
+      <div class="regional-coverage">
+        <strong>Official water-name search coverage</strong>
+        <div class="state-chips">
+          <span class="state-chip">Idaho</span><span class="state-chip">Montana</span>
+          <span class="state-chip">Wyoming</span><span class="state-chip">Utah</span>
+          <span class="state-chip">Nevada</span><span class="state-chip">Oregon</span>
+          <span class="state-chip">Washington</span><span class="state-chip">Northern California</span>
+          <span class="state-chip">Colorado</span>
+        </div>
+      </div>
       <div class="legend" aria-label="Data type legend">
         <span class="data-pill"><span class="dot live"></span>Live measured</span>
         <span class="data-pill"><span class="dot official"></span>Official link</span>
@@ -200,7 +219,7 @@
         <span>Powered by <a href="https://mountaindogenterprises.com" target="_blank" rel="noopener"><strong>Mountain Dog Enterprises</strong></a></span>
       </div>
       <div style="max-width:620px">
-        Location search data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>.
+        Official regional water names from <a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis" target="_blank" rel="noopener">USGS GNIS</a>; map fallback data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>.
         Government data remains subject to each source agency’s terms and updates.
       </div>
     </div>
@@ -211,6 +230,7 @@
 
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
+<script src="regional_water_search.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="update_status.js"></script>
 <script>
@@ -695,11 +715,12 @@ function expandedSearchQueries(q){
   return [...new Set(queries)].slice(0,4);
 }
 function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}
-function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location"};}
+function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location",gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||""};}
 function isWaterResult(r){return WATER_TYPES.has(String(r.type||"").toLowerCase())||WATER_TYPES.has(String(r.category||"").toLowerCase())||/(lake|reservoir|river|creek|stream|pond|bay|ocean|canal|fork)/i.test(r.name||"");}
 function searchPriority(r,q){
   let p=0;const n=normalize(r.name),query=normalize(q);
-  if(r.local_directory)p+=180;
+  if(r.local_directory)p+=260;
+  if(r.gnis_official)p+=230;
   if(isWaterResult(r))p+=100;
   if(n===query)p+=35;else if(n.startsWith(query))p+=18;else if(n.includes(query))p+=10;
   if(["city","town","village","county","administrative"].includes(String(r.type||"").toLowerCase()))p-=20;
@@ -836,39 +857,50 @@ async function searchPlaces(q){
   if(coordinate)return[coordinate];
 
   const local=localWaterMatches(q);
-  const key="geo61:"+q.toLowerCase(),cached=getCache(key,86400000);
-  if(cached)return dedupeLocations([...local,...cached]).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q)).slice(0,10);
+  const key="geo62:"+q.toLowerCase(),cached=getCache(key,604800000);
+  if(cached)return dedupeLocations([...local,...cached]).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q)).slice(0,14);
+
+  let gnis=[];
+  if(window.FFO_REGION_SEARCH?.search){
+    try{gnis=await window.FFO_REGION_SEARCH.search(q);}catch{}
+  }
 
   const remote=[];
   const queries=expandedSearchQueries(q);
-  for(let i=0;i<queries.length;i++){
-    if(i>0&&remote.some(isWaterResult))break;
-    const wait=Math.max(0,1100-(Date.now()-lastSearch));if(wait)await sleep(wait);
-    const p=new URLSearchParams({
-      q:queries[i],format:"jsonv2",addressdetails:"1",namedetails:"1",
-      countrycodes:"us",limit:i===0?"12":"8"
-    });
-    try{
-      const rows=await json("https://nominatim.openstreetmap.org/search?"+p);
-      lastSearch=Date.now();
-      remote.push(...rows.map(r=>{
-        const a=r.address||{};
-        return{
-          name:(r.namedetails||{}).name||r.name||(r.display_name||"Location").split(",")[0],
-          display_name:r.display_name||r.name||"Location",
-          lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",
-          category:r.category||r.class||"place",type:r.type||"location"
-        };
-      }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)));
-    }catch(error){
-      if(!local.length&&i===queries.length-1)throw error;
+  const shouldUseMapFallback=gnis.length<4||!gnis.some(row=>normalize(row.name)===normalize(q.replace(/,\s*(idaho|montana|wyoming|utah|nevada|oregon|washington|california|colorado|id|mt|wy|ut|nv|or|wa|ca|co)\s*$/i,"").replace(/\bres\.?$/i,"reservoir")));
+  if(shouldUseMapFallback){
+    for(let i=0;i<queries.length;i++){
+      if(i>0&&(remote.some(isWaterResult)||gnis.length>=6))break;
+      const wait=Math.max(0,1100-(Date.now()-lastSearch));if(wait)await sleep(wait);
+      const p=new URLSearchParams({
+        q:queries[i],format:"jsonv2",addressdetails:"1",namedetails:"1",
+        countrycodes:"us",limit:i===0?"12":"8"
+      });
+      try{
+        const rows=await json("https://nominatim.openstreetmap.org/search?"+p);
+        lastSearch=Date.now();
+        remote.push(...rows.map(r=>{
+          const a=r.address||{};
+          return{
+            name:(r.namedetails||{}).name||r.name||(r.display_name||"Location").split(",")[0],
+            display_name:r.display_name||r.name||"Location",
+            lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",
+            category:r.category||r.class||"place",type:r.type||"location",
+            map_fallback:true
+          };
+        }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)));
+      }catch(error){
+        if(!local.length&&!gnis.length&&i===queries.length-1)throw error;
+      }
     }
   }
-  const cleanRemote=dedupeLocations(remote).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q));
-  setCache(key,cleanRemote);
-  return dedupeLocations([...local,...cleanRemote])
+
+  const combined=dedupeLocations([...local,...gnis,...remote])
     .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
-    .slice(0,10);
+    .slice(0,14);
+
+  setCache(key,combined);
+  return combined;
 }
 async function reversePlace(lat,lon){
   try{const p=new URLSearchParams({lat:String(lat),lon:String(lon),format:"jsonv2",addressdetails:"1"}),r=await json("https://nominatim.openstreetmap.org/reverse?"+p),a=r.address||{};return{name:r.name||(r.display_name||"Current location").split(",")[0],display_name:r.display_name||"Current location",lat,lon,state:a.state||"",category:r.category||"place",type:r.type||"location"};}
@@ -959,6 +991,7 @@ async function makeReport(loc){
   if(t.available)sources.push({name:"NOAA Tides & Currents",url:t.source_url,kind:"live"});
   if(official)sources.push({name:official.source_label,url:official.source_url,kind:"official-species"});
   if(catchReport)sources.push({name:catchReport.agency+" recent catch report",url:catchReport.source_url,kind:"official-catch"});
+  if(loc.gnis_official)sources.push({name:"USGS Geographic Names Information System",url:loc.name_source_url||"https://www.usgs.gov/tools/geographic-names-information-system-gnis",kind:"official-name"});
   if(g){
     sources.push({name:g.agency+" fishing information",url:g.report,kind:"official"});
     sources.push({name:g.agency+" regulations",url:g.rules,kind:"official"});
@@ -970,8 +1003,8 @@ async function makeReport(loc){
   const tech=profile?[...profile.tips,...genericTechniques(type,w,u)].slice(0,6):genericTechniques(type,w,u);
   return{
     generated_at:new Date().toISOString(),
-    location:{name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type},
-    coverage:{level:official?"Official species match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:!!official},
+    location:{name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||""},
+    coverage:{level:official?"Official species match":loc.gnis_official?"Official regional water-name match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official},
     profile,official_species:official,recent_catch_report:catchReport,
     outlook:outlook(w,u,t),
     confidence:confidence(exp,w,u,t,profile,official),
@@ -984,24 +1017,24 @@ async function makeReport(loc){
         :"No exact official waterbody species record is currently loaded. Statewide species are intentionally not shown."
     },
     techniques:tech,sources,
-    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:!!official,verified_catch_report:!!catchReport},
+    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official,verified_catch_report:!!catchReport},
     disclaimer:"Recent catch figures are dated agency reports and may no longer represent today’s bite. The conditions score remains an estimate. Always verify current regulations, closures, access, boating conditions and emergency information before fishing."
   };
 }
 
 $("searchForm").addEventListener("submit",async e=>{
   e.preventDefault();const q=$("locationInput").value.trim();if(q.length<2){status("Enter at least two characters.",true);return;}
-  $("results").innerHTML="";status('<span class="pulse"></span> Searching U.S. waters and locations…');
+  $("results").innerHTML="";status('<span class="pulse"></span> Searching official USGS water names across the Northwest region…');
   try{
     const rows=await searchPlaces(q);clearStatus();
     if(!rows.length){
       status(`No matching water was found for <strong>${esc(q)}</strong>. Try adding the state, nearest town, an alternate name, or coordinates.`,true);
       return;
     }
-    $("results").innerHTML=rows.map((r,i)=>`<button class="result ${r.local_directory?"local-result":isWaterResult(r)?"result-water":"result-place"}" data-index="${i}">
+    $("results").innerHTML=rows.map((r,i)=>`<button class="result ${r.local_directory?"local-result":r.gnis_official?"gnis-result":isWaterResult(r)?"result-water":"result-place"}" data-index="${i}">
       <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
       <span>${esc(r.display_name)} · ${esc(r.type)}</span>
-      <span class="result-badges">${r.local_directory?'<span class="result-badge">Built-in local match</span>':""}${isWaterResult(r)?'<span class="result-badge">Water match</span>':""}${r.coordinate_query?'<span class="result-badge">Coordinates</span>':""}</span>
+      <span class="result-badges">${r.local_directory?'<span class="result-badge">Verified local alias</span>':""}${r.gnis_official?'<span class="result-badge">USGS official water name</span>':""}${r.map_fallback?'<span class="result-badge">Map fallback</span>':""}${isWaterResult(r)?'<span class="result-badge">Water match</span>':""}${r.coordinate_query?'<span class="result-badge">Coordinates</span>':""}</span>
     </button>`).join("");
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
   }catch{status("Location search could not connect. Check your connection and try again.",true);}
@@ -1016,7 +1049,7 @@ async function loadReport(loc){
   status('<span class="pulse"></span> Gathering recent catch reports, live conditions and official waterbody information…');
   try{
     const r=await makeReport(loc);state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();
-    const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",auto:"1"});
+    const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",auto:"1"});
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
   }catch{status("The report could not be completed. Please try again.",true);}
 }
@@ -1043,7 +1076,8 @@ function renderReport(r){
   $("coverageBadge").textContent=r.coverage.level+" · "+r.confidence.label+" confidence";
   $("generated").textContent="Generated "+dateFmt(r.generated_at)+" · "+r.location.water_type+" profile";
   const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report),baitPlan=buildBaitSuggestions(r),monitor=monitorStatus(),sourceHealth=reportSourceHealth(r.recent_catch_report);
-  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}${truth("Source monitor",sourceHealth.label,sourceHealth.className==="health-ok"?"yes":sourceHealth.className==="health-bad"?"no":"estimate")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Water name",v.official_name?"USGS official match":"Map or local match",v.official_name?"yes":"estimate")}${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}${truth("Source monitor",sourceHealth.label,sourceHealth.className==="health-ok"?"yes":sourceHealth.className==="health-bad"?"no":"estimate")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  if(v.official_name)cards.push(`<article class="card full gnis-note"><strong>Official water name verified by USGS GNIS.</strong><span class="meta"> ${esc(r.location.gnis_feature_class||"Hydrographic feature")} · GNIS ID ${esc(r.location.gnis_id||"available from source")}. This verifies the name and location, not fishing access or current regulations.</span></article>`);
   cards.push(`<article class="card full monitor-card">
     <div class="eyebrow">Automatic source monitor</div>
     <h3>Freshness and review status</h3>
@@ -1124,7 +1158,7 @@ function renderReport(r){
   }</article>`);
   cards.push(`<article class="card"><h3>Safety and active alerts</h3>${alerts.length?alerts.map(a=>`<div class="alert"><b>${esc(a.event||"Weather alert")}</b><div>${esc(a.headline||a.severity||"Check the official alert.")}</div></div>`).join(""):"<p>No active NWS alert was returned for the selected coordinates at generation time.</p>"}${list(r.outlook.cautions)}</article>`);
   if(g)cards.push(`<article class="card full"><h3>Official planning tools for ${esc(r.location.state)}</h3><p class="meta">These are direct agency links. Open them before the trip to verify rules, stocking records, closures and water-specific information.</p><div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Official fishing information ↗</a><a href="${esc(g.rules)}" target="_blank" rel="noopener">Current regulations ↗</a>${g.stocking?`<a href="${esc(g.stocking)}" target="_blank" rel="noopener">Stocking information ↗</a>`:""}${g.finder?`<a href="${esc(g.finder)}" target="_blank" rel="noopener">Water finder ↗</a>`:""}${g.emergency?`<a href="${esc(g.emergency)}" target="_blank" rel="noopener">Emergency rules ↗</a>`:""}</div></article>`);
-  cards.push(`<article class="card full"><h3>Sources and verification</h3><div class="source-list">${(r.sources||[]).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${s.kind==="live"?"● Live data":s.kind==="official-catch"?"✓ Official catch report":s.kind==="official-species"?"★ Official species record":"◆ Official reference"} · ${esc(s.name)} ↗</a>`).join("")}</div><p class="disclaimer">${esc(r.disclaimer)}</p></article>`);
+  cards.push(`<article class="card full"><h3>Sources and verification</h3><div class="source-list">${(r.sources||[]).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${s.kind==="live"?"● Live data":s.kind==="official-catch"?"✓ Official catch report":s.kind==="official-species"?"★ Official species record":s.kind==="official-name"?"⌖ Official water name":"◆ Official reference"} · ${esc(s.name)} ↗</a>`).join("")}</div><p class="disclaimer">${esc(r.disclaimer)}</p></article>`);
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
@@ -1161,10 +1195,10 @@ document.querySelectorAll("[data-quick-water]").forEach(button=>button.addEventL
   const monitor=monitorStatus(),stamp=$("sourceStamp");
   if(!stamp)return;
   if(monitor.last_run){
-    stamp.textContent=`Official sources checked ${ageLabel(monitor.last_run)}`;
+    stamp.textContent=`USGS regional names active · report sources checked ${ageLabel(monitor.last_run)}`;
     stamp.classList.toggle("warn",Boolean(monitor.review_required||monitor.unreachable_sources));
   }else{
-    stamp.textContent="Automatic source monitor waiting for first run";
+    stamp.textContent="USGS regional water-name search active";
     stamp.classList.add("warn");
   }
 })();
@@ -1174,7 +1208,7 @@ $("copySummary").addEventListener("click",async()=>{
 });
 $("copyLink").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("copyLink").textContent="Link copied";setTimeout(()=>$("copyLink").textContent="Copy report link",1800);}catch{prompt("Copy this report link:",location.href);}});
 renderSaved();
-(()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place"});})();
+(()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place",gnis_official:p.get("gnis")==="1",name_source:p.get("gnis")==="1"?"USGS Geographic Names Information System":"",name_source_url:p.get("gnis")==="1"?"https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer":"",gnis_id:p.get("gnis_id")||"",gnis_feature_class:p.get("gnis_class")||""});})();
 </script>
 
 

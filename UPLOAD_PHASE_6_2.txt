@@ -1,0 +1,30 @@
+FISH FINDER OUTDOORS — PHASE 6.2
+
+THIS IS THE FULL REGIONAL WATER-SEARCH BUILD.
+
+Coverage:
+Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington,
+Northern California and Colorado.
+
+UPLOAD:
+1. Unzip this package.
+2. Upload every included file to the ROOT of the existing GitHub repository.
+3. Replace files with the same names.
+4. Commit directly to main.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml
+
+The ZIP intentionally contains no workflow file.
+No Supabase setup is required.
+
+After Wasmer redeploys, test:
+- Bannock Res., Idaho
+- Edson Fitcher Res., Idaho
+- Henrys Lake, Idaho
+- Fort Peck Reservoir, Montana
+- Flaming Gorge Reservoir, Wyoming
+- Lake Billy Chinook, Oregon
+- Lake Roosevelt, Washington
+- Pyramid Lake, Nevada
+- Blue Mesa Reservoir, Colorado
