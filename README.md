@@ -1,16 +1,23 @@
-# Fish Finder Outdoors Report Generator — Static Live Build v0.2.1
+# Fish Finder Outdoors Report Generator — Phase 2
 
-This update adds linked branding in the footer:
+Phase 2 keeps the working static Wasmer deployment and adds:
 
-- FishFinderOutdoors.com
-- Powered by Mountain Dog Enterprises
+- Favorite fishing waters saved in the browser
+- Recent searches saved in the browser
+- Waterbody results prioritized ahead of nearby towns
+- Clear verified-versus-estimated labels
+- Source freshness labels for live readings
+- Official state fishing, regulation and stocking links
+- Curated profiles for major Northwest and Mountain West waters
+- Copy-ready fishing report text
+- Linked FishFinderOutdoors.com and Mountain Dog Enterprises branding
 
 ## Update the live site
 
-Upload all three files to the root of the existing GitHub repository and replace the current versions:
+Upload these three files to the root of the existing GitHub repository and replace the current files:
 
 - `index.html`
 - `404.html`
 - `README.md`
 
-Commit the changes. Wasmer should publish the updated `main` branch automatically.
+Commit the changes to `main`. The connected Wasmer site should publish the new version automatically.
