@@ -1,13 +1,12 @@
-FISH FINDER OUTDOORS — BRAND MATCHED BUILD
+FISH FINDER OUTDOORS — MAIN LOGO BUILD
 
 1. Unzip this package.
-2. Upload ALL included files and folders to the ROOT of the report-generator GitHub repository.
+2. Upload ALL included files to the ROOT of the report-generator GitHub repository.
 3. Replace files with the same names.
 4. Commit directly to main.
 
-IMPORTANT:
-This package includes an `assets` folder with your live Fish Finder Outdoors logo files.
-Make sure the `assets` folder uploads too.
+BRANDING:
+Use ffo-logo-main.png for all Fish Finder Outdoors branding.
 
 DO NOT TOUCH:
 .github/workflows/update-fishing-reports.yml

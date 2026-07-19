@@ -12,7 +12,7 @@ There are NO folders in this package.
 
 IMPORTANT IMAGE FILES:
 - ffo-logo-main.png
-- ffo-logo-mark.png
+- ffo-logo-main.png
 - ffo-hero.jpg
 - ffo-water-divider.jpg
 

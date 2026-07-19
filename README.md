@@ -15,7 +15,7 @@ This build matches the current live Fish Finder Outdoors website more closely.
 
 ## Included brand assets
 - `ffo-logo-main.png`
-- `ffo-logo-mark.png`
+- `ffo-logo-main.png`
 - `ffo-hero.jpg`
 - `ffo-water-divider.jpg`
 
