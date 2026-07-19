@@ -19,10 +19,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
@@ -35,6 +35,13 @@ jobs:
           if [[ -z "$(git status --porcelain)" ]]; then
             echo "No source-status changes to commit."
             exit 0
+          fi
+
+          git config user.name "Fish Finder Outdoors Source Monitor"
+          git config user.email "actions@users.noreply.github.com"
+          git add recent_fishing_reports.js update_status.js source_check_log.json
+          git commit -m "Automatic fishing report source check"
+          git push            exit 0
           fi
 
           git config user.name "Fish Finder Outdoors Source Monitor"
