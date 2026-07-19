@@ -26,7 +26,7 @@ body{padding-top:78px;background:var(--ffo-sand)}
 .ffo-beta-bar{background:var(--ffo-accent);color:#fff;text-align:center;padding:9px 15px;font-size:13px;font-weight:800}
 .ffo-beta-bar a{color:#fff!important;text-decoration:underline}
 .ffo-professional-hero{position:relative;min-height:70vh;display:flex;align-items:center;color:#fff;overflow:hidden;margin-bottom:34px}
-.ffo-professional-hero::before{content:'';position:absolute;top:-10%;left:-10%;right:-10%;bottom:-10%;background-image:url('assets/hero.jpg');background-size:cover;background-position:center 30%;z-index:-2;animation:ffoWindSway 5s ease-in-out infinite alternate}
+.ffo-professional-hero::before{content:'';position:absolute;top:-10%;left:-10%;right:-10%;bottom:-10%;background-image:url('ffo-hero.jpg');background-size:cover;background-position:center 30%;z-index:-2;animation:ffoWindSway 5s ease-in-out infinite alternate}
 .ffo-professional-hero::after{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.15), transparent 70%);background-size:120% 120%;mix-blend-mode:overlay;animation:ffoWaterRipple 3s infinite alternate}
 .ffo-professional-hero .ffo-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,.78) 0%, rgba(0,0,0,.24) 100%);z-index:-1}
 .ffo-hero-grid{width:min(1100px,calc(100% - 32px));margin:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;position:relative;z-index:1}

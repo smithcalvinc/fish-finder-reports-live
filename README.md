@@ -14,10 +14,10 @@ This build matches the current live Fish Finder Outdoors website more closely.
 - Keeps the working report generator, regional search, email report submission and admin approval workflow
 
 ## Included brand assets
-- `assets/logo-main.png`
-- `assets/logo-mark.png`
-- `assets/hero.jpg`
-- `assets/water-divider.jpg`
+- `ffo-logo-main.png`
+- `ffo-logo-mark.png`
+- `ffo-hero.jpg`
+- `ffo-water-divider.jpg`
 
 ## Upload
 Upload all included files and folders to the existing report-generator GitHub repository, replace files with the same names, and commit to `main`.

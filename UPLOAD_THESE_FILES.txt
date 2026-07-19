@@ -1,11 +1,20 @@
-FISH FINDER OUTDOORS — SAFE PHASE 6 RESTORE
+FISH FINDER OUTDOORS — EASY FLAT UPLOAD
 
-Upload all 11 files in this package to the ROOT of the existing GitHub repository.
-Choose Replace when GitHub says a file already exists.
+There are NO folders in this package.
 
-DO NOT delete or replace:
+1. Unzip this package.
+2. Open the existing report-generator GitHub repository.
+3. Click Add file > Upload files.
+4. Select EVERY file in the unzipped package at the same time.
+5. Drag them into GitHub or click choose your files.
+6. Replace files with the same names.
+7. Commit directly to main.
+
+IMPORTANT IMAGE FILES:
+- ffo-logo-main.png
+- ffo-logo-mark.png
+- ffo-hero.jpg
+- ffo-water-divider.jpg
+
+DO NOT TOUCH:
 .github/workflows/update-fishing-reports.yml
-
-Your green automatic workflow stays exactly as it is.
-
-The extra Phase 7 Supabase files may remain in GitHub. They will not affect the restored Phase 6 website.
