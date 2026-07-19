@@ -73,16 +73,31 @@
     .species-source-label{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf4ef;color:#1b624e;font-size:11px;font-weight:850;margin-bottom:9px}
     @media(max-width:760px){.species-summary-columns{grid-template-columns:1fr}}
 
+
+    .bait-card{border:2px solid #477a58;background:linear-gradient(135deg,#f1f8f2,#fffdf8)}
+    .bait-intro{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}
+    .bait-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px;margin-top:15px}
+    .bait-target{background:white;border:1px solid #cbdccc;border-radius:15px;padding:15px}
+    .bait-target h4{font-family:Georgia,serif;font-size:20px;margin:0 0 10px}
+    .bait-row{padding:9px 0;border-top:1px solid #e5ece6}
+    .bait-row:first-of-type{border-top:0;padding-top:0}
+    .bait-row b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--green2);margin-bottom:4px}
+    .bait-row span{font-size:14px;line-height:1.45}
+    .conditions-adjustment{margin-top:14px;border-left:5px solid var(--gold);background:#fff7df;border-radius:12px;padding:13px 15px}
+    .conditions-adjustment strong{display:block;margin-bottom:4px}
+    .bait-warning{margin-top:12px;font-size:12px;color:var(--muted)}
+    @media(max-width:760px){.bait-grid{grid-template-columns:1fr}.bait-intro{display:block}}
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 5.1 v0.6.1">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 5.2 v0.6.2">
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, live conditions, official fish records and a map for every searched water.</p>
-      <span class="badge">Phase 5.1 · Visible fish species + wider report coverage</span>
+      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, fish species, bait and lure suggestions, live conditions, official records and a map.</p>
+      <span class="badge">Phase 5.2 · Bait & lure suggestions</span>
     </div>
   </header>
 
@@ -191,6 +206,219 @@ const WATER_PROFILES = [
 {state:"Wyoming",match:["yellowstone lake"],species:["cutthroat trout","lake trout"],focus:"High-elevation national park fishery with special regulations.",tips:["Check National Park Service rules and seasonal closures.","Prepare for cold water and rapid weather changes.","Use species-identification guidance before keeping fish."]},
 {state:"Colorado",match:["blue mesa reservoir"],species:["kokanee","lake trout","rainbow trout","brown trout"],focus:"Large mountain reservoir with deep-water fishing and strong seasonal changes.",tips:["Use electronics and depth control for kokanee or lake trout.","Check wind and ramp conditions before launching.","Review current management rules for lake trout and kokanee."]}
 ];
+
+
+const BAIT_GUIDES = [
+  {
+    label:"Trout",
+    keys:["trout","rainbow trout","brown trout","cutthroat trout","brook trout","tiger trout","cutbow"],
+    natural:["Nightcrawler under a float or lightly weighted","Salmon eggs or cured eggs where legal","Small leech or mealworm where legal"],
+    lures:["1/16–1/4 oz inline spinner","Small spoon in silver, gold or trout pattern","Small marabou jig, tube or soft-plastic minnow"],
+    presentation:["Fish slowly near current seams, drop-offs, shade or cooler inflows","Start shallow during low light, then move deeper as the sun rises"]
+  },
+  {
+    label:"Lake Trout",
+    keys:["lake trout","mackinaw"],
+    natural:["Cisco, sucker or cut bait where legal","Large deadbait rigged near bottom where legal"],
+    lures:["Heavy tube jig or white swimbait","Flutter spoon or blade bait","Deep-diving trolling plug"],
+    presentation:["Use depth control and stay close to bottom or suspended bait","Slow the presentation in cold water; avoid long fights in warm surface water"]
+  },
+  {
+    label:"Kokanee",
+    keys:["kokanee"],
+    natural:["Shoepeg corn or scented corn where legal","Small maggot or artificial maggot tipped on the hook"],
+    lures:["Small dodger with hoochie or spinner","Micro spoon or wedding-ring style spinner"],
+    presentation:["Troll at controlled depth near schools","Use short leaders behind a dodger and make gradual depth changes"]
+  },
+  {
+    label:"Chinook & Coho Salmon",
+    keys:["chinook salmon","coho salmon","ocean salmon","salmon"],
+    natural:["Herring, anchovy or cut-plug bait where legal","Cured salmon eggs in rivers where legal","Tuna or shrimp scent on legal artificial presentations"],
+    lures:["Flashers with hoochies or spoons","Spinners, wobbling plugs or twitching jigs","Casting spoon or metal jig in coastal water"],
+    presentation:["Match depth to marked bait and current","In rivers, work travel lanes, seams and holding water without snagging"]
+  },
+  {
+    label:"Steelhead",
+    keys:["steelhead"],
+    natural:["Cured eggs, sand shrimp or prawns where legal","Nightcrawler or single egg under a float where legal"],
+    lures:["Drifted bead or jig","Spinner, spoon or wobbling plug","Small pink, orange or natural-colored soft plastic"],
+    presentation:["Cover seams, tailouts and slower water beside main current","Keep the presentation near the travel lane without dragging unnaturally"]
+  },
+  {
+    label:"Smallmouth Bass",
+    keys:["smallmouth bass"],
+    natural:["Nightcrawler or crayfish where legal","Live minnow where legal"],
+    lures:["Ned rig, tube or finesse jig","Small crankbait or jerkbait","Paddle-tail swimbait or drop-shot"],
+    presentation:["Work rock, points, current breaks and drop-offs","Use moving baits first, then slow down once fish are located"]
+  },
+  {
+    label:"Largemouth & Black Bass",
+    keys:["largemouth bass","black bass","bass"],
+    natural:["Nightcrawler or live minnow where legal","Crayfish where legal"],
+    lures:["Texas-rigged worm or creature bait","Spinnerbait, chatterbait or square-bill crankbait","Topwater frog, popper or walking bait in low light"],
+    presentation:["Target weeds, wood, docks, shade and protected coves","Use slower plastics during heat or after a weather change"]
+  },
+  {
+    label:"Walleye & Sauger",
+    keys:["walleye","sauger"],
+    natural:["Nightcrawler on a harness","Leech or minnow where legal"],
+    lures:["Jig and soft-plastic minnow","Crankbait trolled or cast along structure","Blade bait or jigging spoon"],
+    presentation:["Fish bottom transitions, points, humps and current edges","Low light, windblown shorelines and deeper daytime structure are strong starting points"]
+  },
+  {
+    label:"Yellow Perch & Panfish",
+    keys:["yellow perch","bluegill","sunfish","pumpkinseed","crappie","black crappie","white crappie"],
+    natural:["Small piece of nightcrawler","Mealworm, waxworm or maggot where legal","Small minnow where legal"],
+    lures:["1/32–1/8 oz jig with small plastic","Tiny spoon or inline spinner","Small slip-float jig"],
+    presentation:["Use light line and small hooks near weeds, docks, brush or basin edges","Once one fish is caught, stay close because these species often school"]
+  },
+  {
+    label:"Catfish & Bullhead",
+    keys:["channel catfish","bullhead","bullhead catfish","catfish"],
+    natural:["Cut bait, chicken liver or nightcrawler","Shrimp, crayfish or prepared stink bait where legal"],
+    lures:["Soft-plastic or jig tipped with scent","Blade bait or swimbait for actively feeding channel cats"],
+    presentation:["Fish bottom near channels, points, current breaks or windblown banks","Use enough weight to hold bottom and check bait regularly"]
+  },
+  {
+    label:"Striped Bass",
+    keys:["striped bass"],
+    natural:["Anchovy, sardine, herring or shad where legal","Live baitfish where legal"],
+    lures:["Paddle-tail swimbait","Topwater walking bait during surface feeding","Jigging spoon or deep-diving crankbait"],
+    presentation:["Find bait schools first","Use topwater during boils and vertical or deep presentations when fish drop"]
+  },
+  {
+    label:"Northern Pike & Tiger Muskie",
+    keys:["northern pike","tiger muskie","muskie"],
+    natural:["Large sucker or deadbait where legal"],
+    lures:["Large spinnerbait, spoon or jerkbait","Large swimbait or glide bait"],
+    presentation:["Work weed edges, points and shallow ambush cover","Use a wire or heavy fluorocarbon leader and proper release tools"]
+  },
+  {
+    label:"Burbot",
+    keys:["burbot"],
+    natural:["Cut bait or sucker meat where legal","Nightcrawler or dead minnow where legal"],
+    lures:["Glow jig, tube jig or heavy spoon tipped with bait"],
+    presentation:["Fish near bottom, especially after dark","Use glow and scent in deep water or low visibility"]
+  },
+  {
+    label:"White Sturgeon",
+    keys:["white sturgeon","sturgeon"],
+    natural:["Fresh shad, herring, squid or other legal cut bait","Salmon eggs where legal and seasonally appropriate"],
+    lures:["Sturgeon are primarily bait-targeted; artificial lure options are limited"],
+    presentation:["Anchor or hold bait on bottom in travel lanes and deep holes","Use heavy tackle and verify retention, size and barbless-hook rules"]
+  },
+  {
+    label:"Rockfish",
+    keys:["rockfish"],
+    natural:["Squid strip, shrimp or cut bait where legal"],
+    lures:["Metal jig, shrimp fly or swimbait","Lead-head jig with curly-tail or paddle-tail plastic"],
+    presentation:["Fish vertically around reef, rock and structure","Use enough weight to maintain contact while minimizing snagging"]
+  },
+  {
+    label:"Lingcod & Cabezon",
+    keys:["lingcod","cabezon"],
+    natural:["Large herring, squid or legal baitfish"],
+    lures:["Large swimbait, metal jig or lead-head grub"],
+    presentation:["Work close to rocky bottom and steep structure","Use heavy tackle and check species-specific size and season rules"]
+  },
+  {
+    label:"Pacific Halibut",
+    keys:["pacific halibut","halibut"],
+    natural:["Herring, salmon belly, squid or octopus where legal"],
+    lures:["Heavy metal jig or large glow jig"],
+    presentation:["Keep bait or jig near bottom and account for current drift","Use enough weight to maintain bottom contact"]
+  },
+  {
+    label:"Albacore Tuna",
+    keys:["albacore tuna","albacore"],
+    natural:["Live anchovy where legal and available"],
+    lures:["Cedar plug, feather, diving plug or trolling clone","Metal jig or swimbait when fish are marked"],
+    presentation:["Troll to locate fish, then switch to live bait or jigs","Follow temperature breaks, birds and bait activity"]
+  },
+  {
+    label:"Whitefish",
+    keys:["mountain whitefish","lake whitefish","whitefish"],
+    natural:["Small maggot, waxworm or worm piece where legal"],
+    lures:["Small nymph, micro jig or tiny spoon"],
+    presentation:["Fish near bottom in cold water, current seams or deep lake basins","Use light line and subtle movement"]
+  },
+  {
+    label:"American Shad",
+    keys:["american shad","shad"],
+    natural:["Usually targeted with artificial lures rather than bait"],
+    lures:["Small shad dart, spoon or brightly colored jig"],
+    presentation:["Swing through current lanes at the depth fish are traveling","Change weight until the lure stays in the strike zone"]
+  }
+];
+
+function findBaitGuide(speciesName){
+  const n=normalize(speciesName);
+  let best=null,bestLength=0;
+  for(const guide of BAIT_GUIDES){
+    for(const key of guide.keys){
+      const k=normalize(key);
+      if((n===k||n.includes(k)||k.includes(n))&&k.length>bestLength){
+        best=guide;bestLength=k.length;
+      }
+    }
+  }
+  return best;
+}
+function genericBaitGuide(waterTypeValue){
+  if(waterTypeValue==="river")return{
+    label:"General river starting point",
+    natural:["Nightcrawler or legal local bait drifted naturally"],
+    lures:["Inline spinner, spoon, jig or small swimbait"],
+    presentation:["Work current seams, eddies, tailouts and slower water beside the main flow"]
+  };
+  if(waterTypeValue==="coastal")return{
+    label:"General coastal starting point",
+    natural:["Herring, anchovy, squid or shrimp where legal"],
+    lures:["Metal jig, spoon, swimbait or trolling presentation"],
+    presentation:["Plan around tide movement, bait activity, depth and current"]
+  };
+  return{
+    label:"General lake starting point",
+    natural:["Nightcrawler or legal local bait under a float or near bottom"],
+    lures:["Jig, spoon, spinner, crankbait or soft-plastic minnow"],
+    presentation:["Start around points, drop-offs, weeds, rock, inlets and windblown banks"]
+  };
+}
+function buildBaitSuggestions(report){
+  const recent=recentlyReportedSpecies(report.recent_catch_report);
+  const official=officialSpeciesNames(report.official_species);
+  const raw=[...recent,...official];
+  const guides=[];
+  const used=new Set();
+  for(const species of raw){
+    const guide=findBaitGuide(species);
+    if(guide&&!used.has(guide.label)){
+      guides.push({...guide,matched_species:species});
+      used.add(guide.label);
+    }
+    if(guides.length>=6)break;
+  }
+  if(!guides.length)guides.push(genericBaitGuide(report.location.water_type));
+
+  const adjustments=[];
+  const wt=waterTemp(report.water||{});
+  const wind=num((report.weather?.next_12h||{}).max_wind_mph);
+  const air=num(report.weather?.current?.temperature);
+  if(wt!==null&&wt>=72)adjustments.push("Warm water: fish early or late, use slower presentations and target deeper, shaded or moving water.");
+  else if(wt!==null&&wt<=45)adjustments.push("Cold water: slow down, shorten movements and keep the bait or lure in the strike zone longer.");
+  if(wind!==null&&wind>=18)adjustments.push("Strong wind: use a heavier jig, sinker or lure and favor protected shorelines.");
+  else if(wind!==null&&wind>=8)adjustments.push("Moderate wind: try windblown points and banks where baitfish may collect.");
+  if(air!==null&&air>=90)adjustments.push("Hot weather: prioritize dawn, dusk and deeper daytime water.");
+  if(report.location.water_type==="river")adjustments.push("River adjustment: present bait naturally with the current and avoid excessive drag.");
+  if(report.location.water_type==="coastal")adjustments.push("Coastal adjustment: match lure weight to tide and current so the presentation stays near the target depth.");
+  if(!adjustments.length)adjustments.push("Begin with a search lure, then slow down with bait or a finesse presentation after locating fish.");
+
+  return{
+    guides,
+    adjustment:adjustments.slice(0,3).join(" "),
+    based_on:recent.length?"recently reported fish":official.length?"official waterbody species":"water type only"
+  };
+}
 
 function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
 function num(v){const n=Number(v);return Number.isFinite(n)?n:null;}
@@ -483,7 +711,7 @@ function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
   $("coverageBadge").textContent=r.coverage.level+" · "+r.confidence.label+" confidence";
   $("generated").textContent="Generated "+dateFmt(r.generated_at)+" · "+r.location.water_type+" profile";
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report);
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report),baitPlan=buildBaitSuggestions(r);
   cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
   cards.push(`<article class="card full ${catchReport?"catch-report":""}">${
     catchReport
@@ -513,6 +741,21 @@ function renderReport(r){
       </div>
     </div>
   </article>`);
+  cards.push(`<article class="card full bait-card">
+    <div class="bait-intro">
+      <div><div class="eyebrow">Bait & lure suggestions</div><h3>What to try at this location</h3><p class="meta">Suggestions are based on ${esc(baitPlan.based_on)}, water type and available conditions.</p></div>
+      <span class="badge">${esc(baitPlan.guides.length)} target ${baitPlan.guides.length===1?"group":"groups"}</span>
+    </div>
+    <div class="bait-grid">${baitPlan.guides.map(guide=>`<div class="bait-target">
+      <h4>${esc(guide.label)}</h4>
+      ${guide.matched_species?`<div class="meta" style="margin-bottom:9px">Matched from: ${esc(guide.matched_species)}</div>`:""}
+      <div class="bait-row"><b>Natural bait</b><span>${esc((guide.natural||[]).join(" • "))}</span></div>
+      <div class="bait-row"><b>Artificial lures</b><span>${esc((guide.lures||[]).join(" • "))}</span></div>
+      <div class="bait-row"><b>How to fish it</b><span>${esc((guide.presentation||[]).join(" • "))}</span></div>
+    </div>`).join("")}</div>
+    <div class="conditions-adjustment"><strong>Adjustment for current conditions</strong><span>${esc(baitPlan.adjustment)}</span></div>
+    <p class="bait-warning">Always verify local bait restrictions, live-bait rules, hook rules, seasons and protected-species regulations before fishing.</p>
+  </article>`);
   cards.push(`<article class="card full map-card">
     <h3>Fishing location map</h3>
     <div class="map-copy"><p class="meta">The marker shows the exact point selected in the location search. A river, reservoir or catch-report area may cover a much larger area, so verify the correct launch, access point and legal boundary.</p><span class="coords">${esc(map.coordinates)}</span></div>
@@ -541,7 +784,7 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport);
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport),baitPlan=buildBaitSuggestions(r);
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Generated: ${dateFmt(r.generated_at)}`,
@@ -552,6 +795,8 @@ function reportText(r){
     n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",
     recentSpecies.length?`Recently reported fish: ${recentSpecies.join(", ")}`:"",
     official&&species.length?`Official waterbody fish record (${official.agency}): ${species.join(", ")}`:`Official species record: No exact waterbody record loaded; check the state agency source.`,
+    baitPlan.guides.length?`Bait and lure suggestions:\n${baitPlan.guides.map(g=>`- ${g.label}: bait — ${(g.natural||[]).join(", ")}; lures — ${(g.lures||[]).join(", ")}; approach — ${(g.presentation||[]).join(", ")}`).join("\n")}`:"",
+    `Conditions adjustment: ${baitPlan.adjustment}`,
     r.techniques?.length?`Planning ideas:\n- ${r.techniques.join("\n- ")}`:"",
     `Map coordinates: ${Number(r.location.lat).toFixed(5)}, ${Number(r.location.lon).toFixed(5)}`,
     `Directions: https://www.google.com/maps/dir/?api=1&destination=${Number(r.location.lat).toFixed(6)},${Number(r.location.lon).toFixed(6)}`,

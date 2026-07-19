@@ -1,33 +1,23 @@
-# Fish Finder Outdoors Report Generator — Phase 5.1
+# Fish Finder Outdoors Report Generator — Phase 5.2
 
-This update fixes the missing-species problem and expands the official report database.
+Phase 5.2 adds bait and lure suggestions to every generated report.
 
-## Fish species are now always visible
+## New Bait & Lure Suggestions section
 
-A new Fish Species card appears directly below the actual fishing report. It contains:
+The generator now uses the fish species shown in the report whenever possible. It provides:
 
-- Recently reported fish named in the dated catch or fishery report
-- Fish from the exact official waterbody-species record
-- A clear message when no exact species record exists
+- Natural bait suggestions
+- Artificial lure suggestions
+- Presentation and structure guidance
+- Adjustments for wind, water temperature, air temperature, river current or coastal tide
+- A clear warning to verify local live-bait and hook regulations
 
-The app still never replaces missing waterbody data with an inaccurate statewide fish list.
+Supported target groups include trout, kokanee, salmon, steelhead, bass, walleye,
+panfish, catfish, striped bass, pike, burbot, sturgeon, rockfish, lingcod,
+halibut, albacore, whitefish and shad.
 
-## Expanded actual report coverage
-
-The database now contains 45 official dated catch, creel and fishery reports.
-
-New exact-location coverage includes:
-
-- Dworshak Reservoir
-- Moose Creek Reservoir
-- Ruby Lake NWR
-- Ruby Lake Collection Ditch
-- Marilyn's Pond
-- Eagle Valley Reservoir
-- Squaw Valley / Creek Reservoir
-- Wall Canyon Reservoir
-- Mason Valley Hatchery Outponds
-- Armeni Public Ramp / Seattle
+If no exact fish species are available, the app provides a clearly labeled general
+starting point based only on whether the location is a lake, river or coastal area.
 
 ## Update the live site
 
@@ -39,4 +29,4 @@ Upload and replace these five files in the existing GitHub repository:
 - `404.html`
 - `README.md`
 
-Commit to `main`. The existing Wasmer app should update automatically.
+Commit the changes to `main`. The existing Wasmer app should update automatically.
