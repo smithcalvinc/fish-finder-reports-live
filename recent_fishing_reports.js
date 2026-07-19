@@ -1,7 +1,6 @@
-/* Dated official catch, creel and fishery reports for Fish Finder Outdoors.
-   Actual agency reporting only. Weather does not create catch claims. */
+/* Dated official fishing reports with automatic freshness and source-health metadata. */
 window.FFO_RECENT_REPORTS = {
-  "version": "2026.07.19-phase5.1",
+  "version": "2026-07-19-phase6-monitor",
   "updated_at": "2026-07-19",
   "coverage_note": "Expanded dated official-report database. Catch reports remain exact-match records; recently reported fish are also displayed in a separate species summary.",
   "reports": [
@@ -40,7 +39,12 @@ window.FFO_RECENT_REPORTS = {
         "The agency estimated roughly 250 adults remained available in the projected harvest share at publication."
       ],
       "source_url": "https://idfg.idaho.gov/article/july-14-2026-south-fork-salmon-river-chinook-update",
-      "specificity": "Exact river fishery"
+      "specificity": "Exact river fishery",
+      "freshness_status": "current",
+      "freshness_days": 5,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -72,7 +76,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Specified Upper Salmon River section"
+      "specificity": "Specified Upper Salmon River section",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -102,7 +111,12 @@ window.FFO_RECENT_REPORTS = {
         "Harvest results do not by themselves confirm whether every section remains open."
       ],
       "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Clearwater River drainage"
+      "specificity": "Clearwater River drainage",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -134,7 +148,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Listed Lower Salmon River sections"
+      "specificity": "Listed Lower Salmon River sections",
+      "freshness_status": "current",
+      "freshness_days": 13,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -167,7 +186,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Hells Canyon Dam"
+      "specificity": "Hells Canyon Dam",
+      "freshness_status": "current",
+      "freshness_days": 13,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -192,7 +216,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Astoria ocean port"
+      "specificity": "Astoria ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -230,7 +259,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Garibaldi ocean port"
+      "specificity": "Garibaldi ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -253,7 +287,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Pacific City ocean port"
+      "specificity": "Pacific City ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -291,7 +330,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Depoe Bay ocean port"
+      "specificity": "Depoe Bay ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -330,7 +374,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Newport ocean port"
+      "specificity": "Newport ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -354,7 +403,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Florence ocean port"
+      "specificity": "Florence ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -378,7 +432,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Winchester Bay ocean port"
+      "specificity": "Winchester Bay ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -422,7 +481,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Charleston ocean port"
+      "specificity": "Charleston ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -446,7 +510,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Bandon ocean port"
+      "specificity": "Bandon ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -470,7 +539,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Gold Beach ocean port"
+      "specificity": "Gold Beach ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Oregon",
@@ -514,7 +588,12 @@ window.FFO_RECENT_REPORTS = {
       ],
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Brookings ocean port"
+      "specificity": "Brookings ocean port",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -550,7 +629,12 @@ window.FFO_RECENT_REPORTS = {
         "Early morning and dusk were the most consistent reported periods."
       ],
       "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Lake Mead report"
+      "specificity": "Lake Mead report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -587,7 +671,12 @@ window.FFO_RECENT_REPORTS = {
         "Kayakers and boat anglers were producing most of the deeper-water striper reports."
       ],
       "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Lake Mohave / Willow Beach"
+      "specificity": "Lake Mohave / Willow Beach",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -618,7 +707,12 @@ window.FFO_RECENT_REPORTS = {
         "Anchovies and light-colored swimbaits were favored for striped bass."
       ],
       "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Laughlin / Colorado River"
+      "specificity": "Laughlin / Colorado River",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -650,7 +744,12 @@ window.FFO_RECENT_REPORTS = {
         "City park limits were listed as three fish per day."
       ],
       "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Las Vegas community ponds"
+      "specificity": "Las Vegas community ponds",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -684,7 +783,12 @@ window.FFO_RECENT_REPORTS = {
         "Dry flies such as ant, mosquito and Royal Wulff patterns were suggested."
       ],
       "source_url": "https://www.ndow.org/waters/angel-lake/",
-      "specificity": "Exact lake report"
+      "specificity": "Exact lake report",
+      "freshness_status": "current",
+      "freshness_days": 5,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -715,7 +819,12 @@ window.FFO_RECENT_REPORTS = {
         "Water levels were very low and the ramp could be removed if it became unsafe."
       ],
       "source_url": "https://www.ndow.org/waters/wildhorse-reservoir/",
-      "specificity": "Exact reservoir report"
+      "specificity": "Exact reservoir report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -744,7 +853,12 @@ window.FFO_RECENT_REPORTS = {
         "Algae was beginning to form in some coves."
       ],
       "source_url": "https://www.ndow.org/waters/south-fork-reservoir/",
-      "specificity": "Exact reservoir report"
+      "specificity": "Exact reservoir report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -773,7 +887,12 @@ window.FFO_RECENT_REPORTS = {
         "Early morning was recommended, especially for anglers releasing trout."
       ],
       "source_url": "https://www.ndow.org/waters/truckee-river/",
-      "specificity": "Truckee River report"
+      "specificity": "Truckee River report",
+      "freshness_status": "aging",
+      "freshness_days": 20,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -803,7 +922,12 @@ window.FFO_RECENT_REPORTS = {
         "Some fish were on the surface early and late."
       ],
       "source_url": "https://www.ndow.org/waters/james-kinney-pond/",
-      "specificity": "Exact pond report"
+      "specificity": "Exact pond report",
+      "freshness_status": "aging",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -834,7 +958,12 @@ window.FFO_RECENT_REPORTS = {
         "The bite was expected to shift more toward early and late as summer warming continued."
       ],
       "source_url": "https://www.ndow.org/waters/lake-tahoe-zephyr-cove/",
-      "specificity": "Lake Tahoe — Zephyr Cove report"
+      "specificity": "Lake Tahoe — Zephyr Cove report",
+      "freshness_status": "current",
+      "freshness_days": 2,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -865,7 +994,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Ediz Hook / Marine Area 6-1"
+      "specificity": "Ediz Hook / Marine Area 6-1",
+      "freshness_status": "aging",
+      "freshness_days": 16,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -902,7 +1036,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?catch_area=05&ramp=&sample_date=3",
-      "specificity": "Marine Area 5 — Sekiu and Pillar Point"
+      "specificity": "Marine Area 5 — Sekiu and Pillar Point",
+      "freshness_status": "current",
+      "freshness_days": 14,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -934,7 +1073,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Shilshole / Marine Area 10"
+      "specificity": "Shilshole / Marine Area 10",
+      "freshness_status": "aging",
+      "freshness_days": 19,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -966,7 +1110,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Point Defiance / Marine Area 11"
+      "specificity": "Point Defiance / Marine Area 11",
+      "freshness_status": "aging",
+      "freshness_days": 19,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -997,7 +1146,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?page=1",
-      "specificity": "Port Angeles West / Marine Area 6"
+      "specificity": "Port Angeles West / Marine Area 6",
+      "freshness_status": "aging",
+      "freshness_days": 19,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -1027,7 +1181,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Kingston / Marine Area 10"
+      "specificity": "Kingston / Marine Area 10",
+      "freshness_status": "aging",
+      "freshness_days": 19,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -1058,7 +1217,12 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels the data as raw and subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Everett Ramp / Marine Area 9"
+      "specificity": "Everett Ramp / Marine Area 9",
+      "freshness_status": "aging",
+      "freshness_days": 16,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Wyoming",
@@ -1083,7 +1247,12 @@ window.FFO_RECENT_REPORTS = {
         "This is a completed harvest-program result, not a current daily bite report."
       ],
       "source_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
-      "specificity": "Flaming Gorge Reservoir"
+      "specificity": "Flaming Gorge Reservoir",
+      "freshness_status": "aging",
+      "freshness_days": 41,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -1112,7 +1281,12 @@ window.FFO_RECENT_REPORTS = {
         "This is an annual fishery summary, not a same-week creel report."
       ],
       "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
-      "specificity": "Exact reservoir fishery"
+      "specificity": "Exact reservoir fishery",
+      "freshness_status": "aging",
+      "freshness_days": 24,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -1141,7 +1315,12 @@ window.FFO_RECENT_REPORTS = {
         "This is an agency fishery outlook rather than a dated dockside catch count."
       ],
       "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
-      "specificity": "Exact reservoir fishery"
+      "specificity": "Exact reservoir fishery",
+      "freshness_status": "aging",
+      "freshness_days": 24,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Idaho",
@@ -1175,7 +1354,12 @@ window.FFO_RECENT_REPORTS = {
         "This combines recent agency survey results with documented angler-report history."
       ],
       "source_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
-      "specificity": "Exact reservoir fishery"
+      "specificity": "Exact reservoir fishery",
+      "freshness_status": "aging",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1207,7 +1391,12 @@ window.FFO_RECENT_REPORTS = {
         "Motorless or electric-motor boats were permitted in South Marsh through July 31."
       ],
       "source_url": "https://www.ndow.org/waters/ruby-lake/",
-      "specificity": "Ruby Lake NWR fishery"
+      "specificity": "Ruby Lake NWR fishery",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1237,7 +1426,12 @@ window.FFO_RECENT_REPORTS = {
         "Artificial lures only and no wading were listed as special regulations."
       ],
       "source_url": "https://www.ndow.org/waters/ruby-lake-collection-ditch/",
-      "specificity": "Exact water report"
+      "specificity": "Exact water report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1267,7 +1461,12 @@ window.FFO_RECENT_REPORTS = {
         "Stocking was expected to slow during hotter summer weather."
       ],
       "source_url": "https://www.ndow.org/waters/marilyns-pond/",
-      "specificity": "Exact community pond"
+      "specificity": "Exact community pond",
+      "freshness_status": "aging",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1296,7 +1495,12 @@ window.FFO_RECENT_REPORTS = {
         "This report is older and should be treated as historical context."
       ],
       "source_url": "https://www.ndow.org/waters/eagle-valley-reservoir/",
-      "specificity": "Exact reservoir report"
+      "specificity": "Exact reservoir report",
+      "freshness_status": "stale",
+      "freshness_days": 165,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1327,7 +1531,12 @@ window.FFO_RECENT_REPORTS = {
         "Use current access and water-level information before traveling."
       ],
       "source_url": "https://www.ndow.org/waters/lake-tahoe/",
-      "specificity": "Exact reservoir report"
+      "specificity": "Exact reservoir report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1356,7 +1565,12 @@ window.FFO_RECENT_REPORTS = {
         "Crayfish imitations were among the recommended presentations."
       ],
       "source_url": "https://www.ndow.org/waters/kiley-ranch-pond/",
-      "specificity": "Exact reservoir report"
+      "specificity": "Exact reservoir report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Nevada",
@@ -1386,7 +1600,12 @@ window.FFO_RECENT_REPORTS = {
         "Seasonal closure dates must be checked before fishing."
       ],
       "source_url": "https://www.ndow.org/waters/mason-valley-hatchery-outponds/",
-      "specificity": "Exact pond report"
+      "specificity": "Exact pond report",
+      "freshness_status": "current",
+      "freshness_days": 4,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     },
     {
       "state": "Washington",
@@ -1418,7 +1637,14 @@ window.FFO_RECENT_REPORTS = {
         "WDFW labels these figures as raw data subject to QA/QC changes."
       ],
       "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Armeni Public Ramp / Marine Area 10"
+      "specificity": "Armeni Public Ramp / Marine Area 10",
+      "freshness_status": "current",
+      "freshness_days": 2,
+      "last_checked_at": "2026-07-19T18:36:46Z",
+      "source_status": "not_checked",
+      "review_required": false
     }
-  ]
+  ],
+  "source_monitor_last_run": "2026-07-19T18:36:46Z",
+  "source_monitor_mode": "offline"
 };

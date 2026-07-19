@@ -88,16 +88,34 @@
     .bait-warning{margin-top:12px;font-size:12px;color:var(--muted)}
     @media(max-width:760px){.bait-grid{grid-template-columns:1fr}.bait-intro{display:block}}
 
+
+    .utility-nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}
+    .utility-nav a{display:inline-flex;align-items:center;text-decoration:none;border:1px solid rgba(13,60,53,.18);border-radius:999px;padding:8px 12px;background:rgba(255,255,255,.72);font-size:13px;font-weight:850}
+    .monitor-card{border:2px solid #315f78;background:linear-gradient(135deg,#eef6fa,#fff)}
+    .monitor-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+    .monitor-item{background:white;border:1px solid #c9d8df;border-radius:14px;padding:13px}
+    .monitor-item b{display:block;font-size:18px;margin-top:5px}
+    .health-ok{color:#176354}.health-warn{color:#8a651b}.health-bad{color:#9f3129}.health-review{color:#704484}
+    .monitor-alert{margin-top:13px;border-radius:12px;padding:12px 14px;background:#fff0c9;border-left:5px solid #d6a443}
+    .monitor-alert.danger{background:#f8e2df;border-left-color:#a53a2f}
+    .automation-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+    .automation-badge{display:inline-flex;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;background:#e4f0ea;color:#176354}
+    @media(max-width:760px){.monitor-grid{grid-template-columns:1fr 1fr}}
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 5.2 v0.6.2">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 6 v0.7.0">
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, fish species, bait and lure suggestions, live conditions, official records and a map.</p>
-      <span class="badge">Phase 5.2 · Bait & lure suggestions</span>
+      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, automatic source checks, fish species, bait suggestions, live conditions, official records and maps.</p>
+      <span class="badge">Phase 6 · Automatic freshness monitor</span>
+      <nav class="utility-nav" aria-label="Fishing report tools">
+        <a href="submit-report.html">Submit a fishing report</a>
+        <a href="admin.html">Source review dashboard</a>
+      </nav>
     </div>
   </header>
 
@@ -121,7 +139,7 @@
 
     <section class="saved-panel" aria-label="Saved and recent fishing locations">
       <div class="saved-head">
-        <div><h2>Your fishing waters</h2><div class="meta">Favorites and recent searches are saved only in this browser. Phase 3 includes exact official records for selected waters in all nine expanded states.</div></div>
+        <div><h2>Your fishing waters</h2><div class="meta">Favorites and recent searches are saved only in this browser. Official source pages are checked automatically when the GitHub workflow is enabled.</div></div>
         <button id="clearRecent" class="secondary subtle-button" type="button">Clear recent</button>
       </div>
       <div class="saved-grid">
@@ -156,8 +174,10 @@
 
 
 
+<script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
 <script src="recent_fishing_reports.js"></script>
+<script src="update_status.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 const state = {selected:null, report:null};
@@ -503,6 +523,47 @@ function recentlyReportedSpecies(report){
   const names=(report.catches||[]).map(x=>String(x.species||"").trim()).filter(Boolean);
   return [...new Set(names)];
 }
+
+function monitorStatus(){
+  return window.FFO_UPDATE_STATUS||{
+    last_run:null,mode:"not_configured",reports_total:0,unique_sources:0,
+    freshness:{current:0,aging:0,stale:0,unknown:0},
+    changed_reports:0,review_required:0,unreachable_sources:0
+  };
+}
+function reportSourceHealth(report){
+  if(!report)return{
+    label:"No report",className:"health-bad",detail:"No dated report matched this location."
+  };
+  if(report.review_required)return{
+    label:"Review required",className:"health-review",
+    detail:"The official source changed after this report was entered."
+  };
+  if(report.source_status==="unreachable")return{
+    label:"Source unreachable",className:"health-bad",
+    detail:report.source_error||"The last automatic source check could not reach the page."
+  };
+  if(report.freshness_status==="stale")return{
+    label:"Older report",className:"health-bad",
+    detail:`Published ${report.freshness_days??"many"} days ago. Treat it as historical context.`
+  };
+  if(report.freshness_status==="aging")return{
+    label:"Aging report",className:"health-warn",
+    detail:`Published ${report.freshness_days??""} days ago. Look for a newer local report.`
+  };
+  if(report.source_status==="baseline")return{
+    label:"Source baseline saved",className:"health-ok",
+    detail:"The monitor saved its first source fingerprint."
+  };
+  if(report.source_status==="ok")return{
+    label:"Source checked",className:"health-ok",
+    detail:"The official source matched its last monitored version."
+  };
+  return{
+    label:"Monitor pending",className:"health-warn",
+    detail:"Enable the GitHub workflow to check this source automatically."
+  };
+}
 function reportAge(report){
   if(!report?.published_date)return{days:null,label:"Date unavailable",className:"report-age-stale"};
   const days=Math.max(0,Math.floor((Date.now()-new Date(report.published_date+"T12:00:00").getTime())/86400000));
@@ -711,11 +772,24 @@ function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
   $("coverageBadge").textContent=r.coverage.level+" · "+r.confidence.label+" confidence";
   $("generated").textContent="Generated "+dateFmt(r.generated_at)+" · "+r.location.water_type+" profile";
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report),baitPlan=buildBaitSuggestions(r);
-  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report),baitPlan=buildBaitSuggestions(r),monitor=monitorStatus(),sourceHealth=reportSourceHealth(r.recent_catch_report);
+  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}${truth("Source monitor",sourceHealth.label,sourceHealth.className==="health-ok"?"yes":sourceHealth.className==="health-bad"?"no":"estimate")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  cards.push(`<article class="card full monitor-card">
+    <div class="eyebrow">Automatic source monitor</div>
+    <h3>Freshness and review status</h3>
+    <div class="monitor-grid">
+      <div class="monitor-item"><span class="meta">This report</span><b class="${esc(sourceHealth.className)}">${esc(sourceHealth.label)}</b></div>
+      <div class="monitor-item"><span class="meta">Published age</span><b>${catchReport?esc(catchAge.label):"No report"}</b></div>
+      <div class="monitor-item"><span class="meta">Last source check</span><b>${catchReport?.last_checked_at?esc(dateFmt(catchReport.last_checked_at)):monitor.last_run?esc(dateFmt(monitor.last_run)):"Not run yet"}</b></div>
+      <div class="monitor-item"><span class="meta">Review queue</span><b class="${monitor.review_required?"health-review":"health-ok"}">${esc(monitor.review_required||0)} flagged</b></div>
+    </div>
+    <div class="automation-line"><span class="automation-badge">${monitor.mode==="live"?"Daily automatic checks active":"Workflow setup required"}</span><span class="meta">${esc(sourceHealth.detail)}</span></div>
+    ${catchReport?.review_required?`<div class="monitor-alert danger"><strong>Do not treat this report as current until reviewed.</strong> The official source page changed after the stored fishing report was created.</div>`:""}
+    ${catchReport?.freshness_status==="stale"?`<div class="monitor-alert"><strong>Older fishing report.</strong> The catch details are historical and may not describe the current bite.</div>`:""}
+  </article>`);
   cards.push(`<article class="card full ${catchReport?"catch-report":""}">${
     catchReport
-      ?`<div class="catch-header"><div><div class="eyebrow">Actual dated fishing report</div><div class="catch-headline">${esc(catchReport.headline)}</div><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period)}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span><span class="catch-pill">${esc(catchReport.specificity)}</span></div></div></div>
+      ?`<div class="catch-header"><div><div class="eyebrow">Actual dated fishing report</div><div class="catch-headline">${esc(catchReport.headline)}</div><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period)}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span><span class="catch-pill">${esc(catchReport.specificity)}</span><span class="catch-pill ${sourceHealth.className}">${esc(sourceHealth.label)}</span></div></div></div>
         ${(catchReport.catches||[]).length?`<div class="catch-grid">${catchReport.catches.map(x=>`<div class="catch-item"><span>${esc(x.species)}</span><b>${esc(x.metric)}</b><span>${esc(x.detail||"")}</span></div>`).join("")}</div>`:""}
         ${(catchReport.conditions||[]).length?`<div class="species-section"><h4>Agency notes</h4>${list(catchReport.conditions)}</div>`:""}
         <div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">${esc(catchReport.report_type)} · Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the full official report ↗</a></div></div>`
@@ -784,12 +858,13 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport),baitPlan=buildBaitSuggestions(r);
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport),baitPlan=buildBaitSuggestions(r),sourceHealth=reportSourceHealth(catchReport);
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Generated: ${dateFmt(r.generated_at)}`,
     catchReport?`Recent reported catch (${catchReport.report_period}): ${catchReport.headline}`:`Recent reported catch: No dated official report matched this location.`,
     catchReport?`Report details: ${(catchReport.catches||[]).map(x=>`${x.species}: ${x.metric}`).join("; ")}`:"",
+    `Source health: ${sourceHealth.label} — ${sourceHealth.detail}`,
     `Outlook: ${r.outlook.label} (${r.outlook.score}/100) — present-conditions estimate`,
     `Weather: ${c.shortForecast||"Unavailable"}${c.temperature!=null?`, ${c.temperature}°${c.temperatureUnit||"F"}`:""}${c.windSpeed?`, wind ${c.windSpeed} ${c.windDirection||""}`:""}`,
     n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",

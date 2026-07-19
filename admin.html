@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Source Review Dashboard | Fish Finder Outdoors</title>
+<style>
+:root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}}
+</style>
+<script src="site_config.js"></script>
+<script src="recent_fishing_reports.js"></script>
+<script src="update_status.js"></script>
+</head>
+<body>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><h1>Source review dashboard</h1><p class="lede">Review stale reports, changed official pages, unreachable sources and locally saved angler submissions.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+<main class="wrap">
+<section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
+<section class="panel"><div class="actions"><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>
+<section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
+<section class="panel"><h2>Local angler submissions</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const cfg=window.FFO_SITE_CONFIG||{},data=window.FFO_RECENT_REPORTS||{reports:[]},status=window.FFO_UPDATE_STATUS||{};
+const reports=data.reports||[];
+function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
+function fmtDate(v){if(!v)return"—";const d=new Date(v);return isNaN(d)?v:d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
+function pclass(r){if(r.review_required)return"review";if(r.source_status==="unreachable"||r.freshness_status==="stale")return"bad";if(r.freshness_status==="aging")return"aging";return"ok";}
+function label(r){if(r.review_required)return"Review required";if(r.source_status==="unreachable")return"Unreachable";return r.source_status||"Pending";}
+function matches(r,f){if(f==="all")return true;if(f==="review")return!!r.review_required;if(f==="stale"||f==="aging"||f==="current")return r.freshness_status===f;if(f==="unreachable")return r.source_status==="unreachable";return true;}
+function render(){
+ const f=$("filter").value;
+ $("reportRows").innerHTML=reports.filter(r=>matches(r,f)).map(r=>`<tr><td><b>${esc((r.names||[])[0]||r.specificity||"Report")}</b><div class="meta">${esc(r.headline||"")}</div></td><td>${esc(r.agency)}</td><td>${esc(r.published_date||"—")}<div class="meta">${esc(r.freshness_days??"—")} days old</div></td><td><span class="pill ${pclass(r)}">${esc(r.freshness_status||"unknown")}</span></td><td><span class="pill ${pclass(r)}">${esc(label(r))}</span>${r.source_error?`<div class="meta">${esc(r.source_error)}</div>`:""}</td><td>${esc(fmtDate(r.last_checked_at))}</td><td><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Official source ↗</a></td></tr>`).join("")||'<tr><td colspan="7">No reports match this filter.</td></tr>';
+}
+function download(name,value){const blob=new Blob([JSON.stringify(value,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+const fresh=status.freshness||{};
+$("summary").innerHTML=[
+ ["Reports",status.reports_total??reports.length],["Current",fresh.current??0],["Aging",fresh.aging??0],["Stale",fresh.stale??0],["Review",status.review_required??reports.filter(r=>r.review_required).length]
+].map(x=>`<div class="metric"><span class="meta">${x[0]}</span><b>${x[1]}</b></div>`).join("");
+$("lastRun").textContent=`Last automatic check: ${fmtDate(status.last_run)} · ${status.unique_sources??0} unique official sources · ${status.unreachable_sources??0} unreachable.`;
+$("filter").addEventListener("change",render);render();
+$("exportReview").addEventListener("click",()=>download("ffo-review-queue.json",reports.filter(r=>r.review_required||r.freshness_status==="stale"||r.source_status==="unreachable")));
+function localRows(){try{return JSON.parse(localStorage.getItem("ffo:pending-submissions")||"[]");}catch{return[];}}
+function saveRows(rows){localStorage.setItem("ffo:pending-submissions",JSON.stringify(rows));renderSubmissions();}
+function renderSubmissions(){const rows=localRows();$("submissions").innerHTML=rows.length?rows.map((r,i)=>`<div class="submission"><h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3><div class="meta">${esc(r.fishing_date)} · ${esc(r.bait_or_lure)} · ${esc(r.status||"pending")}</div><p>${esc(r.notes||"No notes")}</p><div class="actions"><button class="secondary" data-action="approve" data-i="${i}">Mark approved locally</button><button class="secondary" data-action="reject" data-i="${i}">Reject locally</button><button class="secondary" data-action="remove" data-i="${i}">Remove</button></div></div>`).join(""):'<p class="meta">No local submissions in this browser.</p>';document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const rows=localRows(),i=Number(b.dataset.i);if(b.dataset.action==="remove")rows.splice(i,1);else rows[i].status=b.dataset.action==="approve"?"approved-local":"rejected-local";saveRows(rows);}));}
+renderSubmissions();
+$("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
+if(cfg.github_repository_url){const a=$("actionsLink");a.href=cfg.github_repository_url.replace(/\/$/,"")+"/actions";a.classList.remove("hidden");}
+</script>
+</body>
+</html>
