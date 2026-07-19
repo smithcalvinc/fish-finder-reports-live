@@ -1,0 +1,11 @@
+FISH FINDER OUTDOORS — PHASE 6.1 UPLOAD
+
+1. Unzip this package.
+2. Upload every included file to the ROOT of the existing GitHub repository.
+3. Replace files with the same names.
+4. Commit directly to main.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml
+
+The ZIP intentionally contains no workflow file, so the green automatic workflow cannot be overwritten.

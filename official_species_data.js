@@ -1,7 +1,7 @@
 window.FFO_OFFICIAL_SPECIES = {
-  "version": "2026.07.19",
+  "version": "2026.07.19-phase6.1",
   "checked_at": "2026-07-19",
-  "coverage_note": "Initial exact-waterbody official dataset for the nine expanded states. Unmatched waters intentionally display no species rather than statewide guesses.",
+  "coverage_note": "Expanded exact-waterbody species records, including smaller Southeast Idaho reservoirs. Unmatched waters still display no statewide species assumptions.",
   "waters": [
     {
       "state": "Idaho",
@@ -683,6 +683,338 @@ window.FFO_OFFICIAL_SPECIES = {
         "Lahontan Cutthroat Trout"
       ],
       "scope": "CDFW-confirmed native range and restoration species only; intentionally not presented as a complete Lake Tahoe species list.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Blackfoot Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Blackfoot Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1115975428895",
+      "recommended": [
+        "Cutthroat Trout",
+        "Rainbow Trout",
+        "Smallmouth Bass"
+      ],
+      "surveyed": [
+        {
+          "name": "Common Carp",
+          "year": 2025
+        },
+        {
+          "name": "Cutthroat Trout",
+          "year": 2025
+        },
+        {
+          "name": "Rainbow Trout",
+          "year": 2025
+        },
+        {
+          "name": "Utah Chub",
+          "year": 2025
+        },
+        {
+          "name": "Utah Sucker",
+          "year": 2025
+        },
+        {
+          "name": "Yellow Perch",
+          "year": 2025
+        },
+        {
+          "name": "Smallmouth Bass",
+          "year": 2022
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-04-22"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, recent survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Devil Creek Reservoir",
+        "Devils Creek Reservoir",
+        "Devil's Creek Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Devil Creek Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1122052422984",
+      "recommended": [
+        "Kokanee",
+        "Largemouth Bass",
+        "Cutthroat Trout",
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {
+          "name": "Cutthroat Trout",
+          "year": 2024
+        },
+        {
+          "name": "Rainbow Trout",
+          "year": 2024
+        },
+        {
+          "name": "Kokanee",
+          "year": 2023
+        },
+        {
+          "name": "Largemouth Bass",
+          "year": 2022
+        },
+        {
+          "name": "Smallmouth Bass",
+          "year": 2013
+        },
+        {
+          "name": "Yellow Perch",
+          "year": 2009
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-05-15"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Chesterfield Reservoir",
+        "Portneuf Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Chesterfield Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1119715429000",
+      "recommended": [
+        "Brown Trout",
+        "Cutthroat Trout",
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {
+          "name": "Rainbow Trout",
+          "year": 2024
+        },
+        {
+          "name": "Utah Chub",
+          "year": 2024
+        },
+        {
+          "name": "Utah Sucker",
+          "year": 2024
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Rainbow Trout",
+          "date": "2026-05-13"
+        },
+        {
+          "name": "Cutbow — Cutthroat × Rainbow Trout — Triploid",
+          "date": "2026-04-24"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, 2024 survey observations and recent stocking records.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Daniels Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Daniels Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1124478423573",
+      "recommended": [
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {
+          "name": "Rainbow Trout",
+          "year": 2023
+        },
+        {
+          "name": "Utah Sucker",
+          "year": 2023
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-05-22"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, latest survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Alexander Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Alexander Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1116455426547",
+      "recommended": [
+        "Yellow Perch",
+        "Cutthroat Trout",
+        "Smallmouth Bass",
+        "Catfish",
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {
+          "name": "Channel Catfish",
+          "year": 2025
+        },
+        {
+          "name": "Crappie",
+          "year": 2025
+        },
+        {
+          "name": "Cutthroat Trout",
+          "year": 2025
+        },
+        {
+          "name": "Rainbow Trout",
+          "year": 2025
+        },
+        {
+          "name": "Smallmouth Bass",
+          "year": 2025
+        },
+        {
+          "name": "Yellow Perch",
+          "year": 2025
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Channel Catfish",
+          "date": "2024-07-24"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, 2025 survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Oneida Narrows Reservoir",
+        "Oneida Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Oneida Narrows Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1117295422907",
+      "recommended": [
+        "Walleye",
+        "Yellow Perch",
+        "Cutthroat Trout",
+        "Smallmouth Bass",
+        "Rainbow Trout",
+        "Catfish"
+      ],
+      "surveyed": [
+        {
+          "name": "Bluegill",
+          "year": 2024
+        },
+        {
+          "name": "Channel Catfish",
+          "year": 2024
+        },
+        {
+          "name": "Cutthroat Trout",
+          "year": 2024
+        },
+        {
+          "name": "Rainbow Trout",
+          "year": 2024
+        },
+        {
+          "name": "Smallmouth Bass",
+          "year": 2024
+        },
+        {
+          "name": "Walleye",
+          "year": 2024
+        },
+        {
+          "name": "Yellow Perch",
+          "year": 2024
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Walleye",
+          "date": "2025-05-21"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, 2024 survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Glendale Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Glendale Reservoir",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1117964421349",
+      "recommended": [
+        "Bluegill / Pumpkinseed / Sunfish",
+        "Largemouth Bass",
+        "Yellow Perch",
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {
+          "name": "Bluegill",
+          "year": 2025
+        },
+        {
+          "name": "Crappie",
+          "year": 2025
+        },
+        {
+          "name": "Largemouth Bass",
+          "year": 2025
+        },
+        {
+          "name": "Rainbow Trout",
+          "year": 2025
+        },
+        {
+          "name": "Yellow Perch",
+          "year": 2025
+        }
+      ],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-03-11"
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended fish, 2025 survey observations and newest listed stocking record.",
       "source_checked": "2026-07-19"
     }
   ]

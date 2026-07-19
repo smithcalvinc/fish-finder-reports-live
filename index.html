@@ -102,16 +102,40 @@
     .automation-badge{display:inline-flex;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;background:#e4f0ea;color:#176354}
     @media(max-width:760px){.monitor-grid{grid-template-columns:1fr 1fr}}
 
+
+    .local-searches{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+    .local-searches button{padding:8px 11px;border:1px solid #c9d5cf;background:#f7faf8;color:var(--green);font-size:12px;border-radius:999px}
+    .local-searches button:hover{border-color:var(--green2);background:white}
+    .search-help{margin-top:12px;padding:12px 14px;border-radius:13px;background:#fff7df;border:1px solid #e1d2a5;font-size:13px}
+    .search-help strong{display:block;margin-bottom:4px}
+    .local-result{border-left:5px solid #d6a443;background:#fffdf5}
+    .source-stamp{display:inline-flex;align-items:center;gap:7px;border-radius:999px;padding:7px 10px;background:#e7f1ec;color:#176354;font-size:12px;font-weight:850}
+    .source-stamp.warn{background:#fff0c9;color:#77591b}
+    .result-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+    .result-badge{display:inline-flex;padding:3px 7px;border-radius:999px;background:#eef3ef;color:#426057;font-size:10px;font-weight:850}
+    @media(max-width:760px){
+      .search-panel{padding:16px;border-radius:18px}
+      .search-row button{width:100%;min-height:48px}
+      .result{padding:14px 12px}
+      .local-searches{display:grid;grid-template-columns:1fr 1fr}
+      .local-searches button{width:100%;white-space:normal}
+      .report-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+      .report-actions button{width:100%;padding:11px 8px}
+      .utility-nav{display:grid;grid-template-columns:1fr 1fr}
+      .utility-nav a{justify-content:center;text-align:center}
+    }
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 6 v0.7.0">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.1 v0.7.1">
 </head>
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, automatic source checks, fish species, bait suggestions, live conditions, official records and maps.</p>
-      <span class="badge">Phase 6 · Automatic freshness monitor</span>
+      <p class="lede">Search a lake, river, reservoir, town, coordinates or coastal area. Phase 6.1 adds local-water aliases, official small-reservoir records and better failed-search recovery.</p>
+      <span class="badge">Phase 6.1 · Better local-water search</span>
+      <span id="sourceStamp" class="source-stamp">Checking source status…</span>
       <nav class="utility-nav" aria-label="Fishing report tools">
         <a href="submit-report.html">Submit a fishing report</a>
         <a href="admin.html">Source review dashboard</a>
@@ -127,6 +151,15 @@
         <button class="secondary" id="nearMe" type="button">Use my location</button>
       </form>
       <p class="hint">Expanded guidance: ID, MT, WY, UT, NV, OR, WA, northern CA and CO. Waterbody matches are prioritized ahead of nearby towns when possible.</p>
+      <div class="local-searches" aria-label="Quick Southeast Idaho water searches">
+        <button type="button" data-quick-water="Blackfoot Reservoir, Idaho">Blackfoot Reservoir</button>
+        <button type="button" data-quick-water="Devil Creek Reservoir, Idaho">Devil Creek Reservoir</button>
+        <button type="button" data-quick-water="Chesterfield Reservoir, Idaho">Chesterfield Reservoir</button>
+        <button type="button" data-quick-water="Daniels Reservoir, Idaho">Daniels Reservoir</button>
+        <button type="button" data-quick-water="Alexander Reservoir, Idaho">Alexander Reservoir</button>
+        <button type="button" data-quick-water="Oneida Narrows Reservoir, Idaho">Oneida Narrows</button>
+      </div>
+      <div class="search-help"><strong>Small reservoir not showing?</strong> Try the official name, an alternate name, the nearest town, or paste coordinates such as <code>42.32, -112.73</code>.</div>
       <div class="legend" aria-label="Data type legend">
         <span class="data-pill"><span class="dot live"></span>Live measured</span>
         <span class="data-pill"><span class="dot official"></span>Official link</span>
@@ -201,7 +234,105 @@ Colorado:{species:["rainbow trout","cutthroat trout","brown trout","kokanee","wa
 const PARAMETERS={"00010":"Water temperature","00060":"Streamflow","00065":"Gage height"};
 const WATER_TYPES = new Set(["water","reservoir","lake","river","stream","canal","bay","pond","lagoon","strait","inlet","harbour","harbor"]);
 
+const LOCAL_WATERS = [
+  {
+    name:"Blackfoot Reservoir",
+    aliases:["blackfoot reservoir","blackfoot lake","blackfoot reservoir idaho"],
+    display_name:"Blackfoot Reservoir, Bingham and Caribou Counties, Idaho",
+    lat:42.914614,lon:-111.609092,state:"Idaho",county:"Bingham / Caribou",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1115975428895"
+  },
+  {
+    name:"Devil Creek Reservoir",
+    aliases:["devil creek reservoir","devils creek reservoir","devil's creek reservoir","devil creek lake"],
+    display_name:"Devil Creek Reservoir, Oneida County, Idaho — near Malad City",
+    lat:42.320000,lon:-112.730000,state:"Idaho",county:"Oneida",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1122052422984"
+  },
+  {
+    name:"Chesterfield Reservoir",
+    aliases:["chesterfield reservoir","portneuf reservoir","chesterfield lake"],
+    display_name:"Chesterfield Reservoir (Portneuf Reservoir), Caribou County, Idaho",
+    lat:42.897585,lon:-111.967311,state:"Idaho",county:"Caribou",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1119715429000"
+  },
+  {
+    name:"Daniels Reservoir",
+    aliases:["daniels reservoir","daniel reservoir","daniels lake"],
+    display_name:"Daniels Reservoir, Oneida County, Idaho — northwest of Malad City",
+    lat:42.355290,lon:-112.445543,state:"Idaho",county:"Oneida",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124478423573"
+  },
+  {
+    name:"Alexander Reservoir",
+    aliases:["alexander reservoir","alexander lake","soda springs reservoir"],
+    display_name:"Alexander Reservoir, Caribou County, Idaho — Soda Springs",
+    lat:42.654000,lon:-111.636857,state:"Idaho",county:"Caribou",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1116455426547"
+  },
+  {
+    name:"Oneida Narrows Reservoir",
+    aliases:["oneida narrows reservoir","oneida reservoir","oneida narrows","oneida lake"],
+    display_name:"Oneida Narrows Reservoir, Franklin County, Idaho",
+    lat:42.293520,lon:-111.728978,state:"Idaho",county:"Franklin",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117295422907"
+  },
+  {
+    name:"Glendale Reservoir",
+    aliases:["glendale reservoir","glendale lake","glendale reservoir idaho"],
+    display_name:"Glendale Reservoir, Franklin County, Idaho — near Preston",
+    lat:42.134223,lon:-111.797581,state:"Idaho",county:"Franklin",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117964421349"
+  },
+  {
+    name:"Treasureton Reservoir",
+    aliases:["treasureton reservoir","treasureton lake"],
+    display_name:"Treasureton Reservoir, Franklin County, Idaho",
+    lat:42.233811,lon:-111.861897,state:"Idaho",county:"Franklin",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/"
+  },
+  {
+    name:"Twentyfour Mile Reservoir",
+    aliases:["twentyfour mile reservoir","twenty four mile reservoir","24 mile reservoir","twenty-four mile reservoir"],
+    display_name:"Twentyfour Mile Reservoir, Caribou County, Idaho",
+    lat:42.906200,lon:-111.889000,state:"Idaho",county:"Caribou",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1118897429069"
+  },
+  {
+    name:"Ririe Reservoir",
+    aliases:["ririe reservoir","ririe lake","blacktail reservoir","blacktail park reservoir"],
+    display_name:"Ririe Reservoir, Bonneville County, Idaho",
+    lat:43.520199,lon:-111.720511,state:"Idaho",county:"Bonneville",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117154435340"
+  },
+  {
+    name:"American Falls Reservoir",
+    aliases:["american falls reservoir","american falls lake","willow bay reservoir"],
+    display_name:"American Falls Reservoir, Power and Bingham Counties, Idaho",
+    lat:42.783000,lon:-112.879000,state:"Idaho",county:"Power / Bingham",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1127315429370"
+  }
+];
+
 const WATER_PROFILES = [
+{state:"Idaho",match:["blackfoot reservoir"],species:["cutthroat trout","rainbow trout","smallmouth bass","yellow perch"],focus:"Large, exposed Southeast Idaho reservoir with trout and bass opportunities.",tips:["Use wind-protected shorelines when conditions build.","Work rock and points for smallmouth bass.","Check the no-harvest Cutthroat Trout rule before keeping fish."]},
+{state:"Idaho",match:["devil creek reservoir","devils creek reservoir"],species:["rainbow trout","cutthroat trout","kokanee","largemouth bass"],focus:"Small stocked reservoir near Malad with productive bank and boat fishing.",tips:["Start around the dam and accessible shoreline.","Use trout bait or small lures where legal.","Check recent stocking records before the trip."]},
+{state:"Idaho",match:["chesterfield reservoir","portneuf reservoir"],species:["rainbow trout","cutthroat trout","brown trout"],focus:"Trout reservoir with regular stocking and special trout limits.",tips:["Use low-light periods and cooler water.","Troll or cast small spoons and spinners.","Review the current trout limit before keeping fish."]},
+{state:"Idaho",match:["daniels reservoir"],species:["rainbow trout"],focus:"Managed trophy-trout reservoir with restrictive tackle and harvest rules.",tips:["No bait is allowed; verify barbless-hook rules.","Use artificial flies and lures only.","Handle large trout carefully and review the 20-inch minimum rule."]},
+{state:"Idaho",match:["alexander reservoir"],species:["yellow perch","smallmouth bass","catfish","rainbow trout","cutthroat trout"],focus:"Soda Springs reservoir with improving bass and perch fishing.",tips:["Work rocky structure for smallmouth bass.","Use small jigs near schools for perch.","Try bottom presentations for catfish where legal."]},
+{state:"Idaho",match:["oneida narrows reservoir","oneida reservoir"],species:["walleye","yellow perch","smallmouth bass","rainbow trout","catfish"],focus:"Bear River reservoir with mixed warm- and cold-water fishing.",tips:["Fish low light for walleye.","Use rock and current edges for smallmouth.","Check water releases and boating conditions."]},
+{state:"Idaho",match:["glendale reservoir"],species:["rainbow trout","largemouth bass","yellow perch","bluegill","crappie"],focus:"Family fishing reservoir near Preston with trout and warm-water species.",tips:["Use small jigs and bait for panfish.","Target cover and edges for largemouth bass.","Verify the current boat-inspection fee and access rules."]},
 {state:"Idaho",match:["american falls reservoir"],species:["walleye","smallmouth bass","rainbow trout","yellow perch","channel catfish"],focus:"Large reservoir with both cold- and warm-water opportunities.",tips:["Work windblown points and rocky transitions for smallmouth.","Use bottom-contact presentations and trolling passes to locate walleye.","For trout, check cooler inflows, deeper edges and recent stocking information."]},
 {state:"Idaho",match:["henrys lake","henry's lake"],species:["cutthroat trout","rainbow-cutthroat hybrid trout","brook trout"],focus:"Shallow, high-elevation trout lake.",tips:["Fish low-light periods and wind-created feeding lanes.","Use leeches, balanced patterns, small spoons or slowly worked bait where legal.","Avoid stressing trout during unusually warm water periods."]},
 {state:"Idaho",match:["henrys fork","henry's fork"],species:["rainbow trout","brown trout","cutthroat trout"],focus:"Major trout river with highly varied sections.",tips:["Match the approach to the exact river section and current flow.","Watch for insect activity before selecting dry flies, nymphs or streamers.","Use extra caution around wading, cold water and rapid flow changes."]},
@@ -462,11 +593,74 @@ function writeStore(key,value){try{localStorage.setItem(key,JSON.stringify(value
 async function json(url,timeout=16000){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{headers:{Accept:"application/json"},signal:c.signal});if(!r.ok)throw Error("Source returned "+r.status);return await r.json();}finally{clearTimeout(t);}}
 
 function normalize(s){return String(s||"").toLowerCase().replace(/[^\w\s]/g," ").replace(/\s+/g," ").trim();}
+
+function parseCoordinateQuery(q){
+  const match=String(q||"").trim().match(/^(-?\d{1,2}(?:\.\d+)?)\s*[, ]\s*(-?\d{1,3}(?:\.\d+)?)$/);
+  if(!match)return null;
+  const lat=Number(match[1]),lon=Number(match[2]);
+  if(!Number.isFinite(lat)||!Number.isFinite(lon)||lat<-90||lat>90||lon<-180||lon>180)return null;
+  return{
+    name:`Map point ${lat.toFixed(4)}, ${lon.toFixed(4)}`,
+    display_name:`Custom coordinates: ${lat.toFixed(6)}, ${lon.toFixed(6)}`,
+    lat,lon,state:"",county:"",category:"place",type:"location",
+    local_directory:true,coordinate_query:true
+  };
+}
+function localWaterScore(water,q){
+  const query=normalize(q).replace(/\b(idaho|id)\b/g,"").trim();
+  if(!query)return 0;
+  let score=0;
+  for(const alias of water.aliases||[]){
+    const value=normalize(alias);
+    if(query===value)score=Math.max(score,300);
+    else if(value.startsWith(query)||query.startsWith(value))score=Math.max(score,230);
+    else if(value.includes(query)||query.includes(value))score=Math.max(score,180);
+    else{
+      const qWords=query.split(" ").filter(Boolean),aWords=value.split(" ");
+      const overlap=qWords.filter(word=>aWords.includes(word)).length;
+      if(overlap>=2)score=Math.max(score,100+overlap*15);
+    }
+  }
+  return score;
+}
+function localWaterMatches(q){
+  return LOCAL_WATERS
+    .map(w=>({water:w,score:localWaterScore(w,q)}))
+    .filter(x=>x.score>0)
+    .sort((a,b)=>b.score-a.score)
+    .map(({water})=>({...water,local_directory:true}));
+}
+function dedupeLocations(rows){
+  const seen=new Set(),out=[];
+  for(const row of rows){
+    const key=`${normalize(row.name)}|${row.state||""}|${Number(row.lat).toFixed(3)}|${Number(row.lon).toFixed(3)}`;
+    if(seen.has(key))continue;
+    seen.add(key);out.push(row);
+  }
+  return out;
+}
+function expandedSearchQueries(q){
+  const clean=String(q||"").trim(),queries=[clean];
+  const normalized=normalize(clean);
+  if(!/\b[A-Z]{2}\b/.test(clean)&&!/,/.test(clean))queries.push(`${clean}, United States`);
+  if(/\b(reservoir|lake|pond|river|creek|stream)\b/i.test(clean)===false){
+    queries.push(`${clean} reservoir`);
+    queries.push(`${clean} lake`);
+  }
+  if(/devil'?s?\s+creek/i.test(clean)){
+    queries.push("Devil Creek Reservoir, Idaho");
+    queries.push("Devils Creek Reservoir, Idaho");
+  }
+  if(/chesterfield/i.test(clean))queries.push("Portneuf Reservoir, Idaho");
+  if(/oneida/i.test(clean))queries.push("Oneida Narrows Reservoir, Idaho");
+  return [...new Set(queries)].slice(0,4);
+}
 function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}
 function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location"};}
 function isWaterResult(r){return WATER_TYPES.has(String(r.type||"").toLowerCase())||WATER_TYPES.has(String(r.category||"").toLowerCase())||/(lake|reservoir|river|creek|stream|pond|bay|ocean|canal|fork)/i.test(r.name||"");}
 function searchPriority(r,q){
   let p=0;const n=normalize(r.name),query=normalize(q);
+  if(r.local_directory)p+=180;
   if(isWaterResult(r))p+=100;
   if(n===query)p+=35;else if(n.startsWith(query))p+=18;else if(n.includes(query))p+=10;
   if(["city","town","village","county","administrative"].includes(String(r.type||"").toLowerCase()))p-=20;
@@ -599,13 +793,43 @@ function renderSaved(){
 }
 
 async function searchPlaces(q){
-  const key="geo:"+q.toLowerCase(),cached=getCache(key,86400000);if(cached)return [...cached].sort((a,b)=>searchPriority(b,q)-searchPriority(a,q));
-  const wait=Math.max(0,1100-(Date.now()-lastSearch));if(wait)await sleep(wait);
-  const p=new URLSearchParams({q,format:"jsonv2",addressdetails:"1",namedetails:"1",countrycodes:"us",limit:"10"});
-  const rows=await json("https://nominatim.openstreetmap.org/search?"+p);
-  lastSearch=Date.now();
-  const out=rows.map(r=>{const a=r.address||{};return{name:(r.namedetails||{}).name||r.name||(r.display_name||"Location").split(",")[0],display_name:r.display_name||r.name||"Location",lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",category:r.category||r.class||"place",type:r.type||"location"};}).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q)).slice(0,7);
-  setCache(key,out);return out;
+  const coordinate=parseCoordinateQuery(q);
+  if(coordinate)return[coordinate];
+
+  const local=localWaterMatches(q);
+  const key="geo61:"+q.toLowerCase(),cached=getCache(key,86400000);
+  if(cached)return dedupeLocations([...local,...cached]).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q)).slice(0,10);
+
+  const remote=[];
+  const queries=expandedSearchQueries(q);
+  for(let i=0;i<queries.length;i++){
+    if(i>0&&remote.some(isWaterResult))break;
+    const wait=Math.max(0,1100-(Date.now()-lastSearch));if(wait)await sleep(wait);
+    const p=new URLSearchParams({
+      q:queries[i],format:"jsonv2",addressdetails:"1",namedetails:"1",
+      countrycodes:"us",limit:i===0?"12":"8"
+    });
+    try{
+      const rows=await json("https://nominatim.openstreetmap.org/search?"+p);
+      lastSearch=Date.now();
+      remote.push(...rows.map(r=>{
+        const a=r.address||{};
+        return{
+          name:(r.namedetails||{}).name||r.name||(r.display_name||"Location").split(",")[0],
+          display_name:r.display_name||r.name||"Location",
+          lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",
+          category:r.category||r.class||"place",type:r.type||"location"
+        };
+      }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)));
+    }catch(error){
+      if(!local.length&&i===queries.length-1)throw error;
+    }
+  }
+  const cleanRemote=dedupeLocations(remote).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q));
+  setCache(key,cleanRemote);
+  return dedupeLocations([...local,...cleanRemote])
+    .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
+    .slice(0,10);
 }
 async function reversePlace(lat,lon){
   try{const p=new URLSearchParams({lat:String(lat),lon:String(lon),format:"jsonv2",addressdetails:"1"}),r=await json("https://nominatim.openstreetmap.org/reverse?"+p),a=r.address||{};return{name:r.name||(r.display_name||"Current location").split(",")[0],display_name:r.display_name||"Current location",lat,lon,state:a.state||"",category:r.category||"place",type:r.type||"location"};}
@@ -731,8 +955,15 @@ $("searchForm").addEventListener("submit",async e=>{
   $("results").innerHTML="";status('<span class="pulse"></span> Searching U.S. waters and locations…');
   try{
     const rows=await searchPlaces(q);clearStatus();
-    if(!rows.length){status("No matching U.S. location was found. Add the state or a nearby town.",true);return;}
-    $("results").innerHTML=rows.map((r,i)=>`<button class="result ${isWaterResult(r)?"result-water":"result-place"}" data-index="${i}"><strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong><span>${esc(r.display_name)} · ${esc(r.type)}${isWaterResult(r)?" · water match":""}</span></button>`).join("");
+    if(!rows.length){
+      status(`No matching water was found for <strong>${esc(q)}</strong>. Try adding the state, nearest town, an alternate name, or coordinates.`,true);
+      return;
+    }
+    $("results").innerHTML=rows.map((r,i)=>`<button class="result ${r.local_directory?"local-result":isWaterResult(r)?"result-water":"result-place"}" data-index="${i}">
+      <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
+      <span>${esc(r.display_name)} · ${esc(r.type)}</span>
+      <span class="result-badges">${r.local_directory?'<span class="result-badge">Built-in local match</span>':""}${isWaterResult(r)?'<span class="result-badge">Water match</span>':""}${r.coordinate_query?'<span class="result-badge">Coordinates</span>':""}</span>
+    </button>`).join("");
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
   }catch{status("Location search could not connect. Check your connection and try again.",true);}
 });
@@ -793,7 +1024,7 @@ function renderReport(r){
         ${(catchReport.catches||[]).length?`<div class="catch-grid">${catchReport.catches.map(x=>`<div class="catch-item"><span>${esc(x.species)}</span><b>${esc(x.metric)}</b><span>${esc(x.detail||"")}</span></div>`).join("")}</div>`:""}
         ${(catchReport.conditions||[]).length?`<div class="species-section"><h4>Agency notes</h4>${list(catchReport.conditions)}</div>`:""}
         <div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">${esc(catchReport.report_type)} · Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the full official report ↗</a></div></div>`
-      :`<div class="no-catch-report"><div class="eyebrow">Actual recent catch report</div><h3>No dated catch report matched this location</h3><p>The generator found no recent agency catch, harvest or creel report for this exact water. It will not invent one from the weather or species list.</p>${g?`<div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Check the state’s official fishing reports ↗</a></div>`:""}</div>`
+      :`<div class="no-catch-report"><div class="eyebrow">Actual recent catch report</div><h3>No dated catch report matched this location</h3><p>The generator found no recent agency catch, harvest or creel report for this exact water. Species, stocking history, bait suggestions, weather and map information can still be useful, but the app will not invent a recent catch report.</p>${g?`<div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Check the state’s official fishing reports ↗</a></div>`:""}</div>`
   }</article>`);
   cards.push(`<article class="card full species-summary-card">
     <div class="eyebrow">Fish species</div>
@@ -882,6 +1113,22 @@ function reportText(r){
 }
 $("favoriteLocation").addEventListener("click",toggleFavorite);
 $("clearRecent").addEventListener("click",()=>{writeStore(RECENTS_KEY,[]);renderSaved();});
+
+document.querySelectorAll("[data-quick-water]").forEach(button=>button.addEventListener("click",()=>{
+  $("locationInput").value=button.dataset.quickWater;
+  $("searchForm").requestSubmit();
+}));
+(function renderSourceStamp(){
+  const monitor=monitorStatus(),stamp=$("sourceStamp");
+  if(!stamp)return;
+  if(monitor.last_run){
+    stamp.textContent=`Official sources checked ${ageLabel(monitor.last_run)}`;
+    stamp.classList.toggle("warn",Boolean(monitor.review_required||monitor.unreachable_sources));
+  }else{
+    stamp.textContent="Automatic source monitor waiting for first run";
+    stamp.classList.add("warn");
+  }
+})();
 $("copySummary").addEventListener("click",async()=>{
   if(!state.report)return;const text=reportText(state.report);
   try{await navigator.clipboard.writeText(text);$("copySummary").textContent="Report copied";setTimeout(()=>$("copySummary").textContent="Copy report text",1800);}catch{prompt("Copy this report:",text);}
