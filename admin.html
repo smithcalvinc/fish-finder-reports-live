@@ -9,12 +9,15 @@
 <title>Report Approval Dashboard | Fish Finder Outdoors</title>
 <style>
 :root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.edit-grid .full{grid-column:1/-1}.edit-grid label{font-size:12px;font-weight:850}.decision-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.water-note{border-radius:12px;padding:11px;background:#eef5f1;border:1px solid #cbded4}@media(max-width:700px){.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="brand-shell.css">
 <script src="site_config.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
+<script src="official_state_sources.js"></script>
+<script src="official_water_overrides.js"></script>
+<script src="regional_water_search.js"></script>
 <script src="update_status.js"></script>
 </head>
 <body>
@@ -41,16 +44,16 @@
 </header>
 <div class="ffo-beta-bar">PRIVATE TOOL • Fish Finder Outdoors report management</div>
 
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img src="ffo-logo-main.png" alt="" aria-hidden="true">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review official sources and turn emailed angler submissions into one website-ready community report file.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img src="ffo-logo-main.png" alt="" aria-hidden="true">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
 <section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
 <section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>
 <section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
-<section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button id="parseEmail" class="secondary">Parse emailed report</button><button id="clearImport" class="secondary">Clear</button></div></div><div id="importPreview" class="preview-box"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button id="approveDownload" class="primary hidden">Approve and download community_fishing_reports.js</button><a id="communityGithubLink" class="button secondary hidden" target="_blank" rel="noopener">Open report file in GitHub</a></div><p id="communityCount" class="meta"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
+<section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button id="parseEmail" class="secondary">Parse emailed report</button><button id="clearImport" class="secondary">Clear</button></div></div><div id="importPreview" class="preview-box"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button id="approveDownload" class="primary hidden">Approve and download community_fishing_reports.js</button><a id="communityGithubLink" class="button secondary hidden" target="_blank" rel="noopener">Open report file in GitHub</a></div><p id="communityCount" class="meta"></p></section><section class="panel"><h2>Approve a missing-water or access correction</h2><p class="meta">Paste the complete correction email. You can resolve coordinates, edit the reviewed record, then download one replacement <code>official_water_overrides.js</code> file. Public additions require coordinates. Private or closed-water blocks only require the correct name and state.</p><div class="import-grid"><div><label for="waterEmailPaste"><strong>Paste the correction email</strong></label><textarea id="waterEmailPaste" placeholder="Paste the message containing FFO_WATER_CORRECTION_BEGIN and FFO_WATER_CORRECTION_END"></textarea><div class="actions" style="margin-top:10px"><button id="parseWaterEmail" class="secondary">Parse water correction</button><button id="resolveWater" class="secondary hidden">Find coordinates automatically</button><button id="clearWaterImport" class="secondary">Clear</button></div></div><div id="waterImportPreview" class="preview-box"><p class="meta">The editable correction preview will appear here. Private contact information is never included in the downloaded public file.</p></div></div><div class="decision-row"><button id="approvePublicWater" class="primary hidden">Approve public water and download official_water_overrides.js</button><button id="approveHiddenWater" class="secondary hidden">Hide private/closed water and download file</button><a id="waterGithubLink" class="button secondary hidden" target="_blank" rel="noopener">Open correction file in GitHub</a></div><p id="waterOverrideCount" class="meta"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
-const cfg=window.FFO_SITE_CONFIG||{},data=window.FFO_RECENT_REPORTS||{reports:[]},communityData=window.FFO_COMMUNITY_REPORTS||{reports:[]},status=window.FFO_UPDATE_STATUS||{};
+const cfg=window.FFO_SITE_CONFIG||{},data=window.FFO_RECENT_REPORTS||{reports:[]},communityData=window.FFO_COMMUNITY_REPORTS||{reports:[]},waterOverrideData=window.FFO_WATER_OVERRIDES||{records:[]},status=window.FFO_UPDATE_STATUS||{};
 const reports=data.reports||[];
 function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
 function fmtDate(v){if(!v)return"—";const d=new Date(v);return isNaN(d)?v:d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
@@ -84,12 +87,173 @@ $("parseEmail").addEventListener("click",()=>{try{parsedEmailReport=parseEmailed
 $("clearImport").addEventListener("click",()=>{$("emailPaste").value="";parsedEmailReport=null;$("importPreview").innerHTML='<p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p>';$("approveDownload").classList.add("hidden");});
 $("approveDownload").addEventListener("click",()=>{if(!parsedEmailReport)return;const report=publicCommunityReport(parsedEmailReport);workingCommunityReports=workingCommunityReports.filter(row=>row.submission_id!==report.submission_id);workingCommunityReports.unshift(report);downloadText("community_fishing_reports.js",communityFileText());$("importPreview").innerHTML=`<div class="success"><strong>Approved.</strong><p>The updated community report file was downloaded. Replace only <code>community_fishing_reports.js</code> in the root of GitHub and commit it to main.</p></div>`;$("approveDownload").classList.add("hidden");parsedEmailReport=null;renderCommunityCount();});renderCommunityCount();
 
+
+let parsedWaterCorrection=null;
+let workingWaterOverrides=JSON.parse(JSON.stringify(waterOverrideData.records||[]));
+
+function parseWaterCorrection(raw){
+  const text=String(raw||"");
+  const match=text.match(/FFO_WATER_CORRECTION_BEGIN([\s\S]*?)FFO_WATER_CORRECTION_END/i);
+  if(!match)throw new Error("The water-correction markers were not found. Copy the complete email body.");
+  const values={};
+  match[1].split(/\r?\n/).forEach(line=>{
+    const split=line.indexOf(":");if(split<1)return;
+    values[line.slice(0,split).trim().toUpperCase()]=line.slice(split+1).trim();
+  });
+  const required=["CORRECTION_ID","ISSUE","WATERBODY","STATE","NEAREST_TOWN","DETAILS"];
+  const missing=required.filter(key=>!values[key]);
+  if(missing.length)throw new Error("Missing correction fields: "+missing.join(", "));
+  if(values.ACCURACY_ATTESTATION!=="YES")throw new Error("The submitter did not confirm accuracy.");
+  return{
+    correction_id:cleanLine(values.CORRECTION_ID),
+    submitted_at:cleanLine(values.SUBMITTED_AT),
+    issue:cleanLine(values.ISSUE),
+    waterbody:cleanLine(values.WATERBODY),
+    state:cleanLine(values.STATE),
+    nearest_town:cleanLine(values.NEAREST_TOWN),
+    water_type:cleanLine(values.WATER_TYPE||"lake").toLowerCase(),
+    correct_access:cleanLine(values.CORRECT_ACCESS||"unknown").toLowerCase(),
+    latitude:cleanLine(values.LATITUDE),
+    longitude:cleanLine(values.LONGITUDE),
+    official_url:cleanLine(values.OFFICIAL_URL),
+    details:cleanLine(values.DETAILS),
+    submitted_by:cleanLine(values.SUBMITTED_BY),
+    private_contact:cleanLine(values.PRIVATE_CONTACT)
+  };
+}
+
+function waterEditValues(){
+  return{
+    name:cleanLine($("waterEditName")?.value||""),
+    state:cleanLine($("waterEditState")?.value||""),
+    nearest_town:cleanLine($("waterEditTown")?.value||""),
+    type:cleanLine($("waterEditType")?.value||"lake").toLowerCase(),
+    lat:Number($("waterEditLat")?.value),
+    lon:Number($("waterEditLon")?.value),
+    official_url:cleanLine($("waterEditUrl")?.value||""),
+    public_access_note:cleanLine($("waterEditNote")?.value||""),
+    access_status:cleanLine($("waterEditAccess")?.value||"unknown")
+  };
+}
+
+function renderWaterPreview(packet,error){
+  const box=$("waterImportPreview");
+  if(error){
+    box.innerHTML=`<div class="private"><strong>Could not read this correction.</strong><p>${esc(error)}</p></div>`;
+    $("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");return;
+  }
+  const source=window.FFO_STATE_SOURCES?.byState?.(packet.state);
+  box.innerHTML=`<h3>${esc(packet.waterbody)} · ${esc(packet.state)}</h3><div class="water-note"><strong>Submitted issue:</strong> ${esc(packet.issue)}<br>${esc(packet.details)}</div><div class="edit-grid" style="margin-top:12px">
+  <label>Water name<input id="waterEditName" value="${esc(packet.waterbody)}"></label>
+  <label>State<input id="waterEditState" value="${esc(packet.state)}"></label>
+  <label>Nearest town<input id="waterEditTown" value="${esc(packet.nearest_town)}"></label>
+  <label>Water type<input id="waterEditType" value="${esc(packet.water_type)}"></label>
+  <label>Latitude<input id="waterEditLat" inputmode="decimal" value="${esc(packet.latitude)}"></label>
+  <label>Longitude<input id="waterEditLon" inputmode="decimal" value="${esc(packet.longitude)}"></label>
+  <label class="full">Official / managing-agency URL<input id="waterEditUrl" value="${esc(packet.official_url||source?.directory_url||"")}"></label>
+  <label>Access status<select id="waterEditAccess"><option value="open">Public/open</option><option value="restricted">Public with conditions</option><option value="unknown">Access must be verified</option><option value="private">Private</option><option value="closed">Closed</option></select></label>
+  <label class="full">Public access note<textarea id="waterEditNote" style="min-height:100px">${esc(packet.details)}</textarea></label>
+  </div><div class="private"><strong>Private submitter contact</strong><br>${esc(packet.private_contact||"Not provided")}<br><span class="meta">Excluded from the public file.</span></div>`;
+  $("waterEditAccess").value=["private-water-shown","closed-water-shown"].includes(packet.issue)?(packet.issue.startsWith("private")?"private":"closed"):(packet.correct_access==="conditional"?"restricted":packet.correct_access);
+  $("approvePublicWater").classList.remove("hidden");
+  $("approveHiddenWater").classList.remove("hidden");
+  $("resolveWater").classList.remove("hidden");
+}
+
+function normalizeWater(value){return cleanLine(value).toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();}
+function waterOverrideKey(row){return`${normalizeWater(row.name)}|${normalizeWater(row.state)}`;}
+
+async function resolveCorrectionCoordinates(){
+  if(!parsedWaterCorrection)return;
+  const values=waterEditValues();
+  $("resolveWater").disabled=true;$("resolveWater").textContent="Searching official names…";
+  try{
+    const query=`${values.name}, ${values.state}`;
+    const rows=await window.FFO_REGION_SEARCH.search(query);
+    const exact=rows.find(row=>normalizeWater(row.name)===normalizeWater(values.name))||rows[0];
+    if(!exact)throw new Error("No official geographic-name match was found.");
+    $("waterEditName").value=exact.name;
+    $("waterEditLat").value=Number(exact.lat).toFixed(6);
+    $("waterEditLon").value=Number(exact.lon).toFixed(6);
+    if(!$("waterEditType").value)$("waterEditType").value=exact.type||"water";
+    if(!$("waterEditState").value)$("waterEditState").value=exact.state||values.state;
+    $("waterEditNote").value=cleanLine($("waterEditNote").value+` Official geographic-name match resolved at ${Number(exact.lat).toFixed(5)}, ${Number(exact.lon).toFixed(5)}.`);
+  }catch(error){alert(error.message||"Coordinates could not be resolved.");}
+  finally{$("resolveWater").disabled=false;$("resolveWater").textContent="Find coordinates automatically";}
+}
+
+function publicWaterOverride(){
+  const values=waterEditValues();
+  if(!values.name||!values.state)throw new Error("Water name and state are required.");
+  if(!Number.isFinite(values.lat)||!Number.isFinite(values.lon))throw new Error("A public water needs valid latitude and longitude. Use Find coordinates automatically or enter them.");
+  const source=window.FFO_STATE_SOURCES?.byState?.(values.state);
+  return{
+    correction_id:parsedWaterCorrection.correction_id,
+    approved_at:new Date().toISOString(),
+    name:values.name,
+    aliases:[values.name],
+    display_name:`${values.name}${values.nearest_town?`, near ${values.nearest_town}`:""}, ${values.state}`,
+    lat:values.lat,lon:values.lon,state:values.state,
+    category:"water",type:values.type||"water",
+    nearby_towns:values.nearest_town?[normalizeWater(values.nearest_town),normalizeWater(`${values.nearest_town} ${values.state}`)]:[],
+    nearby_town_label:values.nearest_town,
+    official_url:values.official_url||source?.directory_url||"",
+    public_access_verified:values.access_status==="open"||values.access_status==="restricted",
+    access_status:["open","restricted"].includes(values.access_status)?values.access_status:"unknown",
+    public_access_note:values.public_access_note||"Approved directory correction. Verify current access before traveling.",
+    public_access_source:source?.agency||"Manually reviewed directory correction",
+    visibility:"public",
+    approved_override:true
+  };
+}
+
+function hiddenWaterOverride(){
+  const values=waterEditValues();
+  if(!values.name||!values.state)throw new Error("Water name and state are required.");
+  return{
+    correction_id:parsedWaterCorrection.correction_id,
+    approved_at:new Date().toISOString(),
+    name:values.name,state:values.state,
+    category:"water",type:values.type||"water",
+    access_status:values.access_status==="closed"?"closed":"private",
+    visibility:"hidden",
+    public_access_note:values.public_access_note||"Known private or closed water removed from public search results.",
+    official_url:values.official_url||""
+  };
+}
+
+function waterOverrideFileText(){
+  const today=new Date().toISOString().slice(0,10);
+  const file={version:`${today}-approved-corrections`,updated_at:today,coverage_note:"Manually reviewed missing-water additions and private/closed-water corrections.",records:workingWaterOverrides};
+  return "/* Approved Fish Finder Outdoors water-directory corrections. */\nwindow.FFO_WATER_OVERRIDES = "+JSON.stringify(file,null,2)+";\n";
+}
+function renderWaterOverrideCount(){
+  const visible=workingWaterOverrides.filter(row=>row.visibility!=="hidden").length;
+  const hidden=workingWaterOverrides.filter(row=>row.visibility==="hidden").length;
+  $("waterOverrideCount").textContent=`Correction file: ${visible} public addition${visible===1?"":"s"} · ${hidden} hidden private/closed record${hidden===1?"":"s"}.`;
+}
+function saveWaterOverride(record){
+  workingWaterOverrides=workingWaterOverrides.filter(row=>waterOverrideKey(row)!==waterOverrideKey(record));
+  workingWaterOverrides.unshift(record);
+  downloadText("official_water_overrides.js",waterOverrideFileText());
+  $("waterImportPreview").innerHTML=`<div class="success"><strong>Correction approved.</strong><p>Replace only <code>official_water_overrides.js</code> in the GitHub root and commit it to main.</p></div>`;
+  parsedWaterCorrection=null;
+  $("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");
+  renderWaterOverrideCount();
+}
+$("parseWaterEmail").addEventListener("click",()=>{try{parsedWaterCorrection=parseWaterCorrection($("waterEmailPaste").value);renderWaterPreview(parsedWaterCorrection);}catch(error){parsedWaterCorrection=null;renderWaterPreview(null,error.message);}});
+$("resolveWater").addEventListener("click",resolveCorrectionCoordinates);
+$("clearWaterImport").addEventListener("click",()=>{$("waterEmailPaste").value="";parsedWaterCorrection=null;$("waterImportPreview").innerHTML='<p class="meta">The editable correction preview will appear here.</p>';$("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");});
+$("approvePublicWater").addEventListener("click",()=>{try{saveWaterOverride(publicWaterOverride());}catch(error){alert(error.message);}});
+$("approveHiddenWater").addEventListener("click",()=>{try{saveWaterOverride(hiddenWaterOverride());}catch(error){alert(error.message);}});
+renderWaterOverrideCount();
+
 function localRows(){try{return JSON.parse(localStorage.getItem("ffo:pending-submissions")||"[]");}catch{return[];}}
 function saveRows(rows){localStorage.setItem("ffo:pending-submissions",JSON.stringify(rows));renderSubmissions();}
 function renderSubmissions(){const rows=localRows();$("submissions").innerHTML=rows.length?rows.map((r,i)=>`<div class="submission"><h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3><div class="meta">${esc(r.fishing_date)} · ${esc(r.bait_or_lure)} · ${esc(r.status||"pending")}</div><p>${esc(r.notes||"No notes")}</p><div class="actions"><button class="secondary" data-action="approve" data-i="${i}">Mark approved locally</button><button class="secondary" data-action="reject" data-i="${i}">Reject locally</button><button class="secondary" data-action="remove" data-i="${i}">Remove</button></div></div>`).join(""):'<p class="meta">No local submissions in this browser.</p>';document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const rows=localRows(),i=Number(b.dataset.i);if(b.dataset.action==="remove")rows.splice(i,1);else rows[i].status=b.dataset.action==="approve"?"approved-local":"rejected-local";saveRows(rows);}));}
 renderSubmissions();
 $("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
-if(cfg.github_repository_url){const base=cfg.github_repository_url.replace(/\/$/,"");const a=$("actionsLink");a.href=base+"/actions";a.classList.remove("hidden");const communityLink=$("communityGithubLink");communityLink.href=base+"/blob/main/community_fishing_reports.js";communityLink.classList.remove("hidden");}
+if(cfg.github_repository_url){const base=cfg.github_repository_url.replace(/\/$/,"");const a=$("actionsLink");a.href=base+"/actions";a.classList.remove("hidden");const communityLink=$("communityGithubLink");communityLink.href=base+"/blob/main/community_fishing_reports.js";communityLink.classList.remove("hidden");const waterLink=$("waterGithubLink");waterLink.href=base+"/blob/main/official_water_overrides.js";waterLink.classList.remove("hidden");}
 </script>
 <script src="brand-shell.js"></script>
 </body>

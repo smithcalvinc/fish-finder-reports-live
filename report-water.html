@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Report a missing fishing water, private water, incorrect name or access problem to Fish Finder Outdoors.">
+<title>Report Missing Water or Access Problem | Fish Finder Outdoors</title>
+<style>
+:root{--primary:#1F4D3A;--primary-dark:#143326;--accent:#D95D39;--sand:#F6F2E8;--ink:#1B1E21;--muted:#586069;--line:rgba(0,0,0,.10);--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--sand);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.55}.wrap{width:min(980px,calc(100% - 28px));margin:auto}.page-head{padding:48px 0 18px}h1,h2{font-family:Bitter,Georgia,serif}h1{font-size:clamp(36px,7vw,62px);line-height:1.02;margin:16px 0 12px}.lede{font-size:18px;color:var(--muted);max-width:760px}.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 12px 32px rgba(31,77,58,.07)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.full{grid-column:1/-1}label{display:block;font-weight:800;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid #c9cec9;border-radius:12px;padding:12px;background:#fff;font:inherit}textarea{min-height:130px;resize:vertical}.meta{font-size:13px;color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}button,.button{border:0;border-radius:12px;padding:11px 14px;font-weight:850;cursor:pointer;text-decoration:none}.primary{background:var(--primary);color:#fff}.secondary{background:#e7ede9;color:var(--primary)}.warning{border-left:5px solid var(--accent);background:#fff7f3}.status{padding:12px 14px;border-radius:12px;background:#e7f0eb;margin-top:12px}.hidden{display:none}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.step{border:1px solid var(--line);border-radius:14px;padding:13px}.step b{display:block;color:var(--primary)}pre{white-space:pre-wrap;word-break:break-word;border:1px solid var(--line);border-radius:13px;background:#f8f8f5;padding:14px;font-size:12px}@media(max-width:720px){.grid,.steps{grid-template-columns:1fr}.full{grid-column:auto}}
+</style>
+<link rel="stylesheet" href="brand-shell.css">
+<script src="site_config.js"></script>
+<script src="official_state_sources.js"></script>
+</head>
+<body>
+<header class="ffo-site-header">
+  <div class="ffo-header-inner">
+    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
+      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo">
+      <span class="ffo-wordmark">Fish Finder Outdoors</span>
+    </a>
+    <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
+      <a href="https://fishfinderoutdoors.com">Home</a>
+      <a href="index.html">Fishing Reports</a>
+      <a href="official-sources.html">Official Sources</a>
+      <a href="submit-report.html">Submit Catch</a>
+      <a class="active ffo-nav-cta" href="report-water.html">Report Missing Water</a>
+    </nav>
+  </div>
+</header>
+<div class="ffo-beta-bar">BETA CORRECTIONS • Every submission is reviewed before changing search results</div>
+
+<header class="page-head"><div class="wrap">
+<div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)">Directory correction</div>
+<h1>Missing water or wrong access?</h1>
+<p class="lede">Tell us when a public fishing water is missing, a private water appears, a name is wrong, or access has changed. Your email opens with a structured correction for review.</p>
+<a class="button secondary" href="index.html">← Back to fishing search</a>
+</div></header>
+
+<main class="wrap">
+<section class="panel">
+<div class="steps">
+<div class="step"><b>1. Describe the problem</b><span class="meta">Name the water, state and nearest town.</span></div>
+<div class="step"><b>2. Add proof when possible</b><span class="meta">Official agency, city, county or managing-agency links are best.</span></div>
+<div class="step"><b>3. We review it</b><span class="meta">Nothing changes publicly until it is approved.</span></div>
+</div>
+</section>
+
+<section class="panel warning"><strong>Do not use this form to expose private fishing spots.</strong> It is for recognized fishing waters, public access corrections, and removing private or closed waters from search results.</section>
+
+<form id="correctionForm" class="panel">
+<div class="grid">
+<div><label for="issue">What is wrong? *</label><select id="issue" required>
+<option value="missing-public-water">Public fishing water is missing</option>
+<option value="private-water-shown">Private water is shown</option>
+<option value="closed-water-shown">Closed water is shown</option>
+<option value="wrong-access">Access information is wrong</option>
+<option value="wrong-name">Water name is wrong</option>
+<option value="wrong-location">Map location is wrong</option>
+<option value="other">Other directory problem</option>
+</select></div>
+<div><label for="water">Waterbody name *</label><input id="water" required maxlength="120" placeholder="Lake, reservoir, pond, river or stream"></div>
+<div><label for="state">State *</label><select id="state" required>
+<option>Idaho</option><option>Montana</option><option>Wyoming</option><option>Utah</option><option>Nevada</option><option>Oregon</option><option>Washington</option><option>California</option><option>Colorado</option>
+</select></div>
+<div><label for="town">Nearest town or county *</label><input id="town" required maxlength="120" placeholder="Napa, California"></div>
+<div><label for="type">Water type</label><select id="type"><option>lake</option><option>reservoir</option><option>pond</option><option>river</option><option>stream</option><option>canal</option><option>bay</option><option>other</option></select></div>
+<div><label for="access">Correct access status</label><select id="access"><option value="public">Public fishing access</option><option value="conditional">Public with fees, permits or restrictions</option><option value="private">Private — remove it</option><option value="closed">Closed — remove it</option><option value="unknown">Unsure</option></select></div>
+<div><label for="latitude">Latitude, when known</label><input id="latitude" inputmode="decimal" placeholder="38.2975"></div>
+<div><label for="longitude">Longitude, when known</label><input id="longitude" inputmode="decimal" placeholder="-122.2869"></div>
+<div class="full"><label for="source">Official or managing-agency link</label><input id="source" type="url" maxlength="500" placeholder="https://..."></div>
+<div class="full"><label for="details">What should we know? *</label><textarea id="details" required maxlength="1200" placeholder="Explain the public access, private restriction, correct name, launch location, seasonal closure, or other useful detail."></textarea></div>
+<div><label for="name">Your name or fishing handle</label><input id="name" maxlength="80"></div>
+<div><label for="contact">Private contact for follow-up</label><input id="contact" maxlength="160" placeholder="Email or social handle"></div>
+<div class="full"><label><input id="truth" type="checkbox" required style="width:auto"> I believe this correction is accurate and understand it will be reviewed before publication.</label></div>
+</div>
+<div class="actions">
+<button class="primary" type="submit">Email correction to Mountain Dog Enterprises</button>
+<button class="secondary" id="copy" type="button">Copy correction text</button>
+<button class="secondary" id="locate" type="button">Use my current coordinates</button>
+</div>
+<div id="status" class="status hidden"></div>
+</form>
+
+<section class="panel"><h2>Email preview</h2><pre id="preview">Complete the form to create the correction email.</pre><p class="meta">Latitude and longitude are optional for the visitor. The admin tool can try to resolve an official water name before approval.</p></section>
+</main>
+
+<footer class="ffo-site-footer">
+  <div class="ffo-footer-grid">
+    <div><a class="ffo-footer-brand" href="https://fishfinderoutdoors.com"><img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo"><span><strong style="font-size:22px">Fish Finder Outdoors</strong><br><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span></a></div>
+    <div><div class="ffo-footer-title">Directory</div><div class="ffo-footer-links"><a href="index.html">Fishing Search</a><a href="official-sources.html">Official State Sources</a><a href="report-water.html">Report Missing Water</a></div></div>
+    <div><div class="ffo-footer-title">Community</div><div class="ffo-footer-links"><a href="submit-report.html">Submit a Catch Report</a><a href="mailto:mountain.dog.enterprises@gmail.com">Contact</a></div></div>
+  </div>
+  <div class="ffo-footer-fine"><span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span><span>Always verify posted access and current regulations.</span></div>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const cfg=window.FFO_SITE_CONFIG||{};
+const RECIPIENT=cfg.submission_email||"mountain.dog.enterprises@gmail.com";
+let current=null;
+function one(value){return String(value||"").replace(/[\r\n]+/g," ").replace(/\s+/g," ").trim();}
+function packet(){return{
+ id:"FFO-WATER-"+Date.now().toString(36).toUpperCase(),
+ submitted_at:new Date().toISOString(),
+ issue:$("issue").value,waterbody:$("water").value.trim(),state:$("state").value,
+ nearest_town:$("town").value.trim(),water_type:$("type").value,
+ correct_access:$("access").value,latitude:$("latitude").value.trim(),
+ longitude:$("longitude").value.trim(),official_url:$("source").value.trim(),
+ details:$("details").value.trim(),submitted_by:$("name").value.trim(),
+ private_contact:$("contact").value.trim(),attested:$("truth").checked
+};}
+function emailText(p){return[
+"FISH FINDER OUTDOORS — WATER DIRECTORY CORRECTION","",
+"Please verify this information before changing the public water directory.","",
+"FFO_WATER_CORRECTION_BEGIN",
+`CORRECTION_ID: ${one(p.id)}`,
+`SUBMITTED_AT: ${one(p.submitted_at)}`,
+`ISSUE: ${one(p.issue)}`,
+`WATERBODY: ${one(p.waterbody)}`,
+`STATE: ${one(p.state)}`,
+`NEAREST_TOWN: ${one(p.nearest_town)}`,
+`WATER_TYPE: ${one(p.water_type)}`,
+`CORRECT_ACCESS: ${one(p.correct_access)}`,
+`LATITUDE: ${one(p.latitude)}`,
+`LONGITUDE: ${one(p.longitude)}`,
+`OFFICIAL_URL: ${one(p.official_url)}`,
+`DETAILS: ${one(p.details)}`,
+`SUBMITTED_BY: ${one(p.submitted_by)}`,
+`PRIVATE_CONTACT: ${one(p.private_contact)}`,
+`ACCURACY_ATTESTATION: ${p.attested?"YES":"NO"}`,
+"FFO_WATER_CORRECTION_END","",
+"Private contact information must not be published."
+].join("\n");}
+function refresh(){current=packet();$("preview").textContent=emailText(current);}
+function show(message){const box=$("status");box.textContent=message;box.classList.remove("hidden");}
+document.querySelectorAll("input,select,textarea").forEach(el=>el.addEventListener("input",refresh));
+const params=new URLSearchParams(location.search);
+if(params.get("q"))$("water").value=params.get("q");
+if(params.get("state"))$("state").value=params.get("state");
+if(params.get("town"))$("town").value=params.get("town");
+refresh();
+$("correctionForm").addEventListener("submit",event=>{
+ event.preventDefault();current=packet();if(!current.attested)return;
+ const subject=`Water Directory Correction — ${current.waterbody}, ${current.state}`;
+ const body=emailText(current);
+ show("Your email application is opening. Press Send there to submit the correction.");
+ location.href=`mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+$("copy").addEventListener("click",async()=>{
+ current=packet();const body=emailText(current);
+ try{await navigator.clipboard.writeText(body);show(`Correction copied. Email it to ${RECIPIENT}.`);}
+ catch{prompt(`Copy this and email it to ${RECIPIENT}:`,body);}
+});
+$("locate").addEventListener("click",()=>{
+ if(!navigator.geolocation){show("This browser does not provide location access.");return;}
+ show("Getting coordinates…");
+ navigator.geolocation.getCurrentPosition(pos=>{
+   $("latitude").value=pos.coords.latitude.toFixed(6);
+   $("longitude").value=pos.coords.longitude.toFixed(6);
+   refresh();show("Coordinates added. Confirm they point to the water before sending.");
+ },()=>show("Location access was not available."),{enableHighAccuracy:true,timeout:10000});
+});
+</script>
+<script src="brand-shell.js"></script>
+</body>
+</html>

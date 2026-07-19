@@ -1,0 +1,33 @@
+FISH FINDER OUTDOORS — STATE-AGENCY-FIRST BUILD
+
+1. Unzip this package.
+2. Open the fish-finder-reports-live GitHub repository.
+3. Click Add file → Upload files.
+4. Select ALL files from the unzipped package.
+5. Replace existing files with the same names.
+6. Commit directly to main.
+
+NEW IMPORTANT FILES:
+official_state_sources.js
+official_water_overrides.js
+official-sources.html
+report-water.html
+
+WHAT CHANGES:
+- Official state fishing directories are shown with search results.
+- Missing waters no longer end with a misleading “no public fishing” claim.
+- Visitors can report missing waters and wrong/private access.
+- Admin can approve corrections into one replacement file.
+
+TESTS:
+Pocatello, Idaho
+Napa, California
+Boise, Idaho
+Missoula, Montana
+Reno, Nevada
+Spokane, Washington
+Bend, Oregon
+Fort Collins, Colorado
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml

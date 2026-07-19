@@ -37,8 +37,8 @@
   };
 
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
-  const CACHE_KEY_PREFIX = "ffo:public-only:v1:";
-  const ACCESS_CACHE_PREFIX = "ffo:padus-access:v1:";
+  const CACHE_KEY_PREFIX = "ffo:access-balanced:v2:";
+  const ACCESS_CACHE_PREFIX = "ffo:padus-access:v2:";
   const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
   const WATER_WORDS = /\b(lake|reservoir|res\.?|pond|river|creek|stream|canal|bay|channel|lagoon|inlet|harbor|harbour)\b/i;
@@ -170,11 +170,25 @@
     if(Number.isFinite(geometry.x) && Number.isFinite(geometry.y)){
       return {lon:Number(geometry.x), lat:Number(geometry.y)};
     }
-    if(Array.isArray(geometry.points) && geometry.points.length){
-      const point = geometry.points.find(row =>
-        Array.isArray(row) && Number.isFinite(Number(row[0])) && Number.isFinite(Number(row[1]))
+
+    const collections=[
+      geometry.points,
+      ...(Array.isArray(geometry.paths)?geometry.paths:[]),
+      ...(Array.isArray(geometry.rings)?geometry.rings:[])
+    ].filter(Array.isArray);
+
+    for(const collection of collections){
+      if(!collection.length)continue;
+      const candidates=Array.isArray(collection[0])&&Array.isArray(collection[0][0])
+        ?collection.flat()
+        :collection;
+      const valid=candidates.filter(row=>
+        Array.isArray(row)&&Number.isFinite(Number(row[0]))&&Number.isFinite(Number(row[1]))
       );
-      if(point) return {lon:Number(point[0]), lat:Number(point[1])};
+      if(valid.length){
+        const point=valid[Math.floor(valid.length/2)];
+        return{lon:Number(point[0]),lat:Number(point[1])};
+      }
     }
     return null;
   }
@@ -220,6 +234,19 @@
   function isWater(row){
     return WATER_TYPES.has(String(row?.type || "").toLowerCase()) ||
       String(row?.category || "").toLowerCase() === "water";
+  }
+
+  function overrideKey(row){
+    return `${normalize(row?.name)}|${normalize(row?.state)}`;
+  }
+
+  function blockedByApprovedCorrection(row){
+    const records=window.FFO_WATER_OVERRIDES?.records||[];
+    const key=overrideKey(row);
+    return records.some(item=>
+      (item.visibility==="hidden"||item.access_status==="private"||item.access_status==="closed")&&
+      overrideKey(item)===key
+    );
   }
 
   function mapFeature(feature, explicit){
@@ -285,10 +312,10 @@
     };
   }
 
-  async function queryNearbyHydroPoints(place,state,radiusMiles=45){
-    const box = bbox(place.lat,place.lon,radiusMiles);
-    const where = `${stateWhere(state)} AND isunknowncoords = 0`;
-    const params = new URLSearchParams({
+  async function queryNearbyLayer(layerId,place,state,radiusMiles=45){
+    const box=bbox(place.lat,place.lon,radiusMiles);
+    const where=`${stateWhere(state)} AND isunknowncoords = 0`;
+    const params=new URLSearchParams({
       where,
       geometry:`${box.xmin},${box.ymin},${box.xmax},${box.ymax}`,
       geometryType:"esriGeometryEnvelope",
@@ -297,21 +324,32 @@
       outFields:"gaz_name,gaz_featureclass,state_alpha,county_name,gaz_id,isunknowncoords",
       returnGeometry:"true",
       outSR:"4326",
-      resultRecordCount:"150",
+      resultRecordCount:layerId===4?"180":"120",
       f:"json"
     });
 
-    const body = await fetchJson(`${GNIS_ROOT}/4/query?${params}`);
-    return (body.features || [])
-      .map(feature => mapFeature(feature,state))
+    const body=await fetchJson(`${GNIS_ROOT}/${layerId}/query?${params}`);
+    return(body.features||[])
+      .map(feature=>mapFeature(feature,state))
       .filter(Boolean)
-      .map(row => ({
+      .map(row=>({
         ...row,
         town_search:true,
         nearby_town_label:place.label,
         distance_miles:distanceMiles(place.lat,place.lon,row.lat,row.lon)
-      }))
-      .sort((a,b) => a.distance_miles - b.distance_miles);
+      }));
+  }
+
+  async function queryNearbyHydroFeatures(place,state,radiusMiles=45){
+    const settled=await Promise.allSettled([
+      queryNearbyLayer(4,place,state,radiusMiles),
+      queryNearbyLayer(3,place,state,radiusMiles)
+    ]);
+    const rows=[];
+    for(const result of settled){
+      if(result.status==="fulfilled")rows.push(...result.value);
+    }
+    return dedupe(rows).sort((a,b)=>a.distance_miles-b.distance_miles);
   }
 
   async function geocodeTown(query,explicit){
@@ -354,9 +392,15 @@
       row?.extratags?.operator,row?.extratags?.owner
     ].map(value=>normalize(value)).filter(Boolean);
 
-    return values.some(value =>
-      /\b(private|no|customers|permit only|members|residents only)\b/.test(value)
-    );
+    if(values.some(value=>
+      /\b(private|no access|members only|residents only|customers only|employee only)\b/.test(value)
+    ))return true;
+
+    const name=normalize(row?.name);
+    const display=normalize(row?.display_name);
+    const combined=`${name} ${display}`;
+
+    return /\b(private|country club|golf course|homeowners|homeowner association|hoa|members club|private club|residential subdivision|wastewater|sewage|tailings|industrial pond)\b/.test(combined);
   }
 
   function explicitPublicSignal(row){
@@ -422,12 +466,24 @@
 
   async function verifyPublicAccess(row){
     if(!row||!isWater(row))return null;
-    if(row.public_access_verified)return row;
+
+    if(row.public_access_verified){
+      return{
+        ...row,
+        access_status:"open",
+        public_access_verified:true,
+        public_access_note:row.public_access_note||
+          "Public fishing access is documented by the listed state or managing agency.",
+        public_access_method:row.public_access_method||"agency-verified"
+      };
+    }
+
     if(privateSignal(row))return null;
 
     if(explicitPublicSignal(row)){
       return{
         ...row,
+        access_status:"open",
         public_access_verified:true,
         public_access_note:"Public access is explicitly identified in the map record.",
         public_access_source:"Public map access record",
@@ -436,38 +492,70 @@
     }
 
     const access=await padUsAccess(row);
-    if(!access||access.status!=="open")return null;
 
-    const details=[
-      access.boundary,
-      access.manager
-    ].filter(Boolean).join(" · ");
+    if(access?.status==="closed")return null;
+
+    if(access?.status==="open"){
+      const details=[access.boundary,access.manager].filter(Boolean).join(" · ");
+      return{
+        ...row,
+        access_status:"open",
+        public_access_verified:true,
+        public_access_note:details
+          ?`Open public land or recreation access is documented here: ${details}.`
+          :"Open public land or recreation access is documented here.",
+        public_access_source:"USGS PAD-US Public Access",
+        public_access_source_url:
+          "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
+        public_access_method:"pad-us-open"
+      };
+    }
+
+    if(access?.status==="restricted"){
+      return{
+        ...row,
+        access_status:"restricted",
+        public_access_verified:true,
+        public_access_note:
+          "This is public or managed recreation land, but access may require a permit, fee, registration, seasonal opening, or designated access point. Verify before traveling.",
+        public_access_source:"USGS PAD-US Public Access",
+        public_access_source_url:
+          "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
+        public_access_method:"pad-us-restricted"
+      };
+    }
 
     return{
       ...row,
-      public_access_verified:true,
-      public_access_note:details
-        ?`Open public access verified through USGS PAD-US: ${details}.`
-        :"Open public access verified through USGS PAD-US.",
-      public_access_source:"USGS PAD-US Public Access",
-      public_access_source_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-      public_access_method:"pad-us-open"
+      access_status:"unknown",
+      public_access_verified:false,
+      access_check_required:true,
+      public_access_note:
+        "No private or closed-access evidence was found, but public shoreline or launch access was not confirmed by the available national data. Check the state fishing map before traveling.",
+      public_access_source:"Access not confirmed",
+      public_access_method:"no-private-evidence"
     };
   }
 
   async function filterPublic(rows,maxResults=18){
-    const input=dedupe((rows||[]).filter(isWater)).slice(0,45);
+    const input=dedupe((rows||[]).filter(isWater).filter(row=>!blockedByApprovedCorrection(row))).slice(0,60);
     const output=[];
 
-    for(let start=0;start<input.length;start+=5){
-      const batch=input.slice(start,start+5);
+    for(let start=0;start<input.length;start+=6){
+      const batch=input.slice(start,start+6);
       const settled=await Promise.allSettled(batch.map(verifyPublicAccess));
       for(const result of settled){
         if(result.status==="fulfilled"&&result.value)output.push(result.value);
       }
-      if(output.length>=maxResults)break;
+      if(output.length>=maxResults*2)break;
     }
-    return dedupe(output).slice(0,maxResults);
+
+    return dedupe(output)
+      .sort((a,b)=>{
+        const rank={open:3,restricted:2,unknown:1};
+        return(rank[b.access_status]||0)-(rank[a.access_status]||0);
+      })
+      .slice(0,maxResults);
   }
 
   function score(row,query,state){
@@ -484,9 +572,13 @@
     }
 
     if(state&&row.state===state.name)points+=100;
-    if(row.public_access_verified)points+=350;
+    if(row.access_status==="open")points+=360;
+    else if(row.access_status==="restricted")points+=220;
+    else if(row.access_status==="unknown")points+=50;
+    if(row.public_access_verified)points+=80;
     if(row.gnis_official)points+=120;
-    if(Number.isFinite(row.distance_miles))points+=Math.max(0,120-row.distance_miles*2);
+    if(row.type==="river"||row.type==="stream")points+=35;
+    if(Number.isFinite(row.distance_miles))points+=Math.max(0,150-row.distance_miles*2.5);
 
     return points;
   }
@@ -541,7 +633,7 @@
     if(!place)return[];
 
     let candidates;
-    try{candidates=await queryNearbyHydroPoints(place,place.state,50);}catch{return[];}
+    try{candidates=await queryNearbyHydroFeatures(place,place.state,55);}catch{return[];}
 
     const publicRows=await filterPublic(candidates,18);
     return publicRows
@@ -556,10 +648,15 @@
 
   function officialFinder(query){
     const state=explicitState(query);
-    return state?{
-      state:state.name,
-      url:OFFICIAL_FINDERS[state.name]
-    }:null;
+    const source=state
+      ?window.FFO_STATE_SOURCES?.byState?.(state.name)
+      :window.FFO_STATE_SOURCES?.detect?.(query,[]);
+    if(source)return{
+      state:source.state,
+      agency:source.agency,
+      url:window.FFO_STATE_SOURCES.searchUrl(source,query)
+    };
+    return state?{state:state.name,url:OFFICIAL_FINDERS[state.name]}:null;
   }
 
   async function search(query){
@@ -590,9 +687,10 @@
     verifyPublicAccess,
     officialFinder,
     states:REGION_STATES.map(state=>state.name),
-    public_only:true,
-    service_name:"USGS GNIS + USGS PAD-US Public Access",
+    public_only:false,
+    private_water_filter:true,
+    service_name:"USGS GNIS names + PAD-US access screening",
     service_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-    refreshed_label:"Public-only regional water search"
+    refreshed_label:"Official state sources + approved directory corrections"
   };
 })();

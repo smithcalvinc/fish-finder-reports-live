@@ -1,39 +1,44 @@
-# Fish Finder Outdoors — Regional Public-Only Search
+# Fish Finder Outdoors — State-Agency-First Directory Build
 
-This build applies one access rule across the full coverage region:
+This is the proper regional beta architecture.
 
-**No water appears in normal search results unless open public access is verified.**
+## Search hierarchy
 
-## Coverage
+1. Approved state-agency and local verified records
+2. Approved missing-water corrections
+3. Official USGS geographic water names
+4. Map fallback records with access warnings
+5. Direct link to the correct official state fishing directory
 
-- Idaho
-- Montana
-- Wyoming
-- Utah
-- Nevada
-- Oregon
-- Washington
-- Northern California
-- Colorado
+The search no longer treats one national access dataset as a complete fishing directory.
 
-## How verification works
+## Sustainable correction workflow
 
-1. Existing state-agency verified local waters are accepted.
-2. Official water names come from USGS GNIS.
-3. Access is checked against the USGS PAD-US Public Access layer.
-4. Only `Open Access` results pass.
-5. `Private`, `Closed`, `Restricted`, and `Unknown/Unverified` results are hidden.
-6. OpenStreetMap fallback results also have to pass the same access gate.
+Visitors can use `report-water.html` to report:
 
-## Important tradeoff
+- A missing public fishing water
+- A private or closed water shown in search
+- Wrong access information
+- Wrong name or map location
 
-This is intentionally conservative. It can hide a genuinely public water when no reliable public-access record exists. That is better than recommending a private or questionable pond.
+In `admin.html`, paste the correction email, resolve or edit coordinates, then approve it.
+
+The admin downloads one replacement file:
+
+`official_water_overrides.js`
+
+That file stores both:
+
+- Public water additions
+- Hidden private/closed-water corrections
+
+## Official directory page
+
+`official-sources.html` lists the primary fishing directory and rules source for all nine states/areas.
 
 ## Upload
 
 Upload every included file to the root of the existing report-generator GitHub repository.
-Replace matching files and commit directly to `main`.
+Replace files with the same names and commit directly to `main`.
 
-Do not modify:
-
-`.github/workflows/update-fishing-reports.yml`
+Do not change `.github/workflows/update-fishing-reports.yml`.

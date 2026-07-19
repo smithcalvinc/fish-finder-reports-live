@@ -40,6 +40,18 @@ USER_AGENT = (
 CURRENT_DAYS = 14
 AGING_DAYS = 45
 
+OFFICIAL_DIRECTORY_SOURCES = {
+    "Idaho": "https://idfg.idaho.gov/ifwis/fishingPlanner/",
+    "Montana": "https://myfwp.mt.gov/fishMT/explore",
+    "Wyoming": "https://wgfd.wyo.gov/fishing-boating/places-fish-wyoming",
+    "Utah": "https://dwrapps.utah.gov/fishing/",
+    "Nevada": "https://www.ndow.org/get-outside/fishing-stocking-reports/database/",
+    "Oregon": "https://myodfw.com/fishing",
+    "Washington": "https://wdfw.wa.gov/fishing/locations",
+    "California": "https://wildlife.ca.gov/Fishing/Guide",
+    "Colorado": "https://cpw.state.co.us/fishing",
+}
+
 
 def utc_now() -> dt.datetime:
     return dt.datetime.now(dt.timezone.utc)
@@ -208,13 +220,15 @@ def main() -> int:
     today = run_time.date()
     checked_at = iso_utc(run_time)
 
-    unique_urls = sorted(
+    report_urls = sorted(
         {
             str(report.get("source_url", "")).strip()
             for report in reports
             if str(report.get("source_url", "")).strip()
         }
     )
+    directory_urls = sorted(set(OFFICIAL_DIRECTORY_SOURCES.values()))
+    unique_urls = sorted(set(report_urls + directory_urls))
 
     fetched: dict[str, dict[str, Any]] = {}
     if not args.offline:
@@ -293,14 +307,18 @@ def main() -> int:
     )
 
     source_rows = []
+    directory_by_url = {url: state for state, url in OFFICIAL_DIRECTORY_SOURCES.items()}
     for url in unique_urls:
         related = [r for r in reports if str(r.get("source_url", "")).strip() == url]
         first = related[0] if related else {}
         result = fetched.get(url, {})
+        directory_state = directory_by_url.get(url)
         source_rows.append(
             {
                 "source_url": url,
-                "agency": first.get("agency"),
+                "source_type": "official_state_directory" if directory_state else "fishing_report_source",
+                "state": directory_state,
+                "agency": first.get("agency") or (f"{directory_state} official fishing directory" if directory_state else None),
                 "report_count": len(related),
                 "status": (
                     "not_checked"
@@ -322,6 +340,11 @@ def main() -> int:
         "mode": "offline" if args.offline else "live",
         "reports_total": len(reports),
         "unique_sources": len(unique_urls),
+        "official_directories_total": len(OFFICIAL_DIRECTORY_SOURCES),
+        "official_directories_unreachable": sum(
+            1 for url in OFFICIAL_DIRECTORY_SOURCES.values()
+            if not args.offline and not fetched.get(url, {}).get("ok")
+        ),
         "freshness": freshness_counts,
         "changed_reports": changed_count,
         "review_required": sum(1 for r in reports if r.get("review_required")),

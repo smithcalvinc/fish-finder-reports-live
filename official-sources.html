@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Official fishing directories and regulations for Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado.">
+<title>Official State Fishing Sources | Fish Finder Outdoors</title>
+<style>
+:root{--primary:#1F4D3A;--accent:#D95D39;--sand:#F6F2E8;--ink:#1B1E21;--muted:#586069;--line:rgba(0,0,0,.10)}
+*{box-sizing:border-box}body{margin:0;background:var(--sand);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1100px,calc(100% - 28px));margin:auto}.head{padding:52px 0 20px}h1,h2,h3{font-family:Bitter,Georgia,serif}h1{font-size:clamp(38px,7vw,66px);line-height:1;margin:16px 0}.lede{font-size:18px;color:var(--muted);max-width:800px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:20px 0 45px}.card{background:#fff;border:1px solid var(--line);border-radius:19px;padding:18px;display:flex;flex-direction:column;box-shadow:0 10px 28px rgba(31,77,58,.06)}.card h2{margin:0 0 4px;color:var(--primary)}.agency{font-weight:800;color:var(--muted);font-size:13px}.coverage{display:inline-flex;align-self:flex-start;border-radius:999px;padding:5px 9px;background:#eef3ef;color:var(--primary);font-size:11px;font-weight:850;margin:10px 0}.card p{color:var(--muted);flex:1}.links{display:flex;flex-wrap:wrap;gap:7px}.links a{display:inline-flex;padding:9px 10px;border-radius:10px;text-decoration:none;font-weight:800;background:var(--primary);color:#fff}.links a.secondary{background:#e7ede9;color:var(--primary)}.notice{background:#fff7f3;border-left:5px solid var(--accent);border-radius:14px;padding:15px;margin:12px 0 22px}@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="brand-shell.css">
+<script src="official_state_sources.js"></script>
+</head>
+<body>
+<header class="ffo-site-header">
+<div class="ffo-header-inner">
+<a class="ffo-logo-link" href="https://fishfinderoutdoors.com"><img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo"><span class="ffo-wordmark">Fish Finder Outdoors</span></a>
+<button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+<nav class="ffo-nav"><a href="https://fishfinderoutdoors.com">Home</a><a href="index.html">Fishing Reports</a><a class="active" href="official-sources.html">Official Sources</a><a href="report-water.html">Report Missing Water</a></nav>
+</div>
+</header>
+<div class="ffo-beta-bar">OFFICIAL SOURCES • Verify regulations, closures and access before every trip</div>
+<header class="head"><div class="wrap"><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)">Primary verification</div><h1>Official state fishing directories</h1><p class="lede">Fish Finder Outdoors helps locate waters and organize reports. These agency directories remain the final authority for fishable waters, access, regulations, emergency closures, stocking and boating rules.</p><div class="notice"><strong>Why this matters:</strong> the nine agencies publish different systems, and no single national database contains every fishing water and access point. Our search puts these official state sources beside regional results rather than pretending one dataset is complete.</div></div></header>
+<main class="wrap"><div id="sourceGrid" class="grid"></div></main>
+<footer class="ffo-site-footer"><div class="ffo-footer-grid"><div><a class="ffo-footer-brand" href="https://fishfinderoutdoors.com"><img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo"><span><strong style="font-size:22px">Fish Finder Outdoors</strong><br><span style="color:#a9bbb3">Official sources first.</span></span></a></div><div><div class="ffo-footer-title">Directory</div><div class="ffo-footer-links"><a href="index.html">Fishing Search</a><a href="report-water.html">Report Missing Water</a></div></div><div><div class="ffo-footer-title">Community</div><div class="ffo-footer-links"><a href="submit-report.html">Submit Catch Report</a></div></div></div><div class="ffo-footer-fine"><span>© 2026 Fish Finder Outdoors.</span><span>Always follow posted signs and current agency regulations.</span></div></footer>
+<script>
+const esc=value=>String(value||"").replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+const data=window.FFO_STATE_SOURCES||{states:[]};
+document.getElementById("sourceGrid").innerHTML=data.states.map(row=>`<article class="card"><h2>${esc(row.state)}</h2><div class="agency">${esc(row.agency)}</div><span class="coverage">${esc(row.coverage_label)}</span><p>${esc(row.description)}</p><div class="links"><a href="${esc(row.directory_url)}" target="_blank" rel="noopener">Open official directory ↗</a>${row.access_url?`<a class="secondary" href="${esc(row.access_url)}" target="_blank" rel="noopener">Access sites ↗</a>`:""}${row.rules_url?`<a class="secondary" href="${esc(row.rules_url)}" target="_blank" rel="noopener">Rules ↗</a>`:""}</div></article>`).join("");
+</script>
+<script src="brand-shell.js"></script>
+</body>
+</html>

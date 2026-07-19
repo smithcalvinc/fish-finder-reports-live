@@ -77,3 +77,11 @@ body{padding-top:78px;background:var(--ffo-sand)}
   .ffo-trust-inner{grid-template-columns:1fr}
 }
 @media print{body{padding-top:0}.ffo-site-header,.ffo-beta-bar,.ffo-professional-hero,.ffo-trust-strip,.ffo-site-footer{display:none!important}}
+
+.ffo-agency-panel{margin:13px 0;padding:16px;border-radius:16px;background:#f1f6f2;border:1px solid rgba(31,77,58,.18);border-left:5px solid #1F4D3A}
+.ffo-agency-panel strong{display:block;font-family:Bitter,Georgia,serif;font-size:18px;color:#1F4D3A}
+.ffo-agency-panel p{margin:5px 0 10px;color:#586069;font-size:13px}
+.ffo-agency-actions{display:flex;gap:8px;flex-wrap:wrap}
+.ffo-agency-actions a{display:inline-flex;text-decoration:none;border-radius:10px;padding:9px 11px;font-size:12px;font-weight:850;background:#1F4D3A;color:#fff!important}
+.ffo-agency-actions a.secondary{background:#fff;color:#1F4D3A!important;border:1px solid rgba(31,77,58,.22)}
+.ffo-coverage-note{margin:13px 0;padding:12px 14px;border-radius:13px;background:#fff8e9;border:1px solid #e0cf9e;color:#54492f;font-size:13px}
