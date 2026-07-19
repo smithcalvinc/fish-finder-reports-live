@@ -1,9 +1,9 @@
 /* Dated official catch and harvest reports for Fish Finder Outdoors.
    Actual reported catches only. Weather and species records do not create catch reports. */
 window.FFO_RECENT_REPORTS = {
-  "version": "2026.07.19",
+  "version": "2026.07.19-phase5",
   "updated_at": "2026-07-19",
-  "coverage_note": "Initial official recent-catch dataset. A report is displayed only when the searched water or port matches a dated agency report. No catch is inferred from weather, stocking, or species records.",
+  "coverage_note": "Expanded official catch-report dataset covering selected Idaho, Oregon, Nevada, Washington and Wyoming waters. Exact matching is required and unmatched waters never receive an inferred catch report.",
   "reports": [
     {
       "state": "Idaho",
@@ -515,6 +515,575 @@ window.FFO_RECENT_REPORTS = {
       "conditions": [],
       "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
       "specificity": "Brookings ocean port"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Lake Mead",
+        "Hemenway Harbor",
+        "Government Wash"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "State fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report published July 15, 2026",
+      "headline": "Lake Mead anglers reported consistent striped bass action around dawn and dusk.",
+      "summary": "NDOW reported anglers averaging about four striped bass in the 2- to 4-pound range near Hemenway. Government Wash anglers also reported success around 50 feet deep, while smallmouth bass were chasing plastics in shallow coves.",
+      "catches": [
+        {
+          "species": "Striped bass",
+          "metric": "About 4 fish per angler",
+          "detail": "2- to 4-pound range near Hemenway"
+        },
+        {
+          "species": "Striped bass",
+          "metric": "Reported in about 50 feet",
+          "detail": "Government Wash"
+        },
+        {
+          "species": "Smallmouth bass",
+          "metric": "Active in shallow coves",
+          "detail": "minnow and flat-worm plastics"
+        }
+      ],
+      "conditions": [
+        "Early morning and dusk were the most consistent reported periods."
+      ],
+      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
+      "specificity": "Lake Mead report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Lake Mohave",
+        "Willow Beach",
+        "Lake Mohave Willow Beach",
+        "Telephone Cove"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "State fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report published July 15, 2026",
+      "headline": "Rainbow trout from 12 to 16 inches were being caught around Willow Beach.",
+      "summary": "NDOW reported rainbow trout from 12 to 16 inches. Striped bass action was slower, with catches coming from deeper water near Willow Beach and off the bottom at Telephone Cove.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "12–16 inches",
+          "detail": "reported around Willow Beach"
+        },
+        {
+          "species": "Striped bass",
+          "metric": "Slow but present",
+          "detail": "deeper water and Telephone Cove"
+        },
+        {
+          "species": "Black bass",
+          "metric": "Hitting soft plastics and jigs",
+          "detail": "Cottonwood Basin"
+        }
+      ],
+      "conditions": [
+        "Kayakers and boat anglers were producing most of the deeper-water striper reports."
+      ],
+      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
+      "specificity": "Lake Mohave / Willow Beach"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Laughlin",
+        "Colorado River below Davis Dam",
+        "Davis Dam"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "State fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report published July 15, 2026",
+      "headline": "Laughlin shore and dock anglers reported striped bass and rainbow trout.",
+      "summary": "NDOW reported both striped bass and rainbow trout along the river. One angler reported an 11-pound striped bass caught on an anchovy just south of Casino Row.",
+      "catches": [
+        {
+          "species": "Striped bass",
+          "metric": "11-pound fish reported",
+          "detail": "south of Casino Row"
+        },
+        {
+          "species": "Rainbow trout",
+          "metric": "Being caught",
+          "detail": "yellow and olive jigs, spinners and nightcrawlers"
+        }
+      ],
+      "conditions": [
+        "Anchovies and light-colored swimbaits were favored for striped bass."
+      ],
+      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
+      "specificity": "Laughlin / Colorado River"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Las Vegas Valley Ponds",
+        "Las Vegas Community Ponds",
+        "Sunset Park Pond",
+        "Lorenzi Park Pond"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "State fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report published July 15, 2026",
+      "headline": "Stocked rainbow trout were taking common bait and small spinners in Las Vegas community ponds.",
+      "summary": "NDOW reported stocked rainbow trout taking worms, bright Rooster Tails and rainbow-colored PowerBait. Catfish and bass activity had slowed after recent weather.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "Active after stocking",
+          "detail": "worms, bright spinners and PowerBait"
+        },
+        {
+          "species": "Catfish and bass",
+          "metric": "Slower activity",
+          "detail": "following recent weather"
+        }
+      ],
+      "conditions": [
+        "City park limits were listed as three fish per day."
+      ],
+      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
+      "specificity": "Las Vegas community ponds"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Angel Lake"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-07-14",
+      "report_period": "Report dated July 14, 2026",
+      "headline": "Angel Lake anglers reported good fishing for stocked trout around nine inches.",
+      "summary": "Anglers were catching a mixed bag of cutthroat, rainbow and tiger trout. NDOW listed green PowerBait, nightcrawlers and summer dry-fly patterns as productive.",
+      "catches": [
+        {
+          "species": "Cutthroat trout",
+          "metric": "Being caught",
+          "detail": "mixed stocked-trout catch"
+        },
+        {
+          "species": "Rainbow trout",
+          "metric": "Around 9 inches",
+          "detail": "reported stocked fish"
+        },
+        {
+          "species": "Tiger trout",
+          "metric": "Being caught",
+          "detail": "mixed stocked-trout catch"
+        }
+      ],
+      "conditions": [
+        "Dry flies such as ant, mosquito and Royal Wulff patterns were suggested."
+      ],
+      "source_url": "https://www.ndow.org/waters/angel-lake/",
+      "specificity": "Exact lake report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Wildhorse Reservoir",
+        "Wild Horse Reservoir"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report dated July 15, 2026",
+      "headline": "Wildhorse trout fishing was fair to good early and late, with several fish over 20 inches.",
+      "summary": "NDOW reported most trout catches measuring 12 to 18 inches, with several over 20 inches. Bass fishing was described as good around rock and submerged vegetation.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Most 12–18 inches",
+          "detail": "several reported over 20 inches"
+        },
+        {
+          "species": "Black bass",
+          "metric": "Good fishing",
+          "detail": "rocky outcroppings and submerged vegetation"
+        }
+      ],
+      "conditions": [
+        "Surface water temperature was reported near 75°F.",
+        "Water levels were very low and the ramp could be removed if it became unsafe."
+      ],
+      "source_url": "https://www.ndow.org/waters/wildhorse-reservoir/",
+      "specificity": "Exact reservoir report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "South Fork Reservoir"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report dated July 15, 2026",
+      "headline": "South Fork bass fishing was reported as good while trout action tapered off by mid-morning.",
+      "summary": "NDOW reported bass hitting dark soft plastics around rocky areas and weed edges. Trout were most active early before moving toward deeper, cooler water.",
+      "catches": [
+        {
+          "species": "Black bass",
+          "metric": "Good fishing",
+          "detail": "rock and weed edges"
+        },
+        {
+          "species": "Trout",
+          "metric": "Best early",
+          "detail": "deeper water as the day warms"
+        }
+      ],
+      "conditions": [
+        "Algae was beginning to form in some coves."
+      ],
+      "source_url": "https://www.ndow.org/waters/south-fork-reservoir/",
+      "specificity": "Exact reservoir report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Truckee River"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-06-29",
+      "report_period": "Report dated June 29, 2026",
+      "headline": "Truckee River anglers were producing trout with streamers, tight-line methods, spoons and spinners.",
+      "summary": "NDOW reported fish concentrated around better-oxygenated water as temperatures rose. Small streamers, tight-line presentations and small hardware were producing.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Productive fishing reported",
+          "detail": "fast water and oxygenated areas"
+        },
+        {
+          "species": "Lahontan cutthroat trout",
+          "metric": "Periodically stocked",
+          "detail": "major parks"
+        }
+      ],
+      "conditions": [
+        "Early morning was recommended, especially for anglers releasing trout."
+      ],
+      "source_url": "https://www.ndow.org/waters/truckee-river/",
+      "specificity": "Truckee River report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "James Kinney Pond",
+        "Kinney Pond"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-06-26",
+      "report_period": "Report dated June 26, 2026",
+      "headline": "Tiger trout up to 16 inches were reported caught at James Kinney Pond.",
+      "summary": "NDOW reported good fishing, with tiger trout up to 16 inches caught recently. Pink floating worms, nightcrawlers and dry flies were producing.",
+      "catches": [
+        {
+          "species": "Tiger trout",
+          "metric": "Up to 16 inches",
+          "detail": "recent reported catches"
+        },
+        {
+          "species": "Rainbow trout",
+          "metric": "Recently stocked",
+          "detail": "513 fish listed on July 13"
+        }
+      ],
+      "conditions": [
+        "Some fish were on the surface early and late."
+      ],
+      "source_url": "https://www.ndow.org/waters/james-kinney-pond/",
+      "specificity": "Exact pond report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Lake Tahoe",
+        "Lake Tahoe Zephyr Cove",
+        "Zephyr Cove"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Waterbody fishing report",
+      "published_date": "2026-07-17",
+      "report_period": "Report dated July 17, 2026",
+      "headline": "Lake Tahoe shore and topline anglers reported productive rainbow and brown trout fishing.",
+      "summary": "NDOW reported planted trout taking smaller spinners, while larger rainbows and browns were taking spoons and diving plugs. Toplining was productive in water shallower than 50 feet.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "Productive fishing",
+          "detail": "shore casting and toplining"
+        },
+        {
+          "species": "Brown trout",
+          "metric": "Productive fishing",
+          "detail": "larger spoons and diving plugs"
+        }
+      ],
+      "conditions": [
+        "The bite was expected to shift more toward early and late as summer warming continued."
+      ],
+      "source_url": "https://www.ndow.org/waters/lake-tahoe-zephyr-cove/",
+      "specificity": "Lake Tahoe — Zephyr Cove report"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Port Angeles",
+        "Ediz Hook",
+        "Ediz Hook Port Angeles Public Ramp"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-07-03",
+      "report_period": "July 3, 2026 sample",
+      "headline": "Ediz Hook samplers recorded 120 Chinook from 217 anglers in western Marine Area 6.",
+      "summary": "WDFW's raw creel data listed 97 interviews, 217 anglers, 120 Chinook and a Chinook rate of 0.55 per angler at Ediz Hook.",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "120 fish",
+          "detail": "217 sampled anglers"
+        },
+        {
+          "species": "Chinook salmon",
+          "metric": "0.55 per angler",
+          "detail": "raw creel rate"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
+      "specificity": "Ediz Hook / Marine Area 6-1"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Sekiu",
+        "Pillar Point",
+        "Van Riper's Resort",
+        "Van Ripers Resort"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-07-05",
+      "report_period": "July 5, 2026 sample",
+      "headline": "Sekiu-area samplers recorded 25 Chinook and seven coho across 82 anglers.",
+      "summary": "The two Van Riper sampling entries in Marine Area 5 listed 16 and 66 anglers, with a combined 25 Chinook and seven coho.",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "25 fish",
+          "detail": "combined two Van Riper sample sites"
+        },
+        {
+          "species": "Coho salmon",
+          "metric": "7 fish",
+          "detail": "combined sample"
+        },
+        {
+          "species": "Angler sample",
+          "metric": "82 anglers",
+          "detail": "two entries"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?catch_area=05&ramp=&sample_date=3",
+      "specificity": "Marine Area 5 — Sekiu and Pillar Point"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Shilshole Bay",
+        "Shilshole Public Ramp",
+        "Seattle",
+        "Seattle Bremerton Area"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-06-30",
+      "report_period": "June 30, 2026 sample",
+      "headline": "Shilshole samplers recorded 26 coho from 21 anglers in Marine Area 10.",
+      "summary": "WDFW listed 13 interviews, 21 anglers and 26 coho at Shilshole Public Ramp.",
+      "catches": [
+        {
+          "species": "Coho salmon",
+          "metric": "26 fish",
+          "detail": "21 sampled anglers"
+        },
+        {
+          "species": "Angler sample",
+          "metric": "21 anglers",
+          "detail": "13 interviews"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
+      "specificity": "Shilshole / Marine Area 10"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Point Defiance",
+        "Point Defiance Public Ramp",
+        "Tacoma",
+        "Vashon Island"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-06-30",
+      "report_period": "June 30, 2026 sample",
+      "headline": "Point Defiance samplers recorded five Chinook from 50 anglers in Marine Area 11.",
+      "summary": "WDFW listed 27 interviews, 50 anglers, five Chinook and a rate of 0.10 Chinook per angler.",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "5 fish",
+          "detail": "50 sampled anglers"
+        },
+        {
+          "species": "Chinook salmon",
+          "metric": "0.10 per angler",
+          "detail": "raw creel rate"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
+      "specificity": "Point Defiance / Marine Area 11"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Port Angeles West Ramp",
+        "Port Angeles West",
+        "Port Angeles"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-06-30",
+      "report_period": "June 30, 2026 sample",
+      "headline": "Port Angeles West samplers recorded one halibut from 13 anglers.",
+      "summary": "WDFW listed four interviews, 13 anglers and one halibut in Marine Area 6.",
+      "catches": [
+        {
+          "species": "Pacific halibut",
+          "metric": "1 fish",
+          "detail": "13 sampled anglers"
+        },
+        {
+          "species": "Angler sample",
+          "metric": "13 anglers",
+          "detail": "four interviews"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?page=1",
+      "specificity": "Port Angeles West / Marine Area 6"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Kingston",
+        "Kingston Public Ramp"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-06-30",
+      "report_period": "June 30, 2026 sample",
+      "headline": "Kingston samplers recorded 11 coho from 10 anglers in Marine Area 10.",
+      "summary": "WDFW listed five interviews, 10 anglers and 11 coho at Kingston Public Ramp.",
+      "catches": [
+        {
+          "species": "Coho salmon",
+          "metric": "11 fish",
+          "detail": "10 sampled anglers"
+        },
+        {
+          "species": "Angler sample",
+          "metric": "10 anglers",
+          "detail": "five interviews"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
+      "specificity": "Kingston / Marine Area 10"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Everett",
+        "Everett Ramp",
+        "Norton Street Ramp"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound creel interview data",
+      "published_date": "2026-07-03",
+      "report_period": "July 3, 2026 sample",
+      "headline": "Everett samplers recorded two coho from four anglers in Admiralty Inlet.",
+      "summary": "WDFW listed two interviews, four anglers and two coho for the Area 9 sample.",
+      "catches": [
+        {
+          "species": "Coho salmon",
+          "metric": "2 fish",
+          "detail": "four sampled anglers"
+        },
+        {
+          "species": "Angler sample",
+          "metric": "4 anglers",
+          "detail": "two interviews"
+        }
+      ],
+      "conditions": [
+        "WDFW labels the data as raw and subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
+      "specificity": "Everett Ramp / Marine Area 9"
+    },
+    {
+      "state": "Wyoming",
+      "names": [
+        "Flaming Gorge Reservoir",
+        "Flaming Gorge"
+      ],
+      "agency": "Wyoming Game and Fish Department",
+      "report_type": "Angler harvest program results",
+      "published_date": "2026-06-08",
+      "report_period": "January–April 2026 program",
+      "headline": "Anglers removed more than 1,200 small lake trout during the Flaming Gorge harvest program.",
+      "summary": "Wyoming Game and Fish reported that anglers removed more than 1,200 lake trout under 25 inches during the winter and spring Angler Harvest Program.",
+      "catches": [
+        {
+          "species": "Lake trout under 25 inches",
+          "metric": "More than 1,200 removed",
+          "detail": "January–April program"
+        }
+      ],
+      "conditions": [
+        "This is a completed harvest-program result, not a current daily bite report."
+      ],
+      "source_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
+      "specificity": "Flaming Gorge Reservoir"
     }
   ]
 };

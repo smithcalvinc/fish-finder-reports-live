@@ -1,30 +1,35 @@
-# Fish Finder Outdoors Report Generator — Phase 4
+# Fish Finder Outdoors Report Generator — Phase 5
 
-Phase 4 adds the missing real fishing-report section.
+Phase 5 expands actual official catch-report coverage and adds a map to every generated report.
 
-## New feature: Actual Recent Reported Catch
+## Map features
 
-When an exact dated official report matches the searched water or port, the report now shows:
+Every report now includes:
 
-- Agency report date and reporting period
-- What fish were actually reported caught, kept or observed
-- Catch or harvest rates
-- Angler effort where the agency published it
-- Important agency notes
-- A direct link to the full official report
+- An embedded OpenStreetMap map centered on the selected location
+- Exact coordinates
+- A full-map link
+- A one-tap directions link
+- A warning that a waterbody or catch-report area may be larger than the selected point
 
-The current first dataset includes official recent reports for:
+## Expanded actual-report coverage
 
-- South Fork Salmon River, Idaho
-- Upper Salmon River, Idaho
-- Clearwater River drainage, Idaho
-- Lower Salmon River, Idaho
-- Hells Canyon Dam, Idaho
-- Oregon ocean ports including Astoria, Garibaldi, Pacific City, Depoe Bay, Newport, Florence, Winchester Bay, Charleston, Bandon, Gold Beach and Brookings
+The catch database now contains 34 dated agency reports covering selected locations in:
+
+- Idaho
+- Oregon
+- Nevada
+- Washington
+- Wyoming
+
+New coverage includes Lake Mead, Lake Mohave, Laughlin, Angel Lake, Wildhorse Reservoir,
+South Fork Reservoir, Truckee River, James Kinney Pond, Lake Tahoe, Port Angeles,
+Sekiu, Shilshole, Point Defiance, Kingston, Everett and Flaming Gorge.
 
 ## Accuracy rule
 
-If no exact dated catch, creel or harvest report is loaded, the app says no report was found. Weather, stocking data and species lists never create a fake catch report.
+Reports appear only when the searched location matches a dated official agency record.
+Unmatched locations still display “No dated catch report matched this location.”
 
 ## Update the live site
 
@@ -36,4 +41,4 @@ Upload these five files to the root of the existing GitHub repository:
 - `404.html`
 - `README.md`
 
-Commit the changes to `main`. Your connected Wasmer site should update automatically.
+Commit the changes to `main`. The existing Wasmer app should update automatically.
