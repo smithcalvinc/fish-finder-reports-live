@@ -1,1 +1,44 @@
+name: Update Fishing Report Sources
 
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 13 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fishing-report-source-monitor
+  cancel-in-progress: false
+
+jobs:
+  update-report-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Check fishing-report sources
+        run: python update_reports.py
+
+      - name: Commit source status changes
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain)" ]]; then
+            echo "No source-status changes to commit."
+            exit 0
+          fi
+
+          git config user.name "Fish Finder Outdoors Source Monitor"
+          git config user.email "actions@users.noreply.github.com"
+          git add recent_fishing_reports.js update_status.js source_check_log.json
+          git commit -m "Automatic fishing report source check"
+          git push
