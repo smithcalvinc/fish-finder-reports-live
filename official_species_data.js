@@ -1,7 +1,7 @@
 window.FFO_OFFICIAL_SPECIES = {
-  "version": "2026.07.19-phase6.1",
+  "version": "2026.07.19-phase6.1.1",
   "checked_at": "2026-07-19",
-  "coverage_note": "Expanded exact-waterbody species records, including smaller Southeast Idaho reservoirs. Unmatched waters still display no statewide species assumptions.",
+  "coverage_note": "Expanded exact-waterbody records and local aliases, including Bannock Reservoir and Edson Fichter Pond in Pocatello. Unmatched waters still receive no statewide assumptions.",
   "waters": [
     {
       "state": "Idaho",
@@ -1015,6 +1015,65 @@ window.FFO_OFFICIAL_SPECIES = {
       ],
       "documented": [],
       "scope": "IDFG recommended fish, 2025 survey observations and newest listed stocking record.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Bannock Reservoir",
+        "Portneuf Wellness Complex Pond",
+        "Portneuf Wellness Lake",
+        "Wellness Complex Pond"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Bannock Reservoir (Portneuf Wellness Complex Pond)",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1124345429181",
+      "recommended": [
+        "Kokanee",
+        "Rainbow Trout"
+      ],
+      "surveyed": [],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-06-04",
+          "quantity": 3003
+        }
+      ],
+      "documented": [],
+      "scope": "IDFG recommended game fish and newest listed stocking record for this family fishing water.",
+      "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Edson Fichter Pond",
+        "Edson Fichter Reservoir",
+        "Edson Fitcher Pond",
+        "Edson Fitcher Reservoir",
+        "Fichter Pond",
+        "Fitcher Pond"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Edson Fichter Pond",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingPlanner/water/1124032428216",
+      "recommended": [
+        "Rainbow Trout"
+      ],
+      "surveyed": [],
+      "stocked": [
+        {
+          "name": "Rainbow Trout — Triploid",
+          "date": "2026-06-12",
+          "quantity": 475,
+          "size": "Catchable, 12–14 inches"
+        }
+      ],
+      "documented": [
+        "Bluegill",
+        "Largemouth Bass"
+      ],
+      "scope": "IDFG recommended game fish, newest listed trout stocking and other fish documented in official stocking records.",
       "source_checked": "2026-07-19"
     }
   ]

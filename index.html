@@ -126,7 +126,7 @@
     }
 
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.1 v0.7.1">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.1.1 v0.7.2">
 </head>
 <body>
   <header class="hero">
@@ -134,7 +134,7 @@
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
       <p class="lede">Search a lake, river, reservoir, town, coordinates or coastal area. Phase 6.1 adds local-water aliases, official small-reservoir records and better failed-search recovery.</p>
-      <span class="badge">Phase 6.1 · Better local-water search</span>
+      <span class="badge">Phase 6.1.1 · Pocatello local-water fix</span>
       <span id="sourceStamp" class="source-stamp">Checking source status…</span>
       <nav class="utility-nav" aria-label="Fishing report tools">
         <a href="submit-report.html">Submit a fishing report</a>
@@ -152,6 +152,8 @@
       </form>
       <p class="hint">Expanded guidance: ID, MT, WY, UT, NV, OR, WA, northern CA and CO. Waterbody matches are prioritized ahead of nearby towns when possible.</p>
       <div class="local-searches" aria-label="Quick Southeast Idaho water searches">
+        <button type="button" data-quick-water="Bannock Reservoir, Idaho">Bannock Reservoir</button>
+        <button type="button" data-quick-water="Edson Fichter Pond, Idaho">Edson Fichter Pond</button>
         <button type="button" data-quick-water="Blackfoot Reservoir, Idaho">Blackfoot Reservoir</button>
         <button type="button" data-quick-water="Devil Creek Reservoir, Idaho">Devil Creek Reservoir</button>
         <button type="button" data-quick-water="Chesterfield Reservoir, Idaho">Chesterfield Reservoir</button>
@@ -235,6 +237,33 @@ const PARAMETERS={"00010":"Water temperature","00060":"Streamflow","00065":"Gage
 const WATER_TYPES = new Set(["water","reservoir","lake","river","stream","canal","bay","pond","lagoon","strait","inlet","harbour","harbor"]);
 
 const LOCAL_WATERS = [
+  {
+    name:"Bannock Reservoir",
+    aliases:[
+      "bannock reservoir","bannock res","bannock res.","bannock lake",
+      "portneuf wellness complex pond","portneuf wellness pond",
+      "portneuf wellness lake","wellness complex pond","wellness reservoir",
+      "wellness pond","wellness lake"
+    ],
+    display_name:"Bannock Reservoir (Portneuf Wellness Complex Pond), Bannock County, Idaho",
+    lat:42.918590,lon:-112.431740,state:"Idaho",county:"Bannock",
+    category:"water",type:"reservoir",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124345429181"
+  },
+  {
+    name:"Edson Fichter Pond",
+    aliases:[
+      "edson fichter pond","edson fichter reservoir","edson fichter res",
+      "edson fichter res.","edson fichter lake","edson fichter fishing pond",
+      "edson fitcher pond","edson fitcher reservoir","edson fitcher res",
+      "edson fitcher res.","edson fitcher lake","edson fisher pond",
+      "fichter pond","fitcher pond","edson pond"
+    ],
+    display_name:"Edson Fichter Pond, Edson Fichter Nature Area, Pocatello, Idaho",
+    lat:42.821860,lon:-112.403160,state:"Idaho",county:"Bannock",
+    category:"water",type:"pond",
+    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1124032428216"
+  },
   {
     name:"Blackfoot Reservoir",
     aliases:["blackfoot reservoir","blackfoot lake","blackfoot reservoir idaho"],
@@ -326,6 +355,8 @@ const LOCAL_WATERS = [
 ];
 
 const WATER_PROFILES = [
+{state:"Idaho",match:["bannock reservoir","portneuf wellness complex pond","portneuf wellness pond","wellness reservoir","wellness pond"],species:["rainbow trout","kokanee"],focus:"Small Pocatello community fishing water with docks and easy family access.",tips:["Start with a worm under a float, trout dough bait or a small spinner where legal.","Work around the docks and open shoreline without crowding other anglers.","Check the newest stocking date before fishing."]},
+{state:"Idaho",match:["edson fichter pond","edson fitcher pond","edson fichter reservoir","edson fitcher reservoir","fichter pond","fitcher pond"],species:["rainbow trout","largemouth bass","bluegill"],focus:"Small community fishing pond in the Edson Fichter Nature Area in south Pocatello.",tips:["Recently stocked rainbow trout are the primary target.","Try a worm under a float, trout dough bait, a small spoon or an inline spinner where legal.","Fish from the docks or accessible shoreline and protect the surrounding nature area."]},
 {state:"Idaho",match:["blackfoot reservoir"],species:["cutthroat trout","rainbow trout","smallmouth bass","yellow perch"],focus:"Large, exposed Southeast Idaho reservoir with trout and bass opportunities.",tips:["Use wind-protected shorelines when conditions build.","Work rock and points for smallmouth bass.","Check the no-harvest Cutthroat Trout rule before keeping fish."]},
 {state:"Idaho",match:["devil creek reservoir","devils creek reservoir"],species:["rainbow trout","cutthroat trout","kokanee","largemouth bass"],focus:"Small stocked reservoir near Malad with productive bank and boat fishing.",tips:["Start around the dam and accessible shoreline.","Use trout bait or small lures where legal.","Check recent stocking records before the trip."]},
 {state:"Idaho",match:["chesterfield reservoir","portneuf reservoir"],species:["rainbow trout","cutthroat trout","brown trout"],focus:"Trout reservoir with regular stocking and special trout limits.",tips:["Use low-light periods and cooler water.","Troll or cast small spoons and spinners.","Review the current trout limit before keeping fish."]},
@@ -653,6 +684,14 @@ function expandedSearchQueries(q){
   }
   if(/chesterfield/i.test(clean))queries.push("Portneuf Reservoir, Idaho");
   if(/oneida/i.test(clean))queries.push("Oneida Narrows Reservoir, Idaho");
+  if(/bannock\s+(res|reservoir)|wellness/i.test(clean)){
+    queries.push("Bannock Reservoir, Idaho");
+    queries.push("Portneuf Wellness Complex Pond, Idaho");
+  }
+  if(/edson\s+(fichter|fitcher|fisher)|fichter\s+pond|fitcher\s+pond/i.test(clean)){
+    queries.push("Edson Fichter Pond, Idaho");
+    queries.push("Edson Fichter Nature Area, Pocatello, Idaho");
+  }
   return [...new Set(queries)].slice(0,4);
 }
 function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}

@@ -1,0 +1,13 @@
+PHASE 6.1.1 UPLOAD
+
+Upload all included files to the ROOT of the existing GitHub repository.
+Replace files with the same names and commit directly to main.
+
+DO NOT EDIT OR REPLACE:
+.github/workflows/update-fishing-reports.yml
+
+Test these searches:
+- Bannock Res.
+- Portneuf Wellness Complex Pond
+- Edson Fitcher Res.
+- Edson Fichter Pond
