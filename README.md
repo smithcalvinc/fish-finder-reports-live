@@ -1,25 +1,39 @@
-# Fish Finder Outdoors — Brand-Matched Report Tool
+# Fish Finder Outdoors — Regional Public-Only Search
 
-This build matches the current live Fish Finder Outdoors website more closely.
+This build applies one access rule across the full coverage region:
 
-## What changed
-- Uses your real Fish Finder Outdoors logo from the live site
-- Matches the live site color palette:
-  - Deep forest green `#1F4D3A`
-  - Dark green `#143326`
-  - Blaze orange `#D95D39`
-  - Sand background `#F6F2E8`
-- Uses the same Bitter + Inter font pairing
-- Uses a hero section styled like the live homepage
-- Keeps the working report generator, regional search, email report submission and admin approval workflow
+**No water appears in normal search results unless open public access is verified.**
 
-## Included brand assets
-- `ffo-logo-main.png`
-- `ffo-logo-main.png`
-- `ffo-hero.jpg`
-- `ffo-water-divider.jpg`
+## Coverage
+
+- Idaho
+- Montana
+- Wyoming
+- Utah
+- Nevada
+- Oregon
+- Washington
+- Northern California
+- Colorado
+
+## How verification works
+
+1. Existing state-agency verified local waters are accepted.
+2. Official water names come from USGS GNIS.
+3. Access is checked against the USGS PAD-US Public Access layer.
+4. Only `Open Access` results pass.
+5. `Private`, `Closed`, `Restricted`, and `Unknown/Unverified` results are hidden.
+6. OpenStreetMap fallback results also have to pass the same access gate.
+
+## Important tradeoff
+
+This is intentionally conservative. It can hide a genuinely public water when no reliable public-access record exists. That is better than recommending a private or questionable pond.
 
 ## Upload
-Upload all included files and folders to the existing report-generator GitHub repository, replace files with the same names, and commit to `main`.
 
-Do not modify `.github/workflows/update-fishing-reports.yml`.
+Upload every included file to the root of the existing report-generator GitHub repository.
+Replace matching files and commit directly to `main`.
+
+Do not modify:
+
+`.github/workflows/update-fishing-reports.yml`

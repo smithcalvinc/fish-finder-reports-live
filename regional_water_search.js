@@ -1,12 +1,16 @@
-/* Fish Finder Outdoors — Phase 6.2 regional water-name search
-   Uses the official USGS Geographic Names Information System (GNIS)
-   Hydro Points and Hydro Lines services, then returns standardized water names
-   and coordinates for the Northwest and Mountain West coverage region. */
+/* Fish Finder Outdoors — Regional Public-Only Water Search
+   Official water names: USGS Geographic Names Information System (GNIS)
+   Public-access verification: USGS Protected Areas Database (PAD-US)
+   Conservative rule: water results are hidden unless open public access is verified. */
 (function(){
   "use strict";
 
-  const SERVICE_ROOT =
+  const GNIS_ROOT =
     "https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer";
+  const PADUS_QUERY =
+    "https://services.arcgis.com/v01gqwM5QqNysAAi/ArcGIS/rest/services/PADUS_Public_Access/FeatureServer/0/query";
+  const NOMINATIM_SEARCH =
+    "https://nominatim.openstreetmap.org/search";
 
   const REGION_STATES = [
     {name:"Idaho", code:"ID"},
@@ -20,10 +24,28 @@
     {name:"Colorado", code:"CO"}
   ];
 
+  const OFFICIAL_FINDERS = {
+    Idaho:"https://idfg.idaho.gov/ifwis/fishingplanner/",
+    Montana:"https://fwp.mt.gov/fish",
+    Wyoming:"https://wgfd.wyo.gov/fishing-boating",
+    Utah:"https://dwrapps.utah.gov/fishing/",
+    Nevada:"https://www.ndow.org/get-outside/fishing-stocking-reports/database/",
+    Oregon:"https://myodfw.com/recreation-report/fishing-report",
+    Washington:"https://wdfw.wa.gov/fishing/locations",
+    California:"https://wildlife.ca.gov/Fishing/Guide",
+    Colorado:"https://cpw.state.co.us/maps-and-gis"
+  };
+
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
-  const STATE_BY_NAME = Object.fromEntries(REGION_STATES.map(s => [s.name.toLowerCase(), s]));
-  const CACHE_KEY_PREFIX = "ffo:gnis62:";
-  const CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+  const CACHE_KEY_PREFIX = "ffo:public-only:v1:";
+  const ACCESS_CACHE_PREFIX = "ffo:padus-access:v1:";
+  const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+  const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
+  const WATER_WORDS = /\b(lake|reservoir|res\.?|pond|river|creek|stream|canal|bay|channel|lagoon|inlet|harbor|harbour)\b/i;
+  const WATER_TYPES = new Set([
+    "water","lake","reservoir","pond","river","stream","canal",
+    "bay","channel","lagoon","inlet","harbor","harbour","sea"
+  ]);
 
   function clean(value){
     return String(value || "")
@@ -108,24 +130,24 @@
       .join(" OR ") + ")";
   }
 
-  function cacheRead(key){
+  function cacheRead(prefix,key,maxAge){
     try{
-      const record = JSON.parse(localStorage.getItem(CACHE_KEY_PREFIX + key) || "null");
-      if(record && Date.now() - record.saved_at < CACHE_AGE_MS) return record.rows;
+      const record = JSON.parse(localStorage.getItem(prefix + key) || "null");
+      if(record && Date.now() - record.saved_at < maxAge) return record.value;
     }catch{}
     return null;
   }
 
-  function cacheWrite(key, rows){
+  function cacheWrite(prefix,key,value){
     try{
       localStorage.setItem(
-        CACHE_KEY_PREFIX + key,
-        JSON.stringify({saved_at:Date.now(), rows})
+        prefix + key,
+        JSON.stringify({saved_at:Date.now(), value})
       );
     }catch{}
   }
 
-  async function fetchJson(url, timeoutMs=10000){
+  async function fetchJson(url, timeoutMs=12000){
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), timeoutMs);
     try{
@@ -134,9 +156,9 @@
         signal:controller.signal,
         mode:"cors"
       });
-      if(!response.ok) throw new Error(`GNIS returned ${response.status}`);
+      if(!response.ok) throw new Error(`Data source returned ${response.status}`);
       const body = await response.json();
-      if(body.error) throw new Error(body.error.message || "GNIS query failed");
+      if(body.error) throw new Error(body.error.message || "Data query failed");
       return body;
     }finally{
       clearTimeout(timeout);
@@ -168,23 +190,36 @@
     const codes = stateCodes(attributes.state_alpha);
     let chosen = explicit && codes.includes(explicit.code) ? explicit : STATE_BY_CODE[codes[0]];
     if(!chosen) return null;
-
-    // The previously agreed California coverage is Northern California.
     if(chosen.code === "CA" && Number(lat) < 35.0) return null;
     return chosen;
+  }
+
+  function stateFromAddress(address){
+    const stateName = clean(address?.state).toLowerCase();
+    const code = clean(address?.["ISO3166-2-lvl4"] || "").split("-").pop().toUpperCase();
+    return REGION_STATES.find(state =>
+      state.name.toLowerCase() === stateName || state.code === code
+    ) || null;
   }
 
   function featureType(value){
     const type = clean(value || "Water").toLowerCase();
     if(type.includes("reservoir")) return "reservoir";
     if(type.includes("lake")) return "lake";
+    if(type.includes("pond")) return "pond";
     if(type.includes("stream")) return "river";
+    if(type.includes("river")) return "river";
     if(type.includes("canal")) return "canal";
     if(type.includes("bay")) return "bay";
     if(type.includes("channel")) return "channel";
     if(type.includes("harbor")) return "harbor";
     if(type.includes("sea")) return "sea";
     return type || "water";
+  }
+
+  function isWater(row){
+    return WATER_TYPES.has(String(row?.type || "").toLowerCase()) ||
+      String(row?.category || "").toLowerCase() === "water";
   }
 
   function mapFeature(feature, explicit){
@@ -215,13 +250,13 @@
       type:featureType(featureClass),
       gnis_official:true,
       name_source:"USGS Geographic Names Information System",
-      name_source_url:SERVICE_ROOT,
+      name_source_url:GNIS_ROOT,
       gnis_id:String(attributes.gaz_id || ""),
       gnis_feature_class:featureClass
     };
   }
 
-  async function queryLayer(layerId, term, state){
+  async function queryLayerByName(layerId, term, state){
     const where =
       `UPPER(gaz_name) LIKE '%${sqlLiteral(term)}%' AND ${stateWhere(state)} AND isunknowncoords = 0`;
 
@@ -230,91 +265,334 @@
       outFields:"gaz_name,gaz_featureclass,state_alpha,county_name,gaz_id,isunknowncoords",
       returnGeometry:"true",
       outSR:"4326",
-      resultRecordCount:"60",
+      resultRecordCount:"80",
       orderByFields:"gaz_name ASC",
       f:"json"
     });
 
-    const body = await fetchJson(`${SERVICE_ROOT}/${layerId}/query?${params}`);
+    const body = await fetchJson(`${GNIS_ROOT}/${layerId}/query?${params}`);
     return (body.features || []).map(feature => mapFeature(feature, state)).filter(Boolean);
   }
 
-  function score(row, query, state){
-    const target = normalize(stripState(expandCommonTerms(query)));
-    const name = normalize(row.name);
-    let points = 0;
+  function bbox(lat,lon,radiusMiles=45){
+    const latDelta = radiusMiles / 69;
+    const lonDelta = radiusMiles / Math.max(10,69 * Math.cos(lat * Math.PI / 180));
+    return {
+      xmin:lon-lonDelta,
+      ymin:lat-latDelta,
+      xmax:lon+lonDelta,
+      ymax:lat+latDelta
+    };
+  }
 
-    if(name === target) points += 500;
-    else if(name.startsWith(target)) points += 350;
-    else if(name.includes(target)) points += 250;
-    else{
-      const words = target.split(" ").filter(word => word.length > 1);
-      const matched = words.filter(word => name.includes(word)).length;
-      points += matched * 45;
+  async function queryNearbyHydroPoints(place,state,radiusMiles=45){
+    const box = bbox(place.lat,place.lon,radiusMiles);
+    const where = `${stateWhere(state)} AND isunknowncoords = 0`;
+    const params = new URLSearchParams({
+      where,
+      geometry:`${box.xmin},${box.ymin},${box.xmax},${box.ymax}`,
+      geometryType:"esriGeometryEnvelope",
+      inSR:"4326",
+      spatialRel:"esriSpatialRelIntersects",
+      outFields:"gaz_name,gaz_featureclass,state_alpha,county_name,gaz_id,isunknowncoords",
+      returnGeometry:"true",
+      outSR:"4326",
+      resultRecordCount:"150",
+      f:"json"
+    });
+
+    const body = await fetchJson(`${GNIS_ROOT}/4/query?${params}`);
+    return (body.features || [])
+      .map(feature => mapFeature(feature,state))
+      .filter(Boolean)
+      .map(row => ({
+        ...row,
+        town_search:true,
+        nearby_town_label:place.label,
+        distance_miles:distanceMiles(place.lat,place.lon,row.lat,row.lon)
+      }))
+      .sort((a,b) => a.distance_miles - b.distance_miles);
+  }
+
+  async function geocodeTown(query,explicit){
+    const params = new URLSearchParams({
+      q:query,
+      format:"jsonv2",
+      addressdetails:"1",
+      namedetails:"1",
+      countrycodes:"us",
+      limit:"8"
+    });
+    const rows = await fetchJson(`${NOMINATIM_SEARCH}?${params}`);
+
+    for(const row of rows || []){
+      const lat=Number(row.lat),lon=Number(row.lon);
+      if(!Number.isFinite(lat)||!Number.isFinite(lon))continue;
+      const state=stateFromAddress(row.address||{});
+      if(!state)continue;
+      if(explicit&&state.code!==explicit.code)continue;
+      if(state.code==="CA"&&lat<35)continue;
+
+      const type=String(row.type||"").toLowerCase();
+      const category=String(row.category||row.class||"").toLowerCase();
+      const townish=["city","town","village","hamlet","municipality","county","administrative"].some(x=>type.includes(x)) ||
+        ["place","boundary"].includes(category);
+      if(!townish)continue;
+
+      return {
+        lat,lon,state,
+        label:clean(row.name || row.namedetails?.name || row.display_name?.split(",")[0] || query)
+      };
+    }
+    return null;
+  }
+
+  function privateSignal(row){
+    const values=[
+      row?.access,row?.ownership,row?.operator,row?.owner,
+      row?.extratags?.access,row?.extratags?.ownership,
+      row?.extratags?.operator,row?.extratags?.owner
+    ].map(value=>normalize(value)).filter(Boolean);
+
+    return values.some(value =>
+      /\b(private|no|customers|permit only|members|residents only)\b/.test(value)
+    );
+  }
+
+  function explicitPublicSignal(row){
+    const access=normalize(row?.access || row?.extratags?.access);
+    const ownership=normalize(row?.ownership || row?.extratags?.ownership);
+    const operator=normalize(row?.operator || row?.extratags?.operator);
+    const owner=normalize(row?.owner || row?.extratags?.owner);
+    const combined=`${ownership} ${operator} ${owner}`;
+
+    if(["yes","public","permissive","designated"].includes(access))return true;
+    return /\b(city|county|state|federal|municipal|public|parks?|fish and game|wildlife|forest service|blm|bureau of reclamation)\b/.test(combined);
+  }
+
+  async function padUsAccess(row){
+    const lat=Number(row?.lat),lon=Number(row?.lon);
+    if(!Number.isFinite(lat)||!Number.isFinite(lon))return null;
+
+    const key=`${lat.toFixed(5)},${lon.toFixed(5)}`;
+    const cached=cacheRead(ACCESS_CACHE_PREFIX,key,ACCESS_CACHE_AGE_MS);
+    if(cached!==null)return cached;
+
+    const params=new URLSearchParams({
+      geometry:`${lon},${lat}`,
+      geometryType:"esriGeometryPoint",
+      inSR:"4326",
+      spatialRel:"esriSpatialRelIntersects",
+      outFields:"Pub_Access,BndryName,Unit_Nm,MngNm_Desc,ST_Name",
+      returnGeometry:"false",
+      f:"json"
+    });
+
+    try{
+      const body=await fetchJson(`${PADUS_QUERY}?${params}`);
+      const features=body.features||[];
+      const open=features.find(feature=>feature.attributes?.Pub_Access==="OA");
+      const closed=features.find(feature=>feature.attributes?.Pub_Access==="XA");
+      const restricted=features.find(feature=>feature.attributes?.Pub_Access==="RA");
+
+      const result=open?{
+        status:"open",
+        boundary:clean(open.attributes?.BndryName || open.attributes?.Unit_Nm),
+        manager:clean(open.attributes?.MngNm_Desc),
+        source:"USGS PAD-US Public Access"
+      }:closed?{
+        status:"closed",
+        boundary:clean(closed.attributes?.BndryName || closed.attributes?.Unit_Nm),
+        source:"USGS PAD-US Public Access"
+      }:restricted?{
+        status:"restricted",
+        boundary:clean(restricted.attributes?.BndryName || restricted.attributes?.Unit_Nm),
+        source:"USGS PAD-US Public Access"
+      }:{
+        status:"unknown",
+        source:"USGS PAD-US Public Access"
+      };
+
+      cacheWrite(ACCESS_CACHE_PREFIX,key,result);
+      return result;
+    }catch{
+      return null;
+    }
+  }
+
+  async function verifyPublicAccess(row){
+    if(!row||!isWater(row))return null;
+    if(row.public_access_verified)return row;
+    if(privateSignal(row))return null;
+
+    if(explicitPublicSignal(row)){
+      return{
+        ...row,
+        public_access_verified:true,
+        public_access_note:"Public access is explicitly identified in the map record.",
+        public_access_source:"Public map access record",
+        public_access_method:"explicit-map-access"
+      };
     }
 
-    if(state && row.state === state.name) points += 100;
-    if(row.gnis_official) points += 120;
+    const access=await padUsAccess(row);
+    if(!access||access.status!=="open")return null;
 
-    const generic = /\b(lake|reservoir|pond|river|creek|stream|canal|bay|channel)\b/i;
-    if(generic.test(row.name)) points += 30;
+    const details=[
+      access.boundary,
+      access.manager
+    ].filter(Boolean).join(" · ");
+
+    return{
+      ...row,
+      public_access_verified:true,
+      public_access_note:details
+        ?`Open public access verified through USGS PAD-US: ${details}.`
+        :"Open public access verified through USGS PAD-US.",
+      public_access_source:"USGS PAD-US Public Access",
+      public_access_source_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
+      public_access_method:"pad-us-open"
+    };
+  }
+
+  async function filterPublic(rows,maxResults=18){
+    const input=dedupe((rows||[]).filter(isWater)).slice(0,45);
+    const output=[];
+
+    for(let start=0;start<input.length;start+=5){
+      const batch=input.slice(start,start+5);
+      const settled=await Promise.allSettled(batch.map(verifyPublicAccess));
+      for(const result of settled){
+        if(result.status==="fulfilled"&&result.value)output.push(result.value);
+      }
+      if(output.length>=maxResults)break;
+    }
+    return dedupe(output).slice(0,maxResults);
+  }
+
+  function score(row,query,state){
+    const target=normalize(stripState(expandCommonTerms(query)));
+    const name=normalize(row.name);
+    let points=0;
+
+    if(name===target)points+=600;
+    else if(name.startsWith(target))points+=400;
+    else if(name.includes(target))points+=280;
+    else{
+      const words=target.split(" ").filter(word=>word.length>1);
+      points+=words.filter(word=>name.includes(word)).length*45;
+    }
+
+    if(state&&row.state===state.name)points+=100;
+    if(row.public_access_verified)points+=350;
+    if(row.gnis_official)points+=120;
+    if(Number.isFinite(row.distance_miles))points+=Math.max(0,120-row.distance_miles*2);
 
     return points;
   }
 
+  function distanceMiles(a,b,c,d){
+    const R=3958.7613;
+    const rad=value=>value*Math.PI/180;
+    const p1=rad(a),p2=rad(c),dp=rad(c-a),dl=rad(d-b);
+    const h=Math.sin(dp/2)**2+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)**2;
+    return 2*R*Math.asin(Math.sqrt(h));
+  }
+
   function dedupe(rows){
-    const seen = new Set();
-    const output = [];
-    for(const row of rows){
-      const key = [
+    const seen=new Set(),output=[];
+    for(const row of rows||[]){
+      const key=[
         normalize(row.name),
         row.state,
         Number(row.lat).toFixed(4),
         Number(row.lon).toFixed(4)
       ].join("|");
-      if(seen.has(key)) continue;
+      if(seen.has(key))continue;
       seen.add(key);
       output.push(row);
     }
     return output;
   }
 
-  async function search(query){
-    const q = clean(query);
-    const state = explicitState(q);
-    const key = `${normalize(q)}|${state ? state.code : "REGION"}`;
-    const cached = cacheRead(key);
-    if(cached) return cached;
-
-    const terms = searchTerms(q);
-    const rows = [];
-
-    for(const term of terms){
-      const settled = await Promise.allSettled([
-        queryLayer(4, term, state), // Hydro Points: lakes, reservoirs, ponds, bays, etc.
-        queryLayer(3, term, state)  // Hydro Lines: rivers, streams, canals, channels, etc.
+  async function exactWaterSearch(query,state){
+    const rows=[];
+    for(const term of searchTerms(query)){
+      const settled=await Promise.allSettled([
+        queryLayerByName(4,term,state),
+        queryLayerByName(3,term,state)
       ]);
-
       for(const result of settled){
-        if(result.status === "fulfilled") rows.push(...result.value);
+        if(result.status==="fulfilled")rows.push(...result.value);
       }
-
-      if(rows.some(row => normalize(row.name) === normalize(expandCommonTerms(stripState(q))))) break;
+      if(rows.some(row=>normalize(row.name)===normalize(expandCommonTerms(stripState(query)))))break;
     }
 
-    const sorted = dedupe(rows)
-      .sort((a,b) => score(b,q,state) - score(a,q,state))
-      .slice(0,18);
+    const ranked=dedupe(rows)
+      .sort((a,b)=>score(b,query,state)-score(a,query,state))
+      .slice(0,35);
 
-    cacheWrite(key, sorted);
-    return sorted;
+    return filterPublic(ranked,18);
   }
 
-  window.FFO_REGION_SEARCH = {
+  async function nearbyTownSearch(query,state){
+    let place;
+    try{place=await geocodeTown(query,state);}catch{return[];}
+    if(!place)return[];
+
+    let candidates;
+    try{candidates=await queryNearbyHydroPoints(place,place.state,50);}catch{return[];}
+
+    const publicRows=await filterPublic(candidates,18);
+    return publicRows
+      .map(row=>({
+        ...row,
+        town_search:true,
+        nearby_public:true,
+        nearby_town_label:place.label
+      }))
+      .sort((a,b)=>a.distance_miles-b.distance_miles);
+  }
+
+  function officialFinder(query){
+    const state=explicitState(query);
+    return state?{
+      state:state.name,
+      url:OFFICIAL_FINDERS[state.name]
+    }:null;
+  }
+
+  async function search(query){
+    const q=clean(query);
+    const state=explicitState(q);
+    const key=`${normalize(q)}|${state?state.code:"REGION"}`;
+    const cached=cacheRead(CACHE_KEY_PREFIX,key,SEARCH_CACHE_AGE_MS);
+    if(cached)return cached;
+
+    const exact=await exactWaterSearch(q,state);
+    let nearby=[];
+
+    if(!WATER_WORDS.test(q)||exact.length<3){
+      nearby=await nearbyTownSearch(q,state);
+    }
+
+    const combined=dedupe([...exact,...nearby])
+      .sort((a,b)=>score(b,q,state)-score(a,q,state))
+      .slice(0,18);
+
+    cacheWrite(CACHE_KEY_PREFIX,key,combined);
+    return combined;
+  }
+
+  window.FFO_REGION_SEARCH={
     search,
-    states:REGION_STATES.map(state => state.name),
-    service_name:"USGS Geographic Names Information System",
-    service_url:SERVICE_ROOT,
-    refreshed_label:"Official federal water-name service"
+    filterPublic,
+    verifyPublicAccess,
+    officialFinder,
+    states:REGION_STATES.map(state=>state.name),
+    public_only:true,
+    service_name:"USGS GNIS + USGS PAD-US Public Access",
+    service_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
+    refreshed_label:"Public-only regional water search"
   };
 })();

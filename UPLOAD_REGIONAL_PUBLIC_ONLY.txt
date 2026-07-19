@@ -1,0 +1,29 @@
+FISH FINDER OUTDOORS — REGIONAL PUBLIC-ONLY FIX
+
+1. Unzip this package.
+2. Upload ALL included files to the ROOT of the report-generator GitHub repository.
+3. Replace files with the same names.
+4. Commit directly to main.
+
+IMPORTANT:
+The search now hides private, closed, restricted and access-unverified waters throughout:
+Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington,
+Northern California and Colorado.
+
+A few genuinely public waters may be hidden when no access record is available.
+That is intentional—the site will not recommend questionable access.
+
+TEST AFTER DEPLOYMENT:
+- Pocatello, Idaho
+- Boise, Idaho
+- Missoula, Montana
+- Bend, Oregon
+- Spokane, Washington
+- Reno, Nevada
+- Fort Collins, Colorado
+
+Every displayed water should say:
+Verified public access
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml

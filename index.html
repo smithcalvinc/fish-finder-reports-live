@@ -143,7 +143,7 @@
 <meta property="og:description" content="Idaho built. Northwest ready. Search fishing conditions, species guidance and trusted sources.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="ffo-logo-main.png">
-<meta name="generator" content="Fish Finder Outdoors Professional Beta v1.0">
+<meta name="generator" content="Fish Finder Outdoors Professional Beta v1.2 — regional public-only search">
 </head>
 <body>
 
@@ -167,7 +167,7 @@
     </nav>
   </div>
 </header>
-<div class="ffo-beta-bar">FREE BETA • Idaho built • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
+<div class="ffo-beta-bar">PUBLIC-ONLY BETA • Private waters hidden • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
 
 <section class="ffo-professional-hero">
   <div class="ffo-hero-grid">
@@ -186,7 +186,7 @@
 <section class="ffo-trust-strip" aria-label="Report tool features">
   <div class="ffo-trust-inner">
     <div class="ffo-trust-item"><strong>Northwest Coverage</strong><span>Northwest and Mountain West</span></div>
-    <div class="ffo-trust-item"><strong>Official Water Names</strong><span>USGS water-name matching</span></div>
+    <div class="ffo-trust-item"><strong>Public Waters Only</strong><span>Private and unverified access hidden</span></div>
     <div class="ffo-trust-item"><strong>Trusted Sources</strong><span>Rules and reports linked clearly</span></div>
     <div class="ffo-trust-item"><strong>Shared Reports</strong><span>Reviewed before publication</span></div>
   </div>
@@ -196,9 +196,9 @@
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official USGS water names are searched before map fallbacks.</p>
-      <span class="badge">Phase 6.3 · Regional search + emailed angler reports</span>
-      <span id="sourceStamp" class="source-stamp">Checking source status…</span>
+      <p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official names are checked against public-access records before results appear.</p>
+      <span class="badge">Professional Beta · Regional public-only search</span>
+      <span id="sourceStamp" class="source-stamp">Public-only access filter active</span>
       <nav class="utility-nav" aria-label="Fishing report tools">
         <a href="submit-report.html">Submit a fishing report</a>
         <a href="admin.html">Source review dashboard</a>
@@ -209,7 +209,7 @@
   <main class="wrap">
     <section id="report-search" class="search-panel" aria-label="Fishing location search">
       <span class="ffo-section-label">Free beta report tool</span>
-      <div class="ffo-beta-panel"><h2>Plan your next fishing trip with better information.</h2><p>Search by official water name, local name, town or coordinates. The tool separates measured data, official records, reviewed angler reports and estimates so you can see what each claim is based on.</p></div>
+      <div class="ffo-beta-panel"><h2>Plan your next fishing trip with better information.</h2><p>Search by official water name, local name, town or coordinates. Public-only mode hides private and access-unverified waters before results appear.</p></div>
       <form id="searchForm" class="search-row">
         <input id="locationInput" autocomplete="off" placeholder="Example: American Falls Reservoir, Idaho" aria-label="Fishing location">
         <button class="primary" type="submit">Find location</button>
@@ -226,7 +226,7 @@
         <button type="button" data-quick-water="Alexander Reservoir, Idaho">Alexander Reservoir</button>
         <button type="button" data-quick-water="Oneida Narrows Reservoir, Idaho">Oneida Narrows</button>
       </div>
-      <div class="search-help"><strong>Full regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. Searches accept common abbreviations such as <code>Res.</code>, <code>Lk.</code> and <code>Rvr.</code>, plus coordinates such as <code>42.32, -112.73</code>.</div>
+      <div class="search-help"><strong>Public-only regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. Private, closed, restricted and access-unverified waters are hidden. This conservative filter can omit some public waters until access is verified.</div>
       <div class="regional-coverage">
         <strong>Official water-name search coverage</strong>
         <div class="state-chips">
@@ -346,7 +346,12 @@ const LOCAL_WATERS = [
     display_name:"Bannock Reservoir (Portneuf Wellness Complex Pond), Bannock County, Idaho",
     lat:42.918590,lon:-112.431740,state:"Idaho",county:"Bannock",
     category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124345429181"
+    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124345429181",
+    nearby_towns:["pocatello","pocatello idaho","pocatello id","chubbuck","chubbuck idaho","bannock county"],
+    nearby_town_label:"Pocatello",
+    public_access_verified:true,
+    public_access_note:"Public family fishing water inside the Portneuf Wellness Complex. Multiple docks and accessible shoreline are available.",
+    public_access_source:"Idaho Fish and Game Fishing Planner"
   },
   {
     name:"Edson Fichter Pond",
@@ -360,7 +365,12 @@ const LOCAL_WATERS = [
     display_name:"Edson Fichter Pond, Edson Fichter Nature Area, Pocatello, Idaho",
     lat:42.821860,lon:-112.403160,state:"Idaho",county:"Bannock",
     category:"water",type:"pond",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1124032428216"
+    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1124032428216",
+    nearby_towns:["pocatello","pocatello idaho","pocatello id","chubbuck","chubbuck idaho","bannock county"],
+    nearby_town_label:"Pocatello",
+    public_access_verified:true,
+    public_access_note:"Public family fishing water at Edson Fichter Nature Area. Docks, trails and accessible shoreline are available.",
+    public_access_source:"Idaho Fish and Game Fishing Planner"
   },
   {
     name:"Blackfoot Reservoir",
@@ -451,6 +461,14 @@ const LOCAL_WATERS = [
     official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1127315429370"
   }
 ];
+
+LOCAL_WATERS.forEach(water=>{
+  if(water.official_url&&!water.public_access_verified){
+    water.public_access_verified=true;
+    water.public_access_note=water.public_access_note||"Public fishing access verified through the listed state fishing-agency record.";
+    water.public_access_source=water.public_access_source||"State fishing agency";
+  }
+});
 
 const WATER_PROFILES = [
 {state:"Idaho",match:["bannock reservoir","portneuf wellness complex pond","portneuf wellness pond","wellness reservoir","wellness pond"],species:["rainbow trout","kokanee"],focus:"Small Pocatello community fishing water with docks and easy family access.",tips:["Start with a worm under a float, trout dough bait or a small spinner where legal.","Work around the docks and open shoreline without crowding other anglers.","Check the newest stocking date before fishing."]},
@@ -755,9 +773,37 @@ function localWaterScore(water,q){
 function localWaterMatches(q){
   return LOCAL_WATERS
     .map(w=>({water:w,score:localWaterScore(w,q)}))
-    .filter(x=>x.score>0)
+    .filter(x=>x.score>0&&x.water.public_access_verified)
     .sort((a,b)=>b.score-a.score)
     .map(({water})=>({...water,local_directory:true}));
+}
+
+function nearbyPublicWaterMatches(q){
+  const query=normalize(q)
+    .replace(/\b(united states|usa)\b/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+  if(!query)return[];
+
+  return LOCAL_WATERS
+    .map((water,index)=>{
+      const towns=(water.nearby_towns||[]).map(normalize);
+      let score=0;
+      for(const town of towns){
+        if(query===town)score=Math.max(score,500);
+        else if(query===`${town} idaho`)score=Math.max(score,480);
+        else if(query.includes(town)&&town.length>=5)score=Math.max(score,420);
+      }
+      return{water,index,score};
+    })
+    .filter(item=>item.score>0&&item.water.public_access_verified)
+    .sort((a,b)=>b.score-a.score||a.index-b.index)
+    .map(({water})=>({
+      ...water,
+      local_directory:true,
+      nearby_public:true,
+      town_search:true
+    }));
 }
 function dedupeLocations(rows){
   const seen=new Set(),out=[];
@@ -793,10 +839,12 @@ function expandedSearchQueries(q){
   return [...new Set(queries)].slice(0,4);
 }
 function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}
-function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location",gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||""};}
+function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location",gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",official_url:loc.official_url||"",nearby_town_label:loc.nearby_town_label||""};}
 function isWaterResult(r){return WATER_TYPES.has(String(r.type||"").toLowerCase())||WATER_TYPES.has(String(r.category||"").toLowerCase())||/(lake|reservoir|river|creek|stream|pond|bay|ocean|canal|fork)/i.test(r.name||"");}
 function searchPriority(r,q){
   let p=0;const n=normalize(r.name),query=normalize(q);
+  if(r.public_access_verified)p+=420;
+  if(r.nearby_public)p+=360;
   if(r.local_directory)p+=260;
   if(r.gnis_official)p+=230;
   if(isWaterResult(r))p+=100;
@@ -943,46 +991,57 @@ async function searchPlaces(q){
   const coordinate=parseCoordinateQuery(q);
   if(coordinate)return[coordinate];
 
-  const local=localWaterMatches(q);
-  const key="geo62:"+q.toLowerCase(),cached=getCache(key,604800000);
-  if(cached)return dedupeLocations([...local,...cached]).sort((a,b)=>searchPriority(b,q)-searchPriority(a,q)).slice(0,14);
+  const nearbyPublic=nearbyPublicWaterMatches(q);
+  if(nearbyPublic.length)return nearbyPublic;
 
-  let gnis=[];
+  const local=localWaterMatches(q);
+  const key="geo-public-v1:"+q.toLowerCase(),cached=getCache(key,604800000);
+  if(cached)return dedupeLocations([...local,...cached])
+    .filter(row=>row.public_access_verified)
+    .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
+    .slice(0,14);
+
+  let officialPublic=[];
   if(window.FFO_REGION_SEARCH?.search){
-    try{gnis=await window.FFO_REGION_SEARCH.search(q);}catch{}
+    try{officialPublic=await window.FFO_REGION_SEARCH.search(q);}catch{}
   }
 
-  const remote=[];
-  const queries=expandedSearchQueries(q);
-  const shouldUseMapFallback=gnis.length<4||!gnis.some(row=>normalize(row.name)===normalize(q.replace(/,\s*(idaho|montana|wyoming|utah|nevada|oregon|washington|california|colorado|id|mt|wy|ut|nv|or|wa|ca|co)\s*$/i,"").replace(/\bres\.?$/i,"reservoir")));
-  if(shouldUseMapFallback){
+  let mapPublic=[];
+  if(!officialPublic.length){
+    const remote=[];
+    const queries=expandedSearchQueries(q);
+
     for(let i=0;i<queries.length;i++){
-      if(i>0&&(remote.some(isWaterResult)||gnis.length>=6))break;
       const wait=Math.max(0,1100-(Date.now()-lastSearch));if(wait)await sleep(wait);
       const p=new URLSearchParams({
         q:queries[i],format:"jsonv2",addressdetails:"1",namedetails:"1",
-        countrycodes:"us",limit:i===0?"12":"8"
+        extratags:"1",countrycodes:"us",limit:i===0?"12":"8"
       });
       try{
         const rows=await json("https://nominatim.openstreetmap.org/search?"+p);
         lastSearch=Date.now();
         remote.push(...rows.map(r=>{
-          const a=r.address||{};
+          const a=r.address||{},extra=r.extratags||{};
           return{
             name:(r.namedetails||{}).name||r.name||(r.display_name||"Location").split(",")[0],
             display_name:r.display_name||r.name||"Location",
             lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",
             category:r.category||r.class||"place",type:r.type||"location",
-            map_fallback:true
+            map_fallback:true,extratags:extra,
+            access:extra.access||"",ownership:extra.ownership||"",
+            operator:extra.operator||"",owner:extra.owner||""
           };
-        }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)));
-      }catch(error){
-        if(!local.length&&!gnis.length&&i===queries.length-1)throw error;
-      }
+        }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)&&isWaterResult(x)));
+      }catch{}
+    }
+
+    if(window.FFO_REGION_SEARCH?.filterPublic){
+      try{mapPublic=await window.FFO_REGION_SEARCH.filterPublic(remote,14);}catch{}
     }
   }
 
-  const combined=dedupeLocations([...local,...gnis,...remote])
+  const combined=dedupeLocations([...local,...officialPublic,...mapPublic])
+    .filter(row=>row.public_access_verified)
     .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
     .slice(0,14);
 
@@ -1082,6 +1141,7 @@ async function makeReport(loc){
     else sources.push({name:catchReport.agency+" recent catch report",url:catchReport.source_url,kind:"official-catch"});
   }
   if(loc.gnis_official)sources.push({name:"USGS Geographic Names Information System",url:loc.name_source_url||"https://www.usgs.gov/tools/geographic-names-information-system-gnis",kind:"official-name"});
+  if(loc.public_access_verified&&loc.official_url)sources.push({name:(loc.public_access_source||"Official public-access listing"),url:loc.official_url,kind:"official-access"});
   if(g){
     sources.push({name:g.agency+" fishing information",url:g.report,kind:"official"});
     sources.push({name:g.agency+" regulations",url:g.rules,kind:"official"});
@@ -1093,7 +1153,7 @@ async function makeReport(loc){
   const tech=profile?[...profile.tips,...genericTechniques(type,w,u)].slice(0,6):genericTechniques(type,w,u);
   return{
     generated_at:new Date().toISOString(),
-    location:{name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||""},
+    location:{name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",official_url:loc.official_url||""},
     coverage:{level:official?"Official species match":loc.gnis_official?"Official regional water-name match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official},
     profile,official_species:official,recent_catch_report:catchReport,
     outlook:outlook(w,u,t),
@@ -1107,24 +1167,27 @@ async function makeReport(loc){
         :"No exact official waterbody species record is currently loaded. Statewide species are intentionally not shown."
     },
     techniques:tech,sources,
-    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official,verified_catch_report:!!catchReport,community_catch_report:catchReport?.report_kind==="community"},
+    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official,public_access:!!loc.public_access_verified,verified_catch_report:!!catchReport,community_catch_report:catchReport?.report_kind==="community"},
     disclaimer:"Recent catch figures may come from dated agency reports or manually reviewed angler submissions and may no longer represent today’s bite. Community submissions are not independently verified. The conditions score remains an estimate. Always verify current regulations, closures, access, boating conditions and emergency information before fishing."
   };
 }
 
 $("searchForm").addEventListener("submit",async e=>{
   e.preventDefault();const q=$("locationInput").value.trim();if(q.length<2){status("Enter at least two characters.",true);return;}
-  $("results").innerHTML="";status('<span class="pulse"></span> Searching official USGS water names across the Northwest region…');
+  $("results").innerHTML="";status('<span class="pulse"></span> Searching and verifying public fishing access…');
   try{
     const rows=await searchPlaces(q);clearStatus();
     if(!rows.length){
-      status(`No matching water was found for <strong>${esc(q)}</strong>. Try adding the state, nearest town, an alternate name, or coordinates.`,true);
+      const finder=window.FFO_REGION_SEARCH?.officialFinder?.(q);
+      status(`No <strong>verified public fishing water</strong> was found for <strong>${esc(q)}</strong>. Private, closed, restricted and access-unverified waters are intentionally hidden.${finder?` <a href="${esc(finder.url)}" target="_blank" rel="noopener">Check the official ${esc(finder.state)} fishing map ↗</a>`:""} Try an exact public water name or coordinates.`,true);
       return;
     }
-    $("results").innerHTML=rows.map((r,i)=>`<button class="result ${r.local_directory?"local-result":r.gnis_official?"gnis-result":isWaterResult(r)?"result-water":"result-place"}" data-index="${i}">
+    const townSearch=rows.some(r=>r.town_search);
+    $("results").innerHTML=`<div class="search-help"><strong>${townSearch?`Verified public fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Verified public fishing waters"}</strong> Every displayed result passed the public-access filter. Private and access-unverified waters are excluded.</div>`+rows.map((r,i)=>`<button class="result local-result" data-index="${i}">
       <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
       <span>${esc(r.display_name)} · ${esc(r.type)}</span>
-      <span class="result-badges">${r.local_directory?'<span class="result-badge">Verified local alias</span>':""}${r.gnis_official?'<span class="result-badge">USGS official water name</span>':""}${r.map_fallback?'<span class="result-badge">Map fallback</span>':""}${isWaterResult(r)?'<span class="result-badge">Water match</span>':""}${r.coordinate_query?'<span class="result-badge">Coordinates</span>':""}</span>
+      ${r.public_access_note?`<span>${esc(r.public_access_note)}</span>`:""}
+      <span class="result-badges"><span class="result-badge">Verified public access</span>${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official?'<span class="result-badge">USGS official name</span>':""}${r.public_access_method==="pad-us-open"?'<span class="result-badge">USGS PAD-US open access</span>':""}</span>
     </button>`).join("");
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
   }catch{status("Location search could not connect. Check your connection and try again.",true);}
@@ -1139,7 +1202,7 @@ async function loadReport(loc){
   status('<span class="pulse"></span> Gathering recent catch reports, live conditions and official waterbody information…');
   try{
     const r=await makeReport(loc);state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();
-    const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",auto:"1"});
+    const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",public_access:loc.public_access_verified?"1":"0",access_note:loc.public_access_note||"",official_url:loc.official_url||"",auto:"1"});
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
   }catch{status("The report could not be completed. Please try again.",true);}
 }
@@ -1166,8 +1229,9 @@ function renderReport(r){
   $("coverageBadge").textContent=r.coverage.level+" · "+r.confidence.label+" confidence";
   $("generated").textContent="Generated "+dateFmt(r.generated_at)+" · "+r.location.water_type+" profile";
   const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report),baitPlan=buildBaitSuggestions(r),monitor=monitorStatus(),sourceHealth=reportSourceHealth(r.recent_catch_report),communityReport=catchReport?.report_kind==="community";
-  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Water name",v.official_name?"USGS official match":"Map or local match",v.official_name?"yes":"estimate")}${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",catchReport?(communityReport?"Reviewed angler submission":catchAge.label):"No dated match found",catchReport?(communityReport?"estimate":"yes"):"no")}${truth("Source monitor",sourceHealth.label,sourceHealth.className==="health-ok"?"yes":sourceHealth.className==="health-bad"?"no":"estimate")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Water name",v.official_name?"USGS official match":"Map or local match",v.official_name?"yes":"estimate")}${truth("Public fishing access",v.public_access?"Verified open public access":"User-supplied point; access not checked",v.public_access?"yes":"estimate")}${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",catchReport?(communityReport?"Reviewed angler submission":catchAge.label):"No dated match found",catchReport?(communityReport?"estimate":"yes"):"no")}${truth("Source monitor",sourceHealth.label,sourceHealth.className==="health-ok"?"yes":sourceHealth.className==="health-bad"?"no":"estimate")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
   if(v.official_name)cards.push(`<article class="card full gnis-note"><strong>Official water name verified by USGS GNIS.</strong><span class="meta"> ${esc(r.location.gnis_feature_class||"Hydrographic feature")} · GNIS ID ${esc(r.location.gnis_id||"available from source")}. This verifies the name and location, not fishing access or current regulations.</span></article>`);
+  if(v.public_access)cards.push(`<article class="card full official-record"><div class="eyebrow">Public fishing access</div><h3>Verified public fishing water</h3><p>${esc(r.location.public_access_note||"Public fishing access is documented by the official state fishing agency.")}</p>${r.location.official_url?`<div class="quick-links"><a href="${esc(r.location.official_url)}" target="_blank" rel="noopener">Open the official access and fishing page ↗</a></div>`:""}</article>`);
   cards.push(`<article class="card full monitor-card">
     <div class="eyebrow">${communityReport?"Community report review":"Automatic source monitor"}</div>
     <h3>${communityReport?"Manual approval and age":"Freshness and review status"}</h3>
@@ -1250,7 +1314,7 @@ function renderReport(r){
   }</article>`);
   cards.push(`<article class="card"><h3>Safety and active alerts</h3>${alerts.length?alerts.map(a=>`<div class="alert"><b>${esc(a.event||"Weather alert")}</b><div>${esc(a.headline||a.severity||"Check the official alert.")}</div></div>`).join(""):"<p>No active NWS alert was returned for the selected coordinates at generation time.</p>"}${list(r.outlook.cautions)}</article>`);
   if(g)cards.push(`<article class="card full"><h3>Official planning tools for ${esc(r.location.state)}</h3><p class="meta">These are direct agency links. Open them before the trip to verify rules, stocking records, closures and water-specific information.</p><div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Official fishing information ↗</a><a href="${esc(g.rules)}" target="_blank" rel="noopener">Current regulations ↗</a>${g.stocking?`<a href="${esc(g.stocking)}" target="_blank" rel="noopener">Stocking information ↗</a>`:""}${g.finder?`<a href="${esc(g.finder)}" target="_blank" rel="noopener">Water finder ↗</a>`:""}${g.emergency?`<a href="${esc(g.emergency)}" target="_blank" rel="noopener">Emergency rules ↗</a>`:""}</div></article>`);
-  cards.push(`<article class="card full"><h3>Sources and verification</h3><div class="source-list">${(r.sources||[]).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${s.kind==="live"?"● Live data":s.kind==="official-catch"?"✓ Official catch report":s.kind==="official-species"?"★ Official species record":s.kind==="official-name"?"⌖ Official water name":s.kind==="community-catch"?"● Approved angler report":"◆ Official reference"} · ${esc(s.name)} ↗</a>`).join("")}</div><p class="disclaimer">${esc(r.disclaimer)}</p></article>`);
+  cards.push(`<article class="card full"><h3>Sources and verification</h3><div class="source-list">${(r.sources||[]).map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${s.kind==="live"?"● Live data":s.kind==="official-catch"?"✓ Official catch report":s.kind==="official-species"?"★ Official species record":s.kind==="official-name"?"⌖ Official water name":s.kind==="official-access"?"✓ Verified public access":s.kind==="community-catch"?"● Approved angler report":"◆ Official reference"} · ${esc(s.name)} ↗</a>`).join("")}</div><p class="disclaimer">${esc(r.disclaimer)}</p></article>`);
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
@@ -1287,10 +1351,10 @@ document.querySelectorAll("[data-quick-water]").forEach(button=>button.addEventL
   const monitor=monitorStatus(),stamp=$("sourceStamp");
   if(!stamp)return;
   if(monitor.last_run){
-    stamp.textContent=`USGS regional names active · report sources checked ${ageLabel(monitor.last_run)}`;
+    stamp.textContent=`Public-only filter active · report sources checked ${ageLabel(monitor.last_run)}`;
     stamp.classList.toggle("warn",Boolean(monitor.review_required||monitor.unreachable_sources));
   }else{
-    stamp.textContent="USGS regional water-name search active";
+    stamp.textContent="Public-only regional filter active";
     stamp.classList.add("warn");
   }
 })();
@@ -1300,7 +1364,7 @@ $("copySummary").addEventListener("click",async()=>{
 });
 $("copyLink").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("copyLink").textContent="Link copied";setTimeout(()=>$("copyLink").textContent="Copy report link",1800);}catch{prompt("Copy this report link:",location.href);}});
 renderSaved();
-(()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place",gnis_official:p.get("gnis")==="1",name_source:p.get("gnis")==="1"?"USGS Geographic Names Information System":"",name_source_url:p.get("gnis")==="1"?"https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer":"",gnis_id:p.get("gnis_id")||"",gnis_feature_class:p.get("gnis_class")||""});})();
+(()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place",gnis_official:p.get("gnis")==="1",name_source:p.get("gnis")==="1"?"USGS Geographic Names Information System":"",name_source_url:p.get("gnis")==="1"?"https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer":"",gnis_id:p.get("gnis_id")||"",gnis_feature_class:p.get("gnis_class")||"",public_access_verified:p.get("public_access")==="1",public_access_note:p.get("access_note")||"",official_url:p.get("official_url")||""});})();
 </script>
 
 
