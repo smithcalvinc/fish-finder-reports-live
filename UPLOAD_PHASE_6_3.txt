@@ -1,0 +1,21 @@
+FISH FINDER OUTDOORS — PHASE 6.3
+
+UPLOAD THE BUILD:
+1. Unzip this package.
+2. Upload every included file to the ROOT of the existing GitHub repository.
+3. Replace files with the same names.
+4. Commit directly to main.
+
+IMPORTANT NEW FILE:
+community_fishing_reports.js
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml
+
+TO APPROVE A REPORT:
+1. Open the report email.
+2. Copy the complete email body.
+3. Open https://fishfinderoutdoors.com/admin.html
+4. Paste, parse and review it.
+5. Click Approve and download community_fishing_reports.js.
+6. Replace only that file in GitHub and commit to main.

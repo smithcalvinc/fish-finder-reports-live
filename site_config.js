@@ -6,15 +6,9 @@ window.FFO_SITE_CONFIG = {
   powered_by_name: "Mountain Dog Enterprises",
   powered_by_url: "https://mountaindogenterprises.com",
 
-  /* Optional: paste the public GitHub repository URL here so the admin
-     dashboard can link directly to Actions and source files. */
-  github_repository_url: "",
+  github_repository_url: "https://github.com/smithcalvinc/fish-finder-reports-live",
+  submission_email: "mountain.dog.enterprises@gmail.com",
 
-  /* Optional: a public form/webhook endpoint that accepts JSON POSTs.
-     Leave blank to use safe local draft/export mode. */
-  submission_endpoint: "",
-
-  /* Reports older than these limits receive visible warnings. */
   current_report_days: 14,
   aging_report_days: 45
 };

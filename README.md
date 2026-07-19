@@ -1,39 +1,21 @@
-# Fish Finder Outdoors — Phase 6.2
+# Fish Finder Outdoors — Phase 6.3
 
-Phase 6.2 replaces one-water-at-a-time search patches with full regional water-name coverage.
+Phase 6.3 adds a simple email-based angler report workflow without Supabase, accounts, API keys or a form service.
 
-## Coverage region
+## Visitor workflow
+1. The angler completes `submit-report.html`.
+2. Their email application opens a report addressed to `mountain.dog.enterprises@gmail.com`.
+3. They press Send.
+4. The report arrives as a structured email.
 
-- Idaho
-- Montana
-- Wyoming
-- Utah
-- Nevada
-- Oregon
-- Washington
-- Northern California
-- Colorado
+## Approval workflow
+1. Open the email and copy its complete body.
+2. Open `/admin.html`.
+3. Paste it under **Add an emailed angler report**.
+4. Parse and review it.
+5. Click **Approve and download community_fishing_reports.js**.
+6. Replace only that file in the root of GitHub and commit to `main`.
 
-## How location search now works
+Private contact information is removed automatically from the public file. Community reports are clearly labeled as manually reviewed, not independently verified.
 
-1. Verified local aliases are checked first.
-2. The official USGS Geographic Names Information System is searched for hydrographic points and lines.
-3. OpenStreetMap is used as a fallback for towns, access areas and names not returned by GNIS.
-4. Coordinates remain supported.
-
-The official GNIS search covers lakes, reservoirs, ponds, rivers, streams, canals, bays and other named water features across the entire region. It also accepts common shorthand such as Res., Lk. and Rvr.
-
-## Important distinction
-
-GNIS verifies the official water name and location. It does not prove public access, fishing conditions, fish species or current regulations. The report still links to the appropriate state fish and wildlife agency for those details.
-
-## Upload
-
-Upload every file in this package to the root of the existing GitHub repository.
-Replace files with the same names and commit directly to `main`.
-
-Do not edit or replace:
-
-`.github/workflows/update-fishing-reports.yml`
-
-This package contains no workflow file and no Supabase files.
+Do not touch `.github/workflows/update-fishing-reports.yml`. The workflow does not edit the separate community report file.
