@@ -6,164 +6,93 @@
 <title>Submit a Fishing Report | Fish Finder Outdoors</title>
 <style>
 :root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(920px,calc(100% - 30px));margin:auto}header{padding:35px 0 22px}.brand{font-weight:900;font-size:25px}h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,58px);margin:25px 0 10px}.lede{font-size:18px;color:var(--muted);max-width:760px}.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin:18px 0;box-shadow:0 12px 35px rgba(30,55,48,.07)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-weight:850;font-size:13px;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid #bfc8c2;border-radius:12px;padding:12px;background:white;font:inherit}textarea{min-height:110px;resize:vertical}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}button,a.button{border:0;border-radius:13px;padding:12px 16px;font-weight:850;cursor:pointer;text-decoration:none}.primary{background:var(--green);color:white}.secondary{background:#e6ece8;color:var(--green)}.status{padding:13px;border-radius:12px;background:#e9f2ed;margin-top:14px}.status.error{background:#f8dedb;color:#842e28}.warning{background:#fff0ca;border-left:5px solid var(--gold)}.success{background:#dff2e7;border-left:5px solid var(--green2)}pre{white-space:pre-wrap;background:#eef1ec;border-radius:13px;padding:14px;max-height:360px;overflow:auto}.meta{font-size:13px;color:var(--muted)}footer{padding:30px 0}.hidden{display:none}.hp{position:absolute;left:-10000px;opacity:0;pointer-events:none}@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(900px,calc(100% - 30px));margin:auto}header{padding:35px 0 22px}.brand{font-weight:900;font-size:25px}h1{font-family:Georgia,serif;font-size:clamp(34px,7vw,58px);margin:25px 0 10px}.lede{font-size:18px;color:var(--muted);max-width:720px}.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;margin:18px 0;box-shadow:0 12px 35px rgba(30,55,48,.07)}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.full{grid-column:1/-1}label{display:block;font-weight:850;font-size:13px;margin-bottom:6px}input,select,textarea{width:100%;border:1px solid #bfc8c2;border-radius:12px;padding:12px;background:white;font:inherit}textarea{min-height:110px;resize:vertical}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:17px}button,a.button{border:0;border-radius:13px;padding:12px 16px;font-weight:850;cursor:pointer;text-decoration:none}.primary{background:var(--green);color:white}.secondary{background:#e6ece8;color:var(--green)}.status{padding:13px;border-radius:12px;background:#e9f2ed;margin-top:14px}.warning{background:#fff0ca;border-left:5px solid var(--gold)}pre{white-space:pre-wrap;background:#eef1ec;border-radius:13px;padding:14px;max-height:360px;overflow:auto}.meta{font-size:13px;color:var(--muted)}footer{padding:30px 0}.hidden{display:none}@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
 </style>
 <script src="site_config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase_client.js"></script>
 </head>
 <body>
-<header><div class="wrap"><div class="brand">🎣 Fish Finder Outdoors</div><h1>Submit a fishing report</h1><p class="lede">Share what you actually caught, when you caught it and what worked. Every submission goes to a private review queue and is published only after approval.</p><a class="button secondary" href="index.html">← Back to report generator</a></div></header>
+<header><div class="wrap"><div class="brand">🎣 Fish Finder Outdoors</div><h1>Submit a fishing report</h1><p class="lede">Share what was actually caught, where, when and with what bait. Submissions require review and are never published automatically.</p><a class="button secondary" href="index.html">← Back to report generator</a></div></header>
 <main class="wrap">
-<section id="connectionNotice" class="panel warning hidden"></section>
-<section class="panel warning"><strong>Protect your exact spot.</strong> Name the public lake, reservoir, river section or port. Do not submit private-property locations, protected spawning areas or sensitive coordinates.</section>
+<section class="panel warning"><strong>Protect your exact spot.</strong> Name the lake, river section, reservoir or port, but do not submit private-property locations or sensitive coordinates.</section>
 <form id="reportForm" class="panel">
-<div class="hp" aria-hidden="true"><label>Leave this empty<input id="website" tabindex="-1" autocomplete="off"></label></div>
 <div class="grid">
-<div><label for="water">Waterbody or fishing area *</label><input id="water" required maxlength="140" placeholder="American Falls Reservoir"></div>
-<div><label for="state">State *</label><input id="state" required maxlength="60" placeholder="Idaho"></div>
+<div><label for="water">Waterbody or fishing area *</label><input id="water" required placeholder="American Falls Reservoir"></div>
+<div><label for="state">State *</label><input id="state" required placeholder="Idaho"></div>
 <div><label for="date">Fishing date *</label><input id="date" required type="date"></div>
 <div><label for="time">Approximate time</label><select id="time"><option>Early morning</option><option>Morning</option><option>Midday</option><option>Afternoon</option><option>Evening</option><option>Night</option></select></div>
-<div><label for="species">Species caught *</label><input id="species" required maxlength="160" placeholder="Rainbow trout"></div>
-<div><label for="count">Number caught *</label><input id="count" required type="number" min="0" max="999" value="1"></div>
+<div><label for="species">Species caught *</label><input id="species" required placeholder="Rainbow trout"></div>
+<div><label for="count">Number caught</label><input id="count" type="number" min="0" max="999" value="1"></div>
 <div><label for="kept">Number kept</label><input id="kept" type="number" min="0" max="999" value="0"></div>
-<div><label for="size">Approximate size</label><input id="size" maxlength="100" placeholder="12–16 inches"></div>
-<div><label for="bait">Bait or lure used *</label><input id="bait" required maxlength="240" placeholder="Silver spinner, nightcrawler, jig..."></div>
+<div><label for="size">Approximate size</label><input id="size" placeholder="12–16 inches"></div>
+<div><label for="bait">Bait or lure used *</label><input id="bait" required placeholder="Silver spinner, nightcrawler, jig..."></div>
 <div><label for="method">Method</label><select id="method"><option>Shore fishing</option><option>Boat fishing</option><option>Kayak fishing</option><option>Fly fishing</option><option>Ice fishing</option><option>Trolling</option><option>Other</option></select></div>
-<div class="full"><label for="notes">Conditions and useful details</label><textarea id="notes" maxlength="2000" placeholder="Depth, structure, water clarity, bite time, weather and presentation..."></textarea></div>
-<div class="full"><label for="photo">Optional public photo link</label><input id="photo" type="url" maxlength="500" placeholder="https://..."><div class="meta">Use only a photo you own and permit Fish Finder Outdoors to display.</div></div>
-<div><label for="name">Public display name</label><input id="name" maxlength="100" placeholder="First name or fishing handle"></div>
-<div><label for="contact">Private contact for verification</label><input id="contact" maxlength="240" placeholder="Email or social handle"><div class="meta">Stored separately and never included in public report results.</div></div>
-<div><label for="lat">Optional general latitude</label><input id="lat" type="number" step="0.000001" min="-90" max="90" placeholder="42.850000"></div>
-<div><label for="lon">Optional general longitude</label><input id="lon" type="number" step="0.000001" min="-180" max="180" placeholder="-112.500000"></div>
-<div class="full"><label><input id="truth" type="checkbox" required style="width:auto"> I confirm this is an honest report from my own recent fishing trip and that Fish Finder Outdoors may review and publish the public details.</label></div>
+<div class="full"><label for="notes">Conditions and useful details</label><textarea id="notes" placeholder="Depth, structure, water clarity, bite time, weather, presentation..."></textarea></div>
+<div class="full"><label for="photo">Optional public photo link</label><input id="photo" type="url" placeholder="https://..."><div class="meta">This static build cannot upload files directly. Use a public photo link only when you own the image and permit its use.</div></div>
+<div><label for="name">Your display name</label><input id="name" placeholder="First name or fishing handle"></div>
+<div><label for="contact">Private contact for verification</label><input id="contact" placeholder="Email or social handle"><div class="meta">Not included in the public preview.</div></div>
+<div class="full"><label><input id="truth" type="checkbox" required style="width:auto"> I confirm this report is honest, recent and based on my own fishing trip.</label></div>
 </div>
-<div class="actions"><button id="submitButton" class="primary" type="submit">Send for review</button><button class="secondary" id="copy" type="button">Copy submission text</button><button class="secondary" id="download" type="button">Download backup</button></div>
+<div class="actions"><button class="primary" type="submit">Save report for review</button><button class="secondary" id="copy" type="button">Copy submission text</button><button class="secondary" id="download" type="button">Download JSON</button></div>
 <div id="status" class="status hidden"></div>
 </form>
-<section class="panel"><h2>Submission preview</h2><pre id="preview">Complete the form to create a review packet.</pre><p class="meta">Approved submissions may appear as community fishing reports. Private contact details never appear in the public preview.</p></section>
+<section class="panel"><h2>Submission preview</h2><pre id="preview">Complete the form to create a review packet.</pre><p class="meta">Without a configured submission endpoint, this page stores the draft only in this browser and lets you copy or download it. It does not silently publish anything.</p></section>
 </main>
 <footer><div class="wrap"><a href="https://fishfinderoutdoors.com">FishFinderOutdoors.com</a> · Powered by <a href="https://mountaindogenterprises.com">Mountain Dog Enterprises</a></div></footer>
 <script>
 const $=id=>document.getElementById(id);
-const openedAt=Date.now();
+const cfg=window.FFO_SITE_CONFIG||{};
 let current=null;
-
 function packet(){
   return{
-    waterbody:$("water").value.trim(),
-    state:$("state").value.trim(),
-    fishing_date:$("date").value,
-    time_period:$("time").value,
-    species:$("species").value.trim(),
-    caught_count:Number($("count").value||0),
-    kept_count:Number($("kept").value||0),
-    size_text:$("size").value.trim(),
-    bait_or_lure:$("bait").value.trim(),
-    method:$("method").value,
-    notes:$("notes").value.trim(),
-    photo_url:$("photo").value.trim(),
-    display_name:$("name").value.trim()||"Anonymous angler",
-    private_contact:$("contact").value.trim(),
-    latitude:$("lat").value===""?null:Number($("lat").value),
-    longitude:$("lon").value===""?null:Number($("lon").value),
+    id:"FFO-"+Date.now().toString(36).toUpperCase(),
+    submitted_at:new Date().toISOString(),
+    status:"pending",
+    waterbody:$("water").value.trim(),state:$("state").value.trim(),
+    fishing_date:$("date").value,time:$("time").value,
+    species:$("species").value.trim(),count:Number($("count").value||0),
+    kept:Number($("kept").value||0),size:$("size").value.trim(),
+    bait_or_lure:$("bait").value.trim(),method:$("method").value,
+    notes:$("notes").value.trim(),photo_url:$("photo").value.trim(),
+    display_name:$("name").value.trim(),private_contact:$("contact").value.trim(),
     attested:$("truth").checked
   };
 }
-function publicText(p){
+function text(p){
   return[
     "FISH FINDER OUTDOORS — ANGLER REPORT SUBMISSION",
-    `Location: ${p.waterbody}, ${p.state}`,
-    `Fishing date/time: ${p.fishing_date} · ${p.time_period}`,
-    `Species: ${p.species}`,
-    `Caught: ${p.caught_count} · Kept: ${p.kept_count}`,
-    p.size_text?`Size: ${p.size_text}`:"",
-    `Bait/lure: ${p.bait_or_lure}`,
-    `Method: ${p.method}`,
-    p.notes?`Details: ${p.notes}`:"",
-    p.photo_url?`Photo: ${p.photo_url}`:"",
-    `Display name: ${p.display_name}`,
+    `Submission ID: ${p.id}`,`Submitted: ${p.submitted_at}`,
+    `Location: ${p.waterbody}, ${p.state}`,`Fishing date/time: ${p.fishing_date} · ${p.time}`,
+    `Species: ${p.species}`,`Caught: ${p.count} · Kept: ${p.kept}`,
+    p.size?`Size: ${p.size}`:"",`Bait/lure: ${p.bait_or_lure}`,`Method: ${p.method}`,
+    p.notes?`Details: ${p.notes}`:"",p.photo_url?`Photo: ${p.photo_url}`:"",
+    p.display_name?`Display name: ${p.display_name}`:"",
     "Status: Pending review — not approved for publication"
   ].filter(Boolean).join("\n");
 }
-function show(message,error=false){
-  const box=$("status");
-  box.className="status"+(error?" error":"");
-  box.textContent=message;
-}
-function refresh(){current=packet();$("preview").textContent=publicText(current);}
+function refresh(){current=packet();$("preview").textContent=text(current);}
 document.querySelectorAll("input,select,textarea").forEach(x=>x.addEventListener("input",refresh));
-const today=new Date().toISOString().slice(0,10);
-const earliest=new Date(Date.now()-180*86400000).toISOString().slice(0,10);
-$("date").max=today;$("date").min=earliest;$("date").value=today;refresh();
-
-if(!window.FFO_DB_READY){
-  const n=$("connectionNotice");
-  n.classList.remove("hidden");
-  n.innerHTML="<strong>Database setup is not finished.</strong> "+window.ffoDatabaseMessage()+" You can still copy or download the report as a backup.";
-}
-
+$("date").max=new Date().toISOString().slice(0,10);
+$("date").value=new Date().toISOString().slice(0,10);
+refresh();
 $("reportForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  current=packet();
-  if($("website").value)return;
-  if(!current.attested)return show("Confirm the honesty and publishing statement.",true);
-  if(current.kept_count>current.caught_count)return show("Number kept cannot be greater than number caught.",true);
-  if(Date.now()-openedAt<2500)return show("Please review the report before sending it.",true);
-
-  const previous=Number(localStorage.getItem("ffo:last-remote-submission")||0);
-  if(Date.now()-previous<60000)return show("Please wait one minute before sending another report.",true);
-
-  if(!window.FFO_DB_READY){
-    return show("The shared database is not connected yet. Use Copy or Download to save this report.",true);
-  }
-
-  const button=$("submitButton");
-  button.disabled=true;button.textContent="Sending…";
-  try{
-    const {data,error}=await window.FFO_DB.rpc("submit_angler_report",{
-      p_waterbody:current.waterbody,
-      p_state:current.state,
-      p_fishing_date:current.fishing_date,
-      p_time_period:current.time_period,
-      p_species:current.species,
-      p_caught_count:current.caught_count,
-      p_kept_count:current.kept_count,
-      p_size_text:current.size_text,
-      p_bait_or_lure:current.bait_or_lure,
-      p_method:current.method,
-      p_notes:current.notes,
-      p_photo_url:current.photo_url,
-      p_display_name:current.display_name,
-      p_private_contact:current.private_contact,
-      p_latitude:current.latitude,
-      p_longitude:current.longitude
-    });
-    if(error)throw error;
-    localStorage.setItem("ffo:last-remote-submission",String(Date.now()));
-    show("Report received! Submission "+data+" is waiting for administrator review.");
-    $("reportForm").reset();$("date").value=today;refresh();
-  }catch(error){
-    show("The report could not be sent: "+(error.message||"Unknown database error"),true);
-  }finally{
-    button.disabled=false;button.textContent="Send for review";
+  e.preventDefault();current=packet();
+  if(!current.attested)return;
+  const key="ffo:pending-submissions";
+  const rows=JSON.parse(localStorage.getItem(key)||"[]");
+  rows.unshift(current);localStorage.setItem(key,JSON.stringify(rows.slice(0,100)));
+  const box=$("status");box.className="status";box.textContent="Saved to this browser’s review queue.";
+  if(cfg.submission_endpoint){
+    try{
+      const response=await fetch(cfg.submission_endpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(current)});
+      if(!response.ok)throw new Error("Endpoint returned "+response.status);
+      box.textContent="Submitted to the configured review endpoint and saved locally.";
+    }catch(error){box.textContent="Saved locally, but the configured endpoint failed: "+error.message;}
+  }else{
+    box.textContent="Saved locally. No public submission endpoint is configured yet; copy or download the packet to send it for review.";
   }
 });
-
-$("copy").addEventListener("click",async()=>{
-  current=packet();
-  try{await navigator.clipboard.writeText(publicText(current));show("Submission text copied.");}
-  catch{prompt("Copy this submission:",publicText(current));}
-});
-$("download").addEventListener("click",()=>{
-  current=packet();
-  const backup={...current,private_contact:current.private_contact||null,backup_created_at:new Date().toISOString()};
-  const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
-  const a=document.createElement("a");
-  a.href=URL.createObjectURL(blob);
-  a.download="ffo-angler-report-"+Date.now()+".json";
-  a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-});
+$("copy").addEventListener("click",async()=>{current=packet();try{await navigator.clipboard.writeText(text(current));$("status").className="status";$("status").textContent="Submission text copied.";}catch{prompt("Copy this submission:",text(current));}});
+$("download").addEventListener("click",()=>{current=packet();const blob=new Blob([JSON.stringify(current,null,2)],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=current.id+".json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);});
 </script>
 </body>
 </html>

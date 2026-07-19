@@ -1,0 +1,11 @@
+FISH FINDER OUTDOORS — SAFE PHASE 6 RESTORE
+
+Upload all 11 files in this package to the ROOT of the existing GitHub repository.
+Choose Replace when GitHub says a file already exists.
+
+DO NOT delete or replace:
+.github/workflows/update-fishing-reports.yml
+
+Your green automatic workflow stays exactly as it is.
+
+The extra Phase 7 Supabase files may remain in GitHub. They will not affect the restored Phase 6 website.

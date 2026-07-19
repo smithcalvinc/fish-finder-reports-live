@@ -1,20 +1,20 @@
 /* Fish Finder Outdoors public configuration.
-   The Supabase URL and publishable key are safe to expose when Row Level
-   Security is configured with the included SQL. Never place a secret key here. */
+   Do not place passwords, API keys or private tokens in this file. */
 window.FFO_SITE_CONFIG = {
   site_name: "Fish Finder Outdoors",
   site_url: "https://fishfinderoutdoors.com",
   powered_by_name: "Mountain Dog Enterprises",
   powered_by_url: "https://mountaindogenterprises.com",
 
-  github_repository_url: "https://github.com/smithcalvinc/fish-finder-reports-live",
+  /* Optional: paste the public GitHub repository URL here so the admin
+     dashboard can link directly to Actions and source files. */
+  github_repository_url: "",
 
-  /* Phase 7 database connection.
-     Paste values from Supabase:
-     Project Settings → API → Project URL and Publishable key. */
-  supabase_url: "",
-  supabase_publishable_key: "",
+  /* Optional: a public form/webhook endpoint that accepts JSON POSTs.
+     Leave blank to use safe local draft/export mode. */
+  submission_endpoint: "",
 
+  /* Reports older than these limits receive visible warnings. */
   current_report_days: 14,
   aging_report_days: 45
 };
