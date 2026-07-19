@@ -1,39 +1,37 @@
-# Fish Finder Outdoors Report Generator — Phase 5
+# Fish Finder Outdoors Report Generator — Phase 5.1
 
-Phase 5 expands actual official catch-report coverage and adds a map to every generated report.
+This update fixes the missing-species problem and expands the official report database.
 
-## Map features
+## Fish species are now always visible
 
-Every report now includes:
+A new Fish Species card appears directly below the actual fishing report. It contains:
 
-- An embedded OpenStreetMap map centered on the selected location
-- Exact coordinates
-- A full-map link
-- A one-tap directions link
-- A warning that a waterbody or catch-report area may be larger than the selected point
+- Recently reported fish named in the dated catch or fishery report
+- Fish from the exact official waterbody-species record
+- A clear message when no exact species record exists
 
-## Expanded actual-report coverage
+The app still never replaces missing waterbody data with an inaccurate statewide fish list.
 
-The catch database now contains 34 dated agency reports covering selected locations in:
+## Expanded actual report coverage
 
-- Idaho
-- Oregon
-- Nevada
-- Washington
-- Wyoming
+The database now contains 45 official dated catch, creel and fishery reports.
 
-New coverage includes Lake Mead, Lake Mohave, Laughlin, Angel Lake, Wildhorse Reservoir,
-South Fork Reservoir, Truckee River, James Kinney Pond, Lake Tahoe, Port Angeles,
-Sekiu, Shilshole, Point Defiance, Kingston, Everett and Flaming Gorge.
+New exact-location coverage includes:
 
-## Accuracy rule
-
-Reports appear only when the searched location matches a dated official agency record.
-Unmatched locations still display “No dated catch report matched this location.”
+- Dworshak Reservoir
+- Moose Creek Reservoir
+- Ruby Lake NWR
+- Ruby Lake Collection Ditch
+- Marilyn's Pond
+- Eagle Valley Reservoir
+- Squaw Valley / Creek Reservoir
+- Wall Canyon Reservoir
+- Mason Valley Hatchery Outponds
+- Armeni Public Ramp / Seattle
 
 ## Update the live site
 
-Upload these five files to the root of the existing GitHub repository:
+Upload and replace these five files in the existing GitHub repository:
 
 - `index.html`
 - `official_species_data.js`
@@ -41,4 +39,4 @@ Upload these five files to the root of the existing GitHub repository:
 - `404.html`
 - `README.md`
 
-Commit the changes to `main`. The existing Wasmer app should update automatically.
+Commit to `main`. The existing Wasmer app should update automatically.

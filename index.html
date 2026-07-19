@@ -65,8 +65,16 @@
     .map-card .quick-links{margin-top:14px;margin-bottom:20px}
     @media(max-width:760px){.map-frame{height:300px}.map-copy{display:block}.coords{display:inline-block;margin-top:8px}}
 
+
+    .species-summary-card{border:2px solid #b68a34;background:linear-gradient(135deg,#fff9e8,#ffffff)}
+    .species-summary-columns{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+    .species-summary-block{background:white;border:1px solid #dfd4b9;border-radius:14px;padding:14px}
+    .species-summary-block h4{margin:0 0 9px;font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--green2)}
+    .species-source-label{display:inline-flex;padding:5px 8px;border-radius:999px;background:#edf4ef;color:#1b624e;font-size:11px;font-weight:850;margin-bottom:9px}
+    @media(max-width:760px){.species-summary-columns{grid-template-columns:1fr}}
+
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 5 v0.6.0">
+<meta name="generator" content="Fish Finder Outdoors report generator Phase 5.1 v0.6.1">
 </head>
 <body>
   <header class="hero">
@@ -74,7 +82,7 @@
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
       <p class="lede">Search a lake, river, reservoir, town or coastal area. The generator combines actual dated catch reports, live conditions, official fish records and a map for every searched water.</p>
-      <span class="badge">Phase 5 · Expanded catch reports + maps</span>
+      <span class="badge">Phase 5.1 · Visible fish species + wider report coverage</span>
     </div>
   </header>
 
@@ -260,6 +268,12 @@ function findRecentCatchReport(loc){
     return Math.max(...(b.names||[""]).map(x=>normalize(x).length))-Math.max(...(a.names||[""]).map(x=>normalize(x).length));
   });
   return matches[0];
+}
+
+function recentlyReportedSpecies(report){
+  if(!report)return[];
+  const names=(report.catches||[]).map(x=>String(x.species||"").trim()).filter(Boolean);
+  return [...new Set(names)];
 }
 function reportAge(report){
   if(!report?.published_date)return{days:null,label:"Date unavailable",className:"report-age-stale"};
@@ -469,8 +483,8 @@ function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
   $("coverageBadge").textContent=r.coverage.level+" · "+r.confidence.label+" confidence";
   $("generated").textContent="Generated "+dateFmt(r.generated_at)+" · "+r.location.water_type+" profile";
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location);
-  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Waterbody guidance",v.water_profile?"Curated local profile":"No species assumptions",v.water_profile?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],m=(r.water||{}).measurements||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],why=[...(r.outlook.reasons||[]),...(r.outlook.cautions||[])],fc=(w.forecast_periods||[]).slice(0,4),cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,catchReport=r.recent_catch_report,catchAge=reportAge(r.recent_catch_report),map=mapLinks(r.location),recentSpecies=recentlyReportedSpecies(r.recent_catch_report);
+  cards.push(`<article class="card full"><div class="eyebrow">Report transparency</div><h3>What is verified—and what is estimated</h3><div class="truth-grid">${truth("Weather forecast",v.forecast?"Live NWS data":"Unavailable",v.forecast?"yes":"no")}${truth("Water measurement",v.water?"Nearby USGS reading":"No nearby reading",v.water?"yes":"no")}${truth("Fish species",recentSpecies.length||v.official_species?"Visible below":"No exact verified list",recentSpecies.length||v.official_species?"yes":"no")}${truth("Recent catch report",v.verified_catch_report?catchAge.label:"No dated match found",v.verified_catch_report?"yes":"no")}</div><div class="report-note"><strong>Recent catches and the conditions score are different.</strong> The catch card shows dated reported results; the score estimates present fishing conditions.</div></article>`);
   cards.push(`<article class="card full ${catchReport?"catch-report":""}">${
     catchReport
       ?`<div class="catch-header"><div><div class="eyebrow">Actual dated fishing report</div><div class="catch-headline">${esc(catchReport.headline)}</div><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period)}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span><span class="catch-pill">${esc(catchReport.specificity)}</span></div></div></div>
@@ -479,6 +493,26 @@ function renderReport(r){
         <div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">${esc(catchReport.report_type)} · Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the full official report ↗</a></div></div>`
       :`<div class="no-catch-report"><div class="eyebrow">Actual recent catch report</div><h3>No dated catch report matched this location</h3><p>The generator found no recent agency catch, harvest or creel report for this exact water. It will not invent one from the weather or species list.</p>${g?`<div class="quick-links"><a href="${esc(g.report)}" target="_blank" rel="noopener">Check the state’s official fishing reports ↗</a></div>`:""}</div>`
   }</article>`);
+  cards.push(`<article class="card full species-summary-card">
+    <div class="eyebrow">Fish species</div>
+    <h3>Fish connected to this report location</h3>
+    <div class="species-summary-columns">
+      <div class="species-summary-block">
+        <span class="species-source-label">From the recent fishing report</span>
+        <h4>Recently reported fish</h4>
+        ${recentSpecies.length
+          ?`<div class="species-tags">${recentSpecies.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div><p class="meta" style="margin-top:9px">These species were named in the dated catch or fishery report shown above.</p>`
+          :`<p class="meta">No dated catch report matched this exact location, so no recently reported species are claimed.</p>`}
+      </div>
+      <div class="species-summary-block">
+        <span class="species-source-label">From the official waterbody record</span>
+        <h4>Documented fish species</h4>
+        ${official&&sp.length
+          ?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div><p class="meta" style="margin-top:9px">${esc(r.regional.species_note)}</p>`
+          :`<p class="meta">No exact official waterbody-species record is loaded yet. The app does not substitute a statewide list.</p>${g?`<div class="quick-links" style="margin-top:10px"><a href="${esc(g.report)}" target="_blank" rel="noopener">Open official state fishery information ↗</a></div>`:""}`}
+      </div>
+    </div>
+  </article>`);
   cards.push(`<article class="card full map-card">
     <h3>Fishing location map</h3>
     <div class="map-copy"><p class="meta">The marker shows the exact point selected in the location search. A river, reservoir or catch-report area may cover a much larger area, so verify the correct launch, access point and legal boundary.</p><span class="coords">${esc(map.coordinates)}</span></div>
@@ -491,7 +525,7 @@ function renderReport(r){
   if(fc.length)cards.push(`<article class="card"><h3>Short forecast</h3>${fc.map(x=>`<div class="metric" style="margin:8px 0"><b style="font-size:17px">${esc(x.name)}</b><span>${esc(x.temperature)}°${esc(x.temperatureUnit)} · ${esc(x.shortForecast)}</span></div>`).join("")}</article>`);
   cards.push(`<article class="card"><h3>${r.profile?"Water-specific approach":"How to approach this water"}</h3>${list(r.techniques)}</article>`);
   if(r.tides?.available)cards.push(`<article class="card full"><h3>Nearby tide predictions <span class="fresh">today's predictions</span></h3><p class="meta">${esc(r.tides.station.name)} · ${esc(r.tides.station.distance_miles)} miles from the selected point. Station distance matters—verify local current and bar conditions.</p><div class="metric-grid">${td.slice(0,6).map(x=>metric(x.type==="H"?"High tide":"Low tide",x.height_ft!=null?fmt(x.height_ft,1)+" ft":"—",dateFmt(x.time))).join("")}</div></article>`);
-  cards.push(`<article class="card full"><h3>Official waterbody species record</h3>${
+  cards.push(`<article class="card full"><h3>Detailed official species evidence</h3>${
     official
       ?`<div class="official-record"><strong>${esc(official.agency)}</strong><span class="meta">${esc(official.scope||"Exact official waterbody record.")}</span><div class="dataset-note">Source checked ${esc(dateFmt(official.source_checked))}</div></div>
         ${official.recommended?.length?`<div class="species-section"><h4>Agency-recommended or common sport fish</h4><div class="species-tags">${official.recommended.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div></div>`:""}
@@ -507,7 +541,7 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report;
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},species=r.regional?.common_species||[],official=r.official_species,catchReport=r.recent_catch_report,recentSpecies=recentlyReportedSpecies(catchReport);
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Generated: ${dateFmt(r.generated_at)}`,
@@ -516,7 +550,8 @@ function reportText(r){
     `Outlook: ${r.outlook.label} (${r.outlook.score}/100) — present-conditions estimate`,
     `Weather: ${c.shortForecast||"Unavailable"}${c.temperature!=null?`, ${c.temperature}°${c.temperatureUnit||"F"}`:""}${c.windSpeed?`, wind ${c.windSpeed} ${c.windDirection||""}`:""}`,
     n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",
-    official&&species.length?`Official waterbody fish record (${official.agency}): ${species.join(", ")}`:`Species: No exact official waterbody record loaded; check the state agency source.`,
+    recentSpecies.length?`Recently reported fish: ${recentSpecies.join(", ")}`:"",
+    official&&species.length?`Official waterbody fish record (${official.agency}): ${species.join(", ")}`:`Official species record: No exact waterbody record loaded; check the state agency source.`,
     r.techniques?.length?`Planning ideas:\n- ${r.techniques.join("\n- ")}`:"",
     `Map coordinates: ${Number(r.location.lat).toFixed(5)}, ${Number(r.location.lon).toFixed(5)}`,
     `Directions: https://www.google.com/maps/dir/?api=1&destination=${Number(r.location.lat).toFixed(6)},${Number(r.location.lon).toFixed(6)}`,

@@ -1,9 +1,9 @@
-/* Dated official catch and harvest reports for Fish Finder Outdoors.
-   Actual reported catches only. Weather and species records do not create catch reports. */
+/* Dated official catch, creel and fishery reports for Fish Finder Outdoors.
+   Actual agency reporting only. Weather does not create catch claims. */
 window.FFO_RECENT_REPORTS = {
-  "version": "2026.07.19-phase5",
+  "version": "2026.07.19-phase5.1",
   "updated_at": "2026-07-19",
-  "coverage_note": "Expanded official catch-report dataset covering selected Idaho, Oregon, Nevada, Washington and Wyoming waters. Exact matching is required and unmatched waters never receive an inferred catch report.",
+  "coverage_note": "Expanded dated official-report database. Catch reports remain exact-match records; recently reported fish are also displayed in a separate species summary.",
   "reports": [
     {
       "state": "Idaho",
@@ -1084,6 +1084,341 @@ window.FFO_RECENT_REPORTS = {
       ],
       "source_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
       "specificity": "Flaming Gorge Reservoir"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Dworshak Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official fishery catch-rate update",
+      "published_date": "2026-06-25",
+      "report_period": "2025 fishery summary published June 25, 2026",
+      "headline": "Dworshak anglers reported consistent smallmouth bass success and strong trophy opportunity.",
+      "summary": "Idaho Fish and Game reported high catch rates across several size classes, including quality smallmouth bass capable of reaching trophy size.",
+      "catches": [
+        {
+          "species": "Smallmouth bass",
+          "metric": "High catch rates reported",
+          "detail": "multiple size classes"
+        },
+        {
+          "species": "Smallmouth bass",
+          "metric": "Trophy fish available",
+          "detail": "official 2025 fishery summary"
+        }
+      ],
+      "conditions": [
+        "This is an annual fishery summary, not a same-week creel report."
+      ],
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
+      "specificity": "Exact reservoir fishery"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Dworshak Reservoir Kokanee"
+      ],
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official kokanee fishery update",
+      "published_date": "2026-06-25",
+      "report_period": "2026 fishery outlook published June 25, 2026",
+      "headline": "Dworshak kokanee abundance and expected catch rates improved for 2026.",
+      "summary": "Idaho Fish and Game reported improved kokanee abundance and expected catch rates, although average fish size was expected to be smaller than the previous season.",
+      "catches": [
+        {
+          "species": "Kokanee",
+          "metric": "Improved expected catch rates",
+          "detail": "2026 agency outlook"
+        },
+        {
+          "species": "Kokanee",
+          "metric": "Smaller average size expected",
+          "detail": "compared with the prior season"
+        }
+      ],
+      "conditions": [
+        "This is an agency fishery outlook rather than a dated dockside catch count."
+      ],
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
+      "specificity": "Exact reservoir fishery"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Moose Creek Reservoir"
+      ],
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official fishery update and survey summary",
+      "published_date": "2026-06-26",
+      "report_period": "Fishery update published June 26, 2026",
+      "headline": "Moose Creek Reservoir was reported to have larger bass and bluegill after fishery recovery.",
+      "summary": "Idaho Fish and Game reported that bluegill survey catch nearly doubled compared with 2019 and that largemouth bass were larger. Earlier angler reports after the drawdown had shown low catch rates for bass, bluegill and crappie.",
+      "catches": [
+        {
+          "species": "Bluegill",
+          "metric": "Survey catch nearly doubled",
+          "detail": "compared with the 2019 survey"
+        },
+        {
+          "species": "Largemouth bass",
+          "metric": "Larger fish documented",
+          "detail": "agency survey comparison"
+        },
+        {
+          "species": "Crappie",
+          "metric": "Previously low angler catch rate",
+          "detail": "post-drawdown reports"
+        }
+      ],
+      "conditions": [
+        "This combines recent agency survey results with documented angler-report history."
+      ],
+      "source_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
+      "specificity": "Exact reservoir fishery"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Ruby Lake NWR",
+        "Ruby Lake National Wildlife Refuge",
+        "Ruby Lake South Lakes",
+        "Ruby Lake Unit 21"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report dated July 15, 2026",
+      "headline": "Ruby Lake bass fishing was fair to good, with many small fish for each keeper.",
+      "summary": "NDOW reported the bass bite was on around Brown Dike and Unit 21, with roughly 10 to 15 small bass caught for each keeper-sized fish.",
+      "catches": [
+        {
+          "species": "Largemouth bass",
+          "metric": "10–15 small fish per keeper",
+          "detail": "Brown Dike and Unit 21"
+        },
+        {
+          "species": "Trout",
+          "metric": "Available in the refuge fishery",
+          "detail": "rainbow, tiger, brown and brook trout documented"
+        }
+      ],
+      "conditions": [
+        "Motorless or electric-motor boats were permitted in South Marsh through July 31."
+      ],
+      "source_url": "https://www.ndow.org/waters/ruby-lake/",
+      "specificity": "Ruby Lake NWR fishery"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Ruby Lake Collection Ditch",
+        "Collection Ditch Ruby Lake"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report dated July 15, 2026",
+      "headline": "Ruby Lake Collection Ditch trout fishing was fair to good, with fish up to 22 inches.",
+      "summary": "NDOW reported brown, tiger and rainbow trout catches, including fish up to 22 inches. Small flashy lures, nymphs and warm-weather dry flies were recommended.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Up to 22 inches",
+          "detail": "fair-to-good reported fishing"
+        },
+        {
+          "species": "Brown, tiger and rainbow trout",
+          "metric": "Reported present and catchable",
+          "detail": "spring stocking and current report"
+        }
+      ],
+      "conditions": [
+        "Artificial lures only and no wading were listed as special regulations."
+      ],
+      "source_url": "https://www.ndow.org/waters/ruby-lake-collection-ditch/",
+      "specificity": "Exact water report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Marilyn's Pond",
+        "Marilyns Pond"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official community-pond fishing report",
+      "published_date": "2026-06-26",
+      "report_period": "Report dated June 26, 2026",
+      "headline": "Marilyn’s Pond was fishing very well, with light leaders and tackle producing.",
+      "summary": "NDOW reported good rainbow-trout fishing, although the pond was busy. Midweek visits and light tackle were recommended.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "Fishing very well",
+          "detail": "light leaders and tackle"
+        },
+        {
+          "species": "Rainbow trout",
+          "metric": "773 fish stocked July 14",
+          "detail": "10.1-inch average stocking size"
+        }
+      ],
+      "conditions": [
+        "Stocking was expected to slow during hotter summer weather."
+      ],
+      "source_url": "https://www.ndow.org/waters/marilyns-pond/",
+      "specificity": "Exact community pond"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Eagle Valley Reservoir"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official waterbody fishing report",
+      "published_date": "2026-02-04",
+      "report_period": "Report dated February 4, 2026",
+      "headline": "Eagle Valley trout were taking PowerBait and nightcrawlers, with a few bass reported on jigs.",
+      "summary": "NDOW reported shoreline fishing opportunities for trout and occasional bass catches.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Being caught",
+          "detail": "PowerBait and nightcrawlers"
+        },
+        {
+          "species": "Bass",
+          "metric": "A few reported",
+          "detail": "caught on jigs"
+        }
+      ],
+      "conditions": [
+        "This report is older and should be treated as historical context."
+      ],
+      "source_url": "https://www.ndow.org/waters/eagle-valley-reservoir/",
+      "specificity": "Exact reservoir report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Squaw Valley Creek Reservoir",
+        "Squaw Valley Reservoir",
+        "Squaw Creek Reservoir"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Current NDOW report available July 2026",
+      "headline": "Squaw Valley reservoir fishing was good for both trout and bass.",
+      "summary": "NDOW reported trout fishing best near the dam where deeper water was accessible, with bass fishing also producing.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Good fishing reported",
+          "detail": "best near the dam"
+        },
+        {
+          "species": "Bass",
+          "metric": "Good fishing reported",
+          "detail": "current seasonal report"
+        }
+      ],
+      "conditions": [
+        "Use current access and water-level information before traveling."
+      ],
+      "source_url": "https://www.ndow.org/waters/lake-tahoe/",
+      "specificity": "Exact reservoir report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Wall Canyon Reservoir"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official waterbody fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Current NDOW report available July 2026",
+      "headline": "Wall Canyon fishing was fair for trout and good for bass.",
+      "summary": "NDOW reported the best cold- and warm-water fishing early and late in the day.",
+      "catches": [
+        {
+          "species": "Trout",
+          "metric": "Fair fishing",
+          "detail": "best early and late"
+        },
+        {
+          "species": "Bass",
+          "metric": "Good fishing",
+          "detail": "best early and late"
+        }
+      ],
+      "conditions": [
+        "Crayfish imitations were among the recommended presentations."
+      ],
+      "source_url": "https://www.ndow.org/waters/kiley-ranch-pond/",
+      "specificity": "Exact reservoir report"
+    },
+    {
+      "state": "Nevada",
+      "names": [
+        "Mason Valley Hatchery Outponds",
+        "Mason Valley Outponds"
+      ],
+      "agency": "Nevada Department of Wildlife",
+      "report_type": "Official pond fishing report",
+      "published_date": "2026-07-15",
+      "report_period": "Report dated July 15, 2026",
+      "headline": "Mason Valley outpond trout fishing was reported as usually good, with occasional bass.",
+      "summary": "NDOW reported that the ponds are stocked with rainbow trout before May and also contain largemouth bass that are occasionally caught.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "Usually good fishing",
+          "detail": "seasonal stocked fishery"
+        },
+        {
+          "species": "Largemouth bass",
+          "metric": "Occasionally caught",
+          "detail": "pond fishery"
+        }
+      ],
+      "conditions": [
+        "Seasonal closure dates must be checked before fishing."
+      ],
+      "source_url": "https://www.ndow.org/waters/mason-valley-hatchery-outponds/",
+      "specificity": "Exact pond report"
+    },
+    {
+      "state": "Washington",
+      "names": [
+        "Armeni Public Ramp",
+        "Armeni Ramp",
+        "West Seattle",
+        "Seattle Elliott Bay"
+      ],
+      "agency": "Washington Department of Fish and Wildlife",
+      "report_type": "Puget Sound raw creel interview data",
+      "published_date": "2026-07-17",
+      "report_period": "July 17, 2026 sample",
+      "headline": "Armeni Public Ramp samplers recorded four coho from four anglers.",
+      "summary": "WDFW raw creel data listed two interviews, four anglers and four coho in Marine Area 10, the Seattle–Bremerton area.",
+      "catches": [
+        {
+          "species": "Coho salmon",
+          "metric": "4 fish",
+          "detail": "four sampled anglers"
+        },
+        {
+          "species": "Coho salmon",
+          "metric": "1.0 fish per angler",
+          "detail": "raw sample rate"
+        }
+      ],
+      "conditions": [
+        "WDFW labels these figures as raw data subject to QA/QC changes."
+      ],
+      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
+      "specificity": "Armeni Public Ramp / Marine Area 10"
     }
   ]
 };
