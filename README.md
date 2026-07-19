@@ -1,7 +1,16 @@
-# Fish Finder Outdoors Report Generator — Static Live Build
+# Fish Finder Outdoors Report Generator — Static Live Build v0.2.1
 
-Upload `index.html` to the root of a clean GitHub repository and import that repository into Wasmer.
+This update adds linked branding in the footer:
 
-Wasmer detects a root `index.html` as a static website. Open the main `.wasmer.app` address directly. This build does not use `/health`.
+- FishFinderOutdoors.com
+- Powered by Mountain Dog Enterprises
 
-The browser retrieves live data from OpenStreetMap Nominatim, the National Weather Service, USGS Water Services, and NOAA Tides & Currents. The report remains usable when an individual source is unavailable.
+## Update the live site
+
+Upload all three files to the root of the existing GitHub repository and replace the current versions:
+
+- `index.html`
+- `404.html`
+- `README.md`
+
+Commit the changes. Wasmer should publish the updated `main` branch automatically.
