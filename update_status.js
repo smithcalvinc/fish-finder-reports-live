@@ -1,6 +1,6 @@
 /* Automatic source-monitor status used by the public site and review dashboard. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-19T19:20:11Z",
+  "last_run": "2026-07-19T19:34:52Z",
   "mode": "live",
   "reports_total": 45,
   "unique_sources": 25,
@@ -24,7 +24,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 23:22:29 GMT",
       "page_published": "2026-06-25T09:49:24-06:00",
       "page_modified": null,
-      "elapsed_ms": 704,
+      "elapsed_ms": 224,
       "error": null
     },
     {
@@ -37,7 +37,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 23:00:32 GMT",
       "page_published": "2026-06-25T10:09:36-06:00",
       "page_modified": null,
-      "elapsed_ms": 706,
+      "elapsed_ms": 359,
       "error": null
     },
     {
@@ -50,7 +50,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 21:54:50 GMT",
       "page_published": "2026-07-14T12:52:13-06:00",
       "page_modified": null,
-      "elapsed_ms": 768,
+      "elapsed_ms": 189,
       "error": null
     },
     {
@@ -63,7 +63,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 22:58:24 GMT",
       "page_published": "2026-06-26T10:20:19-06:00",
       "page_modified": null,
-      "elapsed_ms": 499,
+      "elapsed_ms": 172,
       "error": null
     },
     {
@@ -76,7 +76,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 21:52:59 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 515,
+      "elapsed_ms": 148,
       "error": null
     },
     {
@@ -89,7 +89,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 16:51:23 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 171,
+      "elapsed_ms": 290,
       "error": null
     },
     {
@@ -102,7 +102,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 18:24:25 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 242,
+      "elapsed_ms": 243,
       "error": null
     },
     {
@@ -115,7 +115,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 19:20:18 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 882,
+      "elapsed_ms": 113,
       "error": null
     },
     {
@@ -128,7 +128,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 19:20:19 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 824,
+      "elapsed_ms": 114,
       "error": null
     },
     {
@@ -141,7 +141,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 19:13:40 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 157,
+      "elapsed_ms": 114,
       "error": null
     },
     {
@@ -154,7 +154,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 19 Jul 2026 19:20:20 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1181,
+      "elapsed_ms": 121,
       "error": null
     },
     {
@@ -167,7 +167,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:50:14 GMT",
       "page_published": "2026-07-15T08:22:00+00:00",
       "page_modified": "2026-07-15T17:27:15+00:00",
-      "elapsed_ms": 558,
+      "elapsed_ms": 334,
       "error": null
     },
     {
@@ -180,7 +180,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 20:22:24 GMT",
       "page_published": "2021-10-31T18:42:59+00:00",
       "page_modified": "2026-07-14T21:43:05+00:00",
-      "elapsed_ms": 504,
+      "elapsed_ms": 114,
       "error": null
     },
     {
@@ -193,7 +193,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:54:21 GMT",
       "page_published": "2021-10-31T18:43:02+00:00",
       "page_modified": "2026-06-03T15:47:05+00:00",
-      "elapsed_ms": 538,
+      "elapsed_ms": 136,
       "error": null
     },
     {
@@ -206,7 +206,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:39:52 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-13T19:41:04+00:00",
-      "elapsed_ms": 502,
+      "elapsed_ms": 139,
       "error": null
     },
     {
@@ -219,7 +219,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 20:23:14 GMT",
       "page_published": "2023-05-30T16:47:28+00:00",
       "page_modified": "2026-05-20T20:18:30+00:00",
-      "elapsed_ms": 503,
+      "elapsed_ms": 125,
       "error": null
     },
     {
@@ -232,7 +232,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 20:04:21 GMT",
       "page_published": "2022-06-23T21:40:11+00:00",
       "page_modified": "2026-06-23T22:25:18+00:00",
-      "elapsed_ms": 499,
+      "elapsed_ms": 91,
       "error": null
     },
     {
@@ -245,7 +245,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 22:11:46 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-10T21:37:55+00:00",
-      "elapsed_ms": 516,
+      "elapsed_ms": 173,
       "error": null
     },
     {
@@ -258,7 +258,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:18:32 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-14T21:40:50+00:00",
-      "elapsed_ms": 537,
+      "elapsed_ms": 117,
       "error": null
     },
     {
@@ -271,7 +271,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 20:10:53 GMT",
       "page_published": "2022-07-08T23:17:05+00:00",
       "page_modified": "2026-04-17T18:18:10+00:00",
-      "elapsed_ms": 538,
+      "elapsed_ms": 141,
       "error": null
     },
     {
@@ -284,7 +284,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 20:14:06 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T16:22:28+00:00",
-      "elapsed_ms": 506,
+      "elapsed_ms": 98,
       "error": null
     },
     {
@@ -297,7 +297,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:20:05 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T16:15:06+00:00",
-      "elapsed_ms": 496,
+      "elapsed_ms": 89,
       "error": null
     },
     {
@@ -310,7 +310,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:52:45 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T17:22:29+00:00",
-      "elapsed_ms": 527,
+      "elapsed_ms": 92,
       "error": null
     },
     {
@@ -323,7 +323,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:23:58 GMT",
       "page_published": "2021-10-31T18:43:05+00:00",
       "page_modified": "2026-06-29T20:07:15+00:00",
-      "elapsed_ms": 496,
+      "elapsed_ms": 88,
       "error": null
     },
     {
@@ -336,7 +336,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 17 Jul 2026 19:23:14 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T20:13:32+00:00",
-      "elapsed_ms": 495,
+      "elapsed_ms": 95,
       "error": null
     }
   ],
