@@ -8,6 +8,9 @@ window.FFO_SITE_CONFIG = {
 
   github_repository_url: "https://github.com/smithcalvinc/fish-finder-reports-live",
   submission_email: "mountain.dog.enterprises@gmail.com",
+  beta_mode: true,
+  beta_feedback_email: "mountain.dog.enterprises@gmail.com",
+  brand_tagline: "Idaho Built. Northwest Ready.",
 
   current_report_days: 14,
   aging_report_days: 45

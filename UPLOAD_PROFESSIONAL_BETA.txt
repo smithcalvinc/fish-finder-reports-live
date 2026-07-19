@@ -1,0 +1,30 @@
+FISH FINDER OUTDOORS — PROFESSIONAL BETA LAUNCH
+
+WHAT THIS PACKAGE DOES
+- Matches the existing rugged green/tan Fish Finder Outdoors identity
+- Uses the existing Fish Finder Outdoors logo from the live website
+- Adds a professional navigation bar and mobile menu
+- Links report users back to the main FishFinderOutdoors.com guides and gear
+- Labels the report system as a FREE BETA
+- Adds beta feedback links
+- Uses the existing Fish Finder Outdoors Statcounter project for beta usage tracking
+- Keeps emailed fishing reports and the one-file approval workflow
+- Keeps the automatic GitHub report-source workflow unchanged
+
+UPLOAD
+1. Unzip this package.
+2. Upload every included file to the ROOT of the existing report-generator GitHub repository.
+3. Replace files with the same names.
+4. Commit directly to main.
+
+IMPORTANT NEW FILES
+- brand-shell.css
+- brand-shell.js
+
+DO NOT TOUCH
+.github/workflows/update-fishing-reports.yml
+
+MAIN WEBSITE CONNECTION
+The report tool now links back to FishFinderOutdoors.com.
+To add the report tool to the main website navigation, the exact live report-tool URL is still needed.
+Copy the address from the browser after this build deploys and use it as the Fishing Reports link on the main site.

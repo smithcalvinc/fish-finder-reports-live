@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d3c35">
-  <meta name="description" content="Generate a current fishing conditions report for a U.S. lake, river, reservoir or coastal location.">
-  <title>Fishing Report Generator | Fish Finder Outdoors</title>
+  <meta name="description" content="Search fishing conditions, official water names, species guidance, agency sources and reviewed angler reports across Idaho and the Northwest.">
+  <title>Northwest Fishing Reports | Fish Finder Outdoors</title>
   <style>
     :root{--ink:#14211e;--muted:#61706b;--paper:#f5f2e8;--card:#fffdf8;--green:#0d3c35;--green2:#176354;--gold:#d6a443;--line:#d8d4c8;--danger:#a53a2f;--blue:#245f80;--shadow:0 18px 55px rgba(24,47,41,.13)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#e8efe8 0,#f5f2e8 320px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
@@ -135,10 +135,61 @@
     .gnis-note strong{color:#245f80}
 
   </style>
-<meta name="generator" content="Fish Finder Outdoors report generator Phase 6.3 v0.9.0">
+<link rel="stylesheet" href="brand-shell.css">
+<meta property="og:title" content="Northwest Fishing Reports | Fish Finder Outdoors">
+<meta property="og:description" content="Idaho built. Northwest ready. Search fishing conditions, species guidance and trusted sources.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://fishfinderoutdoors.com/assets/logo-main.png">
+<meta name="generator" content="Fish Finder Outdoors Professional Beta v1.0">
 </head>
 <body>
-  <header class="hero">
+
+<header class="ffo-site-header">
+  <div class="ffo-header-inner">
+    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
+      <img src="https://fishfinderoutdoors.com/assets/logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
+      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+    </a>
+    <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
+      <a href="https://fishfinderoutdoors.com">Home</a>
+      <a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+      <a class="active" href="index.html">Fishing Reports</a>
+      <a href="https://fishfinderoutdoors.com/#trout">Trout</a>
+      <a href="https://fishfinderoutdoors.com/#bass">Bass</a>
+      <a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
+      <a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
+      <a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
+      <a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
+    </nav>
+  </div>
+</header>
+<div class="ffo-beta-bar">FREE BETA • No signup required • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
+
+<section class="ffo-professional-hero">
+  <div class="ffo-hero-grid">
+    <div>
+      <div class="ffo-kicker">Idaho built • Northwest ready</div>
+      <h1>Fishing reports without the guesswork.</h1>
+      <p>Search current conditions, official water names, species guidance, agency sources and reviewed angler reports across the Northwest and Mountain West.</p>
+      <div class="ffo-hero-actions">
+        <a class="ffo-hero-primary" href="#report-search">Search a fishing water</a>
+        <a class="ffo-hero-secondary" href="submit-report.html">Share a fishing report</a>
+      </div>
+    </div>
+    <img class="ffo-hero-logo" src="https://fishfinderoutdoors.com/assets/logo-main.png" alt="Fish Finder Outdoors — Built on Experience" onerror="this.style.display='none'">
+  </div>
+</section>
+<section class="ffo-trust-strip" aria-label="Report tool features">
+  <div class="ffo-trust-inner">
+    <div class="ffo-trust-item"><strong>9-State Region</strong><span>Northwest and Mountain West</span></div>
+    <div class="ffo-trust-item"><strong>Official Names</strong><span>USGS water-name matching</span></div>
+    <div class="ffo-trust-item"><strong>Agency Sources</strong><span>Rules and reports linked clearly</span></div>
+    <div class="ffo-trust-item"><strong>Community Reports</strong><span>Reviewed before publication</span></div>
+  </div>
+</section>
+
+  <header class="hero" style="display:none">
     <div class="wrap">
       <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
       <h1>Current fishing conditions, gathered on demand.</h1>
@@ -153,7 +204,9 @@
   </header>
 
   <main class="wrap">
-    <section class="search-panel" aria-label="Fishing location search">
+    <section id="report-search" class="search-panel" aria-label="Fishing location search">
+      <span class="ffo-section-label">Free beta report tool</span>
+      <div class="ffo-beta-panel"><h2>Plan your next fishing trip with better information.</h2><p>Search by official water name, local name, town or coordinates. The tool separates measured data, official records, reviewed angler reports and estimates so you can see what each claim is based on.</p></div>
       <form id="searchForm" class="search-row">
         <input id="locationInput" autocomplete="off" placeholder="Example: American Falls Reservoir, Idaho" aria-label="Fishing location">
         <button class="primary" type="submit">Find location</button>
@@ -211,20 +264,41 @@
     </section>
   </main>
 
-  <footer class="footer">
-  <div class="wrap">
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;align-items:center">
-      <div>
-        <strong><a href="https://fishfinderoutdoors.com" target="_blank" rel="noopener">FishFinderOutdoors.com</a></strong><br>
-        <span>Powered by <a href="https://mountaindogenterprises.com" target="_blank" rel="noopener"><strong>Mountain Dog Enterprises</strong></a></span>
+  
+<footer class="ffo-site-footer">
+  <div class="ffo-footer-grid">
+    <div>
+      <a class="ffo-footer-brand" href="https://fishfinderoutdoors.com">
+        <img src="https://fishfinderoutdoors.com/assets/logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
+        <span><strong style="font-size:22px">Fish Finder Outdoors</strong><br><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span>
+      </a>
+      <p style="max-width:420px;color:#a9bbb3">Practical fishing guides, regional report tools, trusted agency links and useful gear direction for real anglers.</p>
+    </div>
+    <div>
+      <div class="ffo-footer-title">Explore</div>
+      <div class="ffo-footer-links">
+        <a href="index.html">Fishing Reports</a>
+        <a href="submit-report.html">Submit a Report</a>
+        <a href="https://fishfinderoutdoors.com">Fishing Guides & Gear</a>
+        <a href="https://fishfinderoutdoors.com/#logbooks">Fishing Logbooks</a>
       </div>
-      <div style="max-width:620px">
-        Official regional water names from <a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis" target="_blank" rel="noopener">USGS GNIS</a>; map fallback data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>.
-        Government data remains subject to each source agency’s terms and updates.
+    </div>
+    <div>
+      <div class="ffo-footer-title">Company</div>
+      <div class="ffo-footer-links">
+        <a href="https://fishfinderoutdoors.com/about.html">About</a>
+        <a href="https://fishfinderoutdoors.com/contact.html">Contact</a>
+        <a href="https://fishfinderoutdoors.com/privacy.html">Privacy</a>
+        <a href="https://mountaindogenterprises.com">Mountain Dog Enterprises</a>
       </div>
     </div>
   </div>
+  <div class="ffo-footer-fine">
+    <span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span>
+    <span>Free beta. Fishing information can change—always verify current regulations and access.</span>
+  </div>
 </footer>
+
 
 
 
@@ -1226,6 +1300,18 @@ renderSaved();
 (()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place",gnis_official:p.get("gnis")==="1",name_source:p.get("gnis")==="1"?"USGS Geographic Names Information System":"",name_source_url:p.get("gnis")==="1"?"https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer":"",gnis_id:p.get("gnis_id")||"",gnis_feature_class:p.get("gnis_class")||""});})();
 </script>
 
+
+<script src="brand-shell.js"></script>
+
+<!-- Fish Finder Outdoors beta analytics -->
+<script type="text/javascript">
+var sc_project=13204868;
+var sc_invisible=1;
+var sc_security="9b20ffa5";
+var scJsHost="https://";
+document.write("<sc"+"ript type='text/javascript' src='"+scJsHost+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13204868/0/9b20ffa5/1/" alt=""></div></noscript>
 
 </body>
 </html>

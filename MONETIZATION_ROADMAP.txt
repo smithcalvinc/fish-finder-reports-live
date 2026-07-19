@@ -1,0 +1,34 @@
+FISH FINDER OUTDOORS — MONETIZATION ROADMAP
+
+DO NOT CHARGE DURING THE FIRST BETA PERIOD.
+
+BETA GOALS
+- 100 unique visitors
+- 25 returning visitors
+- 20 useful searches across several states
+- 10 angler report submissions
+- 5 direct responses saying the tool saved time or helped plan a trip
+
+KEEP FREE
+- Basic water search
+- Current weather and conditions summary
+- Official agency links
+- Basic species and bait guidance
+- Viewing approved community reports
+
+POSSIBLE PAID FEATURES AFTER VALIDATION
+- Saved-water alerts
+- Weekly fishing report email
+- New community report notifications
+- Advanced species and water filters
+- Printable trip-planning packs
+- Ad-free experience
+- Seasonal regional outlooks
+
+RECOMMENDED FIRST PRICE
+Founding Angler: $2.99 per month or $24.99 per year.
+Do not charge more until the product includes reliable alerts, saved waters, and meaningful exclusive content.
+
+SIMPLEST PAYMENT METHOD
+Use a Gumroad Membership rather than building a payment and login system into the website.
+The public report tool stays free while paying members receive premium email updates, printable regional reports, and early features.

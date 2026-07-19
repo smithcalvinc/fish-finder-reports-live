@@ -1,21 +1,33 @@
-# Fish Finder Outdoors — Phase 6.3
+# Fish Finder Outdoors — Professional Beta
 
-Phase 6.3 adds a simple email-based angler report workflow without Supabase, accounts, API keys or a form service.
+This build connects the report generator visually and structurally to the existing
+Fish Finder Outdoors brand.
 
-## Visitor workflow
-1. The angler completes `submit-report.html`.
-2. Their email application opens a report addressed to `mountain.dog.enterprises@gmail.com`.
-3. They press Send.
-4. The report arrives as a structured email.
+## Brand position
 
-## Approval workflow
-1. Open the email and copy its complete body.
-2. Open `/admin.html`.
-3. Paste it under **Add an emailed angler report**.
-4. Parse and review it.
-5. Click **Approve and download community_fishing_reports.js**.
-6. Replace only that file in the root of GitHub and commit to `main`.
+**Idaho Built. Northwest Ready.**
 
-Private contact information is removed automatically from the public file. Community reports are clearly labeled as manually reviewed, not independently verified.
+The main website keeps its beginner-friendly Idaho roots while the report tool
+covers Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern
+California and Colorado.
 
-Do not touch `.github/workflows/update-fishing-reports.yml`. The workflow does not edit the separate community report file.
+## Included
+
+- Professional fixed navigation
+- Existing Fish Finder Outdoors logo and visual identity
+- Mobile menu
+- Branded hero and trust strip
+- Links back to the main fishing guides, species pages and logbooks
+- Free-beta label and feedback email
+- Existing Statcounter beta analytics
+- Emailed angler report workflow
+- Community report approval builder
+- Official-source monitoring
+- Full regional USGS water-name search
+
+## Upload
+
+Upload all root files to the existing report-generator GitHub repository and
+replace files with the same names.
+
+Do not modify `.github/workflows/update-fishing-reports.yml`.

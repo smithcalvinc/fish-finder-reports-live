@@ -8,13 +8,37 @@
 :root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="brand-shell.css">
 <script src="site_config.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
 </head>
 <body>
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><h1>Report approval dashboard</h1><p class="lede">Review official sources and turn emailed angler submissions into one website-ready community report file.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+
+<header class="ffo-site-header">
+  <div class="ffo-header-inner">
+    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
+      <img src="https://fishfinderoutdoors.com/assets/logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
+      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+    </a>
+    <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
+      <a href="https://fishfinderoutdoors.com">Home</a>
+      <a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+      <a href="index.html">Fishing Reports</a>
+      <a href="https://fishfinderoutdoors.com/#trout">Trout</a>
+      <a href="https://fishfinderoutdoors.com/#bass">Bass</a>
+      <a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
+      <a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
+      <a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
+      <a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
+    </nav>
+  </div>
+</header>
+<div class="ffo-beta-bar">FREE BETA • No signup required • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
+
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#26735c">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review official sources and turn emailed angler submissions into one website-ready community report file.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
 <section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
 <section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>
@@ -64,5 +88,6 @@ renderSubmissions();
 $("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
 if(cfg.github_repository_url){const base=cfg.github_repository_url.replace(/\/$/,"");const a=$("actionsLink");a.href=base+"/actions";a.classList.remove("hidden");const communityLink=$("communityGithubLink");communityLink.href=base+"/blob/main/community_fishing_reports.js";communityLink.classList.remove("hidden");}
 </script>
+<script src="brand-shell.js"></script>
 </body>
 </html>
