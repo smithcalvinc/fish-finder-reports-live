@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Report Approval Dashboard | Fish Finder Outdoors</title>
 <style>
@@ -19,7 +22,7 @@
 <header class="ffo-site-header">
   <div class="ffo-header-inner">
     <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
-      <img src="https://fishfinderoutdoors.com/assets/logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
+      <img src="assets/logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
       <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
     </a>
     <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -36,9 +39,9 @@
     </nav>
   </div>
 </header>
-<div class="ffo-beta-bar">FREE BETA • No signup required • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
+<div class="ffo-beta-bar">PRIVATE TOOL • Fish Finder Outdoors report management</div>
 
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#26735c">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review official sources and turn emailed angler submissions into one website-ready community report file.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img src="assets/logo-mark.png" alt="" aria-hidden="true">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review official sources and turn emailed angler submissions into one website-ready community report file.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open submission form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
 <section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
 <section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>

@@ -1,33 +1,25 @@
-# Fish Finder Outdoors — Professional Beta
+# Fish Finder Outdoors — Brand-Matched Report Tool
 
-This build connects the report generator visually and structurally to the existing
-Fish Finder Outdoors brand.
+This build matches the current live Fish Finder Outdoors website more closely.
 
-## Brand position
+## What changed
+- Uses your real Fish Finder Outdoors logo from the live site
+- Matches the live site color palette:
+  - Deep forest green `#1F4D3A`
+  - Dark green `#143326`
+  - Blaze orange `#D95D39`
+  - Sand background `#F6F2E8`
+- Uses the same Bitter + Inter font pairing
+- Uses a hero section styled like the live homepage
+- Keeps the working report generator, regional search, email report submission and admin approval workflow
 
-**Idaho Built. Northwest Ready.**
-
-The main website keeps its beginner-friendly Idaho roots while the report tool
-covers Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern
-California and Colorado.
-
-## Included
-
-- Professional fixed navigation
-- Existing Fish Finder Outdoors logo and visual identity
-- Mobile menu
-- Branded hero and trust strip
-- Links back to the main fishing guides, species pages and logbooks
-- Free-beta label and feedback email
-- Existing Statcounter beta analytics
-- Emailed angler report workflow
-- Community report approval builder
-- Official-source monitoring
-- Full regional USGS water-name search
+## Included brand assets
+- `assets/logo-main.png`
+- `assets/logo-mark.png`
+- `assets/hero.jpg`
+- `assets/water-divider.jpg`
 
 ## Upload
-
-Upload all root files to the existing report-generator GitHub repository and
-replace files with the same names.
+Upload all included files and folders to the existing report-generator GitHub repository, replace files with the same names, and commit to `main`.
 
 Do not modify `.github/workflows/update-fishing-reports.yml`.
