@@ -1,23 +1,22 @@
-# Fish Finder Outdoors Report Generator — Phase 2
+# Fish Finder Outdoors Report Generator — Phase 3
 
-Phase 2 keeps the working static Wasmer deployment and adds:
+Phase 3 replaces species guesses with a separate exact-waterbody database built from official state fish-and-wildlife sources.
 
-- Favorite fishing waters saved in the browser
-- Recent searches saved in the browser
-- Waterbody results prioritized ahead of nearby towns
-- Clear verified-versus-estimated labels
-- Source freshness labels for live readings
-- Official state fishing, regulation and stocking links
-- Curated profiles for major Northwest and Mountain West waters
-- Copy-ready fishing report text
-- Linked FishFinderOutdoors.com and Mountain Dog Enterprises branding
+## New
+- Exact official waterbody matching
+- Separate labels for agency-recommended fish, survey observations, stocking records and other documented fish
+- Exact source link and source-check date
+- Initial official records for selected waters in Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, northern California and Colorado
+- No statewide species fallback
+- Separate `official_species_data.js` file for adding more waters safely
 
-## Update the live site
+This is the official-data foundation, not complete coverage of every water. Unmatched waters show no species.
 
-Upload these three files to the root of the existing GitHub repository and replace the current files:
-
+## Upload
+Replace/upload these four root files in the existing GitHub repository:
 - `index.html`
+- `official_species_data.js`
 - `404.html`
 - `README.md`
 
-Commit the changes to `main`. The connected Wasmer site should publish the new version automatically.
+Commit to `main`; the existing Wasmer app should update automatically.
