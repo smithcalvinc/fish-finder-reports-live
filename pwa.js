@@ -90,12 +90,29 @@
   } else if (isIOS) {
     setButtonState(true, "Install App");
   } else {
-    setButtonState(false);
-    window.setTimeout(() => {
-      if (!deferredInstallPrompt && !isStandalone) {
-        setButtonState(true, "Install App");
-      }
-    }, 2500);
+    setButtonState(true, "Install Fishing Reports App");
+  }
+
+  const displayModeQuery = window.matchMedia("(display-mode: standalone)");
+  displayModeQuery.addEventListener?.("change", event => {
+    if (event.matches) {
+      document.documentElement.classList.add("ffo-standalone");
+      setButtonState(false);
+    }
+  });
+
+  if ("launchQueue" in window && window.launchQueue.setConsumer) {
+    window.launchQueue.setConsumer(launchParams => {
+      const target = launchParams?.targetURL;
+      if (!target) return;
+      try {
+        const url = new URL(target);
+        if (url.origin === window.location.origin) {
+          const current = window.location.href;
+          if (current !== url.href) window.location.href = url.href;
+        }
+      } catch {}
+    });
   }
 
   if ("serviceWorker" in navigator) {

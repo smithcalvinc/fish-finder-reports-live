@@ -184,3 +184,51 @@ body{padding-top:78px;background:var(--ffo-sand)}
   box-shadow:0 12px 30px rgba(20,51,38,.25);
 }
 .ffo-standalone .ffo-beta-bar{padding-top:max(8px,env(safe-area-inset-top))}
+
+
+/* Prominent install invitation */
+.pwa-install-feature{
+  width:min(1100px,calc(100% - 28px));
+  margin:18px auto;
+  padding:17px;
+  display:grid;
+  grid-template-columns:72px minmax(0,1fr) auto;
+  align-items:center;
+  gap:15px;
+  border:2px solid #D95D39;
+  border-radius:18px;
+  background:linear-gradient(135deg,#fff8f4,#ffffff);
+  box-shadow:0 12px 30px rgba(217,93,57,.15);
+}
+.pwa-install-icon img{
+  width:68px;
+  height:68px;
+  border-radius:16px;
+  box-shadow:0 8px 16px rgba(20,51,38,.18);
+}
+.pwa-install-copy h2{
+  margin:3px 0 5px;
+  font-family:'Bitter',Georgia,serif;
+  color:#1F4D3A;
+  font-size:clamp(22px,4vw,31px);
+}
+.pwa-install-copy p{margin:0;color:#586069}
+.pwa-install-primary{
+  white-space:nowrap;
+  background:#D95D39!important;
+  box-shadow:0 8px 18px rgba(217,93,57,.24);
+}
+.ffo-standalone .pwa-install-feature,
+.ffo-app-installed .pwa-install-feature{
+  display:none!important;
+}
+@media(max-width:760px){
+  .pwa-install-feature{
+    grid-template-columns:58px 1fr;
+  }
+  .pwa-install-icon img{width:54px;height:54px}
+  .pwa-install-primary{
+    grid-column:1/-1;
+    width:100%;
+  }
+}

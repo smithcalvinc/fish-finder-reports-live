@@ -1,0 +1,23 @@
+FISH FINDER OUTDOORS REPORTS — APP LAUNCH FIX
+
+Upload every included file to the ROOT of the fish-finder-reports-live GitHub repository.
+Replace matching files and commit directly to main.
+
+WHAT CHANGED:
+- Large Install Fishing Reports App panel added to the search page
+- Standalone app mode remains enabled
+- Newer Chrome versions can route FFO links into the installed app
+- Existing app window is reused when supported
+- Service-worker cache version updated
+- iPhone/iPad still require Safari → Share → Add to Home Screen
+
+IMPORTANT:
+A visitor who has NOT installed the app will still see it in a normal browser tab.
+After installation, they should launch it from the home-screen/app icon.
+Chrome may also open FFO report links directly in the installed app.
+
+NO FOLDERS ARE INCLUDED.
+Statcounter remains removed.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml

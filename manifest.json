@@ -3,7 +3,7 @@
   "name": "Fish Finder Outdoors Fishing Reports",
   "short_name": "FFO Reports",
   "description": "Search fishing waters near a town, check official state sources, and view reviewed angler reports.",
-  "start_url": "./?source=installed-app",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "display_override": [
@@ -81,5 +81,11 @@
         }
       ]
     }
-  ]
+  ],
+  "launch_handler": {
+    "client_mode": [
+      "navigate-existing",
+      "auto"
+    ]
+  }
 }
