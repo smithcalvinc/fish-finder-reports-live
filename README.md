@@ -78,3 +78,22 @@ The Fishing Reports beta is now a complete Progressive Web App.
 Location lookup no longer depends on receiving a state name from reverse geocoding.
 Verified local directory records are calculated directly from the visitor's coordinates
 and displayed immediately. The broader GNIS nearby-water query then adds more results.
+
+
+## Complete managed-water admin dashboard
+
+The public search and the admin page now share `managed_water_directory.js`.
+
+The admin dashboard displays:
+
+- Every FFO-managed water
+- Approved additions and approved edits
+- Private and closed-water blocks
+- Counts by source, access and state
+- Search and filtering
+- Editing and coordinate resolution
+- CSV, managed-directory and correction-file exports
+- A temporary live lookup inspector
+- Deliberate promotion of a live result into the managed directory
+
+Visitor searches do not automatically change the permanent directory.

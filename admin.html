@@ -11,13 +11,46 @@
 <style>
 :root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.edit-grid .full{grid-column:1/-1}.edit-grid label{font-size:12px;font-weight:850}.decision-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.water-note{border-radius:12px;padding:11px;background:#eef5f1;border:1px solid #cbded4}@media(max-width:700px){.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
+
+.water-directory-panel{border-top:7px solid var(--green2)}
+.directory-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.directory-title-row h2{font-family:Georgia,serif;font-size:clamp(27px,4vw,38px);margin:4px 0 7px}
+.directory-kicker{display:inline-flex;padding:5px 9px;border-radius:999px;background:#e5f0ea;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.water-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:16px 0}
+.water-metric{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px}
+.water-metric b{display:block;font-size:24px;margin-top:4px}
+.directory-filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin:15px 0}
+.directory-filters label{font-size:12px;font-weight:850}
+.directory-filters input,.directory-filters select{margin-top:5px}
+.directory-status{margin:9px 0}
+.water-directory-table{min-width:1120px}
+.water-directory-table td:last-child{min-width:195px}
+.directory-source-badge{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:900}
+.source-managed{background:#dff0e7;color:#176354}
+.source-approved{background:#e9e1f4;color:#68458a}
+.source-hidden{background:#f7dedb;color:#943229}
+.access-open{background:#dff0e7;color:#176354}
+.access-restricted{background:#fff0c6;color:#77591b}
+.access-unknown{background:#e7e9eb;color:#4d5960}
+.access-private,.access-closed{background:#f7dedb;color:#943229}
+.directory-table-actions{display:flex;gap:5px;flex-wrap:wrap}
+.directory-table-actions button{padding:7px 9px;font-size:11px}
+.danger-button{background:#f7dedb;color:#943229}
+.directory-editor{margin-top:18px;padding:17px;border:2px solid #b9d7c4;border-radius:16px;background:#f8fbf9}
+.directory-editor-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.directory-editor h3{font-family:Georgia,serif;font-size:27px;margin:4px 0}
+.directory-edit-grid{margin-top:12px}
+.short-textarea{min-height:82px}
+.live-lookup-controls{display:grid;grid-template-columns:1fr auto;gap:9px;margin:14px 0}
+@media(max-width:900px){.water-summary{grid-template-columns:1fr 1fr}.directory-filters{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.directory-filters,.live-lookup-controls{grid-template-columns:1fr}.water-summary{grid-template-columns:1fr 1fr}}
 </style>
 <link href="brand-shell.css" rel="stylesheet"/>
 <script src="site_config.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js"></script>
+<script src="managed_water_directory.js?v=1"></script><script src="official_water_overrides.js"></script>
 <script src="regional_water_search.js"></script>
 <script src="update_status.js"></script>
 <meta content="noindex, nofollow, noarchive" name="robots"/><meta content="noindex, nofollow, noarchive" name="googlebot"/><link href="ffo-logo-main.png" rel="icon" type="image/png"/><link href="ffo-logo-main.png" rel="apple-touch-icon"/><meta content="#1F4D3A" name="theme-color"/></head>
@@ -46,6 +79,142 @@
 <header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a class="button primary hidden" id="actionsLink" rel="noopener" target="_blank">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
 <section class="panel"><div class="summary" id="summary"></div><p class="meta" id="lastRun"></p></section>
+<section class="panel water-directory-panel" id="waterDirectoryPanel">
+<div class="directory-title-row">
+<div>
+<span class="directory-kicker">FFO master data</span>
+<h2>Managed Water Directory</h2>
+<p class="meta">
+        This is every water Fish Finder Outdoors permanently manages, plus approved additions
+        and private/closed blocks. Live outside search results are not silently saved.
+      </p>
+</div>
+<div class="actions">
+<button class="primary" id="addManagedWater" type="button">Add managed water</button>
+<button class="secondary" id="exportManagedDirectory" type="button">Download managed directory</button>
+<button class="secondary" id="exportWaterOverrides" type="button">Download corrections</button>
+<button class="secondary" id="exportWaterCsv" type="button">Export CSV</button>
+</div>
+</div>
+<div class="water-summary" id="waterDirectorySummary"></div>
+<div class="directory-filters">
+<label>Search directory
+      <input id="waterDirectorySearch" placeholder="Water, town, county, state or source"/>
+</label>
+<label>State
+      <select id="waterDirectoryState"><option value="all">All states</option></select>
+</label>
+<label>Access
+      <select id="waterDirectoryAccess">
+<option value="all">All access statuses</option>
+<option value="open">Public/open</option>
+<option value="restricted">Public with conditions</option>
+<option value="unknown">Needs verification</option>
+<option value="private">Private</option>
+<option value="closed">Closed</option>
+</select>
+</label>
+<label>Record source
+      <select id="waterDirectorySource">
+<option value="all">All record sources</option>
+<option value="managed">Managed directory</option>
+<option value="approved">Approved additions/edits</option>
+<option value="hidden">Private/closed blocks</option>
+</select>
+</label>
+</div>
+<p class="directory-status meta" id="waterDirectoryStatus"></p>
+<div class="table-wrap">
+<table class="water-directory-table">
+<thead>
+<tr>
+<th>Water</th>
+<th>State / nearest town</th>
+<th>Type</th>
+<th>Access</th>
+<th>Record source</th>
+<th>Coordinates</th>
+<th>Official source</th>
+<th>Manage</th>
+</tr>
+</thead>
+<tbody id="waterDirectoryRows"></tbody>
+</table>
+</div>
+<div class="directory-editor hidden" id="waterDirectoryEditor">
+<div class="directory-editor-head">
+<div>
+<span class="directory-kicker">Directory editor</span>
+<h3 id="waterEditorTitle">Edit water</h3>
+<p class="meta" id="waterEditorHelp"></p>
+</div>
+<button class="secondary" id="closeWaterEditor" type="button">Close</button>
+</div>
+<div class="edit-grid directory-edit-grid">
+<label>Water name<input id="directoryEditName"/></label>
+<label>State<input id="directoryEditState"/></label>
+<label>Nearest town<input id="directoryEditTown"/></label>
+<label>County / area<input id="directoryEditCounty"/></label>
+<label>Water type<input id="directoryEditType" placeholder="lake, reservoir, pond, river or stream"/></label>
+<label>Access status
+        <select id="directoryEditAccess">
+<option value="open">Public/open</option>
+<option value="restricted">Public with conditions</option>
+<option value="unknown">Needs verification</option>
+<option value="private">Private</option>
+<option value="closed">Closed</option>
+</select>
+</label>
+<label>Latitude<input id="directoryEditLat" inputmode="decimal"/></label>
+<label>Longitude<input id="directoryEditLon" inputmode="decimal"/></label>
+<label class="full">Aliases, separated by commas<textarea class="short-textarea" id="directoryEditAliases"></textarea></label>
+<label class="full">Nearby towns, separated by commas<textarea class="short-textarea" id="directoryEditNearbyTowns"></textarea></label>
+<label class="full">Official or managing-agency URL<input id="directoryEditUrl"/></label>
+<label class="full">Public access source<input id="directoryEditSourceText"/></label>
+<label class="full">Public access note<textarea class="short-textarea" id="directoryEditNote"></textarea></label>
+</div>
+<div class="decision-row">
+<button class="primary" id="saveWaterDirectoryRecord" type="button">Save and download correct file</button>
+<button class="secondary" id="resolveDirectoryCoordinates" type="button">Find coordinates automatically</button>
+</div>
+</div>
+</section>
+<section class="panel" id="liveWaterInspector">
+<div class="directory-title-row">
+<div>
+<span class="directory-kicker">Not automatically saved</span>
+<h2>Live Water Lookup Inspector</h2>
+<p class="meta">
+        Search the same outside geographic sources used by visitors. Results remain temporary
+        until you deliberately choose “Add to managed directory.”
+      </p>
+</div>
+</div>
+<div class="live-lookup-controls">
+<input id="liveWaterQuery" placeholder="Example: Boise, Idaho or Lake Tahoe"/>
+<button class="primary" id="runLiveWaterLookup" type="button">Search live waters</button>
+</div>
+<p class="meta" id="liveWaterLookupStatus">No live lookup has been run.</p>
+<div class="table-wrap">
+<table class="water-directory-table">
+<thead>
+<tr>
+<th>Water</th>
+<th>State</th>
+<th>Type</th>
+<th>Distance</th>
+<th>Access label</th>
+<th>Source</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="liveWaterLookupRows">
+<tr><td colspan="7">Search a town or water name to inspect temporary outside results.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
 <section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"/></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button class="secondary" id="exportReview">Export review queue</button><button class="secondary" id="exportSubmissions">Export local submissions</button></div></section>
 <section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
 <section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseEmail">Parse emailed report</button><button class="secondary" id="clearImport">Clear</button></div></div><div class="preview-box" id="importPreview"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button class="primary hidden" id="approveDownload">Approve and download community_fishing_reports.js</button><a class="button secondary hidden" id="communityGithubLink" rel="noopener" target="_blank">Open report file in GitHub</a></div><p class="meta" id="communityCount"></p></section><section class="panel"><h2>Approve a missing-water or access correction</h2><p class="meta">Paste the complete correction email. You can resolve coordinates, edit the reviewed record, then download one replacement <code>official_water_overrides.js</code> file. Public additions require coordinates. Private or closed-water blocks only require the correct name and state.</p><div class="import-grid"><div><label for="waterEmailPaste"><strong>Paste the correction email</strong></label><textarea id="waterEmailPaste" placeholder="Paste the message containing FFO_WATER_CORRECTION_BEGIN and FFO_WATER_CORRECTION_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseWaterEmail">Parse water correction</button><button class="secondary hidden" id="resolveWater">Find coordinates automatically</button><button class="secondary" id="clearWaterImport">Clear</button></div></div><div class="preview-box" id="waterImportPreview"><p class="meta">The editable correction preview will appear here. Private contact information is never included in the downloaded public file.</p></div></div><div class="decision-row"><button class="primary hidden" id="approvePublicWater">Approve public water and download official_water_overrides.js</button><button class="secondary hidden" id="approveHiddenWater">Hide private/closed water and download file</button><a class="button secondary hidden" id="waterGithubLink" rel="noopener" target="_blank">Open correction file in GitHub</a></div><p class="meta" id="waterOverrideCount"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
@@ -252,8 +421,16 @@ function saveRows(rows){localStorage.setItem("ffo:pending-submissions",JSON.stri
 function renderSubmissions(){const rows=localRows();$("submissions").innerHTML=rows.length?rows.map((r,i)=>`<div class="submission"><h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3><div class="meta">${esc(r.fishing_date)} · ${esc(r.bait_or_lure)} · ${esc(r.status||"pending")}</div><p>${esc(r.notes||"No notes")}</p><div class="actions"><button class="secondary" data-action="approve" data-i="${i}">Mark approved locally</button><button class="secondary" data-action="reject" data-i="${i}">Reject locally</button><button class="secondary" data-action="remove" data-i="${i}">Remove</button></div></div>`).join(""):'<p class="meta">No local submissions in this browser.</p>';document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const rows=localRows(),i=Number(b.dataset.i);if(b.dataset.action==="remove")rows.splice(i,1);else rows[i].status=b.dataset.action==="approve"?"approved-local":"rejected-local";saveRows(rows);}));}
 renderSubmissions();
 $("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
+
+window.FFO_ADMIN_WATER_STATE={
+  getOverrides:()=>JSON.parse(JSON.stringify(workingWaterOverrides)),
+  setOverrides:rows=>{
+    workingWaterOverrides=JSON.parse(JSON.stringify(rows||[]));
+    renderWaterOverrideCount();
+  }
+};
 if(cfg.github_repository_url){const base=cfg.github_repository_url.replace(/\/$/,"");const a=$("actionsLink");a.href=base+"/actions";a.classList.remove("hidden");const communityLink=$("communityGithubLink");communityLink.href=base+"/blob/main/community_fishing_reports.js";communityLink.classList.remove("hidden");const waterLink=$("waterGithubLink");waterLink.href=base+"/blob/main/official_water_overrides.js";waterLink.classList.remove("hidden");}
 </script>
-<script src="brand-shell.js"></script>
+<script src="admin-water-directory.js?v=1"></script><script src="brand-shell.js"></script>
 </body>
 </html>

@@ -1,0 +1,31 @@
+FISH FINDER OUTDOORS — COMPLETE WATER ADMIN DASHBOARD
+
+Upload every included file to the ROOT of the fish-finder-reports-live GitHub repository.
+Replace matching files and commit directly to main.
+
+NEW FILES:
+- managed_water_directory.js
+- admin-water-directory.js
+
+WHAT CHANGED:
+- The public search and admin dashboard now use one shared managed directory
+- Admin shows every FFO-managed water
+- Admin also shows approved additions, approved edits and hidden/private records
+- Search, state, access and record-source filters were added
+- Edit, mark private, mark closed, restore and delete-addition controls were added
+- Managed directory, corrections and CSV exports were added
+- Live outside results can be inspected without being automatically saved
+- A good live result can be deliberately added to the managed directory
+
+IMPORTANT FILE RULE:
+- Base water additions or edits download managed_water_directory.js
+- Approved corrections, private blocks and closed blocks download official_water_overrides.js
+- Replace the downloaded file with the same name in GitHub
+
+Visitor searches still do NOT automatically change the permanent directory.
+
+NO FOLDERS ARE INCLUDED.
+Statcounter remains removed.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml

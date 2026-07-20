@@ -347,6 +347,7 @@
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
+<script src="managed_water_directory.js?v=1"></script>
 <script src="official_water_overrides.js"></script>
 <script src="regional_water_search.js?v=3"></script>
 <script src="recent_fishing_reports.js"></script>
@@ -375,176 +376,10 @@ Colorado:{species:["rainbow trout","cutthroat trout","brown trout","kokanee","wa
 const PARAMETERS={"00010":"Water temperature","00060":"Streamflow","00065":"Gage height"};
 const WATER_TYPES = new Set(["water","reservoir","lake","river","stream","canal","bay","pond","lagoon","strait","inlet","harbour","harbor"]);
 
-const LOCAL_WATERS = [
-  {
-    name:"Napa River",
-    aliases:["napa river","napa river system","napa river california"],
-    display_name:"Napa River, City of Napa and lower Napa County, California",
-    lat:38.2975,lon:-122.2869,state:"California",county:"Napa",
-    category:"water",type:"river",
-    official_url:"https://wildlife.ca.gov/Fishing-in-the-City/SF/Gofish/Northeast",
-    nearby_towns:["napa","napa california","napa ca","napa county","yountville","american canyon"],
-    nearby_town_label:"Napa",
-    public_access_verified:true,
-    access_status:"open",
-    public_access_note:"California Fish and Wildlife identifies the main Napa River from the City of Napa downstream as a public fishing opportunity. Use designated public riverfront, park, pier, marina, or boat access; many upstream banks and tributaries are private or closed.",
-    public_access_source:"California Department of Fish and Wildlife"
-  },
-  {
-    name:"Lake Hennessey",
-    aliases:["lake hennessey","hennessey lake","hennessey reservoir"],
-    display_name:"Lake Hennessey, Napa County, California",
-    lat:38.5130,lon:-122.3660,state:"California",county:"Napa",
-    category:"water",type:"reservoir",
-    official_url:"https://wildlife.ca.gov/Fishing-in-the-City/SF/Gofish/Northeast",
-    nearby_towns:["napa","napa california","napa ca","napa county","st helena","saint helena"],
-    nearby_town_label:"Napa",
-    public_access_verified:true,
-    access_status:"restricted",
-    public_access_note:"California Fish and Wildlife lists Lake Hennessey as open to the public, with access or launch fees and boating restrictions. Current launch closures or invasive-species rules must be checked before travel.",
-    public_access_source:"California Department of Fish and Wildlife"
-  },
-  {
-    name:"Lake Berryessa",
-    aliases:["lake berryessa","berryessa lake","berryessa reservoir"],
-    display_name:"Lake Berryessa, Napa County, California",
-    lat:38.5130,lon:-122.1040,state:"California",county:"Napa",
-    category:"water",type:"reservoir",
-    official_url:"https://wildlife.ca.gov/Fishing-in-the-City/SF/Gofish/Northeast",
-    nearby_towns:["napa","napa california","napa ca","napa county","winters","st helena","saint helena"],
-    nearby_town_label:"Napa",
-    public_access_verified:true,
-    access_status:"open",
-    public_access_note:"California Fish and Wildlife lists Lake Berryessa as open to the public. Some resort, launch, parking, or inspection fees and restrictions may apply.",
-    public_access_source:"California Department of Fish and Wildlife"
-  },
-
-  {
-    name:"Bannock Reservoir",
-    aliases:[
-      "bannock reservoir","bannock res","bannock res.","bannock lake",
-      "portneuf wellness complex pond","portneuf wellness pond",
-      "portneuf wellness lake","wellness complex pond","wellness reservoir",
-      "wellness pond","wellness lake"
-    ],
-    display_name:"Bannock Reservoir (Portneuf Wellness Complex Pond), Bannock County, Idaho",
-    lat:42.918590,lon:-112.431740,state:"Idaho",county:"Bannock",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124345429181",
-    nearby_towns:["pocatello","pocatello idaho","pocatello id","chubbuck","chubbuck idaho","bannock county"],
-    nearby_town_label:"Pocatello",
-    public_access_verified:true,
-    public_access_note:"Public family fishing water inside the Portneuf Wellness Complex. Multiple docks and accessible shoreline are available.",
-    public_access_source:"Idaho Fish and Game Fishing Planner"
-  },
-  {
-    name:"Edson Fichter Pond",
-    aliases:[
-      "edson fichter pond","edson fichter reservoir","edson fichter res",
-      "edson fichter res.","edson fichter lake","edson fichter fishing pond",
-      "edson fitcher pond","edson fitcher reservoir","edson fitcher res",
-      "edson fitcher res.","edson fitcher lake","edson fisher pond",
-      "fichter pond","fitcher pond","edson pond"
-    ],
-    display_name:"Edson Fichter Pond, Edson Fichter Nature Area, Pocatello, Idaho",
-    lat:42.821860,lon:-112.403160,state:"Idaho",county:"Bannock",
-    category:"water",type:"pond",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1124032428216",
-    nearby_towns:["pocatello","pocatello idaho","pocatello id","chubbuck","chubbuck idaho","bannock county"],
-    nearby_town_label:"Pocatello",
-    public_access_verified:true,
-    public_access_note:"Public family fishing water at Edson Fichter Nature Area. Docks, trails and accessible shoreline are available.",
-    public_access_source:"Idaho Fish and Game Fishing Planner"
-  },
-  {
-    name:"Blackfoot Reservoir",
-    aliases:["blackfoot reservoir","blackfoot lake","blackfoot reservoir idaho"],
-    display_name:"Blackfoot Reservoir, Bingham and Caribou Counties, Idaho",
-    lat:42.914614,lon:-111.609092,state:"Idaho",county:"Bingham / Caribou",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1115975428895"
-  },
-  {
-    name:"Devil Creek Reservoir",
-    aliases:["devil creek reservoir","devils creek reservoir","devil's creek reservoir","devil creek lake"],
-    display_name:"Devil Creek Reservoir, Oneida County, Idaho — near Malad City",
-    lat:42.320000,lon:-112.730000,state:"Idaho",county:"Oneida",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1122052422984"
-  },
-  {
-    name:"Chesterfield Reservoir",
-    aliases:["chesterfield reservoir","portneuf reservoir","chesterfield lake"],
-    display_name:"Chesterfield Reservoir (Portneuf Reservoir), Caribou County, Idaho",
-    lat:42.897585,lon:-111.967311,state:"Idaho",county:"Caribou",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1119715429000"
-  },
-  {
-    name:"Daniels Reservoir",
-    aliases:["daniels reservoir","daniel reservoir","daniels lake"],
-    display_name:"Daniels Reservoir, Oneida County, Idaho — northwest of Malad City",
-    lat:42.355290,lon:-112.445543,state:"Idaho",county:"Oneida",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1124478423573"
-  },
-  {
-    name:"Alexander Reservoir",
-    aliases:["alexander reservoir","alexander lake","soda springs reservoir"],
-    display_name:"Alexander Reservoir, Caribou County, Idaho — Soda Springs",
-    lat:42.654000,lon:-111.636857,state:"Idaho",county:"Caribou",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1116455426547"
-  },
-  {
-    name:"Oneida Narrows Reservoir",
-    aliases:["oneida narrows reservoir","oneida reservoir","oneida narrows","oneida lake"],
-    display_name:"Oneida Narrows Reservoir, Franklin County, Idaho",
-    lat:42.293520,lon:-111.728978,state:"Idaho",county:"Franklin",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117295422907"
-  },
-  {
-    name:"Glendale Reservoir",
-    aliases:["glendale reservoir","glendale lake","glendale reservoir idaho"],
-    display_name:"Glendale Reservoir, Franklin County, Idaho — near Preston",
-    lat:42.134223,lon:-111.797581,state:"Idaho",county:"Franklin",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117964421349"
-  },
-  {
-    name:"Treasureton Reservoir",
-    aliases:["treasureton reservoir","treasureton lake"],
-    display_name:"Treasureton Reservoir, Franklin County, Idaho",
-    lat:42.233811,lon:-111.861897,state:"Idaho",county:"Franklin",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/"
-  },
-  {
-    name:"Twentyfour Mile Reservoir",
-    aliases:["twentyfour mile reservoir","twenty four mile reservoir","24 mile reservoir","twenty-four mile reservoir"],
-    display_name:"Twentyfour Mile Reservoir, Caribou County, Idaho",
-    lat:42.906200,lon:-111.889000,state:"Idaho",county:"Caribou",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1118897429069"
-  },
-  {
-    name:"Ririe Reservoir",
-    aliases:["ririe reservoir","ririe lake","blacktail reservoir","blacktail park reservoir"],
-    display_name:"Ririe Reservoir, Bonneville County, Idaho",
-    lat:43.520199,lon:-111.720511,state:"Idaho",county:"Bonneville",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1117154435340"
-  },
-  {
-    name:"American Falls Reservoir",
-    aliases:["american falls reservoir","american falls lake","willow bay reservoir"],
-    display_name:"American Falls Reservoir, Power and Bingham Counties, Idaho",
-    lat:42.783000,lon:-112.879000,state:"Idaho",county:"Power / Bingham",
-    category:"water",type:"reservoir",
-    official_url:"https://idfg.idaho.gov/ifwis/fishingPlanner/water/1127315429370"
-  }
-];
+const MANAGED_WATER_DATA=window.FFO_MANAGED_WATER_DIRECTORY||{records:[]};
+const LOCAL_WATERS=JSON.parse(JSON.stringify(
+  Array.isArray(MANAGED_WATER_DATA.records)?MANAGED_WATER_DATA.records:[]
+));
 
 
 const WATER_OVERRIDE_DATA=window.FFO_WATER_OVERRIDES||{records:[]};
@@ -560,8 +395,17 @@ function waterBlocked(row){
 WATER_OVERRIDE_RECORDS
   .filter(item=>item.visibility!=="hidden"&&item.access_status!=="private"&&item.access_status!=="closed")
   .forEach(item=>{
-    const exists=LOCAL_WATERS.some(row=>overrideKey(row)===overrideKey(item));
-    if(!exists)LOCAL_WATERS.unshift({...item,local_directory:true,approved_override:true});
+    const index=LOCAL_WATERS.findIndex(row=>overrideKey(row)===overrideKey(item));
+    if(index>=0){
+      LOCAL_WATERS[index]={
+        ...LOCAL_WATERS[index],
+        ...item,
+        local_directory:true,
+        approved_override:true
+      };
+    }else{
+      LOCAL_WATERS.unshift({...item,local_directory:true,approved_override:true});
+    }
   });
 
 LOCAL_WATERS.forEach(water=>{
