@@ -218,7 +218,6 @@
 </div>
 </header>
 <main class="wrap">
-
 <section class="pwa-install-feature" id="pwaInstallFeature">
 <div class="pwa-install-icon">
 <img alt="Fish Finder Outdoors Fishing Reports app icon" src="app-icon-192.png"/>
@@ -244,7 +243,7 @@
 <div>
 <span class="ffo-section-label">Location-aware suggestions</span>
 <h3 id="nearbyQuickTitle">Fishing Waters Near You</h3>
-<p id="nearbyQuickDescription">Allow location access to see fishing waters within roughly 50 miles. You can also search any town above, and these buttons will update to that area.</p>
+<p id="nearbyQuickDescription">Allow location access to see verified directory waters and additional named fishing waters within roughly 50 miles. You can also search any town above, and these buttons will update to that area.</p>
 </div>
 <button class="primary nearby-location-button" id="loadNearbyWaters" type="button">Show Waters Near Me</button>
 </div>
@@ -349,7 +348,7 @@
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
 <script src="official_water_overrides.js"></script>
-<script src="regional_water_search.js"></script>
+<script src="regional_water_search.js?v=3"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -1478,6 +1477,41 @@ $("clearRecent").addEventListener("click",()=>{writeStore(RECENTS_KEY,[]);render
 
 let nearbyQuickRows=[];
 
+function localDirectoryWatersNear(lat,lon,radiusMiles=50){
+  const latitude=Number(lat),longitude=Number(lon);
+  if(!Number.isFinite(latitude)||!Number.isFinite(longitude))return[];
+
+  return LOCAL_WATERS
+    .filter(row=>
+      !waterBlocked(row)&&
+      Number.isFinite(Number(row.lat))&&
+      Number.isFinite(Number(row.lon))&&
+      row.public_access_verified
+    )
+    .map(row=>({
+      ...row,
+      local_directory:true,
+      nearby_public:true,
+      access_status:row.access_status||"open",
+      distance_miles:miles(latitude,longitude,Number(row.lat),Number(row.lon))
+    }))
+    .filter(row=>row.distance_miles<=radiusMiles)
+    .sort((a,b)=>a.distance_miles-b.distance_miles);
+}
+
+function mergeNearbyWaters(localRows,liveRows){
+  const combined=dedupeLocations([...(localRows||[]),...(liveRows||[])]);
+  const accessRank={open:3,restricted:2,unknown:1};
+  return combined.sort((a,b)=>{
+    const verifiedDifference=
+      Number(Boolean(b.public_access_verified))-Number(Boolean(a.public_access_verified));
+    if(verifiedDifference)return verifiedDifference;
+    const rankDifference=(accessRank[b.access_status]||0)-(accessRank[a.access_status]||0);
+    if(rankDifference)return rankDifference;
+    return Number(a.distance_miles||999)-Number(b.distance_miles||999);
+  });
+}
+
 function nearbyStatus(message,className=""){
   const box=$("nearbyQuickStatus");
   if(!box)return;
@@ -1503,7 +1537,7 @@ function renderNearbyQuickWaters(rows,label="your area"){
 
   if(!unique.length){
     holder.innerHTML="";
-    nearbyStatus(`No reliable nearby-water shortcuts were returned for ${label}. Search the town above or use the official state fishing directory.`,"warning");
+    nearbyStatus(`No nearby-water shortcuts were returned for ${label}. Search your town above or open the official state fishing directory. This does not mean there are no fishing waters nearby.`,"warning");
     return;
   }
 
@@ -1540,19 +1574,38 @@ async function findNearbyQuickWaters({automatic=false}={}){
   nearbyStatus("Getting your location and checking nearby fishing waters…","loading");
 
   navigator.geolocation.getCurrentPosition(async position=>{
+    const latitude=position.coords.latitude;
+    const longitude=position.coords.longitude;
+    const verifiedLocal=localDirectoryWatersNear(latitude,longitude,50);
+
+    // Show the trusted local directory immediately instead of making the
+    // visitor wait for outside services.
+    if(verifiedLocal.length){
+      renderNearbyQuickWaters(verifiedLocal,"your current location");
+      nearbyStatus(`Showing ${verifiedLocal.length} verified nearby water${verifiedLocal.length===1?"":"s"} while the broader regional search finishes…`,"loading");
+    }
+
     try{
-      const place=await reversePlace(position.coords.latitude,position.coords.longitude);
-      const label=place.display_name?.split(",").slice(0,2).join(",")||place.name||"your location";
-      const rows=await window.FFO_REGION_SEARCH?.nearbyByCoordinates?.(
-        position.coords.latitude,
-        position.coords.longitude,
+      const place=await reversePlace(latitude,longitude);
+      const label=place.display_name?.split(",").slice(0,2).join(",")||place.name||"your current location";
+
+      const liveRows=await window.FFO_REGION_SEARCH?.nearbyByCoordinates?.(
+        latitude,
+        longitude,
         place.state||"",
         label,
         50
       )||[];
+
+      const rows=mergeNearbyWaters(verifiedLocal,liveRows);
       renderNearbyQuickWaters(rows,label);
     }catch{
-      nearbyStatus("Nearby waters could not be loaded. Search your town above instead.","warning");
+      if(verifiedLocal.length){
+        renderNearbyQuickWaters(verifiedLocal,"your current location");
+        nearbyStatus(`Showing ${verifiedLocal.length} verified nearby fishing water${verifiedLocal.length===1?"":"s"}. The broader live water service was unavailable, but your local directory results are ready.`,"success");
+      }else{
+        nearbyStatus("The broader nearby-water service could not be reached. Search your town above or open the official state fishing directory.","warning");
+      }
     }finally{
       if(button){
         button.disabled=false;

@@ -1,0 +1,24 @@
+FISH FINDER OUTDOORS REPORTS — NEARBY WATERS FIX
+
+Upload every included file to the ROOT of the fish-finder-reports-live GitHub repository.
+Replace matching files and commit directly to main.
+
+THIS FIX:
+- Stops location search from failing when reverse geocoding returns no state
+- Shows verified waters from the built-in local directory immediately
+- Adds broader national geographic-name results afterward
+- Ensures known Pocatello-area waters can appear from the trusted directory
+- Uses a new search cache key so old empty results are ignored
+- Forces the installed app to refresh the nearby-water search files
+- Keeps the full installable PWA and app icons
+- Keeps Statcounter removed
+
+AFTER DEPLOYMENT:
+1. Open the installed app.
+2. Tap any “App update ready” message if shown.
+3. Close and reopen the app.
+4. Tap Refresh Nearby Waters.
+5. Allow precise or approximate location.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml

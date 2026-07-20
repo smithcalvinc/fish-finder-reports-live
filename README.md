@@ -71,3 +71,10 @@ The Fishing Reports beta is now a complete Progressive Web App.
 - Provides an Install App button when supported
 - Provides Add to Home Screen instructions for iPhone and iPad
 - Includes app shortcuts for Nearby Waters, Submit Report and Official Sources
+
+
+## Nearby-water reliability fix
+
+Location lookup no longer depends on receiving a state name from reverse geocoding.
+Verified local directory records are calculated directly from the visitor's coordinates
+and displayed immediately. The broader GNIS nearby-water query then adds more results.

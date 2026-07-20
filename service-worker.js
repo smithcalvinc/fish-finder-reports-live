@@ -1,4 +1,4 @@
-const CACHE_VERSION = "ffo-reports-pwa-v2";
+const CACHE_VERSION = "ffo-reports-pwa-v3";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -30,7 +30,9 @@ const APP_SHELL = [
 const FRESH_DATA_FILES = [
   "recent_fishing_reports.js",
   "community_fishing_reports.js",
-  "update_status.js"
+  "update_status.js",
+  "regional_water_search.js",
+  "official_water_overrides.js"
 ];
 
 self.addEventListener("install", event => {

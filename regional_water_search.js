@@ -37,7 +37,7 @@
   };
 
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
-  const CACHE_KEY_PREFIX = "ffo:access-balanced:v2:";
+  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v3:";
   const ACCESS_CACHE_PREFIX = "ffo:padus-access:v2:";
   const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
@@ -690,8 +690,10 @@
       REGION_STATES.find(item=>normalize(item.code)===normalize(stateName))||
       null;
 
-    if(!state)return[];
-
+    // A reverse-geocoding service may return no state even when the phone
+    // supplied valid coordinates. Do not fail in that case. The geographic
+    // envelope already limits the query, and each GNIS feature identifies
+    // its own state.
     const place={
       lat:latitude,
       lon:longitude,
@@ -736,6 +738,6 @@
     private_water_filter:true,
     service_name:"USGS GNIS names + PAD-US access screening",
     service_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-    refreshed_label:"Location-aware nearby waters + official state sources"
+    refreshed_label:"Reliable nearby waters + verified local directory + official sources"
   };
 })();
