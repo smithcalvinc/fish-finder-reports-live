@@ -85,3 +85,102 @@ body{padding-top:78px;background:var(--ffo-sand)}
 .ffo-agency-actions a{display:inline-flex;text-decoration:none;border-radius:10px;padding:9px 11px;font-size:12px;font-weight:850;background:#1F4D3A;color:#fff!important}
 .ffo-agency-actions a.secondary{background:#fff;color:#1F4D3A!important;border:1px solid rgba(31,77,58,.22)}
 .ffo-coverage-note{margin:13px 0;padding:12px 14px;border-radius:13px;background:#fff8e9;border:1px solid #e0cf9e;color:#54492f;font-size:13px}
+
+.ffo-seo-section{background:#fff;padding:52px 0;border-top:1px solid rgba(0,0,0,.08)}
+.ffo-seo-inner{width:min(1100px,calc(100% - 32px));margin:auto}
+.ffo-seo-section h2{font-family:'Bitter',Georgia,serif;color:#1F4D3A;font-size:clamp(28px,5vw,42px);margin:12px 0}
+.ffo-seo-section p{color:#586069;max-width:850px}
+.ffo-seo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+.ffo-seo-cards article{border:1px solid rgba(0,0,0,.09);border-radius:17px;padding:17px;background:#F6F2E8}
+.ffo-seo-cards h3{font-family:'Bitter',Georgia,serif;color:#1F4D3A;margin:0 0 7px}
+.ffo-faq{margin-top:32px}.ffo-faq details{background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:14px;padding:13px 15px;margin:9px 0}
+.ffo-faq summary{font-weight:850;cursor:pointer;color:#1F4D3A}.ffo-faq details p{margin:9px 0 0}
+@media(max-width:760px){.ffo-seo-cards{grid-template-columns:1fr}}
+
+
+/* Installable FFO Fishing Reports app */
+.ffo-page-install-row{
+  display:flex;
+  justify-content:flex-start;
+  margin-top:12px;
+}
+.ffo-floating-install-row{
+  position:fixed;
+  top:10px;
+  right:10px;
+  z-index:9997;
+}
+.ffo-install-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(255,255,255,.68);
+  border-radius:999px;
+  padding:6px 11px;
+  background:#fff;
+  color:#143326;
+  font:inherit;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 4px 10px rgba(0,0,0,.12);
+}
+.ffo-page-install-row .ffo-install-button{
+  border-color:rgba(31,77,58,.22);
+  background:#1F4D3A;
+  color:#fff;
+}
+.ffo-install-button:hover{transform:translateY(-1px);background:#F6F2E8;color:#143326}
+.ffo-install-button[hidden]{display:none!important}
+.ffo-install-message{
+  position:fixed;
+  z-index:9999;
+  left:50%;
+  bottom:20px;
+  transform:translateX(-50%);
+  width:min(520px,calc(100% - 28px));
+  padding:17px 48px 17px 18px;
+  border:1px solid rgba(31,77,58,.22);
+  border-left:6px solid #D95D39;
+  border-radius:16px;
+  background:#fff;
+  color:#1B1E21;
+  box-shadow:0 18px 48px rgba(20,51,38,.26);
+}
+.ffo-install-message strong{
+  display:block;
+  color:#1F4D3A;
+  font-family:'Bitter',Georgia,serif;
+  font-size:19px;
+}
+.ffo-install-message p{margin:6px 0 0;color:#586069}
+.ffo-install-close{
+  position:absolute;
+  right:11px;
+  top:9px;
+  width:30px;
+  height:30px;
+  border:0;
+  border-radius:50%;
+  background:#eef3ef;
+  color:#143326;
+  font-size:20px;
+  cursor:pointer;
+}
+.ffo-update-notice{
+  position:fixed;
+  z-index:9998;
+  right:16px;
+  bottom:16px;
+  border:0;
+  border-radius:12px;
+  padding:11px 14px;
+  background:#D95D39;
+  color:#fff;
+  font:inherit;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 12px 30px rgba(20,51,38,.25);
+}
+.ffo-standalone .ffo-beta-bar{padding-top:max(8px,env(safe-area-inset-top))}

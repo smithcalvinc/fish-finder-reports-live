@@ -3,6 +3,7 @@
 window.FFO_SITE_CONFIG = {
   site_name: "Fish Finder Outdoors",
   site_url: "https://fishfinderoutdoors.com",
+  report_site_url: "https://fish-finder-reports-live.wasmer.app",
   powered_by_name: "Mountain Dog Enterprises",
   powered_by_url: "https://mountaindogenterprises.com",
 

@@ -42,3 +42,32 @@ Upload every included file to the root of the existing report-generator GitHub r
 Replace files with the same names and commit directly to `main`.
 
 Do not change `.github/workflows/update-fishing-reports.yml`.
+
+
+## Location-aware nearby-water shortcuts
+
+The old fixed Southeast Idaho shortcut buttons have been removed.
+
+The search page now:
+
+- Shows a **Fishing Waters Near You** section
+- Uses browser location only after permission is granted
+- Automatically refreshes nearby waters on later visits when permission is already granted
+- Searches approximately 50 miles around the visitor
+- Updates the shortcut buttons after any town search
+- Shows no Idaho-specific buttons to visitors in other states
+- Falls back to the official state directory when nearby data is incomplete
+
+
+## Installable app / PWA
+
+The Fishing Reports beta is now a complete Progressive Web App.
+
+- Opens in standalone app mode after installation
+- Uses the approved `ffo-logo-main.png` branding
+- Includes Android, desktop, iPhone and iPad installation support
+- Includes a service worker and offline app shell
+- Keeps live fishing, weather and map data network-first
+- Provides an Install App button when supported
+- Provides Add to Home Screen instructions for iPhone and iPad
+- Includes app shortcuts for Nearby Waters, Submit Report and Official Sources

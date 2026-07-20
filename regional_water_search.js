@@ -633,7 +633,7 @@
     if(!place)return[];
 
     let candidates;
-    try{candidates=await queryNearbyHydroFeatures(place,place.state,55);}catch{return[];}
+    try{candidates=await queryNearbyHydroFeatures(place,place.state,50);}catch{return[];}
 
     const publicRows=await filterPublic(candidates,18);
     return publicRows
@@ -681,8 +681,53 @@
     return combined;
   }
 
+  async function nearbyByCoordinates(lat,lon,stateName,label="Your location",radiusMiles=50){
+    const latitude=Number(lat),longitude=Number(lon);
+    if(!Number.isFinite(latitude)||!Number.isFinite(longitude))return[];
+
+    const state=
+      REGION_STATES.find(item=>normalize(item.name)===normalize(stateName))||
+      REGION_STATES.find(item=>normalize(item.code)===normalize(stateName))||
+      null;
+
+    if(!state)return[];
+
+    const place={
+      lat:latitude,
+      lon:longitude,
+      state,
+      label:clean(label)||"Your location"
+    };
+
+    let candidates=[];
+    try{
+      candidates=await queryNearbyHydroFeatures(place,state,Math.max(5,Math.min(75,Number(radiusMiles)||50)));
+    }catch{
+      return[];
+    }
+
+    const screened=await filterPublic(candidates,24);
+    return screened
+      .map(row=>({
+        ...row,
+        town_search:true,
+        nearby_public:true,
+        nearby_town_label:place.label,
+        distance_miles:Number.isFinite(row.distance_miles)
+          ?row.distance_miles
+          :distanceMiles(latitude,longitude,row.lat,row.lon)
+      }))
+      .sort((a,b)=>{
+        const accessRank={open:3,restricted:2,unknown:1};
+        const rankDifference=(accessRank[b.access_status]||0)-(accessRank[a.access_status]||0);
+        return rankDifference||a.distance_miles-b.distance_miles;
+      })
+      .slice(0,18);
+  }
+
   window.FFO_REGION_SEARCH={
     search,
+    nearbyByCoordinates,
     filterPublic,
     verifyPublicAccess,
     officialFinder,
@@ -691,6 +736,6 @@
     private_water_filter:true,
     service_name:"USGS GNIS names + PAD-US access screening",
     service_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-    refreshed_label:"Official state sources + approved directory corrections"
+    refreshed_label:"Location-aware nearby waters + official state sources"
   };
 })();

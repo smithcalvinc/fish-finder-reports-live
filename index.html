@@ -1,15 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0d3c35">
-  <meta name="description" content="Search fishing conditions, official water names, species guidance, agency sources and reviewed angler reports across Idaho and the Northwest.">
-  <title>Northwest Fishing Reports | Fish Finder Outdoors</title>
-  <style>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&amp;family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#1F4D3A" name="theme-color"/>
+<meta content="Search lakes, reservoirs, ponds, rivers and streams near a town across Idaho and the Northwest. Town searches look roughly 50 miles and link to official state fishing sources." name="description"/>
+<title>Fishing Reports Near Me | Fish Finder Outdoors Beta</title>
+<style>
     :root{--ink:#14211e;--muted:#61706b;--paper:#f5f2e8;--card:#fffdf8;--green:#0d3c35;--green2:#176354;--gold:#d6a443;--line:#d8d4c8;--danger:#a53a2f;--blue:#245f80;--shadow:0 18px 55px rgba(24,47,41,.13)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#e8efe8 0,#f5f2e8 320px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
     a{color:var(--green2)}button,input{font:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.hero{padding:46px 0 28px}.brand{display:flex;gap:14px;align-items:center}.mark{width:58px;height:58px;border-radius:18px;background:var(--green);color:white;display:grid;place-items:center;font-size:31px;box-shadow:var(--shadow)}.brand small{display:block;color:var(--green2);font-weight:800;letter-spacing:.13em;text-transform:uppercase}.brand strong{font-size:clamp(22px,4vw,34px)}h1{font-size:clamp(38px,7vw,72px);line-height:1.02;max-width:900px;margin:35px 0 15px;letter-spacing:-.045em}.lede{font-size:clamp(18px,2.5vw,23px);max-width:780px;color:#42514c}.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(13,60,53,.18);border-radius:999px;padding:7px 12px;background:rgba(255,255,255,.58);font-size:13px;font-weight:800}.search-panel{background:var(--card);border:1px solid rgba(13,60,53,.14);border-radius:24px;padding:22px;box-shadow:var(--shadow);position:relative}.search-row{display:grid;grid-template-columns:1fr auto auto;gap:10px}.search-row input{width:100%;border:2px solid #b9c5bf;border-radius:14px;padding:15px 16px;background:white;outline:none}.search-row input:focus{border-color:var(--green2);box-shadow:0 0 0 4px rgba(23,99,84,.12)}button{border:0;border-radius:14px;padding:13px 18px;font-weight:850;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:#e5ece8;color:var(--green)}button:hover{transform:translateY(-1px)}button:disabled{opacity:.55;cursor:not-allowed;transform:none}.hint{font-size:13px;color:var(--muted);margin:10px 2px 0}.results{display:grid;gap:8px;margin-top:14px}.result{width:100%;text-align:left;border:1px solid var(--line);background:white;color:var(--ink);padding:13px 15px}.result strong{display:block}.result span{font-size:13px;color:var(--muted)}.status{margin:18px 0;padding:14px 16px;border-radius:14px;background:#edf3f0;color:var(--green);font-weight:750}.error{background:#faeae7;color:var(--danger)}.hidden{display:none!important}.report{padding:28px 0 60px}.report-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin:15px 0 20px}.report-head h2{font-size:clamp(30px,5vw,52px);line-height:1.05;margin:7px 0}.report-actions{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 6;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 30px rgba(24,47,41,.06)}.card.full{grid-column:1/-1}.card.third{grid-column:span 4}.card h3{margin:0 0 12px;font-size:19px}.eyebrow{text-transform:uppercase;letter-spacing:.11em;font-weight:900;font-size:12px;color:var(--green2)}.score-card{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}.score{width:108px;height:108px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--score)*1%),#ece8dd 0);position:relative}.score:after{content:"";position:absolute;inset:10px;background:var(--card);border-radius:50%}.score b{position:relative;z-index:1;font-size:30px}.score-label{font-size:30px;font-weight:900}.meta{color:var(--muted);font-size:14px}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.metric{background:#f1f3ed;border-radius:14px;padding:13px}.metric b{display:block;font-size:22px}.list{margin:0;padding-left:20px}.list li{margin:7px 0}.alert{border-left:5px solid var(--danger);padding:11px 13px;background:#faece9;border-radius:8px;margin:9px 0}.source-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.source-list a{display:block;border:1px solid var(--line);border-radius:12px;padding:10px 12px;text-decoration:none;background:white;font-weight:750}.source-list a:hover{border-color:var(--green2)}.disclaimer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:15px;margin-top:17px}.footer{background:var(--green);color:#e5eee9;padding:28px 0;font-size:14px}.footer a{color:white}.pulse{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--gold);animation:pulse 1.1s infinite}@keyframes pulse{50%{opacity:.3;transform:scale(.8)}}
@@ -137,176 +138,201 @@
     .gnis-note{padding:11px 13px;border-radius:12px;background:#eef6fa;border:1px solid #c8dce7;margin-top:12px}
     .gnis-note strong{color:#245f80}
 
-  </style>
-<link rel="stylesheet" href="brand-shell.css">
-<meta property="og:title" content="Northwest Fishing Reports | Fish Finder Outdoors">
-<meta property="og:description" content="Idaho built. Northwest ready. Search fishing conditions, species guidance and trusted sources.">
-<meta property="og:type" content="website">
-<meta property="og:image" content="ffo-logo-main.png">
-<meta name="generator" content="Fish Finder Outdoors Professional Beta v2.0 — state-agency-first directory">
-</head>
-<body>
-
-<header class="ffo-site-header">
-  <div class="ffo-header-inner">
-    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
-      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
-      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
-    </a>
-    <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
-      <a href="https://fishfinderoutdoors.com">Home</a>
-      <a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
-      <a class="active" href="index.html">Fishing Reports</a>
-      <a href="https://fishfinderoutdoors.com/#trout">Trout</a>
-      <a href="https://fishfinderoutdoors.com/#bass">Bass</a>
-      <a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
-      <a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
-      <a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
-      <a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
-    </nav>
-  </div>
-</header>
-<div class="ffo-beta-bar">STATE-AGENCY-FIRST BETA • Missing-water corrections now built in • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a></div>
-
-<section class="ffo-professional-hero">
-  <div class="ffo-hero-grid">
-    <div>
-      <div class="ffo-kicker"><img src="ffo-logo-main.png" alt="" aria-hidden="true">Freshwater Gear Hub</div>
-      <h1>Stop guessing. Start catching.</h1>
-      <p>Trusted fishing reports, species guidance, agency sources and community insights built to feel like a natural part of Fish Finder Outdoors.</p>
-      <div class="ffo-hero-actions">
-        <a class="ffo-hero-primary" href="#report-search">Find your report</a>
-        <a class="ffo-hero-secondary" href="submit-report.html">Share a report</a>
-      </div>
-    </div>
-    <img class="ffo-hero-logo" src="ffo-logo-main.png" alt="Fish Finder Outdoors — Built on Experience" onerror="this.style.display='none'">
-  </div>
-</section>
-<section class="ffo-trust-strip" aria-label="Report tool features">
-  <div class="ffo-trust-inner">
-    <div class="ffo-trust-item"><strong>Northwest Coverage</strong><span>Northwest and Mountain West</span></div>
-    <div class="ffo-trust-item"><strong>State Sources First</strong><span>Official agency directories beside results</span></div>
-    <div class="ffo-trust-item"><strong>Trusted Sources</strong><span>Rules and reports linked clearly</span></div>
-    <div class="ffo-trust-item"><strong>Shared Reports</strong><span>Reviewed before publication</span></div>
-  </div>
-</section>
-
-  <header class="hero" style="display:none">
-    <div class="wrap">
-      <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
-      <h1>Current fishing conditions, gathered on demand.</h1>
-      <p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official names are checked against public-access records before results appear.</p>
-      <span class="badge">Professional Beta · Official state sources first</span>
-      <span id="sourceStamp" class="source-stamp">Official state-source layer active</span>
-      <nav class="utility-nav" aria-label="Fishing report tools">
-        <a href="submit-report.html">Submit a fishing report</a>
-        <a href="admin.html">Source review dashboard</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section id="report-search" class="search-panel" aria-label="Fishing location search">
-      <span class="ffo-section-label">Free beta report tool</span>
-      <div class="ffo-beta-panel"><h2>Plan your next fishing trip with better information.</h2><p>Search by official water name, local name, town or coordinates. State-agency records and approved corrections appear first; official geographic names fill coverage gaps.</p></div>
-      <form id="searchForm" class="search-row">
-        <input id="locationInput" autocomplete="off" placeholder="Example: American Falls Reservoir, Idaho" aria-label="Fishing location">
-        <button class="primary" type="submit">Find location</button>
-        <button class="secondary" id="nearMe" type="button">Use my location</button>
-      </form>
-      <p class="hint">Expanded guidance: ID, MT, WY, UT, NV, OR, WA, northern CA and CO. Waterbody matches are prioritized ahead of nearby towns when possible.</p>
-      <div class="local-searches" aria-label="Quick Southeast Idaho water searches">
-        <button type="button" data-quick-water="Bannock Reservoir, Idaho">Bannock Reservoir</button>
-        <button type="button" data-quick-water="Edson Fichter Pond, Idaho">Edson Fichter Pond</button>
-        <button type="button" data-quick-water="Blackfoot Reservoir, Idaho">Blackfoot Reservoir</button>
-        <button type="button" data-quick-water="Devil Creek Reservoir, Idaho">Devil Creek Reservoir</button>
-        <button type="button" data-quick-water="Chesterfield Reservoir, Idaho">Chesterfield Reservoir</button>
-        <button type="button" data-quick-water="Daniels Reservoir, Idaho">Daniels Reservoir</button>
-        <button type="button" data-quick-water="Alexander Reservoir, Idaho">Alexander Reservoir</button>
-        <button type="button" data-quick-water="Oneida Narrows Reservoir, Idaho">Oneida Narrows</button>
-      </div>
-      <div class="search-help"><strong>Official-source regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. The correct state fishing directory is shown with every search. Known private and closed waters are hidden, while uncertain access is labeled instead of silently deleting the water.</div><div class="ffo-coverage-note"><strong>Can’t find a known water?</strong> <a href="report-water.html">Report a missing water or incorrect access</a>. Approved corrections become part of the search directory without rewriting the whole site.</div>
-      <div class="regional-coverage">
-        <strong>Official water-name search coverage</strong>
-        <div class="state-chips">
-          <span class="state-chip">Idaho</span><span class="state-chip">Montana</span>
-          <span class="state-chip">Wyoming</span><span class="state-chip">Utah</span>
-          <span class="state-chip">Nevada</span><span class="state-chip">Oregon</span>
-          <span class="state-chip">Washington</span><span class="state-chip">Northern California</span>
-          <span class="state-chip">Colorado</span>
-        </div>
-      </div>
-      <div class="legend" aria-label="Data type legend">
-        <span class="data-pill"><span class="dot live"></span>Live measured</span>
-        <span class="data-pill"><span class="dot official"></span>Official link</span>
-        <span class="data-pill"><span class="dot profile"></span>Water profile</span>
-        <span class="data-pill"><span class="dot estimate"></span>Conditions estimate</span>
-      </div>
-      <div id="status" class="status hidden" role="status"></div>
-      <div id="results" class="results"></div>
-    </section>
-
-    <section class="saved-panel" aria-label="Saved and recent fishing locations">
-      <div class="saved-head">
-        <div><h2>Your fishing waters</h2><div class="meta">Favorites and recent searches are saved only in this browser. Official source pages are checked automatically when the GitHub workflow is enabled.</div></div>
-        <button id="clearRecent" class="secondary subtle-button" type="button">Clear recent</button>
-      </div>
-      <div class="saved-grid">
-        <div class="saved-group"><h3>Favorites</h3><div id="favoriteLocations" class="saved-items"></div></div>
-        <div class="saved-group"><h3>Recent</h3><div id="recentLocations" class="saved-items"></div></div>
-      </div>
-    </section>
-
-    <section id="report" class="report hidden" aria-live="polite">
-      <div class="report-head">
-        <div><span id="coverageBadge" class="badge"></span><h2 id="reportTitle"></h2><div id="generated" class="meta"></div></div>
-        <div class="report-actions"><button class="secondary" id="favoriteLocation">☆ Save water</button><button class="secondary" id="copySummary">Copy report text</button><button class="secondary" id="copyLink">Copy report link</button><button class="secondary" onclick="window.print()">Print</button></div>
-      </div>
-      <div id="reportGrid" class="grid"></div>
-    </section>
-  </main>
-
   
+    .nearby-quick-card{margin:14px 0 18px;padding:18px;border:1px solid rgba(31,77,58,.18);border-radius:18px;background:linear-gradient(135deg,#f8fbf8,#eef5f1);box-shadow:0 9px 24px rgba(31,77,58,.06)}
+    .nearby-quick-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .nearby-quick-heading h3{font-family:Bitter,Georgia,serif;color:var(--green);font-size:clamp(22px,4vw,30px);margin:5px 0}
+    .nearby-quick-heading p{margin:0;color:var(--muted);max-width:720px}
+    .nearby-location-button{flex-shrink:0}
+    .nearby-quick-status{margin:13px 0 10px;padding:10px 12px;border-radius:11px;background:#fff;border:1px solid rgba(31,77,58,.12);color:var(--muted);font-size:13px}
+    .nearby-quick-status.loading{color:var(--green);font-weight:800}
+    .nearby-quick-status.warning{background:#fff8e9;border-color:#e5d39d;color:#5d4f27}
+    .nearby-quick-status.success{background:#eaf5ee;border-color:#b9d7c4;color:#1F4D3A}
+    .nearby-water-buttons:empty{display:none}
+    .nearby-water-buttons button{display:inline-flex;align-items:center;gap:6px}
+    .nearby-water-buttons button small{font-weight:700;opacity:.7}
+    @media(max-width:720px){.nearby-quick-heading{align-items:stretch;flex-direction:column}.nearby-location-button{width:100%}}
+</style>
+<link href="brand-shell.css" rel="stylesheet"/>
+<meta content="Fishing Reports Near Me | Fish Finder Outdoors Beta" property="og:title"/>
+<meta content="Search lakes, reservoirs, ponds, rivers and streams near a town across Idaho and the Northwest. Town searches look roughly 50 miles and link to official state fishing sources." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg" property="og:image"/>
+<meta content="Fish Finder Outdoors Professional Beta v2.0 — state-agency-first directory" name="generator"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://fish-finder-reports-live.wasmer.app/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Reports Near Me | Fish Finder Outdoors Beta" name="twitter:title"/><meta content="Search lakes, reservoirs, ponds, rivers and streams near a town across Idaho and the Northwest. Town searches look roughly 50 miles and link to official state fishing sources." name="twitter:description"/><meta content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg" name="twitter:image"/><link href="https://fish-finder-reports-live.wasmer.app/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Fishing Reports Near Me", "url": "https://fish-finder-reports-live.wasmer.app/", "description": "Search lakes, reservoirs, ponds, rivers and streams near a town across Idaho and the Northwest. Town searches look roughly 50 miles and link to official state fishing sources.", "isPartOf": {"@type": "WebSite", "name": "Fish Finder Outdoors", "url": "https://fishfinderoutdoors.com/"}, "publisher": {"@type": "Organization", "name": "Fish Finder Outdoors", "url": "https://fishfinderoutdoors.com/", "logo": {"@type": "ImageObject", "url": "https://fish-finder-reports-live.wasmer.app/ffo-logo-main.png"}}, "applicationCategory": "TravelApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "featureList": ["Search fishing waters near a town within roughly 50 miles", "Official state fishing directory links", "Weather and water-condition summaries", "Reviewed community fishing reports", "Missing-water and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "Does an empty result mean there is no fishing nearby?", "acceptedAnswer": {"@type": "Answer", "text": "No. It means the beta search did not return a reliable local match. Visitors should use the linked official state fishing directory or report the missing water."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Reports" name="apple-mobile-web-app-title"/><meta content="FFO Reports" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
+<body>
+<header class="ffo-site-header">
+<div class="ffo-header-inner">
+<a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
+<img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
+<span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
+<nav aria-label="Fish Finder Outdoors" class="ffo-nav">
+<a href="https://fishfinderoutdoors.com">Home</a>
+<a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+<a class="active" href="index.html">Fishing Reports</a>
+<a href="https://fishfinderoutdoors.com/#trout">Trout</a>
+<a href="https://fishfinderoutdoors.com/#bass">Bass</a>
+<a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
+<a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
+<a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
+<a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
+</nav>
+</div>
+</header>
+<div class="ffo-beta-bar">STATE-AGENCY-FIRST BETA • Missing-water corrections now built in • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a> • <button class="ffo-install-button" data-install-ffo-app="" hidden="" type="button">Install App</button></div>
+<section class="ffo-professional-hero">
+<div class="ffo-hero-grid">
+<div>
+<div class="ffo-kicker"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Freshwater Gear Hub</div>
+<h1>Stop guessing. Start catching.</h1>
+<p>Trusted fishing reports, species guidance, agency sources and community insights built to feel like a natural part of Fish Finder Outdoors.</p>
+<div class="ffo-hero-actions">
+<a class="ffo-hero-primary" href="#report-search">Find your report</a>
+<a class="ffo-hero-secondary" href="submit-report.html">Share a report</a>
+</div>
+</div>
+<img alt="Fish Finder Outdoors — Built on Experience" class="ffo-hero-logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
+</div>
+</section>
+<section aria-label="Report tool features" class="ffo-trust-strip">
+<div class="ffo-trust-inner">
+<div class="ffo-trust-item"><strong>Northwest Coverage</strong><span>Northwest and Mountain West</span></div>
+<div class="ffo-trust-item"><strong>State Sources First</strong><span>Official agency directories beside results</span></div>
+<div class="ffo-trust-item"><strong>Trusted Sources</strong><span>Rules and reports linked clearly</span></div>
+<div class="ffo-trust-item"><strong>Shared Reports</strong><span>Reviewed before publication</span></div>
+</div>
+</section>
+<header class="hero" style="display:none">
+<div class="wrap">
+<div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
+<h1>Current fishing conditions, gathered on demand.</h1>
+<p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official names are checked against public-access records before results appear.</p>
+<span class="badge">Professional Beta · Official state sources first</span>
+<span class="source-stamp" id="sourceStamp">Official state-source layer active</span>
+<nav aria-label="Fishing report tools" class="utility-nav">
+<a href="submit-report.html">Submit a fishing report</a>
+<a href="admin.html">Source review dashboard</a>
+</nav>
+</div>
+</header>
+<main class="wrap">
+<section aria-label="Fishing location search" class="search-panel" id="report-search">
+<span class="ffo-section-label">Free beta report tool</span>
+<div class="ffo-beta-panel"><h2>Plan your next fishing trip with better information.</h2><p>Search by official water name, local name, town or coordinates. State-agency records and approved corrections appear first; official geographic names fill coverage gaps.</p></div>
+<form class="search-row" id="searchForm">
+<input aria-label="Fishing location" autocomplete="off" id="locationInput" placeholder="Example: American Falls Reservoir, Idaho"/>
+<button class="primary" type="submit">Find location</button>
+<button class="secondary" id="nearMe" type="button">Show nearby waters</button>
+</form>
+<p class="hint">Town searches look for named fishing waters within roughly 50 miles when the available official geographic data supports it. Some areas may return fewer results, so the correct state fishing directory is always provided.</p>
+<section aria-labelledby="nearbyQuickTitle" class="nearby-quick-card" id="nearbyQuickCard">
+<div class="nearby-quick-heading">
+<div>
+<span class="ffo-section-label">Location-aware suggestions</span>
+<h3 id="nearbyQuickTitle">Fishing Waters Near You</h3>
+<p id="nearbyQuickDescription">Allow location access to see fishing waters within roughly 50 miles. You can also search any town above, and these buttons will update to that area.</p>
+</div>
+<button class="primary nearby-location-button" id="loadNearbyWaters" type="button">Show Waters Near Me</button>
+</div>
+<div aria-live="polite" class="nearby-quick-status" id="nearbyQuickStatus">Your location is not shared unless you choose to use it.</div>
+<div aria-label="Nearby fishing water shortcuts" class="local-searches nearby-water-buttons" id="nearbyWaterButtons"></div>
+</section>
+<div class="search-help"><strong>Official-source regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. The correct state fishing directory is shown with every search. Known private and closed waters are hidden, while uncertain access is labeled instead of silently deleting the water.</div><div class="ffo-coverage-note"><strong>Can’t find a known water?</strong> <a href="report-water.html">Report a missing water or incorrect access</a>. Approved corrections become part of the search directory without rewriting the whole site.</div>
+<div class="regional-coverage">
+<strong>Official water-name search coverage</strong>
+<div class="state-chips">
+<span class="state-chip">Idaho</span><span class="state-chip">Montana</span>
+<span class="state-chip">Wyoming</span><span class="state-chip">Utah</span>
+<span class="state-chip">Nevada</span><span class="state-chip">Oregon</span>
+<span class="state-chip">Washington</span><span class="state-chip">Northern California</span>
+<span class="state-chip">Colorado</span>
+</div>
+</div>
+<div aria-label="Data type legend" class="legend">
+<span class="data-pill"><span class="dot live"></span>Live measured</span>
+<span class="data-pill"><span class="dot official"></span>Official link</span>
+<span class="data-pill"><span class="dot profile"></span>Water profile</span>
+<span class="data-pill"><span class="dot estimate"></span>Conditions estimate</span>
+</div>
+<div class="status hidden" id="status" role="status"></div>
+<div class="results" id="results"></div>
+</section>
+<section aria-label="Saved and recent fishing locations" class="saved-panel">
+<div class="saved-head">
+<div><h2>Your fishing waters</h2><div class="meta">Favorites and recent searches are saved only in this browser. Official source pages are checked automatically when the GitHub workflow is enabled.</div></div>
+<button class="secondary subtle-button" id="clearRecent" type="button">Clear recent</button>
+</div>
+<div class="saved-grid">
+<div class="saved-group"><h3>Favorites</h3><div class="saved-items" id="favoriteLocations"></div></div>
+<div class="saved-group"><h3>Recent</h3><div class="saved-items" id="recentLocations"></div></div>
+</div>
+</section>
+<section aria-live="polite" class="report hidden" id="report">
+<div class="report-head">
+<div><span class="badge" id="coverageBadge"></span><h2 id="reportTitle"></h2><div class="meta" id="generated"></div></div>
+<div class="report-actions"><button class="secondary" id="favoriteLocation">☆ Save water</button><button class="secondary" id="copySummary">Copy report text</button><button class="secondary" id="copyLink">Copy report link</button><button class="secondary" onclick="window.print()">Print</button></div>
+</div>
+<div class="grid" id="reportGrid"></div>
+</section>
+</main>
+<section class="ffo-seo-section" id="beta-search-guide">
+<div class="ffo-seo-inner">
+<div>
+<span class="ffo-section-label">Regional fishing search beta</span>
+<h2>Find fishing waters near a town, then verify the details.</h2>
+<p>Enter a town, lake, reservoir, pond, river, stream or coordinate. For town searches, Fish Finder Outdoors looks for named fishing waters within roughly 50 miles when the available agency and geographic data support that search.</p>
+<p>No database contains every public fishing access point. Results therefore include the correct official state fishing directory, access labels and a missing-water correction form.</p>
+</div>
+<div class="ffo-seo-cards">
+<article><h3>Covered region</h3><p>Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado.</p></article>
+<article><h3>Private-water screening</h3><p>Known private and closed waters are hidden. Fee, permit, seasonal and unconfirmed access are labeled instead of silently deleted.</p></article>
+<article><h3>Community corrections</h3><p>Anglers can report a missing water or incorrect access. Every correction is reviewed before it changes the public directory.</p></article>
+</div>
+<div class="ffo-faq">
+<h2>Fishing search questions</h2>
+<details><summary>How far does a town search look?</summary><p>Approximately 50 miles. The actual results depend on available official water names, map coverage and the ability to identify the town correctly.</p></details>
+<details><summary>Does an empty result mean there is no fishing nearby?</summary><p>No. It means the beta search did not return a reliable local match. Use the linked official state fishing directory or report the missing water.</p></details>
+<details><summary>Are all listed waters guaranteed public?</summary><p>No. Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Always verify current agency information and posted signs.</p></details>
+</div>
+</div>
+</section>
 <footer class="ffo-site-footer">
-  <div class="ffo-footer-grid">
-    <div>
-      <a class="ffo-footer-brand" href="https://fishfinderoutdoors.com">
-        <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
-        <span><strong style="font-size:22px">Fish Finder Outdoors</strong><br><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span>
-      </a>
-      <p style="max-width:420px;color:#a9bbb3">Beginner-friendly fishing guides, trustworthy report tools, and practical help for real days on the water.</p>
-    </div>
-    <div>
-      <div class="ffo-footer-title">Explore</div>
-      <div class="ffo-footer-links">
-        <a href="index.html">Fishing Reports</a>
-        <a href="submit-report.html">Submit a Catch Report</a>
-        <a href="official-sources.html">Official State Sources</a>
-        <a href="report-water.html">Report Missing Water</a>
-        <a href="https://fishfinderoutdoors.com">Fishing Guides & Gear</a>
-        <a href="https://fishfinderoutdoors.com/#logbooks">Fishing Logbooks</a>
-      </div>
-    </div>
-    <div>
-      <div class="ffo-footer-title">Company</div>
-      <div class="ffo-footer-links">
-        <a href="https://fishfinderoutdoors.com/about.html">About</a>
-        <a href="https://fishfinderoutdoors.com/contact.html">Contact</a>
-        <a href="https://fishfinderoutdoors.com/privacy.html">Privacy</a>
-        <a href="https://mountaindogenterprises.com">Mountain Dog Enterprises</a>
-      </div>
-    </div>
-  </div>
-  <div class="ffo-footer-fine">
-    <span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span>
-    <span>Free beta. Fishing information can change—always verify current regulations and access.</span>
-  </div>
+<div class="ffo-footer-grid">
+<div>
+<a class="ffo-footer-brand" href="https://fishfinderoutdoors.com">
+<img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
+<span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span>
+</a>
+<p style="max-width:420px;color:#a9bbb3">Beginner-friendly fishing guides, trustworthy report tools, and practical help for real days on the water.</p>
+</div>
+<div>
+<div class="ffo-footer-title">Explore</div>
+<div class="ffo-footer-links">
+<a href="index.html">Fishing Reports</a>
+<a href="submit-report.html">Submit a Catch Report</a>
+<a href="official-sources.html">Official State Sources</a>
+<a href="report-water.html">Report Missing Water</a>
+<a href="https://fishfinderoutdoors.com">Fishing Guides &amp; Gear</a>
+<a href="https://fishfinderoutdoors.com/#logbooks">Fishing Logbooks</a>
+</div>
+</div>
+<div>
+<div class="ffo-footer-title">Company</div>
+<div class="ffo-footer-links">
+<a href="https://fishfinderoutdoors.com/about.html">About</a>
+<a href="https://fishfinderoutdoors.com/contact.html">Contact</a>
+<a href="https://fishfinderoutdoors.com/privacy.html">Privacy</a>
+<a href="https://mountaindogenterprises.com">Mountain Dog Enterprises</a>
+</div>
+</div>
+</div>
+<div class="ffo-footer-fine">
+<span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span>
+<span>Free beta. Fishing information can change—always verify current regulations and access.</span>
+</div>
 </footer>
-
-
-
-
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
@@ -1283,12 +1309,14 @@ $("searchForm").addEventListener("submit",async e=>{
       </button>`;
     }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
+    if(townSearch){
+      renderNearbyQuickWaters(rows,rows[0].nearby_town_label||q);
+    }
   }catch{status("Location search could not connect. Check your connection and try again.",true);}
 });
 $("nearMe").addEventListener("click",()=>{
-  if(!navigator.geolocation){status("This browser does not provide location access.",true);return;}
-  status('<span class="pulse"></span> Getting your location…');
-  navigator.geolocation.getCurrentPosition(async p=>loadReport(await reversePlace(p.coords.latitude,p.coords.longitude)),()=>status("Location access was not available. Search by water name or town instead.",true),{enableHighAccuracy:true,timeout:10000,maximumAge:300000});
+  findNearbyQuickWaters();
+  $("nearbyQuickCard")?.scrollIntoView({behavior:"smooth",block:"center"});
 });
 async function loadReport(loc){
   state.selected=loc;$("results").innerHTML="";$("report").className="report hidden";updateFavoriteButton();
@@ -1436,10 +1464,103 @@ function reportText(r){
 $("favoriteLocation").addEventListener("click",toggleFavorite);
 $("clearRecent").addEventListener("click",()=>{writeStore(RECENTS_KEY,[]);renderSaved();});
 
-document.querySelectorAll("[data-quick-water]").forEach(button=>button.addEventListener("click",()=>{
-  $("locationInput").value=button.dataset.quickWater;
-  $("searchForm").requestSubmit();
-}));
+let nearbyQuickRows=[];
+
+function nearbyStatus(message,className=""){
+  const box=$("nearbyQuickStatus");
+  if(!box)return;
+  box.className=`nearby-quick-status${className?` ${className}`:""}`;
+  box.textContent=message;
+}
+
+function renderNearbyQuickWaters(rows,label="your area"){
+  const holder=$("nearbyWaterButtons");
+  if(!holder)return;
+
+  const unique=[];
+  const seen=new Set();
+  for(const row of rows||[]){
+    const key=`${normalize(row.name)}|${normalize(row.state)}`;
+    if(seen.has(key))continue;
+    seen.add(key);
+    unique.push(row);
+    if(unique.length>=10)break;
+  }
+
+  nearbyQuickRows=unique;
+
+  if(!unique.length){
+    holder.innerHTML="";
+    nearbyStatus(`No reliable nearby-water shortcuts were returned for ${label}. Search the town above or use the official state fishing directory.`,"warning");
+    return;
+  }
+
+  holder.innerHTML=unique.map((row,index)=>{
+    const distance=Number.isFinite(Number(row.distance_miles))
+      ?`<small>${Math.round(Number(row.distance_miles))} mi</small>`
+      :"";
+    return`<button data-nearby-index="${index}" type="button">🌊 ${esc(row.name)} ${distance}</button>`;
+  }).join("");
+
+  holder.querySelectorAll("[data-nearby-index]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const row=nearbyQuickRows[Number(button.dataset.nearbyIndex)];
+      if(!row)return;
+      $("locationInput").value=`${row.name}${row.state?`, ${row.state}`:""}`;
+      loadReport(row);
+    });
+  });
+
+  nearbyStatus(`Showing ${unique.length} fishing water${unique.length===1?"":"s"} near ${label}, generally within about 50 miles. Verify current access before traveling.`,"success");
+}
+
+async function findNearbyQuickWaters({automatic=false}={}){
+  if(!navigator.geolocation){
+    nearbyStatus("This browser does not provide location access. Search your town above and the buttons will update to that area.","warning");
+    return;
+  }
+
+  const button=$("loadNearbyWaters");
+  if(button){
+    button.disabled=true;
+    button.textContent="Finding Nearby Waters…";
+  }
+  nearbyStatus("Getting your location and checking nearby fishing waters…","loading");
+
+  navigator.geolocation.getCurrentPosition(async position=>{
+    try{
+      const place=await reversePlace(position.coords.latitude,position.coords.longitude);
+      const label=place.display_name?.split(",").slice(0,2).join(",")||place.name||"your location";
+      const rows=await window.FFO_REGION_SEARCH?.nearbyByCoordinates?.(
+        position.coords.latitude,
+        position.coords.longitude,
+        place.state||"",
+        label,
+        50
+      )||[];
+      renderNearbyQuickWaters(rows,label);
+    }catch{
+      nearbyStatus("Nearby waters could not be loaded. Search your town above instead.","warning");
+    }finally{
+      if(button){
+        button.disabled=false;
+        button.textContent="Refresh Nearby Waters";
+      }
+    }
+  },error=>{
+    const message=error?.code===1
+      ?"Location permission was not granted. Search your town above and the buttons will update to that area."
+      :"Your location could not be determined. Search your town above instead.";
+    nearbyStatus(message,"warning");
+    if(button){
+      button.disabled=false;
+      button.textContent="Show Waters Near Me";
+    }
+  },{enableHighAccuracy:false,timeout:12000,maximumAge:600000});
+}
+
+$("loadNearbyWaters")?.addEventListener("click",()=>findNearbyQuickWaters());
+
 (function renderSourceStamp(){
   const monitor=monitorStatus(),stamp=$("sourceStamp");
   if(!stamp)return;
@@ -1457,21 +1578,19 @@ $("copySummary").addEventListener("click",async()=>{
 });
 $("copyLink").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("copyLink").textContent="Link copied";setTimeout(()=>$("copyLink").textContent="Copy report link",1800);}catch{prompt("Copy this report link:",location.href);}});
 renderSaved();
+(async()=>{
+  if(navigator.permissions?.query){
+    try{
+      const permission=await navigator.permissions.query({name:"geolocation"});
+      if(permission.state==="granted")findNearbyQuickWaters({automatic:true});
+      permission.addEventListener?.("change",()=>{
+        if(permission.state==="granted")findNearbyQuickWaters({automatic:true});
+      });
+    }catch{}
+  }
+})();
 (()=>{const p=new URLSearchParams(location.search);if(p.get("auto")==="1"&&p.get("lat")&&p.get("lon"))loadReport({lat:Number(p.get("lat")),lon:Number(p.get("lon")),name:p.get("name")||"Shared location",state:p.get("state")||"",type:p.get("source_type")||"location",category:p.get("category")||"place",gnis_official:p.get("gnis")==="1",name_source:p.get("gnis")==="1"?"USGS Geographic Names Information System":"",name_source_url:p.get("gnis")==="1"?"https://cartowfs.nationalmap.gov/arcgis/rest/services/geonames/MapServer":"",gnis_id:p.get("gnis_id")||"",gnis_feature_class:p.get("gnis_class")||"",public_access_verified:p.get("public_access")==="1",public_access_note:p.get("access_note")||"",official_url:p.get("official_url")||""});})();
 </script>
-
-
 <script src="brand-shell.js"></script>
-
-<!-- Fish Finder Outdoors beta analytics -->
-<script type="text/javascript">
-var sc_project=13204868;
-var sc_invisible=1;
-var sc_security="9b20ffa5";
-var scJsHost="https://";
-document.write("<sc"+"ript type='text/javascript' src='"+scJsHost+"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><img class="statcounter" src="https://c.statcounter.com/13204868/0/9b20ffa5/1/" alt=""></div></noscript>
-
-</body>
+<script src="pwa.js"></script></body>
 </html>

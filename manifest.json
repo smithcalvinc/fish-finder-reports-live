@@ -1,0 +1,85 @@
+{
+  "id": "./",
+  "name": "Fish Finder Outdoors Fishing Reports",
+  "short_name": "FFO Reports",
+  "description": "Search fishing waters near a town, check official state sources, and view reviewed angler reports.",
+  "start_url": "./?source=installed-app",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "window-controls-overlay",
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "any",
+  "background_color": "#F6F2E8",
+  "theme_color": "#1F4D3A",
+  "categories": [
+    "sports",
+    "travel",
+    "utilities"
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "app-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Waters Near Me",
+      "short_name": "Near Me",
+      "description": "Open the nearby-water search.",
+      "url": "./#nearbyQuickCard",
+      "icons": [
+        {
+          "src": "app-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Submit Fishing Report",
+      "short_name": "Submit Report",
+      "description": "Submit a recent angler report.",
+      "url": "./submit-report.html",
+      "icons": [
+        {
+          "src": "app-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Official State Sources",
+      "short_name": "Official Sources",
+      "description": "Open official state fishing directories.",
+      "url": "./official-sources.html",
+      "icons": [
+        {
+          "src": "app-icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}

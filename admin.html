@@ -1,17 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Report Approval Dashboard | Fish Finder Outdoors</title>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&amp;family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Private Report Admin | Fish Finder Outdoors</title>
 <style>
 :root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.edit-grid .full{grid-column:1/-1}.edit-grid label{font-size:12px;font-weight:850}.decision-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.water-note{border-radius:12px;padding:11px;background:#eef5f1;border:1px solid #cbded4}@media(max-width:700px){.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="brand-shell.css">
+<link href="brand-shell.css" rel="stylesheet"/>
 <script src="site_config.js"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
@@ -19,37 +20,35 @@
 <script src="official_water_overrides.js"></script>
 <script src="regional_water_search.js"></script>
 <script src="update_status.js"></script>
-</head>
+<meta content="noindex, nofollow, noarchive" name="robots"/><meta content="noindex, nofollow, noarchive" name="googlebot"/><link href="ffo-logo-main.png" rel="icon" type="image/png"/><link href="ffo-logo-main.png" rel="apple-touch-icon"/><meta content="#1F4D3A" name="theme-color"/></head>
 <body>
-
 <header class="ffo-site-header">
-  <div class="ffo-header-inner">
-    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
-      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo" onerror="this.style.display='none'">
-      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
-    </a>
-    <button class="ffo-menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
-    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
-      <a href="https://fishfinderoutdoors.com">Home</a>
-      <a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
-      <a href="index.html">Fishing Reports</a>
-      <a href="https://fishfinderoutdoors.com/#trout">Trout</a>
-      <a href="https://fishfinderoutdoors.com/#bass">Bass</a>
-      <a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
-      <a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
-      <a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
-      <a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
-    </nav>
-  </div>
+<div class="ffo-header-inner">
+<a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
+<img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
+<span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
+<nav aria-label="Fish Finder Outdoors" class="ffo-nav">
+<a href="https://fishfinderoutdoors.com">Home</a>
+<a href="https://fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+<a href="index.html">Fishing Reports</a>
+<a href="https://fishfinderoutdoors.com/#trout">Trout</a>
+<a href="https://fishfinderoutdoors.com/#bass">Bass</a>
+<a href="https://fishfinderoutdoors.com/#panfish">Panfish</a>
+<a href="https://fishfinderoutdoors.com/#catfish">Catfish</a>
+<a href="https://fishfinderoutdoors.com/#logbooks">Logbooks</a>
+<a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
+</nav>
+</div>
 </header>
 <div class="ffo-beta-bar">PRIVATE TOOL • Fish Finder Outdoors report management</div>
-
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img src="ffo-logo-main.png" alt="" aria-hidden="true">Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a id="actionsLink" class="button primary hidden" target="_blank" rel="noopener">Open GitHub Actions</a></div></div></header>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a class="button primary hidden" id="actionsLink" rel="noopener" target="_blank">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
-<section class="panel"><div id="summary" class="summary"></div><p id="lastRun" class="meta"></p></section>
-<section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button id="exportReview" class="secondary">Export review queue</button><button id="exportSubmissions" class="secondary">Export local submissions</button></div></section>
+<section class="panel"><div class="summary" id="summary"></div><p class="meta" id="lastRun"></p></section>
+<section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"/></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button class="secondary" id="exportReview">Export review queue</button><button class="secondary" id="exportSubmissions">Export local submissions</button></div></section>
 <section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
-<section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button id="parseEmail" class="secondary">Parse emailed report</button><button id="clearImport" class="secondary">Clear</button></div></div><div id="importPreview" class="preview-box"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button id="approveDownload" class="primary hidden">Approve and download community_fishing_reports.js</button><a id="communityGithubLink" class="button secondary hidden" target="_blank" rel="noopener">Open report file in GitHub</a></div><p id="communityCount" class="meta"></p></section><section class="panel"><h2>Approve a missing-water or access correction</h2><p class="meta">Paste the complete correction email. You can resolve coordinates, edit the reviewed record, then download one replacement <code>official_water_overrides.js</code> file. Public additions require coordinates. Private or closed-water blocks only require the correct name and state.</p><div class="import-grid"><div><label for="waterEmailPaste"><strong>Paste the correction email</strong></label><textarea id="waterEmailPaste" placeholder="Paste the message containing FFO_WATER_CORRECTION_BEGIN and FFO_WATER_CORRECTION_END"></textarea><div class="actions" style="margin-top:10px"><button id="parseWaterEmail" class="secondary">Parse water correction</button><button id="resolveWater" class="secondary hidden">Find coordinates automatically</button><button id="clearWaterImport" class="secondary">Clear</button></div></div><div id="waterImportPreview" class="preview-box"><p class="meta">The editable correction preview will appear here. Private contact information is never included in the downloaded public file.</p></div></div><div class="decision-row"><button id="approvePublicWater" class="primary hidden">Approve public water and download official_water_overrides.js</button><button id="approveHiddenWater" class="secondary hidden">Hide private/closed water and download file</button><a id="waterGithubLink" class="button secondary hidden" target="_blank" rel="noopener">Open correction file in GitHub</a></div><p id="waterOverrideCount" class="meta"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
+<section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseEmail">Parse emailed report</button><button class="secondary" id="clearImport">Clear</button></div></div><div class="preview-box" id="importPreview"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button class="primary hidden" id="approveDownload">Approve and download community_fishing_reports.js</button><a class="button secondary hidden" id="communityGithubLink" rel="noopener" target="_blank">Open report file in GitHub</a></div><p class="meta" id="communityCount"></p></section><section class="panel"><h2>Approve a missing-water or access correction</h2><p class="meta">Paste the complete correction email. You can resolve coordinates, edit the reviewed record, then download one replacement <code>official_water_overrides.js</code> file. Public additions require coordinates. Private or closed-water blocks only require the correct name and state.</p><div class="import-grid"><div><label for="waterEmailPaste"><strong>Paste the correction email</strong></label><textarea id="waterEmailPaste" placeholder="Paste the message containing FFO_WATER_CORRECTION_BEGIN and FFO_WATER_CORRECTION_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseWaterEmail">Parse water correction</button><button class="secondary hidden" id="resolveWater">Find coordinates automatically</button><button class="secondary" id="clearWaterImport">Clear</button></div></div><div class="preview-box" id="waterImportPreview"><p class="meta">The editable correction preview will appear here. Private contact information is never included in the downloaded public file.</p></div></div><div class="decision-row"><button class="primary hidden" id="approvePublicWater">Approve public water and download official_water_overrides.js</button><button class="secondary hidden" id="approveHiddenWater">Hide private/closed water and download file</button><a class="button secondary hidden" id="waterGithubLink" rel="noopener" target="_blank">Open correction file in GitHub</a></div><p class="meta" id="waterOverrideCount"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);

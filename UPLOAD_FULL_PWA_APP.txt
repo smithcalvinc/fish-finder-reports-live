@@ -1,0 +1,31 @@
+FISH FINDER OUTDOORS FISHING REPORTS — FULL INSTALLABLE APP
+
+1. Unzip this package.
+2. Open the fish-finder-reports-live GitHub repository.
+3. Click Add file → Upload files.
+4. Select ALL files from this package.
+5. Replace matching files.
+6. Commit directly to main.
+
+NEW APP FILES:
+- service-worker.js
+- pwa.js
+- app-icon-192.png
+- app-icon-512.png
+- app-icon-maskable-512.png
+- apple-touch-icon.png
+- updated manifest.json
+
+WHAT THIS DOES:
+- Lets visitors install Fishing Reports as an app
+- Opens without normal browser controls after installation
+- Adds an Install App button when supported
+- Gives iPhone/iPad Add to Home Screen instructions
+- Caches the basic app shell for offline opening
+- Keeps live search and fishing data fresh when connected
+
+NO FOLDERS ARE INCLUDED.
+Statcounter remains removed from the report tool.
+
+DO NOT TOUCH:
+.github/workflows/update-fishing-reports.yml
