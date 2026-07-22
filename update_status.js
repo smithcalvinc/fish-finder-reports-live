@@ -1,6 +1,6 @@
 /* Automatic source-monitor status used by the public site and review dashboard. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-21T17:58:47Z",
+  "last_run": "2026-07-22T17:51:39Z",
   "mode": "live",
   "reports_total": 45,
   "unique_sources": 34,
@@ -12,8 +12,8 @@ window.FFO_UPDATE_STATUS = {
     "stale": 1,
     "unknown": 0
   },
-  "changed_reports": 9,
-  "review_required": 9,
+  "changed_reports": 15,
+  "review_required": 17,
   "unreachable_sources": 0,
   "sources": [
     {
@@ -25,10 +25,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing | Colorado Parks and Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 17:58:37 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:28:38 GMT",
       "page_published": null,
       "page_modified": "2026-07-15T15:48:48-0600",
-      "elapsed_ms": 293,
+      "elapsed_ms": 478,
       "error": null
     },
     {
@@ -43,7 +43,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 126,
+      "elapsed_ms": 558,
       "error": null
     },
     {
@@ -55,10 +55,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "2026 Dworshak Reservoir Kokanee Update | Idaho Fish and Game",
-      "last_modified": "Tue, 21 Jul 2026 17:56:38 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:41 GMT",
       "page_published": "2026-06-25T09:49:24-06:00",
       "page_modified": null,
-      "elapsed_ms": 231,
+      "elapsed_ms": 1426,
       "error": null
     },
     {
@@ -70,10 +70,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "2026 Dworshak Reservoir Smallmouth Bass Update | Idaho Fish and Game",
-      "last_modified": "Tue, 21 Jul 2026 17:57:11 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:42 GMT",
       "page_published": "2026-06-25T10:09:36-06:00",
       "page_modified": null,
-      "elapsed_ms": 186,
+      "elapsed_ms": 1534,
       "error": null
     },
     {
@@ -85,10 +85,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "July 14, 2026 South Fork Salmon River Chinook Update | Idaho Fish and Game",
-      "last_modified": "Tue, 21 Jul 2026 17:54:24 GMT",
+      "last_modified": "Wed, 22 Jul 2026 16:50:30 GMT",
       "page_published": "2026-07-14T12:52:13-06:00",
       "page_modified": null,
-      "elapsed_ms": 178,
+      "elapsed_ms": 483,
       "error": null
     },
     {
@@ -100,10 +100,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Managing Moose Creek Reservoir: Making Fishing Better | Idaho Fish and Game",
-      "last_modified": "Tue, 21 Jul 2026 17:58:50 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:45 GMT",
       "page_published": "2026-06-26T10:20:19-06:00",
       "page_modified": null,
-      "elapsed_ms": 1574,
+      "elapsed_ms": 1620,
       "error": null
     },
     {
@@ -115,10 +115,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Chinook Harvest Report | Idaho Fish and Game",
-      "last_modified": "Tue, 21 Jul 2026 17:52:24 GMT",
+      "last_modified": "Wed, 22 Jul 2026 16:47:31 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 150,
+      "elapsed_ms": 473,
       "error": null
     },
     {
@@ -130,10 +130,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Idaho Fishing Planner",
-      "last_modified": "Tue, 21 Jul 2026 16:02:32 GMT",
+      "last_modified": "Wed, 22 Jul 2026 15:15:21 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 61,
+      "elapsed_ms": 178,
       "error": null
     },
     {
@@ -148,7 +148,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1010,
+      "elapsed_ms": 1399,
       "error": null
     },
     {
@@ -160,10 +160,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing | Oregon Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 17:55:03 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:50 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 235,
+      "elapsed_ms": 291,
       "error": null
     },
     {
@@ -175,10 +175,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 12:58:09 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:51 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 83,
+      "elapsed_ms": 279,
       "error": null
     },
     {
@@ -190,10 +190,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to go fishing | Washington Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 17:24:11 GMT",
+      "last_modified": "Wed, 22 Jul 2026 16:18:45 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 173,
+      "elapsed_ms": 129,
       "error": null
     },
     {
@@ -205,10 +205,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 16:21:29 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:22:32 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 161,
+      "elapsed_ms": 127,
       "error": null
     },
     {
@@ -220,10 +220,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 17:24:19 GMT",
+      "last_modified": "Wed, 22 Jul 2026 15:00:15 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 165,
+      "elapsed_ms": 30,
       "error": null
     },
     {
@@ -235,10 +235,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 17:58:57 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:53 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1158,
+      "elapsed_ms": 1064,
       "error": null
     },
     {
@@ -250,10 +250,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 16:18:52 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:31:38 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 194,
+      "elapsed_ms": 109,
       "error": null
     },
     {
@@ -265,10 +265,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to fish in Wyoming | Wyoming Game & Fish Department",
-      "last_modified": "Tue, 21 Jul 2026 17:58:59 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:46:49 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1347,
+      "elapsed_ms": 127,
       "error": null
     },
     {
@@ -280,10 +280,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department",
-      "last_modified": "Tue, 21 Jul 2026 17:59:01 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:51:55 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1564,
+      "elapsed_ms": 940,
       "error": null
     },
     {
@@ -298,7 +298,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 526,
+      "elapsed_ms": 692,
       "error": null
     },
     {
@@ -310,10 +310,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:50:14 GMT",
+      "last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
       "page_published": "2026-07-15T08:22:00+00:00",
       "page_modified": "2026-07-15T17:27:15+00:00",
-      "elapsed_ms": 325,
+      "elapsed_ms": 627,
       "error": null
     },
     {
@@ -325,10 +325,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing & Stocking Reports - Nevada Fishing",
-      "last_modified": "Fri, 17 Jul 2026 19:26:50 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:20:13 GMT",
       "page_published": "2021-11-02T16:07:05+00:00",
       "page_modified": "2025-09-26T12:38:38+00:00",
-      "elapsed_ms": 128,
+      "elapsed_ms": 436,
       "error": null
     },
     {
@@ -340,10 +340,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Angel Lake - Nevada Department of Wildlife",
-      "last_modified": "Mon, 20 Jul 2026 18:08:26 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:27:47 GMT",
       "page_published": "2021-10-31T18:42:59+00:00",
       "page_modified": "2026-07-20T17:24:45+00:00",
-      "elapsed_ms": 121,
+      "elapsed_ms": 417,
       "error": null
     },
     {
@@ -355,10 +355,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Eagle Valley Reservoir - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:54:21 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:19:32 GMT",
       "page_published": "2021-10-31T18:43:02+00:00",
       "page_modified": "2026-06-03T15:47:05+00:00",
-      "elapsed_ms": 104,
+      "elapsed_ms": 409,
       "error": null
     },
     {
@@ -370,10 +370,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "James Kinney Pond - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:39:52 GMT",
+      "last_modified": "Tue, 21 Jul 2026 20:17:25 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-13T19:41:04+00:00",
-      "elapsed_ms": 133,
+      "elapsed_ms": 482,
       "error": null
     },
     {
@@ -385,10 +385,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Battle Born Pond - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 20:23:14 GMT",
+      "last_modified": "Wed, 22 Jul 2026 03:28:47 GMT",
       "page_published": "2023-05-30T16:47:28+00:00",
       "page_modified": "2026-05-20T20:18:30+00:00",
-      "elapsed_ms": 110,
+      "elapsed_ms": 436,
       "error": null
     },
     {
@@ -400,10 +400,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Lake Tahoe - Zephyr Cove - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 20:04:21 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:42:37 GMT",
       "page_published": "2022-06-23T21:40:11+00:00",
       "page_modified": "2026-06-23T22:25:18+00:00",
-      "elapsed_ms": 107,
+      "elapsed_ms": 494,
       "error": null
     },
     {
@@ -415,10 +415,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Lake Tahoe - Sand Harbor - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 22:11:46 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:55:26 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-10T21:37:55+00:00",
-      "elapsed_ms": 98,
+      "elapsed_ms": 389,
       "error": null
     },
     {
@@ -430,10 +430,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Marilyn's Pond - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:18:32 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:38:39 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-14T21:40:50+00:00",
-      "elapsed_ms": 122,
+      "elapsed_ms": 407,
       "error": null
     },
     {
@@ -445,10 +445,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Mason Valley Hatchery Outponds - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 20:10:53 GMT",
+      "last_modified": "Tue, 21 Jul 2026 20:11:19 GMT",
       "page_published": "2022-07-08T23:17:05+00:00",
       "page_modified": "2026-04-17T18:18:10+00:00",
-      "elapsed_ms": 93,
+      "elapsed_ms": 410,
       "error": null
     },
     {
@@ -460,10 +460,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Ruby Lake NWR - Collection Ditch - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 20:14:06 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:32:59 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T16:22:28+00:00",
-      "elapsed_ms": 96,
+      "elapsed_ms": 389,
       "error": null
     },
     {
@@ -475,10 +475,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Ruby Lake NWR - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:20:05 GMT",
+      "last_modified": "Wed, 22 Jul 2026 17:37:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
-      "page_modified": "2026-07-15T16:15:06+00:00",
-      "elapsed_ms": 121,
+      "page_modified": "2026-07-22T17:28:27+00:00",
+      "elapsed_ms": 405,
       "error": null
     },
     {
@@ -490,10 +490,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "South Fork Reservoir - Nevada Department of Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 15:32:29 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:21:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-21T14:55:47+00:00",
-      "elapsed_ms": 100,
+      "elapsed_ms": 406,
       "error": null
     },
     {
@@ -505,10 +505,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Truckee River - Nevada Department of Wildlife",
-      "last_modified": "Fri, 17 Jul 2026 19:23:58 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:28:58 GMT",
       "page_published": "2021-10-31T18:43:05+00:00",
       "page_modified": "2026-06-29T20:07:15+00:00",
-      "elapsed_ms": 102,
+      "elapsed_ms": 411,
       "error": null
     },
     {
@@ -520,10 +520,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Wildhorse Reservoir - Nevada Department of Wildlife",
-      "last_modified": "Tue, 21 Jul 2026 15:20:49 GMT",
+      "last_modified": "Tue, 21 Jul 2026 19:35:45 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-21T14:57:00+00:00",
-      "elapsed_ms": 106,
+      "elapsed_ms": 409,
       "error": null
     }
   ],
