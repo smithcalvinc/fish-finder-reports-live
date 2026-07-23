@@ -1,6 +1,6 @@
 /* Automatic source-monitor status used by the public site and review dashboard. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-22T17:51:39Z",
+  "last_run": "2026-07-23T18:00:57Z",
   "mode": "live",
   "reports_total": 45,
   "unique_sources": 34,
@@ -12,7 +12,7 @@ window.FFO_UPDATE_STATUS = {
     "stale": 1,
     "unknown": 0
   },
-  "changed_reports": 15,
+  "changed_reports": 7,
   "review_required": 17,
   "unreachable_sources": 0,
   "sources": [
@@ -25,10 +25,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing | Colorado Parks and Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:28:38 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:52:07 GMT",
       "page_published": null,
-      "page_modified": "2026-07-15T15:48:48-0600",
-      "elapsed_ms": 478,
+      "page_modified": "2026-07-22T14:07:41-0600",
+      "elapsed_ms": 313,
       "error": null
     },
     {
@@ -43,7 +43,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 558,
+      "elapsed_ms": 629,
       "error": null
     },
     {
@@ -55,10 +55,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "2026 Dworshak Reservoir Kokanee Update | Idaho Fish and Game",
-      "last_modified": "Wed, 22 Jul 2026 17:51:41 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:24:57 GMT",
       "page_published": "2026-06-25T09:49:24-06:00",
       "page_modified": null,
-      "elapsed_ms": 1426,
+      "elapsed_ms": 485,
       "error": null
     },
     {
@@ -70,10 +70,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "2026 Dworshak Reservoir Smallmouth Bass Update | Idaho Fish and Game",
-      "last_modified": "Wed, 22 Jul 2026 17:51:42 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:24:57 GMT",
       "page_published": "2026-06-25T10:09:36-06:00",
       "page_modified": null,
-      "elapsed_ms": 1534,
+      "elapsed_ms": 569,
       "error": null
     },
     {
@@ -85,10 +85,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "July 14, 2026 South Fork Salmon River Chinook Update | Idaho Fish and Game",
-      "last_modified": "Wed, 22 Jul 2026 16:50:30 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:27:32 GMT",
       "page_published": "2026-07-14T12:52:13-06:00",
       "page_modified": null,
-      "elapsed_ms": 483,
+      "elapsed_ms": 615,
       "error": null
     },
     {
@@ -100,10 +100,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Managing Moose Creek Reservoir: Making Fishing Better | Idaho Fish and Game",
-      "last_modified": "Wed, 22 Jul 2026 17:51:45 GMT",
+      "last_modified": "Thu, 23 Jul 2026 18:01:02 GMT",
       "page_published": "2026-06-26T10:20:19-06:00",
       "page_modified": null,
-      "elapsed_ms": 1620,
+      "elapsed_ms": 1733,
       "error": null
     },
     {
@@ -115,10 +115,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Chinook Harvest Report | Idaho Fish and Game",
-      "last_modified": "Wed, 22 Jul 2026 16:47:31 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:25:38 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 473,
+      "elapsed_ms": 353,
       "error": null
     },
     {
@@ -130,10 +130,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Idaho Fishing Planner",
-      "last_modified": "Wed, 22 Jul 2026 15:15:21 GMT",
+      "last_modified": "Thu, 23 Jul 2026 14:03:46 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 178,
+      "elapsed_ms": 254,
       "error": null
     },
     {
@@ -148,7 +148,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1399,
+      "elapsed_ms": 1536,
       "error": null
     },
     {
@@ -160,10 +160,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing | Oregon Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:51:50 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:47:45 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 291,
+      "elapsed_ms": 153,
       "error": null
     },
     {
@@ -175,10 +175,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:51:51 GMT",
+      "last_modified": "Thu, 23 Jul 2026 18:01:07 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 279,
+      "elapsed_ms": 147,
       "error": null
     },
     {
@@ -190,10 +190,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to go fishing | Washington Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 16:18:45 GMT",
+      "last_modified": "Thu, 23 Jul 2026 14:36:19 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 129,
+      "elapsed_ms": 172,
       "error": null
     },
     {
@@ -205,10 +205,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:22:32 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:22:28 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 127,
+      "elapsed_ms": 152,
       "error": null
     },
     {
@@ -220,10 +220,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 15:00:15 GMT",
+      "last_modified": "Thu, 23 Jul 2026 16:53:49 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 30,
+      "elapsed_ms": 134,
       "error": null
     },
     {
@@ -235,10 +235,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:51:53 GMT",
+      "last_modified": "Thu, 23 Jul 2026 18:01:09 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1064,
+      "elapsed_ms": 1033,
       "error": null
     },
     {
@@ -250,10 +250,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Wed, 22 Jul 2026 17:31:38 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:29:41 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 109,
+      "elapsed_ms": 132,
       "error": null
     },
     {
@@ -265,10 +265,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to fish in Wyoming | Wyoming Game & Fish Department",
-      "last_modified": "Wed, 22 Jul 2026 17:46:49 GMT",
+      "last_modified": "Thu, 23 Jul 2026 17:55:38 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 127,
+      "elapsed_ms": 107,
       "error": null
     },
     {
@@ -280,10 +280,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department",
-      "last_modified": "Wed, 22 Jul 2026 17:51:55 GMT",
+      "last_modified": "Thu, 23 Jul 2026 18:01:12 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 940,
+      "elapsed_ms": 1158,
       "error": null
     },
     {
@@ -298,7 +298,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 692,
+      "elapsed_ms": 578,
       "error": null
     },
     {
@@ -313,7 +313,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
       "page_published": "2026-07-15T08:22:00+00:00",
       "page_modified": "2026-07-15T17:27:15+00:00",
-      "elapsed_ms": 627,
+      "elapsed_ms": 542,
       "error": null
     },
     {
@@ -328,7 +328,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:20:13 GMT",
       "page_published": "2021-11-02T16:07:05+00:00",
       "page_modified": "2025-09-26T12:38:38+00:00",
-      "elapsed_ms": 436,
+      "elapsed_ms": 443,
       "error": null
     },
     {
@@ -343,7 +343,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:27:47 GMT",
       "page_published": "2021-10-31T18:42:59+00:00",
       "page_modified": "2026-07-20T17:24:45+00:00",
-      "elapsed_ms": 417,
+      "elapsed_ms": 421,
       "error": null
     },
     {
@@ -358,7 +358,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:19:32 GMT",
       "page_published": "2021-10-31T18:43:02+00:00",
       "page_modified": "2026-06-03T15:47:05+00:00",
-      "elapsed_ms": 409,
+      "elapsed_ms": 414,
       "error": null
     },
     {
@@ -373,7 +373,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:17:25 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-13T19:41:04+00:00",
-      "elapsed_ms": 482,
+      "elapsed_ms": 405,
       "error": null
     },
     {
@@ -388,7 +388,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Wed, 22 Jul 2026 03:28:47 GMT",
       "page_published": "2023-05-30T16:47:28+00:00",
       "page_modified": "2026-05-20T20:18:30+00:00",
-      "elapsed_ms": 436,
+      "elapsed_ms": 442,
       "error": null
     },
     {
@@ -403,7 +403,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:42:37 GMT",
       "page_published": "2022-06-23T21:40:11+00:00",
       "page_modified": "2026-06-23T22:25:18+00:00",
-      "elapsed_ms": 494,
+      "elapsed_ms": 414,
       "error": null
     },
     {
@@ -418,7 +418,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:55:26 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-10T21:37:55+00:00",
-      "elapsed_ms": 389,
+      "elapsed_ms": 405,
       "error": null
     },
     {
@@ -433,7 +433,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:38:39 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-14T21:40:50+00:00",
-      "elapsed_ms": 407,
+      "elapsed_ms": 424,
       "error": null
     },
     {
@@ -448,7 +448,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:11:19 GMT",
       "page_published": "2022-07-08T23:17:05+00:00",
       "page_modified": "2026-04-17T18:18:10+00:00",
-      "elapsed_ms": 410,
+      "elapsed_ms": 414,
       "error": null
     },
     {
@@ -463,7 +463,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:32:59 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T16:22:28+00:00",
-      "elapsed_ms": 389,
+      "elapsed_ms": 395,
       "error": null
     },
     {
@@ -478,7 +478,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Wed, 22 Jul 2026 17:37:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-22T17:28:27+00:00",
-      "elapsed_ms": 405,
+      "elapsed_ms": 400,
       "error": null
     },
     {
@@ -493,7 +493,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:21:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-21T14:55:47+00:00",
-      "elapsed_ms": 406,
+      "elapsed_ms": 489,
       "error": null
     },
     {
@@ -508,7 +508,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:28:58 GMT",
       "page_published": "2021-10-31T18:43:05+00:00",
       "page_modified": "2026-06-29T20:07:15+00:00",
-      "elapsed_ms": 411,
+      "elapsed_ms": 404,
       "error": null
     },
     {
@@ -523,7 +523,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:35:45 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-21T14:57:00+00:00",
-      "elapsed_ms": 409,
+      "elapsed_ms": 425,
       "error": null
     }
   ],
