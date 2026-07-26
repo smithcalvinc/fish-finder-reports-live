@@ -885,6 +885,73 @@ def explicit_private_warning(text: str) -> str:
     return ""
 
 
+
+def extract_fishnv_water_name(soup: Any, objects: list[Any]) -> str:
+    """Return the actual FishNV water name, never the FishNV brand heading."""
+    rejected_exact = {
+        "", "fishnv", "get online", "get outside", "species", "water details",
+        "fish caught", "advisories", "nearby waters", "layers and basemaps",
+        "open mobile navigation menu",
+    }
+
+    def acceptable(value: Any) -> str:
+        candidate = clean(value)
+        normalized = norm(candidate)
+        if not candidate or normalized in rejected_exact:
+            return ""
+        if "find your next fishing spot" in normalized:
+            return ""
+        if len(candidate) > 180:
+            return ""
+        return candidate
+
+    # FishNV currently renders the brand as the first H1 and the actual
+    # water name as a later H1. Check every H1 rather than soup.find("h1").
+    for heading in soup.find_all("h1"):
+        candidate = acceptable(heading.get_text(" ", strip=True))
+        if candidate:
+            return candidate
+
+    # Prefer explicitly water-named structured fields.
+    for candidate in values_for_keys(
+        objects,
+        {"watername", "water_name", "waterbodyname", "water_body_name"},
+    ):
+        value = acceptable(candidate)
+        if value:
+            return value
+
+    # Some deployments expose the record name in OpenGraph metadata.
+    for selector in (
+        ('meta', {'property': 'og:title'}),
+        ('meta', {'name': 'twitter:title'}),
+    ):
+        node = soup.find(selector[0], attrs=selector[1])
+        if node:
+            value = acceptable(node.get("content"))
+            if value:
+                value = re.sub(r"\s*[|–—-]\s*FishNV.*$", "", value, flags=re.I).strip()
+                value = re.sub(r"^FishNV\s*[|–—-]\s*", "", value, flags=re.I).strip()
+                value = acceptable(value)
+                if value:
+                    return value
+
+    title = clean(soup.title.get_text(" ", strip=True) if soup.title else "")
+    candidates = []
+    trailing = re.match(r"^(.*?)\s*[|–—-]\s*FishNV(?:\b.*)?$", title, flags=re.I)
+    if trailing:
+        candidates.append(trailing.group(1))
+    leading = re.match(r"^FishNV\s*[|–—-]\s*(.*?)$", title, flags=re.I)
+    if leading:
+        candidates.append(leading.group(1))
+    candidates.append(title)
+    for candidate in candidates:
+        value = acceptable(candidate)
+        if value:
+            return value
+    return ""
+
+
 def parse_fishnv_water_page(
     url: str,
     county_polygons: list[tuple[str, list[list[list[float]]]]],
@@ -899,18 +966,7 @@ def parse_fishnv_water_page(
     visible = clean(soup.get_text(" ", strip=True))
     visible_head = visible.split("Nearby Waters", 1)[0][:12000]
 
-    heading = soup.find("h1")
-    name = clean(heading.get_text(" ", strip=True)) if heading else ""
-    if not name:
-        candidates = values_for_keys(objects, {"watername", "water_name", "name", "title"})
-        for candidate in candidates:
-            value = clean(candidate)
-            if value and value.lower() not in {"fishnv", "nevada", "fish nv"}:
-                name = value
-                break
-    if not name or norm(name) == "fishnv":
-        title = clean(soup.title.get_text(" ", strip=True) if soup.title else "")
-        name = re.sub(r"\s*[|–—-]\s*FishNV.*$", "", title, flags=re.I).strip()
+    name = extract_fishnv_water_name(soup, objects)
     if not name:
         return None, f"FishNV page did not expose a water name: {url}"
 
@@ -1576,6 +1632,15 @@ def run_self_tests() -> None:
     assert point["official_source_url"].startswith("https://parks.nv.gov/")
     assert point["access_point_name"] != "FishNV mapped fishing location"
     assert "fishnv" not in point["verification_method"]
+
+    fishnv_heading_sample = soup_for(
+        "<html><head><title>FishNV | Find your next fishing spot.</title></head>"
+        "<body><h1>FishNV</h1><h1>Lahontan Reservoir</h1>"
+        "<h2>Species</h2><h2>Nearby Waters</h2></body></html>"
+    )
+    assert extract_fishnv_water_name(fishnv_heading_sample, []) == "Lahontan Reservoir", (
+        "The FishNV brand heading must never replace the actual water name"
+    )
 
     nearby_only = make_access_record(
         water_hints=["Mountain Overlook"],
