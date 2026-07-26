@@ -1,0 +1,439 @@
+{
+  "state": "Nevada",
+  "generated_at": "2026-07-26T20:23:42Z",
+  "policy": "FishNV alone never verifies public access. Only independent official named access sources may publish a water.",
+  "source_counts": {
+    "ndow_accessible_table_rows": 18,
+    "ndow_access_records": 18,
+    "source_success_ndow_accessible_fishing_table": 1,
+    "verified_pages_checked": 15,
+    "verified_page_access_records": 15,
+    "source_success_verified_state_federal_access_pages": 1,
+    "usfs_features_checked": 1320,
+    "usfs_access_records": 1,
+    "source_success_usfs_recreation_sites": 1,
+    "blm_ramp_features_checked": 10,
+    "blm_boat_ramp_records": 5,
+    "source_success_blm_boat_ramps": 1,
+    "blm_boating_features_checked": 16,
+    "blm_boating_access_records": 3,
+    "source_success_blm_boating_sites": 1,
+    "usbr_ramp_features_checked": 12,
+    "usbr_boat_ramp_records": 4,
+    "source_success_bureau_reclamation_boat_ramps": 1
+  },
+  "matching": {
+    "verified_unique_waters": 26,
+    "official_access_seeded_waters": 26,
+    "quarantined_fishnv_waters": 0,
+    "orphan_official_access_records": 13,
+    "verified_access_points": 33
+  },
+  "source_warnings": [],
+  "unresolved_fishnv_page_samples": [
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/11828",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/18070",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/11924",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/25016",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/18160",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/11533",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/11829",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/10896",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/16039",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/18107",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/11827",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/17747",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2792",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/26115",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/25682",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/27706",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/25082",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2793",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/25861",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/27709",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/27736",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/25524",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2795",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2794",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2797",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2799",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2796",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2798",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2803",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2801",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2806",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2800",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2807",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2804",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2802",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2808",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2809",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2810",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2811",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2814",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2815",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2812",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/28175",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2813",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2816",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2818",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2817",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2819",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2820",
+    "FishNV page did not expose a water name: https://www.fish.wildlifenv.com/waters/2822"
+  ],
+  "orphan_official_access_records": [
+    {
+      "access_id": "d5cb57ff46b10f72e2b5",
+      "water_hints": [
+        "Carson River Takeout",
+        "CARSON RIVER TAKEOUT"
+      ],
+      "county_hint": "Douglas",
+      "access_point_name": "Carson River Takeout",
+      "latitude": 38.8719052,
+      "longitude": -119.6924129,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=38.8719052%2C-119.6924129",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "OPEN",
+      "verification_method": "official_usfs_fishing_or_boating_site",
+      "verification_evidence": "USFS public recreation record: site type BOATING SITE; activities No Data; status OPEN.",
+      "access_details": "Located on the East Fork Carson River, provides a takeout location for river users such as rafters prior to reaching a dam just downstream.",
+      "source_name": "USDA Forest Service",
+      "official_source_url": "https://apps.fs.usda.gov/arcx/rest/services/EDW/EDW_RecInfraRecreationSites_02/MapServer/0",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "0f2398170339913aef91",
+      "water_hints": [
+        "South Fork Reservoir"
+      ],
+      "county_hint": "Elko",
+      "access_point_name": "South Fork Reservoir",
+      "latitude": 40.6946614,
+      "longitude": -115.8344482,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=40.6946614%2C-115.8344482",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boat_ramp",
+      "verification_evidence": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "access_details": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/south-fork-canyon-recreation-area",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "985e4541dda8ff476b7f",
+      "water_hints": [
+        "Sportsmans Beach Campground"
+      ],
+      "county_hint": "Mineral",
+      "access_point_name": "Sportsmans Beach Campground",
+      "latitude": 38.6883554,
+      "longitude": -118.7696874,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=38.6883554%2C-118.7696874",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boat_ramp",
+      "verification_evidence": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "access_details": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/walker-lake-recreation-area",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "25437df4f69b49e5f770",
+      "water_hints": [
+        "Southern Nevada ERMA"
+      ],
+      "county_hint": "Nye",
+      "access_point_name": "Southern Nevada ERMA",
+      "latitude": 36.8056619,
+      "longitude": -116.5778048,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=36.8056619%2C-116.5778048",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boat_ramp",
+      "verification_evidence": "BLM national recreation layer classifies this named point as Staging Area and displays it for public recreation.",
+      "access_details": "Staging Area",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/office/pahrump-field-office",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "12493ea7cae9b9f75e00",
+      "water_hints": [
+        "South Fork Reservoir"
+      ],
+      "county_hint": "Elko",
+      "access_point_name": "South Fork Reservoir",
+      "latitude": 40.7449475,
+      "longitude": -115.8598195,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=40.7449475%2C-115.8598195",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boat_ramp",
+      "verification_evidence": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "access_details": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/south-fork-canyon-recreation-area",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "d8c2f544d77403c8c1d4",
+      "water_hints": [
+        "South Fork Reservoir"
+      ],
+      "county_hint": "Elko",
+      "access_point_name": "South Fork Reservoir",
+      "latitude": 40.6870734,
+      "longitude": -115.7955534,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=40.6870734%2C-115.7955534",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boat_ramp",
+      "verification_evidence": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "access_details": "BLM national recreation layer classifies this named point as Boat Ramp and displays it for public recreation.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/south-fork-canyon-recreation-area",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "8b06101540c3e21e5500",
+      "water_hints": [
+        "South Fork Canyon Special Recreation Management Area"
+      ],
+      "county_hint": "Elko",
+      "access_point_name": "South Fork Canyon Special Recreation Management Area",
+      "latitude": 40.688304,
+      "longitude": -115.793433,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=40.688304%2C-115.793433",
+      "amenities": {
+        "camping": true,
+        "restroom": null,
+        "boat_ramp": null,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boating_recreation_site",
+      "verification_evidence": "BLM Recreation Information Database lists this public recreation area with boating/fishing activity: BOATING, HISTORIC & CULTURAL SITE, CAMPING, FISHING, HIKING, PICNICKING, WILDLIFE VIEWING.",
+      "access_details": "Located northwest of South Fork State Recreation Area, South Fork Canyon offers access to the South Fork River. Float the river in tubes, kayaks or canoes. Along the river you will have the opportunity to see part of the California National Historic Trail (Hastings Cutoff), wildlife, deep limestone canyon walls, and cultural sites. The best time to float the river is during spring runoff. The river is mostly Class I with limited Class II areas (only at peak flows). There are no developed facilities or campgrounds on BLM lands. Roads along the river are primitive and travel is not advised during periods of moisture.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/search-details/1815/2",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "8ecb4d08ad4afd2f22aa",
+      "water_hints": [
+        "South Fork Owyhee River Recreation Area"
+      ],
+      "county_hint": "Elko",
+      "access_point_name": "South Fork Owyhee River Recreation Area",
+      "latitude": 41.80478,
+      "longitude": -116.47121,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=41.80478%2C-116.47121",
+      "amenities": {
+        "camping": true,
+        "restroom": null,
+        "boat_ramp": null,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boating_recreation_site",
+      "verification_evidence": "BLM Recreation Information Database lists this public recreation area with boating/fishing activity: BOATING, CAMPING, INTERPRETIVE PROGRAMS, FISHING, HIKING, WILDLIFE VIEWING.",
+      "access_details": "The South Fork Owyhee River flows north through the Owyhee desert, joining the river's East Fork in southwestern Idaho. River-running in rafts and kayaks through the steep-walled canyon is the most popular recreational activity from late March through early June.",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/search-details/1814/2",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "ea4f5329b930dda10f7f",
+      "water_hints": [
+        "Pine Forest Recreation Area"
+      ],
+      "county_hint": "Humboldt",
+      "access_point_name": "Pine Forest Recreation Area",
+      "latitude": 41.67496,
+      "longitude": -118.79105,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=41.67496%2C-118.79105",
+      "amenities": {
+        "camping": true,
+        "restroom": null,
+        "boat_ramp": null,
+        "dock": null,
+        "ada_fishing": true
+      },
+      "public_access_status": "verified_public",
+      "current_status": "public_access_verified",
+      "verification_method": "official_blm_boating_recreation_site",
+      "verification_evidence": "BLM Recreation Information Database lists this public recreation area with boating/fishing activity: CAMPING, FISHING, HIKING, OFF HIGHWAY VEHICLE, PICNICKING, WILDLIFE VIEWING.",
+      "access_details": "The Pine Forest Range, in northern Nevada's arid Great Basin, is a rare and exceptional area of abundant streams and clear, cold subalpine lakes. Nestled in a cirque and fed by snowmelt and springs, these lakes are not only visually stunning but also possess an excellent trout fishery. The lakes are surrounded by a rare remnant population of white bark and limber pines; stands of quaking aspen and mountain mahogany are also found throughout the area. Fall brings a riot of color found in few other places in northern Nevada.<p> The spectacular scenery and vistas, combined with outstanding recreational opportunities, draw thousands of visitors annually. Despite being one of the most highly visited recreational areas in the region, the area still appears pristine. Day hiking, horseback riding, rock climbing, hunting, fishing, and camping are all popular in the area. Visitors enjoy a true…",
+      "source_name": "Bureau of Land Management",
+      "official_source_url": "https://www.blm.gov/visit/search-details/1816/2",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "51f7c097015343efbe50",
+      "water_hints": [
+        "Silver Springs Boat Ramp"
+      ],
+      "county_hint": "Lyon",
+      "access_point_name": "Silver Springs Boat Ramp",
+      "latitude": 39.3758636,
+      "longitude": -119.1894857,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=39.3758636%2C-119.1894857",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "official_asset_inventory",
+      "verification_method": "official_usbr_boat_ramp_asset",
+      "verification_evidence": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "access_details": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "source_name": "Bureau of Reclamation",
+      "official_source_url": "https://www.arcgis.com/home/item.html?id=4ba5ae78a1bf4195a78b46b3e23a60ba",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "0b315ee9c7b0bff2f2c6",
+      "water_hints": [
+        "Hoover Dam Lower Portal Road Hand Launch"
+      ],
+      "county_hint": "Clark",
+      "access_point_name": "Hoover Dam Lower Portal Road Hand Launch",
+      "latitude": 36.0098851,
+      "longitude": -114.7436331,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=36.0098851%2C-114.7436331",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "official_asset_inventory",
+      "verification_method": "official_usbr_boat_ramp_asset",
+      "verification_evidence": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "access_details": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "source_name": "Bureau of Reclamation",
+      "official_source_url": "https://www.arcgis.com/home/item.html?id=4ba5ae78a1bf4195a78b46b3e23a60ba",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "819b23537e564209a44e",
+      "water_hints": [
+        "Marina Boat Ramp"
+      ],
+      "county_hint": "Churchill",
+      "access_point_name": "Marina Boat Ramp",
+      "latitude": 39.4453431,
+      "longitude": -119.0896163,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=39.4453431%2C-119.0896163",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "official_asset_inventory",
+      "verification_method": "official_usbr_boat_ramp_asset",
+      "verification_evidence": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "access_details": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "source_name": "Bureau of Reclamation",
+      "official_source_url": "https://www.arcgis.com/home/item.html?id=4ba5ae78a1bf4195a78b46b3e23a60ba",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    },
+    {
+      "access_id": "90d59e64b9626e7f4a29",
+      "water_hints": [
+        "Churchill Beach Boat Launch"
+      ],
+      "county_hint": "Churchill",
+      "access_point_name": "Churchill Beach Boat Launch",
+      "latitude": 39.4635225,
+      "longitude": -119.0697254,
+      "directions_url": "https://www.google.com/maps/search/?api=1&query=39.4635225%2C-119.0697254",
+      "amenities": {
+        "camping": null,
+        "restroom": null,
+        "boat_ramp": true,
+        "dock": null,
+        "ada_fishing": null
+      },
+      "public_access_status": "verified_public",
+      "current_status": "official_asset_inventory",
+      "verification_method": "official_usbr_boat_ramp_asset",
+      "verification_evidence": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "access_details": "Bureau of Reclamation enterprise asset inventory identifies this point as a boat ramp. Status: listed; manager: USBR/partner.",
+      "source_name": "Bureau of Reclamation",
+      "official_source_url": "https://www.arcgis.com/home/item.html?id=4ba5ae78a1bf4195a78b46b3e23a60ba",
+      "supporting_source_urls": [],
+      "entire_shoreline_public": false
+    }
+  ]
+}

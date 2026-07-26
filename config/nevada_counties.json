@@ -1,0 +1,74 @@
+{
+  "state": "Nevada",
+  "county_count": 17,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Carson City"
+    },
+    {
+      "county_number": 2,
+      "county": "Churchill"
+    },
+    {
+      "county_number": 3,
+      "county": "Clark"
+    },
+    {
+      "county_number": 4,
+      "county": "Douglas"
+    },
+    {
+      "county_number": 5,
+      "county": "Elko"
+    },
+    {
+      "county_number": 6,
+      "county": "Esmeralda"
+    },
+    {
+      "county_number": 7,
+      "county": "Eureka"
+    },
+    {
+      "county_number": 8,
+      "county": "Humboldt"
+    },
+    {
+      "county_number": 9,
+      "county": "Lander"
+    },
+    {
+      "county_number": 10,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 11,
+      "county": "Lyon"
+    },
+    {
+      "county_number": 12,
+      "county": "Mineral"
+    },
+    {
+      "county_number": 13,
+      "county": "Nye"
+    },
+    {
+      "county_number": 14,
+      "county": "Pershing"
+    },
+    {
+      "county_number": 15,
+      "county": "Storey"
+    },
+    {
+      "county_number": 16,
+      "county": "Washoe"
+    },
+    {
+      "county_number": 17,
+      "county": "White Pine"
+    }
+  ]
+}
