@@ -1,2145 +1,6077 @@
-/* Dated official fishing reports with automatic freshness and source-health metadata. */
+/* Automatically generated from the Idaho statewide fishing database. Do not hand-edit. */
 window.FFO_RECENT_REPORTS = {
-  "version": "2026-07-26-phase6-monitor",
-  "updated_at": "2026-07-26",
-  "coverage_note": "Expanded dated official-report database. Catch reports remain exact-match records; recently reported fish are also displayed in a separate species summary.",
+  "version": "2026-07-26T03:59:17Z-idaho-statewide",
+  "updated_at": "2026-07-26T03:59:17Z",
+  "coverage_note": "Automatically generated from the Idaho county-by-county public-water and fishing-report database.",
   "reports": [
     {
+      "report_kind": "official_stocking_update",
+      "report_id": "aac0a24e05dced4900",
       "state": "Idaho",
-      "names": [
-        "South Fork Salmon River",
-        "South Fork of the Salmon River"
+      "counties": [
+        "Custer"
       ],
+      "names": [
+        "Yankee Fork Lower Dredge Pond"
+      ],
+      "water_name": "Yankee Fork Lower Dredge Pond",
       "agency": "Idaho Fish and Game",
-      "report_type": "Agency fishery update and harvest estimate",
-      "published_date": "2026-07-14",
-      "report_period": "July 8–12, 2026",
-      "headline": "Chinook fishing was reported as excellent, with the best catch rates of the season.",
-      "summary": "Idaho Fish and Game estimated that anglers harvested 58 adipose-clipped adult Chinook during the five-day interval. The season harvest estimate reached 343 adults, and catch rates were averaging roughly 10 hours per fish caught.",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Yankee Fork Lower Dredge Pond stocking update",
+      "summary": "Idaho Fish and Game lists 120 fish for Yankee Fork Lower Dredge Pond during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Chinook salmon",
-          "metric": "58 clipped adults harvested",
-          "detail": "July 8–12 interval"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "343 adults estimated season harvest",
-          "detail": "through July 12"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "About 10 angler-hours per fish caught",
-          "detail": "agency catch-rate estimate"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Fish were reported throughout nearly the entire fishing area.",
-        "Early morning was reported as the most consistent fishing period.",
-        "The agency estimated roughly 250 adults remained available in the projected harvest share at publication."
-      ],
-      "source_url": "https://idfg.idaho.gov/article/july-14-2026-south-fork-salmon-river-chinook-update",
-      "specificity": "Exact river fishery",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 12,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/article/july-14-2026-south-fork-salmon-river-chinook-update",
-      "source_etag": "\"1784936248\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:37:28 GMT",
-      "source_page_title": "July 14, 2026 South Fork Salmon River Chinook Update | Idaho Fish and Game",
-      "source_page_published": "2026-07-14T12:52:13-06:00",
-      "source_page_modified": null,
-      "source_content_hash": "79385cd576aa8a6c30bcc1c8eac91db14f36e5b797cf5d7433982e421c58d123",
-      "source_excerpt": "July 14, 2026 South Fork Salmon River Chinook Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hu",
-      "source_response_ms": 352
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_stocking_update",
+      "report_id": "2799479e9a5772fe38",
       "state": "Idaho",
-      "names": [
-        "Upper Salmon River"
+      "counties": [
+        "Custer"
       ],
+      "names": [
+        "Yankee Fork Dredge Pond 4"
+      ],
+      "water_name": "Yankee Fork Dredge Pond 4",
       "agency": "Idaho Fish and Game",
-      "report_type": "Preliminary creel and harvest estimate",
-      "published_date": "2026-07-13",
-      "report_period": "July 6–12, 2026",
-      "headline": "Upper Salmon River anglers kept an estimated 124 Chinook during the reporting week.",
-      "summary": "The reported section from above the Valley Creek confluence to below Sawtooth Weir recorded an estimated 124 Chinook kept during 1,934 angler-hours, equal to about 16 angler-hours per fish kept.",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Yankee Fork Dredge Pond #4 stocking update",
+      "summary": "Idaho Fish and Game lists 240 fish for Yankee Fork Dredge Pond #4 during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Chinook salmon",
-          "metric": "124 fish kept",
-          "detail": "weekly estimate"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "1,934 angler-hours",
-          "detail": "reported effort"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "16 hours per fish kept",
-          "detail": "reported catch rate"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Specified Upper Salmon River section",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 13,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "source_etag": "\"1784936976\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:49:36 GMT",
-      "source_page_title": "Chinook Harvest Report | Idaho Fish and Game",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
-      "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 408
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_stocking_update",
+      "report_id": "edccd3758e6159159f",
       "state": "Idaho",
-      "names": [
-        "Clearwater River",
-        "Clearwater River Drainage"
+      "counties": [
+        "Custer"
       ],
+      "names": [
+        "Yankee Fork Dredge Pond 1"
+      ],
+      "water_name": "Yankee Fork Dredge Pond 1",
       "agency": "Idaho Fish and Game",
-      "report_type": "Preliminary creel and harvest estimate",
-      "published_date": "2026-07-13",
-      "report_period": "July 6–12, 2026",
-      "headline": "No Chinook harvest was estimated in the Clearwater drainage during the latest listed week.",
-      "summary": "The weekly total was zero fish kept across the listed Clearwater drainage sections. The page listed a season total of 1,156 Chinook kept through that report.",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Yankee Fork Dredge Pond #1 stocking update",
+      "summary": "Idaho Fish and Game lists 240 fish for Yankee Fork Dredge Pond #1 during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Chinook salmon",
-          "metric": "0 fish kept",
-          "detail": "July 6–12 weekly total"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "1,156 fish season total",
-          "detail": "through the report date"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Harvest results do not by themselves confirm whether every section remains open."
-      ],
-      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Clearwater River drainage",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 13,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "source_etag": "\"1784936976\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:49:36 GMT",
-      "source_page_title": "Chinook Harvest Report | Idaho Fish and Game",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
-      "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 408
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_stocking_update",
+      "report_id": "a43267ff247d07cca5",
       "state": "Idaho",
-      "names": [
-        "Lower Salmon River"
+      "counties": [
+        "Canyon"
       ],
+      "names": [
+        "Wilson Springs Trophy Pond"
+      ],
+      "water_name": "Wilson Springs Trophy Pond",
       "agency": "Idaho Fish and Game",
-      "report_type": "Preliminary creel and harvest estimate",
-      "published_date": "2026-07-06",
-      "report_period": "June 29–July 5, 2026",
-      "headline": "No Chinook harvest was estimated in the Lower Salmon River during the listed week.",
-      "summary": "The weekly estimate was zero fish kept in the listed Lower Salmon River sections. The page listed a season total of 352 Chinook kept and approximately 56 angler-hours per fish kept.",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Wilson Springs Trophy Pond stocking update",
+      "summary": "Idaho Fish and Game lists 120 fish for Wilson Springs Trophy Pond during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Chinook salmon",
-          "metric": "0 fish kept",
-          "detail": "weekly estimate"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "352 fish season total",
-          "detail": "through the report date"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "56 hours per fish kept",
-          "detail": "season catch rate"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Listed Lower Salmon River sections",
-      "freshness_status": "aging",
-      "freshness_days": 20,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "source_etag": "\"1784936976\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:49:36 GMT",
-      "source_page_title": "Chinook Harvest Report | Idaho Fish and Game",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
-      "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 408
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_stocking_update",
+      "report_id": "3829412adba32f204f",
       "state": "Idaho",
-      "names": [
-        "Hells Canyon Dam",
-        "Snake River at Hells Canyon Dam"
+      "counties": [
+        "Canyon"
       ],
+      "names": [
+        "Wilson Springs North Pond"
+      ],
+      "water_name": "Wilson Springs North Pond",
       "agency": "Idaho Fish and Game",
-      "report_type": "Preliminary creel and harvest estimate",
-      "published_date": "2026-07-06",
-      "report_period": "June 29–July 5, 2026",
-      "headline": "No Chinook harvest was estimated at Hells Canyon Dam during the listed week.",
-      "summary": "The weekly estimate was zero fish kept at Hells Canyon Dam. The source listed a Snake River season total of 173 Chinook kept and approximately 21 angler-hours per fish kept.",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Wilson Springs North Pond stocking update",
+      "summary": "Idaho Fish and Game lists 120 fish for Wilson Springs North Pond during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Chinook salmon",
-          "metric": "0 fish kept",
-          "detail": "weekly estimate at Hells Canyon Dam"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "173 fish season total",
-          "detail": "Snake River total"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "21 hours per fish kept",
-          "detail": "season catch rate"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "specificity": "Hells Canyon Dam",
-      "freshness_status": "aging",
-      "freshness_days": 20,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/fish/chinook/harvest",
-      "source_etag": "\"1784936976\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:49:36 GMT",
-      "source_page_title": "Chinook Harvest Report | Idaho Fish and Game",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
-      "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 408
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Astoria",
-        "Astoria Oregon",
-        "Columbia River Mouth",
-        "Buoy 10"
+      "report_kind": "official_stocking_update",
+      "report_id": "1651f9653085d8bb1b",
+      "state": "Idaho",
+      "counties": [
+        "Bingham",
+        "Blaine",
+        "Caribou",
+        "Clearwater",
+        "Elmore",
+        "Idaho",
+        "Lemhi",
+        "Owyhee",
+        "Shoshone",
+        "Twin Falls",
+        "Valley"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Astoria posted the highest listed ocean salmon catch rate on the Oregon coast.",
-      "summary": "ODFW reported an average of 1.75 ocean salmon per angler from Astoria.",
+      "names": [
+        "Wilson Creek"
+      ],
+      "water_name": "Wilson Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Wilson Creek stocking update",
+      "summary": "Idaho Fish and Game lists 150 fish for Wilson Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.75 fish per angler",
-          "detail": "weekly average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Astoria ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Garibaldi",
-        "Garibaldi Oregon"
+      "report_kind": "official_stocking_update",
+      "report_id": "58222ac9557e017dcc",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Garibaldi anglers reported salmon, rockfish, lingcod and halibut catches.",
-      "summary": "ODFW reported 1.16 ocean salmon per angler, about 2 rockfish per angler, 1 lingcod per angler and about 0.33 Pacific halibut per angler.",
+      "names": [
+        "Wildhorse Creek"
+      ],
+      "water_name": "Wildhorse Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Wildhorse Creek stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Wildhorse Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.16 per angler",
-          "detail": "weekly average"
-        },
-        {
-          "species": "Rockfish",
-          "metric": "2 per angler",
-          "detail": "mostly black, canary and yellowtail"
-        },
-        {
-          "species": "Lingcod",
-          "metric": "1 per angler",
-          "detail": "fair landings"
-        },
-        {
-          "species": "Pacific halibut",
-          "metric": "0.33 per angler",
-          "detail": "dockside average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Garibaldi ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Pacific City",
-        "Pacific City Oregon"
+      "report_kind": "official_stocking_update",
+      "report_id": "d43ebdccd3bbaa1585",
+      "state": "Idaho",
+      "counties": [
+        "Ada",
+        "Adams",
+        "Blaine",
+        "Boise",
+        "Bonneville",
+        "Clark",
+        "Custer",
+        "Idaho",
+        "Power",
+        "Valley",
+        "Washington"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Pacific City ocean salmon anglers averaged more than one salmon per angler.",
-      "summary": "ODFW reported an average of 1.23 ocean salmon per angler.",
+      "names": [
+        "Warm Springs Creek"
+      ],
+      "water_name": "Warm Springs Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Warm Springs Creek stocking update",
+      "summary": "Idaho Fish and Game lists 700 fish for Warm Springs Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.23 per angler",
-          "detail": "weekly average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Pacific City ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Depoe Bay",
-        "Depoe Bay Oregon"
+      "report_kind": "official_stocking_update",
+      "report_id": "4878f512ecb838b2d4",
+      "state": "Idaho",
+      "counties": [
+        "Fremont"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Depoe Bay had strong ocean salmon fishing and steady bottomfish catches.",
-      "summary": "ODFW reported 1.46 ocean salmon per angler, about 1.6 rockfish per angler and 0.5 lingcod per angler. No halibut were observed dockside.",
+      "names": [
+        "Warm River"
+      ],
+      "water_name": "Warm River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Warm River stocking update",
+      "summary": "Idaho Fish and Game lists 450 fish for Warm River during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.46 per angler",
-          "detail": "weekly average"
-        },
-        {
-          "species": "Rockfish",
-          "metric": "1.6 per angler",
-          "detail": "mostly black, yellowtail and deacon"
-        },
-        {
-          "species": "Lingcod",
-          "metric": "0.5 per angler",
-          "detail": "slow catch rate"
-        },
-        {
-          "species": "Pacific halibut",
-          "metric": "None observed dockside",
-          "detail": "report period"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Depoe Bay ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Newport",
-        "Newport Oregon",
-        "Yaquina Bay"
+      "report_kind": "official_stocking_update",
+      "report_id": "bec1424057cc2d0232",
+      "state": "Idaho",
+      "counties": [
+        "Custer",
+        "Valley"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Newport anglers reported salmon, rockfish, lingcod and Pacific halibut.",
-      "summary": "ODFW reported 1.4 ocean salmon per angler, 2 rockfish per angler, 0.25 lingcod per angler and approximately 1 Pacific halibut per person.",
+      "names": [
+        "Valley Creek"
+      ],
+      "water_name": "Valley Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Valley Creek stocking update",
+      "summary": "Idaho Fish and Game lists 1,000 fish for Valley Creek during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.4 per angler",
-          "detail": "weekly average"
-        },
-        {
-          "species": "Rockfish",
-          "metric": "2 per angler",
-          "detail": "black, canary, deacon and yellowtail"
-        },
-        {
-          "species": "Lingcod",
-          "metric": "0.25 per angler",
-          "detail": "slow catch rate"
-        },
-        {
-          "species": "Pacific halibut",
-          "metric": "About 1 per person",
-          "detail": "dockside average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Newport ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Florence",
-        "Florence Oregon",
-        "Siuslaw River Mouth"
+      "report_kind": "official_stocking_update",
+      "report_id": "e9e12669544c76b8f6",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Bannock",
+        "Bear Lake",
+        "Bingham",
+        "Blaine",
+        "Boise",
+        "Bonneville",
+        "Boundary",
+        "Butte",
+        "Caribou",
+        "Cassia",
+        "Clark",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Idaho",
+        "Kootenai",
+        "Lemhi",
+        "Oneida",
+        "Shoshone",
+        "Teton",
+        "Valley",
+        "Washington"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Florence ocean salmon anglers averaged about one salmon per angler.",
-      "summary": "ODFW reported an average of 1.01 ocean salmon per angler.",
+      "names": [
+        "Trail Creek"
+      ],
+      "water_name": "Trail Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Trail Creek stocking update",
+      "summary": "Idaho Fish and Game lists 350 fish for Trail Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.01 per angler",
-          "detail": "weekly average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Florence ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Winchester Bay",
-        "Winchester Bay Oregon",
-        "Umpqua River Mouth"
+      "report_kind": "official_stocking_update",
+      "report_id": "cb7dac87c9d8f6233e",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Winchester Bay ocean salmon anglers averaged more than one salmon per angler.",
-      "summary": "ODFW reported an average of 1.24 ocean salmon per angler.",
+      "names": [
+        "Star Hope Creek"
+      ],
+      "water_name": "Star Hope Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Star Hope Creek Stocking Yellowstone Cutthroat Trout stocking update",
+      "summary": "Idaho Fish and Game lists 250 fish for Star Hope Creek Stocking Yellowstone Cutthroat Trout during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.24 per angler",
-          "detail": "weekly average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Winchester Bay ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Charleston",
-        "Charleston Oregon",
-        "Coos Bay"
+      "report_kind": "official_stocking_update",
+      "report_id": "d3625181da8561d317",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Charleston led the listed Oregon albacore catch rate and also produced bottomfish, salmon and halibut.",
-      "summary": "ODFW reported 13.6 albacore per angler for anglers finding fish about 35 miles offshore. The same report listed 0.6 ocean salmon, 1.8 rockfish, 0.33 lingcod and 0.4 halibut per angler.",
+      "names": [
+        "Stanley Lake"
+      ],
+      "water_name": "Stanley Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Stanley Lake stocking update",
+      "summary": "Idaho Fish and Game lists 2,100 fish for Stanley Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Albacore tuna",
-          "metric": "13.6 per angler",
-          "detail": "fish reported about 35 miles offshore"
-        },
-        {
-          "species": "Ocean salmon",
-          "metric": "0.6 per angler",
-          "detail": "weekly average"
-        },
-        {
-          "species": "Rockfish",
-          "metric": "1.8 per angler",
-          "detail": "mainly black and deacon"
-        },
-        {
-          "species": "Lingcod",
-          "metric": "0.33 per angler",
-          "detail": "slow catch rate"
-        },
-        {
-          "species": "Pacific halibut",
-          "metric": "0.4 per angler",
-          "detail": "dockside average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Charleston ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Bandon",
-        "Bandon Oregon",
-        "Coquille River Mouth"
+      "report_kind": "official_stocking_update",
+      "report_id": "6d962cf12dfe8f019c",
+      "state": "Idaho",
+      "counties": [
+        "Boise"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Bandon ocean salmon anglers averaged slightly more than one salmon per angler.",
-      "summary": "ODFW reported an average of 1.05 ocean salmon per angler.",
+      "names": [
+        "South Fork of the Payette River"
+      ],
+      "water_name": "South Fork of the Payette River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "South Fork Payette River stocking update",
+      "summary": "Idaho Fish and Game lists 1,750 fish for South Fork Payette River during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "1.05 per angler",
-          "detail": "weekly average"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Bandon ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
-      "names": [
-        "Gold Beach",
-        "Gold Beach Oregon",
-        "Rogue River Mouth"
+      "report_kind": "official_stocking_update",
+      "report_id": "1631d57f05c8713f1e",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Boise",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Idaho",
+        "Latah",
+        "Lemhi",
+        "Shoshone",
+        "Valley"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "No ocean salmon were observed in the Gold Beach dockside report.",
-      "summary": "ODFW reported no ocean salmon observed for Gold Beach during the weekly reporting period.",
+      "names": [
+        "Silver Creek"
+      ],
+      "water_name": "Silver Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Silver Creek stocking update",
+      "summary": "Idaho Fish and Game lists 750 fish for Silver Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "None observed",
-          "detail": "weekly dockside report"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Gold Beach ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Oregon",
+      "report_kind": "official_stocking_update",
+      "report_id": "d2c6b0f628015e02f5",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Brookings",
-        "Brookings Oregon",
-        "Brookings Harbor"
+        "Salmon River Section #8 Decker Flats to Buckhorn Bridge"
       ],
-      "agency": "Oregon Department of Fish and Wildlife",
-      "report_type": "Weekly dockside catch report",
-      "published_date": "2026-07-16",
-      "report_period": "Week beginning July 6, 2026",
-      "headline": "Brookings anglers reported rockfish, lingcod and some salmon; no halibut effort was observed.",
-      "summary": "ODFW reported 0.35 ocean salmon per angler, just over 2.5 rockfish per angler and 0.5 lingcod per angler, with a few cabezon landed.",
+      "water_name": "Salmon River Section #8 Decker Flats to Buckhorn Bridge",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Salmon River Section #8 Decker Flats to Buckhorn Bridge stocking update",
+      "summary": "Idaho Fish and Game lists 1,600 fish for Salmon River Section #8 Decker Flats to Buckhorn Bridge during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Ocean salmon",
-          "metric": "0.35 per angler",
-          "detail": "weekly average"
-        },
-        {
-          "species": "Rockfish",
-          "metric": "Just over 2.5 per angler",
-          "detail": "mainly black, blue and deacon"
-        },
-        {
-          "species": "Lingcod",
-          "metric": "0.5 per angler",
-          "detail": "slow catch rate"
-        },
-        {
-          "species": "Cabezon",
-          "metric": "A few landed",
-          "detail": "dockside observation"
-        },
-        {
-          "species": "Pacific halibut",
-          "metric": "No effort observed",
-          "detail": "report period"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
       "conditions": [],
-      "source_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "specificity": "Brookings ocean port",
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
-      "source_etag": "W/\"1784996880\"",
-      "source_last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
-      "source_page_title": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
-      "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 76
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": true
     },
     {
-      "state": "Nevada",
+      "report_kind": "official_stocking_update",
+      "report_id": "74a8b76f2173cfbc71",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Lake Mead",
-        "Hemenway Harbor",
-        "Government Wash"
+        "Salmon River Section #7 Sunny Gulch Campground to Stanley"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "State fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report published July 15, 2026",
-      "headline": "Lake Mead anglers reported consistent striped bass action around dawn and dusk.",
-      "summary": "NDOW reported anglers averaging about four striped bass in the 2- to 4-pound range near Hemenway. Government Wash anglers also reported success around 50 feet deep, while smallmouth bass were chasing plastics in shallow coves.",
+      "water_name": "Salmon River Section #7 Sunny Gulch Campground to Stanley",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Salmon River Section #7 Sunny Gulch Campground to Stanley stocking update",
+      "summary": "Idaho Fish and Game lists 1,200 fish for Salmon River Section #7 Sunny Gulch Campground to Stanley during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Striped bass",
-          "metric": "About 4 fish per angler",
-          "detail": "2- to 4-pound range near Hemenway"
-        },
-        {
-          "species": "Striped bass",
-          "metric": "Reported in about 50 feet",
-          "detail": "Government Wash"
-        },
-        {
-          "species": "Smallmouth bass",
-          "metric": "Active in shallow coves",
-          "detail": "minnow and flat-worm plastics"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Early morning and dusk were the most consistent reported periods."
-      ],
-      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Lake Mead report",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "source_etag": "\"134d1-65724b49df978\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
-      "source_page_title": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife",
-      "source_page_published": "2026-07-15T08:22:00+00:00",
-      "source_page_modified": "2026-07-15T17:27:15+00:00",
-      "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
-      "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 280
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": true
     },
     {
-      "state": "Nevada",
+      "report_kind": "official_stocking_update",
+      "report_id": "4ed462d38e96e4245f",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Lake Mohave",
-        "Willow Beach",
-        "Lake Mohave Willow Beach",
-        "Telephone Cove"
+        "Salmon River Section #6 Lower Stanley to Sunbeam Hotsprings"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "State fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report published July 15, 2026",
-      "headline": "Rainbow trout from 12 to 16 inches were being caught around Willow Beach.",
-      "summary": "NDOW reported rainbow trout from 12 to 16 inches. Striped bass action was slower, with catches coming from deeper water near Willow Beach and off the bottom at Telephone Cove.",
+      "water_name": "Salmon River Section #6 Lower Stanley to Sunbeam Hotsprings",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Salmon River Section #6 Lower Stanley to Sunbeam Hotsprings stocking update",
+      "summary": "Idaho Fish and Game lists 3,680 fish for Salmon River Section #6 Lower Stanley to Sunbeam Hotsprings during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Rainbow trout",
-          "metric": "12–16 inches",
-          "detail": "reported around Willow Beach"
-        },
-        {
-          "species": "Striped bass",
-          "metric": "Slow but present",
-          "detail": "deeper water and Telephone Cove"
-        },
-        {
-          "species": "Black bass",
-          "metric": "Hitting soft plastics and jigs",
-          "detail": "Cottonwood Basin"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Kayakers and boat anglers were producing most of the deeper-water striper reports."
-      ],
-      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Lake Mohave / Willow Beach",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "source_etag": "\"134d1-65724b49df978\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
-      "source_page_title": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife",
-      "source_page_published": "2026-07-15T08:22:00+00:00",
-      "source_page_modified": "2026-07-15T17:27:15+00:00",
-      "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
-      "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 280
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": true
     },
     {
-      "state": "Nevada",
+      "report_kind": "official_stocking_update",
+      "report_id": "9e6f1e4135017e39a6",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Laughlin",
-        "Colorado River below Davis Dam",
-        "Davis Dam"
+        "Salmon River Section #5 O'Brien Campground to Torrey's Hole"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "State fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report published July 15, 2026",
-      "headline": "Laughlin shore and dock anglers reported striped bass and rainbow trout.",
-      "summary": "NDOW reported both striped bass and rainbow trout along the river. One angler reported an 11-pound striped bass caught on an anchovy just south of Casino Row.",
+      "water_name": "Salmon River Section #5 O'Brien Campground to Torrey's Hole",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Salmon River Section #5 O'Brien Campground to Torrey's Hole stocking update",
+      "summary": "Idaho Fish and Game lists 200 fish for Salmon River Section #5 O'Brien Campground to Torrey's Hole during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Striped bass",
-          "metric": "11-pound fish reported",
-          "detail": "south of Casino Row"
-        },
-        {
-          "species": "Rainbow trout",
-          "metric": "Being caught",
-          "detail": "yellow and olive jigs, spinners and nightcrawlers"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Anchovies and light-colored swimbaits were favored for striped bass."
-      ],
-      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Laughlin / Colorado River",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "source_etag": "\"134d1-65724b49df978\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
-      "source_page_title": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife",
-      "source_page_published": "2026-07-15T08:22:00+00:00",
-      "source_page_modified": "2026-07-15T17:27:15+00:00",
-      "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
-      "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 280
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": true
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Las Vegas Valley Ponds",
-        "Las Vegas Community Ponds",
-        "Sunset Park Pond",
-        "Lorenzi Park Pond"
+      "report_kind": "official_stocking_update",
+      "report_id": "19bf622e965c4fba49",
+      "state": "Idaho",
+      "counties": [
+        "Valley"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "State fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report published July 15, 2026",
-      "headline": "Stocked rainbow trout were taking common bait and small spinners in Las Vegas community ponds.",
-      "summary": "NDOW reported stocked rainbow trout taking worms, bright Rooster Tails and rainbow-colored PowerBait. Catfish and bass activity had slowed after recent weather.",
+      "names": [
+        "Rowland Pond"
+      ],
+      "water_name": "Rowland Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Rowland Pond stocking update",
+      "summary": "Idaho Fish and Game lists 300 fish for Rowland Pond during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Rainbow trout",
-          "metric": "Active after stocking",
-          "detail": "worms, bright spinners and PowerBait"
-        },
-        {
-          "species": "Catfish and bass",
-          "metric": "Slower activity",
-          "detail": "following recent weather"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "City park limits were listed as three fish per day."
-      ],
-      "source_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "specificity": "Las Vegas community ponds",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/blog/fishing-report-7-15-26/",
-      "source_etag": "\"134d1-65724b49df978\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
-      "source_page_title": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife",
-      "source_page_published": "2026-07-15T08:22:00+00:00",
-      "source_page_modified": "2026-07-15T17:27:15+00:00",
-      "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
-      "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 280
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Angel Lake"
+      "report_kind": "official_stocking_update",
+      "report_id": "fc8891940c0d5ccd91",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Benewah",
+        "Bingham",
+        "Blaine",
+        "Boise",
+        "Bonneville",
+        "Boundary",
+        "Butte",
+        "Caribou",
+        "Cassia",
+        "Clark",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Fremont",
+        "Gem",
+        "Idaho",
+        "Kootenai",
+        "Latah",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce",
+        "Oneida",
+        "Owyhee",
+        "Power",
+        "Shoshone",
+        "Twin Falls",
+        "Valley",
+        "Washington"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
-      "published_date": "2026-07-14",
-      "report_period": "Report dated July 14, 2026",
-      "headline": "Angel Lake anglers reported good fishing for stocked trout around nine inches.",
-      "summary": "Anglers were catching a mixed bag of cutthroat, rainbow and tiger trout. NDOW listed green PowerBait, nightcrawlers and summer dry-fly patterns as productive.",
+      "names": [
+        "Rock Creek"
+      ],
+      "water_name": "Rock Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Rock Creek stocking update",
+      "summary": "Idaho Fish and Game lists 1,000 fish for Rock Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Cutthroat trout",
-          "metric": "Being caught",
-          "detail": "mixed stocked-trout catch"
-        },
-        {
-          "species": "Rainbow trout",
-          "metric": "Around 9 inches",
-          "detail": "reported stocked fish"
-        },
-        {
-          "species": "Tiger trout",
-          "metric": "Being caught",
-          "detail": "mixed stocked-trout catch"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Dry flies such as ant, mosquito and Royal Wulff patterns were suggested."
-      ],
-      "source_url": "https://www.ndow.org/waters/angel-lake/",
-      "specificity": "Exact lake report",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 12,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/angel-lake/",
-      "source_etag": "\"ea52-65724049300f0\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:27:47 GMT",
-      "source_page_title": "Angel Lake - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:42:59+00:00",
-      "source_page_modified": "2026-07-20T17:24:45+00:00",
-      "source_content_hash": "971cf773437aa8341700910272bfcff7f174aed144061360b332588591fe56a5",
-      "source_excerpt": "Angel Lake - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Licenses, ",
-      "source_response_ms": 149
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Wildhorse Reservoir",
-        "Wild Horse Reservoir"
+      "report_kind": "official_stocking_update",
+      "report_id": "6af21f0f0ccbd47256",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report dated July 15, 2026",
-      "headline": "Wildhorse trout fishing was fair to good early and late, with several fish over 20 inches.",
-      "summary": "NDOW reported most trout catches measuring 12 to 18 inches, with several over 20 inches. Bass fishing was described as good around rock and submerged vegetation.",
+      "names": [
+        "Penny Lake"
+      ],
+      "water_name": "Penny Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Penny Lake stocking update",
+      "summary": "Idaho Fish and Game lists 400 fish for Penny Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Trout",
-          "metric": "Most 12–18 inches",
-          "detail": "several reported over 20 inches"
-        },
-        {
-          "species": "Black bass",
-          "metric": "Good fishing",
-          "detail": "rocky outcroppings and submerged vegetation"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Surface water temperature was reported near 75°F.",
-        "Water levels were very low and the ramp could be removed if it became unsafe."
-      ],
-      "source_url": "https://www.ndow.org/waters/wildhorse-reservoir/",
-      "specificity": "Exact reservoir report",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/wildhorse-reservoir/",
-      "source_etag": "\"106e6-6574c00929b78\"",
-      "source_last_modified": "Thu, 23 Jul 2026 19:09:59 GMT",
-      "source_page_title": "Wildhorse Reservoir - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:01+00:00",
-      "source_page_modified": "2026-07-23T18:58:00+00:00",
-      "source_content_hash": "8b4d7da483b90d81806c1fa4df7751547102ac632933a620deb0527ec4652801",
-      "source_excerpt": "Wildhorse Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations L",
-      "source_response_ms": 138
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "South Fork Reservoir"
+      "report_kind": "official_stocking_update",
+      "report_id": "b67a04b5b1134a52c7",
+      "state": "Idaho",
+      "counties": [
+        "Boise",
+        "Gem",
+        "Payette"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report dated July 15, 2026",
-      "headline": "South Fork bass fishing was reported as good while trout action tapered off by mid-morning.",
-      "summary": "NDOW reported bass hitting dark soft plastics around rocky areas and weed edges. Trout were most active early before moving toward deeper, cooler water.",
+      "names": [
+        "Payette River"
+      ],
+      "water_name": "Payette River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "North Fork Payette River 03 stocking update",
+      "summary": "Idaho Fish and Game lists 600 fish for North Fork Payette River 03 during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Black bass",
-          "metric": "Good fishing",
-          "detail": "rock and weed edges"
-        },
-        {
-          "species": "Trout",
-          "metric": "Best early",
-          "detail": "deeper water as the day warms"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Algae was beginning to form in some coves."
-      ],
-      "source_url": "https://www.ndow.org/waters/south-fork-reservoir/",
-      "specificity": "Exact reservoir report",
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/south-fork-reservoir/",
-      "source_etag": "\"107bb-65723eec02690\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:21:41 GMT",
-      "source_page_title": "South Fork Reservoir - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:01+00:00",
-      "source_page_modified": "2026-07-21T14:55:47+00:00",
-      "source_content_hash": "dfe3172a1a357b3f0090b3454a55963c6663c33a4cda1381a6968c1d1066d75f",
-      "source_excerpt": "South Fork Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations ",
-      "source_response_ms": 153
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Truckee River"
+      "report_kind": "official_stocking_update",
+      "report_id": "0f8c720b70f44d72b1",
+      "state": "Idaho",
+      "counties": [
+        "Boise",
+        "Elmore"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
-      "published_date": "2026-06-29",
-      "report_period": "Report dated June 29, 2026",
-      "headline": "Truckee River anglers were producing trout with streamers, tight-line methods, spoons and spinners.",
-      "summary": "NDOW reported fish concentrated around better-oxygenated water as temperatures rose. Small streamers, tight-line presentations and small hardware were producing.",
+      "names": [
+        "North Fork Boise River"
+      ],
+      "water_name": "North Fork Boise River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "North Fork Boise River stocking update",
+      "summary": "Idaho Fish and Game lists 1,750 fish for North Fork Boise River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Trout",
-          "metric": "Productive fishing reported",
-          "detail": "fast water and oxygenated areas"
-        },
-        {
-          "species": "Lahontan cutthroat trout",
-          "metric": "Periodically stocked",
-          "detail": "major parks"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Early morning was recommended, especially for anglers releasing trout."
-      ],
-      "source_url": "https://www.ndow.org/waters/truckee-river/",
-      "specificity": "Truckee River report",
-      "freshness_status": "aging",
-      "freshness_days": 27,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/truckee-river/",
-      "source_etag": "\"fcac-6572408cb1cc0\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:28:58 GMT",
-      "source_page_title": "Truckee River - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:05+00:00",
-      "source_page_modified": "2026-06-29T20:07:15+00:00",
-      "source_content_hash": "388ac7ff753e844d5503d98883cb43b41f4fffe8db3c20af17f818ec4a372897",
-      "source_excerpt": "Truckee River - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations License",
-      "source_response_ms": 142
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "James Kinney Pond",
-        "Kinney Pond"
+      "report_kind": "official_stocking_update",
+      "report_id": "ee147ba5f1cc526ff3",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
-      "published_date": "2026-06-26",
-      "report_period": "Report dated June 26, 2026",
-      "headline": "Tiger trout up to 16 inches were reported caught at James Kinney Pond.",
-      "summary": "NDOW reported good fishing, with tiger trout up to 16 inches caught recently. Pink floating worms, nightcrawlers and dry flies were producing.",
+      "names": [
+        "North Fork Big Wood River"
+      ],
+      "water_name": "North Fork Big Wood River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "North Fork Big Wood River stocking update",
+      "summary": "Idaho Fish and Game lists 225 fish for North Fork Big Wood River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
       "catches": [
         {
-          "species": "Tiger trout",
-          "metric": "Up to 16 inches",
-          "detail": "recent reported catches"
-        },
-        {
-          "species": "Rainbow trout",
-          "metric": "Recently stocked",
-          "detail": "513 fish listed on July 13"
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Some fish were on the surface early and late."
-      ],
-      "source_url": "https://www.ndow.org/waters/james-kinney-pond/",
-      "specificity": "Exact pond report",
-      "freshness_status": "aging",
-      "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/james-kinney-pond/",
-      "source_etag": "\"e85d-65724b60d5470\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:17:25 GMT",
-      "source_page_title": "James Kinney Pond - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:04+00:00",
-      "source_page_modified": "2026-07-13T19:41:04+00:00",
-      "source_content_hash": "db625e9f99cf10e17fa5646c9e38a94b7635c3474e55883b5314a908d614913c",
-      "source_excerpt": "James Kinney Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Lic",
-      "source_response_ms": 145
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Lake Tahoe",
-        "Lake Tahoe Zephyr Cove",
-        "Zephyr Cove"
+      "report_kind": "official_stocking_update",
+      "report_id": "02a65e2205aab7d601",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Waterbody fishing report",
+      "names": [
+        "North Fork Big Lost River"
+      ],
+      "water_name": "North Fork Big Lost River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "North Fork Big Lost River Stocking Yellowstone Cutthroat Trout stocking update",
+      "summary": "Idaho Fish and Game lists 1,200 fish for North Fork Big Lost River Stocking Yellowstone Cutthroat Trout during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "16d3f55d96ff933aa8",
+      "state": "Idaho",
+      "counties": [
+        "Gooding"
+      ],
+      "names": [
+        "Niagara Springs"
+      ],
+      "water_name": "Niagara Springs",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Niagara Springs stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Niagara Springs during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "331d8c86b5b9d0b40a",
+      "state": "Idaho",
+      "counties": [
+        "Fremont"
+      ],
+      "names": [
+        "Mill Pond"
+      ],
+      "water_name": "Mill Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Mill Pond (Stoddard Mill Pond) stocking update",
+      "summary": "Idaho Fish and Game lists 250 fish for Mill Pond (Stoddard Mill Pond) during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "4d2498229cfe111ba1",
+      "state": "Idaho",
+      "counties": [
+        "Boise",
+        "Valley"
+      ],
+      "names": [
+        "Middle Fork Payette River"
+      ],
+      "water_name": "Middle Fork Payette River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Middle Fork Payette River stocking update",
+      "summary": "Idaho Fish and Game lists 750 fish for Middle Fork Payette River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "86e963cb3975b80d80",
+      "state": "Idaho",
+      "counties": [
+        "Boise"
+      ],
+      "names": [
+        "Martin Lake"
+      ],
+      "water_name": "Martin Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Martin Lake stocking update",
+      "summary": "Idaho Fish and Game lists 360 fish for Martin Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "aa6938dc954a81a001",
+      "state": "Idaho",
+      "counties": [
+        "Boise"
+      ],
+      "names": [
+        "Lowman Ponds"
+      ],
+      "water_name": "Lowman Ponds",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Lowman Ponds stocking update",
+      "summary": "Idaho Fish and Game lists 360 fish for Lowman Ponds during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "02d3be75c6fc0dbe6e",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Lower Lake Creek Lake"
+      ],
+      "water_name": "Lower Lake Creek Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Lower Lake Creek Lake stocking update",
+      "summary": "Idaho Fish and Game lists 350 fish for Lower Lake Creek Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "d8275cafbf6e32ded6",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Gooding",
+        "Lincoln"
+      ],
+      "names": [
+        "Little Wood River"
+      ],
+      "water_name": "Little Wood River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Little Wood River stocking update",
+      "summary": "Idaho Fish and Game lists 425 fish for Little Wood River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "2942a696b0e122120f",
+      "state": "Idaho",
+      "counties": [
+        "Elmore"
+      ],
+      "names": [
+        "Little Trinity Lake"
+      ],
+      "water_name": "Little Trinity Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Little Trinity Lake stocking update",
+      "summary": "Idaho Fish and Game lists 700 fish for Little Trinity Lake during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "c2ab19c1e8969970bf",
+      "state": "Idaho",
+      "counties": [
+        "Lemhi"
+      ],
+      "names": [
+        "Kids Creek Pond"
+      ],
+      "water_name": "Kids Creek Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Kids Creek Pond stocking update",
+      "summary": "Idaho Fish and Game lists 200 fish for Kids Creek Pond during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "e31578dbca2b4ed54f",
+      "state": "Idaho",
+      "counties": [
+        "Fremont",
+        "Madison"
+      ],
+      "names": [
+        "Henrys Fork Snake River"
+      ],
+      "water_name": "Henrys Fork Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Henrys Fork stocking update",
+      "summary": "Idaho Fish and Game lists 1,675 fish for Henrys Fork during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "02f72201529b7f7b69",
+      "state": "Idaho",
+      "counties": [
+        "Lemhi"
+      ],
+      "names": [
+        "Hayden Creek Pond"
+      ],
+      "water_name": "Hayden Creek Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Hayden Creek Pond stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Hayden Creek Pond during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "73f8780a6cdf61b0f8",
+      "state": "Idaho",
+      "counties": [
+        "Gooding"
+      ],
+      "names": [
+        "Hagerman WMA Riley Creek Pond"
+      ],
+      "water_name": "Hagerman WMA Riley Creek Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Hagerman WMA Riley Creek Pond stocking update",
+      "summary": "Idaho Fish and Game lists 225 fish for Hagerman WMA Riley Creek Pond during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "38b724fca1664fd765",
+      "state": "Idaho",
+      "counties": [
+        "Gooding"
+      ],
+      "names": [
+        "Hagerman WMA Oster Lake #1"
+      ],
+      "water_name": "Hagerman WMA Oster Lake #1",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Hagerman WMA Oster Lake #1 stocking update",
+      "summary": "Idaho Fish and Game lists 225 fish for Hagerman WMA Oster Lake #1 during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "2609945a515f408771",
+      "state": "Idaho",
+      "counties": [
+        "Bonner",
+        "Bonneville",
+        "Clearwater",
+        "Idaho"
+      ],
+      "names": [
+        "Gem Lake"
+      ],
+      "water_name": "Gem Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Gem Lake stocking update",
+      "summary": "Idaho Fish and Game lists 3,000 fish for Gem Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "cd153607480dbdaadb",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Gavers Lagoon"
+      ],
+      "water_name": "Gavers Lagoon",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Gavers Lagoon stocking update",
+      "summary": "Idaho Fish and Game lists 710 fish for Gavers Lagoon during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "828b16ff7bc0062012",
+      "state": "Idaho",
+      "counties": [
+        "Cassia"
+      ],
+      "names": [
+        "Freedom Park Pond"
+      ],
+      "water_name": "Freedom Park Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Freedom Park Pond stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Freedom Park Pond during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "69c511e910828d79e1",
+      "state": "Idaho",
+      "counties": [
+        "Cassia",
+        "Twin Falls"
+      ],
+      "names": [
+        "Fourth Fork Rock Creek"
+      ],
+      "water_name": "Fourth Fork Rock Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Fourth Fork Rock Creek stocking update",
+      "summary": "Idaho Fish and Game lists 325 fish for Fourth Fork Rock Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "c94bfae96f00407a54",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Latah",
+        "Power"
+      ],
+      "names": [
+        "East Fork Rock Creek"
+      ],
+      "water_name": "East Fork Rock Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "East Fork Rock Creek stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for East Fork Rock Creek during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "e5e49f805df73efccb",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
+      ],
+      "names": [
+        "East Fork Big Lost River"
+      ],
+      "water_name": "East Fork Big Lost River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "East Fork Big Lost River stocking update",
+      "summary": "Idaho Fish and Game lists 400 fish for East Fork Big Lost River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "7ccec9a46382c395d3",
+      "state": "Idaho",
+      "counties": [
+        "Gooding"
+      ],
+      "names": [
+        "Crystal Springs Lake"
+      ],
+      "water_name": "Crystal Springs Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Crystal Springs Lake stocking update",
+      "summary": "Idaho Fish and Game lists 600 fish for Crystal Springs Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "ee40421571dee1ef69",
+      "state": "Idaho",
+      "counties": [
+        "Bingham",
+        "Bonneville",
+        "Caribou",
+        "Clark",
+        "Custer",
+        "Elmore",
+        "Franklin",
+        "Fremont",
+        "Idaho",
+        "Lemhi",
+        "Madison",
+        "Owyhee",
+        "Teton",
+        "Valley"
+      ],
+      "names": [
+        "Crooked Creek"
+      ],
+      "water_name": "Crooked Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Crooked Creek stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Crooked Creek during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "b594742f131cada277",
+      "state": "Idaho",
+      "counties": [
+        "Boise"
+      ],
+      "names": [
+        "Bull Trout Lake"
+      ],
+      "water_name": "Bull Trout Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Bull Trout Lake stocking update",
+      "summary": "Idaho Fish and Game lists 1,000 fish for Bull Trout Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "01eed58e73c47df418",
+      "state": "Idaho",
+      "counties": [
+        "Boise"
+      ],
+      "names": [
+        "Bull Trout Lake"
+      ],
+      "water_name": "Bull Trout Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Bull Trout Lake #2 stocking update",
+      "summary": "Idaho Fish and Game lists 120 fish for Bull Trout Lake #2 during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "300d5a761c8fd2565e",
+      "state": "Idaho",
+      "counties": [
+        "Fremont"
+      ],
+      "names": [
+        "Buffalo River"
+      ],
+      "water_name": "Buffalo River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Buffalo River stocking update",
+      "summary": "Idaho Fish and Game lists 1,000 fish for Buffalo River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "36a5e25810088e4053",
+      "state": "Idaho",
+      "counties": [
+        "Ada"
+      ],
+      "names": [
+        "Boise River, Strawberry Glen to Barber Dam"
+      ],
+      "water_name": "Boise River, Strawberry Glen to Barber Dam",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Boise River, Strawberry Glen to Barber Dam stocking update",
+      "summary": "Idaho Fish and Game lists 648 fish for Boise River, Strawberry Glen to Barber Dam during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "81255fe3a07863f600",
+      "state": "Idaho",
+      "counties": [
+        "Canyon"
+      ],
+      "names": [
+        "Boise River, Middleton to Eagle Road"
+      ],
+      "water_name": "Boise River, Middleton to Eagle Road",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Boise River, Middleton to Eagle Road stocking update",
+      "summary": "Idaho Fish and Game lists 500 fish for Boise River, Middleton to Eagle Road during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "f444d1aba025e185bb",
+      "state": "Idaho",
+      "counties": [
+        "Ada",
+        "Bannock",
+        "Bingham",
+        "Boise",
+        "Bonneville",
+        "Butte",
+        "Cassia",
+        "Clark",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Franklin",
+        "Idaho",
+        "Kootenai",
+        "Lemhi",
+        "Nez Perce",
+        "Oneida",
+        "Owyhee",
+        "Power",
+        "Valley"
+      ],
+      "names": [
+        "Birch Creek"
+      ],
+      "water_name": "Birch Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Birch Creek stocking update",
+      "summary": "Idaho Fish and Game lists 1,350 fish for Birch Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "de642e9b8b6d1b9c69",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Camas",
+        "Gooding",
+        "Lincoln"
+      ],
+      "names": [
+        "Big Wood River"
+      ],
+      "water_name": "Big Wood River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Big Wood River stocking update",
+      "summary": "Idaho Fish and Game lists 1,185 fish for Big Wood River during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "10022abc67011d05ba",
+      "state": "Idaho",
+      "counties": [
+        "Elmore"
+      ],
+      "names": [
+        "Big Trinity Lake"
+      ],
+      "water_name": "Big Trinity Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 27 - Jul 31",
+      "headline": "Big Trinity Lake stocking update",
+      "summary": "Idaho Fish and Game lists 2,000 fish for Big Trinity Lake during Jul 27 - Jul 31. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "27eaf36131d40be141",
+      "state": "Idaho",
+      "counties": [
+        "Valley"
+      ],
+      "names": [
+        "Summit Lake"
+      ],
+      "water_name": "Summit Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Banner Summit Lake stocking update",
+      "summary": "Idaho Fish and Game lists 420 fish for Banner Summit Lake during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_stocking_update",
+      "report_id": "9aa0d1793c096d457d",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Elmore",
+        "Lemhi"
+      ],
+      "names": [
+        "Baker Creek"
+      ],
+      "water_name": "Baker Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Stocking Update",
+      "published_date": "2026-07-26",
+      "report_period": "Jul 20 - Jul 24",
+      "headline": "Baker Creek stocking update",
+      "summary": "Idaho Fish and Game lists 225 fish for Baker Creek during Jul 20 - Jul 24. Stocking schedules are tentative and can change with water conditions, angler safety, weather, and staffing.",
+      "catches": [
+        {
+          "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Usually catchable rainbow trout unless the official schedule states otherwise",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 0,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "ace4d2b98ea4125b89",
+      "state": "Idaho",
+      "counties": [
+        "Fremont"
+      ],
+      "names": [
+        "Henrys Lake"
+      ],
+      "water_name": "Henrys Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-24",
+      "report_period": "",
+      "headline": "Jogger attacked by bear at Henrys Lake State Park",
+      "summary": "Home Press Releases and Articles idfg-jbrower Friday, July 24, 2026 - 4:35 PM MDT In the early morning of July 24, an adult male was attacked by a bear while jogging with his dog along the Aspen Loop Trail at Henrys Lake State Park. The man sustained injuries, but was able to walk out on his own. The dog was uninjured and followed him out safely. At around 8:00 a.m., the individual was transported by ambulance to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/jogger-attacked-bear-henrys-lake-state-park",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 2,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "6f9ea7bd67eefc9199",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-24",
+      "report_period": "",
+      "headline": "Idaho Fish and Game Relocates Young Cow Moose from Lewiston",
+      "summary": "Home Press Releases and Articles idfg-jbruns Friday, July 24, 2026 - 1:12 PM MDT Wildlife staff safely captured and relocated a yearling moose to more suitable habitat in a remote portion of the region On Thursday, July 23, Idaho Fish and Game's Clearwater Region staff safely captured and relocated a young cow moose after it was reported in a residential yard in Lewiston. The yearling moose had been reported in…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idaho-fish-and-game-relocates-young-cow-moose-lewiston",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 2,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "f05178b1a7b355c2d2",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-23",
+      "report_period": "",
+      "headline": "New certified-weight record for Westslope cutthroat trout shocks fish biologists",
+      "summary": "Home Press Releases and Articles idfg-cghere Thursday, July 23, 2026 - 11:15 AM MDT When Luke Anderson headed to the St. Maries River in search of Westslope cutthroat trout, setting a new state record was probably the last thing on his mind. Or was it? While Luke is officially Idaho's newest certified-weight state record holder, Westslope cutthroat trout in Idaho grow much larger than his 13.6-inch, sub-one-pound…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/new-certified-weight-record-westslope-cutthroat-trout-shocks-fish-biologists",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 3,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "ca473b4675c666c41c",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-21",
+      "report_period": "",
+      "headline": "ICYMI: Idaho Fish and Game Commission Meeting July 16",
+      "summary": "Home Press Releases and Articles idfg-cliess Tuesday, July 21, 2026 - 8:17 AM MDT Watch or listen to the full recap of the July 16 Idaho Fish and Game Commission Meeting in Jerome. Topics covered include proposed rules for electronic tagging for certain game birds, fiscal year 2028 budget, 2026-2027 sage-grouse seasons, and more. Timestamps 0:00:00 - Opening Comments 0:02:07 - Review of Public Comment 0:06:05…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/icymi-idaho-fish-and-game-commission-meeting-july-16",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 5,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "c747373a5db6112da2",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-21",
+      "report_period": "",
+      "headline": "Fish and Game reminds Wood River Valley residents to secure attractants as black bear sightings increase",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Tuesday, July 21, 2026 - 1:52 PM MDT Idaho Fish and Game enforcement staff have recently received an increase in reports of black bears frequenting residential areas throughout the Wood River Valley. Each year in the late summer and early fall, Fish and Game staff begin receiving regular reports of bears moving through neighborhoods and subdivisions. Many of those…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-reminds-wood-river-valley-residents-secure-attractants-black-bear-sightings",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 5,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "2aace67d4c8ad37b70",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-20",
+      "report_period": "",
+      "headline": "IDFG Commission modifies daily bag limit for fall Chinook salmon seasons",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, July 20, 2026 - 9:52 AM MDT The forecasted number of wild fall Chinook for 2026 is lower than recent years. During its July 16 meeting in Jerome, the Idaho Fish and Game Commission approved the recommended modifications to the 2026 fall Chinook salmon fishing season in the following fisheries: Snake River, Lower Salmon River, Salmon River, Mainstem Clearwater…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idfg-commission-modifies-daily-bag-limit-fall-chinook-salmon-seasons",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "2aace67d4c8ad37b70",
+      "state": "Idaho",
+      "counties": [
+        "Canyon",
+        "Owyhee"
+      ],
+      "names": [
+        "Snake River"
+      ],
+      "water_name": "Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-20",
+      "report_period": "",
+      "headline": "IDFG Commission modifies daily bag limit for fall Chinook salmon seasons",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, July 20, 2026 - 9:52 AM MDT The forecasted number of wild fall Chinook for 2026 is lower than recent years. During its July 16 meeting in Jerome, the Idaho Fish and Game Commission approved the recommended modifications to the 2026 fall Chinook salmon fishing season in the following fisheries: Snake River, Lower Salmon River, Salmon River, Mainstem Clearwater…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idfg-commission-modifies-daily-bag-limit-fall-chinook-salmon-seasons",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "989c05e8255f8f6ce4",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Clearwater",
+        "Idaho",
+        "Shoshone"
+      ],
+      "names": [
+        "Fish Lake"
+      ],
+      "water_name": "Fish Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-20",
+      "report_period": "",
+      "headline": "Fish Lake Pend Oreille and earn cash through the Angler Incentive Program",
+      "summary": "Home Press Releases and Articles idfg-tjross Monday, July 20, 2026 - 10:28 AM MDT Anglers and spearfishers can earn cash rewards by turning in lake trout and walleye heads For most anglers and spearfishers, getting paid to fish sounds too good to be true. On Lake Pend Oreille, it can be a reality through the Angler Incentive Program. The scoop Anglers and spearfishers who catch and turn in the heads of any walleye…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-lake-pend-oreille-and-earn-cash-through-angler-incentive-program",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "989c05e8255f8f6ce4",
+      "state": "Idaho",
+      "counties": [
+        "Bonner"
+      ],
+      "names": [
+        "Lake Pend Oreille"
+      ],
+      "water_name": "Lake Pend Oreille",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-20",
+      "report_period": "",
+      "headline": "Fish Lake Pend Oreille and earn cash through the Angler Incentive Program",
+      "summary": "Home Press Releases and Articles idfg-tjross Monday, July 20, 2026 - 10:28 AM MDT Anglers and spearfishers can earn cash rewards by turning in lake trout and walleye heads For most anglers and spearfishers, getting paid to fish sounds too good to be true. On Lake Pend Oreille, it can be a reality through the Angler Incentive Program. The scoop Anglers and spearfishers who catch and turn in the heads of any walleye…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-lake-pend-oreille-and-earn-cash-through-angler-incentive-program",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 6,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "044aa61c56f952d3d0",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
       "published_date": "2026-07-17",
-      "report_period": "Report dated July 17, 2026",
-      "headline": "Lake Tahoe shore and topline anglers reported productive rainbow and brown trout fishing.",
-      "summary": "NDOW reported planted trout taking smaller spinners, while larger rainbows and browns were taking spoons and diving plugs. Toplining was productive in water shallower than 50 feet.",
-      "catches": [
-        {
-          "species": "Rainbow trout",
-          "metric": "Productive fishing",
-          "detail": "shore casting and toplining"
-        },
-        {
-          "species": "Brown trout",
-          "metric": "Productive fishing",
-          "detail": "larger spoons and diving plugs"
-        }
-      ],
-      "conditions": [
-        "The bite was expected to shift more toward early and late as summer warming continued."
-      ],
-      "source_url": "https://www.ndow.org/waters/lake-tahoe-zephyr-cove/",
-      "specificity": "Lake Tahoe — Zephyr Cove report",
+      "report_period": "",
+      "headline": "Fish and Game's Magic Valley Region to host 4th annual blood drive on Aug. 13",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, July 17, 2026 - 2:37 PM MDT The goal is to collect 30 donations for the American Red Cross. Have you ever stopped to think there is no substitute for blood when someone needs a lifesaving transfusion? Every two seconds, someone in the United States needs blood. Because donated blood has a shelf life of only 42 days, there is a constant need for donors…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-games-magic-valley-region-host-4th-annual-blood-drive-aug-13",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
       "freshness_days": 9,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/lake-tahoe-zephyr-cove/",
-      "source_etag": "\"f06c-657243998bbf0\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:42:37 GMT",
-      "source_page_title": "Lake Tahoe - Zephyr Cove - Nevada Department of Wildlife",
-      "source_page_published": "2022-06-23T21:40:11+00:00",
-      "source_page_modified": "2026-06-23T22:25:18+00:00",
-      "source_content_hash": "bca60da2ce5662dcefaacabad56d008fd6f8a7fe6ca32797643a2ec9916daf9d",
-      "source_excerpt": "Lake Tahoe - Zephyr Cove - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulati",
-      "source_response_ms": 151
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Washington",
-      "names": [
-        "Port Angeles",
-        "Ediz Hook",
-        "Ediz Hook Port Angeles Public Ramp"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-07-03",
-      "report_period": "July 3, 2026 sample",
-      "headline": "Ediz Hook samplers recorded 120 Chinook from 217 anglers in western Marine Area 6.",
-      "summary": "WDFW's raw creel data listed 97 interviews, 217 anglers, 120 Chinook and a Chinook rate of 0.55 per angler at Ediz Hook.",
-      "catches": [
-        {
-          "species": "Chinook salmon",
-          "metric": "120 fish",
-          "detail": "217 sampled anglers"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "0.55 per angler",
-          "detail": "raw creel rate"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Ediz Hook / Marine Area 6-1",
-      "freshness_status": "aging",
-      "freshness_days": 23,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785037159\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
-      "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
-      "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 821
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Sekiu",
-        "Pillar Point",
-        "Van Riper's Resort",
-        "Van Ripers Resort"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-07-05",
-      "report_period": "July 5, 2026 sample",
-      "headline": "Sekiu-area samplers recorded 25 Chinook and seven coho across 82 anglers.",
-      "summary": "The two Van Riper sampling entries in Marine Area 5 listed 16 and 66 anglers, with a combined 25 Chinook and seven coho.",
-      "catches": [
-        {
-          "species": "Chinook salmon",
-          "metric": "25 fish",
-          "detail": "combined two Van Riper sample sites"
-        },
-        {
-          "species": "Coho salmon",
-          "metric": "7 fish",
-          "detail": "combined sample"
-        },
-        {
-          "species": "Angler sample",
-          "metric": "82 anglers",
-          "detail": "two entries"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?catch_area=05&ramp=&sample_date=3",
-      "specificity": "Marine Area 5 — Sekiu and Pillar Point",
-      "freshness_status": "aging",
-      "freshness_days": 21,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?catch_area=05&ramp=&sample_date=3",
-      "source_etag": "W/\"1785035347\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:09:07 GMT",
-      "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "95126788bb279b3432deabfff419d07a36e4f54c63c7e48cf7b7dc9e10486a55",
-      "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 142
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Shilshole Bay",
-        "Shilshole Public Ramp",
-        "Seattle",
-        "Seattle Bremerton Area"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-06-30",
-      "report_period": "June 30, 2026 sample",
-      "headline": "Shilshole samplers recorded 26 coho from 21 anglers in Marine Area 10.",
-      "summary": "WDFW listed 13 interviews, 21 anglers and 26 coho at Shilshole Public Ramp.",
-      "catches": [
-        {
-          "species": "Coho salmon",
-          "metric": "26 fish",
-          "detail": "21 sampled anglers"
-        },
-        {
-          "species": "Angler sample",
-          "metric": "21 anglers",
-          "detail": "13 interviews"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Shilshole / Marine Area 10",
-      "freshness_status": "aging",
-      "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785036037\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
-      "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
-      "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 152
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Point Defiance",
-        "Point Defiance Public Ramp",
-        "Tacoma",
-        "Vashon Island"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-06-30",
-      "report_period": "June 30, 2026 sample",
-      "headline": "Point Defiance samplers recorded five Chinook from 50 anglers in Marine Area 11.",
-      "summary": "WDFW listed 27 interviews, 50 anglers, five Chinook and a rate of 0.10 Chinook per angler.",
-      "catches": [
-        {
-          "species": "Chinook salmon",
-          "metric": "5 fish",
-          "detail": "50 sampled anglers"
-        },
-        {
-          "species": "Chinook salmon",
-          "metric": "0.10 per angler",
-          "detail": "raw creel rate"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Point Defiance / Marine Area 11",
-      "freshness_status": "aging",
-      "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785036037\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
-      "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
-      "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 152
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Port Angeles West Ramp",
-        "Port Angeles West",
-        "Port Angeles"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-06-30",
-      "report_period": "June 30, 2026 sample",
-      "headline": "Port Angeles West samplers recorded one halibut from 13 anglers.",
-      "summary": "WDFW listed four interviews, 13 anglers and one halibut in Marine Area 6.",
-      "catches": [
-        {
-          "species": "Pacific halibut",
-          "metric": "1 fish",
-          "detail": "13 sampled anglers"
-        },
-        {
-          "species": "Angler sample",
-          "metric": "13 anglers",
-          "detail": "four interviews"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?page=1",
-      "specificity": "Port Angeles West / Marine Area 6",
-      "freshness_status": "aging",
-      "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?page=1",
-      "source_etag": "W/\"1785036148\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:22:28 GMT",
-      "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "69857ebf4dc49fce1c775298f11023c8ec09ea758edd0545393aa5b05e1b439a",
-      "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 178
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Kingston",
-        "Kingston Public Ramp"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-06-30",
-      "report_period": "June 30, 2026 sample",
-      "headline": "Kingston samplers recorded 11 coho from 10 anglers in Marine Area 10.",
-      "summary": "WDFW listed five interviews, 10 anglers and 11 coho at Kingston Public Ramp.",
-      "catches": [
-        {
-          "species": "Coho salmon",
-          "metric": "11 fish",
-          "detail": "10 sampled anglers"
-        },
-        {
-          "species": "Angler sample",
-          "metric": "10 anglers",
-          "detail": "five interviews"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "specificity": "Kingston / Marine Area 10",
-      "freshness_status": "aging",
-      "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785036037\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
-      "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
-      "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 152
-    },
-    {
-      "state": "Washington",
-      "names": [
-        "Everett",
-        "Everett Ramp",
-        "Norton Street Ramp"
-      ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound creel interview data",
-      "published_date": "2026-07-03",
-      "report_period": "July 3, 2026 sample",
-      "headline": "Everett samplers recorded two coho from four anglers in Admiralty Inlet.",
-      "summary": "WDFW listed two interviews, four anglers and two coho for the Area 9 sample.",
-      "catches": [
-        {
-          "species": "Coho salmon",
-          "metric": "2 fish",
-          "detail": "four sampled anglers"
-        },
-        {
-          "species": "Angler sample",
-          "metric": "4 anglers",
-          "detail": "two interviews"
-        }
-      ],
-      "conditions": [
-        "WDFW labels the data as raw and subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Everett Ramp / Marine Area 9",
-      "freshness_status": "aging",
-      "freshness_days": 23,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785037159\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
-      "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
-      "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 821
-    },
-    {
-      "state": "Wyoming",
-      "names": [
-        "Flaming Gorge Reservoir",
-        "Flaming Gorge"
-      ],
-      "agency": "Wyoming Game and Fish Department",
-      "report_type": "Angler harvest program results",
-      "published_date": "2026-06-08",
-      "report_period": "January–April 2026 program",
-      "headline": "Anglers removed more than 1,200 small lake trout during the Flaming Gorge harvest program.",
-      "summary": "Wyoming Game and Fish reported that anglers removed more than 1,200 lake trout under 25 inches during the winter and spring Angler Harvest Program.",
-      "catches": [
-        {
-          "species": "Lake trout under 25 inches",
-          "metric": "More than 1,200 removed",
-          "detail": "January–April program"
-        }
-      ],
-      "conditions": [
-        "This is a completed harvest-program result, not a current daily bite report."
-      ],
-      "source_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
-      "specificity": "Flaming Gorge Reservoir",
-      "freshness_status": "stale",
-      "freshness_days": 48,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
-      "source_etag": "W/\"1785037163\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:39:23 GMT",
-      "source_page_title": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "2056d7ecc3ce5b05fb7104e14e17bacfffe61a8c93a339a06575d6afc9b842e3",
-      "source_excerpt": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department Skip to main content { container.style.height = height; console.log('height:' + height); console.log(parentContainer); console.log(parentContainer.classList); console.log(grandParentContainer); console.log(grandParentContainer.classList); if (parentContainer.classList.contains('active')) { console.log('parent is active'); parentContainer.style.height = 'auto'; setTime",
-      "source_response_ms": 1156
-    },
-    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a1aa2c78cae6ed9c15",
       "state": "Idaho",
-      "names": [
-        "Dworshak Reservoir"
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
       ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
       "agency": "Idaho Fish and Game",
-      "report_type": "Official fishery catch-rate update",
-      "published_date": "2026-06-25",
-      "report_period": "2025 fishery summary published June 25, 2026",
-      "headline": "Dworshak anglers reported consistent smallmouth bass success and strong trophy opportunity.",
-      "summary": "Idaho Fish and Game reported high catch rates across several size classes, including quality smallmouth bass capable of reaching trophy size.",
-      "catches": [
-        {
-          "species": "Smallmouth bass",
-          "metric": "High catch rates reported",
-          "detail": "multiple size classes"
-        },
-        {
-          "species": "Smallmouth bass",
-          "metric": "Trophy fish available",
-          "detail": "official 2025 fishery summary"
-        }
-      ],
-      "conditions": [
-        "This is an annual fishery summary, not a same-week creel report."
-      ],
-      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
-      "specificity": "Exact reservoir fishery",
-      "freshness_status": "aging",
-      "freshness_days": 31,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
-      "source_etag": "\"1784936265\"",
-      "source_last_modified": "Fri, 24 Jul 2026 23:37:45 GMT",
-      "source_page_title": "2026 Dworshak Reservoir Smallmouth Bass Update | Idaho Fish and Game",
-      "source_page_published": "2026-06-25T10:09:36-06:00",
-      "source_page_modified": null,
-      "source_content_hash": "fd7865cd131c11b6270531e20e9cf097412b1df790bac29310239b4ad43188a5",
-      "source_excerpt": "2026 Dworshak Reservoir Smallmouth Bass Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter R",
-      "source_response_ms": 328
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-17",
+      "report_period": "",
+      "headline": "Commission modifies summer Chinook salmon bag and possession limits for South Fork Salmon River",
+      "summary": "Home Press Releases and Articles idfg-scassinelli Friday, July 17, 2026 - 2:34 PM MDT The Idaho Fish and Game Commission modified daily bag and possession limits for summer Chinook salmon fishing on the South Fork Salmon River effective July 17. New Daily and Possession Limits South Fork Salmon River Daily : Four Chinook salmon, only two of which may be adults Possession : 12 Chinook salmon, only six of which may be…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/commission-modifies-summer-chinook-salmon-bag-and-possession-limits-south-fork-salmon-river",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 9,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_fishing_update",
+      "report_id": "a1aa2c78cae6ed9c15",
       "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
       "names": [
-        "Dworshak Reservoir Kokanee"
+        "South Fork Salmon River"
       ],
+      "water_name": "South Fork Salmon River",
       "agency": "Idaho Fish and Game",
-      "report_type": "Official kokanee fishery update",
-      "published_date": "2026-06-25",
-      "report_period": "2026 fishery outlook published June 25, 2026",
-      "headline": "Dworshak kokanee abundance and expected catch rates improved for 2026.",
-      "summary": "Idaho Fish and Game reported improved kokanee abundance and expected catch rates, although average fish size was expected to be smaller than the previous season.",
-      "catches": [
-        {
-          "species": "Kokanee",
-          "metric": "Improved expected catch rates",
-          "detail": "2026 agency outlook"
-        },
-        {
-          "species": "Kokanee",
-          "metric": "Smaller average size expected",
-          "detail": "compared with the prior season"
-        }
-      ],
-      "conditions": [
-        "This is an agency fishery outlook rather than a dated dockside catch count."
-      ],
-      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
-      "specificity": "Exact reservoir fishery",
-      "freshness_status": "aging",
-      "freshness_days": 31,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
-      "source_etag": "\"1784938979\"",
-      "source_last_modified": "Sat, 25 Jul 2026 00:22:59 GMT",
-      "source_page_title": "2026 Dworshak Reservoir Kokanee Update | Idaho Fish and Game",
-      "source_page_published": "2026-06-25T09:49:24-06:00",
-      "source_page_modified": null,
-      "source_content_hash": "dd6b3b02a8b3d87e620eee033dbfad08703355f30233434d1b91b4957f415f15",
-      "source_excerpt": "2026 Dworshak Reservoir Kokanee Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Be",
-      "source_response_ms": 317
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-17",
+      "report_period": "",
+      "headline": "Commission modifies summer Chinook salmon bag and possession limits for South Fork Salmon River",
+      "summary": "Home Press Releases and Articles idfg-scassinelli Friday, July 17, 2026 - 2:34 PM MDT The Idaho Fish and Game Commission modified daily bag and possession limits for summer Chinook salmon fishing on the South Fork Salmon River effective July 17. New Daily and Possession Limits South Fork Salmon River Daily : Four Chinook salmon, only two of which may be adults Possession : 12 Chinook salmon, only six of which may be…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/commission-modifies-summer-chinook-salmon-bag-and-possession-limits-south-fork-salmon-river",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 9,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
+      "report_kind": "official_fishing_update",
+      "report_id": "a7ccdec4914fd04b7f",
       "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-16",
+      "report_period": "",
+      "headline": "Idaho Fish and Game relocates yearling bull moose from Burley",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Thursday, July 16, 2026 - 2:15 PM MDT On Tuesday, July 14, the Magic Valley Regional Office received a report from Cassia County Dispatch of a yearling bull moose inside a gated area behind a business in Burley. To ensure the safety of both the moose and the public, Fish and Game wildlife staff, with assistance from the Cassia County Sheriff's Office, safely…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idaho-fish-and-game-relocates-yearling-bull-moose-burley",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 10,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_harvest_report",
+      "report_id": "81a1e1e90c3c09327d",
+      "state": "Idaho",
+      "counties": [
+        "Canyon",
+        "Owyhee"
+      ],
+      "names": [
+        "Snake River"
+      ],
+      "water_name": "Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-07-16",
+      "report_period": "",
+      "headline": "Chinook salmon harvest report",
+      "summary": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Chinook salmon",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 10,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_harvest_report",
+      "report_id": "81a1e1e90c3c09327d",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater",
+        "Idaho",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Clearwater River"
+      ],
+      "water_name": "Clearwater River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-07-16",
+      "report_period": "",
+      "headline": "Chinook salmon harvest report",
+      "summary": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Chinook salmon",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 10,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_harvest_report",
+      "report_id": "81a1e1e90c3c09327d",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-07-16",
+      "report_period": "",
+      "headline": "Chinook salmon harvest report",
+      "summary": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
+      "catches": [
+        {
+          "species": "Chinook salmon",
+          "metric": "Reported",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Chinook salmon",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/chinook/harvest",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 10,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a5c47a140b01115fee",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-14",
+      "report_period": "",
+      "headline": "July 14, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, July 14, 2026 - 12:52 PM MDT South Fork Chinook Fishing Just Keeps Getting Better Proposal Would Increase Daily Limit to Two Adults Good news continues for South Fork Chinook anglers. The South Fork Salmon River fishery remains open seven days per week, and this Thursday (July 16) the Idaho Fish and Game Commission will consider a proposal to increase the daily…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-14-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 12,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a5c47a140b01115fee",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-14",
+      "report_period": "",
+      "headline": "July 14, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, July 14, 2026 - 12:52 PM MDT South Fork Chinook Fishing Just Keeps Getting Better Proposal Would Increase Daily Limit to Two Adults Good news continues for South Fork Chinook anglers. The South Fork Salmon River fishery remains open seven days per week, and this Thursday (July 16) the Idaho Fish and Game Commission will consider a proposal to increase the daily…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-14-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 12,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "64e9036c168d665411",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-13",
+      "report_period": "",
+      "headline": "Chinook fishing on the Upper Salmon River will end on July 15",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, July 13, 2026 - 2:06 PM MDT Idaho Fish and Game will close fishing for Chinook salmon on the Upper Salmon River from the posted boundary just upstream of the mouth of Valley Creek upstream to the posted boundary just downstream of the Sawtooth Hatchery weir at the end of fishing hours on July 15. Fishing is still open on the Lochsa River and the South Fork Salmon…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-upper-salmon-river-will-end-july-15",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 13,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "64e9036c168d665411",
+      "state": "Idaho",
+      "counties": [
+        "Custer",
+        "Valley"
+      ],
+      "names": [
+        "Valley Creek"
+      ],
+      "water_name": "Valley Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-13",
+      "report_period": "",
+      "headline": "Chinook fishing on the Upper Salmon River will end on July 15",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, July 13, 2026 - 2:06 PM MDT Idaho Fish and Game will close fishing for Chinook salmon on the Upper Salmon River from the posted boundary just upstream of the mouth of Valley Creek upstream to the posted boundary just downstream of the Sawtooth Hatchery weir at the end of fishing hours on July 15. Fishing is still open on the Lochsa River and the South Fork Salmon…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-upper-salmon-river-will-end-july-15",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 13,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "64e9036c168d665411",
+      "state": "Idaho",
+      "counties": [
+        "Idaho"
+      ],
+      "names": [
+        "Lochsa River"
+      ],
+      "water_name": "Lochsa River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-13",
+      "report_period": "",
+      "headline": "Chinook fishing on the Upper Salmon River will end on July 15",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, July 13, 2026 - 2:06 PM MDT Idaho Fish and Game will close fishing for Chinook salmon on the Upper Salmon River from the posted boundary just upstream of the mouth of Valley Creek upstream to the posted boundary just downstream of the Sawtooth Hatchery weir at the end of fishing hours on July 15. Fishing is still open on the Lochsa River and the South Fork Salmon…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-upper-salmon-river-will-end-july-15",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 13,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "6b932ed91a40e7cf82",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-09",
+      "report_period": "",
+      "headline": "Young angler lands a new state record chiselmouth. Also, what is a chiselmouth?",
+      "summary": "Home Press Releases and Articles idfg-cliess Thursday, July 9, 2026 - 3:51 PM MDT What is a chiselmouth, you may ask? And better yet, what does it take to get one in the record books? Before our Sportfishing Program Coordinator could close Idaho’s record books during what’s turned into a wallop of a record fish season, Carmen, Idaho angler Akeley Fahnholz tossed her hat into the ring. While fishing on June 8 along…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/young-angler-lands-new-state-record-chiselmouth-also-what-chiselmouth",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 17,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "2c62c59302197ff2e4",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-07-09",
+      "report_period": "",
+      "headline": "F&G releases the first generation of 'captive broodstock' kokanee",
+      "summary": "Home Press Releases and Articles idfg-rphillips Thursday, July 9, 2026 - 7:10 AM MDT Young kokanee are the offspring of adults raised at hatcheries About four years ago, a “What if?” idea became reality, and kokanee anglers will soon be catching the results. During June, about a million kokanee fingerlings raised from Idaho Fish and Game’s first “captive broodstock” were released into Idaho’s lakes and reservoirs…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fg-releases-first-generation-captive-broodstock-kokanee",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 17,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "9cd7d0034821f01a27",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 7/8/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Wednesday, July 8, 2026 - 4:58 PM MDT Here’s the latest update for the upper Salmon River Chinook fishery, with the most recent numbers through Sunday July 5, 2026. For the upper Salmon River Chinook fishery to date we estimate: Anglers have harvested 103 hatchery adult Chinook salmon and 8 hatchery jacks and have released an estimated 19 unclipped adult salmon. Angler…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-782026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "69c4a37d08753a794b",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "SF Salmon River Chinook salmon fishery to open seven days per week",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, July 8, 2026 - 9:22 AM MDT This change is being implemented to increase the likelihood of reaching the harvest share. Beginning July 8, the Chinook salmon fishing season on the South Fork Salmon River will increase from four days per week to seven days per week. With water levels dropping and water temperatures increasing, this change is being implemented to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/sf-salmon-river-chinook-salmon-fishery-open-seven-days-week",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "69c4a37d08753a794b",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "SF Salmon River Chinook salmon fishery to open seven days per week",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, July 8, 2026 - 9:22 AM MDT This change is being implemented to increase the likelihood of reaching the harvest share. Beginning July 8, the Chinook salmon fishing season on the South Fork Salmon River will increase from four days per week to seven days per week. With water levels dropping and water temperatures increasing, this change is being implemented to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/sf-salmon-river-chinook-salmon-fishery-open-seven-days-week",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "72a809057b393424b8",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "July 8, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 8, 2026 - 2:29 PM MDT South Fork Salmon River Fishery Expands to Seven Days per Week The South Fork Salmon River Chinook fishery is expanding to seven days per week, effective today (July 8). With roughly half of our harvest share still available and fishing conditions beginning to change, the IDFG Director has authorized an in-season adjustment that…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-8-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "72a809057b393424b8",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "July 8, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 8, 2026 - 2:29 PM MDT South Fork Salmon River Fishery Expands to Seven Days per Week The South Fork Salmon River Chinook fishery is expanding to seven days per week, effective today (July 8). With roughly half of our harvest share still available and fishing conditions beginning to change, the IDFG Director has authorized an in-season adjustment that…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-8-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c072901584fd8f7a1c",
+      "state": "Idaho",
+      "counties": [
+        "Adams"
+      ],
+      "names": [
+        "Meadow Creek Pond"
+      ],
+      "water_name": "Meadow Creek Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "Fish and Game stocking jack Chinook salmon in New Meadows pond",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 8, 2026 - 10:50 AM MDT Looking to reel in a salmon without heading to the river? Idaho Fish and Game is stocking Meadow Creek Pond with surplus jack Chinook salmon this week, giving anglers a rare opportunity to catch these tasty fish close to home. Approximately 100 jack Chinook salmon (less than 24 inches) from the Rapid River Hatchery will be stocked…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-stocking-jack-chinook-salmon-new-meadows-pond",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c072901584fd8f7a1c",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Custer",
+        "Idaho"
+      ],
+      "names": [
+        "Rapid River"
+      ],
+      "water_name": "Rapid River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "Fish and Game stocking jack Chinook salmon in New Meadows pond",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 8, 2026 - 10:50 AM MDT Looking to reel in a salmon without heading to the river? Idaho Fish and Game is stocking Meadow Creek Pond with surplus jack Chinook salmon this week, giving anglers a rare opportunity to catch these tasty fish close to home. Approximately 100 jack Chinook salmon (less than 24 inches) from the Rapid River Hatchery will be stocked…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-stocking-jack-chinook-salmon-new-meadows-pond",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c072901584fd8f7a1c",
+      "state": "Idaho",
+      "counties": [
+        "Bear Lake",
+        "Benewah",
+        "Bingham",
+        "Blaine",
+        "Boise",
+        "Bonneville",
+        "Boundary",
+        "Caribou",
+        "Cassia",
+        "Clark",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Fremont",
+        "Idaho",
+        "Latah",
+        "Lemhi",
+        "Oneida",
+        "Owyhee",
+        "Shoshone",
+        "Valley"
+      ],
+      "names": [
+        "Meadow Creek"
+      ],
+      "water_name": "Meadow Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "Fish and Game stocking jack Chinook salmon in New Meadows pond",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 8, 2026 - 10:50 AM MDT Looking to reel in a salmon without heading to the river? Idaho Fish and Game is stocking Meadow Creek Pond with surplus jack Chinook salmon this week, giving anglers a rare opportunity to catch these tasty fish close to home. Approximately 100 jack Chinook salmon (less than 24 inches) from the Rapid River Hatchery will be stocked…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-stocking-jack-chinook-salmon-new-meadows-pond",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "97ed3ff6ce5507c389",
+      "state": "Idaho",
+      "counties": [
+        "Ada",
+        "Boise",
+        "Canyon",
+        "Elmore"
+      ],
+      "names": [
+        "Boise River"
+      ],
+      "water_name": "Boise River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-08",
+      "report_period": "",
+      "headline": "F&G closes access to Boise River WMA due to Claremont Fire",
+      "summary": "Home Press Releases and Articles idfg-bpearson Wednesday, July 8, 2026 - 9:02 AM MDT UPDATE: Some trails on the Boise River WMA have reopened; however, the status of roads and trails around the Claremont Fire is evolving. Please abide by posted signage and stay off roads and trails marked as closed. Fish and Game’s Southwest Region has closed access to the Boise River WMA due to the Claremont Fire, in coordination…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fg-closes-access-boise-river-wma-due-claremont-fire",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 18,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "aa93955681dc7bc5dd",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Camas",
+        "Gooding",
+        "Lincoln"
+      ],
+      "names": [
+        "Big Wood River"
+      ],
+      "water_name": "Big Wood River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-03",
+      "report_period": "",
+      "headline": "Fish salvage order issued for the Big Wood River below Magic Dam and the Richfield Canal Diversion",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, July 3, 2026 - 6:15 AM MDT Idaho Fish and Game’s Magic Valley Region has been informed by the Big Wood Canal Company that the gates on Magic Reservoir Dam will be closing sometime around July 5, leading to substantial flow reductions or cessation of flow which functionally de-waters the Big Wood River approximately 1.25 miles below the dam and the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-salvage-order-issued-big-wood-river-below-magic-dam-and-richfield-canal-diversion-0",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "aa93955681dc7bc5dd",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-03",
+      "report_period": "",
+      "headline": "Fish salvage order issued for the Big Wood River below Magic Dam and the Richfield Canal Diversion",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, July 3, 2026 - 6:15 AM MDT Idaho Fish and Game’s Magic Valley Region has been informed by the Big Wood Canal Company that the gates on Magic Reservoir Dam will be closing sometime around July 5, leading to substantial flow reductions or cessation of flow which functionally de-waters the Big Wood River approximately 1.25 miles below the dam and the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-salvage-order-issued-big-wood-river-below-magic-dam-and-richfield-canal-diversion-0",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "aa93955681dc7bc5dd",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Lincoln"
+      ],
+      "names": [
+        "Richfield Canal"
+      ],
+      "water_name": "Richfield Canal",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-03",
+      "report_period": "",
+      "headline": "Fish salvage order issued for the Big Wood River below Magic Dam and the Richfield Canal Diversion",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, July 3, 2026 - 6:15 AM MDT Idaho Fish and Game’s Magic Valley Region has been informed by the Big Wood Canal Company that the gates on Magic Reservoir Dam will be closing sometime around July 5, leading to substantial flow reductions or cessation of flow which functionally de-waters the Big Wood River approximately 1.25 miles below the dam and the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-salvage-order-issued-big-wood-river-below-magic-dam-and-richfield-canal-diversion-0",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "aa93955681dc7bc5dd",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "The Reservoir"
+      ],
+      "water_name": "The Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-03",
+      "report_period": "",
+      "headline": "Fish salvage order issued for the Big Wood River below Magic Dam and the Richfield Canal Diversion",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, July 3, 2026 - 6:15 AM MDT Idaho Fish and Game’s Magic Valley Region has been informed by the Big Wood Canal Company that the gates on Magic Reservoir Dam will be closing sometime around July 5, leading to substantial flow reductions or cessation of flow which functionally de-waters the Big Wood River approximately 1.25 miles below the dam and the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-salvage-order-issued-big-wood-river-below-magic-dam-and-richfield-canal-diversion-0",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 23,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "9d1edd1c01199e81ad",
+      "state": "Idaho",
+      "counties": [
+        "Valley"
+      ],
+      "names": [
+        "Payette Lake"
+      ],
+      "water_name": "Payette Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-01",
+      "report_period": "",
+      "headline": "What's going on with the Payette Lake fishery?",
+      "summary": "Home Press Releases and Articles idfg-jmessner Wednesday, July 1, 2026 - 1:02 PM MDT While you may have a harder time filling your six-fish limit of kokanee at Payette Lake this year than in the past several, the fish are enormous. If you've fished Payette Lake for kokanee this year, you already know the catch has been slower than it's been in a while. I'm not going to sugarcoat it: Kokanee abundance is down this…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/whats-going-payette-lake-fishery",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 25,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "d056b7051bf82cf048",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-01",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 7/1/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Wednesday, July 1, 2026 - 2:39 PM MDT Here’s the latest update for the upper Salmon River Chinook fishery, with the most recent numbers through Sunday June 28, 2026. Through the first two weeks of the fishery, we estimate: Anglers harvested 68 hatchery adult salmon and released an estimated 17 unclipped adult salmon. Angler effort over the past week was 2,019 hours (a…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-712026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 25,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c0c0e6516ad63ae1ba",
+      "state": "Idaho",
+      "counties": [
+        "Bonneville",
+        "Jefferson",
+        "Madison"
+      ],
+      "names": [
+        "South Fork Snake River"
+      ],
+      "water_name": "South Fork Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-01",
+      "report_period": "",
+      "headline": "Georgia angler reels in new Idaho catch-and-release record brown trout",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, July 1, 2026 - 1:17 PM MDT Idaho’s South Fork Snake River is no stranger when it comes to productive brown trout fishing. This trophy river — one of Idaho’s most legendary — is known to regularly hold brownies, known for their yellowish bodies and long, angular faces. Although not native to Idaho’s waters, brown trout offer some of the most exciting fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/georgia-angler-reels-new-idaho-catch-and-release-record-brown-trout",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 25,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c0c0e6516ad63ae1ba",
+      "state": "Idaho",
+      "counties": [
+        "Canyon",
+        "Owyhee"
+      ],
+      "names": [
+        "Snake River"
+      ],
+      "water_name": "Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-07-01",
+      "report_period": "",
+      "headline": "Georgia angler reels in new Idaho catch-and-release record brown trout",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, July 1, 2026 - 1:17 PM MDT Idaho’s South Fork Snake River is no stranger when it comes to productive brown trout fishing. This trophy river — one of Idaho’s most legendary — is known to regularly hold brownies, known for their yellowish bodies and long, angular faces. Although not native to Idaho’s waters, brown trout offer some of the most exciting fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/georgia-angler-reels-new-idaho-catch-and-release-record-brown-trout",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 25,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "6a69d707ae458b9ba4",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-30",
+      "report_period": "",
+      "headline": "Southwest Region rainbow trout stocking schedule - July",
+      "summary": "Home Press Releases and Articles idfg-bpearson Tuesday, June 30, 2026 - 9:02 AM MDT Fish and Game staff will stock more than 26,000 catchable-size (10 to 12 inch) trout throughout the Southwest Region in July. All fish stocked are rainbow trout. Stocking of all waters is tentative and dependent on river/lake/pond conditions (angler safety concerns); dates may change due to weather or staffing constraints. McCall…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/southwest-region-rainbow-trout-stocking-schedule-july-1",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 26,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "d34c3c37af13d4ada2",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-30",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for July 2026 in the Magic Valley Region",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Tuesday, June 30, 2026 - 10:25 AM MDT Approximately 25,785 catchable rainbow trout will be stocked in area waters in July Hatchery personnel from Fish and Game’s Magic Valley Region will be stocking approximately 25,785 10-12” catchable-sized rainbow trout in July. The stocking date and numbers of fish are approximate. Stocking of all waters is tentative and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-july-2026-magic-valley-region",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 26,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "ac18ffc54e4b6e8d23",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-30",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for July 2026 in the Clearwater Region",
+      "summary": "Home Press Releases and Articles idfg-jbruns Tuesday, June 30, 2026 - 9:45 AM MDT Fish and Game staff will be stocking approximately 3,500 catchable-size (10 to 12 inch) trout at the two following locations within the Clearwater Region in July! Stocking of all waters is tentative and dependent on river/lake/pond conditions (angler safety concerns); dates may change due to weather or staffing constraints. If you need…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-july-2026-clearwater-region",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 26,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "6a1815ce9a62459c86",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-30",
+      "report_period": "",
+      "headline": "June 30, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 30, 2026 - 3:40 PM MDT by Jordan Messner - Regional Fisheries Manager Fishery Update The second fishing interval on the South Fork Salmon River was a cold, wet one, and the weather definitely affected angler turnout. We observed just over half the fishing effort compared to the opening four-day interval. For those willing to brave the rain and chilly…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-30-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 26,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "6a1815ce9a62459c86",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-30",
+      "report_period": "",
+      "headline": "June 30, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 30, 2026 - 3:40 PM MDT by Jordan Messner - Regional Fisheries Manager Fishery Update The second fishing interval on the South Fork Salmon River was a cold, wet one, and the weather definitely affected angler turnout. We observed just over half the fishing effort compared to the opening four-day interval. For those willing to brave the rain and chilly…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-30-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 26,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "06c2b651a1f7e29311",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-29",
+      "report_period": "",
+      "headline": "Statewide trout stocking highlights for July 2026",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, June 29, 2026 - 8:57 AM MDT Approximately 110,000 catchable-sized rainbow trout will be stocked throughout the state this July. Many of Idaho’s lakes and ponds are soon going to be bolstered with Idaho Fish and Game stocking over 110,000 catchable-sized rainbow trout this July. Wondering if the stocking trucks are going to be backing up to your favorite fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/statewide-trout-stocking-highlights-july-2026",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "60e72dd0ed0b550352",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-29",
+      "report_period": "",
+      "headline": "July trout stocking schedule for the Southeast Region",
+      "summary": "Home Press Releases and Articles idfg-jjackson Monday, June 29, 2026 - 9:46 PM MDT Grab your fishing pole, pack the cooler, and don’t forget your fishing license (or the bug spray)! Personnel from Idaho Fish and Game’s hatcheries in the Southeast Region will be releasing nearly 10,000 catchable-sized rainbow trout at various locations during July. Have a happy and safe 4th of July! Fish on! Nearly 10,000 rainbow…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-trout-stocking-schedule-southeast-region-3",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "124a2f1deb6f475fa7",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-29",
+      "report_period": "",
+      "headline": "July Fish Stocking Planned for the Upper Snake Region",
+      "summary": "Home Press Releases and Articles idfg-jbrower Monday, June 29, 2026 - 10:54 AM MDT More than 18,000 catchable trout will be making their way into lakes, ponds, and streams across the Upper Snake Region this July. If your Independence Day plans include time on the water, don’t forget to pack your fishing gear. Throughout the month, stocking crews will release 18,300 catchable‑size rainbow trout — between 10 and 12…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/july-fish-stocking-planned-upper-snake-region",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "5b862656ab596008df",
+      "state": "Idaho",
+      "counties": [
+        "Bonner",
+        "Clark",
+        "Clearwater",
+        "Fremont",
+        "Idaho",
+        "Kootenai",
+        "Latah",
+        "Lemhi",
+        "Shoshone",
+        "Teton",
+        "Valley"
+      ],
+      "names": [
+        "Moose Creek"
+      ],
+      "water_name": "Moose Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-26",
+      "report_period": "",
+      "headline": "Managing Moose Creek Reservoir: Making Fishing Better",
+      "summary": "Home Press Releases and Articles idfg-cghere Friday, June 26, 2026 - 10:20 AM MDT Located near the town of Bovill, Moose Creek Reservoir is a popular family fishing water in the Clearwater Region. However, Moose Creek Reservoir has a history of invasive Pondweed overtaking the fishery, creating poor conditions for both fish and anglers. In November 2024, Fish and Game completed a sustained winter draw down of the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "5b862656ab596008df",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "The Reservoir"
+      ],
+      "water_name": "The Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-26",
+      "report_period": "",
+      "headline": "Managing Moose Creek Reservoir: Making Fishing Better",
+      "summary": "Home Press Releases and Articles idfg-cghere Friday, June 26, 2026 - 10:20 AM MDT Located near the town of Bovill, Moose Creek Reservoir is a popular family fishing water in the Clearwater Region. However, Moose Creek Reservoir has a history of invasive Pondweed overtaking the fishery, creating poor conditions for both fish and anglers. In November 2024, Fish and Game completed a sustained winter draw down of the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "5b862656ab596008df",
+      "state": "Idaho",
+      "counties": [
+        "Latah"
+      ],
       "names": [
         "Moose Creek Reservoir"
       ],
+      "water_name": "Moose Creek Reservoir",
       "agency": "Idaho Fish and Game",
-      "report_type": "Official fishery update and survey summary",
+      "report_type": "Official Fishing Update",
       "published_date": "2026-06-26",
-      "report_period": "Fishery update published June 26, 2026",
-      "headline": "Moose Creek Reservoir was reported to have larger bass and bluegill after fishery recovery.",
-      "summary": "Idaho Fish and Game reported that bluegill survey catch nearly doubled compared with 2019 and that largemouth bass were larger. Earlier angler reports after the drawdown had shown low catch rates for bass, bluegill and crappie.",
-      "catches": [
-        {
-          "species": "Bluegill",
-          "metric": "Survey catch nearly doubled",
-          "detail": "compared with the 2019 survey"
-        },
-        {
-          "species": "Largemouth bass",
-          "metric": "Larger fish documented",
-          "detail": "agency survey comparison"
-        },
-        {
-          "species": "Crappie",
-          "metric": "Previously low angler catch rate",
-          "detail": "post-drawdown reports"
-        }
-      ],
-      "conditions": [
-        "This combines recent agency survey results with documented angler-report history."
-      ],
+      "report_period": "",
+      "headline": "Managing Moose Creek Reservoir: Making Fishing Better",
+      "summary": "Home Press Releases and Articles idfg-cghere Friday, June 26, 2026 - 10:20 AM MDT Located near the town of Bovill, Moose Creek Reservoir is a popular family fishing water in the Clearwater Region. However, Moose Creek Reservoir has a history of invasive Pondweed overtaking the fishery, creating poor conditions for both fish and anglers. In November 2024, Fish and Game completed a sustained winter draw down of the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
       "source_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
-      "specificity": "Exact reservoir fishery",
-      "freshness_status": "aging",
-      "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://idfg.idaho.gov/article/managing-moose-creek-reservoir-making-fishing-better",
-      "source_etag": "\"1784938160\"",
-      "source_last_modified": "Sat, 25 Jul 2026 00:09:20 GMT",
-      "source_page_title": "Managing Moose Creek Reservoir: Making Fishing Better | Idaho Fish and Game",
-      "source_page_published": "2026-06-26T10:20:19-06:00",
-      "source_page_modified": null,
-      "source_content_hash": "1603b5d3e503857e5dd1912295cfee7b2e0e92e274c4e4c8f198bc8920c06ece",
-      "source_excerpt": "Managing Moose Creek Reservoir: Making Fishing Better | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory H",
-      "source_response_ms": 301
-    },
-    {
-      "state": "Nevada",
-      "names": [
-        "Ruby Lake NWR",
-        "Ruby Lake National Wildlife Refuge",
-        "Ruby Lake South Lakes",
-        "Ruby Lake Unit 21"
-      ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report dated July 15, 2026",
-      "headline": "Ruby Lake bass fishing was fair to good, with many small fish for each keeper.",
-      "summary": "NDOW reported the bass bite was on around Brown Dike and Unit 21, with roughly 10 to 15 small bass caught for each keeper-sized fish.",
-      "catches": [
-        {
-          "species": "Largemouth bass",
-          "metric": "10–15 small fish per keeper",
-          "detail": "Brown Dike and Unit 21"
-        },
-        {
-          "species": "Trout",
-          "metric": "Available in the refuge fishery",
-          "detail": "rainbow, tiger, brown and brook trout documented"
-        }
-      ],
-      "conditions": [
-        "Motorless or electric-motor boats were permitted in South Marsh through July 31."
-      ],
-      "source_url": "https://www.ndow.org/waters/ruby-lake/",
-      "specificity": "Ruby Lake NWR fishery",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/ruby-lake/",
-      "source_etag": "\"eae1-6573698af9818\"",
-      "source_last_modified": "Wed, 22 Jul 2026 17:37:41 GMT",
-      "source_page_title": "Ruby Lake NWR - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:01+00:00",
-      "source_page_modified": "2026-07-22T17:28:27+00:00",
-      "source_content_hash": "d23f95370dcc9aa4b7acb0c3454134486f3e518be43e698dfd3f2eafeb5c2f04",
-      "source_excerpt": "Ruby Lake NWR - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations License",
-      "source_response_ms": 133
-    },
-    {
-      "state": "Nevada",
-      "names": [
-        "Ruby Lake Collection Ditch",
-        "Collection Ditch Ruby Lake"
-      ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report dated July 15, 2026",
-      "headline": "Ruby Lake Collection Ditch trout fishing was fair to good, with fish up to 22 inches.",
-      "summary": "NDOW reported brown, tiger and rainbow trout catches, including fish up to 22 inches. Small flashy lures, nymphs and warm-weather dry flies were recommended.",
-      "catches": [
-        {
-          "species": "Trout",
-          "metric": "Up to 22 inches",
-          "detail": "fair-to-good reported fishing"
-        },
-        {
-          "species": "Brown, tiger and rainbow trout",
-          "metric": "Reported present and catchable",
-          "detail": "spring stocking and current report"
-        }
-      ],
-      "conditions": [
-        "Artificial lures only and no wading were listed as special regulations."
-      ],
-      "source_url": "https://www.ndow.org/waters/ruby-lake-collection-ditch/",
-      "specificity": "Exact water report",
-      "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/ruby-lake-collection-ditch/",
-      "source_etag": "\"e645-657241732fa80\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:32:59 GMT",
-      "source_page_title": "Ruby Lake NWR - Collection Ditch - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:01+00:00",
-      "source_page_modified": "2026-07-15T16:22:28+00:00",
-      "source_content_hash": "8b8811aba6ff59d00df431c01f5216c17c5b74464f6fa879520f74751ff8f0b4",
-      "source_excerpt": "Ruby Lake NWR - Collection Ditch - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & ",
-      "source_response_ms": 133
-    },
-    {
-      "state": "Nevada",
-      "names": [
-        "Marilyn's Pond",
-        "Marilyns Pond"
-      ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official community-pond fishing report",
-      "published_date": "2026-06-26",
-      "report_period": "Report dated June 26, 2026",
-      "headline": "Marilyn’s Pond was fishing very well, with light leaders and tackle producing.",
-      "summary": "NDOW reported good rainbow-trout fishing, although the pond was busy. Midweek visits and light tackle were recommended.",
-      "catches": [
-        {
-          "species": "Rainbow trout",
-          "metric": "Fishing very well",
-          "detail": "light leaders and tackle"
-        },
-        {
-          "species": "Rainbow trout",
-          "metric": "773 fish stocked July 14",
-          "detail": "10.1-inch average stocking size"
-        }
-      ],
-      "conditions": [
-        "Stocking was expected to slow during hotter summer weather."
-      ],
-      "source_url": "https://www.ndow.org/waters/marilyns-pond/",
-      "specificity": "Exact community pond",
-      "freshness_status": "aging",
       "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/marilyns-pond/",
-      "source_etag": "\"f32d-657242b6a2a28\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:38:39 GMT",
-      "source_page_title": "Marilyn's Pond - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:04+00:00",
-      "source_page_modified": "2026-07-14T21:40:50+00:00",
-      "source_content_hash": "9597bbe0b72ff9388d4e5c0d70bbca4ff40e319a852fd321d62d1d2b813772a9",
-      "source_excerpt": "Marilyn's Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Licens",
-      "source_response_ms": 137
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Eagle Valley Reservoir"
+      "report_kind": "official_fishing_update",
+      "report_id": "dbfd6997d4a84af5ea",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Bannock",
+        "Bear Lake",
+        "Blaine",
+        "Bonner",
+        "Bonneville",
+        "Caribou",
+        "Cassia",
+        "Fremont",
+        "Idaho",
+        "Kootenai",
+        "Madison",
+        "Teton"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official waterbody fishing report",
-      "published_date": "2026-02-04",
-      "report_period": "Report dated February 4, 2026",
-      "headline": "Eagle Valley trout were taking PowerBait and nightcrawlers, with a few bass reported on jigs.",
-      "summary": "NDOW reported shoreline fishing opportunities for trout and occasional bass catches.",
+      "names": [
+        "Fish Creek"
+      ],
+      "water_name": "Fish Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "VIDEO: Fish Creek weir provides another year of insight into Idaho's wild steelhead populations",
+      "summary": "Home Press Releases and Articles idfg-jbruns Thursday, June 25, 2026 - 10:44 AM MDT Annual monitoring at Fish Creek has wrapped up for the season, providing another year of valuable information about one of Idaho's important wild steelhead populations. The Lochsa River and its tributaries, including Fish Creek , are managed as a wild steelhead refuge where hatchery steelhead are absent and steelhead fishing is…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/video-fish-creek-weir-provides-another-year-insight-idahos-wild-steelhead-populations",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "dbfd6997d4a84af5ea",
+      "state": "Idaho",
+      "counties": [
+        "Idaho"
+      ],
+      "names": [
+        "Lochsa River"
+      ],
+      "water_name": "Lochsa River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "VIDEO: Fish Creek weir provides another year of insight into Idaho's wild steelhead populations",
+      "summary": "Home Press Releases and Articles idfg-jbruns Thursday, June 25, 2026 - 10:44 AM MDT Annual monitoring at Fish Creek has wrapped up for the season, providing another year of valuable information about one of Idaho's important wild steelhead populations. The Lochsa River and its tributaries, including Fish Creek , are managed as a wild steelhead refuge where hatchery steelhead are absent and steelhead fishing is…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/video-fish-creek-weir-provides-another-year-insight-idahos-wild-steelhead-populations",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "5cbebdeb90c6a3a110",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "The Reservoir"
+      ],
+      "water_name": "The Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "2026 Dworshak Reservoir Smallmouth Bass Update",
+      "summary": "Home Press Releases and Articles idfg-jbruns Thursday, June 25, 2026 - 10:09 AM MDT 2025 Fishery summary Smallmouth bass fishing on Dworshak Reservoir in 2025 continued to provide anglers with both high catch rates and excellent trophy opportunities. Anglers reported consistent success throughout the reservoir, with strong numbers of fish available across multiple size classes, including quality-sized bass capable…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "5cbebdeb90c6a3a110",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater"
+      ],
+      "names": [
+        "Dworshak Reservoir"
+      ],
+      "water_name": "Dworshak Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "2026 Dworshak Reservoir Smallmouth Bass Update",
+      "summary": "Home Press Releases and Articles idfg-jbruns Thursday, June 25, 2026 - 10:09 AM MDT 2025 Fishery summary Smallmouth bass fishing on Dworshak Reservoir in 2025 continued to provide anglers with both high catch rates and excellent trophy opportunities. Anglers reported consistent success throughout the reservoir, with strong numbers of fish available across multiple size classes, including quality-sized bass capable…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-smallmouth-bass-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "959dd81c66eb48d571",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "The Reservoir"
+      ],
+      "water_name": "The Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "2026 Dworshak Reservoir Kokanee Update",
+      "summary": "Home Press Releases and Articles idfg-tzumwalt Thursday, June 25, 2026 - 9:49 AM MDT Last year was an excellent year for anglers seeking larger kokanee in Dworshak Reservoir. While the number of fish available was below average, the fish that were present were noticeably larger than normal. Age-2 and age-3 kokanee are the primary adult age classes in the fishery and are the fish large enough to get targeted by…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "959dd81c66eb48d571",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater"
+      ],
+      "names": [
+        "Dworshak Reservoir"
+      ],
+      "water_name": "Dworshak Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-25",
+      "report_period": "",
+      "headline": "2026 Dworshak Reservoir Kokanee Update",
+      "summary": "Home Press Releases and Articles idfg-tzumwalt Thursday, June 25, 2026 - 9:49 AM MDT Last year was an excellent year for anglers seeking larger kokanee in Dworshak Reservoir. While the number of fish available was below average, the fish that were present were noticeably larger than normal. Age-2 and age-3 kokanee are the primary adult age classes in the fishery and are the fish large enough to get targeted by…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/2026-dworshak-reservoir-kokanee-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 31,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "3c0f8b21a93d76d4f1",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-23",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook fishery update - 6/23/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Tuesday, June 23, 2026 - 4:27 PM MDT The upper Salmon River fishery opened last week (6/18/26), and we estimated that 15 hatchery adult Chinook Salmon were harvested during the first four days of the fishery. There were also 4 wild Chinook Salmon that were caught and released. Angler effort was relatively high during the opening weekend with an estimated 1,343 hours of…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-fishery-update-6232026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 33,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f38d71b434ce510c4f",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-23",
+      "report_period": "",
+      "headline": "June 23, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 23, 2026 - 4:16 PM MDT by Jordan Messner - Regional Fisheries Manager South Fork Chinook Update: Better Fishing Ahead? Hi everyone, The South Fork Salmon River Chinook fishery opened last Thursday, June 18, and while fishing was a bit slower than I expected during the first four-day interval, there is still plenty of reason for optimism – its only going to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-23-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 33,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f38d71b434ce510c4f",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-23",
+      "report_period": "",
+      "headline": "June 23, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 23, 2026 - 4:16 PM MDT by Jordan Messner - Regional Fisheries Manager South Fork Chinook Update: Better Fishing Ahead? Hi everyone, The South Fork Salmon River Chinook fishery opened last Thursday, June 18, and while fishing was a bit slower than I expected during the first four-day interval, there is still plenty of reason for optimism – its only going to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-23-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 33,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "d3aca8ab36a6970981",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-22",
+      "report_period": "",
+      "headline": "Walleye are a bad match for Idaho waters, and F&G asks anglers to help stop their expansion",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 22, 2026 - 1:00 PM MDT Walleye are typically a bad match for Idaho because they are native to large Midwestern lakes that have nearly unlimited schools of minnows, shiners and other baitfish that walleye live on. Those large baitfish populations are unavailable in most Idaho waters, which means walleye consume game fish to survive, and most Idaho anglers…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/walleye-are-bad-match-idaho-waters-and-fg-asks-anglers-help-stop-their-expansion",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 34,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "8e6fceb4646adcaf6b",
+      "state": "Idaho",
+      "counties": [
+        "Valley"
+      ],
+      "names": [
+        "Payette Lake"
+      ],
+      "water_name": "Payette Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-22",
+      "report_period": "",
+      "headline": "Idaho Falls angler lands 43.25-inch lake trout…and returns to the Idaho record books",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, June 22, 2026 - 1:26 PM MDT An Idaho Falls angler miraculously reeled in a new state catch-and-release record lake trout and, even more unbelievably , was able to hoist it up into the boat. Dylan Smith — the lucky angler in question — was fishing on Payette Lake in McCall on May 2 when a 43.25-inch lake trout took the line for a sprint. Smith was able to land the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idaho-falls-angler-lands-4325-inch-lake-troutand-returns-idaho-record-books",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 34,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "7313a418de90acfd77",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-18",
+      "report_period": "",
+      "headline": "Idaho Fish and Game relocates yearling moose from Rupert",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Thursday, June 18, 2026 - 8:46 PM MDT Wildlife staff safely captured and relocated a yearling moose to more suitable moose habitat in the southeastern portion of the region On Thursday, June 18, a yearling moose was relocated after the Magic Valley Region received a report of the moose in a residential yard in Rupert near Interstate 84. Idaho Fish and Game…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/idaho-fish-and-game-relocates-yearling-moose-rupert",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 38,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "8fedcab043ee5962e6",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-17",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 6/17/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Wednesday, June 17, 2026 - 9:46 AM MDT Below is the fourth and final pre-season update for the upper Salmon River Chinook return and fishery that will open tomorrow Thursday June 18th . This one will be brief, but I wanted to get a quick update posted prior to the opener. After this, we’ll post weekly updates on angler harvest throughout the fishery as it progresses…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-6172026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 39,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "52b8459775ac2e6e42",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-17",
+      "report_period": "",
+      "headline": "Fish and Game begins grizzly bear research trapping in the northern Panhandle Region",
+      "summary": "Home Press Releases and Articles idfg-tjross Wednesday, June 17, 2026 - 2:13 PM MDT It is extremely important that the public respect warning signs and not enter posted areas As part of ongoing efforts to monitor the population of grizzly bears in the Selkirk and Cabinet/Yaak Ecosystems, biologists from Idaho Fish and Game have begun research trapping of grizzly bears in the Panhandle Region. Trapping will occur in…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-begins-grizzly-bear-research-trapping-northern-panhandle-region",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 39,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "6e354c7d33b1f5ab4c",
+      "state": "Idaho",
+      "counties": [
+        "Gooding"
+      ],
+      "names": [
+        "Niagara Springs"
+      ],
+      "water_name": "Niagara Springs",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-16",
+      "report_period": "",
+      "headline": "Niagara Springs Fish Hatchery closed to the public for construction beginning June 22",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Tuesday, June 16, 2026 - 2:49 PM MDT The Idaho Department of Fish and Game's Niagara Springs Fish Hatchery will be temporarily closed to the public beginning June 22 while construction crews upgrade the facility's predator exclusion mesh panels. These upgrades are necessary to protect hatchery fish reared at the facility from birds and other wildlife. The closure…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/niagara-springs-fish-hatchery-closed-public-construction-beginning-june-22",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 40,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a3c0a5fe5883ed2e7d",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-16",
+      "report_period": "",
+      "headline": "June 16, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 16, 2026 - 1:13 PM MDT by Jordan Messner - Regional Fisheries Manager South Fork Salmon River Opener: The Fish Are Here! Hi everyone, The South Fork Salmon River summer Chinook fishery opens this Thursday, June 18, and I'm sure you're all just as excited as I am. The run continues to build, and we're refining our harvest share estimate daily as more fish…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-16-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 40,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a3c0a5fe5883ed2e7d",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-16",
+      "report_period": "",
+      "headline": "June 16, 2026 South Fork Salmon River Chinook Update",
+      "summary": "Home Press Releases and Articles idfg-jmessner Tuesday, June 16, 2026 - 1:13 PM MDT by Jordan Messner - Regional Fisheries Manager South Fork Salmon River Opener: The Fish Are Here! Hi everyone, The South Fork Salmon River summer Chinook fishery opens this Thursday, June 18, and I'm sure you're all just as excited as I am. The run continues to build, and we're refining our harvest share estimate daily as more fish…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-16-2026-south-fork-salmon-river-chinook-update",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 40,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "bacab710eda82731a4",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-15",
+      "report_period": "",
+      "headline": "Fish and Game, city police and fire departments relocate black bear from Nampa neighborhood",
+      "summary": "Home Press Releases and Articles idfg-bpearson Monday, June 15, 2026 - 5:03 PM MDT On Sunday, June 14, Idaho Fish and Game enforcement officers and biologists responded to a report of a black bear in a tree in a residential area in Nampa. In collaboration with the Nampa Police and Fire Departments, Fish and Game staff sedated the yearling male black bear, loaded it into a trap, and transported it to a suitable…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fish-and-game-city-police-and-fire-departments-relocate-black-bear-nampa-neighborhood",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 41,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "747072ae088e4a61f5",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-15",
+      "report_period": "",
+      "headline": "Drought and heat can be a bad combination for Idaho fisheries",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 15, 2026 - 10:44 AM MDT Anglers can expect to lose some fishing opportunities this summer. With severe drought in Idaho and summer heat on the way, it’s likely anglers will lose some fishing opportunities, but Idaho Fish and Game will work to mitigate if it will provide benefits. “Drought affects many aspects of Idaho life, including fisheries, and we’re…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/drought-and-heat-can-be-bad-combination-idaho-fisheries",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 41,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a7e862474f4d54d04b",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-11",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 6/11/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Thursday, June 11, 2026 - 2:15 PM MDT Below is the third pre-season update for the upper Salmon River Chinook return and upcoming fishery that will open on June 18th. As you are aware the IDFG Commission approved the proposals for Chinook fisheries in the upper Salmon River, South Fork Salmon River, and Lochsa River on 5/29. More details can be found here . Sawtooth…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-6112026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 45,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a7e862474f4d54d04b",
+      "state": "Idaho",
+      "counties": [
+        "Idaho"
+      ],
+      "names": [
+        "Lochsa River"
+      ],
+      "water_name": "Lochsa River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-11",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 6/11/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Thursday, June 11, 2026 - 2:15 PM MDT Below is the third pre-season update for the upper Salmon River Chinook return and upcoming fishery that will open on June 18th. As you are aware the IDFG Commission approved the proposals for Chinook fisheries in the upper Salmon River, South Fork Salmon River, and Lochsa River on 5/29. More details can be found here . Sawtooth…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-6112026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 45,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "a7e862474f4d54d04b",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-11",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 6/11/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Thursday, June 11, 2026 - 2:15 PM MDT Below is the third pre-season update for the upper Salmon River Chinook return and upcoming fishery that will open on June 18th. As you are aware the IDFG Commission approved the proposals for Chinook fisheries in the upper Salmon River, South Fork Salmon River, and Lochsa River on 5/29. More details can be found here . Sawtooth…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-6112026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 45,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "aed6cd05c5b5d6fdcf",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-11",
+      "report_period": "",
+      "headline": "Southwest Region rainbow trout stocking schedule - June",
+      "summary": "Home Press Releases and Articles idfg-bpearson Thursday, June 11, 2026 - 10:16 AM MDT Fish and Game staff will be stocking more than 91,000 catchable-size (10 to 12 inch) trout throughout the Southwest Region in June, including around 35,000 in the week leading up to Free Fishing Day, which is Saturday, June 13 this year. All fish stocked are rainbow trout. Stocking of all waters is tentative and dependent on…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/southwest-region-rainbow-trout-stocking-schedule-june-1",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 45,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "be3ed009c94dc3990c",
+      "state": "Idaho",
+      "counties": [
+        "Canyon",
+        "Owyhee"
+      ],
+      "names": [
+        "Snake River"
+      ],
+      "water_name": "Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Tagging and learning about walleye in the lower Snake River",
+      "summary": "Home Press Releases and Articles idfg-mdobos Monday, June 8, 2026 - 1:40 PM MDT Anglers are encountering more walleye in the Snake River from Lewiston to Hells Canyon Dam in the past couple of years and some are wondering why. The first walleye documented in this section of the Snake River was in 2019. Since then, the number of reported walleye has substantially increased and the Idaho Department of Fish and Game…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/tagging-and-learning-about-walleye-lower-snake-river",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "be3ed009c94dc3990c",
+      "state": "Idaho",
+      "counties": [
+        "Kootenai"
+      ],
+      "names": [
+        "Hells Canyon"
+      ],
+      "water_name": "Hells Canyon",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Tagging and learning about walleye in the lower Snake River",
+      "summary": "Home Press Releases and Articles idfg-mdobos Monday, June 8, 2026 - 1:40 PM MDT Anglers are encountering more walleye in the Snake River from Lewiston to Hells Canyon Dam in the past couple of years and some are wondering why. The first walleye documented in this section of the Snake River was in 2019. Since then, the number of reported walleye has substantially increased and the Idaho Department of Fish and Game…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/tagging-and-learning-about-walleye-lower-snake-river",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c5993dc1f912861d67",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Idaho"
+      ],
+      "names": [
+        "Little Salmon River"
+      ],
+      "water_name": "Little Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Chinook fishing in the Little Salmon River is closed",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 3:37 PM MDT Idaho Fish and Game closed sport fishery for Chinook salmon in the Little Salmon River on June 8 after harvest objectives were met. As of June 8, the Lochsa River is the only remaining Chinook fishery open. The South Fork Salmon River and Upper Salmon River will open for Chinook fishing on June 18. For updates on all Chinook fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-little-salmon-river-closed",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c5993dc1f912861d67",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Chinook fishing in the Little Salmon River is closed",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 3:37 PM MDT Idaho Fish and Game closed sport fishery for Chinook salmon in the Little Salmon River on June 8 after harvest objectives were met. As of June 8, the Lochsa River is the only remaining Chinook fishery open. The South Fork Salmon River and Upper Salmon River will open for Chinook fishing on June 18. For updates on all Chinook fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-little-salmon-river-closed",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c5993dc1f912861d67",
+      "state": "Idaho",
+      "counties": [
+        "Idaho"
+      ],
+      "names": [
+        "Lochsa River"
+      ],
+      "water_name": "Lochsa River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Chinook fishing in the Little Salmon River is closed",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 3:37 PM MDT Idaho Fish and Game closed sport fishery for Chinook salmon in the Little Salmon River on June 8 after harvest objectives were met. As of June 8, the Lochsa River is the only remaining Chinook fishery open. The South Fork Salmon River and Upper Salmon River will open for Chinook fishing on June 18. For updates on all Chinook fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-little-salmon-river-closed",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "c5993dc1f912861d67",
+      "state": "Idaho",
+      "counties": [
+        "Idaho",
+        "Valley"
+      ],
+      "names": [
+        "South Fork Salmon River"
+      ],
+      "water_name": "South Fork Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Chinook fishing in the Little Salmon River is closed",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 3:37 PM MDT Idaho Fish and Game closed sport fishery for Chinook salmon in the Little Salmon River on June 8 after harvest objectives were met. As of June 8, the Lochsa River is the only remaining Chinook fishery open. The South Fork Salmon River and Upper Salmon River will open for Chinook fishing on June 18. For updates on all Chinook fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/chinook-fishing-little-salmon-river-closed",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "d43ecd41c1936b70e3",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "Blackfoot"
+      ],
+      "water_name": "Blackfoot",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Blackfoot ranchers Mark and Wendy Pratt receive award from Western Association of Fish and Wildlife Agencies",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 2:40 PM MDT Couple has worked extensively with Fish and Game on wildlife research and public access Mark and Wendy Pratt of Blackfoot were recently presented the Western Association of Fish and Wildlife Agency’s “Outstanding Citizen Wildlife Contributor of the Year Award” for their exemplary work balancing private land stewardship, wildlife…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/blackfoot-ranchers-mark-and-wendy-pratt-receive-award-western-association-fish-and-wildlife",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "00aaadd2c148db6a1f",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-08",
+      "report_period": "",
+      "headline": "Attention hunters and anglers: New rules for tag exchanges and lifetime licenses will be in effect for 2026",
+      "summary": "Home Press Releases and Articles idfg-rphillips Monday, June 8, 2026 - 2:32 PM MDT Deer and Elk Hunters: New deadline date for exchanging general season tags The new deadline to exchange general season deer and elk tags is July 31. No exchanges will be processed after that date. This includes exchanging a general season deer or elk tag for controlled hunt tags, Landowner Appreciation Program tags, Extra tags, and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/attention-hunters-and-anglers-new-rules-tag-exchanges-and-lifetime-licenses-will-be-effect",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 48,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "35863cdd3ed0f178cc",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-04",
+      "report_period": "",
+      "headline": "So you want to take your kids fishing...",
+      "summary": "Home Press Releases and Articles idfg-cliess Thursday, June 4, 2026 - 9:55 AM MDT Follow these 10 tips to get your kiddos hooked on fishing. If you want to be rock star to your kids this summer, there's one surefire way to achieve stardom: Taking them fishing. And there's no better time to do so than Free Fishing Day in Idaho. From the fresh air to the excitement of feeling a tug on your line, fishing provides the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/so-you-want-take-your-kids-fishing",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 52,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "3b95fef5cfb518c9eb",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-04",
+      "report_period": "",
+      "headline": "No matter where you live in Idaho, Free Fishing Day on June 13 offers fun for the whole family",
+      "summary": "Home Press Releases and Articles idfg-cliess Thursday, June 4, 2026 - 11:53 AM MDT Fish and Game will host statewide events to help beginners get started. On June 13, anyone can get out and enjoy a day of fishing without a fishing license, but all other rules still apply. Free Fishing Day is an Idaho tradition that includes Fish and Game employees and volunteers bringing fishing gear to various fishing spots and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/no-matter-where-you-live-idaho-free-fishing-day-june-13-offers-fun-whole-family",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 52,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "8ff60687008cac5091",
+      "state": "Idaho",
+      "counties": [
+        "Custer"
+      ],
+      "names": [
+        "Blue Mountain Meadow Pond"
+      ],
+      "water_name": "Blue Mountain Meadow Pond",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-04",
+      "report_period": "",
+      "headline": "Catch the fun on Free Fishing Day June 13",
+      "summary": "Home Press Releases and Articles idfg-gschoby Thursday, June 4, 2026 - 2:55 PM MDT All kids will go home with a prize at Salmon Region events Young anglers will have plenty of opportunity to catch a Free Fishing Day event in the Salmon Region this year, as three fishing derbies are being held on Saturday, June 13. Kid’s fishing derbies will be held at Kid’s Pond in Salmon (9:00 am to noon), Blue Mountain Meadow Pond…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/catch-fun-free-fishing-day-june-13",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 52,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "965ff8d86e3f123b07",
+      "state": "Idaho",
+      "counties": [
+        "Benewah",
+        "Bonner",
+        "Custer",
+        "Idaho",
+        "Teton",
+        "Valley"
+      ],
+      "names": [
+        "Crystal Lake"
+      ],
+      "water_name": "Crystal Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-03",
+      "report_period": "",
+      "headline": "Parking area at Fish and Game access site on Crystal Lake near Priest River closed for emergency road repairs",
+      "summary": "Home Press Releases and Articles idfg-tjross Wednesday, June 3, 2026 - 4:33 PM MDT Repairs will improve safety and long-term access for anglers Idaho Fish and Game has temporarily closed the parking area at the Crystal Lake access site , located about two miles east of Priest River along Highway 2, after staff discovered a sinkhole beneath the roadway that poses a hazard to vehicles. The closure will allow Fish and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/parking-area-fish-and-game-access-site-crystal-lake-near-priest-river-closed-emergency-road",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 53,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "965ff8d86e3f123b07",
+      "state": "Idaho",
+      "counties": [
+        "Bonner"
+      ],
+      "names": [
+        "Priest River"
+      ],
+      "water_name": "Priest River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-03",
+      "report_period": "",
+      "headline": "Parking area at Fish and Game access site on Crystal Lake near Priest River closed for emergency road repairs",
+      "summary": "Home Press Releases and Articles idfg-tjross Wednesday, June 3, 2026 - 4:33 PM MDT Repairs will improve safety and long-term access for anglers Idaho Fish and Game has temporarily closed the parking area at the Crystal Lake access site , located about two miles east of Priest River along Highway 2, after staff discovered a sinkhole beneath the roadway that poses a hazard to vehicles. The closure will allow Fish and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/parking-area-fish-and-game-access-site-crystal-lake-near-priest-river-closed-emergency-road",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 53,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "701946723f82f9d816",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-03",
+      "report_period": "",
+      "headline": "Over 11,000 catchable rainbow trout are headed for lakes in the Panhandle Region in June",
+      "summary": "Home Press Releases and Articles idfg-tjross Wednesday, June 3, 2026 - 5:19 PM MDT School is almost out and fish are stocked and ready to be caught Students will soon be released from school, and rainbow trout are being released in waters all over the Panhandle in June! Over 11,000 catchable-size (10 to 12 inch) rainbow trout will be stocked in the Panhandle Region in June. Stocking of all waters is tentative and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/over-11000-catchable-rainbow-trout-are-headed-lakes-panhandle-region-june",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 53,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "4d19281fd494953a86",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-02",
+      "report_period": "",
+      "headline": "June trout stocking schedule for the Southeast Region",
+      "summary": "Home Press Releases and Articles idfg-jjackson Tuesday, June 2, 2026 - 6:41 PM MDT Remember Free Fishing Day is on June 13 this year! Grab your fishing pole, pack the cooler, and don’t forget your fishing license! Personnel from Idaho Fish and Game’s hatcheries in the Southeast Region will be releasing over 14,000 catchable-sized rainbow trout at various locations during June. Don’t forget, June 13 is Free Fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-trout-stocking-schedule-southeast-region-1",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 54,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "27fa33c0c0ad35db18",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-02",
+      "report_period": "",
+      "headline": "Dust off that old fishing gear for Free Fishing Day and beyond",
+      "summary": "Home Press Releases and Articles idfg-rphillips Tuesday, June 2, 2026 - 2:52 PM MDT Free Fishing Day is June 13, and it’s a great opportunity to be outdoors and get acquainted with Idaho’s great fishing spots. Fishing is an inexpensive sport because you can get all the gear you need for about $50 (or less). But odds are good you have some old fishing gear laying around the house, or someone in your family has some…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/dust-old-fishing-gear-free-fishing-day-and-beyond",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 54,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0fe5d0fc0cedc11ea5",
+      "state": "Idaho",
+      "counties": [
+        "Ada",
+        "Adams",
+        "Bannock",
+        "Bingham",
+        "Blaine",
+        "Boise",
+        "Bonner",
+        "Bonneville",
+        "Boundary",
+        "Butte",
+        "Camas",
+        "Caribou",
+        "Cassia",
+        "Clearwater",
+        "Custer",
+        "Elmore",
+        "Gooding",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce",
+        "Owyhee",
+        "Shoshone",
+        "Twin Falls",
+        "Valley",
+        "Washington"
+      ],
+      "names": [
+        "Deer Creek"
+      ],
+      "water_name": "Deer Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-01",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for June 2026 in the Clearwater Region",
+      "summary": "Home Press Releases and Articles idfg-jbruns Monday, June 1, 2026 - 1:45 PM MDT Fish and Game staff will be stocking nearly 40,000 catchable-size (10 to 12 inch) trout at the following locations across the Clearwater Region in June! Here's some quick highlights of some of these locations. Deer Creek Reservoir – 3,000 Rainbow Trout. This beautiful mountain reservoir was built specifically for trout fishing. Rainbow…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-june-2026-clearwater-region",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 55,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0fe5d0fc0cedc11ea5",
+      "state": "Idaho",
+      "counties": [
+        "Caribou"
+      ],
+      "names": [
+        "The Reservoir"
+      ],
+      "water_name": "The Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-01",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for June 2026 in the Clearwater Region",
+      "summary": "Home Press Releases and Articles idfg-jbruns Monday, June 1, 2026 - 1:45 PM MDT Fish and Game staff will be stocking nearly 40,000 catchable-size (10 to 12 inch) trout at the following locations across the Clearwater Region in June! Here's some quick highlights of some of these locations. Deer Creek Reservoir – 3,000 Rainbow Trout. This beautiful mountain reservoir was built specifically for trout fishing. Rainbow…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-june-2026-clearwater-region",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 55,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0fe5d0fc0cedc11ea5",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater"
+      ],
+      "names": [
+        "Deer Creek Reservoir"
+      ],
+      "water_name": "Deer Creek Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-06-01",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for June 2026 in the Clearwater Region",
+      "summary": "Home Press Releases and Articles idfg-jbruns Monday, June 1, 2026 - 1:45 PM MDT Fish and Game staff will be stocking nearly 40,000 catchable-size (10 to 12 inch) trout at the following locations across the Clearwater Region in June! Here's some quick highlights of some of these locations. Deer Creek Reservoir – 3,000 Rainbow Trout. This beautiful mountain reservoir was built specifically for trout fishing. Rainbow…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-june-2026-clearwater-region",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 55,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "f0858accb90f890015",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-06-01",
+      "report_period": "",
+      "headline": "Digital kiosks provide Idaho Fish and Game information at key recreation sites",
+      "summary": "Home Press Releases and Articles idfg-jbruns Monday, June 1, 2026 - 1:31 PM MDT Idaho Fish and Game is partnering with the Bureau of Land Management (BLM) Cottonwood Field Office to provide outdoor recreationists with easier access to hunting, fishing, boating, and wildlife information through a network of new digital kiosks installed at popular recreation sites across north-central Idaho. Five kiosks are now fully…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/digital-kiosks-provide-idaho-fish-and-game-information-key-recreation-sites",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 55,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "62360c543bba75a05a",
+      "state": "Idaho",
+      "counties": [
+        "Blaine"
+      ],
+      "names": [
+        "Magic Reservoir"
+      ],
+      "water_name": "Magic Reservoir",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-29",
+      "report_period": "",
+      "headline": "Rainbow trout stocking schedule for June 2026 in the Magic Valley Region",
+      "summary": "Home Press Releases and Articles idfg-Kenzie.Baratti Friday, May 29, 2026 - 7:40 AM MDT Approximately 30,645 catchable-sized rainbow trout will be stocked in area waters in June Hatchery personnel from Fish and Game's Magic Valley Region will be stocking approximately 30,645 10-12'' catchable-sized rainbow trout in July. The stocking date and number of fish are approximate. Stocking of all waters is tentative and…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/rainbow-trout-stocking-schedule-june-2026-magic-valley-region",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 58,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "71e55684a403aa74c9",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-28",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 5/28/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Thursday, May 28, 2026 - 12:02 PM MDT Below is the second pre-season update for the upper Salmon River Chinook return and potential fisheries. Since my last update on May 19th, we’ve only seen one additional Sawtooth PIT tag cross over Bonneville Dam, bringing the current estimate to 1,790 adult Sawtooth Chinook over Bonneville. We should now be past the 50% mark of the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-5282026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 59,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "e2b7407563a8716abf",
+      "state": "Idaho",
+      "counties": [
+        "Bear Lake",
+        "Custer",
+        "Fremont",
+        "Idaho"
+      ],
+      "names": [
+        "Bear Lake"
+      ],
+      "water_name": "Bear Lake",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-28",
+      "report_period": "",
+      "headline": "Fifty-two years later: remembering fallen Fish and Game Conservation Officer Sam Buntrock",
+      "summary": "Home Press Releases and Articles idfg-KWhite Thursday, May 28, 2026 - 2:45 PM MDT Take a step back in time to learn more about one of Fish and Game’s fallen conservation officers from southeast Idaho as told by of one of our current officers. This is Sam Buntrock’s story. Former Idaho Fish and Game Conservation Officer Sam Buntrock lost his life in a plane crash in Bear Lake County in 1974 while in the line of duty…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/fifty-two-years-later-remembering-fallen-fish-and-game-conservation-officer-sam-buntrock",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 59,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "76d27f78e75634c4fd",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "Statewide trout stocking highlights for June 2026",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, May 27, 2026 - 10:58 AM MDT Approximately 243,000 catchable-sized rainbow trout will be stocked throughout the state this June. Many of Idaho’s lakes and ponds are soon going to be bolstered with Idaho Fish and Game stocking over 243,000 catchable-sized rainbow trout this June. Wondering if the stocking trucks are going to be backing up to your favorite fishing…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/statewide-trout-stocking-highlights-june-2026",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0637d53892268834e1",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Custer",
+        "Idaho"
+      ],
+      "names": [
+        "Rapid River"
+      ],
+      "water_name": "Rapid River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/27/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Wednesday, May 27, 2026 - 3:19 PM MDT IMPORTANT NOTICE (Click links to view official closure notice) Rapid River Fisheries: River Code 10 in the lower Salmon River (Rice Creek to Twin Bridges) is closed . Clearwater Fisheries: River Code 3 A-B (Camas Prairie Train Bridge to Cherrylane Bridge) remains closed. HARVEST SHARES The projected spring Chinook Salmon harvest…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5272026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0637d53892268834e1",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/27/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Wednesday, May 27, 2026 - 3:19 PM MDT IMPORTANT NOTICE (Click links to view official closure notice) Rapid River Fisheries: River Code 10 in the lower Salmon River (Rice Creek to Twin Bridges) is closed . Clearwater Fisheries: River Code 3 A-B (Camas Prairie Train Bridge to Cherrylane Bridge) remains closed. HARVEST SHARES The projected spring Chinook Salmon harvest…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5272026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "0637d53892268834e1",
+      "state": "Idaho",
+      "counties": [
+        "Cassia",
+        "Idaho",
+        "Twin Falls",
+        "Valley"
+      ],
+      "names": [
+        "Rice Creek"
+      ],
+      "water_name": "Rice Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/27/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Wednesday, May 27, 2026 - 3:19 PM MDT IMPORTANT NOTICE (Click links to view official closure notice) Rapid River Fisheries: River Code 10 in the lower Salmon River (Rice Creek to Twin Bridges) is closed . Clearwater Fisheries: River Code 3 A-B (Camas Prairie Train Bridge to Cherrylane Bridge) remains closed. HARVEST SHARES The projected spring Chinook Salmon harvest…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5272026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "857bf3ae67f66eee28",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "June fish stocking schedule for the Upper Snake Region",
+      "summary": "Home Press Releases and Articles idfg-jbrower Wednesday, May 27, 2026 - 11:34 AM MDT 30,000 trout are headed to fishing waters in the Upper Snake Region this June Fish and Game staff will be stocking a total of 30,000 catchable-size (10 to 12 inch) trout at the following locations around the Upper Snake Region in June. All stocked fish are rainbow trout unless otherwise specified in the comments section. Start the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/june-fish-stocking-schedule-upper-snake-region-2",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "e84d19bef9650deb86",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-05-27",
+      "report_period": "",
+      "headline": "ICCU, Scheels and F&G partner for special Free Fishing Day gear giveaway",
+      "summary": "Home Press Releases and Articles idfg-rphillips Wednesday, May 27, 2026 - 11:10 AM MDT Idaho Fish and Game’s Free Fishing Day is June 13, and some young anglers will get more than just free fishing. Scheels and ICCU, in partnership with Fish and Game, will give away fishing gear to some anglers 14 years old and younger. Fishing gear giveaways will be available at select locations while supplies last and available on…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/iccu-scheels-and-fg-partner-special-free-fishing-day-gear-giveaway-0",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 60,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "97e56b3817af57af00",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-26",
+      "report_period": "",
+      "headline": "Portion of Lower Salmon River closed for Chinook salmon fishing",
+      "summary": "Home Press Releases and Articles idfg-cliess Tuesday, May 26, 2026 - 3:58 PM MDT The closure is from the Rice Creek Bridge upstream to the Upper Twin Bridge. Idaho Fish and Game closed Chinook salmon fishing on the portion of the Lower Salmon River from the Rice Creek Bridge upstream to the Upper Twin Bridge on Tuesday, May 26 after the sport fishing harvest objective for this section had been reached. Check out the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/portion-lower-salmon-river-closed-chinook-salmon-fishing",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 61,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "97e56b3817af57af00",
+      "state": "Idaho",
+      "counties": [
+        "Cassia",
+        "Idaho",
+        "Twin Falls",
+        "Valley"
+      ],
+      "names": [
+        "Rice Creek"
+      ],
+      "water_name": "Rice Creek",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-26",
+      "report_period": "",
+      "headline": "Portion of Lower Salmon River closed for Chinook salmon fishing",
+      "summary": "Home Press Releases and Articles idfg-cliess Tuesday, May 26, 2026 - 3:58 PM MDT The closure is from the Rice Creek Bridge upstream to the Upper Twin Bridge. Idaho Fish and Game closed Chinook salmon fishing on the portion of the Lower Salmon River from the Rice Creek Bridge upstream to the Upper Twin Bridge on Tuesday, May 26 after the sport fishing harvest objective for this section had been reached. Check out the…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/portion-lower-salmon-river-closed-chinook-salmon-fishing",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 61,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "deff14c84901b871c2",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Upper Salmon River Chinook update - 5/19/2026",
+      "summary": "Home Press Releases and Articles idfg-gschoby Tuesday, May 19, 2026 - 7:17 AM MDT Many of you have been eagerly waiting for an update on the upper Salmon River Chinook run and the potential for fisheries we may be able to offer this summer. Like you, we are anxiously watching dam counts and fish passage at Bonneville Dam on the Columbia River. Our preseason forecasts for Chinook returning to Sawtooth and Pahsimeroi…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/upper-salmon-river-chinook-update-5192026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f998b8ae6ac1c2193a",
+      "state": "Idaho",
+      "counties": [
+        "Adams",
+        "Custer",
+        "Idaho"
+      ],
+      "names": [
+        "Rapid River"
+      ],
+      "water_name": "Rapid River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/19/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Tuesday, May 19, 2026 - 4:54 PM MDT Clearwater, Rapid River, and Hells Canyon IMPORTANT NOTICE: The lower Clearwater River from Cherrylane Bridge downstream to the Camas Prairie Bridge is closed to Chinook Fishing. The rest of the Clearwater River, and the Middle Fork Clearwater River remain open 4 days a week (Thur-Sun) with a 1 adult daily limit. Please read on to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5192026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f998b8ae6ac1c2193a",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater",
+        "Idaho",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Clearwater River"
+      ],
+      "water_name": "Clearwater River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/19/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Tuesday, May 19, 2026 - 4:54 PM MDT Clearwater, Rapid River, and Hells Canyon IMPORTANT NOTICE: The lower Clearwater River from Cherrylane Bridge downstream to the Camas Prairie Bridge is closed to Chinook Fishing. The rest of the Clearwater River, and the Middle Fork Clearwater River remain open 4 days a week (Thur-Sun) with a 1 adult daily limit. Please read on to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5192026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f998b8ae6ac1c2193a",
+      "state": "Idaho",
+      "counties": [
+        "Idaho"
+      ],
+      "names": [
+        "Middle Fork Clearwater River"
+      ],
+      "water_name": "Middle Fork Clearwater River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/19/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Tuesday, May 19, 2026 - 4:54 PM MDT Clearwater, Rapid River, and Hells Canyon IMPORTANT NOTICE: The lower Clearwater River from Cherrylane Bridge downstream to the Camas Prairie Bridge is closed to Chinook Fishing. The rest of the Clearwater River, and the Middle Fork Clearwater River remain open 4 days a week (Thur-Sun) with a 1 adult daily limit. Please read on to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5192026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "f998b8ae6ac1c2193a",
+      "state": "Idaho",
+      "counties": [
+        "Kootenai"
+      ],
+      "names": [
+        "Hells Canyon"
+      ],
+      "water_name": "Hells Canyon",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Spring Chinook Fishery Update (5/19/2026)",
+      "summary": "Home Press Releases and Articles idfg-jthiessen Tuesday, May 19, 2026 - 4:54 PM MDT Clearwater, Rapid River, and Hells Canyon IMPORTANT NOTICE: The lower Clearwater River from Cherrylane Bridge downstream to the Camas Prairie Bridge is closed to Chinook Fishing. The rest of the Clearwater River, and the Middle Fork Clearwater River remain open 4 days a week (Thur-Sun) with a 1 adult daily limit. Please read on to…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/spring-chinook-fishery-update-5192026",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_update",
+      "report_id": "40acdf024b94cf7460",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater",
+        "Idaho",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Clearwater River"
+      ],
+      "water_name": "Clearwater River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Fishing Update",
+      "published_date": "2026-05-19",
+      "report_period": "",
+      "headline": "Portion of mainstem Clearwater River closed for Chinook salmon fishing; adult bag and possession limits reduced",
+      "summary": "Home Press Releases and Articles idfg-cliess Tuesday, May 19, 2026 - 9:26 AM MDT Seasons can change quickly, so be sure to check the most current reports and restrictions before you head out. Idaho Fish and Game closed Chinook salmon fishing on the lower portion of the mainstem Clearwater river from the Camas Prairie Railroad Bridge to Cherrylane Bridge on Tuesday, May 19. Additionally, adult bag and possession…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/portion-mainstem-clearwater-river-closed-chinook-salmon-fishing-adult-bag-and-possession",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "aging",
+      "freshness_days": 68,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "64dad9fd2e1bfcdae6",
+      "state": "Idaho",
+      "counties": [],
+      "names": [
+        "Statewide Idaho"
+      ],
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-05-18",
+      "report_period": "",
+      "headline": "Ain’t No Mountain (Stream) High Enough: A guide to finding the perfect backcountry creekside fishing camp",
+      "summary": "Home Press Releases and Articles idfg-cliess Monday, May 18, 2026 - 9:31 AM MDT Don’t overlook that high-mountain stream or creek next time you’re looking for a backcountry fishing adventure. The dog days of summer are upon us. As the mercury skyrockets and the sun broils us 15 hours a day , few things are more attractive than leaving town and heading into the mountains to dunk a line (and maybe some sweaty feet)…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/aint-no-mountain-stream-high-enough-guide-finding-perfect-backcountry-creekside-fishing-0",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "aging",
+      "freshness_days": 69,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_harvest_report",
+      "report_id": "225193ce12d40523fa",
+      "state": "Idaho",
+      "counties": [
+        "Clearwater",
+        "Idaho",
+        "Lewis",
+        "Nez Perce"
+      ],
+      "names": [
+        "Clearwater River"
+      ],
+      "water_name": "Clearwater River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-04-06",
+      "report_period": "",
+      "headline": "Steelhead harvest report",
+      "summary": "Steelhead Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
       "catches": [
         {
-          "species": "Trout",
-          "metric": "Being caught",
-          "detail": "PowerBait and nightcrawlers"
-        },
-        {
-          "species": "Bass",
-          "metric": "A few reported",
-          "detail": "caught on jigs"
+          "species": "Steelhead",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "This report is older and should be treated as historical context."
-      ],
-      "source_url": "https://www.ndow.org/waters/eagle-valley-reservoir/",
-      "specificity": "Exact reservoir report",
+      "conditions": [],
+      "rating": "",
+      "species": "Steelhead",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/steelhead/harvest",
+      "specificity": "Matched Idaho public water",
       "freshness_status": "stale",
-      "freshness_days": 172,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/eagle-valley-reservoir/",
-      "source_etag": "\"db91-65723e7151798\"",
-      "source_last_modified": "Tue, 21 Jul 2026 19:19:32 GMT",
-      "source_page_title": "Eagle Valley Reservoir - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:02+00:00",
-      "source_page_modified": "2026-06-03T15:47:05+00:00",
-      "source_content_hash": "6d61f8131271e22866a7d2d2a35d78db0094034e39ff678095fdc27fb78c8cce",
-      "source_excerpt": "Eagle Valley Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulation",
-      "source_response_ms": 140
+      "freshness_days": 111,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Squaw Valley Creek Reservoir",
-        "Squaw Valley Reservoir",
-        "Squaw Creek Reservoir"
+      "report_kind": "official_harvest_report",
+      "report_id": "225193ce12d40523fa",
+      "state": "Idaho",
+      "counties": [
+        "Blaine",
+        "Custer",
+        "Idaho",
+        "Lemhi",
+        "Lewis",
+        "Nez Perce"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Current NDOW report available July 2026",
-      "headline": "Squaw Valley reservoir fishing was good for both trout and bass.",
-      "summary": "NDOW reported trout fishing best near the dam where deeper water was accessible, with bass fishing also producing.",
+      "names": [
+        "Salmon River"
+      ],
+      "water_name": "Salmon River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-04-06",
+      "report_period": "",
+      "headline": "Steelhead harvest report",
+      "summary": "Steelhead Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
       "catches": [
         {
-          "species": "Trout",
-          "metric": "Good fishing reported",
-          "detail": "best near the dam"
-        },
-        {
-          "species": "Bass",
-          "metric": "Good fishing reported",
-          "detail": "current seasonal report"
+          "species": "Steelhead",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Use current access and water-level information before traveling."
-      ],
-      "source_url": "https://www.ndow.org/waters/lake-tahoe/",
-      "specificity": "Exact reservoir report",
-      "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/lake-tahoe/",
-      "source_etag": "\"fcda-657601679bd90\"",
-      "source_last_modified": "Fri, 24 Jul 2026 19:07:45 GMT",
-      "source_page_title": "Lake Tahoe - Sand Harbor - Nevada Department of Wildlife",
-      "source_page_published": "2021-10-31T18:43:04+00:00",
-      "source_page_modified": "2026-07-24T18:54:49+00:00",
-      "source_content_hash": "5152a8ede2c78493651c8b1e22776685a801d3e6e0c26b65047ad142cc66ecc1",
-      "source_excerpt": "Lake Tahoe - Sand Harbor - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulati",
-      "source_response_ms": 136
+      "conditions": [],
+      "rating": "",
+      "species": "Steelhead",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/steelhead/harvest",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "stale",
+      "freshness_days": 111,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
-      "names": [
-        "Wall Canyon Reservoir"
+      "report_kind": "official_harvest_report",
+      "report_id": "225193ce12d40523fa",
+      "state": "Idaho",
+      "counties": [
+        "Canyon",
+        "Owyhee"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official waterbody fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Current NDOW report available July 2026",
-      "headline": "Wall Canyon fishing was fair for trout and good for bass.",
-      "summary": "NDOW reported the best cold- and warm-water fishing early and late in the day.",
+      "names": [
+        "Snake River"
+      ],
+      "water_name": "Snake River",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Harvest Report",
+      "published_date": "2026-04-06",
+      "report_period": "",
+      "headline": "Steelhead harvest report",
+      "summary": "Steelhead Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For…",
       "catches": [
         {
-          "species": "Trout",
-          "metric": "Fair fishing",
-          "detail": "best early and late"
-        },
-        {
-          "species": "Bass",
-          "metric": "Good fishing",
-          "detail": "best early and late"
+          "species": "Steelhead",
+          "metric": "Reported",
+          "detail": ""
         }
       ],
-      "conditions": [
-        "Crayfish imitations were among the recommended presentations."
-      ],
-      "source_url": "https://www.ndow.org/waters/kiley-ranch-pond/",
-      "specificity": "Exact reservoir report",
-      "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/kiley-ranch-pond/",
-      "source_etag": "\"ec1d-6572abccb54c8\"",
-      "source_last_modified": "Wed, 22 Jul 2026 03:28:47 GMT",
-      "source_page_title": "Battle Born Pond - Nevada Department of Wildlife",
-      "source_page_published": "2023-05-30T16:47:28+00:00",
-      "source_page_modified": "2026-05-20T20:18:30+00:00",
-      "source_content_hash": "a4a30724766fd33bd4e81c172ba3efe10aa4c45e1ff0e8ffcc7cdda81c58d2fd",
-      "source_excerpt": "Battle Born Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Lice",
-      "source_response_ms": 149
+      "conditions": [],
+      "rating": "",
+      "species": "Steelhead",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/fish/steelhead/harvest",
+      "specificity": "Matched Idaho public water",
+      "freshness_status": "stale",
+      "freshness_days": 111,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Nevada",
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "b3ce992a704603005e",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Mason Valley Hatchery Outponds",
-        "Mason Valley Outponds"
+        "Statewide Idaho"
       ],
-      "agency": "Nevada Department of Wildlife",
-      "report_type": "Official pond fishing report",
-      "published_date": "2026-07-15",
-      "report_period": "Report dated July 15, 2026",
-      "headline": "Mason Valley outpond trout fishing was reported as usually good, with occasional bass.",
-      "summary": "NDOW reported that the ponds are stocked with rainbow trout before May and also contain largemouth bass that are occasionally caught.",
-      "catches": [
-        {
-          "species": "Rainbow trout",
-          "metric": "Usually good fishing",
-          "detail": "seasonal stocked fishery"
-        },
-        {
-          "species": "Largemouth bass",
-          "metric": "Occasionally caught",
-          "detail": "pond fishery"
-        }
-      ],
-      "conditions": [
-        "Seasonal closure dates must be checked before fishing."
-      ],
-      "source_url": "https://www.ndow.org/waters/mason-valley-hatchery-outponds/",
-      "specificity": "Exact pond report",
-      "freshness_status": "current",
-      "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://www.ndow.org/waters/mason-valley-hatchery-outponds/",
-      "source_etag": "\"e4f6-65724a03f3118\"",
-      "source_last_modified": "Tue, 21 Jul 2026 20:11:19 GMT",
-      "source_page_title": "Mason Valley Hatchery Outponds - Nevada Department of Wildlife",
-      "source_page_published": "2022-07-08T23:17:05+00:00",
-      "source_page_modified": "2026-04-17T18:18:10+00:00",
-      "source_content_hash": "a3b9d0e3557486fe15f482a24100668acf06934d17558626c0aa5ef1fd51db40",
-      "source_excerpt": "Mason Valley Hatchery Outponds - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Re",
-      "source_response_ms": 152
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-04-01",
+      "report_period": "",
+      "headline": "The opportunity to fish for some of the state’s biggest bass is now",
+      "summary": "Home Press Releases and Articles idfg-cliess Wednesday, April 1, 2026 - 8:00 AM MDT And you don’t need to be a seasoned tournament pro to be successful. During spring, the local weatherman stands before a green screen, strategically circling portions of the state with high and low pressure systems. Predicting spring weather in Idaho can be all over the map. While it might be weeks before most anglers wait for those…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/opportunity-fish-some-states-biggest-bass-now",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "stale",
+      "freshness_days": 116,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     },
     {
-      "state": "Washington",
+      "report_kind": "official_statewide_or_regional_update",
+      "report_id": "8b4209704a2348a535",
+      "state": "Idaho",
+      "counties": [],
       "names": [
-        "Armeni Public Ramp",
-        "Armeni Ramp",
-        "West Seattle",
-        "Seattle Elliott Bay"
+        "Statewide Idaho"
       ],
-      "agency": "Washington Department of Fish and Wildlife",
-      "report_type": "Puget Sound raw creel interview data",
-      "published_date": "2026-07-17",
-      "report_period": "July 17, 2026 sample",
-      "headline": "Armeni Public Ramp samplers recorded four coho from four anglers.",
-      "summary": "WDFW raw creel data listed two interviews, four anglers and four coho in Marine Area 10, the Seattle–Bremerton area.",
-      "catches": [
-        {
-          "species": "Coho salmon",
-          "metric": "4 fish",
-          "detail": "four sampled anglers"
-        },
-        {
-          "species": "Coho salmon",
-          "metric": "1.0 fish per angler",
-          "detail": "raw sample rate"
-        }
-      ],
-      "conditions": [
-        "WDFW labels these figures as raw data subject to QA/QC changes."
-      ],
-      "source_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "specificity": "Armeni Public Ramp / Marine Area 10",
-      "freshness_status": "current",
-      "freshness_days": 9,
-      "last_checked_at": "2026-07-26T03:39:10Z",
-      "source_status": "ok",
-      "review_required": false,
-      "source_http_status": 200,
-      "source_error": null,
-      "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785037159\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
-      "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "source_page_published": null,
-      "source_page_modified": null,
-      "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
-      "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 821
+      "water_name": "",
+      "agency": "Idaho Fish and Game",
+      "report_type": "Official Statewide Or Regional Update",
+      "published_date": "2026-02-25",
+      "report_period": "",
+      "headline": "How are mountain whitefish populations doing in Idaho?",
+      "summary": "Home Press Releases and Articles idfg-kmeyer Wednesday, February 25, 2026 - 10:42 AM MST Fisheries biologists use the term “salmonids” to refer to members of the biological family that includes salmon and steelhead, trout, grayling, and whitefish. In Idaho, we have many different species of native and nonnative salmonids, but by far the group that gets the least attention from anglers is whitefish. You might be…",
+      "catches": [],
+      "conditions": [],
+      "rating": "",
+      "species": "",
+      "techniques": "",
+      "source_url": "https://idfg.idaho.gov/article/how-are-mountain-whitefish-populations-doing-idaho",
+      "specificity": "Statewide or multi-water Idaho report",
+      "freshness_status": "stale",
+      "freshness_days": 151,
+      "last_checked_at": "2026-07-26T03:59:17Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
     }
-  ],
-  "source_monitor_last_run": "2026-07-26T03:39:10Z",
-  "source_monitor_mode": "live"
+  ]
 };
