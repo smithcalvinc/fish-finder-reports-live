@@ -677,6 +677,207 @@ def assemble_database(waters: dict[tuple[str, str], dict[str, Any]], reports: li
     }
 
 
+
+def validate_community_layer_schema() -> int:
+    """Fail when Utah DWR changes or removes fields required by this builder."""
+    payload = request_json(f"{COMMUNITY_LAYER}?f=pjson")
+    fields = {
+        clean(field.get("name")).lower()
+        for field in (payload.get("fields") or [])
+        if isinstance(field, dict)
+    }
+    if "county" not in fields:
+        raise RuntimeError("Community-fisheries GIS schema is missing County")
+    if not ({"watername", "wtrname"} & fields):
+        raise RuntimeError("Community-fisheries GIS schema is missing WaterName/WTRNAME")
+    geometry_type = clean(payload.get("geometryType")).lower()
+    if geometry_type and "point" not in geometry_type:
+        raise RuntimeError(
+            f"Community-fisheries GIS geometry changed unexpectedly: {geometry_type}"
+        )
+    if len(fields) < 5:
+        raise RuntimeError(
+            f"Community-fisheries GIS returned only {len(fields)} fields"
+        )
+    return len(fields)
+
+
+def validate_news_page() -> int:
+    """Confirm the Utah DWR news page is healthy, even when no fishing story is current."""
+    if BeautifulSoup is None:
+        raise RuntimeError("beautifulsoup4 is required")
+    soup = BeautifulSoup(request_text(OFFICIAL_URLS["news"]), "html.parser")
+    article_urls = set()
+    for heading in soup.find_all(["h2", "h3", "h4"]):
+        anchor = heading.find("a", href=True) or heading.find_parent("a", href=True)
+        if not anchor:
+            continue
+        title = clean(heading.get_text(" ", strip=True))
+        href = urljoin(OFFICIAL_URLS["news"], clean(anchor.get("href")))
+        if title and href.startswith("http"):
+            article_urls.add(href)
+    if len(article_urls) < 5:
+        raise RuntimeError(
+            f"Utah DWR news page exposed only {len(article_urls)} article links"
+        )
+    return len(article_urls)
+
+
+def current_year_stocking_minimums(month: int | None = None) -> tuple[int, int]:
+    """Season-aware minimums so January is not treated like peak stocking season."""
+    month = month or datetime.now(timezone.utc).month
+    minimum_events = {
+        1: 0, 2: 5, 3: 20, 4: 50, 5: 100, 6: 150,
+        7: 200, 8: 225, 9: 250, 10: 275, 11: 300, 12: 300,
+    }[month]
+    minimum_waters = {
+        1: 0, 2: 2, 3: 8, 4: 18, 5: 35, 6: 50,
+        7: 70, 8: 75, 9: 80, 10: 85, 11: 90, 12: 90,
+    }[month]
+    return minimum_waters, minimum_events
+
+
+def validate_map_data(db: dict[str, Any]) -> dict[str, int]:
+    invalid_coordinates: list[str] = []
+    invalid_urls: list[str] = []
+    water_coordinate_count = 0
+    access_coordinate_count = 0
+
+    for water in db.get("flat_waters") or []:
+        label = f"{clean(water.get('county'))}: {clean(water.get('water_name'))}"
+        lat, lon = water.get("latitude"), water.get("longitude")
+        has_lat = lat not in (None, "")
+        has_lon = lon not in (None, "")
+        if has_lat != has_lon:
+            invalid_coordinates.append(f"{label} has only one coordinate")
+        elif has_lat:
+            if not valid_lon_lat(lon, lat):
+                invalid_coordinates.append(f"{label} has out-of-Utah coordinates {lat},{lon}")
+            else:
+                water_coordinate_count += 1
+
+        for point in water.get("access_points") or []:
+            point_name = clean(point.get("access_point_name")) or label
+            plat, plon = point.get("latitude"), point.get("longitude")
+            has_plat = plat not in (None, "")
+            has_plon = plon not in (None, "")
+            if has_plat != has_plon:
+                invalid_coordinates.append(f"{point_name} has only one coordinate")
+            elif has_plat:
+                if not valid_lon_lat(plon, plat):
+                    invalid_coordinates.append(
+                        f"{point_name} has out-of-Utah coordinates {plat},{plon}"
+                    )
+                else:
+                    access_coordinate_count += 1
+
+            directions = clean(point.get("directions_url"))
+            lowered = directions.lower().replace("%2c", ",").replace("%20", " ")
+            if any(token in lowered for token in (
+                "query=null", "query=undefined", "query=,", "query=0,0",
+                "destination=null", "destination=undefined",
+            )):
+                invalid_urls.append(f"{point_name}: {directions}")
+
+    if invalid_coordinates:
+        raise RuntimeError(
+            "Invalid Utah coordinate data: " + "; ".join(invalid_coordinates[:10])
+        )
+    if invalid_urls:
+        raise RuntimeError(
+            "Invalid Utah map URLs: " + "; ".join(invalid_urls[:10])
+        )
+
+    return {
+        "water_coordinates": water_coordinate_count,
+        "access_coordinates": access_coordinate_count,
+    }
+
+
+def validate_live_build(
+    db: dict[str, Any],
+    source_counts: dict[str, int],
+    failed_sources: list[str],
+    current_year: int,
+) -> dict[str, Any]:
+    """Refuse partial, empty, malformed or geographically unsafe live builds."""
+    if failed_sources:
+        raise RuntimeError(
+            "Required Utah source failures: " + " | ".join(failed_sources)
+        )
+
+    current_water_min, current_event_min = current_year_stocking_minimums()
+    minimums = {
+        f"stocking_{current_year}_waters": current_water_min,
+        f"stocking_{current_year}_events": current_event_min,
+        f"stocking_{current_year - 1}_waters": 150,
+        f"stocking_{current_year - 1}_events": 500,
+        "community_schema_fields": 5,
+        "community_fisheries": 20,
+        "accessible_fishing": 15,
+        "utah_dwr_news_articles_scanned": 5,
+    }
+
+    shortfalls = []
+    for key, minimum in minimums.items():
+        actual = int(source_counts.get(key, 0) or 0)
+        if actual < minimum:
+            shortfalls.append(f"{key}={actual}, expected at least {minimum}")
+    if shortfalls:
+        raise RuntimeError("Utah source-count validation failed: " + "; ".join(shortfalls))
+
+    counties = db.get("counties") or []
+    if db.get("county_count") != 29 or len(counties) != 29:
+        raise RuntimeError("Utah database did not create all 29 county shells")
+    if [row.get("county") for row in counties] != COUNTIES:
+        raise RuntimeError("Utah county order is not Beaver through Weber")
+
+    public_water_count = int(db.get("public_water_count", 0) or 0)
+    report_count = int(db.get("report_count", 0) or 0)
+    if public_water_count < 200:
+        raise RuntimeError(
+            f"Utah build produced only {public_water_count} public waters"
+        )
+    if report_count < 500:
+        raise RuntimeError(
+            f"Utah build produced only {report_count} report records"
+        )
+
+    populated_counties = sum(
+        1 for county in counties if int(county.get("public_water_count", 0) or 0) > 0
+    )
+    if populated_counties < 25:
+        raise RuntimeError(
+            f"Only {populated_counties} of 29 Utah counties contain water records"
+        )
+
+    map_counts = validate_map_data(db)
+    page = county_page_html()
+    required_page_tokens = (
+        "function validCoordinate",
+        "function mapPoint",
+        "const mapHtml=map?",
+        "36.7,42.2",
+        "-114.3,-108.7",
+    )
+    missing_tokens = [token for token in required_page_tokens if token not in page]
+    if missing_tokens:
+        raise RuntimeError(
+            "Utah map-safety code is incomplete: " + ", ".join(missing_tokens)
+        )
+    if "Number.isFinite(Number(w.latitude))" in page:
+        raise RuntimeError("Old null-to-zero map-link logic is still present")
+
+    return {
+        "passed": True,
+        "public_water_count": public_water_count,
+        "report_count": report_count,
+        "populated_counties": populated_counties,
+        "source_minimums": minimums,
+        **map_counts,
+    }
+
+
 def write_json(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -799,55 +1000,84 @@ def main() -> int:
     parser.add_argument("--output-dir", default="data")
     parser.add_argument("--skip-network", action="store_true")
     args = parser.parse_args()
+
     root = Path(args.root).resolve()
     output_dir = (root / args.output_dir).resolve()
     generated_at = now_iso()
     warnings: list[str] = []
     failed_sources: list[str] = []
     source_counts: dict[str, int] = {}
-
     sources: list[dict[str, Any]] = []
     reports: list[dict[str, Any]] = []
+    current_year = datetime.now(timezone.utc).year
+
     if not args.skip_network:
-        current_year = datetime.now(timezone.utc).year
         for year in (current_year, current_year - 1):
             try:
                 water_rows, event_rows = collect_stocking(year)
-                sources.extend(water_rows); reports.extend(event_rows)
+                sources.extend(water_rows)
+                reports.extend(event_rows)
                 source_counts[f"stocking_{year}_waters"] = len(water_rows)
                 source_counts[f"stocking_{year}_events"] = len(event_rows)
             except Exception as exc:
                 failed_sources.append(f"stocking_{year}: {exc}")
+
         try:
-            rows = collect_community_fisheries(); sources.extend(rows); source_counts["community_fisheries"] = len(rows)
+            source_counts["community_schema_fields"] = validate_community_layer_schema()
+            rows = collect_community_fisheries()
+            sources.extend(rows)
+            source_counts["community_fisheries"] = len(rows)
         except Exception as exc:
             failed_sources.append(f"community_fisheries: {exc}")
+
         try:
-            rows = collect_accessible_fishing(); sources.extend(rows); source_counts["accessible_fishing"] = len(rows)
+            rows = collect_accessible_fishing()
+            sources.extend(rows)
+            source_counts["accessible_fishing"] = len(rows)
         except Exception as exc:
             failed_sources.append(f"accessible_fishing: {exc}")
+
     waters = merge_water_sources(sources)
     water_keys: dict[str, list[tuple[str, str]]] = defaultdict(list)
     for (county, _), row in waters.items():
         water_keys[norm(row["water_name"])].append((county, row["water_name"]))
+
     if not args.skip_network:
         try:
-            news = collect_news(water_keys); reports.extend(news); source_counts["utah_dwr_news"] = len(news)
+            source_counts["utah_dwr_news_articles_scanned"] = validate_news_page()
+            news = collect_news(water_keys)
+            reports.extend(news)
+            source_counts["utah_dwr_fishing_news_reports"] = len(news)
         except Exception as exc:
             failed_sources.append(f"utah_dwr_news: {exc}")
 
     db = assemble_database(waters, reports, generated_at)
     if db["county_count"] != 29 or len(db["counties"]) != 29:
         raise RuntimeError("Utah database did not create all 29 county shells")
+
+    if args.skip_network:
+        validation = {
+            "passed": True,
+            "mode": "offline_shell_test",
+            "county_count": db["county_count"],
+        }
+        deployment_status = "offline_test_only"
+    else:
+        validation = validate_live_build(
+            db, source_counts, failed_sources, current_year
+        )
+        deployment_status = "validated_ready_to_commit"
+
     status = {
         "generated_at": generated_at,
         "state": STATE,
         "completed": [
             "Verified official 29-county order",
             "Built official Utah DWR stocking collector",
-            "Built official community-fisheries GIS collector",
+            "Validated community-fisheries GIS schema and records",
             "Built accessible-fishing collector",
-            "Built official fishing-news collector",
+            "Validated Utah DWR news page and fishing-news collector",
+            "Rejected blank, malformed and out-of-Utah map coordinates",
             "Built county-by-county Utah page",
             "Installed multi-state admin integration",
             "Updated navigation, sitemap and PWA cache",
@@ -855,11 +1085,14 @@ def main() -> int:
         ],
         "known_issues": warnings,
         "failed_sources": failed_sources,
-        "deployment_status": "ready_to_commit",
+        "deployment_status": deployment_status,
         "public_water_count": db["public_water_count"],
         "report_count": db["report_count"],
         "source_counts": source_counts,
+        "validation": validation,
     }
+
+    # No generated or existing site file is touched until all strict live checks pass.
     write_outputs(root, output_dir, db, status)
     patch_site_files(root)
     run_admin_builder(root)
