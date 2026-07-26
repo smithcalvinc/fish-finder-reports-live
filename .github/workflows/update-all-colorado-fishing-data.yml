@@ -1,0 +1,147 @@
+name: Update All Colorado Fishing Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build_colorado_fishing_data.py"
+      - ".github/workflows/update-all-colorado-fishing-data.yml"
+  schedule:
+    - cron: "47 14 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: all-colorado-fishing-data
+  cancel-in-progress: false
+
+jobs:
+  update-all-colorado-fishing-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install official-page parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
+
+      - name: Build Colorado county, public-access and fishing-report data
+        run: |
+          python build_colorado_fishing_data.py \
+            --root . \
+            --output-dir data
+
+      - name: Validate all Colorado sources, counties, maps and integration files
+        shell: bash
+        run: |
+          test -s data/colorado_counties.csv
+          test -s config/colorado_counties.json
+          test -s data/colorado_public_fishing_access.json
+          test -s data/colorado_public_fishing_access.js
+          test -s data/colorado_fishing_report_database.json
+          test -s data/colorado_fishing_report_database.js
+          test -s data/colorado_fishing_report_database.csv
+          test -s data/colorado_project_status.json
+          test -s colorado-county-reports.html
+          test -s recent_fishing_reports.js
+          test -s update_status.js
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          access = json.loads(Path("data/colorado_public_fishing_access.json").read_text())
+          reports = json.loads(Path("data/colorado_fishing_report_database.json").read_text())
+          status = json.loads(Path("data/colorado_project_status.json").read_text())
+
+          assert access["county_count"] == 64
+          assert reports["county_count"] == 64
+          assert len(access["counties"]) == 64
+          assert len(reports["counties"]) == 64
+          assert [c["county_number"] for c in reports["counties"]] == list(range(1, 65))
+          assert reports["counties"][0]["county"] == "Adams"
+          assert reports["counties"][-1]["county"] == "Yuma"
+          assert reports["metadata"]["public_access_only"] is True
+
+          assert status["deployment_status"] == "validated_ready_to_commit"
+          assert status["failed_sources"] == []
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["populated_counties"] >= 48
+          assert status["source_counts"]["accessible_page_regions"] == 4
+          assert reports["public_water_count"] >= 500
+          assert reports["report_count"] >= 50
+
+          def valid(lon, lat):
+              try:
+                  return -109.2 <= float(lon) <= -101.9 and 36.9 <= float(lat) <= 41.1
+              except (TypeError, ValueError):
+                  return False
+
+          for water in reports["flat_waters"]:
+              lat, lon = water.get("latitude"), water.get("longitude")
+              if lat not in (None, "") or lon not in (None, ""):
+                  assert lat not in (None, "") and lon not in (None, "")
+                  assert valid(lon, lat), (water.get("water_name"), lat, lon)
+              for point in water.get("access_points") or []:
+                  plat, plon = point.get("latitude"), point.get("longitude")
+                  if plat not in (None, "") or plon not in (None, ""):
+                      assert plat not in (None, "") and plon not in (None, "")
+                      assert valid(plon, plat), (point.get("access_point_name"), plat, plon)
+                  url = str(point.get("directions_url") or "").lower().replace("%2c", ",")
+                  assert "query=null" not in url
+                  assert "query=undefined" not in url
+                  assert "query=0,0" not in url
+                  assert "query=," not in url
+
+          page = Path("colorado-county-reports.html").read_text()
+          assert "function validCoordinate" in page
+          assert "function mapPoint" in page
+          assert "Number.isFinite(Number(w.latitude))" not in page
+
+          update_text = Path("update_status.js").read_text()
+          match = re.search(r"window\.FFO_UPDATE_STATUS\s*=\s*(\{.*\})\s*;", update_text, re.S)
+          assert match, "Could not parse update_status.js"
+          admin = json.loads(match.group(1))
+          states = {row["state"] for row in admin.get("states", [])}
+          assert {"Idaho", "Montana", "Utah", "Colorado"}.issubset(states)
+          assert admin["state_count"] >= 4
+
+          print("Colorado public waters:", reports["public_water_count"])
+          print("Colorado report records:", reports["report_count"])
+          print("Colorado populated counties:", status["validation"]["populated_counties"])
+          print("Admin states:", sorted(states))
+          PY
+          git diff --check
+
+      - name: Commit Colorado data and website integration
+        shell: bash
+        run: |
+          FILES=(
+            data/colorado_*
+            config/colorado_*
+            colorado-county-reports.html
+            brand-shell.js
+            service-worker.js
+            sitemap.xml
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
+            echo "No Colorado fishing-data changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Colorado Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${FILES[@]}"
+          git commit -m "Add or update Colorado public fishing access and reports"
+          git push
