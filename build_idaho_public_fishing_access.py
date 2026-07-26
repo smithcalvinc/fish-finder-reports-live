@@ -328,7 +328,7 @@ def make_lake_records(rows: list[dict[str, Any]], family_keys: set[str], generat
             "longitude": lon,
             "public_access": True,
             "public_access_verification": "explicit_IDFG_Access_field_public",
-            "family_fishing_water": norm_key(name) in family_keys,
+            "family_fishing_water": boolish(row.get("FFW")) is True or norm_key(name) in family_keys,
             "recommended_fishing_water": boolish(row.get("RFW")),
             "facilities_inventoried": False,
             "access_details": notes,
@@ -395,7 +395,7 @@ def make_stream_records(
             "longitude": None,
             "public_access": True,
             "public_access_verification": "explicit_IDFG_Access_field_public",
-            "family_fishing_water": norm_key(name) in family_keys,
+            "family_fishing_water": boolish(row.get("FFW")) is True or norm_key(name) in family_keys,
             "recommended_fishing_water": boolish(row.get("RFW")),
             "facilities_inventoried": False,
             "access_details": notes,
@@ -678,16 +678,37 @@ def main() -> int:
                 "OBJECTID,HydroID,LLID,NAME,Variants,PName,Drainage,Counties,Regions,Status",
                 order_field="OBJECTID",
             )
-            family_lakes = fetch_all(
-                SOURCES["idfg_family_lakes"]["query"],
-                "OBJECTID,NAME,Variant,VARIANT2,LLID,COUNTY_NAME,REGION_ID,LONG,LAT",
-                order_field="OBJECTID",
-            )
-            family_streams = fetch_all(
-                SOURCES["idfg_family_streams"]["query"],
-                "OBJECTID,HydroID,LLID,NAME,Variants,Counties,Regions",
-                order_field="OBJECTID",
-            )
+            # These two Family Fishing Waters layers are useful enrichment, but
+            # they are not required to build the verified public-access database.
+            # IDFG's ArcGIS service can occasionally return a 400 query error for
+            # these helper layers. The primary lake and stream sources already
+            # include the official FFW field, so continue safely when either helper
+            # layer is temporarily unavailable.
+            try:
+                family_lakes = fetch_all(
+                    SOURCES["idfg_family_lakes"]["query"],
+                    "OBJECTID,NAME,Variant,VARIANT2,LLID,COUNTY_NAME,REGION_ID,LONG,LAT",
+                    order_field="OBJECTID",
+                )
+            except Exception as exc:
+                family_lakes = []
+                report["warnings"].append(
+                    "Family Fishing Waters lake helper layer unavailable; "
+                    f"using the official FFW field from the main lake source instead: {exc}"
+                )
+
+            try:
+                family_streams = fetch_all(
+                    SOURCES["idfg_family_streams"]["query"],
+                    "OBJECTID,HydroID,LLID,NAME,Variants,Counties,Regions",
+                    order_field="OBJECTID",
+                )
+            except Exception as exc:
+                family_streams = []
+                report["warnings"].append(
+                    "Family Fishing Waters stream helper layer unavailable; "
+                    f"using the official FFW field from the main stream source instead: {exc}"
+                )
 
         report["source_counts"] = {
             "access_sites_downloaded": len(access_sites),
