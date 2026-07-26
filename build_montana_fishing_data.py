@@ -295,12 +295,25 @@ def ring_contains(lon: float, lat: float, ring: list[list[float]]) -> bool:
     return inside
 
 
+def canonical_county_name(value: Any) -> str:
+    """Return our canonical Montana county spelling for any official name variant."""
+    text = clean(value)
+    text = re.sub(r"\s+county$", "", text, flags=re.I)
+    key = norm(text)
+    return {norm(name): name for name in COUNTIES}.get(key, "")
+
+
 def county_geometries(features: list[dict[str, Any]]) -> list[dict[str, Any]]:
     results = []
     for feature in features:
         attrs = feature.get("attributes") or {}
-        name = clean(attrs.get("NAME") or attrs.get("BASENAME"))
-        if name not in COUNTY_NUMBER:
+        name = canonical_county_name(
+            attrs.get("NAME")
+            or attrs.get("County")
+            or attrs.get("NAMELABEL")
+            or attrs.get("BASENAME")
+        )
+        if not name:
             continue
         rings = feature.get("geometry", {}).get("rings") or []
         points = [p for ring in rings for p in ring if isinstance(p, list) and len(p) >= 2]
@@ -313,11 +326,27 @@ def county_geometries(features: list[dict[str, Any]]) -> list[dict[str, Any]]:
             "rings": rings,
             "bbox": (min(xs), min(ys), max(xs), max(ys)),
         })
-    found = {row["name"] for row in results}
-    missing = [name for name in COUNTIES if name not in found]
+
+    deduped = {row["name"]: row for row in results}
+    ordered = [deduped[name] for name in COUNTIES if name in deduped]
+    missing = [name for name in COUNTIES if name not in deduped]
     if missing:
-        raise RuntimeError("Official county layer is missing: " + ", ".join(missing))
-    return results
+        observed = sorted({
+            clean(
+                (feature.get("attributes") or {}).get("NAME")
+                or (feature.get("attributes") or {}).get("County")
+                or (feature.get("attributes") or {}).get("NAMELABEL")
+                or (feature.get("attributes") or {}).get("BASENAME")
+            )
+            for feature in features
+        })
+        raise RuntimeError(
+            "Official county layer is missing: "
+            + ", ".join(missing)
+            + ". County names returned by the service: "
+            + ", ".join(name for name in observed if name)
+        )
+    return ordered
 
 
 def county_for_point(lon: float | None, lat: float | None, counties: list[dict[str, Any]]) -> str:
@@ -1394,7 +1423,7 @@ def main() -> int:
             access_db, report_db = bootstrap_databases(generated_at)
             source_counts["mode"] = 0
         else:
-            county_features = arcgis_features(COUNTY_LAYER, out_fields="NAME", return_geometry=True)
+            county_features = arcgis_features(COUNTY_LAYER, out_fields="NAME,County,NAMELABEL", return_geometry=True)
             source_counts["official_county_polygons"] = len(county_features)
             county_shapes = county_geometries(county_features)
             water_map, access_points, raw_events = collect_official_gis(
