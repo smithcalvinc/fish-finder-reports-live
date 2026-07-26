@@ -1,0 +1,98 @@
+{
+  "state": "Wyoming",
+  "county_count": 23,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Albany"
+    },
+    {
+      "county_number": 2,
+      "county": "Big Horn"
+    },
+    {
+      "county_number": 3,
+      "county": "Campbell"
+    },
+    {
+      "county_number": 4,
+      "county": "Carbon"
+    },
+    {
+      "county_number": 5,
+      "county": "Converse"
+    },
+    {
+      "county_number": 6,
+      "county": "Crook"
+    },
+    {
+      "county_number": 7,
+      "county": "Fremont"
+    },
+    {
+      "county_number": 8,
+      "county": "Goshen"
+    },
+    {
+      "county_number": 9,
+      "county": "Hot Springs"
+    },
+    {
+      "county_number": 10,
+      "county": "Johnson"
+    },
+    {
+      "county_number": 11,
+      "county": "Laramie"
+    },
+    {
+      "county_number": 12,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 13,
+      "county": "Natrona"
+    },
+    {
+      "county_number": 14,
+      "county": "Niobrara"
+    },
+    {
+      "county_number": 15,
+      "county": "Park"
+    },
+    {
+      "county_number": 16,
+      "county": "Platte"
+    },
+    {
+      "county_number": 17,
+      "county": "Sheridan"
+    },
+    {
+      "county_number": 18,
+      "county": "Sublette"
+    },
+    {
+      "county_number": 19,
+      "county": "Sweetwater"
+    },
+    {
+      "county_number": 20,
+      "county": "Teton"
+    },
+    {
+      "county_number": 21,
+      "county": "Uinta"
+    },
+    {
+      "county_number": 22,
+      "county": "Washakie"
+    },
+    {
+      "county_number": 23,
+      "county": "Weston"
+    }
+  ]
+}
