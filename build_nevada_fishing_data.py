@@ -586,10 +586,99 @@ def extract_water_urls(text: str, base: str = "") -> set[str]:
     return urls
 
 
-def discover_fishnv_water_urls(extra_html: Iterable[str] = ()) -> tuple[list[str], dict[str, int]]:
-    urls: set[str] = set()
+# FishNV does not currently publish a complete sitemap or a public list endpoint.
+# Its official water record IDs are grouped into these established route blocks.
+# The fallback below checks only FishNV itself and accepts only real /waters/<id>
+# pages. It does not make any public-access claim; access remains independently
+# verified later in the build.
+FISHNV_ROUTE_RANGES = (
+    (1000, 2099),
+    (3000, 3499),
+    (4000, 4099),
+)
+
+
+def probe_fishnv_water_url(url: str) -> bool:
+    """Return True only when FishNV confirms an exact water-detail route.
+
+    HEAD filters obvious missing routes, then a small ranged GET confirms the
+    page is a real FishNV water record. Servers that reject HEAD fall through
+    to the same ranged GET. Redirects to the homepage or another record are
+    rejected.
+    """
+    expected = canonical_url(url).rstrip("/")
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.5",
+    }
+    try:
+        req = Request(expected, headers=headers, method="HEAD")
+        with urlopen(req, timeout=20) as response:
+            final = canonical_url(response.geturl()).rstrip("/")
+            status = int(getattr(response, "status", 200) or 200)
+        if status != 200 or final != expected:
+            return False
+    except HTTPError as exc:
+        if exc.code not in {403, 405, 501}:
+            return False
+    except (URLError, TimeoutError, OSError):
+        return False
+
+    try:
+        get_headers = dict(headers)
+        get_headers["Range"] = "bytes=0-65535"
+        req = Request(expected, headers=get_headers)
+        with urlopen(req, timeout=25) as response:
+            final = canonical_url(response.geturl()).rstrip("/")
+            status = int(getattr(response, "status", 200) or 200)
+            sample = response.read(65536).decode("utf-8", errors="replace")
+        if status not in {200, 206} or final != expected:
+            return False
+        # A real record is server-rendered with a water heading and FishNV
+        # water-detail labels. This rejects branded 404 or homepage responses.
+        soup = soup_for(sample)
+        headings = [clean(node.get_text(" ", strip=True)) for node in soup.find_all(["h1", "h2"])[:12]]
+        water_headings = [heading for heading in headings if norm(heading) not in {"", "fishnv", "get online", "get outside"}]
+        page_text = clean(soup.get_text(" ", strip=True)).lower()
+        return bool(water_headings and ("nearby waters" in page_text or "water details" in page_text))
+    except (HTTPError, URLError, TimeoutError, OSError, RuntimeError):
+        return False
+
+
+def probe_fishnv_route_blocks(workers: int = 12) -> tuple[set[str], int]:
+    candidates = [
+        canonical_url(f"/waters/{water_number}", OFFICIAL_URLS["fishnv"]).rstrip("/")
+        for start, end in FISHNV_ROUTE_RANGES
+        for water_number in range(start, end + 1)
+    ]
+    found: set[str] = set()
+    with ThreadPoolExecutor(max_workers=max(1, min(workers, 12))) as executor:
+        future_map = {executor.submit(probe_fishnv_water_url, url): url for url in candidates}
+        for future in as_completed(future_map):
+            url = future_map[future]
+            try:
+                if future.result():
+                    found.add(url)
+            except Exception:
+                pass
+    return found, len(candidates)
+
+
+def discover_fishnv_water_urls(
+    extra_html: Iterable[str] = (),
+    seed_urls: Iterable[str] = (),
+    probe_workers: int = 12,
+) -> tuple[list[str], dict[str, int]]:
+    urls: set[str] = {
+        canonical_url(url).rstrip("/")
+        for url in seed_urls
+        if re.search(r"/waters/\d+/?$", clean(url))
+        and urlsplit(canonical_url(url)).netloc in FISHNV_HOSTS
+    }
     sitemap_urls: set[str] = set()
     failed: list[str] = []
+    probe_candidates = 0
+    probe_hits = 0
 
     try:
         robots = request_text(urljoin(OFFICIAL_URLS["fishnv"], "robots.txt"), retries=2)
@@ -628,7 +717,7 @@ def discover_fishnv_water_urls(extra_html: Iterable[str] = ()) -> tuple[list[str
     for html_text in extra_html:
         urls.update(extract_water_urls(html_text, OFFICIAL_URLS["reports_root"]))
 
-    if len(urls) < 100:
+    if len(urls) < 400:
         try:
             home = request_text(OFFICIAL_URLS["fishnv"])
             urls.update(extract_water_urls(home, OFFICIAL_URLS["fishnv"]))
@@ -643,10 +732,22 @@ def discover_fishnv_water_urls(extra_html: Iterable[str] = ()) -> tuple[list[str
         except RuntimeError as exc:
             failed.append(str(exc))
 
+    # The live FishNV deployment currently exposes no complete sitemap/list.
+    # Probe the site's official, bounded water route blocks only when all lighter
+    # discovery methods still produce an incomplete inventory.
+    if len(urls) < 400:
+        print(f"FishNV linked discovery found {len(urls)} records; checking official water route blocks...")
+        probed, probe_candidates = probe_fishnv_route_blocks(probe_workers)
+        probe_hits = len(probed)
+        urls.update(probed)
+        print(f"FishNV route check confirmed {probe_hits} official water pages.")
+
     return sorted(urls), {
         "fishnv_water_urls": len(urls),
         "sitemaps_checked": len(seen),
         "discovery_failures": len(failed),
+        "fishnv_probe_candidates": probe_candidates,
+        "fishnv_probe_hits": probe_hits,
     }
 
 
@@ -2116,7 +2217,9 @@ def main() -> int:
     county_polygons = load_county_polygons()
     reports, filter_water_names, report_html_pages, report_counts = collect_ndow_reports()
     direct_urls = set(report_counts.pop("direct_urls", set()))
-    discovered_urls, discovery_counts = discover_fishnv_water_urls(report_html_pages)
+    discovered_urls, discovery_counts = discover_fishnv_water_urls(
+        report_html_pages, direct_urls, probe_workers=args.workers
+    )
     all_urls = sorted(set(discovered_urls) | direct_urls)
     if args.max_waters > 0:
         all_urls = all_urls[:args.max_waters]
