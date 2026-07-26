@@ -10,10 +10,13 @@ Outputs:
   data/idaho_public_fishing_access_summary.csv
   data/public_access_build_report.json
 
-The builder uses only records with explicit official public-access evidence:
-- lakes/reservoirs whose IDFG Access field says Public;
-- rivers/streams whose IDFG Access field says Public;
+The builder uses only official public-access sources:
+- IDFG's current “Lakes and Reservoirs - Public” layer;
+- IDFG's current “Rivers and Stream - Public” layer;
 - active IDFG-managed or co-managed fishing/boating access sites.
+
+The deprecated 100k Streams layer is used only as optional enrichment for FFW,
+RFW and WaterID fields. It is never used to decide whether a stream is public.
 
 It does NOT call a water public merely because the water exists on a map.
 """
@@ -53,39 +56,39 @@ SOURCES = {
         "description": "Active fishing and boating access sites managed or co-managed by Idaho Fish and Game."
     },
     "idfg_public_lakes": {
-        "name": "IDFG Hydrography — Lakes and Reservoirs",
+        "name": "IDFG Hydrography — Lakes and Reservoirs - Public",
         "page": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/0",
         "layer": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/0",
         "query": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/0/query",
-        "description": "Hydrography records filtered to an explicit Access=Public value."
+        "description": "Current official IDFG public lake and reservoir layer. Every downloaded record is already classified by IDFG as public."
     },
-    "idfg_stream_access": {
-        "name": "IDFG Hydrography — 100k Streams Access Attributes",
-        "page": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4",
-        "layer": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4",
-        "query": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4/query",
-        "description": "Stream records filtered to an explicit Access=Public value."
-    },
-    "idfg_stream_counties": {
-        "name": "IDFG Hydrography — Rivers and Streams County Crosswalk",
+    "idfg_public_streams": {
+        "name": "IDFG Hydrography — Rivers and Stream - Public",
         "page": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/1",
         "layer": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/1",
         "query": "https://services.arcgis.com/FjJI5xHF2dUPVrgK/ArcGIS/rest/services/Hydrography_Public/FeatureServer/1/query",
-        "description": "Current river and stream names and county membership, joined by LLID."
+        "description": "Current official IDFG public river, creek and stream layer, including county membership."
+    },
+    "idfg_stream_attributes": {
+        "name": "IDFG Hydrography — 100k Streams (deprecated enrichment only)",
+        "page": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4",
+        "layer": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4",
+        "query": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Hydrography/Hydrography_Public/MapServer/4/query",
+        "description": "Optional legacy enrichment for FFW, RFW and WaterID. It is not used to determine public-access status."
     },
     "idfg_family_lakes": {
         "name": "IDFG Family Fishing Waters — Lakes and Ponds",
         "page": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/1",
         "layer": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/1",
         "query": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/1/query",
-        "description": "Official Family Fishing Water designation."
+        "description": "Optional Family Fishing Water enrichment."
     },
     "idfg_family_streams": {
         "name": "IDFG Family Fishing Waters — Rivers and Streams",
         "page": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/2",
         "layer": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/2",
         "query": "https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/2/query",
-        "description": "Official Family Fishing Water designation."
+        "description": "Optional Family Fishing Water enrichment."
     }
 }
 
@@ -301,11 +304,12 @@ def family_sets(lakes: list[dict[str, Any]], streams: list[dict[str, Any]]) -> t
 
 
 def make_lake_records(rows: list[dict[str, Any]], family_keys: set[str], generated_at: str) -> list[dict[str, Any]]:
+    """Convert IDFG's already-public lake layer into county water records."""
     result = []
     for row in rows:
-        if not public_value(row.get("Access")):
-            continue
         notes = clean_text(row.get("NOTE"))
+        # The source layer itself is authoritative, but do not publish a record if
+        # its own note explicitly contradicts public access.
         if any(pattern in notes.lower() for pattern in PRIVATE_BLOCK_PATTERNS):
             continue
         name = first_nonempty(row.get("NAME"), row.get("GNIS_Name"), row.get("Variant"), row.get("VARIANT2"))
@@ -322,12 +326,12 @@ def make_lake_records(rows: list[dict[str, Any]], family_keys: set[str], generat
             "alternate_names": [x for x in [clean_text(row.get("Variant")), clean_text(row.get("VARIANT2")), clean_text(row.get("GNIS_Name"))] if x and x.lower() != name.lower()],
             "water_type": water_type(name, "lake_or_reservoir"),
             "all_counties": counties,
-            "drainage": clean_text(row.get("DRAINAGE_NAME")),
+            "drainage": first_nonempty(row.get("DRAINAGE_NAME"), row.get("BASIN_NAME")),
             "acres": safe_float(row.get("Acres")),
             "latitude": lat,
             "longitude": lon,
             "public_access": True,
-            "public_access_verification": "explicit_IDFG_Access_field_public",
+            "public_access_verification": "official_IDFG_public_hydrography_layer",
             "family_fishing_water": boolish(row.get("FFW")) is True or norm_key(name) in family_keys,
             "recommended_fishing_water": boolish(row.get("RFW")),
             "facilities_inventoried": False,
@@ -339,7 +343,7 @@ def make_lake_records(rows: list[dict[str, Any]], family_keys: set[str], generat
             "official_source_name": SOURCES["idfg_public_lakes"]["name"],
             "official_source_url": SOURCES["idfg_public_lakes"]["page"],
             "source_record_id": str(row.get("OBJECTID") or row.get("GlobalID") or ""),
-            "source_water_id": "",
+            "source_water_id": clean_text(row.get("LLID")),
             "last_generated": generated_at,
         }
         for county in counties:
@@ -350,63 +354,72 @@ def make_lake_records(rows: list[dict[str, Any]], family_keys: set[str], generat
             result.append(rec)
     return result
 
-
 def make_stream_records(
-    access_rows: list[dict[str, Any]],
-    county_rows: list[dict[str, Any]],
+    public_rows: list[dict[str, Any]],
+    attribute_rows: list[dict[str, Any]],
     family_keys: set[str],
     generated_at: str,
 ) -> list[dict[str, Any]]:
-    current_by_llid: dict[str, dict[str, Any]] = {}
-    current_by_name: dict[str, dict[str, Any]] = {}
-    for row in county_rows:
+    """Build streams from the current IDFG public layer.
+
+    The deprecated 100k layer is joined only for optional FFW/RFW/WaterID
+    enrichment. Its Access and STATUS fields are deliberately ignored.
+    """
+    attributes_by_llid: dict[str, dict[str, Any]] = {}
+    attributes_by_name: dict[str, dict[str, Any]] = {}
+    for row in attribute_rows:
         llid = clean_text(row.get("LLID"))
-        if llid:
-            current_by_llid[llid] = row
-        key = norm_key(first_nonempty(row.get("NAME"), row.get("PName")))
-        if key:
-            current_by_name[key] = row
+        if llid and llid not in attributes_by_llid:
+            attributes_by_llid[llid] = row
+        key = norm_key(first_nonempty(row.get("NAME"), row.get("PNAME"), row.get("VARIANT2")))
+        if key and key not in attributes_by_name:
+            attributes_by_name[key] = row
 
     result = []
-    for row in access_rows:
-        if not public_value(row.get("Access")) or not active_value(row.get("STATUS")):
-            continue
-        notes = clean_text(row.get("NOTE"))
-        if any(pattern in notes.lower() for pattern in PRIVATE_BLOCK_PATTERNS):
-            continue
-        legacy_name = first_nonempty(row.get("PNAME"), row.get("VARIANT2"))
-        current = current_by_llid.get(clean_text(row.get("LLID"))) or current_by_name.get(norm_key(legacy_name)) or {}
-        name = first_nonempty(current.get("NAME"), current.get("PName"), legacy_name)
+    for row in public_rows:
+        name = first_nonempty(row.get("NAME"), row.get("PName"))
         if not name:
             continue
-        counties = split_counties(current.get("Counties"))
+        counties = split_counties(row.get("Counties"))
         if not counties:
-            # Keep it out of the county list rather than guessing a county.
             continue
+        legacy = attributes_by_llid.get(clean_text(row.get("LLID"))) or attributes_by_name.get(norm_key(name)) or {}
+        notes = clean_text(legacy.get("NOTE"))
+        # Do not carry a stale legacy note that contradicts the current public layer.
+        if any(pattern in notes.lower() for pattern in PRIVATE_BLOCK_PATTERNS):
+            notes = ""
+        alternates = []
+        for candidate in (
+            row.get("Variants"), row.get("PName"), legacy.get("VARIANT"),
+            legacy.get("VARIANT2"), legacy.get("PNAME")
+        ):
+            value = clean_text(candidate)
+            if value and value.lower() != name.lower() and value not in alternates:
+                alternates.append(value)
         base = {
             "record_kind": "waterbody",
             "water_name": name,
-            "alternate_names": [x for x in [clean_text(current.get("Variants")), legacy_name] if x and x.lower() != name.lower()],
+            "alternate_names": alternates,
             "water_type": water_type(name, "river_creek_or_stream"),
             "all_counties": counties,
-            "drainage": clean_text(current.get("Drainage")),
+            "drainage": clean_text(row.get("Drainage")),
             "acres": None,
             "latitude": None,
             "longitude": None,
             "public_access": True,
-            "public_access_verification": "explicit_IDFG_Access_field_public",
-            "family_fishing_water": boolish(row.get("FFW")) is True or norm_key(name) in family_keys,
-            "recommended_fishing_water": boolish(row.get("RFW")),
+            "public_access_verification": "official_IDFG_public_hydrography_layer",
+            "family_fishing_water": boolish(legacy.get("FFW")) is True or norm_key(name) in family_keys,
+            "recommended_fishing_water": boolish(legacy.get("RFW")),
             "facilities_inventoried": False,
             "access_details": notes,
             "amenities": {
                 "camping": None, "restroom": None, "boat_ramp": None,
                 "dock": None, "ada_fishing": None
             },
-            "official_source_name": SOURCES["idfg_stream_access"]["name"],
-            "official_source_url": SOURCES["idfg_stream_access"]["page"],
-            "source_record_id": str(row.get("OBJECTID") or ""),
-            "source_water_id": str(row.get("WaterID") or ""),
+            "official_source_name": SOURCES["idfg_public_streams"]["name"],
+            "official_source_url": SOURCES["idfg_public_streams"]["page"],
+            "source_record_id": str(row.get("OBJECTID") or row.get("GlobalID") or ""),
+            "source_water_id": first_nonempty(legacy.get("WaterID"), row.get("LLID")),
             "last_generated": generated_at,
         }
         for county in counties:
@@ -416,7 +429,6 @@ def make_stream_records(
             rec["record_id"] = f"water-stream-{norm_key(name)}-{norm_key(county)}-{rec['source_record_id']}"
             result.append(rec)
     return result
-
 
 def make_access_records(rows: list[dict[str, Any]], generated_at: str) -> list[dict[str, Any]]:
     result = []
@@ -483,8 +495,8 @@ def make_access_records(rows: list[dict[str, Any]], generated_at: str) -> list[d
 
 
 def dedupe(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    seen = set()
-    out = []
+    """Collapse repeated hydrography segments into one water per county/name."""
+    merged: dict[tuple[Any, ...], dict[str, Any]] = {}
     for record in sorted(
         records,
         key=lambda r: (
@@ -495,19 +507,39 @@ def dedupe(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             r.get("source_record_id", ""),
         ),
     ):
-        key = (
-            record.get("county"),
-            record.get("record_kind"),
-            norm_key(record.get("water_name")),
-            norm_key(record.get("access_point_name")),
-            record.get("source_record_id"),
-        )
-        if key in seen:
+        if record.get("record_kind") == "waterbody":
+            key = (
+                record.get("county"),
+                "waterbody",
+                norm_key(record.get("water_name")),
+                record.get("water_type"),
+            )
+        else:
+            key = (
+                record.get("county"),
+                record.get("record_kind"),
+                norm_key(record.get("water_name")),
+                norm_key(record.get("access_point_name")),
+                record.get("source_record_id"),
+            )
+        existing = merged.get(key)
+        if existing is None:
+            merged[key] = record
             continue
-        seen.add(key)
-        out.append(record)
-    return out
-
+        # Preserve useful enrichment when multiple source segments describe the
+        # same named water in the same county.
+        existing["family_fishing_water"] = bool(existing.get("family_fishing_water") or record.get("family_fishing_water"))
+        if existing.get("recommended_fishing_water") is not True and record.get("recommended_fishing_water") is True:
+            existing["recommended_fishing_water"] = True
+        for field in ("latitude", "longitude", "acres", "drainage", "access_details", "source_water_id"):
+            if existing.get(field) in (None, "") and record.get(field) not in (None, ""):
+                existing[field] = record[field]
+        names = list(existing.get("alternate_names") or [])
+        for value in record.get("alternate_names") or []:
+            if value and value not in names:
+                names.append(value)
+        existing["alternate_names"] = names
+    return list(merged.values())
 
 def write_outputs(output_dir: Path, records: list[dict[str, Any]], generated_at: str, build_report: dict[str, Any]) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -532,7 +564,7 @@ def write_outputs(output_dir: Path, records: list[dict[str, Any]], generated_at:
     payload = {
         "metadata": {
             "title": "Idaho Public Fishing Waters and Access Points",
-            "version": "1.0",
+            "version": "1.1",
             "generated_at": generated_at,
             "county_order": "1 Ada through 44 Washington",
             "public_only": True,
@@ -653,8 +685,8 @@ def main() -> int:
             fdir = Path(args.fixtures_dir)
             access_sites = load_fixture(fdir / "access_sites.json")
             lakes = load_fixture(fdir / "lakes.json")
-            stream_access = load_fixture(fdir / "stream_access.json")
-            stream_counties = load_fixture(fdir / "stream_counties.json")
+            stream_attributes = load_fixture(fdir / "stream_access.json")
+            stream_public = load_fixture(fdir / "stream_counties.json")
             family_lakes = load_fixture(fdir / "family_lakes.json")
             family_streams = load_fixture(fdir / "family_streams.json")
         else:
@@ -668,16 +700,23 @@ def main() -> int:
                 "OBJECTID,NAME,Variant,VARIANT2,LLID,DRAINAGE_NAME,COUNTY_NAME,Acres,LONG,LAT,DD_X,DD_Y,NOTE,RFW,FFW,Access,GNIS_ID,GNIS_Name,GlobalID",
                 order_field="OBJECTID",
             )
-            stream_access = fetch_all(
-                SOURCES["idfg_stream_access"]["query"],
-                "OBJECTID,LLID,PNAME,VARIANT2,STATUS,NOTE,FFW,RFW,Access,WaterID",
+            stream_public = fetch_all(
+                SOURCES["idfg_public_streams"]["query"],
+                "OBJECTID,HydroID,LLID,NAME,Variants,PName,Drainage,Counties,Regions,Status,GlobalID",
                 order_field="OBJECTID",
             )
-            stream_counties = fetch_all(
-                SOURCES["idfg_stream_counties"]["query"],
-                "OBJECTID,HydroID,LLID,NAME,Variants,PName,Drainage,Counties,Regions,Status",
-                order_field="OBJECTID",
-            )
+            try:
+                stream_attributes = fetch_all(
+                    SOURCES["idfg_stream_attributes"]["query"],
+                    "OBJECTID,LLID,NAME,PNAME,VARIANT,VARIANT2,NOTE,FFW,RFW,WaterID",
+                    order_field="OBJECTID",
+                )
+            except Exception as exc:
+                stream_attributes = []
+                report["warnings"].append(
+                    "Deprecated stream enrichment layer unavailable; current public streams "
+                    f"will still be included without FFW/RFW enrichment: {exc}"
+                )
             # These two Family Fishing Waters layers are useful enrichment, but
             # they are not required to build the verified public-access database.
             # IDFG's ArcGIS service can occasionally return a 400 query error for
@@ -713,8 +752,10 @@ def main() -> int:
         report["source_counts"] = {
             "access_sites_downloaded": len(access_sites),
             "lakes_downloaded": len(lakes),
-            "stream_access_rows_downloaded": len(stream_access),
-            "stream_county_rows_downloaded": len(stream_counties),
+            "public_stream_rows_downloaded": len(stream_public),
+            "stream_attribute_rows_downloaded": len(stream_attributes),
+            "stream_access_rows_downloaded": len(stream_attributes),
+            "stream_county_rows_downloaded": len(stream_public),
             "family_lakes_downloaded": len(family_lakes),
             "family_streams_downloaded": len(family_streams),
         }
@@ -722,7 +763,7 @@ def main() -> int:
         family_lake_keys, family_stream_keys = family_sets(family_lakes, family_streams)
         records = []
         records.extend(make_lake_records(lakes, family_lake_keys, generated_at))
-        records.extend(make_stream_records(stream_access, stream_counties, family_stream_keys, generated_at))
+        records.extend(make_stream_records(stream_public, stream_attributes, family_stream_keys, generated_at))
         records.extend(make_access_records(access_sites, generated_at))
         records = dedupe(records)
 
