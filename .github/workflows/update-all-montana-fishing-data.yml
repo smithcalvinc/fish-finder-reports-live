@@ -1,0 +1,101 @@
+name: Update All Montana Fishing Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build_montana_fishing_data.py"
+      - "data/montana_public_social_reports.csv"
+      - "config/montana_water_aliases.json"
+      - ".github/workflows/update-all-montana-fishing-data.yml"
+  schedule:
+    - cron: "47 13 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: all-montana-fishing-data
+  cancel-in-progress: false
+
+jobs:
+  update-all-montana-fishing-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install official-page parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
+
+      - name: Build Montana county, public-access and fishing-report data
+        run: |
+          python build_montana_fishing_data.py \
+            --root . \
+            --output-dir data \
+            --social-file data/montana_public_social_reports.csv
+
+      - name: Validate all 56 counties and integration files
+        shell: bash
+        run: |
+          test -s data/montana_counties.csv
+          test -s config/montana_counties.json
+          test -s data/montana_public_fishing_access.json
+          test -s data/montana_fishing_report_database.json
+          test -s data/montana_fishing_report_database.js
+          test -s data/montana_fishing_report_database.csv
+          test -s data/montana_project_status.json
+          test -s montana-county-reports.html
+          test -s build_admin_dashboard_files.py
+          test -s recent_fishing_reports.js
+          test -s update_status.js
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          access=json.loads(Path("data/montana_public_fishing_access.json").read_text())
+          reports=json.loads(Path("data/montana_fishing_report_database.json").read_text())
+          assert access["county_count"] == 56
+          assert reports["county_count"] == 56
+          assert len(access["counties"]) == 56
+          assert len(reports["counties"]) == 56
+          assert [c["county_number"] for c in reports["counties"]] == list(range(1,57))
+          assert reports["counties"][0]["county"] == "Beaverhead"
+          assert reports["counties"][-1]["county"] == "Yellowstone"
+          assert reports["metadata"]["public_access_only"] is True
+          print("Montana public waters:", reports["public_water_count"])
+          print("Montana report records:", reports["report_count"])
+          PY
+
+      - name: Commit Montana data and website integration
+        shell: bash
+        run: |
+          FILES=(
+            data/montana_*
+            config/montana_*
+            montana-county-reports.html
+            build_admin_dashboard_files.py
+            fishing_report_search.js
+            brand-shell.js
+            service-worker.js
+            sitemap.xml
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
+            echo "No Montana fishing-data changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Montana Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${FILES[@]}"
+          git commit -m "Add or update Montana public fishing access and reports"
+          git push
