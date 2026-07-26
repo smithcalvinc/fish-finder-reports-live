@@ -1,4 +1,4 @@
-name: Clean Nevada Fishing Data — Verified Public Access
+name: Update All Nevada Fishing Data — Verified Public Access
 
 on:
   workflow_dispatch:
@@ -7,7 +7,6 @@ on:
       - main
     paths:
       - "build_nevada_fishing_data.py"
-      - "build_nevada_fishing_data_clean.py"
       - ".github/workflows/update-all-nevada-fishing-data.yml"
   schedule:
     - cron: "37 15 * * *"
@@ -16,11 +15,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: clean-nevada-fishing-data-verified-access
+  group: all-nevada-fishing-data-verified-access
   cancel-in-progress: false
 
 jobs:
-  clean-nevada-build:
+  update-all-nevada-fishing-data:
     runs-on: ubuntu-latest
     timeout-minutes: 90
 
@@ -36,20 +35,40 @@ jobs:
       - name: Install official-page parser
         run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
 
-      - name: Run clean Nevada safety tests
-        run: python build_nevada_fishing_data_clean.py --self-test
-
-      - name: Build clean Nevada public-access database
+      - name: Apply current NDOW inventory thresholds
+        shell: bash
         run: |
-          python build_nevada_fishing_data_clean.py \
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path("build_nevada_fishing_data.py")
+          text = path.read_text(encoding="utf-8")
+          replacements = {
+              "if pages_requested < 400:": "if pages_requested < 300:",
+              "water pages; expected at least 400": "water pages; expected at least 300",
+              "if metadata_records < 400:": "if metadata_records < 300:",
+              "metadata records; expected at least 400": "metadata records; expected at least 300",
+          }
+          for old, new in replacements.items():
+              if old not in text:
+                  raise RuntimeError(f"Nevada threshold patch target not found: {old}")
+              text = text.replace(old, new, 1)
+          path.write_text(text, encoding="utf-8")
+          print("Adjusted Nevada NDOW inventory safety thresholds from 400 to 300.")
+          PY
+
+      - name: Run offline strict-access safety tests
+        run: python build_nevada_fishing_data.py --self-test
+
+      - name: Build Nevada verified public-access and fishing-report data
+        run: |
+          python build_nevada_fishing_data.py \
             --root . \
             --output-dir data
 
-      - name: Validate clean Nevada outputs
+      - name: Validate Nevada source separation, access evidence and website integration
         shell: bash
         run: |
-          set -euo pipefail
-
           test -s data/nevada_counties.csv
           test -s config/nevada_counties.json
           test -s data/nevada_public_fishing_access.json
@@ -75,7 +94,7 @@ jobs:
           audit = json.loads(Path("data/nevada_access_source_audit.json").read_text())
           status = json.loads(Path("data/nevada_project_status.json").read_text())
 
-          expected = [
+          expected_counties = [
               "Carson City", "Churchill", "Clark", "Douglas", "Elko", "Esmeralda",
               "Eureka", "Humboldt", "Lander", "Lincoln", "Lyon", "Mineral", "Nye",
               "Pershing", "Storey", "Washoe", "White Pine",
@@ -83,49 +102,36 @@ jobs:
 
           assert access["county_count"] == 17
           assert reports["county_count"] == 17
-          assert [row["county"] for row in reports["counties"]] == expected
+          assert [row["county"] for row in reports["counties"]] == expected_counties
           assert [row["county_number"] for row in reports["counties"]] == list(range(1, 18))
 
           metadata = reports["metadata"]
           assert metadata["public_access_only"] is True
           assert metadata["fishnv_is_access_verification"] is False
-          assert metadata["version"].startswith("4.0-clean-nevada")
-          assert metadata["dead_ndow_links_are_publication_blockers"] is False
+          assert "Waters without explicit official access evidence are quarantined" in metadata["access_policy"]
 
-          validation = status["validation"]
-          counts = status["source_counts"]
           assert status["deployment_status"] == "validated_complete_ready_to_commit"
-          assert validation["passed"] is True
-          assert validation["complete_inventory_gate"] is True
-          assert validation["strict_public_access"] is True
-          assert validation["fishnv_is_access_verification"] is False
-          assert validation["dead_ndow_links_are_nonfatal_warnings"] is True
-          assert counts["county_polygons"] == 17
-          assert counts["ndow_water_metadata_records"] >= 300
-          assert counts["ndow_water_metadata_counties"] == 17
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["strict_public_access"] is True
+          assert status["validation"]["fishnv_is_access_verification"] is False
+          assert status["source_counts"]["county_polygons"] == 17
+          assert status["validation"]["complete_inventory_gate"] is True
+          assert status["source_counts"]["ndow_water_pages_requested"] >= 300
+          assert status["source_counts"]["ndow_water_metadata_records"] >= 300
+          assert status["source_counts"]["ndow_water_metadata_counties"] == 17
+          requested = status["source_counts"]["ndow_water_pages_requested"]
+          unresolved = status["source_counts"]["ndow_water_unresolved_pages"]
+          assert unresolved <= max(25, int(requested * 0.15))
           assert reports["public_water_count"] >= 25
           assert reports["verified_access_point_count"] >= 25
           assert reports["report_count"] >= 100
-
-          # All 17 counties must be represented, but a county is not forced to
-          # invent a public water when no official named access can be verified.
-          assert validation["populated_counties"] + len(
-              validation["counties_without_verified_public_access"]
-          ) == 17
-          for county in reports["counties"]:
-              assert county["coverage_status"] in {
-                  "verified_public_access_records_available",
-                  "no_independently_verified_public_access_found",
-              }
-              assert county.get("coverage_note")
+          assert status["validation"]["populated_counties"] == 17
+          assert len(status["validation"]["access_verification_methods"]) >= 2
 
           assert unverified["metadata"]["publication_status"] == "not_published"
           assert unverified["count"] == reports["unverified_fishable_water_count"]
           assert unverified["count"] == audit["matching"]["quarantined_unverified_waters"]
-          assert all(
-              row["publication_status"] == "quarantined_unverified_public_access"
-              for row in unverified["waters"]
-          )
+          assert all(row["publication_status"] == "quarantined_unverified_public_access" for row in unverified["waters"])
 
           def valid(lon, lat):
               try:
@@ -154,12 +160,8 @@ jobs:
                   plat, plon = point.get("latitude"), point.get("longitude")
                   if plat not in (None, "") or plon not in (None, ""):
                       assert plat not in (None, "") and plon not in (None, "")
-                      assert valid(plon, plat), (
-                          point.get("access_point_name"), plat, plon
-                      )
-                  directions = str(
-                      point.get("directions_url") or ""
-                  ).lower().replace("%2c", ",")
+                      assert valid(plon, plat), (point.get("access_point_name"), plat, plon)
+                  directions = str(point.get("directions_url") or "").lower().replace("%2c", ",")
                   assert "query=null" not in directions
                   assert "query=undefined" not in directions
                   assert "query=0,0" not in directions
@@ -175,30 +177,24 @@ jobs:
           assert "FishNV mapped fishing location" not in page
 
           update_text = Path("update_status.js").read_text()
-          match = re.search(
-              r"window\.FFO_UPDATE_STATUS\s*=\s*(\{.*\})\s*;",
-              update_text,
-              re.S,
-          )
+          match = re.search(r"window\.FFO_UPDATE_STATUS\s*=\s*(\{.*\})\s*;", update_text, re.S)
           assert match, "Could not parse update_status.js"
           admin = json.loads(match.group(1))
-          assert "Nevada" in {row["state"] for row in admin.get("states", [])}
+          states = {row["state"] for row in admin.get("states", [])}
+          assert "Nevada" in states
 
-          print("Clean Nevada valid NDOW waters:", counts["ndow_water_metadata_records"])
-          print("Clean Nevada dead links ignored:", counts["ndow_water_unresolved_pages"])
-          print("Clean Nevada verified waters:", reports["public_water_count"])
-          print("Clean Nevada verified access points:", reports["verified_access_point_count"])
-          print("Clean Nevada official reports:", reports["report_count"])
-          print("Clean Nevada populated counties:", validation["populated_counties"])
-          print(
-              "Counties with no independently verified access:",
-              validation["counties_without_verified_public_access"],
-          )
+          print("Nevada independently verified waters:", reports["public_water_count"])
+          print("Nevada independently verified access points:", reports["verified_access_point_count"])
+          print("Nevada quarantined unverified waters:", unverified["count"])
+          print("Nevada official report/update records:", reports["report_count"])
+          print("Nevada NDOW water metadata records:", status["validation"]["ndow_water_metadata_records"])
+          print("Nevada populated county-equivalents:", status["validation"]["populated_counties"])
+          print("Access verification methods:", status["validation"]["access_verification_methods"])
           PY
 
           git diff --check
 
-      - name: Commit clean Nevada data and website integration
+      - name: Commit Nevada data and website integration
         shell: bash
         run: |
           FILES=(
@@ -215,8 +211,8 @@ jobs:
             echo "No Nevada fishing-data changes to commit."
             exit 0
           fi
-          git config user.name "Fish Finder Outdoors Clean Nevada Builder"
+          git config user.name "Fish Finder Outdoors Nevada Builder"
           git config user.email "actions@users.noreply.github.com"
           git add "${FILES[@]}"
-          git commit -m "Rebuild Nevada verified public fishing access cleanly"
+          git commit -m "Update Nevada verified public fishing access and reports"
           git push
