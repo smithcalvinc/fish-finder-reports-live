@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-07-26T17:15:05Z",
+  "state": "Colorado",
+  "completed": [
+    "Verified official 64-county order",
+    "Validated the Colorado Fishing Atlas schema",
+    "Built the official statewide fishing-water collector",
+    "Built duplicate-safe recent CPW trout-stocking collector",
+    "Collected official fishery survey and report links",
+    "Validated all four CPW accessible-fishing regions",
+    "Rejected blank, malformed and out-of-Colorado map coordinates",
+    "Built county-by-county Colorado page",
+    "Installed multi-state admin integration",
+    "Updated navigation, sitemap and PWA cache",
+    "Validated all 64 county shells and output files"
+  ],
+  "known_issues": [],
+  "failed_sources": [],
+  "deployment_status": "validated_ready_to_commit",
+  "public_water_count": 1026,
+  "report_count": 1339,
+  "source_counts": {
+    "atlas_schema_fields": 38,
+    "fishing_atlas_points": 1286,
+    "fishing_atlas_coordinates": 1286,
+    "fishing_atlas_accessible": 187,
+    "fishery_survey_links": 1248,
+    "atlas_hidden_rows_skipped": 0,
+    "atlas_rows_without_valid_county_or_name": 0,
+    "accessible_page_regions": 4,
+    "recent_stocking_records": 91,
+    "ambiguous_stocking_names_left_unmatched": 8
+  },
+  "validation": {
+    "passed": true,
+    "public_water_count": 1026,
+    "report_count": 1339,
+    "populated_counties": 62,
+    "source_minimums": {
+      "atlas_schema_fields": 20,
+      "fishing_atlas_points": 500,
+      "fishing_atlas_coordinates": 400,
+      "fishing_atlas_accessible": 5,
+      "accessible_page_regions": 4,
+      "fishery_survey_links": 10,
+      "recent_stocking_records": 20
+    },
+    "water_coordinates": 1026,
+    "access_coordinates": 1286
+  }
+}

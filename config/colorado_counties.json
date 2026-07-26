@@ -1,0 +1,262 @@
+{
+  "state": "Colorado",
+  "county_count": 64,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Adams"
+    },
+    {
+      "county_number": 2,
+      "county": "Alamosa"
+    },
+    {
+      "county_number": 3,
+      "county": "Arapahoe"
+    },
+    {
+      "county_number": 4,
+      "county": "Archuleta"
+    },
+    {
+      "county_number": 5,
+      "county": "Baca"
+    },
+    {
+      "county_number": 6,
+      "county": "Bent"
+    },
+    {
+      "county_number": 7,
+      "county": "Boulder"
+    },
+    {
+      "county_number": 8,
+      "county": "Broomfield"
+    },
+    {
+      "county_number": 9,
+      "county": "Chaffee"
+    },
+    {
+      "county_number": 10,
+      "county": "Cheyenne"
+    },
+    {
+      "county_number": 11,
+      "county": "Clear Creek"
+    },
+    {
+      "county_number": 12,
+      "county": "Conejos"
+    },
+    {
+      "county_number": 13,
+      "county": "Costilla"
+    },
+    {
+      "county_number": 14,
+      "county": "Crowley"
+    },
+    {
+      "county_number": 15,
+      "county": "Custer"
+    },
+    {
+      "county_number": 16,
+      "county": "Delta"
+    },
+    {
+      "county_number": 17,
+      "county": "Denver"
+    },
+    {
+      "county_number": 18,
+      "county": "Dolores"
+    },
+    {
+      "county_number": 19,
+      "county": "Douglas"
+    },
+    {
+      "county_number": 20,
+      "county": "Eagle"
+    },
+    {
+      "county_number": 21,
+      "county": "Elbert"
+    },
+    {
+      "county_number": 22,
+      "county": "El Paso"
+    },
+    {
+      "county_number": 23,
+      "county": "Fremont"
+    },
+    {
+      "county_number": 24,
+      "county": "Garfield"
+    },
+    {
+      "county_number": 25,
+      "county": "Gilpin"
+    },
+    {
+      "county_number": 26,
+      "county": "Grand"
+    },
+    {
+      "county_number": 27,
+      "county": "Gunnison"
+    },
+    {
+      "county_number": 28,
+      "county": "Hinsdale"
+    },
+    {
+      "county_number": 29,
+      "county": "Huerfano"
+    },
+    {
+      "county_number": 30,
+      "county": "Jackson"
+    },
+    {
+      "county_number": 31,
+      "county": "Jefferson"
+    },
+    {
+      "county_number": 32,
+      "county": "Kiowa"
+    },
+    {
+      "county_number": 33,
+      "county": "Kit Carson"
+    },
+    {
+      "county_number": 34,
+      "county": "La Plata"
+    },
+    {
+      "county_number": 35,
+      "county": "Lake"
+    },
+    {
+      "county_number": 36,
+      "county": "Larimer"
+    },
+    {
+      "county_number": 37,
+      "county": "Las Animas"
+    },
+    {
+      "county_number": 38,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 39,
+      "county": "Logan"
+    },
+    {
+      "county_number": 40,
+      "county": "Mesa"
+    },
+    {
+      "county_number": 41,
+      "county": "Mineral"
+    },
+    {
+      "county_number": 42,
+      "county": "Moffat"
+    },
+    {
+      "county_number": 43,
+      "county": "Montezuma"
+    },
+    {
+      "county_number": 44,
+      "county": "Montrose"
+    },
+    {
+      "county_number": 45,
+      "county": "Morgan"
+    },
+    {
+      "county_number": 46,
+      "county": "Otero"
+    },
+    {
+      "county_number": 47,
+      "county": "Ouray"
+    },
+    {
+      "county_number": 48,
+      "county": "Park"
+    },
+    {
+      "county_number": 49,
+      "county": "Phillips"
+    },
+    {
+      "county_number": 50,
+      "county": "Pitkin"
+    },
+    {
+      "county_number": 51,
+      "county": "Prowers"
+    },
+    {
+      "county_number": 52,
+      "county": "Pueblo"
+    },
+    {
+      "county_number": 53,
+      "county": "Rio Blanco"
+    },
+    {
+      "county_number": 54,
+      "county": "Rio Grande"
+    },
+    {
+      "county_number": 55,
+      "county": "Routt"
+    },
+    {
+      "county_number": 56,
+      "county": "Saguache"
+    },
+    {
+      "county_number": 57,
+      "county": "San Juan"
+    },
+    {
+      "county_number": 58,
+      "county": "San Miguel"
+    },
+    {
+      "county_number": 59,
+      "county": "Sedgwick"
+    },
+    {
+      "county_number": 60,
+      "county": "Summit"
+    },
+    {
+      "county_number": 61,
+      "county": "Teller"
+    },
+    {
+      "county_number": 62,
+      "county": "Washington"
+    },
+    {
+      "county_number": 63,
+      "county": "Weld"
+    },
+    {
+      "county_number": 64,
+      "county": "Yuma"
+    }
+  ]
+}
