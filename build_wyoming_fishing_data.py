@@ -33,9 +33,10 @@ from collections import defaultdict
 from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any
+from http.cookiejar import CookieJar
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPCookieProcessor, Request, build_opener, urlopen
 
 try:
     from bs4 import BeautifulSoup
@@ -71,7 +72,7 @@ OFFICIAL_URLS = {
     "public_access": "https://wgfd.wyo.gov/public-access",
     "paa": "https://wgfd.wyo.gov/public-access/public-access-areas",
     "wif": "https://wgfd.wyo.gov/public-access/walk-in-fishing",
-    "stocking": "https://wgfd.wyo.gov/Fishing-and-Boating/Fish-Stocking",
+    "stocking": "https://wgfapps.wyo.gov/FishStock/FishStock",
     "regulations": "https://wgfd.wyo.gov/regulations",
 }
 
@@ -728,8 +729,7 @@ def collect_fishing_guide(
 def discover_stocking_pages() -> list[str]:
     candidates = [
         OFFICIAL_URLS["stocking"],
-        "https://wgfd.wyo.gov/fishing-boating/fish-stocking-report",
-        "https://wgfd.wyo.gov/fishing-boating/fish-stocking",
+        "https://wgfapps.wyo.gov/FishStock/FishStock",
     ]
     try:
         page = request_text(OFFICIAL_URLS["fishing"])
@@ -744,9 +744,128 @@ def discover_stocking_pages() -> list[str]:
         pass
     ordered = []
     for value in candidates:
-        if value not in ordered:
+        if value and value not in ordered:
             ordered.append(value)
     return ordered
+
+
+def stocking_form_fields(form: Any) -> list[tuple[str, str]]:
+    """Reproduce the official report form's selected/default values."""
+    fields: list[tuple[str, str]] = []
+
+    for node in form.find_all("input"):
+        name = clean(node.get("name"))
+        if not name or node.has_attr("disabled"):
+            continue
+        input_type = clean(node.get("type") or "text").lower()
+        if input_type in {"checkbox", "radio"} and not node.has_attr("checked"):
+            continue
+        if input_type in {"file", "reset", "button"}:
+            continue
+        if input_type == "submit":
+            # Include a named submit control only when the form supplies one.
+            value = clean(node.get("value"))
+            if value:
+                fields.append((name, value))
+            continue
+        fields.append((name, clean(node.get("value"))))
+
+    for select in form.find_all("select"):
+        name = clean(select.get("name"))
+        if not name or select.has_attr("disabled"):
+            continue
+        options = select.find_all("option")
+        selected = [option for option in options if option.has_attr("selected")]
+        chosen = selected or options[:1]
+        if select.has_attr("multiple"):
+            chosen = selected
+        for option in chosen:
+            fields.append((name, clean(option.get("value") or option.get_text(" ", strip=True))))
+
+    for node in form.find_all("textarea"):
+        name = clean(node.get("name"))
+        if name and not node.has_attr("disabled"):
+            fields.append((name, clean(node.get_text())))
+
+    for node in form.find_all("button"):
+        name = clean(node.get("name"))
+        button_type = clean(node.get("type") or "submit").lower()
+        if name and button_type == "submit":
+            fields.append((name, clean(node.get("value") or node.get_text(" ", strip=True))))
+            break
+
+    return fields
+
+
+def find_stocking_form(soup: Any) -> Any:
+    """Find the form that contains the WGFD stocking-report filters."""
+    best = None
+    best_score = -1
+    for form in soup.find_all("form"):
+        text_value = clean(form.get_text(" ", strip=True)).lower()
+        controls = " ".join(
+            clean(node.get("name") or node.get("id")).lower()
+            for node in form.find_all(["input", "select", "button"])
+        )
+        combined = f"{text_value} {controls}"
+        score = sum(
+            1 for term in ("stocked from", "species", "county", "water", "year")
+            if term in combined
+        )
+        if score > best_score:
+            best, best_score = form, score
+    return best if best_score >= 2 else None
+
+
+def submit_stocking_report_form(base_url: str) -> list[tuple[str, str]]:
+    """Open the official WGFD app and submit its own report form with cookies/tokens."""
+    if BeautifulSoup is None:
+        raise RuntimeError("beautifulsoup4 is required")
+
+    opener = build_opener(HTTPCookieProcessor(CookieJar()))
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
+    }
+
+    landing_request = Request(base_url, headers=headers)
+    with opener.open(landing_request, timeout=90) as response:
+        landing_html = response.read().decode("utf-8", errors="replace")
+        landing_url = response.geturl()
+
+    soup = BeautifulSoup(landing_html, "html.parser")
+    form = find_stocking_form(soup)
+    if form is None:
+        raise RuntimeError("The official WGFD stocking application form could not be found")
+
+    action_url = urljoin(landing_url, clean(form.get("action")) or landing_url)
+    method = clean(form.get("method") or "get").lower()
+    fields = stocking_form_fields(form)
+    encoded = urlencode(fields, doseq=True)
+
+    submit_headers = dict(headers)
+    submit_headers["Referer"] = landing_url
+
+    if method == "post":
+        submit_headers["Content-Type"] = "application/x-www-form-urlencoded"
+        request = Request(
+            action_url,
+            data=encoded.encode("utf-8"),
+            headers=submit_headers,
+            method="POST",
+        )
+    else:
+        separator = "&" if "?" in action_url else "?"
+        request = Request(
+            action_url + (separator + encoded if encoded else ""),
+            headers=submit_headers,
+        )
+
+    with opener.open(request, timeout=120) as response:
+        report_html = response.read().decode("utf-8", errors="replace")
+        report_url = response.geturl()
+
+    return [(landing_url, landing_html), (report_url, report_html)]
 
 
 def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]:
@@ -909,24 +1028,22 @@ def collect_recent_stocking(
     parsed: list[dict[str, str]] = []
     used_url = ""
     for base_url in discover_stocking_pages():
-        variants = [
-            base_url,
-            f"{base_url}{'&' if '?' in base_url else '?'}year={current_year}",
-            f"{base_url}{'&' if '?' in base_url else '?'}Year={current_year}",
-        ]
-        for url in variants:
-            try:
-                page = request_text(url)
+        try:
+            if "wgfapps.wyo.gov/fishstock" in base_url.lower():
+                pages = submit_stocking_report_form(base_url)
+            else:
+                pages = [(base_url, request_text(base_url))]
+            for url, page in pages:
                 if "stock" not in page.lower():
                     continue
                 candidate = parse_stocking_rows(page, url)
                 if len(candidate) > len(parsed):
                     parsed, used_url = candidate, url
-            except Exception as exc:
-                page_errors.append(f"{url}: {exc}")
+        except Exception as exc:
+            page_errors.append(f"{base_url}: {exc}")
     if not parsed:
         raise RuntimeError(
-            "No stocking records could be parsed from WGFD pages. "
+            "No stocking records could be parsed after submitting the official WGFD report form. "
             + " | ".join(page_errors[:3])
         )
 
