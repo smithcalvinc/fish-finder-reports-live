@@ -749,8 +749,12 @@ def discover_stocking_pages() -> list[str]:
     return ordered
 
 
-def stocking_form_fields(form: Any) -> list[tuple[str, str]]:
-    """Reproduce the official report form's selected/default values."""
+
+def stocking_form_fields(
+    form: Any,
+    submit_control: Any | None = None,
+) -> list[tuple[str, str]]:
+    """Reproduce successful controls for one browser-style button click."""
     fields: list[tuple[str, str]] = []
 
     for node in form.find_all("input"):
@@ -758,15 +762,9 @@ def stocking_form_fields(form: Any) -> list[tuple[str, str]]:
         if not name or node.has_attr("disabled"):
             continue
         input_type = clean(node.get("type") or "text").lower()
+        if input_type in {"file", "reset", "button", "submit", "image"}:
+            continue
         if input_type in {"checkbox", "radio"} and not node.has_attr("checked"):
-            continue
-        if input_type in {"file", "reset", "button"}:
-            continue
-        if input_type == "submit":
-            # Include a named submit control only when the form supplies one.
-            value = clean(node.get("value"))
-            if value:
-                fields.append((name, value))
             continue
         fields.append((name, clean(node.get("value"))))
 
@@ -780,21 +778,73 @@ def stocking_form_fields(form: Any) -> list[tuple[str, str]]:
         if select.has_attr("multiple"):
             chosen = selected
         for option in chosen:
-            fields.append((name, clean(option.get("value") or option.get_text(" ", strip=True))))
+            fields.append((
+                name,
+                clean(option.get("value") or option.get_text(" ", strip=True)),
+            ))
 
     for node in form.find_all("textarea"):
         name = clean(node.get("name"))
         if name and not node.has_attr("disabled"):
             fields.append((name, clean(node.get_text())))
 
-    for node in form.find_all("button"):
-        name = clean(node.get("name"))
-        button_type = clean(node.get("type") or "submit").lower()
-        if name and button_type == "submit":
-            fields.append((name, clean(node.get("value") or node.get_text(" ", strip=True))))
-            break
+    # A real browser submits only the button that was clicked. The earlier
+    # collector submitted both WGFD buttons together, which returned the
+    # filter page instead of the report.
+    if submit_control is not None:
+        name = clean(submit_control.get("name"))
+        value = clean(
+            submit_control.get("value")
+            or submit_control.get_text(" ", strip=True)
+            or submit_control.get("aria-label")
+            or submit_control.get("title")
+        )
+        if name:
+            fields.append((name, value))
+            if clean(submit_control.get("type")).lower() == "image":
+                fields.extend([(f"{name}.x", "1"), (f"{name}.y", "1")])
 
     return fields
+
+
+def stocking_submit_controls(form: Any) -> list[Any]:
+    """Return report/search buttons but never reset, clear or cancel buttons."""
+    controls = []
+    for node in form.find_all(["input", "button"]):
+        node_type = clean(
+            node.get("type")
+            or ("submit" if node.name == "button" else "text")
+        ).lower()
+        if node_type not in {"submit", "image"} or node.has_attr("disabled"):
+            continue
+        label = clean(
+            node.get("value")
+            or node.get_text(" ", strip=True)
+            or node.get("aria-label")
+            or node.get("title")
+            or node.get("id")
+            or node.get("name")
+        ).lower()
+        if any(term in label for term in ("reset", "clear", "cancel")):
+            continue
+        controls.append(node)
+
+    def priority(node: Any) -> tuple[int, str]:
+        label = clean(
+            node.get("value")
+            or node.get_text(" ", strip=True)
+            or node.get("aria-label")
+            or node.get("title")
+            or node.get("id")
+            or node.get("name")
+        ).lower()
+        preferred = any(
+            term in label
+            for term in ("report", "search", "view", "run", "submit", "stock")
+        )
+        return (0 if preferred else 1, label)
+
+    return sorted(controls, key=priority)
 
 
 def find_stocking_form(soup: Any) -> Any:
@@ -817,15 +867,16 @@ def find_stocking_form(soup: Any) -> Any:
     return best if best_score >= 2 else None
 
 
+
 def submit_stocking_report_form(base_url: str) -> list[tuple[str, str]]:
-    """Open the official WGFD app and submit its own report form with cookies/tokens."""
+    """Follow each legitimate WGFD report button using browser semantics."""
     if BeautifulSoup is None:
         raise RuntimeError("beautifulsoup4 is required")
 
     opener = build_opener(HTTPCookieProcessor(CookieJar()))
     headers = {
         "User-Agent": USER_AGENT,
-        "Accept": "text/html,application/xhtml+xml,*/*;q=0.8",
+        "Accept": "text/html,application/xhtml+xml,application/json,text/csv,*/*;q=0.8",
     }
 
     landing_request = Request(base_url, headers=headers)
@@ -838,34 +889,73 @@ def submit_stocking_report_form(base_url: str) -> list[tuple[str, str]]:
     if form is None:
         raise RuntimeError("The official WGFD stocking application form could not be found")
 
-    action_url = urljoin(landing_url, clean(form.get("action")) or landing_url)
-    method = clean(form.get("method") or "get").lower()
-    fields = stocking_form_fields(form)
-    encoded = urlencode(fields, doseq=True)
+    default_action = urljoin(
+        landing_url,
+        clean(form.get("action")) or landing_url,
+    )
+    default_method = clean(form.get("method") or "get").lower()
+    if default_method not in {"get", "post"}:
+        default_method = "get"
 
-    submit_headers = dict(headers)
-    submit_headers["Referer"] = landing_url
+    controls = stocking_submit_controls(form)
+    click_options = controls or [None]
+    pages: list[tuple[str, str]] = [(landing_url, landing_html)]
+    attempted: set[tuple[str, str, str]] = set()
 
-    if method == "post":
-        submit_headers["Content-Type"] = "application/x-www-form-urlencoded"
-        request = Request(
-            action_url,
-            data=encoded.encode("utf-8"),
-            headers=submit_headers,
-            method="POST",
-        )
-    else:
-        separator = "&" if "?" in action_url else "?"
-        request = Request(
-            action_url + (separator + encoded if encoded else ""),
-            headers=submit_headers,
-        )
+    for control in click_options:
+        action_url = default_action
+        method = default_method
+        if control is not None:
+            action_url = urljoin(
+                landing_url,
+                clean(control.get("formaction")) or default_action,
+            )
+            method = clean(control.get("formmethod") or default_method).lower()
+            if method not in {"get", "post"}:
+                method = default_method
 
-    with opener.open(request, timeout=120) as response:
-        report_html = response.read().decode("utf-8", errors="replace")
-        report_url = response.geturl()
+        fields = stocking_form_fields(form, control)
+        encoded = urlencode(fields, doseq=True)
+        signature = (method, action_url, encoded)
+        if signature in attempted:
+            continue
+        attempted.add(signature)
 
-    return [(landing_url, landing_html), (report_url, report_html)]
+        submit_headers = dict(headers)
+        submit_headers["Referer"] = landing_url
+
+        if method == "post":
+            submit_headers["Content-Type"] = "application/x-www-form-urlencoded"
+            request = Request(
+                action_url,
+                data=encoded.encode("utf-8"),
+                headers=submit_headers,
+                method="POST",
+            )
+        else:
+            separator = "&" if "?" in action_url else "?"
+            request = Request(
+                action_url + (separator + encoded if encoded else ""),
+                headers=submit_headers,
+            )
+
+        with opener.open(request, timeout=120) as response:
+            payload = response.read()
+            content_type = clean(response.headers.get("Content-Type")).lower()
+            report_url = response.geturl()
+
+        # The current WGFD report is HTML. Preserve JSON bootstrap payloads by
+        # wrapping them in a script tag that the existing parser understands.
+        decoded = payload.decode("utf-8", errors="replace")
+        if "json" in content_type or decoded.lstrip().startswith(("{", "[")):
+            decoded = (
+                "<html><body><script type='application/json'>"
+                + html.escape(decoded)
+                + "</script></body></html>"
+            )
+        pages.append((report_url, decoded))
+
+    return pages
 
 
 def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]:
@@ -1027,6 +1117,7 @@ def collect_recent_stocking(
     page_errors = []
     parsed: list[dict[str, str]] = []
     used_url = ""
+    checked_pages: list[str] = []
     for base_url in discover_stocking_pages():
         try:
             if "wgfapps.wyo.gov/fishstock" in base_url.lower():
@@ -1034,17 +1125,24 @@ def collect_recent_stocking(
             else:
                 pages = [(base_url, request_text(base_url))]
             for url, page in pages:
-                if "stock" not in page.lower():
-                    continue
                 candidate = parse_stocking_rows(page, url)
+                title = ""
+                if BeautifulSoup is not None:
+                    parsed_page = BeautifulSoup(page, "html.parser")
+                    title = clean(parsed_page.title.get_text(" ", strip=True)) if parsed_page.title else ""
+                checked_pages.append(
+                    f"{url} bytes={len(page.encode('utf-8', errors='ignore'))} "
+                    f"title={title!r} rows={len(candidate)}"
+                )
                 if len(candidate) > len(parsed):
                     parsed, used_url = candidate, url
         except Exception as exc:
             page_errors.append(f"{base_url}: {exc}")
     if not parsed:
         raise RuntimeError(
-            "No stocking records could be parsed after submitting the official WGFD report form. "
-            + " | ".join(page_errors[:3])
+            "No stocking records could be parsed after clicking the official WGFD "
+            "report/search button. "
+            + " | ".join((page_errors + checked_pages)[-8:])
         )
 
     name_index: dict[str, list[tuple[str, str]]] = defaultdict(list)
