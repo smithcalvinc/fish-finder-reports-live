@@ -231,19 +231,41 @@ def arcgis_query_url(layer_url: str, params: dict[str, Any]) -> str:
     return f"{layer_url}/query?{urlencode(params)}"
 
 
-def arcgis_features(layer_url: str, chunk_size: int = 500) -> list[dict[str, Any]]:
+def arcgis_features(layer_url: str, chunk_size: int = 50) -> list[dict[str, Any]]:
+    """Download ArcGIS features in short requests that avoid server/WAF URL limits."""
     ids_payload = request_json(arcgis_query_url(layer_url, {
         "where": "1=1", "returnIdsOnly": "true", "f": "json",
     }))
     ids = sorted(set(ids_payload.get("objectIds") or []))
     rows: list[dict[str, Any]] = []
+
+    def fetch_chunk(object_ids: list[int]) -> list[dict[str, Any]]:
+        if not object_ids:
+            return []
+        url = arcgis_query_url(layer_url, {
+            "objectIds": ",".join(str(v) for v in object_ids),
+            "outFields": "*",
+            "returnGeometry": "true",
+            "outSR": "4326",
+            "f": "json",
+        })
+        try:
+            payload = request_json(url)
+            return payload.get("features") or []
+        except RuntimeError as exc:
+            message = str(exc)
+            # Colorado's ArcGIS/WAF returned HTTP 403 for a 500-ID URL.
+            # Split only URL-size style failures; preserve real source failures.
+            if len(object_ids) > 5 and ("403" in message or "414" in message):
+                midpoint = len(object_ids) // 2
+                return (
+                    fetch_chunk(object_ids[:midpoint])
+                    + fetch_chunk(object_ids[midpoint:])
+                )
+            raise
+
     for start in range(0, len(ids), chunk_size):
-        chunk = ids[start:start + chunk_size]
-        payload = request_json(arcgis_query_url(layer_url, {
-            "objectIds": ",".join(str(v) for v in chunk),
-            "outFields": "*", "returnGeometry": "true", "outSR": "4326", "f": "json",
-        }))
-        rows.extend(payload.get("features") or [])
+        rows.extend(fetch_chunk(ids[start:start + chunk_size]))
     return rows
 
 
