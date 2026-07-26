@@ -1,0 +1,13 @@
+name: Legacy Fishing Report Source Check - Disabled
+
+on:
+  workflow_dispatch:
+
+jobs:
+  notice:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Use the combined statewide workflow
+        run: |
+          echo "This legacy workflow is disabled."
+          echo "Run Update All Idaho Fishing Data instead."
