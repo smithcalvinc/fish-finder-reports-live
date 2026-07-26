@@ -1,6 +1,25 @@
 {
-  "generated_at": "PENDING_FIRST_GITHUB_WORKFLOW_RUN",
-  "success": false,
-  "status": "Awaiting first workflow run",
-  "instructions": "Upload all files to the repository and run Update Idaho Public Fishing Access from GitHub Actions."
+  "generated_at": "2026-07-26T02:39:14Z",
+  "success": true,
+  "source_counts": {
+    "access_sites_downloaded": 359,
+    "lakes_downloaded": 4996,
+    "stream_access_rows_downloaded": 24770,
+    "stream_county_rows_downloaded": 13549,
+    "family_lakes_downloaded": 0,
+    "family_streams_downloaded": 0
+  },
+  "warnings": [
+    "Family Fishing Waters lake helper layer unavailable; using the official FFW field from the main lake source instead: Unable to retrieve https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/1/query: ArcGIS error: {'code': 400, 'message': 'Unable to complete operation.', 'details': ['Unable to perform query operation.']}",
+    "Family Fishing Waters stream helper layer unavailable; using the official FFW field from the main stream source instead: Unable to retrieve https://gisportal-idfg.idaho.gov/hosting/rest/services/Fisheries/Family_Fishing_Waters/FeatureServer/2/query: ArcGIS error: {'code': 400, 'message': 'Unable to complete operation.', 'details': ['Unable to perform query operation.']}",
+    "A county with zero records indicates a source-coverage gap or no matching explicit public-access record; it must not be interpreted as proof that the county has no public fishing."
+  ],
+  "errors": [],
+  "output_record_count": 356,
+  "water_record_count": 0,
+  "access_point_record_count": 356,
+  "counties_with_no_records": [
+    "Boundary"
+  ],
+  "unmatched_access_point_water_names": 162
 }
