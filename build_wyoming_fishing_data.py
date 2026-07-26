@@ -1110,6 +1110,128 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
     return rows
 
 
+
+def stocking_page_diagnostics(page_html: str, page_url: str) -> str:
+    """Return concise structural clues from the live WGFD stocking application."""
+    if BeautifulSoup is None:
+        return "BeautifulSoup unavailable"
+
+    soup = BeautifulSoup(page_html, "html.parser")
+    chunks: list[str] = []
+    title = clean(soup.title.get_text(" ", strip=True)) if soup.title else ""
+    chunks.append(
+        f"PAGE url={page_url} bytes={len(page_html.encode('utf-8', errors='ignore'))} "
+        f"title={title!r} forms={len(soup.find_all('form'))} "
+        f"tables={len(soup.find_all('table'))}"
+    )
+
+    for index, form in enumerate(soup.find_all("form")[:5], start=1):
+        chunks.append(
+            "FORM "
+            + str(index)
+            + " "
+            + json.dumps({
+                "action": clean(form.get("action")),
+                "method": clean(form.get("method")),
+                "id": clean(form.get("id")),
+                "name": clean(form.get("name")),
+                "target": clean(form.get("target")),
+                "onsubmit": clip(form.get("onsubmit"), 300),
+            }, ensure_ascii=False)
+        )
+
+        controls = []
+        for node in form.find_all(["input", "button"])[:20]:
+            controls.append({
+                "tag": node.name,
+                "type": clean(node.get("type")),
+                "id": clean(node.get("id")),
+                "name": clean(node.get("name")),
+                "value": clip(node.get("value"), 160),
+                "text": clip(node.get_text(" ", strip=True), 160),
+                "formaction": clean(node.get("formaction")),
+                "formmethod": clean(node.get("formmethod")),
+                "onclick": clip(node.get("onclick"), 300),
+            })
+        chunks.append("CONTROLS " + json.dumps(controls, ensure_ascii=False))
+
+        selects = []
+        for node in form.find_all("select")[:12]:
+            selected = node.find_all("option", selected=True)
+            chosen = selected or node.find_all("option")[:1]
+            selects.append({
+                "id": clean(node.get("id")),
+                "name": clean(node.get("name")),
+                "selected": [
+                    clean(option.get("value") or option.get_text(" ", strip=True))
+                    for option in chosen[:3]
+                ],
+            })
+        chunks.append("SELECTS " + json.dumps(selects, ensure_ascii=False))
+
+    for index, table in enumerate(soup.find_all("table")[:8], start=1):
+        headers = [
+            clean(cell.get_text(" ", strip=True))
+            for cell in table.find_all(["th", "td"])[:12]
+        ]
+        chunks.append(
+            f"TABLE {index} rows={len(table.find_all('tr'))} "
+            f"headers={headers!r}"
+        )
+
+    interesting_links = []
+    for node in soup.find_all("a", href=True):
+        href = urljoin(page_url, clean(node.get("href")))
+        label = clean(node.get_text(" ", strip=True))
+        blob = f"{href} {label}".lower()
+        if any(term in blob for term in (
+            "stock", "report", "export", "download", "csv", "excel", "pdf"
+        )):
+            interesting_links.append({"text": clip(label, 120), "href": href})
+    chunks.append(
+        "LINKS " + json.dumps(interesting_links[:20], ensure_ascii=False)
+    )
+
+    script_sources = [
+        urljoin(page_url, clean(script.get("src")))
+        for script in soup.find_all("script", src=True)
+    ]
+    chunks.append(
+        "SCRIPT_SRCS " + json.dumps(script_sources[-20:], ensure_ascii=False)
+    )
+
+    script_clues = []
+    for script in soup.find_all("script"):
+        raw = script.string or script.get_text()
+        if not raw:
+            continue
+        lowered = raw.lower()
+        if any(term in lowered for term in (
+            "fishstock", "report", "window.open", "formaction",
+            "ajax", "$.post", "$.get", "fetch(", "location.href",
+            "submit(", "export", "download", ".csv", ".pdf"
+        )):
+            compact = clean(raw)
+            script_clues.append(clip(compact, 900))
+    chunks.append(
+        "INLINE_SCRIPT_CLUES "
+        + json.dumps(script_clues[:12], ensure_ascii=False)
+    )
+
+    route_pattern = re.compile(
+        r"""(?:"|')([^"']*(?:FishStock|fishstock|Report|report|Export|export|Download|download|\.csv|\.pdf)[^"']*)(?:"|')"""
+    )
+    routes = []
+    for match in route_pattern.finditer(page_html):
+        value = clean(html.unescape(match.group(1)))
+        if value and value not in routes and len(value) < 500:
+            routes.append(value)
+    chunks.append("ROUTE_CLUES " + json.dumps(routes[:40], ensure_ascii=False))
+
+    return "\n".join(chunks)
+
+
+
 def collect_recent_stocking(
     waters: dict[tuple[str, str], dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], int, int, str]:
@@ -1139,10 +1261,20 @@ def collect_recent_stocking(
         except Exception as exc:
             page_errors.append(f"{base_url}: {exc}")
     if not parsed:
+        diagnostic_pages: list[str] = []
+        for base_url in discover_stocking_pages():
+            if "wgfapps.wyo.gov/fishstock" not in base_url.lower():
+                continue
+            try:
+                for url, page in submit_stocking_report_form(base_url):
+                    diagnostic_pages.append(stocking_page_diagnostics(page, url))
+            except Exception as exc:
+                diagnostic_pages.append(f"DIAGNOSTIC RETRIEVAL FAILED: {exc}")
         raise RuntimeError(
-            "No stocking records could be parsed after clicking the official WGFD "
-            "report/search button. "
-            + " | ".join((page_errors + checked_pages)[-8:])
+            "WYOMING_STOCKING_DIAGNOSTIC_START\n"
+            + "\n---\n".join(diagnostic_pages[-4:])
+            + "\nWYOMING_STOCKING_DIAGNOSTIC_END\n"
+            + "No stocking records were published. Existing site files remain untouched."
         )
 
     name_index: dict[str, list[tuple[str, str]]] = defaultdict(list)
