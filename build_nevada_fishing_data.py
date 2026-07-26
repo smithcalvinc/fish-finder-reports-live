@@ -3,7 +3,7 @@
 
 This one-file state builder creates and maintains:
 - the authoritative 17 Nevada county/county-equivalent list
-- official NDOW FishNV fishable-water records
+- official NDOW server-rendered fishable-water records (FishNV retained only as an optional map link)
 - official NDOW fishing reports and stocking updates
 - public-access-only county search data
 - the Nevada county search page
@@ -12,7 +12,7 @@ This one-file state builder creates and maintains:
 
 Strict public-access policy
 ---------------------------
-FishNV supplies water metadata only. A FishNV listing never proves public access.
+NDOW server-rendered water pages supply the authoritative water inventory and county metadata. FishNV is retained only as an optional map link and never proves public access.
 A water is published only after a separate official NDOW accessibility table,
 Nevada State Parks page, National Park Service page, BLM recreation dataset,
 USDA Forest Service recreation dataset, or Bureau of Reclamation boat-ramp dataset
@@ -1620,7 +1620,7 @@ def match_verified_access(
                 "species": base.get("species"),
                 "fishnv_source_url": base.get("fishnv_source_url"),
                 "publication_status": "quarantined_unverified_public_access",
-                "reason": "FishNV identifies a fishable water, but no separate official named public-access source matched it.",
+                "reason": "NDOW identifies a fishable water, but no separate explicit official named public-access source matched it.",
             })
             continue
         row = dict(base)
@@ -1649,6 +1649,7 @@ def match_verified_access(
             "official_federal_access_page",
             "official_ndow_accessibility_table",
             "official_ndow_accessibility_live_text",
+            "official_ndow_water_access_page",
         }:
             continue
         hint = hints[0]
@@ -1721,6 +1722,7 @@ def match_verified_access(
         "verified_unique_waters": len(verified),
         "official_access_seeded_waters": seeded_count,
         "quarantined_fishnv_waters": len(unverified),
+        "quarantined_unverified_waters": len(unverified),
         "orphan_official_access_records": len(remaining_orphans),
         "verified_access_points": sum(len(row.get("access_points") or []) for row in verified),
     }
@@ -1823,6 +1825,31 @@ def run_self_tests() -> None:
     )
     score, _ = access_match_score(waters[0], nearby_only)
     assert score < 100, "Nearby-water descriptive text must never establish public access"
+    ndow_sample = soup_for("""
+    <html><body><main><h1>Lahontan Reservoir</h1>
+    <a href='https://www.fish.wildlifenv.com/waters/4001'>View Map</a>
+    <div>Region Western County Churchill Type of water Lake or Reservoir</div>
+    <h2>Pertinent Information</h2><p>Lahontan Reservoir is entirely located within Lahontan State Park.
+    Camping, restrooms, picnic tables, and boat launching facilities are available.</p>
+    <h2>Other Bodies of Water</h2><a href='/waters/other-water/'>Other Water</a></main></body></html>
+    """)
+    sample_visible, sample_head = ndow_water_head(ndow_sample)
+    sample_records = ndow_page_access_records(
+        water_name="Lahontan Reservoir", county="Churchill",
+        page_url="https://www.ndow.org/waters/lahontan-reservoir/",
+        head_text=sample_head, latitude=None, longitude=None,
+    )
+    assert sample_records, "Explicit NDOW state-park and boat-launch language must create access evidence"
+    assert any("Lahontan State Park" in row["access_point_name"] for row in sample_records)
+    assert all(row["verification_method"] == "official_ndow_water_access_page" for row in sample_records)
+    assert "Other Water" not in sample_head, "Related-water text must not contaminate the current water parser"
+
+    weak_sample = "Fishing has been good. Shoreline vegetation is dense."
+    assert not ndow_page_access_records(
+        water_name="Test Pond", county="Clark", page_url="https://www.ndow.org/waters/test-pond/",
+        head_text=weak_sample, latitude=None, longitude=None,
+    ), "Fishing conditions alone must never prove public access"
+
     print("Nevada strict public-access self-tests passed.")
 
 def option_water_candidates(soup: Any, base_url: str) -> tuple[set[str], set[str]]:
@@ -1895,6 +1922,341 @@ def card_report_candidates(soup: Any, page_url: str) -> list[dict[str, Any]]:
         ))
     return results
 
+
+
+NDOW_WATER_HOSTS = {"ndow.org", "www.ndow.org"}
+NDOW_WATER_SITEMAP_CANDIDATES = (
+    "https://www.ndow.org/wp-sitemap-posts-waters-1.xml",
+    "https://www.ndow.org/wp-sitemap.xml",
+    "https://www.ndow.org/waters-sitemap.xml",
+)
+
+
+def extract_ndow_water_urls(text: str, base_url: str = "https://www.ndow.org/") -> set[str]:
+    """Extract only NDOW /waters/<slug>/ detail URLs."""
+    urls: set[str] = set()
+    soup = soup_for(text)
+    candidates = [clean(anchor.get("href")) for anchor in soup.find_all("a", href=True)]
+    candidates.extend(re.findall(r"https?://(?:www\.)?ndow\.org/waters/[a-z0-9][a-z0-9\-]*/?", text, flags=re.I))
+    candidates.extend(re.findall(r"(?:href=[\"']?)?(/waters/[a-z0-9][a-z0-9\-]*/?)", text, flags=re.I))
+    for value in candidates:
+        url = canonical_url(value, base_url)
+        parts = urlsplit(url)
+        if parts.netloc not in NDOW_WATER_HOSTS:
+            continue
+        if not re.fullmatch(r"/waters/[a-z0-9][a-z0-9\-]*/?", parts.path, flags=re.I):
+            continue
+        urls.add(url.rstrip("/") + "/")
+    return urls
+
+
+def ndow_water_head(soup: Any) -> tuple[str, str]:
+    """Return full visible text and the water-specific section before related waters."""
+    scope = soup.find("main") or soup.find("article") or soup
+    visible = clean(scope.get_text(" ", strip=True))
+    head = re.split(r"\bOther Bodies of Water\b|\bRelated Waters\b", visible, maxsplit=1, flags=re.I)[0]
+    return visible, head[:30000]
+
+
+def labeled_value(text: str, label: str, stop_labels: tuple[str, ...]) -> str:
+    stops = "|".join(re.escape(item) for item in stop_labels)
+    match = re.search(rf"\b{re.escape(label)}\s+(.+?)(?=\s+(?:{stops})\b|$)", text, flags=re.I)
+    return clean(match.group(1)) if match else ""
+
+
+NEVADA_FISH_NAMES = (
+    "Rainbow Trout", "Brown Trout", "Brook Trout", "Cutthroat Trout", "Lahontan Cutthroat Trout",
+    "Tiger Trout", "Lake Trout", "Mackinaw", "Kokanee Salmon", "Channel Catfish", "White Catfish",
+    "Largemouth Bass", "Smallmouth Bass", "Spotted Bass", "White Bass", "Striped Bass", "Wiper",
+    "Bluegill", "Green Sunfish", "Sacramento Perch", "Yellow Perch", "Crappie", "White Crappie",
+    "Black Crappie", "Walleye", "Carp", "Brown Bullhead", "Tiger Muskie", "Northern Pike",
+    "Mountain Whitefish", "Redband Trout", "Bull Trout", "Tui Chub",
+)
+
+
+def ndow_species_from_text(text: str) -> list[str]:
+    lower = text.lower()
+    found = {name for name in NEVADA_FISH_NAMES if re.search(rf"\b{re.escape(name.lower())}\b", lower)}
+    return sorted(found)
+
+
+def ndow_access_excerpt(text: str) -> str:
+    signals = (
+        "public access", "public land", "state park", "state recreation area", "national recreation area",
+        "wildlife management area", "national wildlife refuge", "recreation site", "boat ramp", "launch ramp",
+        "boat launch", "fishing pier", "shore access", "access sites", "campground", "camping is allowed",
+        "restrooms", "picnic areas", "managed by",
+    )
+    compact = clean(text)
+    lower = compact.lower()
+    positions = [lower.find(signal) for signal in signals if lower.find(signal) >= 0]
+    if not positions:
+        return ""
+    start = max(0, min(positions) - 220)
+    return clip(compact[start:start + 1400], 1400)
+
+
+def named_access_facilities(text: str, water_name: str) -> list[str]:
+    """Extract explicit named facilities from NDOW's own access description."""
+    suffix = (
+        r"State Recreation Area|State Park|National Recreation Area|National Wildlife Refuge|"
+        r"Wildlife Management Area|Recreation Site|Campground|Marina|Harbor|Boat Ramp|"
+        r"Launch Ramp|Fishing Pier|Beach|Cove|Park"
+    )
+    pattern = re.compile(
+        rf"\b([A-Z][A-Za-z0-9’'&.\-/]*(?:\s+(?:[A-Z][A-Za-z0-9’'&.\-/]*|of|the|and)){{0,7}}\s+(?:{suffix}))\b"
+    )
+    excluded = {
+        "Nevada Department of Wildlife", "Bureau of Land Management", "United States Forest Service",
+        "U S Forest Service", "National Park Service", "Nevada Division of State Parks",
+    }
+    names = []
+    for match in pattern.finditer(text):
+        value = clean(match.group(1)).strip(" ,.;:")
+        if value and value not in excluded and len(value) <= 100:
+            names.append(value)
+
+    # Named lists after access/facility phrases often omit a suffix, e.g.
+    # "developed campgrounds occur at Boulder Beach, Callville Bay, and Echo Bay."
+    list_pattern = re.compile(
+        r"(?:campgrounds?|marinas?|launch ramps?|boat ramps?|access sites?|launching facilities)"
+        r"[^.;]{0,80}?\b(?:at|include|in|are available at)\s+([^.;]{3,220})",
+        flags=re.I,
+    )
+    for match in list_pattern.finditer(text):
+        blob = re.sub(r"\([^)]*\)", "", match.group(1))
+        for part in re.split(r",|\band\b|\bor\b", blob, flags=re.I):
+            value = clean(part).strip(" ,.;:")
+            value = re.sub(r"^(?:the|in|at)\s+", "", value, flags=re.I)
+            if 2 <= len(value) <= 80 and re.search(r"[A-Z]", value) and not re.search(r"temperatures|water|trash|sanitation|facilities$", value, flags=re.I):
+                names.append(value)
+
+    # Deduplicate while preserving order.
+    result: list[str] = []
+    seen: set[str] = set()
+    for name in names:
+        key = norm(name)
+        if not key or key in seen:
+            continue
+        seen.add(key)
+        result.append(name)
+    return result[:12]
+
+
+def ndow_page_access_records(
+    *, water_name: str, county: str, page_url: str, head_text: str,
+    latitude: float | None, longitude: float | None,
+) -> list[dict[str, Any]]:
+    """Create access evidence only from explicit, named NDOW access language."""
+    lower = head_text.lower()
+    public_context = any(term in lower for term in (
+        "public access", "public land", "state park", "state recreation area", "national recreation area",
+        "wildlife management area", "national wildlife refuge", "recreation site", "u.s. forest service",
+        "us forest service", "bureau of land management", " blm ", "managed by nevada division of state parks",
+    ))
+    facility_context = any(term in lower for term in (
+        "boat ramp", "launch ramp", "boat launch", "boat launching", "fishing pier", "shore access",
+        "access sites", "campground", "camping is allowed", "restrooms", "picnic areas", "marina",
+    ))
+    waterwide_public = any(term in lower for term in (
+        "lies entirely on public land", "located entirely on public land", "entirely located within",
+        "entirely within a state park", "entirely within the state park",
+    ))
+    facilities = named_access_facilities(head_text, water_name)
+    if not facilities and not ((public_context and facility_context) or waterwide_public):
+        return []
+
+    if not facilities:
+        if "boat ramp" in lower or "launch ramp" in lower or "boat launching" in lower:
+            facilities = [f"{water_name} boat-launch access"]
+        elif "fishing pier" in lower:
+            facilities = [f"{water_name} fishing pier"]
+        elif "shore access" in lower:
+            facilities = [f"{water_name} shoreline access"]
+        elif "public land" in lower:
+            facilities = [f"{water_name} public-land sections"]
+        else:
+            facilities = [f"{water_name} public recreation access"]
+
+    excerpt = ndow_access_excerpt(head_text)
+    amenities = {
+        "camping": True if re.search(r"\bcamp(?:ing|ground|sites?)\b", lower) else None,
+        "restroom": True if re.search(r"\brestrooms?|bathroom facilities|toilets?\b", lower) else None,
+        "boat_ramp": True if re.search(r"\bboat (?:launch(?:ing)?|ramp)|launch ramps?\b", lower) else None,
+        "dock": True if re.search(r"\bdocks?\b", lower) else None,
+        "ada_fishing": True if re.search(r"\baccessible fishing|ada fishing|wheelchair.{0,30}(?:pier|platform|fishing)\b", lower) else None,
+    }
+    rows = []
+    for facility in facilities:
+        rows.append(make_access_record(
+            water_hints=[water_name],
+            access_point_name=facility,
+            source_name="Nevada Department of Wildlife",
+            source_type="official_ndow_water_access_page",
+            official_source_url=page_url,
+            verification_evidence=excerpt or f"NDOW's official {water_name} page explicitly identifies this public recreation access.",
+            access_details=excerpt,
+            county_hint=county,
+            latitude=latitude,
+            longitude=longitude,
+            amenities=amenities,
+            current_status="verify_current_conditions_before_travel",
+        ))
+    return rows
+
+
+def parse_ndow_water_page(
+    url: str,
+    county_polygons: list[tuple[str, list[list[list[float]]]]],
+) -> tuple[dict[str, Any] | None, list[dict[str, Any]], set[str], str]:
+    """Parse one server-rendered NDOW water page and its explicit access evidence."""
+    try:
+        raw = request_text(url)
+    except RuntimeError as exc:
+        return None, [], set(), str(exc)
+    soup = soup_for(raw)
+    children = extract_ndow_water_urls(raw, url)
+    visible, head = ndow_water_head(soup)
+    heading = soup.find("h1")
+    name = clean(heading.get_text(" ", strip=True)) if heading else ""
+    if not name:
+        return None, [], children, f"NDOW water page did not expose a water name: {url}"
+
+    county = ""
+    county_match = re.search(
+        r"\bCounty\s+(Carson City|Churchill|Clark|Douglas|Elko|Esmeralda|Eureka|Humboldt|Lander|Lincoln|Lyon|Mineral|Nye|Pershing|Storey|Washoe|White Pine)\b",
+        head,
+        flags=re.I,
+    )
+    if county_match:
+        county = canonical_county(county_match.group(1))
+
+    objects = structured_objects(soup)
+    lat, lon = first_coordinate_pair(objects, head)
+    if not county and valid_lon_lat(lon, lat):
+        county = county_for_point(lon, lat, county_polygons)
+    if not county:
+        return None, [], children, f"NDOW water page could not be assigned to a Nevada county: {name} ({url})"
+
+    region_match = re.search(r"\bRegion\s+(Eastern|Southern|Western)\b", head, flags=re.I)
+    region = region_match.group(1).title() if region_match else ""
+    type_match = re.search(
+        r"\bType of water\s+(.+?)(?=\s+(?:Fishing Report|Stocking Updates?|Pertinent Information|Other Bodies of Water)\b|$)",
+        head,
+        flags=re.I,
+    )
+    type_text = clean(type_match.group(1)) if type_match else ""
+
+    fishnv_url = ""
+    for anchor in soup.find_all("a", href=True):
+        href = canonical_url(anchor.get("href"), url)
+        if urlsplit(href).netloc in FISHNV_HOSTS and re.search(r"/waters/\d+/?", urlsplit(href).path):
+            fishnv_url = href.rstrip("/")
+            break
+
+    species = ndow_species_from_text(head)
+    water = {
+        "water_id": water_id("ndow-water-page", url, name),
+        "county": county,
+        "counties": [county],
+        "county_number": COUNTY_NUMBER[county],
+        "water_name": name,
+        "water_type": water_type(name, type_text),
+        "region": region,
+        "latitude": lat,
+        "longitude": lon,
+        "species": ", ".join(species),
+        "fishnv_source_url": fishnv_url,
+        "fishnv_page_id": re.search(r"/waters/(\d+)", fishnv_url).group(1) if re.search(r"/waters/(\d+)", fishnv_url) else "",
+        "ndow_water_source_url": canonical_url(url),
+        "metadata_source": "official_ndow_server_rendered_water_page",
+        "access_points": [],
+    }
+    access = ndow_page_access_records(
+        water_name=name,
+        county=county,
+        page_url=canonical_url(url),
+        head_text=head,
+        latitude=lat,
+        longitude=lon,
+    )
+    return water, access, children, ""
+
+
+def collect_ndow_water_inventory(
+    report_html_pages: Iterable[str],
+    reports: Iterable[dict[str, Any]],
+    county_polygons: list[tuple[str, list[list[list[float]]]]],
+    workers: int = 12,
+    max_pages: int = 750,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[str], dict[str, int]]:
+    """Crawl NDOW's official water pages, including related-water links."""
+    queue: set[str] = set()
+    for raw in report_html_pages:
+        queue.update(extract_ndow_water_urls(raw, OFFICIAL_URLS["reports"]))
+    for report in reports:
+        source = canonical_url(report.get("source_url", ""))
+        if urlsplit(source).netloc in NDOW_WATER_HOSTS and re.fullmatch(r"/waters/[a-z0-9][a-z0-9\-]*/?", urlsplit(source).path, flags=re.I):
+            queue.add(source.rstrip("/") + "/")
+
+    sitemap_checked = 0
+    sitemap_failures = 0
+    for sitemap_url in NDOW_WATER_SITEMAP_CANDIDATES:
+        try:
+            xml = request_text(sitemap_url, retries=2)
+            sitemap_checked += 1
+            for loc in xml_locs(xml):
+                queue.update(extract_ndow_water_urls(loc, sitemap_url))
+            queue.update(extract_ndow_water_urls(xml, sitemap_url))
+        except RuntimeError:
+            sitemap_failures += 1
+
+    seen: set[str] = set()
+    waters: list[dict[str, Any]] = []
+    access_records: list[dict[str, Any]] = []
+    warnings: list[str] = []
+    while queue and len(seen) < max_pages:
+        batch = sorted(queue - seen)[: max(1, min(workers, 24)) * 3]
+        if not batch:
+            break
+        seen.update(batch)
+        with ThreadPoolExecutor(max_workers=max(1, min(workers, 24))) as executor:
+            futures = {executor.submit(parse_ndow_water_page, url, county_polygons): url for url in batch}
+            for future in as_completed(futures):
+                url = futures[future]
+                try:
+                    water, page_access, children, error = future.result()
+                except Exception as exc:
+                    water, page_access, children, error = None, [], set(), f"{url}: {exc}"
+                queue.update(child for child in children if child not in seen)
+                if water:
+                    waters.append(water)
+                    access_records.extend(page_access)
+                elif error:
+                    warnings.append(error)
+
+    # Deduplicate canonical NDOW pages and exact county/name records.
+    unique: dict[tuple[str, str], dict[str, Any]] = {}
+    for water in waters:
+        key = (clean(water.get("county")), norm(water.get("water_name")))
+        if key[0] and key[1]:
+            existing = unique.get(key)
+            if not existing or (not existing.get("fishnv_source_url") and water.get("fishnv_source_url")):
+                unique[key] = water
+    waters = sorted(unique.values(), key=lambda row: (COUNTY_NUMBER.get(row.get("county"), 999), clean(row.get("water_name"))))
+    access_unique = {clean(row.get("access_id")): row for row in access_records if clean(row.get("access_id"))}
+    represented_counties = {clean(row.get("county")) for row in waters if clean(row.get("county"))}
+    return waters, list(access_unique.values()), warnings, {
+        "ndow_water_seed_urls": len({url for url in seen if url}),
+        "ndow_water_pages_requested": len(seen),
+        "ndow_water_metadata_records": len(waters),
+        "ndow_water_metadata_counties": len(represented_counties),
+        "ndow_water_page_access_records": len(access_unique),
+        "ndow_water_unresolved_pages": len(warnings),
+        "ndow_water_sitemaps_checked": sitemap_checked,
+        "ndow_water_sitemap_failures": sitemap_failures,
+        "fishnv_map_links_from_ndow": sum(bool(row.get("fishnv_source_url")) for row in waters),
+    }
 
 def collect_ndow_reports() -> tuple[list[dict[str, Any]], set[str], list[str], dict[str, int]]:
     reports: list[dict[str, Any]] = []
@@ -2035,21 +2397,22 @@ def build_database(
         "metadata": {
             "state": STATE,
             "title": "Nevada Independently Verified Public Fishing Access and Current Fishing Reports",
-            "version": "2.0-strict-public-access",
+            "version": "3.0-ndow-complete-inventory-strict-access",
             "generated_at": generated_at,
             "public_access_only": True,
             "fishnv_is_access_verification": False,
             "county_order": "1 Carson City through 17 White Pine",
             "access_policy": (
-                "FishNV supplies the fishable-water inventory, species, coordinates and report matching only. "
-                "A water is published only when a separate official NDOW accessibility table, Nevada State Parks page, "
-                "National Park Service page, BLM recreation dataset, USDA Forest Service recreation dataset, or Bureau "
-                "of Reclamation boat-ramp dataset verifies a named public access facility. FishNV-only waters are quarantined "
-                "and never displayed as public access. A verified facility still does not make every shoreline or neighboring "
-                "parcel public; anglers must follow posted signs, current closures, tribal rules and fishing regulations."
+                "NDOW server-rendered water pages supply the statewide water name, county, type, report context and optional FishNV map link. "
+                "FishNV is never accepted as access verification. A water is published only when an explicit named public-access facility or area "
+                "is verified by an official NDOW access statement, Nevada State Parks page, National Park Service page, BLM recreation dataset, "
+                "USDA Forest Service recreation dataset, or Bureau of Reclamation boat-ramp dataset. Waters without explicit access evidence are "
+                "quarantined and never displayed as public access. A verified facility still does not make every shoreline or neighboring parcel public; "
+                "anglers must follow posted signs, current closures, tribal rules and fishing regulations."
             ),
             "sources": [
-                {"name": "NDOW FishNV water inventory (not access verification)", "type": "official_water_metadata", "url": OFFICIAL_URLS["fishnv"]},
+                {"name": "NDOW official water pages", "type": "official_water_metadata", "url": OFFICIAL_URLS["reports"]},
+                {"name": "FishNV optional map links (not access verification)", "type": "official_map_link", "url": OFFICIAL_URLS["fishnv"]},
                 {"name": "NDOW Accessible Fishing in Nevada", "type": "official_access", "url": OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"]},
                 {"name": "Nevada State Parks named access pages", "type": "official_access", "url": "https://parks.nv.gov/parks"},
                 {"name": "National Park Service Lake Mead access pages", "type": "official_access", "url": OFFICIAL_ACCESS_URLS["nps_lake_mead_fishing"]},
@@ -2121,19 +2484,31 @@ def validate_build(db: dict[str, Any], source_counts: dict[str, int], audit: dic
         raise RuntimeError("Nevada county order is not Carson City through White Pine")
     if int(source_counts.get("county_polygons", 0)) != 17:
         raise RuntimeError("Nevada official county polygon source did not return all 17 county-equivalents")
-    if int(source_counts.get("fishnv_water_urls", 0)) < 400:
+
+    metadata_records = int(source_counts.get("ndow_water_metadata_records", 0) or 0)
+    metadata_counties = int(source_counts.get("ndow_water_metadata_counties", 0) or 0)
+    pages_requested = int(source_counts.get("ndow_water_pages_requested", 0) or 0)
+    unresolved_pages = int(source_counts.get("ndow_water_unresolved_pages", 0) or 0)
+    if pages_requested < 400:
+        raise RuntimeError(f"NDOW water discovery reached only {pages_requested} water pages; expected at least 400")
+    if metadata_records < 400:
+        raise RuntimeError(f"NDOW water parser produced only {metadata_records} metadata records; expected at least 400")
+    if metadata_counties != 17:
+        raise RuntimeError(f"NDOW water metadata represents only {metadata_counties} of 17 Nevada county-equivalents")
+    allowed_unresolved = max(25, int(pages_requested * 0.15))
+    if unresolved_pages > allowed_unresolved:
         raise RuntimeError(
-            f"FishNV discovery returned only {source_counts.get('fishnv_water_urls', 0)} water URLs; expected at least 400"
+            f"NDOW water parser left {unresolved_pages} of {pages_requested} pages unresolved; maximum allowed is {allowed_unresolved}"
         )
 
     unique_water_count = int(db.get("public_water_count", 0) or 0)
     access_count = int(db.get("verified_access_point_count", 0) or 0)
     report_count = int(db.get("report_count", 0) or 0)
-    if unique_water_count < 10:
+    if unique_water_count < 25:
         raise RuntimeError(f"Strict verification produced only {unique_water_count} independently verified public waters")
-    if access_count < 10:
+    if access_count < 25:
         raise RuntimeError(f"Strict verification produced only {access_count} official public access points")
-    if report_count < 10:
+    if report_count < 100:
         raise RuntimeError(f"Nevada build produced only {report_count} official report/update records")
 
     bad_points: list[str] = []
@@ -2166,19 +2541,27 @@ def validate_build(db: dict[str, Any], source_counts: dict[str, int], audit: dic
         raise RuntimeError(f"Only {len(source_methods)} independent access-verification method was used")
 
     populated_counties = sum(1 for county in counties if int(county.get("public_water_count", 0) or 0) > 0)
-    if populated_counties < 5:
-        raise RuntimeError(f"Only {populated_counties} Nevada county-equivalents contain independently verified records")
+    missing_public_counties = [county.get("county") for county in counties if int(county.get("public_water_count", 0) or 0) == 0]
+    if populated_counties != 17:
+        raise RuntimeError(
+            f"Verified public-access results cover only {populated_counties} of 17 county-equivalents; missing {missing_public_counties}"
+        )
     map_counts = validate_map_data(db)
     return {
         "passed": True,
+        "complete_inventory_gate": True,
         "strict_public_access": True,
         "fishnv_is_access_verification": False,
+        "ndow_water_metadata_records": metadata_records,
+        "ndow_water_metadata_counties": metadata_counties,
+        "ndow_water_pages_requested": pages_requested,
+        "ndow_water_unresolved_pages": unresolved_pages,
         "public_water_count": unique_water_count,
         "verified_access_point_count": access_count,
         "report_count": report_count,
         "populated_counties": populated_counties,
         "access_verification_methods": sorted(source_methods),
-        "quarantined_fishnv_waters": int(audit.get("matching", {}).get("quarantined_fishnv_waters", 0)),
+        "quarantined_unverified_waters": int(audit.get("matching", {}).get("quarantined_unverified_waters", 0)),
         "orphan_official_access_records": int(audit.get("matching", {}).get("orphan_official_access_records", 0)),
         **map_counts,
     }
@@ -2225,7 +2608,7 @@ def write_outputs(
             "state": STATE,
             "generated_at": db["metadata"]["generated_at"],
             "publication_status": "not_published",
-            "reason": "FishNV water metadata exists, but no separate official named public-access source matched.",
+            "reason": "Official NDOW water metadata exists, but no explicit official named public-access source matched.",
         },
         "count": len(unverified),
         "waters": unverified,
@@ -2272,7 +2655,7 @@ def county_page_html() -> str:
 <style>
 :root{--ink:#13251f;--muted:#5c6c65;--paper:#f3f1e7;--green:#184f3b;--gold:#d9a72e;--line:#d8d7cd;--danger:#9a382b}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#123d30 0,#123d30 250px,var(--paper) 250px);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}header{max-width:1200px;margin:auto;padding:32px 18px 30px;color:#fff}h1{font-size:clamp(2rem,5vw,4rem);margin:8px 0}.eyebrow{color:#f2c85d;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.sub{max-width:900px;line-height:1.55}.state-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.state-links a{color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 12px;text-decoration:none;font-size:.9rem}.state-links a.current{background:#fff;color:var(--green)}main{max-width:1200px;margin:auto;padding:0 18px 60px}.panel,.water-card{background:#fff;border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.12);padding:20px;margin-bottom:20px}.controls{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{grid-column:span 4}.field.wide{grid-column:span 5}.field.small{grid-column:span 3}label{display:block;font-weight:700;margin-bottom:6px}select,input,button{width:100%;min-height:45px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}button{background:var(--green);color:#fff;border:0;font-weight:800;cursor:pointer}.checks{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}.checks label{display:flex;align-items:center;gap:6px;font-weight:600}.checks input{width:auto;min-height:auto}.warning{background:#fff4cf;border-left:5px solid var(--gold);line-height:1.5}.summary{display:flex;justify-content:space-between;gap:12px;align-items:center}.muted{color:var(--muted)}.water-card{border:1px solid var(--line);box-shadow:none}.water-card h2{margin:0 0 8px;font-size:1.45rem}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-size:.78rem;padding:5px 8px;border-radius:999px;background:#edf1ed}.chip.current,.chip.very_current{background:#d7f0df}.chip.stale{background:#f4ddd8;color:var(--danger)}.details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.box{border-top:1px solid var(--line);padding-top:12px}.box h3{margin:0 0 8px;font-size:1rem}.access-point{background:#f7f7f2;border-radius:10px;padding:12px;margin-top:9px}.verified{font-size:.78rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em}.link{display:inline-block;text-decoration:none;font-weight:800;color:var(--green);margin:8px 10px 0 0}.load{max-width:240px;margin:20px auto;display:block}@media(max-width:760px){.field,.field.wide,.field.small{grid-column:1/-1}.details{grid-template-columns:1fr}.summary{display:block}}
 </style></head><body>
-<header><div class="eyebrow">Fish Finder Outdoors</div><h1>Nevada Verified Public Fishing Access</h1><p class="sub">FishNV supplies water and species information, but it does not prove public entry. This page publishes a water only when a separate official agency source verifies a named public fishing facility, boat ramp, pier, platform, shoreline area or recreation site.</p><nav class="state-links"><a href="idaho-county-reports.html">Idaho</a><a href="montana-county-reports.html">Montana</a><a href="utah-county-reports.html">Utah</a><a href="colorado-county-reports.html">Colorado</a><a href="wyoming-county-reports.html">Wyoming</a><a class="current" href="nevada-county-reports.html">Nevada</a></nav></header>
+<header><div class="eyebrow">Fish Finder Outdoors</div><h1>Nevada Verified Public Fishing Access</h1><p class="sub">NDOW supplies the statewide water inventory and reports. FishNV map links do not prove public entry. This page publishes a water only when a separate official agency source verifies a named public fishing facility, boat ramp, pier, platform, shoreline area or recreation site.</p><nav class="state-links"><a href="idaho-county-reports.html">Idaho</a><a href="montana-county-reports.html">Montana</a><a href="utah-county-reports.html">Utah</a><a href="colorado-county-reports.html">Colorado</a><a href="wyoming-county-reports.html">Wyoming</a><a class="current" href="nevada-county-reports.html">Nevada</a></nav></header>
 <main><section class="panel"><div class="controls"><div class="field"><label for="countySelect">County</label><select id="countySelect"><option value="">All 17 county-equivalents</option>__COUNTY_OPTIONS__</select></div><div class="field wide"><label for="waterSearch">Water, species or access feature</label><input id="waterSearch" placeholder="Lake Mead, trout, boat ramp…"></div><div class="field small"><label>&nbsp;</label><button id="searchButton">Search Nevada</button></div></div><div class="checks"><label><input type="checkbox" id="currentOnly"> Current reports only</label><label><input type="checkbox" id="boatRamp"> Verified boat ramp</label><label><input type="checkbox" id="adaFishing"> Verified accessible fishing</label></div></section>
 <section class="panel warning"><strong>Important:</strong> Every listed access point has a separate official source. That verifies the named facility—not every bank, road or neighboring parcel. Check the linked agency page for current closures, water levels, fees, posted signs and tribal or site-specific rules before traveling.</section>
 <section class="summary"><div><strong id="resultCount">Loading verified Nevada records…</strong><div class="muted" id="generated"></div></div></section><div id="results"></div><button class="load" id="loadMore" hidden>Load more</button></main>
@@ -2433,8 +2816,8 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=".", help="Fish Finder Outdoors repository root")
     parser.add_argument("--output-dir", default="data", help="Generated data directory, relative to root unless absolute")
-    parser.add_argument("--workers", type=int, default=12, help="Concurrent FishNV page requests")
-    parser.add_argument("--max-waters", type=int, default=0, help="Optional development limit; zero means all discovered waters")
+    parser.add_argument("--workers", type=int, default=12, help="Concurrent official NDOW page requests")
+    parser.add_argument("--max-waters", type=int, default=0, help="Optional development crawl cap; zero means complete inventory")
     parser.add_argument("--self-test", action="store_true", help="Run strict public-access unit tests without internet access")
     args = parser.parse_args()
 
@@ -2447,85 +2830,59 @@ def main() -> int:
     if not output_dir.is_absolute():
         output_dir = root / output_dir
     generated_at = now_iso()
-    unresolved_samples: list[str] = []
 
     county_polygons = load_county_polygons()
     reports, filter_water_names, report_html_pages, report_counts = collect_ndow_reports()
-    direct_urls = set(report_counts.pop("direct_urls", set()))
-    discovered_urls, discovery_counts = discover_fishnv_water_urls(
-        report_html_pages, direct_urls, probe_workers=args.workers
+    report_counts.pop("direct_urls", None)
+
+    crawl_cap = args.max_waters if args.max_waters > 0 else 750
+    ndow_waters, ndow_page_access, ndow_warnings, ndow_counts = collect_ndow_water_inventory(
+        report_html_pages,
+        reports,
+        county_polygons,
+        workers=args.workers,
+        max_pages=crawl_cap,
     )
-    all_urls = sorted(set(discovered_urls) | direct_urls)
-    if args.max_waters > 0:
-        all_urls = all_urls[:args.max_waters]
-
-    fishnv_waters: list[dict[str, Any]] = []
-    excluded_private = 0
-    unresolved = 0
-    with ThreadPoolExecutor(max_workers=max(1, min(args.workers, 24))) as executor:
-        future_map = {
-            executor.submit(parse_fishnv_water_page, url, county_polygons): url for url in all_urls
-        }
-        for future in as_completed(future_map):
-            url = future_map[future]
-            try:
-                water, error = future.result()
-            except Exception as exc:
-                water, error = None, f"{url}: {exc}"
-            if water:
-                fishnv_waters.append(water)
-            elif error:
-                if "Excluded explicit non-public water" in error:
-                    excluded_private += 1
-                else:
-                    unresolved += 1
-                    if len(unresolved_samples) < 50:
-                        unresolved_samples.append(error)
-
-    unique_waters: dict[str, dict[str, Any]] = {}
-    for water in fishnv_waters:
-        key = clean(water.get("water_id")) or clean(water.get("fishnv_source_url")) or norm(water.get("water_name"))
-        if key:
-            unique_waters[key] = water
-    fishnv_waters = sorted(unique_waters.values(), key=lambda row: clean(row.get("water_name")))
 
     access_records, access_counts, access_warnings = collect_all_verified_access(county_polygons)
-    verified_waters, unverified_waters, orphan_access, matching_counts = match_verified_access(fishnv_waters, access_records)
+    access_records.extend(ndow_page_access)
+    # Deduplicate after combining independent official sources with NDOW page evidence.
+    access_records = list({clean(row.get("access_id")): row for row in access_records if clean(row.get("access_id"))}.values())
+    access_counts["ndow_water_page_access_records"] = len(ndow_page_access)
+    access_counts["combined_official_access_records"] = len(access_records)
+
+    verified_waters, unverified_waters, orphan_access, matching_counts = match_verified_access(ndow_waters, access_records)
+    matching_counts["quarantined_unverified_waters"] = len(unverified_waters)
 
     audit = {
         "state": STATE,
         "generated_at": generated_at,
-        "policy": "FishNV alone never verifies public access. Only independent official named access sources may publish a water.",
-        "source_counts": access_counts,
+        "policy": "NDOW water pages supply inventory metadata. FishNV is only an optional map link. Only explicit official named access evidence may publish a water.",
+        "source_counts": {**ndow_counts, **access_counts},
         "matching": matching_counts,
-        "source_warnings": access_warnings,
-        "unresolved_fishnv_page_samples": unresolved_samples,
+        "source_warnings": [*ndow_warnings, *access_warnings],
+        "unresolved_ndow_water_page_samples": ndow_warnings[:50],
     }
     db = build_database(verified_waters, reports, generated_at, audit)
     source_counts = {
         "county_polygons": len(county_polygons),
         **report_counts,
-        **discovery_counts,
+        **ndow_counts,
         **access_counts,
         **matching_counts,
-        "fishnv_pages_requested": len(all_urls),
-        "fishnv_water_metadata_records": len(fishnv_waters),
-        "explicit_private_records_excluded": excluded_private,
-        "unresolved_fishnv_pages": unresolved,
         "official_filter_water_names": len(filter_water_names),
     }
     diagnostic_snapshot = {
-        "fishnv_urls_requested": len(all_urls),
-        "fishnv_metadata_records": len(fishnv_waters),
-        "fishnv_sample_names": [clean(row.get("water_name")) for row in fishnv_waters[:20]],
-        "explicit_private_excluded": excluded_private,
-        "unresolved_fishnv_pages": unresolved,
-        "unresolved_samples": unresolved_samples[:12],
+        "ndow_water_pages_requested": ndow_counts.get("ndow_water_pages_requested", 0),
+        "ndow_water_metadata_records": len(ndow_waters),
+        "ndow_water_metadata_counties": sorted({row.get("county") for row in ndow_waters if row.get("county")}),
+        "ndow_water_sample_names": [clean(row.get("water_name")) for row in ndow_waters[:30]],
+        "unresolved_ndow_pages": len(ndow_warnings),
+        "unresolved_samples": ndow_warnings[:15],
         "official_access_records": len(access_records),
-        "official_access_sample_hints": [row.get("water_hints") for row in access_records[:20]],
-        "access_source_counts": access_counts,
-        "access_source_warnings": access_warnings[:30],
+        "ndow_page_access_records": len(ndow_page_access),
         "matching_counts": matching_counts,
+        "verified_public_counties": sorted({row.get("county") for row in verified_waters if row.get("county")}),
     }
     print("NEVADA_DIAGNOSTIC_BEGIN")
     print(json.dumps(diagnostic_snapshot, indent=2, sort_keys=True))
@@ -2535,22 +2892,22 @@ def main() -> int:
     status = {
         "state": STATE,
         "generated_at": generated_at,
-        "deployment_status": "validated_ready_to_commit",
+        "deployment_status": "validated_complete_ready_to_commit",
         "failed_sources": [],
-        "source_warnings": access_warnings,
+        "source_warnings": [*ndow_warnings, *access_warnings],
         "warnings": {
-            "unresolved_fishnv_page_count": unresolved,
-            "unresolved_fishnv_page_samples": unresolved_samples,
+            "unresolved_ndow_water_page_count": len(ndow_warnings),
+            "unresolved_ndow_water_page_samples": ndow_warnings[:50],
             "quarantined_unverified_water_count": len(unverified_waters),
             "orphan_official_access_record_count": len(orphan_access),
         },
         "source_counts": source_counts,
         "validation": validation,
         "notes": [
-            "FishNV is water metadata only and is never accepted as access verification.",
-            "Every published water has at least one separately sourced official named public access point.",
-            "Unmatched FishNV waters are written to nevada_unverified_fishable_waters.json and are not displayed.",
-            "Official access records that cannot be matched safely are retained in the audit file and are not displayed.",
+            "NDOW server-rendered water pages are the primary inventory and county source.",
+            "FishNV is retained only as an optional map link and is never accepted as access verification.",
+            "Every published water has at least one explicit official named public access point or area.",
+            "Waters without explicit access evidence are quarantined and not displayed.",
             "A named public facility does not make all shoreline or neighboring land public; current posted restrictions still control.",
         ],
     }
@@ -2559,14 +2916,14 @@ def main() -> int:
     print(json.dumps({
         "state": STATE,
         "counties": 17,
-        "fishnv_water_metadata_records": len(fishnv_waters),
+        "ndow_water_metadata_records": len(ndow_waters),
+        "ndow_water_metadata_counties": validation["ndow_water_metadata_counties"],
         "verified_public_waters": db["public_water_count"],
         "verified_access_points": db["verified_access_point_count"],
         "quarantined_unverified_waters": len(unverified_waters),
         "official_reports": db["report_count"],
         "populated_counties": validation["populated_counties"],
-        "explicit_private_excluded": excluded_private,
-        "unresolved_pages": unresolved,
+        "unresolved_ndow_pages": len(ndow_warnings),
         "generated_at": generated_at,
     }, indent=2))
     return 0
