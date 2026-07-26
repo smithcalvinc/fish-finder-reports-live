@@ -1,0 +1,16 @@
+UPLOAD CHECKLIST — COMPLETE PACKAGE
+
+[ ] Do not upload the ZIP itself
+[ ] Unzip the package first
+[ ] Upload every file and folder to the repository root
+[ ] Preserve .github/workflows/update-all-idaho-fishing-data.yml
+[ ] Preserve the config folder
+[ ] Preserve the data folder
+[ ] Open GitHub Actions
+[ ] Run "Update All Idaho Fishing Data"
+[ ] Confirm the workflow is green
+[ ] Confirm data/idaho_public_fishing_access.json has record_count greater than 0
+[ ] Confirm data/idaho_fishing_report_database.json has public_water_count greater than 0
+[ ] Add the two script tags from README_FIRST.txt to the report page
+[ ] Test #1 Ada County
+[ ] Test #44 Washington County

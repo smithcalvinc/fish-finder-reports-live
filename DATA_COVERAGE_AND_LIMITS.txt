@@ -1,0 +1,43 @@
+DATA COVERAGE, REPORT RANKING AND LIMITS
+
+PUBLIC ACCESS
+-------------
+Only explicit official public-access evidence is included. A water appearing on
+a map is not automatically treated as legally reachable by the public.
+
+REPORT RANKING
+--------------
+1. Official Idaho Fish and Game reports
+2. Established fishing websites and tackle-shop reports
+3. Manually verified public social-media posts
+
+FRESHNESS
+---------
+very_current: 0-14 days
+current: 15-30 days
+recent: 31-90 days
+stale: more than 90 days
+no_recent_public_report_found: no matching public report located
+
+FACEBOOK
+--------
+The workflow does not scrape Facebook Groups. Meta removed the Groups API.
+Individual public post links may be entered in public_social_reports.csv after
+a human verifies that the post is public and writes a short original summary.
+
+COPYRIGHT
+---------
+The database stores short summaries and source links. It does not reproduce
+complete fishing reports or social-media posts.
+
+NOT EVERY WATER RECEIVES PUBLIC REPORTS
+---------------------------------------
+Some small ponds, creeks and remote waters may have no recent public report.
+They remain listed with their verified access information and an honest
+no-report status.
+
+SAFETY
+------
+Report dates and source links must remain visible on the website. Anglers should
+verify closures, posted signs, regulations, road conditions, water levels and
+weather before traveling.
