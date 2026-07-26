@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-07-26T16:21:55Z",
+  "state": "Utah",
+  "completed": [
+    "Verified official 29-county order",
+    "Built official Utah DWR stocking collector",
+    "Validated community-fisheries GIS schema and records",
+    "Built accessible-fishing collector",
+    "Validated Utah DWR news page and fishing-news collector",
+    "Rejected blank, malformed and out-of-Utah map coordinates",
+    "Built county-by-county Utah page",
+    "Installed multi-state admin integration",
+    "Updated navigation, sitemap and PWA cache",
+    "Validated all 29 county shells and output files"
+  ],
+  "known_issues": [],
+  "failed_sources": [],
+  "deployment_status": "validated_ready_to_commit",
+  "public_water_count": 807,
+  "report_count": 3370,
+  "source_counts": {
+    "stocking_2026_waters": 461,
+    "stocking_2026_events": 1531,
+    "stocking_2025_waters": 661,
+    "stocking_2025_events": 2544,
+    "community_schema_fields": 23,
+    "community_fisheries": 55,
+    "accessible_fishing": 73,
+    "utah_dwr_news_articles_scanned": 10,
+    "utah_dwr_fishing_news_reports": 2
+  },
+  "validation": {
+    "passed": true,
+    "public_water_count": 807,
+    "report_count": 3370,
+    "populated_counties": 29,
+    "source_minimums": {
+      "stocking_2026_waters": 70,
+      "stocking_2026_events": 200,
+      "stocking_2025_waters": 150,
+      "stocking_2025_events": 500,
+      "community_schema_fields": 5,
+      "community_fisheries": 20,
+      "accessible_fishing": 15,
+      "utah_dwr_news_articles_scanned": 5
+    },
+    "water_coordinates": 90,
+    "access_coordinates": 94
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "state": "Utah",
+  "county_count": 29,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Beaver"
+    },
+    {
+      "county_number": 2,
+      "county": "Box Elder"
+    },
+    {
+      "county_number": 3,
+      "county": "Cache"
+    },
+    {
+      "county_number": 4,
+      "county": "Carbon"
+    },
+    {
+      "county_number": 5,
+      "county": "Daggett"
+    },
+    {
+      "county_number": 6,
+      "county": "Davis"
+    },
+    {
+      "county_number": 7,
+      "county": "Duchesne"
+    },
+    {
+      "county_number": 8,
+      "county": "Emery"
+    },
+    {
+      "county_number": 9,
+      "county": "Garfield"
+    },
+    {
+      "county_number": 10,
+      "county": "Grand"
+    },
+    {
+      "county_number": 11,
+      "county": "Iron"
+    },
+    {
+      "county_number": 12,
+      "county": "Juab"
+    },
+    {
+      "county_number": 13,
+      "county": "Kane"
+    },
+    {
+      "county_number": 14,
+      "county": "Millard"
+    },
+    {
+      "county_number": 15,
+      "county": "Morgan"
+    },
+    {
+      "county_number": 16,
+      "county": "Piute"
+    },
+    {
+      "county_number": 17,
+      "county": "Rich"
+    },
+    {
+      "county_number": 18,
+      "county": "Salt Lake"
+    },
+    {
+      "county_number": 19,
+      "county": "San Juan"
+    },
+    {
+      "county_number": 20,
+      "county": "Sanpete"
+    },
+    {
+      "county_number": 21,
+      "county": "Sevier"
+    },
+    {
+      "county_number": 22,
+      "county": "Summit"
+    },
+    {
+      "county_number": 23,
+      "county": "Tooele"
+    },
+    {
+      "county_number": 24,
+      "county": "Uintah"
+    },
+    {
+      "county_number": 25,
+      "county": "Utah"
+    },
+    {
+      "county_number": 26,
+      "county": "Wasatch"
+    },
+    {
+      "county_number": 27,
+      "county": "Washington"
+    },
+    {
+      "county_number": 28,
+      "county": "Wayne"
+    },
+    {
+      "county_number": 29,
+      "county": "Weber"
+    }
+  ]
+}
