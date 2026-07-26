@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-07-26T14:47:53Z",
+  "success": true,
+  "state": "Montana",
+  "county_count": 56,
+  "source_counts": {
+    "official_county_polygons": 56,
+    "current_surveys": 320143,
+    "historic_surveys": 0,
+    "stocking": 116576,
+    "restrictions": 20,
+    "fwp_access": 337,
+    "blm_access": 284,
+    "bor_access": 40,
+    "forest_access": 662,
+    "local_access": 51,
+    "fwp_news_reports": 5,
+    "montana_fish_reports_reports": 1,
+    "montana_outdoor_reports": 18,
+    "verified_public_social_posts": 0
+  },
+  "public_water_count": 740,
+  "access_point_count": 998,
+  "fishery_reference_count": 6637,
+  "counties_with_no_public_access_records": [
+    "Glacier",
+    "Golden Valley",
+    "Musselshell",
+    "Sheridan"
+  ],
+  "warnings": [],
+  "errors": []
+}

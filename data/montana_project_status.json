@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-07-26T14:47:53Z",
+  "state": "Montana",
+  "completed": [
+    "Verified official 56-county order",
+    "Built official public-access collector",
+    "Built official survey, stocking, restriction and news collectors",
+    "Built county-by-county public page",
+    "Installed multi-state admin dashboard builder",
+    "Updated navigation, sitemap and PWA cache",
+    "Validated all 56 county shells and output files"
+  ],
+  "known_issues": [],
+  "failed_sources": [],
+  "deployment_status": "ready_to_commit",
+  "public_water_count": 740,
+  "report_count": 1042
+}

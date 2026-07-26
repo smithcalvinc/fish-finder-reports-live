@@ -1,0 +1,232 @@
+{
+  "state": "Montana",
+  "county_count": 56,
+  "order": "alphabetical",
+  "source": "https://gisservicemt.gov/arcgis/rest/services/MSDI_Framework/Boundaries/MapServer/8",
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Beaverhead"
+    },
+    {
+      "county_number": 2,
+      "county": "Big Horn"
+    },
+    {
+      "county_number": 3,
+      "county": "Blaine"
+    },
+    {
+      "county_number": 4,
+      "county": "Broadwater"
+    },
+    {
+      "county_number": 5,
+      "county": "Carbon"
+    },
+    {
+      "county_number": 6,
+      "county": "Carter"
+    },
+    {
+      "county_number": 7,
+      "county": "Cascade"
+    },
+    {
+      "county_number": 8,
+      "county": "Chouteau"
+    },
+    {
+      "county_number": 9,
+      "county": "Custer"
+    },
+    {
+      "county_number": 10,
+      "county": "Daniels"
+    },
+    {
+      "county_number": 11,
+      "county": "Dawson"
+    },
+    {
+      "county_number": 12,
+      "county": "Deer Lodge"
+    },
+    {
+      "county_number": 13,
+      "county": "Fallon"
+    },
+    {
+      "county_number": 14,
+      "county": "Fergus"
+    },
+    {
+      "county_number": 15,
+      "county": "Flathead"
+    },
+    {
+      "county_number": 16,
+      "county": "Gallatin"
+    },
+    {
+      "county_number": 17,
+      "county": "Garfield"
+    },
+    {
+      "county_number": 18,
+      "county": "Glacier"
+    },
+    {
+      "county_number": 19,
+      "county": "Golden Valley"
+    },
+    {
+      "county_number": 20,
+      "county": "Granite"
+    },
+    {
+      "county_number": 21,
+      "county": "Hill"
+    },
+    {
+      "county_number": 22,
+      "county": "Jefferson"
+    },
+    {
+      "county_number": 23,
+      "county": "Judith Basin"
+    },
+    {
+      "county_number": 24,
+      "county": "Lake"
+    },
+    {
+      "county_number": 25,
+      "county": "Lewis and Clark"
+    },
+    {
+      "county_number": 26,
+      "county": "Liberty"
+    },
+    {
+      "county_number": 27,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 28,
+      "county": "Madison"
+    },
+    {
+      "county_number": 29,
+      "county": "McCone"
+    },
+    {
+      "county_number": 30,
+      "county": "Meagher"
+    },
+    {
+      "county_number": 31,
+      "county": "Mineral"
+    },
+    {
+      "county_number": 32,
+      "county": "Missoula"
+    },
+    {
+      "county_number": 33,
+      "county": "Musselshell"
+    },
+    {
+      "county_number": 34,
+      "county": "Park"
+    },
+    {
+      "county_number": 35,
+      "county": "Petroleum"
+    },
+    {
+      "county_number": 36,
+      "county": "Phillips"
+    },
+    {
+      "county_number": 37,
+      "county": "Pondera"
+    },
+    {
+      "county_number": 38,
+      "county": "Powder River"
+    },
+    {
+      "county_number": 39,
+      "county": "Powell"
+    },
+    {
+      "county_number": 40,
+      "county": "Prairie"
+    },
+    {
+      "county_number": 41,
+      "county": "Ravalli"
+    },
+    {
+      "county_number": 42,
+      "county": "Richland"
+    },
+    {
+      "county_number": 43,
+      "county": "Roosevelt"
+    },
+    {
+      "county_number": 44,
+      "county": "Rosebud"
+    },
+    {
+      "county_number": 45,
+      "county": "Sanders"
+    },
+    {
+      "county_number": 46,
+      "county": "Sheridan"
+    },
+    {
+      "county_number": 47,
+      "county": "Silver Bow"
+    },
+    {
+      "county_number": 48,
+      "county": "Stillwater"
+    },
+    {
+      "county_number": 49,
+      "county": "Sweet Grass"
+    },
+    {
+      "county_number": 50,
+      "county": "Teton"
+    },
+    {
+      "county_number": 51,
+      "county": "Toole"
+    },
+    {
+      "county_number": 52,
+      "county": "Treasure"
+    },
+    {
+      "county_number": 53,
+      "county": "Valley"
+    },
+    {
+      "county_number": 54,
+      "county": "Wheatland"
+    },
+    {
+      "county_number": 55,
+      "county": "Wibaux"
+    },
+    {
+      "county_number": 56,
+      "county": "Yellowstone"
+    }
+  ]
+}
