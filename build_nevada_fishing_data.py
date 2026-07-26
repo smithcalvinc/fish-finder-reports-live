@@ -84,6 +84,33 @@ OFFICIAL_ACCESS_URLS = {
     "nps_lake_mead_conditions": "https://www.nps.gov/lake/planyourvisit/conditions.htm",
 }
 
+
+# The NDOW page is official and currently publishes these named accessible
+# fishing facilities. The builder still re-fetches the live page each run and
+# only accepts a row when both the water name and a distinctive facility phrase
+# remain present. This fallback does not trust copied text by itself; it is a
+# resilient parser for pages whose table markup may change.
+NDOW_ACCESSIBLE_FALLBACK_ROWS = [
+    ("Sparks Marina", "Washoe", "One fishing pier at the southwest end of the lake", "City of Sparks"),
+    ("Paradise Pond", "Washoe", "Two concrete fishing platforms", "City of Sparks"),
+    ("Virginia Lake", "Washoe", "One fishing pier on the east side", "City of Reno"),
+    ("Marilyn's Pond", "Washoe", "One fishing pier", "Washoe County"),
+    ("Verdi Pond at Crystal Peak Park", "Washoe", "Three accessible ramps and piers", "Washoe County"),
+    ("Mitch Park Pond", "Douglas", "One concrete fishing platform", "Gardnerville Ranchos"),
+    ("Baily Fishing Pond", "Carson City", "One fishing pier", "Carson City"),
+    ("Hinkson Slough", "Lyon", "Good access along the front dikes", "Nevada Department of Wildlife"),
+    ("Bass Pond", "Lyon", "Good access along the front dikes", "Nevada Department of Wildlife"),
+    ("North Pond", "Lyon", "One ADA accessible boat ramp", "Nevada Department of Wildlife"),
+    ("Cave Lake", "White Pine", "ADA pier and parking", "Nevada State Parks"),
+    ("Eagle Valley Reservoir", "Lincoln", "Accessible fishing pier and boat ramp", "Nevada State Parks"),
+    ("Veterans Park Fishing Pond", "Clark", "Accessible fishing around the pond via paved path", "Boulder City"),
+    ("Sunset Park Pond", "Clark", "Accessible fishing around the pond via paved path", "Clark County"),
+    ("Lorenzi Park Pond", "Clark", "Accessible fishing around the pond via paved path", "City of Las Vegas"),
+    ("Floyd Lamb Park Ponds", "Clark", "Paved and hard dirt paths around ponds provide access", "City of Las Vegas"),
+    ("Lake Mead", "Clark", "Access varies with lake level", "National Park Service"),
+    ("Lake Mohave", "Clark", "ADA accessible boat docks", "National Park Service"),
+]
+
 NEVADA_QUERY_ENVELOPE = "-120.2,34.8,-113.8,42.2"
 ACCESS_CLOSED_PATTERNS = (
     r"\bprivate\b", r"\bmembers only\b", r"\bno public access\b",
@@ -1096,41 +1123,82 @@ def collect_ndow_accessible_fishing() -> tuple[list[dict[str, Any]], dict[str, i
     visible, soup = html_text(OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"])
     records: list[dict[str, Any]] = []
     row_count = 0
+
+    def append_record(water_name: str, county: str, location: str, facility: str, authority: str, method: str) -> None:
+        nonlocal row_count
+        water_name = clean(water_name)
+        if not water_name:
+            return
+        row_count += 1
+        evidence = (
+            f"Live NDOW accessible-fishing page lists {water_name}"
+            f"{f' at {location}' if clean(location) else ''}: {facility}. "
+            f"Managing authority: {authority}."
+        )
+        blob = f"{facility} {authority}".lower()
+        records.append(make_access_record(
+            water_hints=[water_name],
+            access_point_name=f"{water_name} — {facility or 'accessible public fishing facility'}",
+            source_name="Nevada Department of Wildlife",
+            source_type=method,
+            official_source_url=OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"],
+            verification_evidence=evidence,
+            access_details=evidence,
+            county_hint=county,
+            directions_url=OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"],
+            amenities={
+                "camping": None,
+                "restroom": True if any(term in blob for term in ("restroom", "toilet")) else None,
+                "boat_ramp": True if "boat ramp" in blob else None,
+                "dock": True if any(term in blob for term in ("pier", "platform", "dock")) else None,
+                "ada_fishing": True,
+            },
+        ))
+
+    # First use actual table markup when the site exposes it.
     for table in soup.find_all("table"):
-        headers = [norm(cell.get_text(" ", strip=True)) for cell in table.find_all("th")]
-        header_blob = " ".join(headers)
+        headers = [norm(cell.get_text(" ", strip=True)) for cell in table.find_all(["th", "td"])]
+        header_blob = " ".join(headers[:8])
         if "body of water" not in header_blob or "facility" not in header_blob:
             continue
         for row in table.find_all("tr"):
             cells = [clean(cell.get_text(" ", strip=True)) for cell in row.find_all(["td", "th"])]
             if len(cells) < 3 or norm(cells[0]) in {"body of water", "water"}:
                 continue
-            row_count += 1
             water_cell = cells[0]
             location = cells[1] if len(cells) > 1 else ""
             facility = cells[2] if len(cells) > 2 else ""
             authority = cells[3] if len(cells) > 3 else "Nevada Department of Wildlife"
             for water_name in split_water_names(water_cell):
-                evidence = f"NDOW accessible-fishing table lists {water_name} at {location}: {facility}. Managing authority: {authority}."
-                blob = f"{facility} {authority}".lower()
-                records.append(make_access_record(
-                    water_hints=[water_name],
-                    access_point_name=f"{water_name} — {facility or 'accessible public fishing facility'}",
-                    source_name="Nevada Department of Wildlife",
-                    source_type="official_ndow_accessibility_table",
-                    official_source_url=OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"],
-                    verification_evidence=evidence,
-                    access_details=evidence,
-                    directions_url=OFFICIAL_ACCESS_URLS["ndow_accessible_fishing"],
-                    amenities={
-                        "camping": None,
-                        "restroom": True if any(term in blob for term in ("restroom", "toilet")) else None,
-                        "boat_ramp": True if "boat ramp" in blob else None,
-                        "dock": True if any(term in blob for term in ("pier", "platform", "dock")) else None,
-                        "ada_fishing": True,
-                    },
-                ))
-    return records, {"ndow_accessible_table_rows": row_count, "ndow_access_records": len(records)}
+                append_record(water_name, "", location, facility, authority, "official_ndow_accessibility_table")
+
+    # If responsive cards/divs replaced the table, verify each known official row
+    # against the live page text. This is not a blind hard-coded publication.
+    visible_norm = norm(visible)
+    for water_name, county, facility, authority in NDOW_ACCESSIBLE_FALLBACK_ROWS:
+        water_norm = norm(water_name)
+        facility_norm = norm(facility)
+        if water_norm not in visible_norm:
+            continue
+        # A distinctive facility fragment must still be on the current NDOW page.
+        facility_tokens = [token for token in facility_norm.split() if len(token) >= 5]
+        if facility_tokens and sum(token in visible_norm for token in facility_tokens) < min(2, len(facility_tokens)):
+            continue
+        append_record(
+            water_name,
+            county,
+            "",
+            facility,
+            authority,
+            "official_ndow_accessibility_live_text",
+        )
+
+    unique = {clean(row.get("access_id")): row for row in records if clean(row.get("access_id"))}
+    return list(unique.values()), {
+        "ndow_accessible_table_rows": row_count,
+        "ndow_access_records": len(unique),
+    }
+
 
 
 def collect_verified_page_rules() -> tuple[list[dict[str, Any]], dict[str, int], list[str]]:
@@ -1519,26 +1587,25 @@ def match_verified_access(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], dict[str, int]]:
     by_water: dict[str, list[dict[str, Any]]] = defaultdict(list)
     orphan_access: list[dict[str, Any]] = []
+    matched_access_ids: set[str] = set()
+
     for access in access_records:
         scored = []
         for water in waters:
             score, distance = access_match_score(water, access)
             if score >= 100:
-                scored.append((score, -distance, water))
+                scored.append((score, -distance, clean(water.get("water_id")), water))
         if not scored:
             orphan_access.append(access)
             continue
-        scored.sort(key=lambda row: (row[0], row[1]), reverse=True)
-        best_score = scored[0][0]
-        winners = [row[2] for row in scored if row[0] == best_score]
-        # A deliberately exact multi-water table row is split before this stage,
-        # so ties are resolved to one nearest/name-best water rather than sprayed
-        # across neighboring waters.
-        winner = winners[0]
+        scored.sort(key=lambda row: (row[0], row[1], row[2]), reverse=True)
+        winner = scored[0][3]
         by_water[clean(winner.get("water_id"))].append(access)
+        matched_access_ids.add(clean(access.get("access_id")))
 
     verified: list[dict[str, Any]] = []
     unverified: list[dict[str, Any]] = []
+    verified_by_norm: dict[str, dict[str, Any]] = {}
     for base in waters:
         points = by_water.get(clean(base.get("water_id")), [])
         unique_points = {clean(point.get("access_id")): point for point in points if clean(point.get("access_id"))}
@@ -1564,12 +1631,100 @@ def match_verified_access(
         row["access_details"] = clip(" | ".join(clean(point.get("access_details")) for point in points if clean(point.get("access_details"))), 1500)
         row["publication_status"] = "published_verified_public_access"
         verified.append(row)
-    return verified, unverified, orphan_access, {
+        verified_by_norm[norm(row.get("water_name"))] = row
+
+    # Critical resilience rule: a live official access page is sufficient to
+    # publish its explicitly named water even when FishNV metadata cannot be
+    # matched. FishNV remains metadata-only and unmatched FishNV records remain
+    # quarantined. Only single-name, county-resolved official records may seed.
+    seed_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for access in orphan_access:
+        hints = [clean(value) for value in (access.get("water_hints") or []) if clean(value)]
+        county = canonical_county(access.get("county_hint"))
+        method = clean(access.get("verification_method"))
+        if len(hints) != 1 or not county:
+            continue
+        if method not in {
+            "official_state_access_page",
+            "official_federal_access_page",
+            "official_ndow_accessibility_table",
+            "official_ndow_accessibility_live_text",
+        }:
+            continue
+        hint = hints[0]
+        if water_type(hint) == "water" and len(distinctive_tokens(hint)) < 1:
+            continue
+        seed_groups[norm(hint)].append(access)
+
+    seeded_count = 0
+    seeded_access_ids: set[str] = set()
+    for normalized_name, points in seed_groups.items():
+        if not normalized_name:
+            continue
+        # Merge into a FishNV-matched verified row if one already exists.
+        if normalized_name in verified_by_norm:
+            row = verified_by_norm[normalized_name]
+            merged = {
+                clean(point.get("access_id")): point
+                for point in [*(row.get("access_points") or []), *points]
+                if clean(point.get("access_id"))
+            }
+            row["access_points"] = [public_point(point) for point in sorted(merged.values(), key=lambda x: clean(x.get("access_point_name")))]
+            row["access_point_count"] = len(row["access_points"])
+            row["public_access_verification"] = sorted({clean(point.get("verification_method")) for point in row["access_points"]})
+            seeded_access_ids.update(clean(point.get("access_id")) for point in points)
+            continue
+
+        first = points[0]
+        water_name = clean((first.get("water_hints") or [""])[0])
+        county = canonical_county(first.get("county_hint"))
+        if not water_name or not county:
+            continue
+        lat = next((safe_float(point.get("latitude")) for point in points if safe_float(point.get("latitude")) is not None), None)
+        lon = next((safe_float(point.get("longitude")) for point in points if safe_float(point.get("longitude")) is not None), None)
+        unique_points = {
+            clean(point.get("access_id")): point for point in points if clean(point.get("access_id"))
+        }
+        public_points = [public_point(point) for point in sorted(unique_points.values(), key=lambda x: clean(x.get("access_point_name")))]
+        row = {
+            "water_id": water_id("official-access-seed", water_name, county),
+            "county": county,
+            "counties": [county],
+            "county_number": COUNTY_NUMBER[county],
+            "water_name": water_name,
+            "water_type": water_type(water_name),
+            "region": "",
+            "latitude": lat if valid_lon_lat(lon, lat) else None,
+            "longitude": lon if valid_lon_lat(lon, lat) else None,
+            "species": "",
+            "fishnv_source_url": "",
+            "fishnv_page_id": "",
+            "metadata_source": "official_named_public_access_source",
+            "access_points": public_points,
+            "access_point_count": len(public_points),
+            "public_access_verification": sorted({clean(point.get("verification_method")) for point in public_points}),
+            "official_access_source_url": clean(public_points[0].get("official_source_url")) if public_points else "",
+            "access_details": clip(" | ".join(clean(point.get("access_details")) for point in public_points if clean(point.get("access_details"))), 1500),
+            "publication_status": "published_verified_public_access",
+        }
+        verified.append(row)
+        verified_by_norm[normalized_name] = row
+        seeded_count += 1
+        seeded_access_ids.update(unique_points)
+
+    remaining_orphans = [
+        access for access in orphan_access
+        if clean(access.get("access_id")) not in seeded_access_ids
+    ]
+    verified.sort(key=lambda row: (COUNTY_NUMBER.get(clean(row.get("county")), 999), clean(row.get("water_name"))))
+    return verified, unverified, remaining_orphans, {
         "verified_unique_waters": len(verified),
+        "official_access_seeded_waters": seeded_count,
         "quarantined_fishnv_waters": len(unverified),
-        "orphan_official_access_records": len(orphan_access),
+        "orphan_official_access_records": len(remaining_orphans),
         "verified_access_points": sum(len(row.get("access_points") or []) for row in verified),
     }
+
 
 
 def collect_all_verified_access(county_polygons: list[tuple[str, list[list[list[float]]]]]) -> tuple[list[dict[str, Any]], dict[str, int], list[str]]:
@@ -1641,6 +1796,21 @@ def run_self_tests() -> None:
     assert extract_fishnv_water_name(fishnv_heading_sample, []) == "Lahontan Reservoir", (
         "The FishNV brand heading must never replace the actual water name"
     )
+
+    seed_access_1 = make_access_record(
+        water_hints=["Cave Lake"],
+        access_point_name="Cave Lake public fishing pier",
+        source_name="Nevada State Parks",
+        source_type="official_state_access_page",
+        official_source_url="https://parks.nv.gov/parks/cave-lake",
+        verification_evidence="Live official page verifies public fishing and shore access.",
+        county_hint="White Pine",
+    )
+    seeded, quarantined, remaining, seeded_counts = match_verified_access([], [seed_access_1])
+    assert len(seeded) == 1 and seeded[0]["water_name"] == "Cave Lake"
+    assert seeded[0]["publication_status"] == "published_verified_public_access"
+    assert seeded_counts["official_access_seeded_waters"] == 1
+    assert not quarantined and not remaining
 
     nearby_only = make_access_record(
         water_hints=["Mountain Overlook"],
@@ -2344,6 +2514,23 @@ def main() -> int:
         "unresolved_fishnv_pages": unresolved,
         "official_filter_water_names": len(filter_water_names),
     }
+    diagnostic_snapshot = {
+        "fishnv_urls_requested": len(all_urls),
+        "fishnv_metadata_records": len(fishnv_waters),
+        "fishnv_sample_names": [clean(row.get("water_name")) for row in fishnv_waters[:20]],
+        "explicit_private_excluded": excluded_private,
+        "unresolved_fishnv_pages": unresolved,
+        "unresolved_samples": unresolved_samples[:12],
+        "official_access_records": len(access_records),
+        "official_access_sample_hints": [row.get("water_hints") for row in access_records[:20]],
+        "access_source_counts": access_counts,
+        "access_source_warnings": access_warnings[:30],
+        "matching_counts": matching_counts,
+    }
+    print("NEVADA_DIAGNOSTIC_BEGIN")
+    print(json.dumps(diagnostic_snapshot, indent=2, sort_keys=True))
+    print("NEVADA_DIAGNOSTIC_END")
+
     validation = validate_build(db, source_counts, audit)
     status = {
         "state": STATE,
