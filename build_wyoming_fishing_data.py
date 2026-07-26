@@ -958,9 +958,50 @@ def submit_stocking_report_form(base_url: str) -> list[tuple[str, str]]:
     return pages
 
 
+def parse_stocking_date(value: Any) -> tuple[str, str, str]:
+    """Parse WGFD's exact dates and month-only Telerik grid dates.
+
+    Month-only values such as JUL 2026 are normalized conservatively to the
+    first day of that month. The original label and precision are retained so
+    public copy never presents that synthetic first day as an exact stocking day.
+    """
+    label = clean(value)
+    exact = parse_date(label)
+    if exact:
+        return exact, "day", label
+
+    compact = re.sub(r"\s+", " ", label).strip()
+    for fmt in ("%b %Y", "%B %Y", "%Y-%m"):
+        try:
+            parsed = datetime.strptime(compact.title(), fmt)
+            return parsed.date().replace(day=1).isoformat(), "month", compact
+        except ValueError:
+            pass
+
+    match = re.search(
+        r"\b(JAN(?:UARY)?|FEB(?:RUARY)?|MAR(?:CH)?|APR(?:IL)?|MAY|"
+        r"JUN(?:E)?|JUL(?:Y)?|AUG(?:UST)?|SEP(?:TEMBER)?|OCT(?:OBER)?|"
+        r"NOV(?:EMBER)?|DEC(?:EMBER)?)\s+(20\d{2})\b",
+        compact,
+        flags=re.I,
+    )
+    if match:
+        month_text = match.group(1).title()
+        year_text = match.group(2)
+        for fmt in ("%b %Y", "%B %Y"):
+            try:
+                parsed = datetime.strptime(f"{month_text} {year_text}", fmt)
+                return parsed.date().replace(day=1).isoformat(), "month", compact
+            except ValueError:
+                pass
+
+    return "", "", label
+
+
 def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]:
     if BeautifulSoup is None:
         raise RuntimeError("beautifulsoup4 is required")
+
     soup = BeautifulSoup(page_html, "html.parser")
     rows: list[dict[str, str]] = []
     seen: set[tuple[str, str, str, str]] = set()
@@ -969,36 +1010,75 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
         water = clean(values.get("water"))
         county = canonical_county(values.get("county"))
         species = clean_species(values.get("species"))
-        report_date = parse_date(values.get("date"))
+        report_date, date_precision, date_label = parse_stocking_date(values.get("date"))
         number = clean(values.get("number"))
         length = clean(values.get("length"))
+
         if not water or not report_date:
             return
+
         key = (norm(water), county, norm(species), report_date)
         if key in seen:
             return
         seen.add(key)
+
         rows.append({
             "water_name": water,
             "county": county,
             "species": species,
             "report_date": report_date,
+            "date_precision": date_precision,
+            "date_label": date_label,
             "number": number,
             "length": length,
             "source_url": source_url,
         })
 
-    # Semantic HTML tables.
+    # WGFD currently renders its results as a Telerik HTML grid. Find the
+    # actual six-column header row rather than collecting every <th> in the
+    # table, because pager controls can also contain header-like cells.
     for table in soup.find_all("table"):
-        header_cells = table.find_all("th")
-        headers = [clean(cell.get_text(" ", strip=True)).lower() for cell in header_cells]
+        header_row = None
+        headers: list[str] = []
+
         for tr in table.find_all("tr"):
-            cells = tr.find_all("td")
+            candidate = [
+                clean(cell.get_text(" ", strip=True)).lower()
+                for cell in tr.find_all("th", recursive=False)
+            ]
+            joined = " | ".join(candidate)
+            if (
+                "stocking date" in joined
+                and "species" in joined
+                and "water name" in joined
+                and "county" in joined
+            ):
+                header_row = tr
+                headers = candidate
+                break
+
+        if not headers:
+            # Standard semantic table fallback.
+            first_headers = table.find_all("th")
+            headers = [
+                clean(cell.get_text(" ", strip=True)).lower()
+                for cell in first_headers[:6]
+            ]
+
+        for tr in table.find_all("tr"):
+            if tr is header_row:
+                continue
+
+            cells = tr.find_all("td", recursive=False)
             if not cells:
                 continue
+
             values = [clean(cell.get_text(" ", strip=True)) for cell in cells]
-            mapping = {}
-            for idx, value in enumerate(values):
+            if len(values) < 6:
+                continue
+
+            mapping: dict[str, str] = {}
+            for idx, value in enumerate(values[:len(headers)]):
                 header = headers[idx] if idx < len(headers) else ""
                 if "water" in header:
                     mapping["water"] = value
@@ -1006,15 +1086,19 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
                     mapping["county"] = value
                 elif "species" in header or "fish" in header:
                     mapping["species"] = value
-                elif "date" in header:
+                elif "date" in header or "month" in header:
                     mapping["date"] = value
                 elif "number" in header or "quantity" in header:
                     mapping["number"] = value
                 elif "length" in header or "size" in header:
                     mapping["length"] = value
-            if not mapping and len(values) >= 6:
-                # WGFD documents this report as date, species, number, length, water, county.
-                if parse_date(values[0]) and canonical_county(values[5]):
+
+            # Documented WGFD order:
+            # Stocking Date, Species, Number Stocked, Length, Water Name, County.
+            if not mapping.get("water") or not mapping.get("date"):
+                date_value, _, _ = parse_stocking_date(values[0])
+                county_value = canonical_county(values[5])
+                if date_value and county_value:
                     mapping = {
                         "date": values[0],
                         "species": values[1],
@@ -1023,74 +1107,73 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
                         "water": values[4],
                         "county": values[5],
                     }
-                elif parse_date(values[-1]) and canonical_county(values[-2]):
-                    mapping = {
-                        "water": values[0],
-                        "species": values[1],
-                        "number": values[2],
-                        "length": values[3],
-                        "county": values[-2],
-                        "date": values[-1],
-                    }
-            elif not mapping and len(values) >= 4:
-                date_idx = next((i for i, v in enumerate(values) if parse_date(v)), -1)
-                county_idx = next((i for i, v in enumerate(values) if canonical_county(v)), -1)
-                if date_idx >= 0:
-                    mapping["date"] = values[date_idx]
-                if county_idx >= 0:
-                    mapping["county"] = values[county_idx]
-                remaining = [v for i, v in enumerate(values) if i not in {date_idx, county_idx} and v]
-                if remaining:
-                    mapping["water"] = remaining[-1]
-                if len(remaining) > 1:
-                    mapping["species"] = remaining[0]
+
             add(mapping)
 
     # Responsive cards with repeated labels.
     for node in soup.find_all(["article", "li", "div"]):
-        text = clean(node.get_text(" ", strip=True))
-        if len(text) > 1000 or "water" not in text.lower() or "date" not in text.lower():
+        card_text = clean(node.get_text(" ", strip=True))
+        lowered = card_text.lower()
+        if len(card_text) > 1000 or "water" not in lowered:
             continue
+
         date_match = re.search(
-            r"\b(?:20\d{2}-\d{1,2}-\d{1,2}|\d{1,2}/\d{1,2}/20\d{2})\b", text
+            r"\b(?:20\d{2}-\d{1,2}-\d{1,2}|\d{1,2}/\d{1,2}/20\d{2}|"
+            r"(?:JAN(?:UARY)?|FEB(?:RUARY)?|MAR(?:CH)?|APR(?:IL)?|MAY|"
+            r"JUN(?:E)?|JUL(?:Y)?|AUG(?:UST)?|SEP(?:TEMBER)?|OCT(?:OBER)?|"
+            r"NOV(?:EMBER)?|DEC(?:EMBER)?)\s+20\d{2})\b",
+            card_text,
+            flags=re.I,
         )
         if not date_match:
             continue
-        labels = {}
-        for label in ("water", "county", "species", "number", "length", "date"):
+
+        labels: dict[str, str] = {}
+        for label_name in ("water", "county", "species", "number", "length", "date"):
             match = re.search(
-                rf"\b{label}(?:\s+name|\s+stocked)?\b\s*[:|-]?\s*(.{{1,120}}?)(?=\s+\b(?:water|county|species|number|length|date)(?:\s+name|\s+stocked)?\b|$)",
-                text, flags=re.I,
+                rf"\b{label_name}(?:\s+name|\s+stocked)?\b\s*[:|-]?\s*"
+                rf"(.{{1,120}}?)(?=\s+\b(?:water|county|species|number|length|date)"
+                rf"(?:\s+name|\s+stocked)?\b|$)",
+                card_text,
+                flags=re.I,
             )
             if match:
-                labels[label] = clean(match.group(1))
+                labels[label_name] = clean(match.group(1))
         labels.setdefault("date", date_match.group(0))
         add(labels)
 
     # JSON embedded in script tags or API bootstrap payloads.
     def visit(value: Any) -> None:
         if isinstance(value, dict):
-            keys = {re.sub(r"[^a-z0-9]+", "", str(k).lower()): k for k in value}
+            keys = {
+                re.sub(r"[^a-z0-9]+", "", str(key).lower()): key
+                for key in value
+            }
+
             def pick(*names: str) -> Any:
                 for name in names:
-                    n = re.sub(r"[^a-z0-9]+", "", name.lower())
+                    normalized_name = re.sub(r"[^a-z0-9]+", "", name.lower())
                     for normalized, original in keys.items():
-                        if n == normalized or n in normalized:
-                            if value.get(original) not in (None, ""):
-                                return value.get(original)
+                        if normalized_name == normalized or normalized_name in normalized:
+                            candidate = value.get(original)
+                            if candidate not in (None, ""):
+                                return candidate
                 return ""
+
             candidate = {
                 "water": pick("watername", "water"),
                 "county": pick("county"),
                 "species": pick("species", "fishspecies"),
-                "date": pick("stockingdate", "stockdate", "date"),
+                "date": pick("stockingmonth", "stockingdate", "stockdate", "date"),
                 "number": pick("numberstocked", "quantity", "number"),
                 "length": pick("length", "size"),
             }
             if candidate["water"] and candidate["date"]:
                 add(candidate)
+
             for child in value.values():
                 visit(child)
+
         elif isinstance(value, list):
             for child in value:
                 visit(child)
@@ -1100,7 +1183,12 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
         raw = clean(raw)
         if not raw or ("water" not in raw.lower() and "stock" not in raw.lower()):
             continue
-        for candidate in (raw, re.sub(r"^[^(]*\((.*)\)\s*;?$", r"\1", raw, flags=re.S)):
+
+        candidates = (
+            raw,
+            re.sub(r"^[^(]*\((.*)\)\s*;?$", r"\1", raw, flags=re.S),
+        )
+        for candidate in candidates:
             try:
                 visit(json.loads(candidate))
                 break
@@ -1108,129 +1196,6 @@ def parse_stocking_rows(page_html: str, source_url: str) -> list[dict[str, str]]
                 continue
 
     return rows
-
-
-
-def stocking_page_diagnostics(page_html: str, page_url: str) -> str:
-    """Return concise structural clues from the live WGFD stocking application."""
-    if BeautifulSoup is None:
-        return "BeautifulSoup unavailable"
-
-    soup = BeautifulSoup(page_html, "html.parser")
-    chunks: list[str] = []
-    title = clean(soup.title.get_text(" ", strip=True)) if soup.title else ""
-    chunks.append(
-        f"PAGE url={page_url} bytes={len(page_html.encode('utf-8', errors='ignore'))} "
-        f"title={title!r} forms={len(soup.find_all('form'))} "
-        f"tables={len(soup.find_all('table'))}"
-    )
-
-    for index, form in enumerate(soup.find_all("form")[:5], start=1):
-        chunks.append(
-            "FORM "
-            + str(index)
-            + " "
-            + json.dumps({
-                "action": clean(form.get("action")),
-                "method": clean(form.get("method")),
-                "id": clean(form.get("id")),
-                "name": clean(form.get("name")),
-                "target": clean(form.get("target")),
-                "onsubmit": clip(form.get("onsubmit"), 300),
-            }, ensure_ascii=False)
-        )
-
-        controls = []
-        for node in form.find_all(["input", "button"])[:20]:
-            controls.append({
-                "tag": node.name,
-                "type": clean(node.get("type")),
-                "id": clean(node.get("id")),
-                "name": clean(node.get("name")),
-                "value": clip(node.get("value"), 160),
-                "text": clip(node.get_text(" ", strip=True), 160),
-                "formaction": clean(node.get("formaction")),
-                "formmethod": clean(node.get("formmethod")),
-                "onclick": clip(node.get("onclick"), 300),
-            })
-        chunks.append("CONTROLS " + json.dumps(controls, ensure_ascii=False))
-
-        selects = []
-        for node in form.find_all("select")[:12]:
-            selected = node.find_all("option", selected=True)
-            chosen = selected or node.find_all("option")[:1]
-            selects.append({
-                "id": clean(node.get("id")),
-                "name": clean(node.get("name")),
-                "selected": [
-                    clean(option.get("value") or option.get_text(" ", strip=True))
-                    for option in chosen[:3]
-                ],
-            })
-        chunks.append("SELECTS " + json.dumps(selects, ensure_ascii=False))
-
-    for index, table in enumerate(soup.find_all("table")[:8], start=1):
-        headers = [
-            clean(cell.get_text(" ", strip=True))
-            for cell in table.find_all(["th", "td"])[:12]
-        ]
-        chunks.append(
-            f"TABLE {index} rows={len(table.find_all('tr'))} "
-            f"headers={headers!r}"
-        )
-
-    interesting_links = []
-    for node in soup.find_all("a", href=True):
-        href = urljoin(page_url, clean(node.get("href")))
-        label = clean(node.get_text(" ", strip=True))
-        blob = f"{href} {label}".lower()
-        if any(term in blob for term in (
-            "stock", "report", "export", "download", "csv", "excel", "pdf"
-        )):
-            interesting_links.append({"text": clip(label, 120), "href": href})
-    chunks.append(
-        "LINKS " + json.dumps(interesting_links[:20], ensure_ascii=False)
-    )
-
-    script_sources = [
-        urljoin(page_url, clean(script.get("src")))
-        for script in soup.find_all("script", src=True)
-    ]
-    chunks.append(
-        "SCRIPT_SRCS " + json.dumps(script_sources[-20:], ensure_ascii=False)
-    )
-
-    script_clues = []
-    for script in soup.find_all("script"):
-        raw = script.string or script.get_text()
-        if not raw:
-            continue
-        lowered = raw.lower()
-        if any(term in lowered for term in (
-            "fishstock", "report", "window.open", "formaction",
-            "ajax", "$.post", "$.get", "fetch(", "location.href",
-            "submit(", "export", "download", ".csv", ".pdf"
-        )):
-            compact = clean(raw)
-            script_clues.append(clip(compact, 900))
-    chunks.append(
-        "INLINE_SCRIPT_CLUES "
-        + json.dumps(script_clues[:12], ensure_ascii=False)
-    )
-
-    route_pattern = re.compile(
-        r"""(?:"|')([^"']*(?:FishStock|fishstock|Report|report|Export|export|Download|download|\.csv|\.pdf)[^"']*)(?:"|')"""
-    )
-    routes = []
-    for match in route_pattern.finditer(page_html):
-        value = clean(html.unescape(match.group(1)))
-        if value and value not in routes and len(value) < 500:
-            routes.append(value)
-    chunks.append("ROUTE_CLUES " + json.dumps(routes[:40], ensure_ascii=False))
-
-    return "\n".join(chunks)
-
-
 
 def collect_recent_stocking(
     waters: dict[tuple[str, str], dict[str, Any]],
@@ -1261,20 +1226,10 @@ def collect_recent_stocking(
         except Exception as exc:
             page_errors.append(f"{base_url}: {exc}")
     if not parsed:
-        diagnostic_pages: list[str] = []
-        for base_url in discover_stocking_pages():
-            if "wgfapps.wyo.gov/fishstock" not in base_url.lower():
-                continue
-            try:
-                for url, page in submit_stocking_report_form(base_url):
-                    diagnostic_pages.append(stocking_page_diagnostics(page, url))
-            except Exception as exc:
-                diagnostic_pages.append(f"DIAGNOSTIC RETRIEVAL FAILED: {exc}")
         raise RuntimeError(
-            "WYOMING_STOCKING_DIAGNOSTIC_START\n"
-            + "\n---\n".join(diagnostic_pages[-4:])
-            + "\nWYOMING_STOCKING_DIAGNOSTIC_END\n"
-            + "No stocking records were published. Existing site files remain untouched."
+            "No stocking records could be parsed after clicking the official WGFD "
+            "report/search button. "
+            + " | ".join((page_errors + checked_pages)[-8:])
         )
 
     name_index: dict[str, list[tuple[str, str]]] = defaultdict(list)
@@ -1316,8 +1271,14 @@ def collect_recent_stocking(
             source_url=row["source_url"],
             title=f"Recent WGFD stocking: {canonical_name}",
             summary=(
-                f"Wyoming Game and Fish reports stocking {canonical_name} on "
-                f"{row['report_date']}."
+                (
+                    f"Wyoming Game and Fish reports stocking {canonical_name} during "
+                    f"{row.get('date_label') or row['report_date']}."
+                    if row.get("date_precision") == "month"
+                    else
+                    f"Wyoming Game and Fish reports stocking {canonical_name} on "
+                    f"{row['report_date']}."
+                )
                 + (f" Species: {row['species']}." if row.get("species") else "")
                 + (" " + " ".join(detail) if detail else "")
                 + (f" {note}" if note else "")
