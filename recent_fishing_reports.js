@@ -42,8 +42,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact river fishery",
       "freshness_status": "current",
       "freshness_days": 12,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -55,7 +55,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "79385cd576aa8a6c30bcc1c8eac91db14f36e5b797cf5d7433982e421c58d123",
       "source_excerpt": "July 14, 2026 South Fork Salmon River Chinook Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hu",
-      "source_response_ms": 647
+      "source_response_ms": 352
     },
     {
       "state": "Idaho",
@@ -90,8 +90,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Specified Upper Salmon River section",
       "freshness_status": "current",
       "freshness_days": 13,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -103,7 +103,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
       "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 610
+      "source_response_ms": 408
     },
     {
       "state": "Idaho",
@@ -136,8 +136,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Clearwater River drainage",
       "freshness_status": "current",
       "freshness_days": 13,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -149,7 +149,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
       "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 610
+      "source_response_ms": 408
     },
     {
       "state": "Idaho",
@@ -184,8 +184,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Listed Lower Salmon River sections",
       "freshness_status": "aging",
       "freshness_days": 20,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -197,7 +197,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
       "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 610
+      "source_response_ms": 408
     },
     {
       "state": "Idaho",
@@ -233,8 +233,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Hells Canyon Dam",
       "freshness_status": "aging",
       "freshness_days": 20,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -246,7 +246,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "aaa387005f1035c1563c4e36994aa8f93b430b5e35e2ffe67e396ebb5daff72e",
       "source_excerpt": "Chinook Harvest Report | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Bear Identificatio",
-      "source_response_ms": 610
+      "source_response_ms": 408
     },
     {
       "state": "Oregon",
@@ -274,8 +274,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Astoria ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -287,7 +287,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -328,8 +328,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Garibaldi ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -341,7 +341,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -367,8 +367,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Pacific City ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -380,7 +380,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -421,8 +421,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Depoe Bay ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -434,7 +434,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -476,8 +476,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Newport ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -489,7 +489,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -516,8 +516,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Florence ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -529,7 +529,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -556,8 +556,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Winchester Bay ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -569,7 +569,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -616,8 +616,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Charleston ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -629,7 +629,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -656,8 +656,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Bandon ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -669,7 +669,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -696,8 +696,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Gold Beach ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -709,7 +709,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Oregon",
@@ -756,8 +756,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Brookings ocean port",
       "freshness_status": "current",
       "freshness_days": 10,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -769,7 +769,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "7d32cffcad1d866232a9bcdc45ccf6ade01549829255cfbb02db519aec9e44d2",
       "source_excerpt": "Fishing Report - Marine Zone | Oregon Department of Fish & Wildlife Skip to main content Accessibility Oregon Department of Fish & Wildlife 1 Alert X What is a conservation closure? Read here. Razor clamming on Clatsop beaches is closed beginning 12:01 a.m., July 15. The last day to harvest is July 14. Secondary About ODFW Commission News Volunteer Workshops & Events Regulations Buy a license Buy license Keywords Activity - Any - Big Game Hunting Big Game Hunting Report Crabbing & Clamming Crabb",
-      "source_response_ms": 23
+      "source_response_ms": 76
     },
     {
       "state": "Nevada",
@@ -808,8 +808,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Lake Mead report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -821,7 +821,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-15T17:27:15+00:00",
       "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
       "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 709
+      "source_response_ms": 280
     },
     {
       "state": "Nevada",
@@ -861,8 +861,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Lake Mohave / Willow Beach",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -874,7 +874,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-15T17:27:15+00:00",
       "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
       "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 709
+      "source_response_ms": 280
     },
     {
       "state": "Nevada",
@@ -908,8 +908,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Laughlin / Colorado River",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -921,7 +921,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-15T17:27:15+00:00",
       "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
       "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 709
+      "source_response_ms": 280
     },
     {
       "state": "Nevada",
@@ -956,8 +956,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Las Vegas community ponds",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -969,7 +969,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-15T17:27:15+00:00",
       "source_content_hash": "48c87b669300ee41380abd17a2a84db6f168e6559a723ca93bd3c3e97fa855eb",
       "source_excerpt": "Fishing Report: 07/15/2026 - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regula",
-      "source_response_ms": 709
+      "source_response_ms": 280
     },
     {
       "state": "Nevada",
@@ -1006,8 +1006,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact lake report",
       "freshness_status": "current",
       "freshness_days": 12,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1019,7 +1019,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-20T17:24:45+00:00",
       "source_content_hash": "971cf773437aa8341700910272bfcff7f174aed144061360b332588591fe56a5",
       "source_excerpt": "Angel Lake - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Licenses, ",
-      "source_response_ms": 535
+      "source_response_ms": 149
     },
     {
       "state": "Nevada",
@@ -1053,8 +1053,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1066,7 +1066,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-23T18:58:00+00:00",
       "source_content_hash": "8b4d7da483b90d81806c1fa4df7751547102ac632933a620deb0527ec4652801",
       "source_excerpt": "Wildhorse Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations L",
-      "source_response_ms": 537
+      "source_response_ms": 138
     },
     {
       "state": "Nevada",
@@ -1098,8 +1098,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1111,7 +1111,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-21T14:55:47+00:00",
       "source_content_hash": "dfe3172a1a357b3f0090b3454a55963c6663c33a4cda1381a6968c1d1066d75f",
       "source_excerpt": "South Fork Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations ",
-      "source_response_ms": 516
+      "source_response_ms": 153
     },
     {
       "state": "Nevada",
@@ -1143,8 +1143,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Truckee River report",
       "freshness_status": "aging",
       "freshness_days": 27,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1156,7 +1156,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-06-29T20:07:15+00:00",
       "source_content_hash": "388ac7ff753e844d5503d98883cb43b41f4fffe8db3c20af17f818ec4a372897",
       "source_excerpt": "Truckee River - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations License",
-      "source_response_ms": 544
+      "source_response_ms": 142
     },
     {
       "state": "Nevada",
@@ -1189,8 +1189,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact pond report",
       "freshness_status": "aging",
       "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1202,7 +1202,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-13T19:41:04+00:00",
       "source_content_hash": "db625e9f99cf10e17fa5646c9e38a94b7635c3474e55883b5314a908d614913c",
       "source_excerpt": "James Kinney Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Lic",
-      "source_response_ms": 494
+      "source_response_ms": 145
     },
     {
       "state": "Nevada",
@@ -1236,8 +1236,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Lake Tahoe — Zephyr Cove report",
       "freshness_status": "current",
       "freshness_days": 9,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1249,7 +1249,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-06-23T22:25:18+00:00",
       "source_content_hash": "bca60da2ce5662dcefaacabad56d008fd6f8a7fe6ca32797643a2ec9916daf9d",
       "source_excerpt": "Lake Tahoe - Zephyr Cove - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulati",
-      "source_response_ms": 506
+      "source_response_ms": 151
     },
     {
       "state": "Washington",
@@ -1283,20 +1283,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Ediz Hook / Marine Area 6-1",
       "freshness_status": "aging",
       "freshness_days": 23,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785030605\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:50:05 GMT",
+      "source_etag": "W/\"1785037159\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
       "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
       "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 142
+      "source_response_ms": 821
     },
     {
       "state": "Washington",
@@ -1336,8 +1336,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Marine Area 5 — Sekiu and Pillar Point",
       "freshness_status": "aging",
       "freshness_days": 21,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1349,7 +1349,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "95126788bb279b3432deabfff419d07a36e4f54c63c7e48cf7b7dc9e10486a55",
       "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 795
+      "source_response_ms": 142
     },
     {
       "state": "Washington",
@@ -1384,20 +1384,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Shilshole / Marine Area 10",
       "freshness_status": "aging",
       "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785030385\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:46:25 GMT",
+      "source_etag": "W/\"1785036037\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
       "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
       "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 149
+      "source_response_ms": 152
     },
     {
       "state": "Washington",
@@ -1432,20 +1432,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Point Defiance / Marine Area 11",
       "freshness_status": "aging",
       "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785030385\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:46:25 GMT",
+      "source_etag": "W/\"1785036037\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
       "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
       "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 149
+      "source_response_ms": 152
     },
     {
       "state": "Washington",
@@ -1479,20 +1479,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Port Angeles West / Marine Area 6",
       "freshness_status": "aging",
       "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget?page=1",
-      "source_etag": "W/\"1785030706\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:51:46 GMT",
+      "source_etag": "W/\"1785036148\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:22:28 GMT",
       "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "69857ebf4dc49fce1c775298f11023c8ec09ea758edd0545393aa5b05e1b439a",
       "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 146
+      "source_response_ms": 178
     },
     {
       "state": "Washington",
@@ -1525,20 +1525,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Kingston / Marine Area 10",
       "freshness_status": "aging",
       "freshness_days": 26,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget",
-      "source_etag": "W/\"1785030385\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:46:25 GMT",
+      "source_etag": "W/\"1785036037\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
       "source_page_title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "ed917d59cc16d272e4243eaa636057ad99112a3e871f6552ec833c38f0ccd8dc",
       "source_excerpt": "Puget Sound creel reports | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfishing Fish",
-      "source_response_ms": 149
+      "source_response_ms": 152
     },
     {
       "state": "Washington",
@@ -1572,20 +1572,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Everett Ramp / Marine Area 9",
       "freshness_status": "aging",
       "freshness_days": 23,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785030605\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:50:05 GMT",
+      "source_etag": "W/\"1785037159\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
       "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
       "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 142
+      "source_response_ms": 821
     },
     {
       "state": "Wyoming",
@@ -1613,20 +1613,20 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Flaming Gorge Reservoir",
       "freshness_status": "stale",
       "freshness_days": 48,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wgfd.wyo.gov/news-events/anglers-remove-over-1200-small-lake-trout-flaming-gorge-through-angler-harvest-program",
-      "source_etag": "W/\"1785035350\"",
-      "source_last_modified": "Sun, 26 Jul 2026 03:09:10 GMT",
+      "source_etag": "W/\"1785037163\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:39:23 GMT",
       "source_page_title": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "2056d7ecc3ce5b05fb7104e14e17bacfffe61a8c93a339a06575d6afc9b842e3",
       "source_excerpt": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department Skip to main content { container.style.height = height; console.log('height:' + height); console.log(parentContainer); console.log(parentContainer.classList); console.log(grandParentContainer); console.log(grandParentContainer.classList); if (parentContainer.classList.contains('active')) { console.log('parent is active'); parentContainer.style.height = 'auto'; setTime",
-      "source_response_ms": 1129
+      "source_response_ms": 1156
     },
     {
       "state": "Idaho",
@@ -1658,8 +1658,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir fishery",
       "freshness_status": "aging",
       "freshness_days": 31,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1671,7 +1671,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "fd7865cd131c11b6270531e20e9cf097412b1df790bac29310239b4ad43188a5",
       "source_excerpt": "2026 Dworshak Reservoir Smallmouth Bass Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter R",
-      "source_response_ms": 703
+      "source_response_ms": 328
     },
     {
       "state": "Idaho",
@@ -1703,8 +1703,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir fishery",
       "freshness_status": "aging",
       "freshness_days": 31,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1716,7 +1716,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "dd6b3b02a8b3d87e620eee033dbfad08703355f30233434d1b91b4957f415f15",
       "source_excerpt": "2026 Dworshak Reservoir Kokanee Update | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory Hunter Report Be",
-      "source_response_ms": 619
+      "source_response_ms": 317
     },
     {
       "state": "Idaho",
@@ -1753,8 +1753,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir fishery",
       "freshness_status": "aging",
       "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1766,7 +1766,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": null,
       "source_content_hash": "1603b5d3e503857e5dd1912295cfee7b2e0e92e274c4e4c8f198bc8920c06ece",
       "source_excerpt": "Managing Moose Creek Reservoir: Making Fishing Better | Idaho Fish and Game Skip to main content Idaho Official Government Website | Buy a License Search Hunting Toggle submenu Hunting in Idaho Seasons and Rules Big Game Seasons and Rules Moose, Bighorn Sheep and Mountain Goat Migratory Birds Upland Game, Furbearer and Turkey Big Game Hunting Harvest Statistics Drawing Odds Controlled Hunt Drawing Results State of Deer and Elk Monitoring For Chronic Wasting Disease Super Hunt Program Mandatory H",
-      "source_response_ms": 530
+      "source_response_ms": 301
     },
     {
       "state": "Nevada",
@@ -1801,8 +1801,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Ruby Lake NWR fishery",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1814,7 +1814,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-22T17:28:27+00:00",
       "source_content_hash": "d23f95370dcc9aa4b7acb0c3454134486f3e518be43e698dfd3f2eafeb5c2f04",
       "source_excerpt": "Ruby Lake NWR - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations License",
-      "source_response_ms": 497
+      "source_response_ms": 133
     },
     {
       "state": "Nevada",
@@ -1847,8 +1847,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact water report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1860,7 +1860,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-15T16:22:28+00:00",
       "source_content_hash": "8b8811aba6ff59d00df431c01f5216c17c5b74464f6fa879520f74751ff8f0b4",
       "source_excerpt": "Ruby Lake NWR - Collection Ditch - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & ",
-      "source_response_ms": 513
+      "source_response_ms": 133
     },
     {
       "state": "Nevada",
@@ -1893,8 +1893,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact community pond",
       "freshness_status": "aging",
       "freshness_days": 30,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1906,7 +1906,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-14T21:40:50+00:00",
       "source_content_hash": "9597bbe0b72ff9388d4e5c0d70bbca4ff40e319a852fd321d62d1d2b813772a9",
       "source_excerpt": "Marilyn's Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Licens",
-      "source_response_ms": 507
+      "source_response_ms": 137
     },
     {
       "state": "Nevada",
@@ -1938,8 +1938,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir report",
       "freshness_status": "stale",
       "freshness_days": 172,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1951,7 +1951,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-06-03T15:47:05+00:00",
       "source_content_hash": "6d61f8131271e22866a7d2d2a35d78db0094034e39ff678095fdc27fb78c8cce",
       "source_excerpt": "Eagle Valley Reservoir - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulation",
-      "source_response_ms": 503
+      "source_response_ms": 140
     },
     {
       "state": "Nevada",
@@ -1985,8 +1985,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -1998,7 +1998,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-07-24T18:54:49+00:00",
       "source_content_hash": "5152a8ede2c78493651c8b1e22776685a801d3e6e0c26b65047ad142cc66ecc1",
       "source_excerpt": "Lake Tahoe - Sand Harbor - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulati",
-      "source_response_ms": 522
+      "source_response_ms": 136
     },
     {
       "state": "Nevada",
@@ -2030,8 +2030,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact reservoir report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -2043,7 +2043,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-05-20T20:18:30+00:00",
       "source_content_hash": "a4a30724766fd33bd4e81c172ba3efe10aa4c45e1ff0e8ffcc7cdda81c58d2fd",
       "source_excerpt": "Battle Born Pond - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Regulations Lice",
-      "source_response_ms": 517
+      "source_response_ms": 149
     },
     {
       "state": "Nevada",
@@ -2076,8 +2076,8 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Exact pond report",
       "freshness_status": "current",
       "freshness_days": 11,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
@@ -2089,7 +2089,7 @@ window.FFO_RECENT_REPORTS = {
       "source_page_modified": "2026-04-17T18:18:10+00:00",
       "source_content_hash": "a3b9d0e3557486fe15f482a24100668acf06934d17558626c0aa5ef1fd51db40",
       "source_excerpt": "Mason Valley Hatchery Outponds - Nevada Department of Wildlife Skip to main content Help Shape NDOW's Language Access Plan | NDOW is accepting public comment on its revised Language Access Plan. Get Outside Boating Education Paddle Sports Registration & Titles Rules & Regulations Aquatic Invasive Species Prevention Program Fishing Education Fishing Licenses Rules & Regulations Plan Your Fishing Trip Fishing & Stocking Reports Angler Recognition Program Hunting Education Plan Your Hunt Rules & Re",
-      "source_response_ms": 523
+      "source_response_ms": 152
     },
     {
       "state": "Washington",
@@ -2124,22 +2124,22 @@ window.FFO_RECENT_REPORTS = {
       "specificity": "Armeni Public Ramp / Marine Area 10",
       "freshness_status": "current",
       "freshness_days": 9,
-      "last_checked_at": "2026-07-26T03:08:55Z",
-      "source_status": "baseline",
+      "last_checked_at": "2026-07-26T03:39:10Z",
+      "source_status": "ok",
       "review_required": false,
       "source_http_status": 200,
       "source_error": null,
       "source_final_url": "https://wdfw.wa.gov/fishing/reports/creel/puget-annual",
-      "source_etag": "W/\"1785030605\"",
-      "source_last_modified": "Sun, 26 Jul 2026 01:50:05 GMT",
+      "source_etag": "W/\"1785037159\"",
+      "source_last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
       "source_page_title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
       "source_page_published": null,
       "source_page_modified": null,
       "source_content_hash": "e5ecf5c7f5f42ca36597cc9c7faa8e0ac5d59ccffa415269f5e40e86e1a048da",
       "source_excerpt": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife Skip to main content Menu Search Search Site search Home Close Main navigation Home Species & Habitats Species in Washington Ecosystems in Washington Biodiversity in Washington Living with wildlife At-risk species Habitat recovery and protection Aquatic invasive species Wildlife diseases Amphibians and reptiles of Washington Marine toxic contaminants Wildlife viewing Climate change and sustainability Fishing & Shellfish",
-      "source_response_ms": 142
+      "source_response_ms": 821
     }
   ],
-  "source_monitor_last_run": "2026-07-26T03:08:55Z",
+  "source_monitor_last_run": "2026-07-26T03:39:10Z",
   "source_monitor_mode": "live"
 };

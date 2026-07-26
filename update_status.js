@@ -1,6 +1,6 @@
 /* Automatic source-monitor status used by the public site and review dashboard. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-26T03:08:55Z",
+  "last_run": "2026-07-26T03:39:10Z",
   "mode": "live",
   "reports_total": 45,
   "unique_sources": 34,
@@ -28,7 +28,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sat, 25 Jul 2026 16:21:10 GMT",
       "page_published": null,
       "page_modified": "2026-07-22T14:07:41-0600",
-      "elapsed_ms": 648,
+      "elapsed_ms": 181,
       "error": null
     },
     {
@@ -43,7 +43,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 701,
+      "elapsed_ms": 179,
       "error": null
     },
     {
@@ -58,7 +58,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sat, 25 Jul 2026 00:22:59 GMT",
       "page_published": "2026-06-25T09:49:24-06:00",
       "page_modified": null,
-      "elapsed_ms": 619,
+      "elapsed_ms": 317,
       "error": null
     },
     {
@@ -73,7 +73,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 24 Jul 2026 23:37:45 GMT",
       "page_published": "2026-06-25T10:09:36-06:00",
       "page_modified": null,
-      "elapsed_ms": 703,
+      "elapsed_ms": 328,
       "error": null
     },
     {
@@ -88,7 +88,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 24 Jul 2026 23:37:28 GMT",
       "page_published": "2026-07-14T12:52:13-06:00",
       "page_modified": null,
-      "elapsed_ms": 647,
+      "elapsed_ms": 352,
       "error": null
     },
     {
@@ -103,7 +103,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sat, 25 Jul 2026 00:09:20 GMT",
       "page_published": "2026-06-26T10:20:19-06:00",
       "page_modified": null,
-      "elapsed_ms": 530,
+      "elapsed_ms": 301,
       "error": null
     },
     {
@@ -118,7 +118,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 24 Jul 2026 23:49:36 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 610,
+      "elapsed_ms": 408,
       "error": null
     },
     {
@@ -133,7 +133,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 26 Jul 2026 02:17:39 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 413,
+      "elapsed_ms": 139,
       "error": null
     },
     {
@@ -148,7 +148,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1897,
+      "elapsed_ms": 1492,
       "error": null
     },
     {
@@ -163,7 +163,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sat, 25 Jul 2026 15:33:57 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 177,
+      "elapsed_ms": 243,
       "error": null
     },
     {
@@ -178,7 +178,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sat, 25 Jul 2026 16:28:00 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 23,
+      "elapsed_ms": 76,
       "error": null
     },
     {
@@ -190,10 +190,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to go fishing | Washington Department of Fish & Wildlife",
-      "last_modified": "Sun, 26 Jul 2026 01:25:22 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:20:43 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 128,
+      "elapsed_ms": 106,
       "error": null
     },
     {
@@ -205,10 +205,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Sun, 26 Jul 2026 01:46:25 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:20:37 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 149,
+      "elapsed_ms": 152,
       "error": null
     },
     {
@@ -220,10 +220,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports by year | Washington Department of Fish & Wildlife",
-      "last_modified": "Sun, 26 Jul 2026 01:50:05 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:39:19 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 142,
+      "elapsed_ms": 821,
       "error": null
     },
     {
@@ -238,7 +238,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Sun, 26 Jul 2026 03:09:07 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 795,
+      "elapsed_ms": 142,
       "error": null
     },
     {
@@ -250,10 +250,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Puget Sound creel reports | Washington Department of Fish & Wildlife",
-      "last_modified": "Sun, 26 Jul 2026 01:51:46 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:22:28 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 146,
+      "elapsed_ms": 178,
       "error": null
     },
     {
@@ -265,10 +265,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Places to fish in Wyoming | Wyoming Game & Fish Department",
-      "last_modified": "Sun, 26 Jul 2026 03:07:06 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:39:21 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 163,
+      "elapsed_ms": 946,
       "error": null
     },
     {
@@ -280,10 +280,10 @@ window.FFO_UPDATE_STATUS = {
       "status": "ok",
       "http_status": 200,
       "title": "Anglers remove over 1,200 small lake trout from Flaming Gorge through the Angler Harvest Program | Wyoming Game & Fish Department",
-      "last_modified": "Sun, 26 Jul 2026 03:09:10 GMT",
+      "last_modified": "Sun, 26 Jul 2026 03:39:23 GMT",
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 1129,
+      "elapsed_ms": 1156,
       "error": null
     },
     {
@@ -298,7 +298,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": null,
       "page_published": null,
       "page_modified": null,
-      "elapsed_ms": 674,
+      "elapsed_ms": 431,
       "error": null
     },
     {
@@ -313,7 +313,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:17:00 GMT",
       "page_published": "2026-07-15T08:22:00+00:00",
       "page_modified": "2026-07-15T17:27:15+00:00",
-      "elapsed_ms": 709,
+      "elapsed_ms": 280,
       "error": null
     },
     {
@@ -328,7 +328,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:20:13 GMT",
       "page_published": "2021-11-02T16:07:05+00:00",
       "page_modified": "2025-09-26T12:38:38+00:00",
-      "elapsed_ms": 526,
+      "elapsed_ms": 144,
       "error": null
     },
     {
@@ -343,7 +343,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:27:47 GMT",
       "page_published": "2021-10-31T18:42:59+00:00",
       "page_modified": "2026-07-20T17:24:45+00:00",
-      "elapsed_ms": 535,
+      "elapsed_ms": 149,
       "error": null
     },
     {
@@ -358,7 +358,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:19:32 GMT",
       "page_published": "2021-10-31T18:43:02+00:00",
       "page_modified": "2026-06-03T15:47:05+00:00",
-      "elapsed_ms": 503,
+      "elapsed_ms": 140,
       "error": null
     },
     {
@@ -373,7 +373,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:17:25 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-13T19:41:04+00:00",
-      "elapsed_ms": 494,
+      "elapsed_ms": 145,
       "error": null
     },
     {
@@ -388,7 +388,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Wed, 22 Jul 2026 03:28:47 GMT",
       "page_published": "2023-05-30T16:47:28+00:00",
       "page_modified": "2026-05-20T20:18:30+00:00",
-      "elapsed_ms": 517,
+      "elapsed_ms": 149,
       "error": null
     },
     {
@@ -403,7 +403,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:42:37 GMT",
       "page_published": "2022-06-23T21:40:11+00:00",
       "page_modified": "2026-06-23T22:25:18+00:00",
-      "elapsed_ms": 506,
+      "elapsed_ms": 151,
       "error": null
     },
     {
@@ -418,7 +418,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Fri, 24 Jul 2026 19:07:45 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-24T18:54:49+00:00",
-      "elapsed_ms": 522,
+      "elapsed_ms": 136,
       "error": null
     },
     {
@@ -433,7 +433,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:38:39 GMT",
       "page_published": "2021-10-31T18:43:04+00:00",
       "page_modified": "2026-07-14T21:40:50+00:00",
-      "elapsed_ms": 507,
+      "elapsed_ms": 137,
       "error": null
     },
     {
@@ -448,7 +448,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 20:11:19 GMT",
       "page_published": "2022-07-08T23:17:05+00:00",
       "page_modified": "2026-04-17T18:18:10+00:00",
-      "elapsed_ms": 523,
+      "elapsed_ms": 152,
       "error": null
     },
     {
@@ -463,7 +463,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:32:59 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-15T16:22:28+00:00",
-      "elapsed_ms": 513,
+      "elapsed_ms": 133,
       "error": null
     },
     {
@@ -478,7 +478,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Wed, 22 Jul 2026 17:37:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-22T17:28:27+00:00",
-      "elapsed_ms": 497,
+      "elapsed_ms": 133,
       "error": null
     },
     {
@@ -493,7 +493,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:21:41 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-21T14:55:47+00:00",
-      "elapsed_ms": 516,
+      "elapsed_ms": 153,
       "error": null
     },
     {
@@ -508,7 +508,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Tue, 21 Jul 2026 19:28:58 GMT",
       "page_published": "2021-10-31T18:43:05+00:00",
       "page_modified": "2026-06-29T20:07:15+00:00",
-      "elapsed_ms": 544,
+      "elapsed_ms": 142,
       "error": null
     },
     {
@@ -523,7 +523,7 @@ window.FFO_UPDATE_STATUS = {
       "last_modified": "Thu, 23 Jul 2026 19:09:59 GMT",
       "page_published": "2021-10-31T18:43:01+00:00",
       "page_modified": "2026-07-23T18:58:00+00:00",
-      "elapsed_ms": 537,
+      "elapsed_ms": 138,
       "error": null
     }
   ],
