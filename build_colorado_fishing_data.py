@@ -555,33 +555,145 @@ def clean_stocking_cell(value: str, label: str) -> str:
 
 
 def parse_stocking_rows(page_html: str) -> list[dict[str, str]]:
+    """Parse both normal HTML tables and CPW's responsive repeated-label layout."""
     if BeautifulSoup is None:
         raise RuntimeError("beautifulsoup4 is required")
+
     soup = BeautifulSoup(page_html, "html.parser")
     rows: list[dict[str, str]] = []
     seen: set[tuple[str, str, str]] = set()
+    regions = ("northeast", "northwest", "southeast", "southwest")
+
+    def add_row(
+        water_value: Any,
+        region_value: Any,
+        date_value: Any,
+        source_url: str = STOCKING_URL,
+    ) -> None:
+        water = clean_stocking_cell(clean(water_value), "Body of Water")
+        region = clean_stocking_cell(clean(region_value), "Region").lower()
+        date_text = clean_stocking_cell(clean(date_value), "Report Date")
+        report_date = parse_date(date_text)
+
+        region_match = next(
+            (name for name in regions if re.search(rf"\b{name}\b", region, flags=re.I)),
+            "",
+        )
+        if not water or not report_date or not region_match:
+            return
+        if norm(water) in {"body water", "body of water"}:
+            return
+
+        key = (norm(water), region_match, report_date)
+        if key in seen:
+            return
+        seen.add(key)
+        rows.append({
+            "water_name": water,
+            "region": region_match,
+            "report_date": report_date,
+            "source_url": source_url if source_url.startswith("http") else STOCKING_URL,
+        })
+
+    # Standard semantic table markup.
     for tr in soup.find_all("tr"):
         cells = tr.find_all(["td", "th"])
         if len(cells) < 3:
             continue
-        water = clean_stocking_cell(cells[0].get_text(" ", strip=True), "Body of Water")
-        region = clean_stocking_cell(cells[1].get_text(" ", strip=True), "Region")
-        date_text = clean_stocking_cell(cells[2].get_text(" ", strip=True), "Report Date")
-        report_date = parse_date(date_text)
-        if not water or not report_date or norm(water) in {"body water", "body of water"}:
-            continue
         anchor = tr.find("a", href=True)
         source_url = urljoin(STOCKING_URL, anchor["href"]) if anchor else STOCKING_URL
-        key = (norm(water), region.lower(), report_date)
-        if key in seen:
+        add_row(
+            cells[0].get_text(" ", strip=True),
+            cells[1].get_text(" ", strip=True),
+            cells[2].get_text(" ", strip=True),
+            source_url,
+        )
+
+    # CPW's responsive layout may render a row as nested divs instead of tr/td.
+    # Find each Atlas link, then select the smallest nearby container containing
+    # one valid date and one CPW region.
+    for anchor in soup.find_all("a", href=True):
+        href = urljoin(STOCKING_URL, anchor.get("href") or "")
+        anchor_text = clean(anchor.get_text(" ", strip=True)).lower()
+        if anchor_text != "atlas" and "ndismaps.nrel.colostate.edu" not in href.lower():
             continue
-        seen.add(key)
-        rows.append({
-            "water_name": water,
-            "region": region,
-            "report_date": report_date,
-            "source_url": source_url,
-        })
+
+        chosen_text = ""
+        parent = anchor
+        for _ in range(8):
+            parent = getattr(parent, "parent", None)
+            if parent is None:
+                break
+            candidate = clean(parent.get_text(" ", strip=True))
+            dates = re.findall(r"\b\d{1,2}/\d{1,2}/20\d{2}\b", candidate)
+            found_regions = [
+                name for name in regions
+                if re.search(rf"\b{name}\b", candidate, flags=re.I)
+            ]
+            atlas_links = [
+                item for item in parent.find_all("a", href=True)
+                if clean(item.get_text(" ", strip=True)).lower() == "atlas"
+                or "ndismaps.nrel.colostate.edu" in urljoin(
+                    STOCKING_URL, item.get("href") or ""
+                ).lower()
+            ]
+            if len(dates) == 1 and len(found_regions) == 1 and len(atlas_links) == 1:
+                chosen_text = candidate
+                break
+
+        if not chosen_text:
+            continue
+
+        date_match = re.search(r"\b\d{1,2}/\d{1,2}/20\d{2}\b", chosen_text)
+        region_match = re.search(
+            r"\b(northeast|northwest|southeast|southwest)\b",
+            chosen_text,
+            flags=re.I,
+        )
+        if not date_match or not region_match:
+            continue
+
+        water = chosen_text
+        water = re.sub(r"\bBody of Water\b", " ", water, flags=re.I)
+        water = re.sub(r"\bReport Date\b", " ", water, flags=re.I)
+        water = re.sub(r"\bRegion\b", " ", water, flags=re.I)
+        water = re.sub(r"\bLink\b", " ", water, flags=re.I)
+        water = re.sub(r"\bAtlas\b", " ", water, flags=re.I)
+        water = re.sub(re.escape(date_match.group(0)), " ", water, count=1)
+        water = re.sub(
+            rf"\b{re.escape(region_match.group(1))}\b",
+            " ",
+            water,
+            count=1,
+            flags=re.I,
+        )
+        water = clean(water).strip(" |:-")
+        add_row(water, region_match.group(1), date_match.group(0), href)
+
+    # Final fallback for CPW's repeated-label text. Use it only when neither
+    # semantic tables nor Atlas-link row containers produced records.
+    if not rows:
+        flattened = clean(soup.get_text(" ", strip=True))
+        repeated_label_pattern = re.compile(
+            r"(?:^|\s)"
+            r"(?P<water>"
+            r"(?:(?!\b(?:Atlas|Link|Report Date|Body of Water)\b).){1,160}?"
+            r")\s+\bBody of Water\b\s+"
+            r"(?P<region>northeast|northwest|southeast|southwest)\s+"
+            r"\bRegion\b\s+"
+            r"(?P<date>\d{1,2}/\d{1,2}/20\d{2})\s+"
+            r"\bReport Date\b\s+\bAtlas\b",
+            flags=re.I,
+        )
+        for match in repeated_label_pattern.finditer(flattened):
+            water = match.group("water").strip(" |:-")
+            add_row(
+                water,
+                match.group("region"),
+                match.group("date"),
+                STOCKING_URL,
+            )
+
     return rows
 
 
