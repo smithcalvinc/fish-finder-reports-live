@@ -1,0 +1,130 @@
+name: Update Washington Fishing Data — Official Public Access
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build_washington_fishing_data.py"
+      - ".github/workflows/update-all-washington-fishing-data.yml"
+  schedule:
+    - cron: "47 16 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: washington-official-public-fishing-access
+  cancel-in-progress: false
+
+jobs:
+  build-washington:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run offline Washington safety tests
+        run: python build_washington_fishing_data.py --self-test
+
+      - name: Build Washington official public-access data
+        run: |
+          python build_washington_fishing_data.py \
+            --root . \
+            --output-dir data
+
+      - name: Validate Washington output structure
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          test -s data/washington_counties.csv
+          test -s config/washington_counties.json
+          test -s data/washington_public_fishing_access.json
+          test -s data/washington_public_fishing_access.js
+          test -s data/washington_fishing_report_database.json
+          test -s data/washington_fishing_report_database.js
+          test -s data/washington_fishing_report_database.csv
+          test -s data/washington_source_audit.json
+          test -s data/washington_project_status.json
+          test -s washington-county-reports.html
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          db = json.loads(Path("data/washington_fishing_report_database.json").read_text())
+          status = json.loads(Path("data/washington_project_status.json").read_text())
+
+          expected = [
+              "Adams", "Asotin", "Benton", "Chelan", "Clallam", "Clark", "Columbia",
+              "Cowlitz", "Douglas", "Ferry", "Franklin", "Garfield", "Grant",
+              "Grays Harbor", "Island", "Jefferson", "King", "Kitsap", "Kittitas",
+              "Klickitat", "Lewis", "Lincoln", "Mason", "Okanogan", "Pacific",
+              "Pend Oreille", "Pierce", "San Juan", "Skagit", "Skamania", "Snohomish",
+              "Spokane", "Stevens", "Thurston", "Wahkiakum", "Walla Walla", "Whatcom",
+              "Whitman", "Yakima",
+          ]
+
+          assert db["county_count"] == 39
+          assert [row["county"] for row in db["counties"]] == expected
+          assert [row["county_number"] for row in db["counties"]] == list(range(1, 40))
+          assert db["metadata"]["public_access_only"] is True
+          assert db["public_water_count"] >= 100
+          assert db["verified_access_point_count"] >= 150
+          assert status["deployment_status"] == "validated_complete_ready_to_commit"
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["strict_public_access"] is True
+
+          unique = set()
+          for water in db["flat_waters"]:
+              assert water["publication_status"] == "published_verified_public_access"
+              assert water["county"] in expected
+              assert water["access_points"]
+              for point in water["access_points"]:
+                  assert point["public_access_status"] == "verified_public"
+                  assert point["entire_shoreline_public"] is False
+                  assert point["access_point_name"]
+                  assert point["official_source_url"].startswith("https://")
+                  assert point["verification_evidence"]
+                  unique.add(point["access_id"])
+
+          assert len(unique) == db["verified_access_point_count"]
+          print("Washington verified waters:", db["public_water_count"])
+          print("Washington verified access points:", db["verified_access_point_count"])
+          print("Washington fish-plant records:", db["report_count"])
+          print("Washington populated counties:", status["validation"]["populated_counties"])
+          PY
+
+          git diff --check
+
+      - name: Commit Washington data and website integration
+        shell: bash
+        run: |
+          FILES=(
+            data/washington_*
+            config/washington_*
+            washington-county-reports.html
+            brand-shell.js
+            service-worker.js
+            sitemap.xml
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
+            echo "No Washington fishing-data changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Washington Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${FILES[@]}"
+          git commit -m "Add Washington official public fishing access"
+          git push
