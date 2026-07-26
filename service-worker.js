@@ -1,10 +1,11 @@
-const CACHE_VERSION = "ffo-reports-pwa-v3";
+const CACHE_VERSION = "ffo-reports-pwa-v4";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
 const APP_SHELL = [
   "./",
   "./index.html",
+  "./idaho-county-reports.html",
   "./brand-shell.css",
   "./brand-shell.js",
   "./pwa.js",
@@ -24,7 +25,8 @@ const APP_SHELL = [
   "./official_state_sources.js",
   "./official_water_overrides.js",
   "./regional_water_search.js",
-  "./official_species_data.js"
+  "./official_species_data.js",
+  "./fishing_report_search.js"
 ];
 
 const FRESH_DATA_FILES = [
@@ -32,7 +34,9 @@ const FRESH_DATA_FILES = [
   "community_fishing_reports.js",
   "update_status.js",
   "regional_water_search.js",
-  "official_water_overrides.js"
+  "official_water_overrides.js",
+  "idaho_fishing_report_database.js",
+  "idaho_fishing_report_database.json"
 ];
 
 self.addEventListener("install", event => {
