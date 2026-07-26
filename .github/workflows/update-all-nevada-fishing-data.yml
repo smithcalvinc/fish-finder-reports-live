@@ -86,23 +86,29 @@ jobs:
           metadata = reports["metadata"]
           assert metadata["public_access_only"] is True
           assert metadata["fishnv_is_access_verification"] is False
-          assert "FishNV-only waters are quarantined" in metadata["access_policy"]
+          assert "Waters without explicit official access evidence are quarantined" in metadata["access_policy"]
 
-          assert status["deployment_status"] == "validated_ready_to_commit"
+          assert status["deployment_status"] == "validated_complete_ready_to_commit"
           assert status["validation"]["passed"] is True
           assert status["validation"]["strict_public_access"] is True
           assert status["validation"]["fishnv_is_access_verification"] is False
           assert status["source_counts"]["county_polygons"] == 17
-          assert status["source_counts"]["fishnv_water_urls"] >= 400
-          assert reports["public_water_count"] >= 10
-          assert reports["verified_access_point_count"] >= 10
-          assert reports["report_count"] >= 10
-          assert status["validation"]["populated_counties"] >= 5
+          assert status["validation"]["complete_inventory_gate"] is True
+          assert status["source_counts"]["ndow_water_pages_requested"] >= 400
+          assert status["source_counts"]["ndow_water_metadata_records"] >= 400
+          assert status["source_counts"]["ndow_water_metadata_counties"] == 17
+          requested = status["source_counts"]["ndow_water_pages_requested"]
+          unresolved = status["source_counts"]["ndow_water_unresolved_pages"]
+          assert unresolved <= max(25, int(requested * 0.15))
+          assert reports["public_water_count"] >= 25
+          assert reports["verified_access_point_count"] >= 25
+          assert reports["report_count"] >= 100
+          assert status["validation"]["populated_counties"] == 17
           assert len(status["validation"]["access_verification_methods"]) >= 2
 
           assert unverified["metadata"]["publication_status"] == "not_published"
           assert unverified["count"] == reports["unverified_fishable_water_count"]
-          assert unverified["count"] == audit["matching"]["quarantined_fishnv_waters"]
+          assert unverified["count"] == audit["matching"]["quarantined_unverified_waters"]
           assert all(row["publication_status"] == "quarantined_unverified_public_access" for row in unverified["waters"])
 
           def valid(lon, lat):
@@ -157,8 +163,9 @@ jobs:
 
           print("Nevada independently verified waters:", reports["public_water_count"])
           print("Nevada independently verified access points:", reports["verified_access_point_count"])
-          print("Nevada quarantined FishNV-only waters:", unverified["count"])
+          print("Nevada quarantined unverified waters:", unverified["count"])
           print("Nevada official report/update records:", reports["report_count"])
+          print("Nevada NDOW water metadata records:", status["validation"]["ndow_water_metadata_records"])
           print("Nevada populated county-equivalents:", status["validation"]["populated_counties"])
           print("Access verification methods:", status["validation"]["access_verification_methods"])
           PY
