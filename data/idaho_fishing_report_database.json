@@ -1,0 +1,460 @@
+{
+  "metadata": {
+    "title": "Idaho Public Fishing Access and Current Fishing Reports",
+    "version": "2.0",
+    "generated_at": "PENDING_FIRST_GITHUB_WORKFLOW_RUN",
+    "public_access_only": true,
+    "county_order": "1 Ada through 44 Washington",
+    "status": "Run the included GitHub workflow to populate official access and current report records.",
+    "facebook_policy": "Only manually verified public post URLs are included."
+  },
+  "county_count": 44,
+  "public_water_count": 0,
+  "report_count": 0,
+  "statewide_reports": [],
+  "unmatched_reports": [],
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Ada",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 2,
+      "county": "Adams",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 3,
+      "county": "Bannock",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 4,
+      "county": "Bear Lake",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 5,
+      "county": "Benewah",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 6,
+      "county": "Bingham",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 7,
+      "county": "Blaine",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 8,
+      "county": "Boise",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 9,
+      "county": "Bonner",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 10,
+      "county": "Bonneville",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 11,
+      "county": "Boundary",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 12,
+      "county": "Butte",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 13,
+      "county": "Camas",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 14,
+      "county": "Canyon",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 15,
+      "county": "Caribou",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 16,
+      "county": "Cassia",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 17,
+      "county": "Clark",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 18,
+      "county": "Clearwater",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 19,
+      "county": "Custer",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 20,
+      "county": "Elmore",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 21,
+      "county": "Franklin",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 22,
+      "county": "Fremont",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 23,
+      "county": "Gem",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 24,
+      "county": "Gooding",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 25,
+      "county": "Idaho",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 26,
+      "county": "Jefferson",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 27,
+      "county": "Jerome",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 28,
+      "county": "Kootenai",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 29,
+      "county": "Latah",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 30,
+      "county": "Lemhi",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 31,
+      "county": "Lewis",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 32,
+      "county": "Lincoln",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 33,
+      "county": "Madison",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 34,
+      "county": "Minidoka",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 35,
+      "county": "Nez Perce",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 36,
+      "county": "Oneida",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 37,
+      "county": "Owyhee",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 38,
+      "county": "Payette",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 39,
+      "county": "Power",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 40,
+      "county": "Shoshone",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 41,
+      "county": "Teton",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 42,
+      "county": "Twin Falls",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 43,
+      "county": "Valley",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    },
+    {
+      "county_number": 44,
+      "county": "Washington",
+      "public_water_count": 0,
+      "waters_with_reports": 0,
+      "waters_without_reports": 0,
+      "public_access_point_count": 0,
+      "county_report_count": 0,
+      "waters": []
+    }
+  ],
+  "flat_waters": [],
+  "flat_reports": []
+}

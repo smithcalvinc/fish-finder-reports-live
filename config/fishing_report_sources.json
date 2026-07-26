@@ -1,0 +1,51 @@
+{
+  "automatic_sources": [
+    {
+      "name": "Idaho Fish and Game fishing news and updates",
+      "type": "official",
+      "url": "https://idfg.idaho.gov/fish",
+      "automatic": true
+    },
+    {
+      "name": "Idaho Fish and Game statewide stocking forecast",
+      "type": "official",
+      "url": "https://idfg.idaho.gov/fish/stocking/statewide",
+      "automatic": true
+    },
+    {
+      "name": "Idaho Fish and Game Chinook harvest reports",
+      "type": "official",
+      "url": "https://idfg.idaho.gov/fish/chinook/harvest",
+      "automatic": true
+    },
+    {
+      "name": "Idaho Fish and Game steelhead harvest reports",
+      "type": "official",
+      "url": "https://idfg.idaho.gov/fish/steelhead/harvest",
+      "automatic": true
+    },
+    {
+      "name": "Sportsman's Warehouse Idaho fishing reports",
+      "type": "established_fishing_website",
+      "url": "https://fishingreports.sportsmans.com/fishing-report/page/1/rows/100/keywords/All/site/100/state/ID",
+      "automatic": true
+    }
+  ],
+  "manual_public_social_sources": [
+    {
+      "name": "Idaho Fish and Game Facebook Page",
+      "url": "https://www.facebook.com/IdahoFishGame/",
+      "notes": "Add individual public fishing-post links to data/public_social_reports.csv."
+    },
+    {
+      "name": "SE IDAHO Fishing reports Facebook Group",
+      "url": "https://www.facebook.com/groups/887815727937934/",
+      "notes": "Public posts must be reviewed and entered manually; group scraping is disabled."
+    }
+  ],
+  "source_ranking": [
+    "official",
+    "established_fishing_website",
+    "public_social_post"
+  ]
+}
