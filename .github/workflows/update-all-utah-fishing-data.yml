@@ -43,6 +43,36 @@ jobs:
             --root . \
             --output-dir data
 
+      - name: Normalize generated Utah text files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          patterns = (
+              "data/utah_*",
+              "config/utah_*",
+              "utah-county-reports.html",
+              "brand-shell.js",
+              "service-worker.js",
+              "sitemap.xml",
+              "recent_fishing_reports.js",
+              "update_status.js",
+          )
+          changed = []
+          for pattern in patterns:
+              for path in Path(".").glob(pattern):
+                  if not path.is_file():
+                      continue
+                  original = path.read_bytes()
+                  cleaned = re.sub(rb"[ \t]+(?=\r?\n|$)", b"", original)
+                  if cleaned != original:
+                      path.write_bytes(cleaned)
+                      changed.append(str(path))
+          print("Removed trailing whitespace from:", changed or "none")
+          PY
+
       - name: Validate all Utah sources, counties, maps and integration files
         shell: bash
         run: |
