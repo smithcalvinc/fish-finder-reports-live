@@ -1,0 +1,178 @@
+name: Update All Utah Fishing Data
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build_utah_fishing_data.py"
+      - "data/utah_public_social_reports.csv"
+      - "config/utah_water_aliases.json"
+      - ".github/workflows/update-all-utah-fishing-data.yml"
+  schedule:
+    - cron: "17 14 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: all-utah-fishing-data
+  cancel-in-progress: false
+
+jobs:
+  update-all-utah-fishing-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install official-page parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
+
+      - name: Build Utah county, public-access and fishing-report data
+        run: |
+          python build_utah_fishing_data.py \
+            --root . \
+            --output-dir data
+
+      - name: Normalize generated Utah text files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+
+          patterns = (
+              "data/utah_*",
+              "config/utah_*",
+              "utah-county-reports.html",
+              "brand-shell.js",
+              "service-worker.js",
+              "sitemap.xml",
+              "recent_fishing_reports.js",
+              "update_status.js",
+          )
+          changed = []
+          for pattern in patterns:
+              for path in Path(".").glob(pattern):
+                  if not path.is_file():
+                      continue
+                  original = path.read_bytes()
+                  cleaned = re.sub(rb"[ \t]+(?=\r?\n|$)", b"", original)
+                  if cleaned != original:
+                      path.write_bytes(cleaned)
+                      changed.append(str(path))
+          print("Removed trailing whitespace from:", changed or "none")
+          PY
+
+      - name: Validate all Utah sources, counties, maps and integration files
+        shell: bash
+        run: |
+          test -s data/utah_counties.csv
+          test -s config/utah_counties.json
+          test -s data/utah_public_fishing_access.json
+          test -s data/utah_public_fishing_access.js
+          test -s data/utah_fishing_report_database.json
+          test -s data/utah_fishing_report_database.js
+          test -s data/utah_fishing_report_database.csv
+          test -s data/utah_project_status.json
+          test -s utah-county-reports.html
+          test -s recent_fishing_reports.js
+          test -s update_status.js
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          access = json.loads(Path("data/utah_public_fishing_access.json").read_text())
+          reports = json.loads(Path("data/utah_fishing_report_database.json").read_text())
+          status = json.loads(Path("data/utah_project_status.json").read_text())
+
+          assert access["county_count"] == 29
+          assert reports["county_count"] == 29
+          assert len(access["counties"]) == 29
+          assert len(reports["counties"]) == 29
+          assert [c["county_number"] for c in reports["counties"]] == list(range(1, 30))
+          assert reports["counties"][0]["county"] == "Beaver"
+          assert reports["counties"][-1]["county"] == "Weber"
+          assert reports["metadata"]["public_access_only"] is True
+
+          assert status["deployment_status"] == "validated_ready_to_commit"
+          assert status["failed_sources"] == []
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["populated_counties"] >= 25
+          assert reports["public_water_count"] >= 200
+          assert reports["report_count"] >= 500
+
+          def valid(lon, lat):
+              try:
+                  return -114.3 <= float(lon) <= -108.7 and 36.7 <= float(lat) <= 42.2
+              except (TypeError, ValueError):
+                  return False
+
+          for water in reports["flat_waters"]:
+              lat, lon = water.get("latitude"), water.get("longitude")
+              if lat not in (None, "") or lon not in (None, ""):
+                  assert lat not in (None, "") and lon not in (None, "")
+                  assert valid(lon, lat), (water.get("water_name"), lat, lon)
+              for point in water.get("access_points") or []:
+                  plat, plon = point.get("latitude"), point.get("longitude")
+                  if plat not in (None, "") or plon not in (None, ""):
+                      assert plat not in (None, "") and plon not in (None, "")
+                      assert valid(plon, plat), (point.get("access_point_name"), plat, plon)
+                  url = str(point.get("directions_url") or "").lower().replace("%2c", ",")
+                  assert "query=null" not in url
+                  assert "query=undefined" not in url
+                  assert "query=0,0" not in url
+                  assert "query=," not in url
+
+          page = Path("utah-county-reports.html").read_text()
+          assert "function validCoordinate" in page
+          assert "function mapPoint" in page
+          assert "Number.isFinite(Number(w.latitude))" not in page
+
+          update_text = Path("update_status.js").read_text()
+          match = re.search(r"window\.FFO_UPDATE_STATUS\s*=\s*(\{.*\})\s*;", update_text, re.S)
+          assert match, "Could not parse update_status.js"
+          admin = json.loads(match.group(1))
+          states = {row["state"] for row in admin.get("states", [])}
+          assert {"Idaho", "Montana", "Utah"}.issubset(states)
+          assert admin["state_count"] >= 3
+
+          print("Utah public waters:", reports["public_water_count"])
+          print("Utah report records:", reports["report_count"])
+          print("Utah populated counties:", status["validation"]["populated_counties"])
+          print("Admin states:", sorted(states))
+          PY
+          git diff --check
+
+      - name: Commit Utah data and website integration
+        shell: bash
+        run: |
+          FILES=(
+            data/utah_*
+            config/utah_*
+            utah-county-reports.html
+            brand-shell.js
+            service-worker.js
+            sitemap.xml
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
+            echo "No Utah fishing-data changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Utah Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${FILES[@]}"
+          git commit -m "Add or update Utah public fishing access and reports"
+          git push
