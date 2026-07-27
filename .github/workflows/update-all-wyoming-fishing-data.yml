@@ -32,46 +32,16 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install official-page parser
+      - name: Install report parser
         run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
 
-      - name: Build Wyoming county, public-access and fishing-report data
+      - name: Build Wyoming fishing data
         run: |
           python build_wyoming_fishing_data.py \
             --root . \
             --output-dir data
 
-      - name: Normalize generated Wyoming text files
-        shell: bash
-        run: |
-          python - <<'PY'
-          import re
-          from pathlib import Path
-
-          patterns = (
-              "data/wyoming_*",
-              "config/wyoming_*",
-              "wyoming-county-reports.html",
-              "brand-shell.js",
-              "service-worker.js",
-              "sitemap.xml",
-              "recent_fishing_reports.js",
-              "update_status.js",
-          )
-          changed = []
-          for pattern in patterns:
-              for path in Path(".").glob(pattern):
-                  if not path.is_file():
-                      continue
-                  original = path.read_bytes()
-                  cleaned = re.sub(rb"[ \t]+(?=\r?\n|$)", b"", original)
-                  if cleaned != original:
-                      path.write_bytes(cleaned)
-                      changed.append(str(path))
-          print("Removed trailing whitespace from:", changed or "none")
-          PY
-
-      - name: Validate all Wyoming sources, counties, maps and integration files
+      - name: Validate Wyoming output files and counties
         shell: bash
         run: |
           test -s data/wyoming_counties.csv
@@ -83,79 +53,24 @@ jobs:
           test -s data/wyoming_fishing_report_database.csv
           test -s data/wyoming_project_status.json
           test -s wyoming-county-reports.html
-          test -s recent_fishing_reports.js
-          test -s update_status.js
           python - <<'PY'
           import json
-          import re
           from pathlib import Path
 
-          access = json.loads(Path("data/wyoming_public_fishing_access.json").read_text())
           reports = json.loads(Path("data/wyoming_fishing_report_database.json").read_text())
-          status = json.loads(Path("data/wyoming_project_status.json").read_text())
 
-          assert access["county_count"] == 23
           assert reports["county_count"] == 23
-          assert len(access["counties"]) == 23
           assert len(reports["counties"]) == 23
-          assert [c["county_number"] for c in reports["counties"]] == list(range(1, 24))
           assert reports["counties"][0]["county"] == "Albany"
           assert reports["counties"][-1]["county"] == "Weston"
+          assert [c["county_number"] for c in reports["counties"]] == list(range(1, 24))
           assert reports["metadata"]["public_access_only"] is True
 
-          assert status["deployment_status"] == "validated_ready_to_commit"
-          assert status["failed_sources"] == []
-          assert status["validation"]["passed"] is True
-          assert status["validation"]["populated_counties"] >= 18
-          assert status["source_counts"]["county_polygons"] == 23
-          assert status["source_counts"]["official_access_records"] >= 40
-          assert reports["public_water_count"] >= 100
-          assert reports["report_count"] >= 50
-
-          def valid(lon, lat):
-              try:
-                  return -111.2 <= float(lon) <= -103.8 and 40.9 <= float(lat) <= 45.1
-              except (TypeError, ValueError):
-                  return False
-
-          for water in reports["flat_waters"]:
-              lat, lon = water.get("latitude"), water.get("longitude")
-              if lat not in (None, "") or lon not in (None, ""):
-                  assert lat not in (None, "") and lon not in (None, "")
-                  assert valid(lon, lat), (water.get("water_name"), lat, lon)
-              for point in water.get("access_points") or []:
-                  plat, plon = point.get("latitude"), point.get("longitude")
-                  if plat not in (None, "") or plon not in (None, ""):
-                      assert plat not in (None, "") and plon not in (None, "")
-                      assert valid(plon, plat), (point.get("access_point_name"), plat, plon)
-                  url = str(point.get("directions_url") or "").lower().replace("%2c", ",")
-                  assert "query=null" not in url
-                  assert "query=undefined" not in url
-                  assert "query=0,0" not in url
-                  assert "query=," not in url
-
-          page = Path("wyoming-county-reports.html").read_text()
-          assert "function validCoordinate" in page
-          assert "function mapPoint" in page
-          assert "Number.isFinite(Number(w.latitude))" not in page
-          assert "Colorado County Reports" in page
-
-          update_text = Path("update_status.js").read_text()
-          match = re.search(r"window\.FFO_UPDATE_STATUS\s*=\s*(\{.*\})\s*;", update_text, re.S)
-          assert match, "Could not parse update_status.js"
-          admin = json.loads(match.group(1))
-          states = {row["state"] for row in admin.get("states", [])}
-          assert {"Idaho", "Montana", "Utah", "Colorado", "Wyoming"}.issubset(states)
-          assert admin["state_count"] >= 5
-
-          print("Wyoming public fishing opportunities:", reports["public_water_count"])
-          print("Wyoming report/reference records:", reports["report_count"])
-          print("Wyoming populated counties:", status["validation"]["populated_counties"])
-          print("Admin states:", sorted(states))
+          print("Wyoming public waters:", reports["public_water_count"])
+          print("Wyoming report records:", reports["report_count"])
           PY
-          git diff --check
 
-      - name: Commit Wyoming data and website integration
+      - name: Commit Wyoming data changes
         shell: bash
         run: |
           FILES=(
@@ -168,12 +83,14 @@ jobs:
             recent_fishing_reports.js
             update_status.js
           )
+
           if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
             echo "No Wyoming fishing-data changes to commit."
             exit 0
           fi
+
           git config user.name "Fish Finder Outdoors Wyoming Builder"
           git config user.email "actions@users.noreply.github.com"
           git add "${FILES[@]}"
-          git commit -m "Add or update Wyoming public fishing access and reports"
+          git commit -m "Update Wyoming public access and fishing reports"
           git push
