@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T14:47:53Z",
+  "generated_at": "2026-07-27T19:00:02Z",
   "state": "Montana",
   "completed": [
     "Verified official 56-county order",
@@ -14,5 +14,5 @@
   "failed_sources": [],
   "deployment_status": "ready_to_commit",
   "public_water_count": 740,
-  "report_count": 1042
+  "report_count": 1039
 }

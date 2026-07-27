@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T14:47:53Z",
+  "generated_at": "2026-07-27T19:00:02Z",
   "success": true,
   "state": "Montana",
   "source_counts": {
@@ -13,13 +13,13 @@
     "bor_access": 40,
     "forest_access": 662,
     "local_access": 51,
-    "fwp_news_reports": 5,
+    "fwp_news_reports": 4,
     "montana_fish_reports_reports": 1,
-    "montana_outdoor_reports": 18,
+    "montana_outdoor_reports": 16,
     "verified_public_social_posts": 0
   },
   "public_water_count": 740,
-  "report_count": 1042,
+  "report_count": 1039,
   "unmatched_report_count": 9,
   "warnings": [],
   "errors": []
