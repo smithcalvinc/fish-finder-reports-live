@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-27T19:00:02Z",
+  "last_run": "2026-07-27T21:59:50Z",
   "mode": "multi-state-database",
   "state_count": 6,
   "states": [
@@ -13,10 +13,10 @@ window.FFO_UPDATE_STATUS = {
     },
     {
       "state": "Idaho",
-      "report_count": 174,
+      "report_count": 175,
       "public_water_count": 12950,
       "county_count": 44,
-      "generated_at": "2026-07-26T16:33:16Z"
+      "generated_at": "2026-07-27T21:50:28Z"
     },
     {
       "state": "Montana",
@@ -44,7 +44,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 590,
       "public_water_count": 468,
       "county_count": 23,
-      "generated_at": "2026-07-26T18:32:36Z"
+      "generated_at": "2026-07-27T21:59:50Z"
     }
   ],
   "reports_total": 6617,
