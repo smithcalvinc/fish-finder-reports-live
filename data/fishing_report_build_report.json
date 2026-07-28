@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-07-27T21:50:28Z",
+  "generated_at": "2026-07-28T18:04:51Z",
   "success": true,
   "source_counts": {
     "verified_public_social_posts": 0,
     "sportsmans_reports": 0,
     "idfg_stocking_updates": 62,
-    "idfg_fishing_articles": 112,
+    "idfg_fishing_articles": 113,
     "idfg_harvest_reports": 6
   },
   "public_water_count": 12950,
-  "report_count": 175,
+  "report_count": 176,
   "unmatched_report_count": 4,
   "warnings": [
     "sportsmans_reports collector failed: Unable to retrieve https://fishingreports.sportsmans.com/fishing-report/page/1/rows/100/keywords/All/site/100/state/ID: HTTP Error 403: Forbidden"
