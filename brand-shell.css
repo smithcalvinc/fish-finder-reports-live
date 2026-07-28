@@ -232,3 +232,14 @@ body{padding-top:78px;background:var(--ffo-sand)}
     width:100%;
   }
 }
+
+
+/* Tool-first, sharing and contribution update — 2026-07-27 */
+.ffo-professional-hero h1{max-width:850px}.ffo-professional-hero p{max-width:780px;font-size:clamp(17px,2.2vw,22px)}
+.ffo-hero-secondary{font:inherit;cursor:pointer}
+.tool-proof-line{margin:12px 0 18px;padding:10px 13px;border-radius:12px;background:#e8f1ec;color:#1F4D3A;font-size:13px;font-weight:850;text-align:center}
+.report-actions .share-water-action{background:#D95D39;color:#fff}.report-actions .share-water-action:hover{background:#b94728}
+.report-next-actions{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0 0 18px;padding:17px 18px;border:2px solid rgba(217,93,57,.5);border-radius:16px;background:linear-gradient(135deg,#fff8f4,#fff)}
+.report-next-actions h3{margin:3px 0 0;font-family:'Bitter',Georgia,serif;color:#1F4D3A;font-size:clamp(18px,3vw,24px)}
+.report-next-buttons{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.report-next-buttons a,.report-next-buttons button{display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(31,77,58,.22);border-radius:11px;padding:10px 12px;background:#fff;color:#1F4D3A;text-decoration:none;font:inherit;font-size:13px;font-weight:850;cursor:pointer}.report-next-buttons a:first-child{background:#1F4D3A;color:#fff}.report-next-buttons a:hover,.report-next-buttons button:hover{border-color:#D95D39;transform:translateY(-1px)}
+@media(max-width:760px){.report-next-actions{align-items:stretch;flex-direction:column}.report-next-buttons{display:grid;grid-template-columns:1fr}.report-actions{grid-template-columns:1fr 1fr}.report-actions .share-water-action{grid-column:1/-1}}
