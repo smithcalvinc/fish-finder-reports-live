@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T18:56:27Z",
+  "generated_at": "2026-07-29T18:14:46Z",
   "state": "Utah",
   "completed": [
     "Verified official 29-county order",
@@ -17,10 +17,10 @@
   "failed_sources": [],
   "deployment_status": "validated_ready_to_commit",
   "public_water_count": 807,
-  "report_count": 3375,
+  "report_count": 3379,
   "source_counts": {
     "stocking_2026_waters": 461,
-    "stocking_2026_events": 1535,
+    "stocking_2026_events": 1539,
     "stocking_2025_waters": 661,
     "stocking_2025_events": 2544,
     "community_schema_fields": 23,
@@ -32,7 +32,7 @@
   "validation": {
     "passed": true,
     "public_water_count": 807,
-    "report_count": 3375,
+    "report_count": 3379,
     "populated_counties": 29,
     "source_minimums": {
       "stocking_2026_waters": 70,
