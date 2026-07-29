@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-28T20:09:39Z",
+  "last_run": "2026-07-29T17:59:27Z",
   "mode": "multi-state-database",
   "state_count": 6,
   "states": [
@@ -16,14 +16,14 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 176,
       "public_water_count": 12950,
       "county_count": 44,
-      "generated_at": "2026-07-28T18:04:51Z"
+      "generated_at": "2026-07-29T17:52:51Z"
     },
     {
       "state": "Montana",
       "report_count": 1039,
       "public_water_count": 740,
       "county_count": 56,
-      "generated_at": "2026-07-27T19:00:02Z"
+      "generated_at": "2026-07-29T17:59:27Z"
     },
     {
       "state": "Nevada",
@@ -53,8 +53,8 @@ window.FFO_UPDATE_STATUS = {
   "unique_sources": 1568,
   "freshness": {
     "current": 786,
-    "aging": 690,
-    "stale": 5151,
+    "aging": 689,
+    "stale": 5152,
     "unknown": 0
   },
   "changed_reports": 6627,
