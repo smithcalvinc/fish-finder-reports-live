@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T18:14:46Z",
+  "generated_at": "2026-07-30T19:00:59Z",
   "state": "Utah",
   "completed": [
     "Verified official 29-county order",
@@ -17,7 +17,7 @@
   "failed_sources": [],
   "deployment_status": "validated_ready_to_commit",
   "public_water_count": 807,
-  "report_count": 3379,
+  "report_count": 3378,
   "source_counts": {
     "stocking_2026_waters": 461,
     "stocking_2026_events": 1539,
@@ -27,12 +27,12 @@
     "community_fisheries": 55,
     "accessible_fishing": 73,
     "utah_dwr_news_articles_scanned": 10,
-    "utah_dwr_fishing_news_reports": 3
+    "utah_dwr_fishing_news_reports": 2
   },
   "validation": {
     "passed": true,
     "public_water_count": 807,
-    "report_count": 3379,
+    "report_count": 3378,
     "populated_counties": 29,
     "source_minimums": {
       "stocking_2026_waters": 70,
