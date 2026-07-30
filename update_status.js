@@ -1,15 +1,15 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-07-30T19:00:59Z",
+  "last_run": "2026-07-30T20:05:46Z",
   "mode": "multi-state-database",
   "state_count": 6,
   "states": [
     {
       "state": "Colorado",
-      "report_count": 1344,
+      "report_count": 1346,
       "public_water_count": 1026,
       "county_count": 64,
-      "generated_at": "2026-07-28T18:59:27Z"
+      "generated_at": "2026-07-30T20:05:46Z"
     },
     {
       "state": "Idaho",
@@ -47,19 +47,19 @@ window.FFO_UPDATE_STATUS = {
       "generated_at": "2026-07-29T18:42:13Z"
     }
   ],
-  "reports_total": 6654,
+  "reports_total": 6656,
   "public_water_count": 16017,
   "county_count": 233,
   "unique_sources": 1567,
   "freshness": {
-    "current": 788,
+    "current": 790,
     "aging": 695,
     "stale": 5171,
     "unknown": 0
   },
-  "changed_reports": 6654,
-  "review_required": 179,
+  "changed_reports": 6656,
+  "review_required": 180,
   "unreachable_sources": 0,
-  "unmatched_report_count": 179,
+  "unmatched_report_count": 180,
   "sources": []
 };
