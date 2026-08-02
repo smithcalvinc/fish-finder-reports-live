@@ -1,7 +1,13 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports']];
+  const stateLinks=[
+    ['idaho-county-reports.html','Idaho County Reports'],
+    ['montana-county-reports.html','Montana County Reports'],
+    ['utah-county-reports.html','Utah County Reports'],
+    ['colorado-county-reports.html','Colorado County Reports'],
+    ['wyoming-county-reports.html','Wyoming County Reports']
+  ];
 
   const STATE_RULES={
     Idaho:{
@@ -441,4 +447,73 @@
     new MutationObserver(refreshReportSafety).observe(reportGrid,{childList:true,subtree:true});
     refreshReportSafety();
   }
+
+
+  /* Put search feedback, matching waters, and the selected report directly under the search bar. */
+  const organizePrimarySearchFlow=()=>{
+    const panel=document.getElementById('report-search');
+    const form=document.getElementById('searchForm');
+    const statusBox=document.getElementById('status');
+    const resultBox=document.getElementById('results');
+    const reportSection=document.getElementById('report');
+    if(!panel||!form||!statusBox||!resultBox||!reportSection)return;
+
+    form.insertAdjacentElement('afterend',statusBox);
+    statusBox.insertAdjacentElement('afterend',resultBox);
+    resultBox.insertAdjacentElement('afterend',reportSection);
+
+    panel.classList.add('ffo-results-first-layout');
+    reportSection.classList.add('ffo-inline-report');
+  };
+
+  const resultsFirstStyle=document.createElement('style');
+  resultsFirstStyle.id='ffo-results-first-styles';
+  resultsFirstStyle.textContent=`
+    #report-search.ffo-results-first-layout #status{
+      margin:12px 0 0;
+      scroll-margin-top:12px;
+    }
+    #report-search.ffo-results-first-layout #results{
+      margin:10px 0 0;
+      scroll-margin-top:12px;
+    }
+    #report-search.ffo-results-first-layout #results:not(:empty){
+      padding:12px;
+      border:2px solid #176354;
+      border-radius:12px;
+      background:#f7fbf8;
+    }
+    #report-search.ffo-results-first-layout #results .result{
+      margin:0 0 8px;
+      border:2px solid #c8d8d0;
+      border-radius:10px;
+      background:#fff;
+    }
+    #report-search.ffo-results-first-layout #results .result:last-of-type{margin-bottom:0}
+    #report-search.ffo-results-first-layout #results .result:hover,
+    #report-search.ffo-results-first-layout #results .result:focus{
+      border-color:#176354;
+      background:#f2f8f5;
+      transform:none;
+    }
+    #report-search.ffo-results-first-layout > #report.ffo-inline-report{
+      margin:12px 0 0;
+      padding:14px 0 8px;
+      border-top:3px solid #0d3c35;
+      scroll-margin-top:12px;
+    }
+    #report-search.ffo-results-first-layout > #report.ffo-inline-report.hidden{
+      display:none!important;
+    }
+    #report-search.ffo-results-first-layout > .hint{
+      margin-top:16px;
+    }
+    @media(max-width:760px){
+      #report-search.ffo-results-first-layout #results:not(:empty){padding:9px}
+      #report-search.ffo-results-first-layout #results .result{padding:14px 12px}
+      #report-search.ffo-results-first-layout > #report.ffo-inline-report{padding-top:10px}
+    }
+  `;
+  document.head.appendChild(resultsFirstStyle);
+  organizePrimarySearchFlow();
 })();
