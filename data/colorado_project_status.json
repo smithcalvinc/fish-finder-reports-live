@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-01T18:12:30Z",
+  "generated_at": "2026-08-02T18:12:09Z",
   "state": "Colorado",
   "completed": [
     "Verified official 64-county order",
@@ -17,14 +17,14 @@
   "known_issues": [],
   "failed_sources": [],
   "deployment_status": "validated_ready_to_commit",
-  "public_water_count": 1026,
-  "report_count": 1355,
+  "public_water_count": 1027,
+  "report_count": 1362,
   "source_counts": {
     "atlas_schema_fields": 38,
-    "fishing_atlas_points": 1286,
-    "fishing_atlas_coordinates": 1286,
-    "fishing_atlas_accessible": 187,
-    "fishery_survey_links": 1248,
+    "fishing_atlas_points": 1287,
+    "fishing_atlas_coordinates": 1287,
+    "fishing_atlas_accessible": 188,
+    "fishery_survey_links": 1255,
     "atlas_hidden_rows_skipped": 0,
     "atlas_rows_without_valid_county_or_name": 0,
     "accessible_page_regions": 4,
@@ -33,8 +33,8 @@
   },
   "validation": {
     "passed": true,
-    "public_water_count": 1026,
-    "report_count": 1355,
+    "public_water_count": 1027,
+    "report_count": 1362,
     "populated_counties": 62,
     "source_minimums": {
       "atlas_schema_fields": 20,
@@ -45,7 +45,7 @@
       "fishery_survey_links": 10,
       "recent_stocking_records": 20
     },
-    "water_coordinates": 1026,
-    "access_coordinates": 1286
+    "water_coordinates": 1027,
+    "access_coordinates": 1287
   }
 }
