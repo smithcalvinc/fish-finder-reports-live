@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1F4D3A">
+  <title>Shared Fishing Water | Fish Finder Outdoors</title>
+  <meta name="description" content="Open a shared fishing-water report from Fish Finder Outdoors, including official sources, access notes, conditions, and reviewed reports.">
+  <meta property="og:title" content="Shared Fishing Water | Fish Finder Outdoors">
+  <meta property="og:description" content="Open this shared fishing-water report and check official state sources, access notes, conditions, and reviewed reports.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shared Fishing Water | Fish Finder Outdoors">
+  <meta name="twitter:description" content="Open this shared fishing-water report and check official state sources, access notes, conditions, and reviewed reports.">
+  <meta name="twitter:image" content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg">
+  <style>
+    :root{color-scheme:light;--green:#1f4d3a;--paper:#f5f2e8;--ink:#14211e;--muted:#61706b}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;background:linear-gradient(180deg,#e8efe8,#f5f2e8);font-family:Arial,Helvetica,sans-serif;color:var(--ink);padding:24px}
+    main{width:min(620px,100%);background:#fffdf8;border:1px solid #d8d4c8;border-left:7px solid var(--green);border-radius:16px;padding:28px;box-shadow:0 18px 55px rgba(24,47,41,.13)}
+    h1{font-family:Georgia,serif;font-size:clamp(30px,7vw,48px);line-height:1.05;margin:0 0 14px}
+    p{font-size:18px;line-height:1.55;color:var(--muted)}
+    a{display:inline-flex;margin-top:10px;padding:14px 18px;border-radius:12px;background:var(--green);color:white;text-decoration:none;font-weight:800}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Opening the shared fishing water…</h1>
+    <p>Fish Finder Outdoors is loading the exact lake, river, reservoir, pond, or stream that was shared with you.</p>
+    <a id="openReport" href="./">Open the fishing report</a>
+  </main>
+  <script>
+    (function(){
+      const target=new URL('./',window.location.href);
+      target.search=window.location.search;
+      const link=document.getElementById('openReport');
+      if(link)link.href=target.href;
+      window.location.replace(target.href);
+    })();
+  </script>
+</body>
+</html>
