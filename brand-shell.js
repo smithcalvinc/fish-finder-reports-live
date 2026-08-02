@@ -1,13 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[
-    ['idaho-county-reports.html','Idaho County Reports'],
-    ['montana-county-reports.html','Montana County Reports'],
-    ['utah-county-reports.html','Utah County Reports'],
-    ['colorado-county-reports.html','Colorado County Reports'],
-    ['wyoming-county-reports.html','Wyoming County Reports']
-  ];
+  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports']];
 
   const STATE_RULES={
     Idaho:{

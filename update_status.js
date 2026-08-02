@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-08-01T18:41:46Z",
+  "last_run": "2026-08-02T17:45:57Z",
   "mode": "multi-state-database",
   "state_count": 6,
   "states": [
@@ -16,7 +16,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 202,
       "public_water_count": 12950,
       "county_count": 44,
-      "generated_at": "2026-08-01T16:35:11Z"
+      "generated_at": "2026-08-02T16:33:09Z"
     },
     {
       "state": "Montana",
@@ -34,10 +34,10 @@ window.FFO_UPDATE_STATUS = {
     },
     {
       "state": "Utah",
-      "report_count": 3531,
+      "report_count": 3538,
       "public_water_count": 856,
       "county_count": 29,
-      "generated_at": "2026-08-01T17:48:49Z"
+      "generated_at": "2026-08-02T17:45:57Z"
     },
     {
       "state": "Wyoming",
@@ -47,17 +47,17 @@ window.FFO_UPDATE_STATUS = {
       "generated_at": "2026-08-01T18:41:46Z"
     }
   ],
-  "reports_total": 6819,
+  "reports_total": 6826,
   "public_water_count": 16066,
   "county_count": 233,
   "unique_sources": 1568,
   "freshness": {
-    "current": 872,
-    "aging": 774,
+    "current": 874,
+    "aging": 779,
     "stale": 5173,
     "unknown": 0
   },
-  "changed_reports": 6819,
+  "changed_reports": 6826,
   "review_required": 184,
   "unreachable_sources": 0,
   "unmatched_report_count": 184,
