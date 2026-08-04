@@ -389,163 +389,202 @@ main.wrap > #report-search{margin-top:22px;margin-bottom:22px}
 }
 
 
-/* Featured Fish Finder affiliate recommendation */
-.ffo-affiliate-slot{margin:18px 0}
-.ffo-affiliate-card{
-  position:relative;
-  overflow:hidden;
+/* Real-image featured fish finder banner */
+.ffo-product-banner{
   display:grid;
-  grid-template-columns:minmax(210px,.72fr) minmax(0,1.28fr);
-  gap:22px;
-  align-items:center;
-  padding:24px;
-  border:1px solid rgba(31,77,58,.18);
-  border-top:5px solid #D95D39;
+  grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr);
+  min-height:250px;
+  margin:24px 0;
+  overflow:hidden;
+  border:1px solid rgba(20,51,38,.24);
   border-radius:20px;
-  background:
-    radial-gradient(circle at 8% 0%,rgba(214,164,67,.16),transparent 35%),
-    linear-gradient(135deg,#fffdf8 0%,#f6f2e8 100%);
-  box-shadow:0 14px 34px rgba(20,51,38,.10);
+  background:#132e25;
+  box-shadow:0 16px 36px rgba(20,51,38,.14);
 }
-.ffo-affiliate-card::after{
-  content:"";
-  position:absolute;
-  width:150px;
-  height:150px;
-  right:-60px;
-  bottom:-80px;
-  border:26px solid rgba(31,77,58,.05);
-  border-radius:50%;
-  pointer-events:none;
-}
-.ffo-affiliate-visual{
+.ffo-product-banner-copy{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
   min-width:0;
-  padding:12px;
-  border-radius:17px;
-  background:linear-gradient(145deg,#143326,#1F4D3A);
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
+  padding:28px 32px;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(214,164,67,.18),transparent 38%),
+    linear-gradient(135deg,#102820 0%,#1f4d3a 100%);
+  color:#fff;
 }
-.ffo-affiliate-visual svg{
-  display:block;
-  width:100%;
-  height:auto;
-  filter:drop-shadow(0 10px 14px rgba(0,0,0,.18));
-}
-.ffo-affiliate-copy{position:relative;z-index:1;min-width:0}
-.ffo-affiliate-eyebrow{
-  display:inline-flex;
+.ffo-product-banner-kicker{
+  display:flex;
   align-items:center;
-  gap:7px;
-  margin-bottom:7px;
-  color:#8A4A25;
-  font-size:11px;
+  gap:9px;
+  margin-bottom:8px;
+  color:#f0b65b;
+  font-size:.71rem;
   font-weight:900;
-  letter-spacing:.10em;
-  text-transform:uppercase;
+  letter-spacing:.13em;
 }
-.ffo-affiliate-eyebrow::before{
+.ffo-product-banner-kicker::before{
   content:"";
-  width:24px;
+  width:28px;
   height:2px;
-  background:#D95D39;
+  flex:0 0 28px;
+  background:#e77330;
 }
-.ffo-affiliate-card h2{
-  margin:0 0 9px;
-  color:#143326;
+.ffo-product-banner h2{
+  max-width:650px;
+  margin:0 0 8px;
+  color:#fff;
   font-family:'Bitter',Georgia,serif;
-  font-size:clamp(25px,4vw,36px);
-  line-height:1.08;
+  font-size:clamp(1.7rem,3vw,2.55rem);
+  line-height:1.05;
 }
-.ffo-affiliate-intro{
+.ffo-product-banner-name{
+  margin:0 0 8px;
+  color:#f0b65b;
+  font-family:'Bitter',Georgia,serif;
+  font-size:1.07rem;
+  font-weight:800;
+}
+.ffo-product-banner-text{
+  max-width:660px;
   margin:0;
-  color:#46544f;
-  font-size:15px;
-  line-height:1.65;
+  color:rgba(255,255,255,.86);
+  font-size:.92rem;
+  line-height:1.55;
 }
-.ffo-affiliate-features{
+.ffo-product-banner-features{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
   margin:14px 0 16px;
 }
-.ffo-affiliate-features span{
-  display:inline-flex;
+.ffo-product-banner-features span{
   padding:6px 9px;
-  border:1px solid rgba(31,77,58,.16);
+  border:1px solid rgba(255,255,255,.19);
   border-radius:999px;
-  background:rgba(255,255,255,.75);
-  color:#1F4D3A;
-  font-size:11px;
-  font-weight:850;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:.69rem;
+  font-weight:800;
 }
-.ffo-affiliate-button{
+.ffo-product-banner-button{
   display:inline-flex;
   align-items:center;
   justify-content:center;
+  align-self:flex-start;
   gap:7px;
-  min-height:46px;
+  min-height:45px;
   padding:11px 17px;
-  border-radius:11px;
-  background:#1F4D3A;
+  border-radius:9px;
+  background:#e77330;
   color:#fff!important;
   font-weight:900;
   text-decoration:none;
-  box-shadow:0 9px 18px rgba(31,77,58,.18);
-  transition:transform .18s ease,background .18s ease,box-shadow .18s ease;
+  box-shadow:0 9px 20px rgba(0,0,0,.22);
+  transition:transform .18s ease,background .18s ease;
 }
-.ffo-affiliate-button:hover{
+.ffo-product-banner-button:hover{
   transform:translateY(-1px);
-  background:#D95D39;
-  box-shadow:0 11px 22px rgba(217,93,57,.20);
+  background:#f0843e;
 }
-.ffo-affiliate-disclosure{
-  max-width:660px;
-  margin:10px 0 0;
-  color:#6c7772;
-  font-size:10px;
-  line-height:1.5;
+.ffo-product-banner-disclosure{
+  margin:9px 0 0;
+  color:rgba(255,255,255,.64);
+  font-size:.61rem;
+  line-height:1.4;
 }
-.ffo-home-sidebar .ffo-affiliate-slot{margin:14px 0 0}
-.ffo-home-sidebar .ffo-affiliate-card{
-  grid-template-columns:1fr;
-  gap:12px;
-  padding:17px;
-  border-radius:17px;
+.ffo-product-banner-photo{
+  position:relative;
+  display:block;
+  min-width:0;
+  min-height:250px;
+  overflow:hidden;
+  background:#0d201b;
 }
-.ffo-home-sidebar .ffo-affiliate-visual{padding:7px 18px}
-.ffo-home-sidebar .ffo-affiliate-visual svg{max-height:158px}
-.ffo-home-sidebar .ffo-affiliate-card h2{font-size:23px}
-.ffo-home-sidebar .ffo-affiliate-intro{font-size:13px}
-.ffo-home-sidebar .ffo-affiliate-features{margin:10px 0 13px}
-.ffo-home-sidebar .ffo-affiliate-button{width:100%}
-.ffo-home-sidebar .ffo-affiliate-disclosure{font-size:9px}
-.ffo-county-affiliate-slot{margin-top:22px}
-.ffo-county-affiliate-slot .ffo-affiliate-card{
-  grid-template-columns:minmax(190px,.55fr) minmax(0,1.45fr);
+.ffo-product-banner-photo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(90deg,rgba(19,46,37,.60) 0%,transparent 34%);
+  pointer-events:none;
 }
-.ffo-detail-affiliate-slot{margin:0}
-@media(max-width:760px){
-  .ffo-affiliate-card,
-  .ffo-county-affiliate-slot .ffo-affiliate-card{
+.ffo-product-banner-photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:250px;
+  object-fit:cover;
+  object-position:center;
+  transition:transform .35s ease;
+}
+.ffo-product-banner-photo:hover img{
+  transform:scale(1.018);
+}
+.ffo-product-banner-photo span{
+  position:absolute;
+  z-index:2;
+  right:15px;
+  bottom:14px;
+  padding:8px 11px;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  background:rgba(10,27,22,.78);
+  color:#fff;
+  font-size:.7rem;
+  font-weight:900;
+  backdrop-filter:blur(5px);
+}
+
+/* Exact report and county pages keep the banner inside their normal content width. */
+.ffo-detail-product-banner,
+.ffo-county-product-banner{
+  width:100%;
+  clear:both;
+}
+
+@media(max-width:820px){
+  .ffo-product-banner{
     grid-template-columns:1fr;
-    gap:14px;
-    padding:17px;
+    min-height:0;
   }
-  .ffo-affiliate-visual{
-    max-width:420px;
-    width:100%;
-    margin:auto;
-    padding:8px 28px;
+  .ffo-product-banner-photo{
+    grid-row:1;
+    min-height:205px;
   }
-  .ffo-affiliate-card h2{font-size:27px}
-  .ffo-affiliate-intro{font-size:14px}
-  .ffo-affiliate-button{width:100%;min-height:49px}
+  .ffo-product-banner-photo::before{
+    background:linear-gradient(0deg,rgba(19,46,37,.26),transparent 45%);
+  }
+  .ffo-product-banner-photo img{
+    min-height:205px;
+  }
+  .ffo-product-banner-copy{
+    padding:24px;
+  }
 }
-@media(max-width:420px){
-  .ffo-affiliate-visual{padding:6px 18px}
-  .ffo-affiliate-features span{
+@media(max-width:520px){
+  .ffo-product-banner{
+    margin:20px 0;
+    border-radius:15px;
+  }
+  .ffo-product-banner-photo,
+  .ffo-product-banner-photo img{
+    min-height:170px;
+  }
+  .ffo-product-banner-copy{
+    padding:21px 18px 19px;
+  }
+  .ffo-product-banner h2{
+    font-size:1.7rem;
+  }
+  .ffo-product-banner-text{
+    font-size:.87rem;
+  }
+  .ffo-product-banner-features span{
     flex:1 1 calc(50% - 7px);
-    justify-content:center;
     text-align:center;
+  }
+  .ffo-product-banner-button{
+    width:100%;
+    min-height:49px;
   }
 }
