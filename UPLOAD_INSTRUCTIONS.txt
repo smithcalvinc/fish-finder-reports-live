@@ -1,43 +1,37 @@
-FFO FEATURED FISH FINDER AFFILIATE CARD
-========================================
+FFO REPORT APP — REAL-IMAGE FISH FINDER BANNERS
+================================================
 
-Affiliate product:
-Garmin STRIKER Vivid 7sv
+This replaces the earlier illustrated affiliate card with a real-image banner.
 
 Amazon Associates link:
 https://amzn.to/4wHzwXl
 
-Upload every extracted file to the root of:
-smithcalvinc/fish-finder-reports-live
+PLACEMENT
+- Reports homepage:
+  Full-width below Latest Reports / Popular Fishing Waters.
+- Exact report pages:
+  After the report information and safety reminder, before sharing controls.
+- Idaho, Montana, Utah, Colorado, Wyoming and Nevada report pages:
+  Near the bottom, after results and access information.
 
-GitHub:
-1. Unzip FFO_FEATURED_FISHFINDER_AFFILIATE_FINAL.zip.
-2. Open the repository.
+MOBILE APP BEHAVIOR
+- The image moves above the wording.
+- The text and button stay below the image.
+- The Amazon button becomes full-width.
+- No horizontal scrolling.
+- It does not cover search, report results, navigation, install controls,
+  safety text or sharing controls.
+
+UPLOAD
+1. Unzip FFO_REPORT_APP_REAL_IMAGE_FISHFINDER_BANNERS_FINAL.zip.
+2. Open smithcalvinc/fish-finder-reports-live.
 3. Click Add file → Upload files.
-4. Select every extracted file.
+4. Upload every extracted file, preserving the assets folder.
 5. Commit directly to main.
 
 Commit message:
-Add featured Garmin fish finder affiliate card
-
-PLACEMENTS
-- Reports homepage: below Popular Fishing Waters
-- Exact report pages: after fishing information and safety notice
-- Idaho, Montana, Utah, Colorado, Wyoming and Nevada county-report pages:
-  near the bottom after report and access information
-
-The card is intentionally not above search results and is not placed on the
-Local Fishing Partner sponsorship page.
-
-INCLUDED
-- Original Fish Finder Outdoors sonar-screen illustration
-- Amazon Associates disclosure beside every link
-- Sponsored/nofollow link settings
-- Google Analytics event named affiliate_click
-- Phone, tablet and computer layouts
-- PWA cache v32
+Add real-image fish finder banners
 
 After deployment:
-Open https://reports.fishfinderoutdoors.com/index.html
-Press Ctrl + Shift + R once.
-On Android, close and reopen the installed FFO app.
+- Computer: press Ctrl + Shift + R once.
+- Installed Android app: fully close the app and reopen it.
