@@ -1,33 +1,43 @@
-FFO UNIVERSAL LATEST REPORT FIX
-================================
+FFO FEATURED FISH FINDER AFFILIATE CARD
+========================================
 
-This package supersedes the earlier Latest Report Cards routing fix.
+Affiliate product:
+Garmin STRIKER Vivid 7sv
 
-Upload all extracted files to the root of:
+Amazon Associates link:
+https://amzn.to/4wHzwXl
+
+Upload every extracted file to the root of:
 smithcalvinc/fish-finder-reports-live
 
 GitHub:
-1. Unzip FFO_UNIVERSAL_LATEST_REPORT_FIX.zip.
+1. Unzip FFO_FEATURED_FISHFINDER_AFFILIATE_FINAL.zip.
 2. Open the repository.
 3. Click Add file → Upload files.
 4. Select every extracted file.
 5. Commit directly to main.
 
 Commit message:
-Open latest cards by exact report ID
+Add featured Garmin fish finder affiliate card
 
-PERMANENT FIX
-- Every Latest Fishing Report card opens the exact report record by unique ID.
-- It no longer depends on matching the water name in the main search database.
-- It works for present and future states automatically.
-- The detail page shows source, date, state, county, species, catches, conditions and available report details.
-- Every detail page links to the original official source.
-- Supported states also link to their full county water directory.
-- Nevada query support is included.
-- Mobile and computer Install App controls remain active.
-- PWA cache advanced to v31.
+PLACEMENTS
+- Reports homepage: below Popular Fishing Waters
+- Exact report pages: after fishing information and safety notice
+- Idaho, Montana, Utah, Colorado, Wyoming and Nevada county-report pages:
+  near the bottom after report and access information
+
+The card is intentionally not above search results and is not placed on the
+Local Fishing Partner sponsorship page.
+
+INCLUDED
+- Original Fish Finder Outdoors sonar-screen illustration
+- Amazon Associates disclosure beside every link
+- Sponsored/nofollow link settings
+- Google Analytics event named affiliate_click
+- Phone, tablet and computer layouts
+- PWA cache v32
 
 After deployment:
 Open https://reports.fishfinderoutdoors.com/index.html
 Press Ctrl + Shift + R once.
-Then open each Latest Fishing Report card.
+On Android, close and reopen the installed FFO app.
