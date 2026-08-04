@@ -1,6 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
+  const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
   const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports']];
 
   const STATE_RULES={
@@ -83,7 +84,7 @@
     }
   };
 
-  if(nav){
+  if(nav&&currentPage!=='index.html'&&currentPage!=='local-fishing-partners.html'){
     const submit=nav.querySelector('a[href="submit-report.html"]');
     stateLinks.forEach(([href,text])=>{
       if(!nav.querySelector(`a[href="${href}"]`)){
@@ -105,10 +106,9 @@
     nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
   }
 
-  const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
   if(currentPage!=='index.html')return;
 
-  document.title='Find Fishing Waters | Fish Finder Outdoors';
+  document.title='Fishing Reports & Public Water Search | Fish Finder Outdoors';
 
   /*
    * Safety gate: the original function generated bait/lure ideas from species,
@@ -171,9 +171,9 @@
       font-size:15px!important;
     }
     #report-search.search-panel{
-      border-radius:8px;
-      box-shadow:none;
-      border-color:#c9c4b8;
+      border-radius:22px;
+      box-shadow:0 18px 48px rgba(24,47,41,.10);
+      border-color:#d5d0c3;
     }
     #report-search>.ffo-section-label{background:none;padding:0;border-radius:0;text-transform:none;letter-spacing:0;font-size:13px}
     #report-search .ffo-beta-panel{margin:8px 0 16px;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
@@ -242,7 +242,6 @@
     }
     .ffo-rule-actions a:hover{border-color:#176354}
     .ffo-rule-warning{margin-top:12px;color:#6b5549;font-size:13px}
-    .ffo-seo-cards{display:none!important}
     .ffo-seo-section{padding:38px 0}
     @media(max-width:600px){
       main.wrap{padding-top:16px}
@@ -255,64 +254,27 @@
   `;
   document.head.appendChild(style);
 
-  [
-    document.querySelector('.ffo-professional-hero'),
-    document.querySelector('.ffo-trust-strip'),
-    document.querySelector('.pwa-install-feature')
-  ].forEach(element=>{
-    if(element){
-      element.classList.add('ffo-human-hidden');
-      element.setAttribute('aria-hidden','true');
-    }
-  });
 
   const search=document.getElementById('report-search');
-  const main=document.querySelector('main.wrap');
-  if(search&&main&&!document.querySelector('.ffo-human-intro')){
-    const intro=document.createElement('section');
-    intro.className='ffo-human-intro';
-    intro.innerHTML=`
-      <span class="ffo-byline">A note from Chris in Pocatello, Idaho</span>
-      <h1>Find the water first. Check the facts before you go.</h1>
-      <p>I built Fish Finder Outdoors because fishing information is scattered across agency sites, maps, and old social posts. Search a water or town below. The results separate official agency information, dated angler reports, and weather-based estimates so you can see what each claim is based on.</p>
-      <p class="ffo-human-safety"><strong>Legal-method rule:</strong> FFO will not recommend bait, lures, flies, hooks, or presentations unless the exact water's current rules have been verified from the responsible state agency.</p>
+  const form=document.getElementById('searchForm');
+  const input=document.getElementById('locationInput');
+  if(search&&form&&input&&!document.querySelector('.ffo-local-examples')){
+    const examples=document.createElement('div');
+    examples.className='ffo-local-examples';
+    examples.innerHTML=`
+      <span>Try:</span>
+      <button class="ffo-local-example" type="button" data-water="American Falls Reservoir">American Falls Reservoir</button>
+      <button class="ffo-local-example" type="button" data-water="Edson Fichter Pond">Edson Fichter Pond</button>
+      <button class="ffo-local-example" type="button" data-water="Blackfoot Reservoir">Blackfoot Reservoir</button>
     `;
-    main.insertBefore(intro,search);
-
-    const sectionLabel=search.querySelector(':scope > .ffo-section-label');
-    if(sectionLabel)sectionLabel.textContent='Built in Pocatello by an Idaho angler';
-
-    const panel=search.querySelector('.ffo-beta-panel');
-    if(panel){
-      panel.innerHTML='<h2>Find a fishing water.</h2><p>Enter a lake, river, reservoir, pond, town, or coordinates. Start with the place you are actually considering—not a broad fishing question.</p>';
-    }
-
-    const proof=search.querySelector('.tool-proof-line');
-    if(proof)proof.textContent='Official agency links • Dated angler reports • Legal methods withheld until verified';
-
-    const hint=search.querySelector('.hint');
-    if(hint)hint.textContent='Town searches look roughly 50 miles. Always open the official source and verify current access, regulations, emergency changes, and posted signs before traveling.';
-
-    const form=document.getElementById('searchForm');
-    const input=document.getElementById('locationInput');
-    if(form&&input){
-      const examples=document.createElement('div');
-      examples.className='ffo-local-examples';
-      examples.innerHTML=`
-        <span>Try a real Idaho water:</span>
-        <button class="ffo-local-example" type="button" data-water="American Falls Reservoir">American Falls Reservoir</button>
-        <button class="ffo-local-example" type="button" data-water="Edson Fichter Pond">Edson Fichter Pond</button>
-        <button class="ffo-local-example" type="button" data-water="Blackfoot Reservoir">Blackfoot Reservoir</button>
-      `;
-      form.insertAdjacentElement('afterend',examples);
-      examples.querySelectorAll('[data-water]').forEach(example=>{
-        example.addEventListener('click',()=>{
-          input.value=example.getAttribute('data-water')||'';
-          if(typeof form.requestSubmit==='function')form.requestSubmit();
-          else form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));
-        });
+    form.insertAdjacentElement('afterend',examples);
+    examples.querySelectorAll('[data-water]').forEach(example=>{
+      example.addEventListener('click',()=>{
+        input.value=example.getAttribute('data-water')||'';
+        if(typeof form.requestSubmit==='function')form.requestSubmit();
+        else form.dispatchEvent(new Event('submit',{bubbles:true,cancelable:true}));
       });
-    }
+    });
   }
 
   document.querySelectorAll('.data-pill').forEach(pill=>{

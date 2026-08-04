@@ -5,6 +5,7 @@
   let deferredInstallPrompt=null;
   let reloadingForUpdate=false;
   const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isAndroid=/android/i.test(navigator.userAgent);
   const isStandalone=window.matchMedia("(display-mode: standalone)").matches||window.navigator.standalone===true;
 
   function installButtons(){
@@ -42,10 +43,14 @@
       return;
     }
     if(isIOS){
-      showInstallMessage("In Safari, tap the Share button, then choose <b>Add to Home Screen</b>.");
+      showInstallMessage("On iPhone or iPad, open this page in Safari, tap the <b>Share</b> button, then choose <b>Add to Home Screen</b>.");
       return;
     }
-    showInstallMessage("Open your browser menu and choose <b>Install app</b> or <b>Add to Home screen</b>.");
+    if(isAndroid){
+      showInstallMessage("On Android, open your browser menu and choose <b>Install app</b> or <b>Add to Home screen</b>.");
+      return;
+    }
+    showInstallMessage("On your computer, open the browser menu and choose <b>Install Fish Finder Outdoors</b> or <b>Install app</b>.");
   }
 
   document.addEventListener("click",event=>{
@@ -67,14 +72,22 @@
     document.documentElement.classList.add("ffo-app-installed");
   });
 
+  function normalInstallLabel(){
+    return window.matchMedia("(max-width:760px)").matches
+      ?"Install App"
+      :"Install Fishing Reports App";
+  }
+
   if(isStandalone){
     document.documentElement.classList.add("ffo-standalone");
     setButtonState(false);
-  }else if(isIOS){
-    setButtonState(true,"Install App");
   }else{
-    setButtonState(true,"Install Fishing Reports App");
+    setButtonState(true,normalInstallLabel());
   }
+
+  window.addEventListener("resize",()=>{
+    if(!isStandalone)setButtonState(true,normalInstallLabel());
+  });
 
   const displayModeQuery=window.matchMedia("(display-mode: standalone)");
   displayModeQuery.addEventListener?.("change",event=>{
