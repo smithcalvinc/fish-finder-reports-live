@@ -1,0 +1,33 @@
+FISH FINDER OUTDOORS REPORT APP — FINAL CUSTOM DOMAIN FIX
+==========================================================
+
+This package was built from the current GitHub ZIP downloaded on 2026-08-04.
+
+Official report address:
+https://reports.fishfinderoutdoors.com
+
+Official main website:
+https://www.fishfinderoutdoors.com
+
+RECOMMENDED GITHUB UPLOAD
+1. Open smithcalvinc/fish-finder-reports-live.
+2. Click Add file.
+3. Click Upload files.
+4. Unzip FFO_REPORT_APP_FINAL_CHANGED_FILES.zip on your computer.
+5. Select every extracted file and drag them into the GitHub upload box.
+6. Commit directly to main with:
+   Finalize branded FFO report domain
+
+The changed-files ZIP contains only root-level replacement files.
+
+WHAT WAS FIXED
+- index.html URLs, canonical tag, social metadata and structured data
+- Main-site header and footer links
+- Report-app configuration
+- Sitemap and robots address
+- 404 and share-water handoffs
+- Public Source Review Dashboard link removed from index.html
+- PWA cache advanced to v26 so old cached files are discarded
+
+Do not upload the old Legal Bait and Homepage Fix ZIP.
+Do not change GoDaddy or Wasmer domain settings again.

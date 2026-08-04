@@ -1,7 +1,7 @@
 FISH FINDER OUTDOORS REPORT BETA — SEO LAUNCH
 
 Report app URL used:
-https://fish-finder-reports-live.wasmer.app/
+https://reports.fishfinderoutdoors.com/
 
 Completed:
 - Statcounter removed completely from the report app
@@ -16,4 +16,4 @@ Completed:
 - Official state source links and missing-water corrections retained
 
 After deployment, open:
-https://fish-finder-reports-live.wasmer.app/
+https://reports.fishfinderoutdoors.com/

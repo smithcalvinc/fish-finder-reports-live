@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: https://fish-finder-reports-live.wasmer.app/sitemap.xml
+Sitemap: https://reports.fishfinderoutdoors.com/sitemap.xml

@@ -2,6 +2,24 @@
 
 <html lang="en">
 <head>
+<script>
+(function () {
+  var legacyHost = "fish-finder-reports-live.wasmer.app";
+  var officialHost = "reports.fishfinderoutdoors.com";
+
+  if (window.location.hostname === legacyHost) {
+    var destination =
+      "https://" +
+      officialHost +
+      window.location.pathname +
+      window.location.search +
+      window.location.hash;
+
+    window.location.replace(destination);
+  }
+})();
+</script>
+
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W1278FPSQK"></script>
 <script>
@@ -166,26 +184,26 @@
 <meta content="Fishing Reports Near Me | Fish Finder Outdoors" property="og:title"/>
 <meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." property="og:description"/>
 <meta content="website" property="og:type"/>
-<meta content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg" property="og:image"/>
+<meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" property="og:image"/>
 <meta content="Fish Finder Outdoors Professional Beta v2.0 — state-agency-first directory" name="generator"/>
-<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://fish-finder-reports-live.wasmer.app/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Reports Near Me | Fish Finder Outdoors" name="twitter:title"/><meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." name="twitter:description"/><meta content="https://fish-finder-reports-live.wasmer.app/ffo-hero.jpg" name="twitter:image"/><link href="https://fish-finder-reports-live.wasmer.app/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Reports","url":"https://fish-finder-reports-live.wasmer.app/","description":"Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports and current trip-planning information.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://fishfinderoutdoors.wasmer.app/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://fishfinderoutdoors.wasmer.app/","logo":{"@type":"ImageObject","url":"https://fish-finder-reports-live.wasmer.app/ffo-logo-main.png"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official state fishing directory links","Access notes and public-water screening","Weather and water-condition summaries","Reviewed community fishing reports","Shareable water-specific report links","Missing-water and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "Does an empty result mean there is no fishing nearby?", "acceptedAnswer": {"@type": "Answer", "text": "No. It means the beta search did not return a reliable local match. Visitors should use the linked official state fishing directory or report the missing water."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Reports" name="apple-mobile-web-app-title"/><meta content="FFO Reports" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
+<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://reports.fishfinderoutdoors.com/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Reports Near Me | Fish Finder Outdoors" name="twitter:title"/><meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." name="twitter:description"/><meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" name="twitter:image"/><link href="https://reports.fishfinderoutdoors.com/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Reports","url":"https://reports.fishfinderoutdoors.com/","description":"Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports and current trip-planning information.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/","logo":{"@type":"ImageObject","url":"https://reports.fishfinderoutdoors.com/ffo-logo-main.png"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official state fishing directory links","Access notes and public-water screening","Weather and water-condition summaries","Reviewed community fishing reports","Shareable water-specific report links","Missing-water and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "Does an empty result mean there is no fishing nearby?", "acceptedAnswer": {"@type": "Answer", "text": "No. It means the beta search did not return a reliable local match. Visitors should use the linked official state fishing directory or report the missing water."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Reports" name="apple-mobile-web-app-title"/><meta content="FFO Reports" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
 <body>
 <header class="ffo-site-header">
 <div class="ffo-header-inner">
-<a class="ffo-logo-link" href="https://fishfinderoutdoors.wasmer.app">
+<a class="ffo-logo-link" href="https://www.fishfinderoutdoors.com">
 <img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
 <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
 </a>
 <button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
 <nav aria-label="Fish Finder Outdoors" class="ffo-nav">
-<a href="https://fishfinderoutdoors.wasmer.app">Home</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#beginner-guide">Fishing Guides</a>
+<a href="https://www.fishfinderoutdoors.com">Home</a>
+<a href="https://www.fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
 <a class="active" href="index.html">Fishing Reports</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#trout">Trout</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#bass">Bass</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#panfish">Panfish</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#catfish">Catfish</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#logbooks">Logbooks</a>
+<a href="https://www.fishfinderoutdoors.com/#trout">Trout</a>
+<a href="https://www.fishfinderoutdoors.com/#bass">Bass</a>
+<a href="https://www.fishfinderoutdoors.com/#panfish">Panfish</a>
+<a href="https://www.fishfinderoutdoors.com/#catfish">Catfish</a>
+<a href="https://www.fishfinderoutdoors.com/#logbooks">Logbooks</a>
 <a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
 </nav>
 </div>
@@ -219,7 +237,6 @@
 <span class="source-stamp" id="sourceStamp">Official state-source layer active</span>
 <nav aria-label="Fishing report tools" class="utility-nav">
 <a href="submit-report.html">Submit a fishing report</a>
-<a href="admin.html">Source review dashboard</a>
 </nav>
 </div>
 </header>
@@ -318,7 +335,7 @@
 <footer class="ffo-site-footer">
 <div class="ffo-footer-grid">
 <div>
-<a class="ffo-footer-brand" href="https://fishfinderoutdoors.wasmer.app">
+<a class="ffo-footer-brand" href="https://www.fishfinderoutdoors.com">
 <img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
 <span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span>
 </a>
@@ -331,16 +348,16 @@
 <a href="submit-report.html">Submit a Catch Report</a>
 <a href="official-sources.html">Official State Sources</a>
 <a href="report-water.html">Report Missing Water</a>
-<a href="https://fishfinderoutdoors.wasmer.app">Fishing Guides &amp; Gear</a>
-<a href="https://fishfinderoutdoors.wasmer.app/#logbooks">Fishing Logbooks</a>
+<a href="https://www.fishfinderoutdoors.com">Fishing Guides &amp; Gear</a>
+<a href="https://www.fishfinderoutdoors.com/#logbooks">Fishing Logbooks</a>
 </div>
 </div>
 <div>
 <div class="ffo-footer-title">Company</div>
 <div class="ffo-footer-links">
-<a href="https://fishfinderoutdoors.wasmer.app/#beginner-guide">Fishing Guides</a>
-<a href="https://fishfinderoutdoors.wasmer.app/contact.html">Contact</a>
-<a href="https://fishfinderoutdoors.wasmer.app/privacy.html">Privacy</a>
+<a href="https://www.fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+<a href="https://www.fishfinderoutdoors.com/contact.html">Contact</a>
+<a href="https://www.fishfinderoutdoors.com/privacy.html">Privacy</a>
 <a href="https://mountaindogenterprises.com">Mountain Dog Enterprises</a>
 </div>
 </div>
