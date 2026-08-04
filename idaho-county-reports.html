@@ -98,6 +98,7 @@
   $("searchButton").addEventListener("click",runSearch);$("clearButton").addEventListener("click",()=>{countySelect.value="";waterSearch.value="";currentOnly.checked=false;boatRamp.checked=false;adaFishing.checked=false;runSearch();});countySelect.addEventListener("change",runSearch);waterSearch.addEventListener("keydown",e=>{if(e.key==="Enter")runSearch();});loadMore.addEventListener("click",renderMore);init();
 })();
 </script>
+<script src="county-query.js"></script>
 <script src="brand-shell.js"></script>
 <script src="pwa.js"></script>
 </body>

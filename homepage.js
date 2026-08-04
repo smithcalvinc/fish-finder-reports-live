@@ -174,6 +174,27 @@
     return String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
   }
 
+
+  const stateReportPages={
+    Idaho:"idaho-county-reports.html",
+    Montana:"montana-county-reports.html",
+    Utah:"utah-county-reports.html",
+    Wyoming:"wyoming-county-reports.html",
+    Colorado:"colorado-county-reports.html"
+  };
+
+  function reportDestination(report,water,state,county){
+    const page=stateReportPages[state];
+    if(page){
+      const params=new URLSearchParams();
+      params.set("q",water);
+      if(county)params.set("county",String(county).replace(/\s+County$/i,""));
+      return `${page}?${params.toString()}`;
+    }
+
+    return String(report.source_url||`?q=${encodeURIComponent(water+(state?`, ${state}`:""))}`);
+  }
+
   const candidates=[...community,...official]
     .map(report=>({report,date:parseDate(report.published_date)}))
     .filter(item=>item.date&&item.date>=earliest&&item.date<=today)
@@ -207,16 +228,18 @@
     const species=cleanSpecies(report.species||(report.catches?.[0]?.species));
     const label=String(report.report_type||report.report_kind||"Fishing update").replace(/_/g," ");
     const date=item.date.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
-    const query=encodeURIComponent(water+(state?", "+state:""));
+    const destination=reportDestination(report,water,state,county);
+    const external=/^https?:\/\//i.test(destination)&&!destination.startsWith(window.location.origin);
+    const target=external?' target="_blank" rel="noopener"':"";
     return `<article class="ffo-report-preview">
-      <a class="ffo-report-image-link" href="?q=${query}" aria-label="Search ${escapeHtml(water)}"><img src="${imageFiles[index]}" alt="Illustrative scenic fishing water image" loading="lazy"></a>
+      <a class="ffo-report-image-link" href="${escapeHtml(destination)}"${target} aria-label="Open ${escapeHtml(water)} report"><img src="${imageFiles[index]}" alt="Illustrative scenic fishing water image" loading="lazy"></a>
       <div class="ffo-report-preview-copy">
         <span class="ffo-report-kind">${escapeHtml(label)}</span>
-        <h3><a href="?q=${query}">${escapeHtml(report.headline||water)}</a></h3>
+        <h3><a href="${escapeHtml(destination)}"${target}>${escapeHtml(report.headline||water)}</a></h3>
         <div class="ffo-report-meta"><span>● ${escapeHtml(state)}</span>${county?`<span>● ${escapeHtml(county)}</span>`:""}${species?`<span>● ${escapeHtml(species)}</span>`:""}</div>
         <div class="ffo-report-date">${escapeHtml(date)}</div>
         <p>${escapeHtml(summaryText(report))}</p>
-        <div class="ffo-report-preview-footer"><span>Source: ${escapeHtml(report.agency||"Reviewed report feed")}</span><a href="?q=${query}">Open Report</a></div>
+        <div class="ffo-report-preview-footer"><span>Source: ${escapeHtml(report.agency||"Reviewed report feed")}</span><a href="${escapeHtml(destination)}"${target}>Open Report</a></div>
       </div>
     </article>`;
   }).join("");
