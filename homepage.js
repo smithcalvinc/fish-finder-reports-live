@@ -175,24 +175,28 @@
   }
 
 
-  const stateReportPages={
-    Idaho:"idaho-county-reports.html",
-    Montana:"montana-county-reports.html",
-    Utah:"utah-county-reports.html",
-    Wyoming:"wyoming-county-reports.html",
-    Colorado:"colorado-county-reports.html"
-  };
+  function reportKey(report){
+    if(report?.report_id)return String(report.report_id);
 
-  function reportDestination(report,water,state,county){
-    const page=stateReportPages[state];
-    if(page){
-      const params=new URLSearchParams();
-      params.set("q",water);
-      if(county)params.set("county",String(county).replace(/\s+County$/i,""));
-      return `${page}?${params.toString()}`;
+    const source=[
+      report?.state||"",
+      waterName(report),
+      report?.published_date||"",
+      report?.headline||"",
+      report?.source_url||""
+    ].join("|");
+
+    let hash=2166136261;
+    for(let index=0;index<source.length;index++){
+      hash^=source.charCodeAt(index);
+      hash=Math.imul(hash,16777619);
     }
 
-    return String(report.source_url||`?q=${encodeURIComponent(water+(state?`, ${state}`:""))}`);
+    return `r${(hash>>>0).toString(16)}`;
+  }
+
+  function reportDestination(report){
+    return `report-detail.html?id=${encodeURIComponent(reportKey(report))}`;
   }
 
   const candidates=[...community,...official]
@@ -228,9 +232,8 @@
     const species=cleanSpecies(report.species||(report.catches?.[0]?.species));
     const label=String(report.report_type||report.report_kind||"Fishing update").replace(/_/g," ");
     const date=item.date.toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
-    const destination=reportDestination(report,water,state,county);
-    const external=/^https?:\/\//i.test(destination)&&!destination.startsWith(window.location.origin);
-    const target=external?' target="_blank" rel="noopener"':"";
+    const destination=reportDestination(report);
+    const target="";
     return `<article class="ffo-report-preview">
       <a class="ffo-report-image-link" href="${escapeHtml(destination)}"${target} aria-label="Open ${escapeHtml(water)} report"><img src="${imageFiles[index]}" alt="Illustrative scenic fishing water image" loading="lazy"></a>
       <div class="ffo-report-preview-copy">

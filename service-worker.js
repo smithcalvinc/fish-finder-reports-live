@@ -6,9 +6,9 @@ const APP_SHELL=[
   "./","./index.html",
   "./idaho-county-reports.html","./montana-county-reports.html",
   "./utah-county-reports.html","./colorado-county-reports.html",
-  "./wyoming-county-reports.html",
-  "./brand-shell.css","./brand-shell.js","./homepage.js","./county-query.js","./pwa.js",
-  "./share-water.html","./force-update.html","./manifest.json",
+  "./wyoming-county-reports.html","./nevada-county-reports.html",
+  "./brand-shell.css","./brand-shell.js","./homepage.js","./county-query.js","./report-detail.css","./report-detail.js","./pwa.js",
+  "./report-detail.html","./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
   "./apple-touch-icon.png","./ffo-logo-main.png","./ffo-hero.jpg",
   "./ffo-reports-hero-wide.jpg","./ffo-report-card-1.jpg",
@@ -22,7 +22,7 @@ const APP_SHELL=[
 ];
 
 const NETWORK_FIRST_FILES=[
-  "index.html","brand-shell.js","brand-shell.css","homepage.js","county-query.js","pwa.js","manifest.json",
+  "index.html","report-detail.html","brand-shell.js","brand-shell.css","homepage.js","county-query.js","report-detail.css","report-detail.js","pwa.js","manifest.json",
   "recent_fishing_reports.js","community_fishing_reports.js","update_status.js",
   "regional_water_search.js","official_water_overrides.js",
   "idaho_fishing_report_database.js","idaho_fishing_report_database.json",

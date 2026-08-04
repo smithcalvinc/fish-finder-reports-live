@@ -1,27 +1,33 @@
-FFO LATEST REPORT CARDS — ROUTING FIX
-========================================
+FFO UNIVERSAL LATEST REPORT FIX
+================================
+
+This package supersedes the earlier Latest Report Cards routing fix.
 
 Upload all extracted files to the root of:
 smithcalvinc/fish-finder-reports-live
 
-GitHub steps:
-1. Unzip FFO_LATEST_REPORT_CARDS_ROUTE_FIX.zip.
+GitHub:
+1. Unzip FFO_UNIVERSAL_LATEST_REPORT_FIX.zip.
 2. Open the repository.
 3. Click Add file → Upload files.
 4. Select every extracted file.
 5. Commit directly to main.
 
 Commit message:
-Fix latest report card destinations
+Open latest cards by exact report ID
 
-This fixes:
-- Latest Idaho reports open in the complete Idaho county database.
-- Montana, Utah, Wyoming and Colorado reports open in their matching state pages.
-- The requested water is automatically searched.
-- The matching result scrolls near the top.
-- Other-state reports fall back to their original official source.
-- PWA cache advanced to v30.
+PERMANENT FIX
+- Every Latest Fishing Report card opens the exact report record by unique ID.
+- It no longer depends on matching the water name in the main search database.
+- It works for present and future states automatically.
+- The detail page shows source, date, state, county, species, catches, conditions and available report details.
+- Every detail page links to the original official source.
+- Supported states also link to their full county water directory.
+- Nevada query support is included.
+- Mobile and computer Install App controls remain active.
+- PWA cache advanced to v31.
 
 After deployment:
-Open the report homepage and press Ctrl + Shift + R once.
-Then test all three Open Report buttons.
+Open https://reports.fishfinderoutdoors.com/index.html
+Press Ctrl + Shift + R once.
+Then open each Latest Fishing Report card.

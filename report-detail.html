@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var legacyHost="fish-finder-reports-live.wasmer.app";
+  var officialHost="reports.fishfinderoutdoors.com";
+  if(window.location.hostname===legacyHost){
+    window.location.replace(
+      "https://"+officialHost+
+      window.location.pathname+
+      window.location.search+
+      window.location.hash
+    );
+  }
+})();
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W1278FPSQK"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js",new Date());
+  gtag("config","G-W1278FPSQK");
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1F4D3A">
+<meta name="description" content="View an exact dated fishing report from Fish Finder Outdoors, including its source, water, state, species and available report details.">
+<title>Fishing Report | Fish Finder Outdoors</title>
+<link rel="canonical" href="https://reports.fishfinderoutdoors.com/report-detail.html">
+<link rel="icon" href="ffo-logo-main.png" type="image/png">
+<link rel="apple-touch-icon" href="ffo-logo-main.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand-shell.css">
+<link rel="stylesheet" href="report-detail.css">
+</head>
+<body>
+<header class="ffo-site-header">
+  <div class="ffo-header-inner">
+    <a class="ffo-logo-link" href="https://www.fishfinderoutdoors.com">
+      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo">
+      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+    </a>
+    <button class="ffo-menu-button" aria-label="Open menu" aria-expanded="false" type="button">☰</button>
+    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
+      <a href="https://www.fishfinderoutdoors.com">Home</a>
+      <a class="active" href="index.html">Fishing Reports</a>
+      <a href="idaho-county-reports.html">Idaho County Reports</a>
+      <a href="montana-county-reports.html">Montana County Reports</a>
+      <a href="submit-report.html">Submit Report</a>
+      <a href="official-sources.html">Official Sources</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ffo-beta-bar">
+  EXACT DATED REPORT • SOURCE SHOWN • VERIFY CURRENT RULES AND ACCESS
+  <button class="ffo-install-button" data-install-ffo-app hidden type="button">Install App</button>
+</div>
+
+<main class="ffo-detail-wrap">
+  <nav class="ffo-detail-breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Fishing Reports</a>
+    <span>›</span>
+    <span id="breadcrumbWater">Report detail</span>
+  </nav>
+
+  <section id="reportLoading" class="ffo-detail-status">
+    Loading the exact fishing report…
+  </section>
+
+  <section id="reportMissing" class="ffo-detail-status error" hidden>
+    <h1>This report could not be found.</h1>
+    <p>The report feed may have been updated or the link may be incomplete.</p>
+    <div class="ffo-detail-actions">
+      <a class="primary" href="index.html">Return to Fishing Reports</a>
+      <a class="secondary" href="official-sources.html">Open Official Sources</a>
+    </div>
+  </section>
+
+  <article id="reportArticle" class="ffo-detail-article" hidden>
+    <header class="ffo-detail-head">
+      <span id="reportKind" class="ffo-detail-kind">Fishing report</span>
+      <h1 id="reportHeadline">Fishing Report</h1>
+      <p id="reportWater" class="ffo-detail-water"></p>
+      <div id="reportMeta" class="ffo-detail-meta"></div>
+    </header>
+
+    <section class="ffo-detail-summary">
+      <h2>Report summary</h2>
+      <p id="reportSummary"></p>
+    </section>
+
+    <div class="ffo-detail-grid">
+      <section id="catchSection" class="ffo-detail-card" hidden>
+        <h2>Species and catches mentioned</h2>
+        <div id="catchList" class="ffo-detail-list"></div>
+      </section>
+
+      <section id="conditionSection" class="ffo-detail-card" hidden>
+        <h2>Conditions mentioned</h2>
+        <div id="conditionList" class="ffo-detail-list"></div>
+      </section>
+
+      <section id="detailSection" class="ffo-detail-card" hidden>
+        <h2>Additional report details</h2>
+        <div id="detailList" class="ffo-detail-list"></div>
+      </section>
+
+      <section class="ffo-detail-card source-card">
+        <h2>Report source</h2>
+        <p id="sourceExplanation"></p>
+        <dl id="sourceFacts" class="ffo-detail-facts"></dl>
+        <div class="ffo-detail-actions">
+          <a id="officialSourceLink" class="primary" href="#" target="_blank" rel="noopener">Open Original Source</a>
+          <a id="waterDirectoryLink" class="secondary" href="index.html">Find This Water in FFO</a>
+        </div>
+      </section>
+    </div>
+
+    <section class="ffo-detail-warning">
+      <strong>Before you fish:</strong>
+      A dated report describes conditions or activity reported at a particular time. It is not a guarantee of current fishing success, legal methods, open access, safe travel conditions or unchanged regulations. Always verify the responsible state agency’s current rules and posted access information.
+    </section>
+
+    <section class="ffo-detail-share">
+      <div>
+        <h2>Share this exact report</h2>
+        <p>The link keeps the report’s unique ID, so it does not depend on matching a water name in another database.</p>
+      </div>
+      <button id="shareReport" type="button">Share Report</button>
+    </section>
+  </article>
+</main>
+
+<footer class="ffo-site-footer">
+  <div class="ffo-footer-grid">
+    <div>
+      <a class="ffo-footer-brand" href="https://www.fishfinderoutdoors.com">
+        <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo">
+        <span><strong>Fish Finder Outdoors</strong><br><span style="color:#a9bbb3">Beginner friendly. Idaho built.</span></span>
+      </a>
+    </div>
+    <div>
+      <div class="ffo-footer-title">Reports</div>
+      <div class="ffo-footer-links">
+        <a href="index.html">Main Report Search</a>
+        <a href="idaho-county-reports.html">Idaho County Reports</a>
+        <a href="montana-county-reports.html">Montana County Reports</a>
+        <a href="submit-report.html">Submit a Report</a>
+      </div>
+    </div>
+    <div>
+      <div class="ffo-footer-title">Information</div>
+      <div class="ffo-footer-links">
+        <a href="official-sources.html">Official Sources</a>
+        <a href="report-water.html">Report Incorrect Information</a>
+        <a href="local-fishing-partners.html">Local Fishing Partners</a>
+      </div>
+    </div>
+  </div>
+  <div class="ffo-footer-fine">
+    <span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span>
+    <span>Verify current regulations and access before fishing.</span>
+  </div>
+</footer>
+
+<script src="site_config.js"></script>
+<script src="recent_fishing_reports.js"></script>
+<script src="community_fishing_reports.js"></script>
+<script src="report-detail.js"></script>
+<script src="brand-shell.js"></script>
+<script src="pwa.js"></script>
+</body>
+</html>
