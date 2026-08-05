@@ -1,0 +1,23 @@
+FISH FINDER OUTDOORS — WASHINGTON UPDATE FILES
+Prepared August 5, 2026
+
+This ZIP contains only the existing files changed for Washington and the new
+Washington files. Paths are preserved from the repository root.
+
+For the safest full replacement, use:
+FISH_FINDER_OUTDOORS_REPORTS_WASHINGTON_COMPLETE_UPLOAD_READY_2026-08-05.zip
+
+For a targeted GitHub update:
+1. Extract this ZIP.
+2. Upload the extracted files and folders into the root of the
+   fish-finder-reports-live repository.
+3. Preserve the folder paths, including .github/workflows, config and data.
+4. Do not upload this ZIP itself as a single repository file.
+
+Washington baseline:
+- 39 county shells
+- 24 populated counties
+- 176 verified public fishing access records
+- 176 unique official WDFW access-page URLs
+
+No existing non-Washington state files were removed.

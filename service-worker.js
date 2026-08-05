@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-reports-pwa-v32";
+const CACHE_VERSION="ffo-reports-pwa-v26";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -6,15 +6,13 @@ const APP_SHELL=[
   "./","./index.html",
   "./idaho-county-reports.html","./montana-county-reports.html",
   "./utah-county-reports.html","./colorado-county-reports.html",
-  "./wyoming-county-reports.html","./nevada-county-reports.html",
-  "./brand-shell.css","./brand-shell.js","./featured-fishfinder-banner.js","./homepage.js","./county-query.js","./report-detail.css","./report-detail.js","./pwa.js",
-  "./report-detail.html","./share-water.html","./force-update.html","./manifest.json",
+  "./wyoming-county-reports.html",
+  "./washington-county-reports.html",
+  "./brand-shell.css","./brand-shell.js","./pwa.js",
+  "./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
   "./apple-touch-icon.png","./ffo-logo-main.png","./ffo-hero.jpg",
-  "./ffo-reports-hero-wide.jpg","./ffo-report-card-1.jpg",
-  "./ffo-report-card-2.jpg","./ffo-report-card-3.jpg",
   "./ffo-water-divider.jpg","./official-sources.html","./submit-report.html",
-  "./local-fishing-partners.html",
   "./report-water.html","./404.html","./site_config.js",
   "./official_state_sources.js","./official_water_overrides.js",
   "./regional_water_search.js","./official_species_data.js",
@@ -22,7 +20,7 @@ const APP_SHELL=[
 ];
 
 const NETWORK_FIRST_FILES=[
-  "index.html","report-detail.html","brand-shell.js","brand-shell.css","assets/garmin-striker-vivid-7sv-banner.webp","featured-fishfinder-banner.js","homepage.js","county-query.js","report-detail.css","report-detail.js","pwa.js","manifest.json",
+  "index.html","brand-shell.js","brand-shell.css","pwa.js","manifest.json",
   "recent_fishing_reports.js","community_fishing_reports.js","update_status.js",
   "regional_water_search.js","official_water_overrides.js",
   "idaho_fishing_report_database.js","idaho_fishing_report_database.json",
@@ -31,6 +29,10 @@ const NETWORK_FIRST_FILES=[
   "utah_public_fishing_access.json","colorado_public_fishing_access.json",
   "wyoming_public_fishing_access.json","wyoming_public_fishing_access.js",
   "wyoming_fishing_report_database.json","wyoming_fishing_report_database.js",
+  "washington_public_fishing_access.json",
+  "washington_public_fishing_access.js",
+  "washington_fishing_report_database.json",
+  "washington_fishing_report_database.js",
   "colorado_public_fishing_access.js","colorado_fishing_report_database.json",
   "colorado_fishing_report_database.js","utah_public_fishing_access.js",
   "utah_fishing_report_database.json","utah_fishing_report_database.js"

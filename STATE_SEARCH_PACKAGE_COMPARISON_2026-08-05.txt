@@ -1,0 +1,16 @@
+FFO STATE SEARCH PACKAGE COMPARISON — AUGUST 5, 2026
+
+The uploaded FFO-STATE SEARCH.zip was compared against the complete repaired fish-finder-reports-live repository.
+
+RESULT
+- Colorado builder: identical to the current repository.
+- Montana builder and workflow: identical to the current repository.
+- Utah builder: identical to the current repository.
+- Wyoming builder: identical to the current repository.
+- Colorado, Utah and Wyoming workflows in the current repository are the longer repaired versions and were retained.
+- The July 25 website copy in the uploaded package is older than the current reports application and was not allowed to overwrite current files.
+- The Washington package confirmed the unfinished Washington work but did not contain generated Washington data.
+- Washington was completed using the newer resilient builder, corrected WDFW ArcGIS service path, a verified official-page recovery baseline, and full site integration.
+
+PRESERVATION DECISION
+No current state database, builder, workflow, page, image, search file, or website file was removed. Existing non-Washington state data was left unchanged. Only Washington and the shared files required to expose Washington were updated.

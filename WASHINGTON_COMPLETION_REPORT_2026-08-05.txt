@@ -1,0 +1,44 @@
+FISH FINDER OUTDOORS — WASHINGTON COMPLETION REPORT
+Generated: 2026-08-05T15:21:12Z
+
+STATUS
+Washington is integrated into the complete reports repository and is ready for upload.
+
+VERIFIED SNAPSHOT COUNTS
+- All Washington county shells: 39
+- Populated counties in this recovery snapshot: 24
+- Published verified public waters: 176
+- Verified named public access points: 176
+- Unique official WDFW access-page URLs: 176
+- Fish-plant reports included in this recovery snapshot: 0
+
+PUBLIC-ACCESS SAFETY RULE
+Every published entry is tied to a named official WDFW water-access-area page. Each record verifies only the named facility. It does not claim an entire shoreline, river reach, road, or neighboring parcel is public.
+
+SOURCE METHOD
+This recovery baseline was built from individually indexed official Washington Department of Fish and Wildlife water-access-area pages. The current WDFW ArcGIS endpoint is retained in the Washington builder and workflow for future full refreshes.
+
+LIMITATION
+This is a verified baseline of 176 named WDFW access facilities, not an exhaustive list of every Washington access site. Optional shoreline, public-pier, lowland-lake, and fish-plant datasets were not added to this offline recovery snapshot. The scheduled/manual GitHub workflow is included to refresh and expand the data from official WDFW services.
+
+FILES GENERATED OR UPDATED
+- washington-county-reports.html
+- data/washington_fishing_report_database.json
+- data/washington_fishing_report_database.js
+- data/washington_fishing_report_database.csv
+- data/washington_public_fishing_access.json
+- data/washington_public_fishing_access.js
+- data/washington_source_audit.json
+- data/washington_project_status.json
+- data/washington_counties.csv
+- config/washington_counties.json
+- brand-shell.js
+- service-worker.js
+- sitemap.xml
+- recent_fishing_reports.js
+- update_status.js
+- build_washington_fishing_data.py
+- .github/workflows/update-all-washington-fishing-data.yml
+
+UPLOAD
+Upload the complete repository ZIP contents at the repository root. Do not place the files inside an extra outer folder.
