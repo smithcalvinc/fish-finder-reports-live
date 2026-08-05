@@ -3,6 +3,50 @@
   const nav=document.querySelector('.ffo-nav');
   const stateLinks=[['idaho-county-reports.html','Idaho'],['montana-county-reports.html','Montana'],['utah-county-reports.html','Utah'],['colorado-county-reports.html','Colorado'],['wyoming-county-reports.html','Wyoming'],['nevada-county-reports.html','Nevada'],['oregon-county-reports.html','Oregon'],['washington-county-reports.html','Washington'],['northern-california-county-reports.html','Northern California']];
 
+
+  function cleanEscapedReportMarkupText(value){
+    return String(value??"")
+      .replace(/<\s*(script|style)\b[^>]*>[\s\S]*?<\s*\/\s*\1\s*>/gi," ")
+      .replace(/<\s*a\b[^>]*>\s*<\s*img\b[^>]*>\s*<\s*\/\s*a\s*>/gi,"Official source link")
+      .replace(/<\s*img\b[^>]*>/gi,"Official source image")
+      .replace(/<\s*\/?\s*(?:a|br|p|div|span|strong|em|b|i|ul|ol|li)\b[^>]*>/gi," ")
+      .replace(/\s+([.,;:!?])/g,"$1")
+      .replace(/Official source image\./gi,"Official source link.")
+      .replace(/\s+/g," ")
+      .trim();
+  }
+
+  function cleanEscapedReportMarkup(root){
+    if(!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[];
+    while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(node=>{
+      const original=node.nodeValue||"";
+      if(!/<\s*\/?\s*(?:a|img|br|p|div|span|strong|em|b|i|ul|ol|li)\b/i.test(original))return;
+      const cleaned=cleanEscapedReportMarkupText(original);
+      if(cleaned&&cleaned!==original)node.nodeValue=cleaned;
+    });
+  }
+
+  function installReportMarkupCleaner(){
+    const reportGrid=document.getElementById("reportGrid");
+    if(!reportGrid)return;
+    cleanEscapedReportMarkup(reportGrid);
+    const observer=new MutationObserver(mutations=>{
+      mutations.forEach(mutation=>{
+        if(mutation.type==="characterData"){
+          cleanEscapedReportMarkup(mutation.target.parentNode);
+          return;
+        }
+        mutation.addedNodes.forEach(node=>{
+          cleanEscapedReportMarkup(node.nodeType===Node.TEXT_NODE?node.parentNode:node);
+        });
+      });
+    });
+    observer.observe(reportGrid,{childList:true,subtree:true,characterData:true});
+  }
+
   const STATE_RULES={
     Idaho:{
       agency:'Idaho Fish and Game',
@@ -612,4 +656,5 @@
   `;
   document.head.appendChild(resultsFirstStyle);
   organizePrimarySearchFlow();
+  installReportMarkupCleaner();
 })();
