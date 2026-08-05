@@ -1,0 +1,37 @@
+{
+  "state": "Washington",
+  "generated_at": "2026-08-05T15:21:12Z",
+  "deployment_status": "validated_complete_ready_to_commit",
+  "snapshot_type": "official_wdfw_access_page_recovery_baseline",
+  "validation": {
+    "passed": true,
+    "strict_public_access": true,
+    "county_count": 39,
+    "public_water_count": 176,
+    "verified_access_point_count": 176,
+    "report_count": 0,
+    "populated_counties": 24,
+    "access_verification_methods": [
+      "official_wdfw_water_access_area_page"
+    ]
+  },
+  "source_counts": {
+    "official_wdfw_access_page_records": 176,
+    "unique_official_page_urls": 176,
+    "published_public_waters": 176,
+    "verified_access_points": 176,
+    "populated_counties": 24,
+    "all_county_shells": 39
+  },
+  "warnings": [
+    "Recovery snapshot built from individually indexed official WDFW water-access-area pages because the bulk ArcGIS service was unavailable in the packaging environment.",
+    "This snapshot is a verified public-access baseline, not an exhaustive inventory of every WDFW site. The included GitHub workflow refreshes Washington from WDFW official data when run.",
+    "Coordinates and amenities were intentionally left blank unless explicitly present in the recovered official-page record; no locations or facilities were inferred."
+  ],
+  "optional_source_failures": [
+    "shore_fishing",
+    "public_piers",
+    "lowland_lakes",
+    "fish_plants"
+  ]
+}
