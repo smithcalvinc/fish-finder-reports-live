@@ -1,0 +1,145 @@
+{
+  "region": "Northern California",
+  "state": "California",
+  "county_count": 26,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Butte"
+    },
+    {
+      "county_number": 2,
+      "county": "Colusa"
+    },
+    {
+      "county_number": 3,
+      "county": "Del Norte"
+    },
+    {
+      "county_number": 4,
+      "county": "El Dorado"
+    },
+    {
+      "county_number": 5,
+      "county": "Glenn"
+    },
+    {
+      "county_number": 6,
+      "county": "Humboldt"
+    },
+    {
+      "county_number": 7,
+      "county": "Lake"
+    },
+    {
+      "county_number": 8,
+      "county": "Lassen"
+    },
+    {
+      "county_number": 9,
+      "county": "Marin"
+    },
+    {
+      "county_number": 10,
+      "county": "Mendocino"
+    },
+    {
+      "county_number": 11,
+      "county": "Modoc"
+    },
+    {
+      "county_number": 12,
+      "county": "Napa"
+    },
+    {
+      "county_number": 13,
+      "county": "Nevada"
+    },
+    {
+      "county_number": 14,
+      "county": "Placer"
+    },
+    {
+      "county_number": 15,
+      "county": "Plumas"
+    },
+    {
+      "county_number": 16,
+      "county": "Sacramento"
+    },
+    {
+      "county_number": 17,
+      "county": "Shasta"
+    },
+    {
+      "county_number": 18,
+      "county": "Sierra"
+    },
+    {
+      "county_number": 19,
+      "county": "Siskiyou"
+    },
+    {
+      "county_number": 20,
+      "county": "Solano"
+    },
+    {
+      "county_number": 21,
+      "county": "Sonoma"
+    },
+    {
+      "county_number": 22,
+      "county": "Sutter"
+    },
+    {
+      "county_number": 23,
+      "county": "Tehama"
+    },
+    {
+      "county_number": 24,
+      "county": "Trinity"
+    },
+    {
+      "county_number": 25,
+      "county": "Yolo"
+    },
+    {
+      "county_number": 26,
+      "county": "Yuba"
+    }
+  ],
+  "excluded_southern_counties": [
+    "Alameda",
+    "Alpine",
+    "Amador",
+    "Calaveras",
+    "Contra Costa",
+    "Fresno",
+    "Imperial",
+    "Inyo",
+    "Kern",
+    "Kings",
+    "Los Angeles",
+    "Madera",
+    "Mariposa",
+    "Merced",
+    "Mono",
+    "Monterey",
+    "Orange",
+    "Riverside",
+    "San Benito",
+    "San Bernardino",
+    "San Diego",
+    "San Francisco",
+    "San Joaquin",
+    "San Luis Obispo",
+    "San Mateo",
+    "Santa Barbara",
+    "Santa Clara",
+    "Santa Cruz",
+    "Stanislaus",
+    "Tulare",
+    "Tuolumne",
+    "Ventura"
+  ]
+}
