@@ -8,7 +8,8 @@ on:
     paths:
       - "build_idaho_public_fishing_access.py"
       - "build_idaho_fishing_report_database.py"
-      - "config/**"
+      - "config/fishing_report_sources.json"
+      - "config/water_aliases.json"
       - "data/public_social_reports.csv"
       - ".github/workflows/update-all-idaho-fishing-data.yml"
   schedule:
