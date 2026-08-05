@@ -9,7 +9,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 1362,
       "public_water_count": 1027,
       "county_count": 64,
-      "generated_at": "2026-08-03T20:19:23Z"
+      "generated_at": "2026-08-04T20:13:03Z"
     },
     {
       "state": "Idaho",
@@ -34,8 +34,6 @@ window.FFO_UPDATE_STATUS = {
     },
     {
       "state": "Northern California",
-      "jurisdiction_state": "California",
-      "region_type": "substate_region",
       "report_count": 0,
       "public_water_count": 57,
       "county_count": 26,
@@ -43,10 +41,10 @@ window.FFO_UPDATE_STATUS = {
     },
     {
       "state": "Utah",
-      "report_count": 3538,
-      "public_water_count": 856,
+      "report_count": 3557,
+      "public_water_count": 858,
       "county_count": 29,
-      "generated_at": "2026-08-02T17:45:57Z"
+      "generated_at": "2026-08-04T19:13:29Z"
     },
     {
       "state": "Washington",
@@ -60,20 +58,20 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 590,
       "public_water_count": 468,
       "county_count": 23,
-      "generated_at": "2026-08-03T20:39:14Z"
+      "generated_at": "2026-08-04T20:53:54Z"
     }
   ],
-  "reports_total": 6828,
-  "public_water_count": 16300,
+  "reports_total": 6847,
+  "public_water_count": 16302,
   "county_count": 298,
   "unique_sources": 1574,
   "freshness": {
-    "current": 848,
-    "aging": 800,
-    "stale": 5180,
+    "current": 866,
+    "aging": 766,
+    "stale": 5215,
     "unknown": 0
   },
-  "changed_reports": 6828,
+  "changed_reports": 6847,
   "review_required": 183,
   "unreachable_sources": 0,
   "unmatched_report_count": 183,
