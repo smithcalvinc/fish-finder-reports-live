@@ -962,64 +962,72 @@ def read_state_databases(root: Path) -> list[dict[str, Any]]:
     return databases
 
 
+def _load_existing_js_object(path: Path, variable: str) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    text = path.read_text(encoding="utf-8-sig")
+    match = re.search(re.escape(variable) + r"\s*=\s*(\{.*\})\s*;\s*$", text, re.S)
+    if not match:
+        return {}
+    try:
+        return json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return {}
+
+
 def rebuild_shared_feeds(root: Path) -> None:
-    databases = read_state_databases(root)
-    state_rows: list[dict[str, Any]] = []
-    reports: list[dict[str, Any]] = []
-    for db in databases:
-        metadata = db.get("metadata") or {}
-        state = clean(metadata.get("state") or db.get("state"))
-        state_rows.append({
-            "state": state,
-            "report_count": int(db.get("report_count", 0) or 0),
-            "public_water_count": int(db.get("public_water_count", 0) or 0),
-            "county_count": int(db.get("county_count", 0) or 0),
-            "generated_at": clean(metadata.get("generated_at")),
-        })
-        for report in db.get("flat_reports") or []:
-            item = dict(report)
-            item["state"] = state
-            reports.append(item)
-    state_rows.sort(key=lambda row: row["state"])
+    """Replace only Washington in shared feeds; preserve every other state verbatim."""
+    db_path = root / "data/washington_fishing_report_database.json"
+    if not db_path.exists():
+        return
+    db = json.loads(db_path.read_text(encoding="utf-8-sig"))
+    metadata = db.get("metadata") or {}
+    generated_at = clean(metadata.get("generated_at")) or now_iso()
+    washington_row = {
+        "state": STATE,
+        "report_count": int(db.get("report_count", 0) or 0),
+        "public_water_count": int(db.get("public_water_count", 0) or 0),
+        "county_count": int(db.get("county_count", 0) or 0),
+        "generated_at": generated_at,
+    }
+
+    recent_path = root / "recent_fishing_reports.js"
+    recent = _load_existing_js_object(recent_path, "window.FFO_RECENT_REPORTS")
+    state_rows = [row for row in recent.get("states", []) if clean(row.get("state")) != STATE]
+    state_rows.append(washington_row)
+    state_rows.sort(key=lambda row: clean(row.get("state")))
+    reports = [row for row in recent.get("reports", []) if clean(row.get("state")) != STATE]
+    for report in db.get("flat_reports") or []:
+        item = dict(report)
+        item["state"] = STATE
+        reports.append(item)
     reports.sort(key=lambda row: clean(row.get("report_date")), reverse=True)
-    updated = max(
-        (row["generated_at"] for row in state_rows if row["generated_at"]),
-        default=now_iso(),
-    )
-    recent = {
+    updated = max(clean(recent.get("updated_at")), generated_at)
+    recent.update({
         "version": f"{updated}-multi-state",
         "updated_at": updated,
-        "coverage_note": "Automatically generated from installed state county fishing databases.",
+        "coverage_note": "Automatically generated from every installed state county-by-county fishing database.",
         "states": state_rows,
         "reports": reports,
-    }
-    status = {
-        "last_run": updated,
+    })
+    write_js(recent_path, "FFO_RECENT_REPORTS", recent)
+
+    status_path = root / "update_status.js"
+    status = _load_existing_js_object(status_path, "window.FFO_UPDATE_STATUS")
+    status_rows = [row for row in status.get("states", []) if clean(row.get("state")) != STATE]
+    status_rows.append(washington_row)
+    status_rows.sort(key=lambda row: clean(row.get("state")))
+    status.update({
+        "last_run": max(clean(status.get("last_run")), generated_at),
         "mode": "multi-state-database",
-        "state_count": len(state_rows),
-        "states": state_rows,
-        "reports_total": sum(row["report_count"] for row in state_rows),
-        "public_water_count": sum(row["public_water_count"] for row in state_rows),
-        "county_count": sum(row["county_count"] for row in state_rows),
-        "unique_sources": len({
-            clean(report.get("source_url"))
-            for report in reports
-            if clean(report.get("source_url"))
-        }),
-        "freshness": {
-            "current": sum(1 for report in reports if report.get("freshness") in {"very_current", "current"}),
-            "aging": sum(1 for report in reports if report.get("freshness") == "recent"),
-            "stale": sum(1 for report in reports if report.get("freshness") == "stale"),
-            "unknown": sum(1 for report in reports if report.get("freshness") == "date_unknown"),
-        },
+        "state_count": len(status_rows),
+        "states": status_rows,
+        "reports_total": len(reports),
+        "public_water_count": sum(int(row.get("public_water_count", 0) or 0) for row in status_rows),
+        "county_count": sum(int(row.get("county_count", 0) or 0) for row in status_rows),
         "changed_reports": len(reports),
-        "review_required": 0,
-        "unreachable_sources": 0,
-        "unmatched_report_count": 0,
-        "sources": [],
-    }
-    write_js(root / "recent_fishing_reports.js", "FFO_RECENT_REPORTS", recent)
-    write_js(root / "update_status.js", "FFO_UPDATE_STATUS", status)
+    })
+    write_js(status_path, "FFO_UPDATE_STATUS", status)
 
 def write_outputs(root: Path, output_dir: Path, db: dict[str, Any], audit: dict[str, Any], status: dict[str, Any]) -> None:
     output_dir.mkdir(parents=True, exist_ok=True)

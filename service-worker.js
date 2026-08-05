@@ -29,10 +29,8 @@ const NETWORK_FIRST_FILES=[
   "utah_public_fishing_access.json","colorado_public_fishing_access.json",
   "wyoming_public_fishing_access.json","wyoming_public_fishing_access.js",
   "wyoming_fishing_report_database.json","wyoming_fishing_report_database.js",
-  "washington_public_fishing_access.json",
-  "washington_public_fishing_access.js",
-  "washington_fishing_report_database.json",
-  "washington_fishing_report_database.js",
+  "washington_public_fishing_access.json","washington_public_fishing_access.js",
+  "washington_fishing_report_database.json","washington_fishing_report_database.js",
   "colorado_public_fishing_access.js","colorado_fishing_report_database.json",
   "colorado_fishing_report_database.js","utah_public_fishing_access.js",
   "utah_fishing_report_database.json","utah_fishing_report_database.js"
