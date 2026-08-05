@@ -1,0 +1,28 @@
+{
+  "region": "Northern California",
+  "generated_at": "2026-08-05T16:59:24Z",
+  "sources": {
+    "baseline": {
+      "complete": true,
+      "required": true,
+      "source_name": "Individually verified official California public fishing/access pages",
+      "record_count": 59,
+      "scope_note": "Checked-in safety baseline; daily workflow expands and refreshes it from official sources."
+    },
+    "dbw_public_facilities": {
+      "complete": false,
+      "pending_first_live_refresh": true,
+      "source_url": "https://dbw.parks.ca.gov/BoatingFacilities/"
+    },
+    "cdfw_fish_plantings": {
+      "complete": false,
+      "pending_first_live_refresh": true,
+      "source_url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/ArcGIS/rest/services/biosds2897_fmu/FeatureServer/0"
+    },
+    "cdfw_public_piers": {
+      "complete": false,
+      "pending_first_live_refresh": true,
+      "source_url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/ArcGIS/rest/services/biosds3090_fmu/FeatureServer/0"
+    }
+  }
+}
