@@ -924,20 +924,38 @@ function writeStore(key,value){try{localStorage.setItem(key,JSON.stringify(value
 async function json(url,timeout=16000){const c=new AbortController(),t=setTimeout(()=>c.abort(),timeout);try{const r=await fetch(url,{headers:{Accept:"application/json"},signal:c.signal});if(!r.ok)throw Error("Source returned "+r.status);return await r.json();}finally{clearTimeout(t);}}
 
 function normalize(s){return String(s||"").toLowerCase().replace(/[^\w\s]/g," ").replace(/\s+/g," ").trim();}
-const SEARCH_STATE_NAMES=["Idaho","Montana","Wyoming","Utah","Nevada","Oregon","Washington","California","Colorado"];
+const SEARCH_STATE_NAMES=["Northern California","Idaho","Montana","Wyoming","Utah","Nevada","Oregon","Washington","California","Colorado"];
 const SEARCH_STATE_CODES={ID:"Idaho",MT:"Montana",WY:"Wyoming",UT:"Utah",NV:"Nevada",OR:"Oregon",WA:"Washington",CA:"California",CO:"Colorado"};
 function requestedSearchState(query){
   const text=String(query||"").trim();
-  const named=SEARCH_STATE_NAMES.find(name=>new RegExp(`\\b${name}\\b`,"i").test(text));
+  const named=SEARCH_STATE_NAMES.find(name=>new RegExp(`\b${name}\b`,"i").test(text));
   if(named)return named;
-  const code=text.match(/(?:,|\\s)\\s*(ID|MT|WY|UT|NV|OR|WA|CA|CO)\\s*$/i);
+  const code=text.match(/(?:,|\s)\s*(ID|MT|WY|UT|NV|OR|WA|CA|CO)\s*$/i);
   return code?SEARCH_STATE_CODES[code[1].toUpperCase()]:"";
+}
+function canonicalRequestedState(value){
+  const raw=String(value||"").trim();
+  const code=SEARCH_STATE_CODES[raw.toUpperCase()];
+  const normalized=normalize(code||raw);
+  return normalized==="northern california"?"california":normalized;
 }
 function sameRequestedState(row,stateName){
   if(!stateName)return true;
-  const rowState=normalize(row?.state||"");
-  const wanted=normalize(stateName);
-  return rowState===wanted||SEARCH_STATE_CODES[String(row?.state||"").toUpperCase()]===stateName;
+  return canonicalRequestedState(row?.state||"")===canonicalRequestedState(stateName);
+}
+function canonicalRequestedCounty(value){
+  return normalize(value)
+    .replace(/^city and county of /,"")
+    .replace(/^county of /,"")
+    .replace(/\s+county$/,"")
+    .trim();
+}
+function sameRequestedCounty(row,countyName){
+  if(!countyName)return true;
+  const rowCounty=canonicalRequestedCounty(row?.county||"");
+  const wanted=canonicalRequestedCounty(countyName);
+  if(!rowCounty)return true;
+  return rowCounty===wanted||rowCounty.includes(wanted)||wanted.includes(rowCounty);
 }
 
 function parseCoordinateQuery(q){
@@ -1202,8 +1220,11 @@ async function searchPlaces(q){
   const coordinate=parseCoordinateQuery(q);
   if(coordinate)return[coordinate];
 
-  const requestedState=requestedSearchState(q);
-  const keepRequestedState=row=>sameRequestedState(row,requestedState);
+  const directSearchParams=new URLSearchParams(location.search);
+  const directState=directSearchParams.get("open")==="1"?directSearchParams.get("state")||"":"";
+  const directCounty=directSearchParams.get("open")==="1"?directSearchParams.get("county")||"":"";
+  const requestedState=directState||requestedSearchState(q);
+  const keepRequestedState=row=>sameRequestedState(row,requestedState)&&sameRequestedCounty(row,directCounty);
 
   const nearbyPublic=nearbyPublicWaterMatches(q).filter(keepRequestedState);
   if(nearbyPublic.length)return nearbyPublic;
@@ -1422,12 +1443,13 @@ $("searchForm").addEventListener("submit",async e=>{
     if(directParams.get("open")==="1"){
       const wanted=normalize(directParams.get("water")||q);
       const wantedState=directParams.get("state")||requestedSearchState(q);
-      const stateMatch=row=>sameRequestedState(row,wantedState);
-      const exactIndex=rows.findIndex(row=>stateMatch(row)&&normalize(row.name)===wanted);
-      const closeIndex=rows.findIndex(row=>stateMatch(row)&&(normalize(row.name).includes(wanted)||wanted.includes(normalize(row.name))));
+      const wantedCounty=directParams.get("county")||"";
+      const locationMatch=row=>sameRequestedState(row,wantedState)&&sameRequestedCounty(row,wantedCounty);
+      const exactIndex=rows.findIndex(row=>locationMatch(row)&&normalize(row.name)===wanted);
+      const closeIndex=rows.findIndex(row=>locationMatch(row)&&(normalize(row.name).includes(wanted)||wanted.includes(normalize(row.name))));
       const selectedIndex=exactIndex>=0?exactIndex:closeIndex;
       if(selectedIndex<0){
-        status(`<strong>No exact ${esc(wantedState||"requested-state")} water match was found for ${esc(directParams.get("water")||q)}.</strong> The app refused to substitute a water from another state.`,true);
+        status(`<strong>No exact ${esc(wantedState||"requested-state")} water match was found for ${esc(directParams.get("water")||q)}.</strong> The app refused to substitute a water from another state or county.`,true);
         return;
       }
       await loadReport(rows[selectedIndex]);

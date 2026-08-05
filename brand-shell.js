@@ -1,7 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports']];
+  const stateLinks=[['idaho-county-reports.html','Idaho'],['montana-county-reports.html','Montana'],['utah-county-reports.html','Utah'],['colorado-county-reports.html','Colorado'],['wyoming-county-reports.html','Wyoming'],['nevada-county-reports.html','Nevada'],['oregon-county-reports.html','Oregon'],['washington-county-reports.html','Washington'],['northern-california-county-reports.html','Northern California']];
 
   const STATE_RULES={
     Idaho:{
@@ -89,15 +89,25 @@
     }
   };
 
+  const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+
   if(nav){
     const submit=nav.querySelector('a[href="submit-report.html"]');
+    const reusable=new Map();
+    stateLinks.forEach(([href])=>{
+      const matches=[...nav.querySelectorAll(`a[href="${href}"]`)];
+      const keep=matches.find(link=>link.classList.contains('active'))||matches[0]||null;
+      matches.forEach(link=>link.remove());
+      if(keep)reusable.set(href,keep);
+    });
     stateLinks.forEach(([href,text])=>{
-      if(!nav.querySelector(`a[href="${href}"]`)){
-        const link=document.createElement('a');
-        link.href=href;
-        link.textContent=text;
-        if(submit)nav.insertBefore(link,submit);else nav.appendChild(link);
-      }
+      const link=reusable.get(href)||document.createElement('a');
+      link.href=href;
+      link.textContent=text;
+      link.classList.toggle('active',currentPage===href);
+      if(currentPage===href)link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+      if(submit)nav.insertBefore(link,submit);else nav.appendChild(link);
     });
   }
 
@@ -111,7 +121,95 @@
     nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
   }
 
-  const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  const COUNTY_REPORT_STATES={
+    'idaho-county-reports.html':'Idaho',
+    'montana-county-reports.html':'Montana',
+    'utah-county-reports.html':'Utah',
+    'colorado-county-reports.html':'Colorado',
+    'wyoming-county-reports.html':'Wyoming',
+    'nevada-county-reports.html':'Nevada',
+    'oregon-county-reports.html':'Oregon',
+    'washington-county-reports.html':'Washington',
+    'northern-california-county-reports.html':'Northern California'
+  };
+
+  const reportPageState=COUNTY_REPORT_STATES[currentPage];
+  if(reportPageState){
+    const reportLinkStyle=document.createElement('style');
+    reportLinkStyle.id='ffo-state-report-link-styles';
+    reportLinkStyle.textContent=`
+      .water-title-link{color:#1f4d3a;text-decoration:none}
+      .water-title-link:hover{text-decoration:underline}
+      .water-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+      .full-report-link{display:inline-flex;align-items:center;padding:10px 13px;border-radius:11px;background:#1f4d3a;color:#fff!important;text-decoration:none;font-weight:850}
+      .full-report-link:hover{filter:brightness(1.08)}
+    `;
+    if(!document.getElementById(reportLinkStyle.id))document.head.appendChild(reportLinkStyle);
+
+    const countyFromCard=card=>{
+      const chip=[...card.querySelectorAll('.chip')]
+        .map(node=>(node.textContent||'').trim())
+        .find(value=>/^#\d+\s+/.test(value));
+      return chip?chip.replace(/^#\d+\s+/,'').replace(/\s+County$/i,'').trim():'';
+    };
+
+    const reportHref=(waterName,countyName)=>{
+      const queryState=reportPageState==='Northern California'?'California':reportPageState;
+      const params=new URLSearchParams({
+        q:[waterName,countyName,queryState].filter(Boolean).join(', '),
+        open:'1',
+        water:waterName,
+        state:reportPageState
+      });
+      if(countyName)params.set('county',countyName);
+      return `index.html?${params.toString()}`;
+    };
+
+    const enhanceWaterCard=card=>{
+      if(!(card instanceof Element))return;
+      const heading=card.querySelector('h2');
+      if(!heading)return;
+      let titleLink=heading.querySelector('a.water-title-link, a[href*="index.html?"]');
+      const waterName=(titleLink?.textContent||heading.textContent||'').trim();
+      if(!waterName)return;
+      const href=reportHref(waterName,countyFromCard(card));
+      if(!titleLink){
+        titleLink=document.createElement('a');
+        titleLink.textContent=waterName;
+        heading.replaceChildren(titleLink);
+      }
+      titleLink.classList.add('water-title-link');
+      titleLink.href=href;
+      titleLink.title=`Open the full fishing report for ${waterName}`;
+
+      let actions=card.querySelector('.water-actions');
+      if(!actions){
+        actions=document.createElement('div');
+        actions.className='water-actions';
+        card.appendChild(actions);
+      }
+      let button=actions.querySelector('.full-report-link');
+      if(!button){
+        button=document.createElement('a');
+        button.className='full-report-link';
+        button.textContent='Open full fishing report →';
+        actions.appendChild(button);
+      }
+      button.href=href;
+    };
+
+    const enhanceAllWaterCards=root=>{
+      if(root instanceof Element&&root.matches('.water-card'))enhanceWaterCard(root);
+      root.querySelectorAll?.('.water-card').forEach(enhanceWaterCard);
+    };
+    enhanceAllWaterCards(document);
+    new MutationObserver(mutations=>{
+      mutations.forEach(mutation=>mutation.addedNodes.forEach(node=>{
+        if(node instanceof Element)enhanceAllWaterCards(node);
+      }));
+    }).observe(document.body,{childList:true,subtree:true});
+  }
+
   if(currentPage!=='index.html')return;
 
   document.title='Find Fishing Waters | Fish Finder Outdoors';
