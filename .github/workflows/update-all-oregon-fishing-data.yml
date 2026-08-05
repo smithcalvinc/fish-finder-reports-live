@@ -1,0 +1,166 @@
+name: Update Oregon Fishing Data — Official Public Access
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "7 17 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: oregon-official-public-fishing-access
+  cancel-in-progress: false
+
+jobs:
+  build-oregon:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install official-page parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
+
+      - name: Run Oregon access and parser safety tests
+        run: python build_oregon_fishing_data.py --self-test
+
+      - name: Refresh Oregon official data when complete
+        shell: bash
+        run: |
+          set -o pipefail
+          if python build_oregon_fishing_data.py --root . --output-dir data; then
+            echo "Oregon official refresh completed."
+          else
+            echo "Oregon official sources were incomplete or unavailable. Preserving the verified checked-in baseline."
+          fi
+
+      - name: Validate Oregon output and public-access safeguards
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            config/oregon_counties.json
+            data/oregon_counties.csv
+            data/oregon_public_fishing_access.json
+            data/oregon_public_fishing_access.js
+            data/oregon_fishing_report_database.json
+            data/oregon_fishing_report_database.js
+            data/oregon_fishing_report_database.csv
+            data/oregon_official_access_sources_2026-08-05.csv
+            data/oregon_source_audit.json
+            data/oregon_project_status.json
+            oregon-county-reports.html
+            recent_fishing_reports.js
+            update_status.js
+          )
+          for file in "${required_files[@]}"; do
+            test -s "$file" || { echo "Missing or empty output: $file"; exit 1; }
+          done
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = [
+              "Baker", "Benton", "Clackamas", "Clatsop", "Columbia", "Coos",
+              "Crook", "Curry", "Deschutes", "Douglas", "Gilliam", "Grant",
+              "Harney", "Hood River", "Jackson", "Jefferson", "Josephine",
+              "Klamath", "Lake", "Lane", "Lincoln", "Linn", "Malheur",
+              "Marion", "Morrow", "Multnomah", "Polk", "Sherman", "Tillamook",
+              "Umatilla", "Union", "Wallowa", "Wasco", "Washington", "Wheeler",
+              "Yamhill",
+          ]
+
+          db = json.loads(Path("data/oregon_fishing_report_database.json").read_text())
+          status = json.loads(Path("data/oregon_project_status.json").read_text())
+          config = json.loads(Path("config/oregon_counties.json").read_text())
+          audit = json.loads(Path("data/oregon_source_audit.json").read_text())
+
+          assert db["county_count"] == 36
+          assert config["county_count"] == 36
+          assert [row["county"] for row in db["counties"]] == expected
+          assert [row["county"] for row in config["counties"]] == expected
+          assert [row["county_number"] for row in db["counties"]] == list(range(1, 37))
+          assert db["metadata"]["public_access_only"] is True
+          assert db["public_water_count"] >= 40
+          assert db["verified_access_point_count"] >= db["public_water_count"]
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["strict_public_access"] is True
+          assert status["validation"]["populated_counties"] == 36
+          assert audit["sources"]["marine_board_access"]["complete"] is True
+
+          emitted = {row["county"] for row in db["flat_waters"]}
+          assert emitted == set(expected)
+
+          unique = set()
+          for water in db["flat_waters"]:
+              assert water["state"] == "Oregon"
+              assert water["county"] in expected
+              assert water["publication_status"] == "published_verified_public_access"
+              assert water["access_points"]
+              for point in water["access_points"]:
+                  assert point["public_access_status"] == "verified_public"
+                  assert point["entire_shoreline_public"] is False
+                  assert point["access_point_name"]
+                  assert point["official_source_url"].startswith("https://")
+                  assert point["verification_evidence"]
+                  unique.add(point["access_id"])
+          assert len(unique) == db["verified_access_point_count"]
+
+          recent = Path("recent_fishing_reports.js").read_text()
+          update = Path("update_status.js").read_text()
+          page = Path("oregon-county-reports.html").read_text()
+          shell = Path("brand-shell.js").read_text()
+          home = Path("index.html").read_text()
+          worker = Path("service-worker.js").read_text()
+          sitemap = Path("sitemap.xml").read_text()
+
+          assert '"state": "Oregon"' in recent
+          assert '"state": "Oregon"' in update
+          assert "oregon-county-reports.html" in page
+          assert "Open full fishing report" in page
+          assert "ffo-professional-hero" not in page
+          assert "oregon-county-reports.html" in shell
+          assert "document.querySelector('.ffo-professional-hero')" not in shell
+          assert "oregon-county-reports.html" in home
+          assert "Find better fishing information before you make the drive." in home
+          assert "oregon-county-reports.html" in worker
+          assert "oregon_fishing_report_database.js" in worker
+          assert "oregon-county-reports.html" in sitemap
+
+          print("Oregon counties:", db["county_count"])
+          print("Verified waters/access areas:", db["public_water_count"])
+          print("Verified access points:", db["verified_access_point_count"])
+          print("Official report records:", db["report_count"])
+          print("Populated counties:", status["validation"]["populated_counties"])
+          PY
+
+          git diff --check
+
+      - name: Commit Oregon refresh when changed
+        shell: bash
+        run: |
+          files=(
+            data/oregon_*
+            config/oregon_*
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${files[@]}")" ]]; then
+            echo "No Oregon fishing-data changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Oregon Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${files[@]}"
+          git commit -m "Update Oregon official public fishing access"
+          git push
