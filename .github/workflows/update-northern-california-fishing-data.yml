@@ -1,0 +1,152 @@
+name: Update Northern California Fishing Data — 26 County Boundary
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "27 17 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: northern-california-official-public-fishing-access
+  cancel-in-progress: false
+
+jobs:
+  build-northern-california:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install official-page parser
+        run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
+
+      - name: Run Northern California boundary and parser tests
+        run: python build_northern_california_fishing_data.py --self-test
+
+      - name: Refresh Northern California official data when complete
+        shell: bash
+        run: |
+          set -o pipefail
+          if python build_northern_california_fishing_data.py --root . --output-dir data; then
+            echo "Northern California official refresh completed."
+          else
+            echo "California official sources were incomplete or unavailable. Preserving the verified checked-in baseline."
+          fi
+
+      - name: Validate Northern California output and southern boundary block
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          required_files=(
+            config/northern_california_counties.json
+            data/northern_california_counties.csv
+            data/northern_california_public_fishing_access.json
+            data/northern_california_public_fishing_access.js
+            data/northern_california_fishing_report_database.json
+            data/northern_california_fishing_report_database.js
+            data/northern_california_fishing_report_database.csv
+            data/northern_california_official_access_sources_2026-08-05.csv
+            data/northern_california_source_audit.json
+            data/northern_california_project_status.json
+            northern-california-county-reports.html
+          )
+          for file in "${required_files[@]}"; do
+            test -s "$file" || { echo "Missing or empty output: $file"; exit 1; }
+          done
+
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          included = [
+              "Butte", "Colusa", "Del Norte", "El Dorado", "Glenn", "Humboldt",
+              "Lake", "Lassen", "Marin", "Mendocino", "Modoc", "Napa", "Nevada",
+              "Placer", "Plumas", "Sacramento", "Shasta", "Sierra", "Siskiyou",
+              "Solano", "Sonoma", "Sutter", "Tehama", "Trinity", "Yolo", "Yuba",
+          ]
+          excluded = {
+              "Alameda", "Alpine", "Amador", "Calaveras", "Contra Costa", "Fresno",
+              "Imperial", "Inyo", "Kern", "Kings", "Los Angeles", "Madera",
+              "Mariposa", "Merced", "Mono", "Monterey", "Orange", "Riverside",
+              "San Benito", "San Bernardino", "San Diego", "San Francisco",
+              "San Joaquin", "San Luis Obispo", "San Mateo", "Santa Barbara",
+              "Santa Clara", "Santa Cruz", "Stanislaus", "Tulare", "Tuolumne", "Ventura",
+          }
+
+          db = json.loads(Path("data/northern_california_fishing_report_database.json").read_text())
+          status = json.loads(Path("data/northern_california_project_status.json").read_text())
+          config = json.loads(Path("config/northern_california_counties.json").read_text())
+
+          assert db["county_count"] == 26
+          assert config["county_count"] == 26
+          assert [row["county"] for row in db["counties"]] == included
+          assert [row["county"] for row in config["counties"]] == included
+          assert set(config["excluded_southern_counties"]) == excluded
+          assert db["metadata"]["public_access_only"] is True
+          assert db["public_water_count"] >= 20
+          assert db["verified_access_point_count"] >= db["public_water_count"]
+          assert status["validation"]["passed"] is True
+          assert status["validation"]["southern_counties_blocked"] == 32
+
+          emitted = {row["county"] for row in db["flat_waters"]}
+          assert emitted <= set(included)
+          assert not emitted.intersection(excluded)
+
+          unique = set()
+          for water in db["flat_waters"]:
+              assert water["county"] in included
+              assert water["publication_status"] == "published_verified_public_access"
+              assert water["access_points"]
+              for point in water["access_points"]:
+                  assert point["public_access_status"] == "verified_public"
+                  assert point["entire_shoreline_public"] is False
+                  assert point["official_source_url"].startswith("https://")
+                  assert point["verification_evidence"]
+                  unique.add(point["access_id"])
+          assert len(unique) == db["verified_access_point_count"]
+
+          recent = Path("recent_fishing_reports.js").read_text()
+          assert '"state": "Idaho"' in recent
+          assert '"state": "Washington"' in recent
+          assert '"state": "Northern California"' in recent
+          assert "northern-california-county-reports.html" in Path("brand-shell.js").read_text()
+          assert "northern-california-county-reports.html" in Path("service-worker.js").read_text()
+          assert "northern-california-county-reports.html" in Path("sitemap.xml").read_text()
+
+          print("Northern California counties:", db["county_count"])
+          print("Verified waters:", db["public_water_count"])
+          print("Verified access points:", db["verified_access_point_count"])
+          print("Official report records:", db["report_count"])
+          print("Excluded southern counties:", len(excluded))
+          PY
+
+          git diff --check
+
+      - name: Commit Northern California refresh when changed
+        shell: bash
+        run: |
+          files=(
+            data/northern_california_*
+            config/northern_california_*
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if [[ -z "$(git status --porcelain -- "${files[@]}")" ]]; then
+            echo "No Northern California changes to commit."
+            exit 0
+          fi
+          git config user.name "Fish Finder Outdoors Northern California Builder"
+          git config user.email "actions@users.noreply.github.com"
+          git add "${files[@]}"
+          git commit -m "Update Northern California official public fishing access"
+          git push
