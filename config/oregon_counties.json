@@ -1,0 +1,151 @@
+{
+  "state": "Oregon",
+  "state_abbr": "OR",
+  "county_count": 36,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Baker"
+    },
+    {
+      "county_number": 2,
+      "county": "Benton"
+    },
+    {
+      "county_number": 3,
+      "county": "Clackamas"
+    },
+    {
+      "county_number": 4,
+      "county": "Clatsop"
+    },
+    {
+      "county_number": 5,
+      "county": "Columbia"
+    },
+    {
+      "county_number": 6,
+      "county": "Coos"
+    },
+    {
+      "county_number": 7,
+      "county": "Crook"
+    },
+    {
+      "county_number": 8,
+      "county": "Curry"
+    },
+    {
+      "county_number": 9,
+      "county": "Deschutes"
+    },
+    {
+      "county_number": 10,
+      "county": "Douglas"
+    },
+    {
+      "county_number": 11,
+      "county": "Gilliam"
+    },
+    {
+      "county_number": 12,
+      "county": "Grant"
+    },
+    {
+      "county_number": 13,
+      "county": "Harney"
+    },
+    {
+      "county_number": 14,
+      "county": "Hood River"
+    },
+    {
+      "county_number": 15,
+      "county": "Jackson"
+    },
+    {
+      "county_number": 16,
+      "county": "Jefferson"
+    },
+    {
+      "county_number": 17,
+      "county": "Josephine"
+    },
+    {
+      "county_number": 18,
+      "county": "Klamath"
+    },
+    {
+      "county_number": 19,
+      "county": "Lake"
+    },
+    {
+      "county_number": 20,
+      "county": "Lane"
+    },
+    {
+      "county_number": 21,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 22,
+      "county": "Linn"
+    },
+    {
+      "county_number": 23,
+      "county": "Malheur"
+    },
+    {
+      "county_number": 24,
+      "county": "Marion"
+    },
+    {
+      "county_number": 25,
+      "county": "Morrow"
+    },
+    {
+      "county_number": 26,
+      "county": "Multnomah"
+    },
+    {
+      "county_number": 27,
+      "county": "Polk"
+    },
+    {
+      "county_number": 28,
+      "county": "Sherman"
+    },
+    {
+      "county_number": 29,
+      "county": "Tillamook"
+    },
+    {
+      "county_number": 30,
+      "county": "Umatilla"
+    },
+    {
+      "county_number": 31,
+      "county": "Union"
+    },
+    {
+      "county_number": 32,
+      "county": "Wallowa"
+    },
+    {
+      "county_number": 33,
+      "county": "Wasco"
+    },
+    {
+      "county_number": 34,
+      "county": "Washington"
+    },
+    {
+      "county_number": 35,
+      "county": "Wheeler"
+    },
+    {
+      "county_number": 36,
+      "county": "Yamhill"
+    }
+  ]
+}
