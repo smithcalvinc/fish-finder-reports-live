@@ -1,0 +1,162 @@
+{
+  "state": "Washington",
+  "county_count": 39,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Adams"
+    },
+    {
+      "county_number": 2,
+      "county": "Asotin"
+    },
+    {
+      "county_number": 3,
+      "county": "Benton"
+    },
+    {
+      "county_number": 4,
+      "county": "Chelan"
+    },
+    {
+      "county_number": 5,
+      "county": "Clallam"
+    },
+    {
+      "county_number": 6,
+      "county": "Clark"
+    },
+    {
+      "county_number": 7,
+      "county": "Columbia"
+    },
+    {
+      "county_number": 8,
+      "county": "Cowlitz"
+    },
+    {
+      "county_number": 9,
+      "county": "Douglas"
+    },
+    {
+      "county_number": 10,
+      "county": "Ferry"
+    },
+    {
+      "county_number": 11,
+      "county": "Franklin"
+    },
+    {
+      "county_number": 12,
+      "county": "Garfield"
+    },
+    {
+      "county_number": 13,
+      "county": "Grant"
+    },
+    {
+      "county_number": 14,
+      "county": "Grays Harbor"
+    },
+    {
+      "county_number": 15,
+      "county": "Island"
+    },
+    {
+      "county_number": 16,
+      "county": "Jefferson"
+    },
+    {
+      "county_number": 17,
+      "county": "King"
+    },
+    {
+      "county_number": 18,
+      "county": "Kitsap"
+    },
+    {
+      "county_number": 19,
+      "county": "Kittitas"
+    },
+    {
+      "county_number": 20,
+      "county": "Klickitat"
+    },
+    {
+      "county_number": 21,
+      "county": "Lewis"
+    },
+    {
+      "county_number": 22,
+      "county": "Lincoln"
+    },
+    {
+      "county_number": 23,
+      "county": "Mason"
+    },
+    {
+      "county_number": 24,
+      "county": "Okanogan"
+    },
+    {
+      "county_number": 25,
+      "county": "Pacific"
+    },
+    {
+      "county_number": 26,
+      "county": "Pend Oreille"
+    },
+    {
+      "county_number": 27,
+      "county": "Pierce"
+    },
+    {
+      "county_number": 28,
+      "county": "San Juan"
+    },
+    {
+      "county_number": 29,
+      "county": "Skagit"
+    },
+    {
+      "county_number": 30,
+      "county": "Skamania"
+    },
+    {
+      "county_number": 31,
+      "county": "Snohomish"
+    },
+    {
+      "county_number": 32,
+      "county": "Spokane"
+    },
+    {
+      "county_number": 33,
+      "county": "Stevens"
+    },
+    {
+      "county_number": 34,
+      "county": "Thurston"
+    },
+    {
+      "county_number": 35,
+      "county": "Wahkiakum"
+    },
+    {
+      "county_number": 36,
+      "county": "Walla Walla"
+    },
+    {
+      "county_number": 37,
+      "county": "Whatcom"
+    },
+    {
+      "county_number": 38,
+      "county": "Whitman"
+    },
+    {
+      "county_number": 39,
+      "county": "Yakima"
+    }
+  ]
+}
