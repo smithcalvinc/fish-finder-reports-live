@@ -1,0 +1,36 @@
+{
+  "state": "Oregon",
+  "generated_at": "2026-08-05T18:30:32Z",
+  "deployment_status": "validated_complete_ready_to_commit",
+  "snapshot_type": "official_oregon_access_recovery_baseline",
+  "validation": {
+    "passed": true,
+    "errors": [],
+    "strict_public_access": true,
+    "county_count": 36,
+    "public_water_count": 52,
+    "verified_access_point_count": 52,
+    "report_count": 19,
+    "populated_counties": 36
+  },
+  "source_counts": {
+    "published_public_waters": 52,
+    "verified_access_points": 52,
+    "official_reports": 19
+  },
+  "official_urls": {
+    "access_report": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+    "stocking_schedule": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+    "recreation_reports": {
+      "Northwest": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+      "Central": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+      "Northeast": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "Southwest": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+      "Southeast": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
+      "Willamette": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+      "Columbia": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
+      "Marine": "https://myodfw.com/recreation-report/fishing-report/marine-zone"
+    },
+    "regulations": "https://myodfw.com/fishing/licensing-info"
+  }
+}

@@ -1,0 +1,10977 @@
+/* Automatically generated data. Do not hand-edit. */
+window.OREGON_FISHING_REPORT_DATABASE = {
+  "metadata": {
+    "state": "Oregon",
+    "state_abbr": "OR",
+    "generated_at": "2026-08-05T18:30:32Z",
+    "public_access_only": true,
+    "access_scope": "Named official public access sites only; no whole-shoreline claim.",
+    "regulations_url": "https://myodfw.com/fishing/licensing-info",
+    "boat_map_url": "https://experience.arcgis.com/experience/4b7b35b9e8d44a03b589f2f7cc7c5d07",
+    "builder_version": "1.0",
+    "snapshot_type": "official_oregon_access_recovery_baseline",
+    "source_audits": {
+      "marine_board_access": {
+        "url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+        "complete": true,
+        "mode": "checked_in_verified_baseline",
+        "source_date": "2026-07-29",
+        "matched_seed_waters": 52
+      },
+      "odfw_recreation_reports": {
+        "urls": {
+          "Northwest": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+          "Central": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+          "Northeast": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "Southwest": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+          "Southeast": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
+          "Willamette": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "Columbia": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
+          "Marine": "https://myodfw.com/recreation-report/fishing-report/marine-zone"
+        },
+        "complete": true,
+        "mode": "checked_in_official_summaries",
+        "report_count": 19
+      },
+      "odfw_stocking": {
+        "url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "complete": true,
+        "mode": "checked_in_official_schedule_rows"
+      }
+    }
+  },
+  "county_count": 36,
+  "public_water_count": 52,
+  "verified_access_point_count": 52,
+  "report_count": 19,
+  "counties": [
+    {
+      "county_number": 1,
+      "county": "Baker",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-3ee6741d8e48",
+          "state": "Oregon",
+          "county": "Baker",
+          "counties": [
+            "Baker"
+          ],
+          "county_number": 1,
+          "water_name": "Phillips Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Yellow perch",
+            "rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-f395a65c9fc2",
+              "access_point_name": "Mason Dam boat launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+              "access_details": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+              "county": "Baker",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-b1d21c24bbc2",
+              "state": "Oregon",
+              "counties": [
+                "Baker"
+              ],
+              "names": [
+                "Phillips Reservoir"
+              ],
+              "water_name": "Phillips Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Phillips Reservoir fishing update",
+              "title": "Phillips Reservoir fishing update",
+              "summary": "ODFW reported good perch fishing, including some large fish, in the Northeast Zone update.",
+              "catches": [
+                {
+                  "species": "Yellow perch, rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Yellow perch, rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-b1d21c24bbc2",
+            "state": "Oregon",
+            "counties": [
+              "Baker"
+            ],
+            "names": [
+              "Phillips Reservoir"
+            ],
+            "water_name": "Phillips Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Phillips Reservoir fishing update",
+            "title": "Phillips Reservoir fishing update",
+            "summary": "ODFW reported good perch fishing, including some large fish, in the Northeast Zone update.",
+            "catches": [
+              {
+                "species": "Yellow perch, rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Yellow perch, rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        },
+        {
+          "water_id": "or-water-68a2bd9c1571",
+          "state": "Oregon",
+          "county": "Baker",
+          "counties": [
+            "Baker"
+          ],
+          "county_number": 1,
+          "water_name": "Unity Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-3a68306608cb",
+              "access_point_name": "Unity Lake State Recreation Site day-use ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+              "access_details": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+              "county": "Baker",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 2,
+      "county": "Benton",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-de04e284d336",
+          "state": "Oregon",
+          "county": "Benton",
+          "counties": [
+            "Benton"
+          ],
+          "county_number": 2,
+          "water_name": "EE Wilson Wildlife Area Pond",
+          "water_type": "pond",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/articles/disabled-angler-access-map"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-1c1840516e60",
+              "access_point_name": "EE Wilson Wildlife Area Pond public angling access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_type": "official_public_access",
+              "official_source_url": "https://myodfw.com/articles/disabled-angler-access-map",
+              "verification_evidence": "ODFW identifies the wildlife-area pond as a public trout and warmwater fishing location with disabled-angler access.",
+              "access_details": "ODFW identifies the wildlife-area pond as a public trout and warmwater fishing location with disabled-angler access.",
+              "county": "Benton",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": true,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": true
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 3,
+      "county": "Clackamas",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-5e068e0f74ea",
+          "state": "Oregon",
+          "county": "Clackamas",
+          "counties": [
+            "Clackamas"
+          ],
+          "county_number": 3,
+          "water_name": "Lake Harriet",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-80d41c9a4973",
+              "access_point_name": "Lake Harriet boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+              "access_details": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+              "county": "Clackamas",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-734d0bfd1c92",
+          "state": "Oregon",
+          "county": "Clackamas",
+          "counties": [
+            "Clackamas"
+          ],
+          "county_number": 3,
+          "water_name": "Trillium Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-95c49dd579a9",
+              "access_point_name": "Trillium Lake Campground and day-use boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the campground and day-use boating access sites open.",
+              "access_details": "The Marine Board reported the campground and day-use boating access sites open.",
+              "county": "Clackamas",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_scheduled_stocking",
+              "report_id": "or-report-cb2a8e82fbe7",
+              "state": "Oregon",
+              "counties": [
+                "Clackamas"
+              ],
+              "names": [
+                "Trillium Lake"
+              ],
+              "water_name": "Trillium Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official scheduled stocking",
+              "published_date": "2026-08-24",
+              "report_date": "2026-08-24",
+              "report_period": "Week of Aug. 24-28, 2026",
+              "observed_period": "Week of Aug. 24-28, 2026",
+              "headline": "Trillium Lake scheduled trout stocking",
+              "title": "Trillium Lake scheduled trout stocking",
+              "summary": "ODFW scheduled 2,000 legal and 133 trophy-size trout for the week beginning Aug. 24. Stocking schedules can change.",
+              "catches": [
+                {
+                  "species": "Rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_scheduled_stocking",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "scheduled",
+              "freshness_status": "scheduled",
+              "freshness_days": -19,
+              "age_days": -19,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_scheduled_stocking",
+            "report_id": "or-report-cb2a8e82fbe7",
+            "state": "Oregon",
+            "counties": [
+              "Clackamas"
+            ],
+            "names": [
+              "Trillium Lake"
+            ],
+            "water_name": "Trillium Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official scheduled stocking",
+            "published_date": "2026-08-24",
+            "report_date": "2026-08-24",
+            "report_period": "Week of Aug. 24-28, 2026",
+            "observed_period": "Week of Aug. 24-28, 2026",
+            "headline": "Trillium Lake scheduled trout stocking",
+            "title": "Trillium Lake scheduled trout stocking",
+            "summary": "ODFW scheduled 2,000 legal and 133 trophy-size trout for the week beginning Aug. 24. Stocking schedules can change.",
+            "catches": [
+              {
+                "species": "Rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_scheduled_stocking",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "scheduled",
+            "freshness_status": "scheduled",
+            "freshness_days": -19,
+            "age_days": -19,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 4,
+      "county": "Clatsop",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-1b44efe0c90f",
+          "state": "Oregon",
+          "county": "Clatsop",
+          "counties": [
+            "Clatsop"
+          ],
+          "county_number": 4,
+          "water_name": "Coffenbury Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-e8162a79e056",
+              "access_point_name": "Fort Stevens State Park boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Fort Stevens State Park boating access open.",
+              "access_details": "The Marine Board reported Fort Stevens State Park boating access open.",
+              "county": "Clatsop",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 5,
+      "county": "Columbia",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-cc11c3081d20",
+          "state": "Oregon",
+          "county": "Columbia",
+          "counties": [
+            "Columbia"
+          ],
+          "county_number": 5,
+          "water_name": "Scappoose Bay",
+          "water_type": "bay",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-a19970d51884",
+              "access_point_name": "Scappoose Bay Marina boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+              "access_details": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+              "county": "Columbia",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": false,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-145f25ebf50e",
+          "state": "Oregon",
+          "county": "Columbia",
+          "counties": [
+            "Columbia"
+          ],
+          "county_number": 5,
+          "water_name": "Trojan Pond",
+          "water_type": "pond",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-340ca93cfc4b",
+              "access_point_name": "Trojan Pond paddle access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+              "access_details": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+              "county": "Columbia",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": true,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 6,
+      "county": "Coos",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-618403aba027",
+          "state": "Oregon",
+          "county": "Coos",
+          "counties": [
+            "Coos"
+          ],
+          "county_number": 6,
+          "water_name": "Eel Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-a31a0034a493",
+              "access_point_name": "Eel Lake public boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+              "access_details": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+              "county": "Coos",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-03f802b918ae",
+          "state": "Oregon",
+          "county": "Coos",
+          "counties": [
+            "Coos"
+          ],
+          "county_number": 6,
+          "water_name": "Powers Pond",
+          "water_type": "pond",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-fe195eb33624",
+              "access_point_name": "Powers Park kayak launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the public kayak launch open.",
+              "access_details": "The Marine Board reported the public kayak launch open.",
+              "county": "Coos",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 7,
+      "county": "Crook",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-54ff1ceddb32",
+          "state": "Oregon",
+          "county": "Crook",
+          "counties": [
+            "Crook"
+          ],
+          "county_number": 7,
+          "water_name": "Ochoco Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-20ec46ff2a15",
+              "access_point_name": "Ochoco Lake County Park boat launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+              "access_details": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+              "county": "Crook",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-b04533990e5f",
+          "state": "Oregon",
+          "county": "Crook",
+          "counties": [
+            "Crook"
+          ],
+          "county_number": 7,
+          "water_name": "Prineville Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-485106d63712",
+              "access_point_name": "Prineville State Park day-use ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+              "access_details": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+              "county": "Crook",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 8,
+      "county": "Curry",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-804a5c59292b",
+          "state": "Oregon",
+          "county": "Curry",
+          "counties": [
+            "Curry"
+          ],
+          "county_number": 8,
+          "water_name": "Chetco River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Parks"
+          ],
+          "water_source_urls": [
+            "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-54691055de5a",
+              "access_point_name": "Alfred A. Loeb State Park river access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Parks",
+              "source_type": "official_public_access",
+              "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51",
+              "verification_evidence": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+              "access_details": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+              "county": "Curry",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-4503135426a0",
+          "state": "Oregon",
+          "county": "Curry",
+          "counties": [
+            "Curry"
+          ],
+          "county_number": 8,
+          "water_name": "Winchuck River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Parks"
+          ],
+          "water_source_urls": [
+            "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=57"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-8880a8da9e24",
+              "access_point_name": "Winchuck State Recreation Site",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Parks",
+              "source_type": "official_public_access",
+              "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=57",
+              "verification_evidence": "Oregon State Parks identifies public parking and river/ocean-beach access for fishing and other recreation.",
+              "access_details": "Oregon State Parks identifies public parking and river/ocean-beach access for fishing and other recreation.",
+              "county": "Curry",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 9,
+      "county": "Deschutes",
+      "public_water_count": 3,
+      "verified_access_point_count": 3,
+      "report_count": 3,
+      "waters": [
+        {
+          "water_id": "or-water-990d4fefc7d2",
+          "state": "Oregon",
+          "county": "Deschutes",
+          "counties": [
+            "Deschutes"
+          ],
+          "county_number": 9,
+          "water_name": "Crane Prairie Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout",
+            "kokanee"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/central-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-c9cd637dc266",
+              "access_point_name": "Crane Prairie Day Use and Rock Creek Day Use ramps",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+              "access_details": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+              "county": "Deschutes",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-c580312b1b07",
+              "state": "Oregon",
+              "counties": [
+                "Deschutes"
+              ],
+              "names": [
+                "Crane Prairie Reservoir"
+              ],
+              "water_name": "Crane Prairie Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Crane Prairie Reservoir fishing update",
+              "title": "Crane Prairie Reservoir fishing update",
+              "summary": "ODFW reported abundant rainbow trout, kokanee around 15 inches and generally good fishing.",
+              "catches": [
+                {
+                  "species": "Rainbow trout, kokanee",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout, kokanee",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-c580312b1b07",
+            "state": "Oregon",
+            "counties": [
+              "Deschutes"
+            ],
+            "names": [
+              "Crane Prairie Reservoir"
+            ],
+            "water_name": "Crane Prairie Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Crane Prairie Reservoir fishing update",
+            "title": "Crane Prairie Reservoir fishing update",
+            "summary": "ODFW reported abundant rainbow trout, kokanee around 15 inches and generally good fishing.",
+            "catches": [
+              {
+                "species": "Rainbow trout, kokanee",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout, kokanee",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        },
+        {
+          "water_id": "or-water-cd3cba64ccd8",
+          "state": "Oregon",
+          "county": "Deschutes",
+          "counties": [
+            "Deschutes"
+          ],
+          "county_number": 9,
+          "water_name": "East Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-44124e2e1fb6",
+              "access_point_name": "East Lake public boating sites",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Cinder Hill, Hot Springs, resort and public boating access open, with some docks unavailable due to low water.",
+              "access_details": "The Marine Board reported Cinder Hill, Hot Springs, resort and public boating access open, with some docks unavailable due to low water.",
+              "county": "Deschutes",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-c689890df491",
+              "state": "Oregon",
+              "counties": [
+                "Deschutes"
+              ],
+              "names": [
+                "East Lake"
+              ],
+              "water_name": "East Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "Week of Jul. 6-10, 2026",
+              "observed_period": "Week of Jul. 6-10, 2026",
+              "headline": "East Lake trout stocking",
+              "title": "East Lake trout stocking",
+              "summary": "ODFW listed 2,500 legal-size trout for the stocking week beginning July 6.",
+              "catches": [
+                {
+                  "species": "Rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-c689890df491",
+            "state": "Oregon",
+            "counties": [
+              "Deschutes"
+            ],
+            "names": [
+              "East Lake"
+            ],
+            "water_name": "East Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "Week of Jul. 6-10, 2026",
+            "observed_period": "Week of Jul. 6-10, 2026",
+            "headline": "East Lake trout stocking",
+            "title": "East Lake trout stocking",
+            "summary": "ODFW listed 2,500 legal-size trout for the stocking week beginning July 6.",
+            "catches": [
+              {
+                "species": "Rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        },
+        {
+          "water_id": "or-water-f934cfa6c98a",
+          "state": "Oregon",
+          "county": "Deschutes",
+          "counties": [
+            "Deschutes"
+          ],
+          "county_number": 9,
+          "water_name": "Paulina Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Trout",
+            "kokanee"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/central-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-6bcff9ac8ea1",
+              "access_point_name": "Paulina Lake boating sites",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+              "access_details": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+              "county": "Deschutes",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-8f47b59b419b",
+              "state": "Oregon",
+              "counties": [
+                "Deschutes"
+              ],
+              "names": [
+                "Paulina Lake"
+              ],
+              "water_name": "Paulina Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Paulina Lake fishing update",
+              "title": "Paulina Lake fishing update",
+              "summary": "ODFW reported good trout fishing and excellent kokanee fishing, with kokanee averaging roughly 13-14 inches.",
+              "catches": [
+                {
+                  "species": "Trout, kokanee",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Trout, kokanee",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-8f47b59b419b",
+            "state": "Oregon",
+            "counties": [
+              "Deschutes"
+            ],
+            "names": [
+              "Paulina Lake"
+            ],
+            "water_name": "Paulina Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Paulina Lake fishing update",
+            "title": "Paulina Lake fishing update",
+            "summary": "ODFW reported good trout fishing and excellent kokanee fishing, with kokanee averaging roughly 13-14 inches.",
+            "catches": [
+              {
+                "species": "Trout, kokanee",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Trout, kokanee",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 10,
+      "county": "Douglas",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-2b7447dd8b5b",
+          "state": "Oregon",
+          "county": "Douglas",
+          "counties": [
+            "Douglas"
+          ],
+          "county_number": 10,
+          "water_name": "Diamond Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout",
+            "brown trout",
+            "tiger trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-8ce69d11f6c5",
+              "access_point_name": "Diamond Lake public boat launches",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+              "access_details": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+              "county": "Douglas",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-520b326f1c53",
+              "state": "Oregon",
+              "counties": [
+                "Douglas"
+              ],
+              "names": [
+                "Diamond Lake"
+              ],
+              "water_name": "Diamond Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-02",
+              "report_date": "2026-07-02",
+              "report_period": "2026-07-02",
+              "observed_period": "",
+              "headline": "Diamond Lake fishing update",
+              "title": "Diamond Lake fishing update",
+              "summary": "ODFW reported good angling and several limits, while reminding anglers that brown and tiger trout must be released.",
+              "catches": [
+                {
+                  "species": "Rainbow trout, brown trout, tiger trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout, brown trout, tiger trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 34,
+              "age_days": 34,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-520b326f1c53",
+            "state": "Oregon",
+            "counties": [
+              "Douglas"
+            ],
+            "names": [
+              "Diamond Lake"
+            ],
+            "water_name": "Diamond Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-02",
+            "report_date": "2026-07-02",
+            "report_period": "2026-07-02",
+            "observed_period": "",
+            "headline": "Diamond Lake fishing update",
+            "title": "Diamond Lake fishing update",
+            "summary": "ODFW reported good angling and several limits, while reminding anglers that brown and tiger trout must be released.",
+            "catches": [
+              {
+                "species": "Rainbow trout, brown trout, tiger trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout, brown trout, tiger trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 34,
+            "age_days": 34,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        },
+        {
+          "water_id": "or-water-13a881f3fad1",
+          "state": "Oregon",
+          "county": "Douglas",
+          "counties": [
+            "Douglas"
+          ],
+          "county_number": 10,
+          "water_name": "Lemolo Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-e9a83ba6897d",
+              "access_point_name": "Poole Creek and East Lemolo boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+              "access_details": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+              "county": "Douglas",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 11,
+      "county": "Gilliam",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-50c7799f6e6e",
+          "state": "Oregon",
+          "county": "Gilliam",
+          "counties": [
+            "Gilliam"
+          ],
+          "county_number": 11,
+          "water_name": "Columbia River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-7f5ba14aefaf",
+              "access_point_name": "Port of Arlington boat launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+              "access_details": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+              "county": "Gilliam",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 12,
+      "county": "Grant",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-882754bcc9a3",
+          "state": "Oregon",
+          "county": "Grant",
+          "counties": [
+            "Grant"
+          ],
+          "county_number": 12,
+          "water_name": "Magone Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout",
+            "brook trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-db57045c2a34",
+              "access_point_name": "Magone Lake Campground boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+              "access_details": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+              "county": "Grant",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-462e9a27c24e",
+              "state": "Oregon",
+              "counties": [
+                "Grant"
+              ],
+              "names": [
+                "Magone Lake"
+              ],
+              "water_name": "Magone Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Magone Lake fishing update",
+              "title": "Magone Lake fishing update",
+              "summary": "ODFW reported that fishing is often good and that the lake had been stocked for 2026.",
+              "catches": [
+                {
+                  "species": "Rainbow trout, brook trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout, brook trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-462e9a27c24e",
+            "state": "Oregon",
+            "counties": [
+              "Grant"
+            ],
+            "names": [
+              "Magone Lake"
+            ],
+            "water_name": "Magone Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Magone Lake fishing update",
+            "title": "Magone Lake fishing update",
+            "summary": "ODFW reported that fishing is often good and that the lake had been stocked for 2026.",
+            "catches": [
+              {
+                "species": "Rainbow trout, brook trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout, brook trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 13,
+      "county": "Harney",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-db8bde4c6d25",
+          "state": "Oregon",
+          "county": "Harney",
+          "counties": [
+            "Harney"
+          ],
+          "county_number": 13,
+          "water_name": "Delintment Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-8bd36131d3ba",
+              "access_point_name": "Delintment Lake Campground boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported seasonal campground and boating access open.",
+              "access_details": "The Marine Board reported seasonal campground and boating access open.",
+              "county": "Harney",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 14,
+      "county": "Hood River",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-e3c80585dc19",
+          "state": "Oregon",
+          "county": "Hood River",
+          "counties": [
+            "Hood River"
+          ],
+          "county_number": 14,
+          "water_name": "Kingsley Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-5736e7afbd5d",
+              "access_point_name": "Kingsley Day Use concrete ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the day-use site and concrete boat ramp open.",
+              "access_details": "The Marine Board reported the day-use site and concrete boat ramp open.",
+              "county": "Hood River",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 15,
+      "county": "Jackson",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-7496d486c56d",
+          "state": "Oregon",
+          "county": "Jackson",
+          "counties": [
+            "Jackson"
+          ],
+          "county_number": 15,
+          "water_name": "Agate Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-397433cecfcc",
+              "access_point_name": "Agate Lake boat launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+              "access_details": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+              "county": "Jackson",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-f2198fd97a98",
+          "state": "Oregon",
+          "county": "Jackson",
+          "counties": [
+            "Jackson"
+          ],
+          "county_number": 15,
+          "water_name": "Lost Creek Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout",
+            "bass"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-2a54f08a98a9",
+              "access_point_name": "Takelma boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+              "access_details": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+              "county": "Jackson",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-b0a5d19be483",
+              "state": "Oregon",
+              "counties": [
+                "Jackson"
+              ],
+              "names": [
+                "Lost Creek Reservoir"
+              ],
+              "water_name": "Lost Creek Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Lost Creek Reservoir fishing update",
+              "title": "Lost Creek Reservoir fishing update",
+              "summary": "ODFW listed trolling at Lost Creek as a current best bet and reported very good fishing.",
+              "catches": [
+                {
+                  "species": "Rainbow trout, bass",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout, bass",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-b0a5d19be483",
+            "state": "Oregon",
+            "counties": [
+              "Jackson"
+            ],
+            "names": [
+              "Lost Creek Reservoir"
+            ],
+            "water_name": "Lost Creek Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Lost Creek Reservoir fishing update",
+            "title": "Lost Creek Reservoir fishing update",
+            "summary": "ODFW listed trolling at Lost Creek as a current best bet and reported very good fishing.",
+            "catches": [
+              {
+                "species": "Rainbow trout, bass",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout, bass",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 16,
+      "county": "Jefferson",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-2cd6d30a7138",
+          "state": "Oregon",
+          "county": "Jefferson",
+          "counties": [
+            "Jefferson"
+          ],
+          "county_number": 16,
+          "water_name": "Lake Billy Chinook",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-519425afc3b4",
+              "access_point_name": "Cove Palisades State Park ramps",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+              "access_details": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+              "county": "Jefferson",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 17,
+      "county": "Josephine",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-036eeaac1173",
+          "state": "Oregon",
+          "county": "Josephine",
+          "counties": [
+            "Josephine"
+          ],
+          "county_number": 17,
+          "water_name": "Lake Selmac",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout",
+            "bluegill",
+            "crappie",
+            "largemouth bass"
+          ],
+          "metadata_sources": [
+            "Oregon Department of Fish and Wildlife",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/articles/easy-angling-southwest-zone",
+            "https://myodfw.com/recreation-report/fishing-report/southwest-zone"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-be4e78eafefc",
+              "access_point_name": "Lake Selmac public campgrounds and access sites",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_type": "official_public_access",
+              "official_source_url": "https://myodfw.com/articles/easy-angling-southwest-zone",
+              "verification_evidence": "ODFW identifies Selmac as Josephine County's largest standing waterbody and directs anglers to its public campgrounds and access areas.",
+              "access_details": "ODFW identifies Selmac as Josephine County's largest standing waterbody and directs anglers to its public campgrounds and access areas.",
+              "county": "Josephine",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-61d4befe1c55",
+              "state": "Oregon",
+              "counties": [
+                "Josephine"
+              ],
+              "names": [
+                "Lake Selmac"
+              ],
+              "water_name": "Lake Selmac",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-05-05",
+              "report_date": "2026-05-05",
+              "report_period": "2026-05-05",
+              "observed_period": "",
+              "headline": "Lake Selmac fishing update",
+              "title": "Lake Selmac fishing update",
+              "summary": "ODFW reported recent trout stocking and highlighted the lake's bass, bluegill and crappie fishing.",
+              "catches": [
+                {
+                  "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "stale",
+              "freshness_status": "stale",
+              "freshness_days": 92,
+              "age_days": 92,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-61d4befe1c55",
+            "state": "Oregon",
+            "counties": [
+              "Josephine"
+            ],
+            "names": [
+              "Lake Selmac"
+            ],
+            "water_name": "Lake Selmac",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-05-05",
+            "report_date": "2026-05-05",
+            "report_period": "2026-05-05",
+            "observed_period": "",
+            "headline": "Lake Selmac fishing update",
+            "title": "Lake Selmac fishing update",
+            "summary": "ODFW reported recent trout stocking and highlighted the lake's bass, bluegill and crappie fishing.",
+            "catches": [
+              {
+                "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "stale",
+            "freshness_status": "stale",
+            "freshness_days": 92,
+            "age_days": 92,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 18,
+      "county": "Klamath",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-d485cc1e0775",
+          "state": "Oregon",
+          "county": "Klamath",
+          "counties": [
+            "Klamath"
+          ],
+          "county_number": 18,
+          "water_name": "Agency Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-30bb6a9fcea4",
+              "access_point_name": "Henzel Park and Petric Park boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported both named public access sites open, with a health advisory noted for the location.",
+              "access_details": "The Marine Board reported both named public access sites open, with a health advisory noted for the location.",
+              "county": "Klamath",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-9b9c6d88818d",
+          "state": "Oregon",
+          "county": "Klamath",
+          "counties": [
+            "Klamath"
+          ],
+          "county_number": 18,
+          "water_name": "Lake of the Woods",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-655fa0fad9e6",
+              "access_point_name": "Aspen Point and Sunset Day Use launches",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported resort and public day-use launches open.",
+              "access_details": "The Marine Board reported resort and public day-use launches open.",
+              "county": "Klamath",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_scheduled_stocking",
+              "report_id": "or-report-771ce5d59f06",
+              "state": "Oregon",
+              "counties": [
+                "Klamath"
+              ],
+              "names": [
+                "Lake of the Woods"
+              ],
+              "water_name": "Lake of the Woods",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official scheduled stocking",
+              "published_date": "2026-09-14",
+              "report_date": "2026-09-14",
+              "report_period": "Week of Sep. 14-18, 2026",
+              "observed_period": "Week of Sep. 14-18, 2026",
+              "headline": "Lake of the Woods scheduled trout stocking",
+              "title": "Lake of the Woods scheduled trout stocking",
+              "summary": "ODFW scheduled 1,500 legal-size trout for the week beginning Sept. 14. Stocking schedules can change.",
+              "catches": [
+                {
+                  "species": "Rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_scheduled_stocking",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "scheduled",
+              "freshness_status": "scheduled",
+              "freshness_days": -40,
+              "age_days": -40,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_scheduled_stocking",
+            "report_id": "or-report-771ce5d59f06",
+            "state": "Oregon",
+            "counties": [
+              "Klamath"
+            ],
+            "names": [
+              "Lake of the Woods"
+            ],
+            "water_name": "Lake of the Woods",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official scheduled stocking",
+            "published_date": "2026-09-14",
+            "report_date": "2026-09-14",
+            "report_period": "Week of Sep. 14-18, 2026",
+            "observed_period": "Week of Sep. 14-18, 2026",
+            "headline": "Lake of the Woods scheduled trout stocking",
+            "title": "Lake of the Woods scheduled trout stocking",
+            "summary": "ODFW scheduled 1,500 legal-size trout for the week beginning Sept. 14. Stocking schedules can change.",
+            "catches": [
+              {
+                "species": "Rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_scheduled_stocking",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "scheduled",
+            "freshness_status": "scheduled",
+            "freshness_days": -40,
+            "age_days": -40,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 19,
+      "county": "Lake",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-ec0a45978703",
+          "state": "Oregon",
+          "county": "Lake",
+          "counties": [
+            "Lake"
+          ],
+          "county_number": 19,
+          "water_name": "Ana Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-d8c7f32cd263",
+              "access_point_name": "Ana Reservoir boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the ramp open and boarding docks floating.",
+              "access_details": "The Marine Board reported the ramp open and boarding docks floating.",
+              "county": "Lake",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_scheduled_stocking",
+              "report_id": "or-report-62f73a79fae5",
+              "state": "Oregon",
+              "counties": [
+                "Lake"
+              ],
+              "names": [
+                "Ana Reservoir"
+              ],
+              "water_name": "Ana Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official scheduled stocking",
+              "published_date": "2026-08-17",
+              "report_date": "2026-08-17",
+              "report_period": "Week of Aug. 17-21, 2026",
+              "observed_period": "Week of Aug. 17-21, 2026",
+              "headline": "Ana Reservoir scheduled trout stocking",
+              "title": "Ana Reservoir scheduled trout stocking",
+              "summary": "ODFW scheduled 2,400 legal-size trout for the week beginning Aug. 17. Stocking schedules can change.",
+              "catches": [
+                {
+                  "species": "Rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_scheduled_stocking",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "scheduled",
+              "freshness_status": "scheduled",
+              "freshness_days": -12,
+              "age_days": -12,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_scheduled_stocking",
+            "report_id": "or-report-62f73a79fae5",
+            "state": "Oregon",
+            "counties": [
+              "Lake"
+            ],
+            "names": [
+              "Ana Reservoir"
+            ],
+            "water_name": "Ana Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official scheduled stocking",
+            "published_date": "2026-08-17",
+            "report_date": "2026-08-17",
+            "report_period": "Week of Aug. 17-21, 2026",
+            "observed_period": "Week of Aug. 17-21, 2026",
+            "headline": "Ana Reservoir scheduled trout stocking",
+            "title": "Ana Reservoir scheduled trout stocking",
+            "summary": "ODFW scheduled 2,400 legal-size trout for the week beginning Aug. 17. Stocking schedules can change.",
+            "catches": [
+              {
+                "species": "Rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_scheduled_stocking",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "scheduled",
+            "freshness_status": "scheduled",
+            "freshness_days": -12,
+            "age_days": -12,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 20,
+      "county": "Lane",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-1ef2a8f0462e",
+          "state": "Oregon",
+          "county": "Lane",
+          "counties": [
+            "Lane"
+          ],
+          "county_number": 20,
+          "water_name": "Blue River Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-c2c5d9ad5da5",
+              "access_point_name": "Saddle Dam boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+              "access_details": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+              "county": "Lane",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-0a4a68332946",
+          "state": "Oregon",
+          "county": "Lane",
+          "counties": [
+            "Lane"
+          ],
+          "county_number": 20,
+          "water_name": "Fern Ridge Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Largemouth bass",
+            "bluegill",
+            "brown bullhead",
+            "crappie"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-1c6e2111bfce",
+              "access_point_name": "Orchard Point Marina boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+              "access_details": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+              "county": "Lane",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": true,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-86c1946a664b",
+              "state": "Oregon",
+              "counties": [
+                "Lane"
+              ],
+              "names": [
+                "Fern Ridge Reservoir"
+              ],
+              "water_name": "Fern Ridge Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "2026-07-06",
+              "observed_period": "",
+              "headline": "Fern Ridge Reservoir fishing update",
+              "title": "Fern Ridge Reservoir fishing update",
+              "summary": "ODFW reported the reservoir open year-round with strong warmwater opportunities and multiple public bank and ramp locations.",
+              "catches": [
+                {
+                  "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-86c1946a664b",
+            "state": "Oregon",
+            "counties": [
+              "Lane"
+            ],
+            "names": [
+              "Fern Ridge Reservoir"
+            ],
+            "water_name": "Fern Ridge Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "2026-07-06",
+            "observed_period": "",
+            "headline": "Fern Ridge Reservoir fishing update",
+            "title": "Fern Ridge Reservoir fishing update",
+            "summary": "ODFW reported the reservoir open year-round with strong warmwater opportunities and multiple public bank and ramp locations.",
+            "catches": [
+              {
+                "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 21,
+      "county": "Lincoln",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-3a8d37e1ce72",
+          "state": "Oregon",
+          "county": "Lincoln",
+          "counties": [
+            "Lincoln"
+          ],
+          "county_number": 21,
+          "water_name": "Siletz River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Summer steelhead",
+            "cutthroat trout",
+            "spring Chinook"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-1a88402da79c",
+              "access_point_name": "Moonshine Boat Ramp and named river accesses",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+              "access_details": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+              "county": "Lincoln",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-216693d77f42",
+              "state": "Oregon",
+              "counties": [
+                "Lincoln"
+              ],
+              "names": [
+                "Siletz River"
+              ],
+              "water_name": "Siletz River",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "2026-07-06",
+              "observed_period": "",
+              "headline": "Siletz River fishing update",
+              "title": "Siletz River fishing update",
+              "summary": "ODFW reported fair summer-steelhead fishing, low clear water and fish distributed through the system.",
+              "catches": [
+                {
+                  "species": "Summer steelhead, spring Chinook, cutthroat trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Summer steelhead, spring Chinook, cutthroat trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-216693d77f42",
+            "state": "Oregon",
+            "counties": [
+              "Lincoln"
+            ],
+            "names": [
+              "Siletz River"
+            ],
+            "water_name": "Siletz River",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "2026-07-06",
+            "observed_period": "",
+            "headline": "Siletz River fishing update",
+            "title": "Siletz River fishing update",
+            "summary": "ODFW reported fair summer-steelhead fishing, low clear water and fish distributed through the system.",
+            "catches": [
+              {
+                "species": "Summer steelhead, spring Chinook, cutthroat trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Summer steelhead, spring Chinook, cutthroat trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        },
+        {
+          "water_id": "or-water-f2039b13bddc",
+          "state": "Oregon",
+          "county": "Lincoln",
+          "counties": [
+            "Lincoln"
+          ],
+          "county_number": 21,
+          "water_name": "Yaquina Bay",
+          "water_type": "bay",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-da6549baace8",
+              "access_point_name": "Port of Newport boating sites",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+              "access_details": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+              "county": "Lincoln",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 22,
+      "county": "Linn",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-9767a20a0f67",
+          "state": "Oregon",
+          "county": "Linn",
+          "counties": [
+            "Linn"
+          ],
+          "county_number": 22,
+          "water_name": "Clear Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-115fbff77923",
+              "access_point_name": "Cold Water Cove and Clear Lake Resort ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+              "access_details": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+              "county": "Linn",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-b05b34acb272",
+          "state": "Oregon",
+          "county": "Linn",
+          "counties": [
+            "Linn"
+          ],
+          "county_number": 22,
+          "water_name": "Foster Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Trout",
+            "bass",
+            "catfish",
+            "perch"
+          ],
+          "metadata_sources": [
+            "Oregon Department of Fish and Wildlife",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/willamette-zone"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-39c10ee25563",
+              "access_point_name": "Foster Reservoir public ramps and bank access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_type": "official_public_access",
+              "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+              "verification_evidence": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+              "access_details": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+              "county": "Linn",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-5cd68c396e29",
+              "state": "Oregon",
+              "counties": [
+                "Linn"
+              ],
+              "names": [
+                "Foster Reservoir"
+              ],
+              "water_name": "Foster Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "2026-07-06",
+              "observed_period": "",
+              "headline": "Foster Reservoir fishing update",
+              "title": "Foster Reservoir fishing update",
+              "summary": "ODFW reported trout remaining from spring stocking and productive warmwater fishing near structure and drop-offs.",
+              "catches": [
+                {
+                  "species": "Trout, bass, perch, catfish",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Trout, bass, perch, catfish",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-5cd68c396e29",
+            "state": "Oregon",
+            "counties": [
+              "Linn"
+            ],
+            "names": [
+              "Foster Reservoir"
+            ],
+            "water_name": "Foster Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "2026-07-06",
+            "observed_period": "",
+            "headline": "Foster Reservoir fishing update",
+            "title": "Foster Reservoir fishing update",
+            "summary": "ODFW reported trout remaining from spring stocking and productive warmwater fishing near structure and drop-offs.",
+            "catches": [
+              {
+                "species": "Trout, bass, perch, catfish",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Trout, bass, perch, catfish",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 23,
+      "county": "Malheur",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-2ae334ea116d",
+          "state": "Oregon",
+          "county": "Malheur",
+          "counties": [
+            "Malheur"
+          ],
+          "county_number": 23,
+          "water_name": "Lake Owyhee Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-d652a20ef88c",
+              "access_point_name": "Indian Creek and Gordon Gulch boat ramps",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+              "access_details": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+              "county": "Malheur",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 24,
+      "county": "Marion",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-a4ff33f506b7",
+          "state": "Oregon",
+          "county": "Marion",
+          "counties": [
+            "Marion"
+          ],
+          "county_number": 24,
+          "water_name": "Turner Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-91b36d147852",
+              "access_point_name": "North Turner Lake boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+              "access_details": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+              "county": "Marion",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-564755d0f833",
+          "state": "Oregon",
+          "county": "Marion",
+          "counties": [
+            "Marion"
+          ],
+          "county_number": 24,
+          "water_name": "Walter Wirth Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Trout",
+            "bass",
+            "panfish"
+          ],
+          "metadata_sources": [
+            "Oregon Department of Fish and Wildlife",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/willamette-zone"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-ba47a1b7c3ff",
+              "access_point_name": "Cascades Gateway Park shoreline access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_type": "official_public_access",
+              "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+              "verification_evidence": "ODFW describes good public access around this Salem urban lake.",
+              "access_details": "ODFW describes good public access around this Salem urban lake.",
+              "county": "Marion",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": true,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-4a60f25172bd",
+              "state": "Oregon",
+              "counties": [
+                "Marion"
+              ],
+              "names": [
+                "Walter Wirth Lake"
+              ],
+              "water_name": "Walter Wirth Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "2026-07-06",
+              "observed_period": "",
+              "headline": "Walter Wirth Lake fishing update",
+              "title": "Walter Wirth Lake fishing update",
+              "summary": "ODFW reported that summer anglers can target bass and bluegill after the spring trout-stocking period.",
+              "catches": [
+                {
+                  "species": "Trout, bass, panfish",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Trout, bass, panfish",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-4a60f25172bd",
+            "state": "Oregon",
+            "counties": [
+              "Marion"
+            ],
+            "names": [
+              "Walter Wirth Lake"
+            ],
+            "water_name": "Walter Wirth Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "2026-07-06",
+            "observed_period": "",
+            "headline": "Walter Wirth Lake fishing update",
+            "title": "Walter Wirth Lake fishing update",
+            "summary": "ODFW reported that summer anglers can target bass and bluegill after the spring trout-stocking period.",
+            "catches": [
+              {
+                "species": "Trout, bass, panfish",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Trout, bass, panfish",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 25,
+      "county": "Morrow",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-8f9d62b89a7f",
+          "state": "Oregon",
+          "county": "Morrow",
+          "counties": [
+            "Morrow"
+          ],
+          "county_number": 25,
+          "water_name": "Willow Creek Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Trout",
+            "bass",
+            "crappie"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-20aebb4fea15",
+              "access_point_name": "Turner Day Park",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+              "access_details": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+              "county": "Morrow",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-052e78670613",
+              "state": "Oregon",
+              "counties": [
+                "Morrow"
+              ],
+              "names": [
+                "Willow Creek Reservoir"
+              ],
+              "water_name": "Willow Creek Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "Willow Creek Reservoir fishing update",
+              "title": "Willow Creek Reservoir fishing update",
+              "summary": "ODFW listed Willow Creek Reservoir as a current best bet for trout, bass and crappie.",
+              "catches": [
+                {
+                  "species": "Trout, bass, crappie",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Trout, bass, crappie",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-052e78670613",
+            "state": "Oregon",
+            "counties": [
+              "Morrow"
+            ],
+            "names": [
+              "Willow Creek Reservoir"
+            ],
+            "water_name": "Willow Creek Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "Willow Creek Reservoir fishing update",
+            "title": "Willow Creek Reservoir fishing update",
+            "summary": "ODFW listed Willow Creek Reservoir as a current best bet for trout, bass and crappie.",
+            "catches": [
+              {
+                "species": "Trout, bass, crappie",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Trout, bass, crappie",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 26,
+      "county": "Multnomah",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-3fdfba829bf0",
+          "state": "Oregon",
+          "county": "Multnomah",
+          "counties": [
+            "Multnomah"
+          ],
+          "county_number": 26,
+          "water_name": "Benson Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-3ee53da595bf",
+              "access_point_name": "Benson State Recreation Area",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+              "access_details": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+              "county": "Multnomah",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": true,
+                "ada_restroom": true,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 27,
+      "county": "Polk",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-a19fc2e1cdec",
+          "state": "Oregon",
+          "county": "Polk",
+          "counties": [
+            "Polk"
+          ],
+          "county_number": 27,
+          "water_name": "Willamette River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-2d5d5bb082ac",
+              "access_point_name": "Independence Riverview Park nonmotorized launch",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+              "access_details": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+              "county": "Polk",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": false,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 28,
+      "county": "Sherman",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-98e3ae7c1c55",
+          "state": "Oregon",
+          "county": "Sherman",
+          "counties": [
+            "Sherman"
+          ],
+          "county_number": 28,
+          "water_name": "John Day River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Bureau of Land Management"
+          ],
+          "water_source_urls": [
+            "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-394d7aedd09a",
+              "access_point_name": "Cottonwood / J.S. Burres access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Bureau of Land Management",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
+              "verification_evidence": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+              "access_details": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+              "county": "Sherman",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": true,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 29,
+      "county": "Tillamook",
+      "public_water_count": 2,
+      "verified_access_point_count": 2,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-cd683b049322",
+          "state": "Oregon",
+          "county": "Tillamook",
+          "counties": [
+            "Tillamook"
+          ],
+          "county_number": 29,
+          "water_name": "Cape Meares Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-ba73f78f3102",
+              "access_point_name": "Cape Meares Lake boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+              "access_details": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+              "county": "Tillamook",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        },
+        {
+          "water_id": "or-water-17a7fdead211",
+          "state": "Oregon",
+          "county": "Tillamook",
+          "counties": [
+            "Tillamook"
+          ],
+          "county_number": 29,
+          "water_name": "Wilson River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Summer steelhead",
+            "cutthroat trout"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-2263e7f449de",
+              "access_point_name": "Sollie Smith and named river accesses",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported several named public accesses open, while low water can limit drift boats upstream.",
+              "access_details": "The Marine Board reported several named public accesses open, while low water can limit drift boats upstream.",
+              "county": "Tillamook",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-0f06abb2a2f9",
+              "state": "Oregon",
+              "counties": [
+                "Tillamook"
+              ],
+              "names": [
+                "Wilson River"
+              ],
+              "water_name": "Wilson River",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-06",
+              "report_date": "2026-07-06",
+              "report_period": "2026-07-06",
+              "observed_period": "",
+              "headline": "Wilson River fishing update",
+              "title": "Wilson River fishing update",
+              "summary": "ODFW reported summer steelhead throughout the fishery and recommended stealth during low, clear conditions.",
+              "catches": [
+                {
+                  "species": "Summer steelhead, cutthroat trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Summer steelhead, cutthroat trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 30,
+              "age_days": 30,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-0f06abb2a2f9",
+            "state": "Oregon",
+            "counties": [
+              "Tillamook"
+            ],
+            "names": [
+              "Wilson River"
+            ],
+            "water_name": "Wilson River",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-06",
+            "report_date": "2026-07-06",
+            "report_period": "2026-07-06",
+            "observed_period": "",
+            "headline": "Wilson River fishing update",
+            "title": "Wilson River fishing update",
+            "summary": "ODFW reported summer steelhead throughout the fishery and recommended stealth during low, clear conditions.",
+            "catches": [
+              {
+                "species": "Summer steelhead, cutthroat trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Summer steelhead, cutthroat trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 30,
+            "age_days": 30,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 30,
+      "county": "Umatilla",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-7239d05bd754",
+          "state": "Oregon",
+          "county": "Umatilla",
+          "counties": [
+            "Umatilla"
+          ],
+          "county_number": 30,
+          "water_name": "McKay Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Bass",
+            "rainbow trout",
+            "yellow perch"
+          ],
+          "metadata_sources": [
+            "Oregon State Marine Board",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-dcdfd0114f3d",
+              "access_point_name": "McKay Reservoir north and south boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+              "access_details": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+              "county": "Umatilla",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_fishing_report",
+              "report_id": "or-report-401ca47737ee",
+              "state": "Oregon",
+              "counties": [
+                "Umatilla"
+              ],
+              "names": [
+                "McKay Reservoir"
+              ],
+              "water_name": "McKay Reservoir",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official ODFW fishing report",
+              "published_date": "2026-07-09",
+              "report_date": "2026-07-09",
+              "report_period": "2026-07-09",
+              "observed_period": "",
+              "headline": "McKay Reservoir fishing update",
+              "title": "McKay Reservoir fishing update",
+              "summary": "ODFW reported good bass and panfish fishing and noted a current harmful-algae precaution.",
+              "catches": [
+                {
+                  "species": "Bass, yellow perch, rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Bass, yellow perch, rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_fishing_report",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "current",
+              "freshness_status": "current",
+              "freshness_days": 27,
+              "age_days": 27,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_fishing_report",
+            "report_id": "or-report-401ca47737ee",
+            "state": "Oregon",
+            "counties": [
+              "Umatilla"
+            ],
+            "names": [
+              "McKay Reservoir"
+            ],
+            "water_name": "McKay Reservoir",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official ODFW fishing report",
+            "published_date": "2026-07-09",
+            "report_date": "2026-07-09",
+            "report_period": "2026-07-09",
+            "observed_period": "",
+            "headline": "McKay Reservoir fishing update",
+            "title": "McKay Reservoir fishing update",
+            "summary": "ODFW reported good bass and panfish fishing and noted a current harmful-algae precaution.",
+            "catches": [
+              {
+                "species": "Bass, yellow perch, rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Bass, yellow perch, rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_fishing_report",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "current",
+            "freshness_status": "current",
+            "freshness_days": 27,
+            "age_days": 27,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 31,
+      "county": "Union",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-0b5832be53c4",
+          "state": "Oregon",
+          "county": "Union",
+          "counties": [
+            "Union"
+          ],
+          "county_number": 31,
+          "water_name": "Jubilee Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-698ca0110bef",
+              "access_point_name": "Jubilee Lake Campground boating access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported campground and boating access open.",
+              "access_details": "The Marine Board reported campground and boating access open.",
+              "county": "Union",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 32,
+      "county": "Wallowa",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 1,
+      "waters": [
+        {
+          "water_id": "or-water-189377d51cb9",
+          "state": "Oregon",
+          "county": "Wallowa",
+          "counties": [
+            "Wallowa"
+          ],
+          "county_number": 32,
+          "water_name": "Wallowa Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [
+            "Rainbow trout"
+          ],
+          "metadata_sources": [
+            "Oregon Department of Fish and Wildlife",
+            "Oregon Department of Fish and Wildlife"
+          ],
+          "water_source_urls": [
+            "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "https://myodfw.com/recreation-report/fishing-report/northeast-zone"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-caeb9433efab",
+              "access_point_name": "Wallowa Lake State Park public access",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_type": "official_public_access",
+              "official_source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+              "verification_evidence": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+              "access_details": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+              "county": "Wallowa",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": true,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 1,
+          "reports": [
+            {
+              "report_kind": "official_scheduled_stocking",
+              "report_id": "or-report-9f1f3c630ded",
+              "state": "Oregon",
+              "counties": [
+                "Wallowa"
+              ],
+              "names": [
+                "Wallowa Lake"
+              ],
+              "water_name": "Wallowa Lake",
+              "agency": "Oregon Department of Fish and Wildlife",
+              "report_type": "Official scheduled stocking",
+              "published_date": "2026-08-03",
+              "report_date": "2026-08-03",
+              "report_period": "Week of Aug. 3-7, 2026",
+              "observed_period": "Week of Aug. 3-7, 2026",
+              "headline": "Wallowa Lake scheduled trout stocking",
+              "title": "Wallowa Lake scheduled trout stocking",
+              "summary": "ODFW scheduled 180 trophy-size rainbow trout for the week beginning Aug. 3. Stocking schedules can change.",
+              "catches": [
+                {
+                  "species": "Rainbow trout",
+                  "metric": "ODFW update",
+                  "detail": ""
+                }
+              ],
+              "conditions": [],
+              "rating": "",
+              "species": "Rainbow trout",
+              "techniques": "",
+              "access_notes": "",
+              "source_type": "official_scheduled_stocking",
+              "source_name": "Oregon Department of Fish and Wildlife",
+              "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+              "official": true,
+              "specificity": "Matched Oregon verified public water",
+              "freshness": "very_current",
+              "freshness_status": "very_current",
+              "freshness_days": 2,
+              "age_days": 2,
+              "last_checked_at": "2026-08-05T18:30:32Z",
+              "source_status": "available",
+              "source_error": "",
+              "review_required": false
+            }
+          ],
+          "latest_report": {
+            "report_kind": "official_scheduled_stocking",
+            "report_id": "or-report-9f1f3c630ded",
+            "state": "Oregon",
+            "counties": [
+              "Wallowa"
+            ],
+            "names": [
+              "Wallowa Lake"
+            ],
+            "water_name": "Wallowa Lake",
+            "agency": "Oregon Department of Fish and Wildlife",
+            "report_type": "Official scheduled stocking",
+            "published_date": "2026-08-03",
+            "report_date": "2026-08-03",
+            "report_period": "Week of Aug. 3-7, 2026",
+            "observed_period": "Week of Aug. 3-7, 2026",
+            "headline": "Wallowa Lake scheduled trout stocking",
+            "title": "Wallowa Lake scheduled trout stocking",
+            "summary": "ODFW scheduled 180 trophy-size rainbow trout for the week beginning Aug. 3. Stocking schedules can change.",
+            "catches": [
+              {
+                "species": "Rainbow trout",
+                "metric": "ODFW update",
+                "detail": ""
+              }
+            ],
+            "conditions": [],
+            "rating": "",
+            "species": "Rainbow trout",
+            "techniques": "",
+            "access_notes": "",
+            "source_type": "official_scheduled_stocking",
+            "source_name": "Oregon Department of Fish and Wildlife",
+            "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+            "official": true,
+            "specificity": "Matched Oregon verified public water",
+            "freshness": "very_current",
+            "freshness_status": "very_current",
+            "freshness_days": 2,
+            "age_days": 2,
+            "last_checked_at": "2026-08-05T18:30:32Z",
+            "source_status": "available",
+            "source_error": "",
+            "review_required": false
+          },
+          "report_status": "official_information_available"
+        }
+      ]
+    },
+    {
+      "county_number": 33,
+      "county": "Wasco",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-0144bfde4aff",
+          "state": "Oregon",
+          "county": "Wasco",
+          "counties": [
+            "Wasco"
+          ],
+          "county_number": 33,
+          "water_name": "Rock Creek Reservoir",
+          "water_type": "reservoir",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-086014545eb9",
+              "access_point_name": "Rock Creek Reservoir Campground and day use",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+              "access_details": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+              "county": "Wasco",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 34,
+      "county": "Washington",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-5011fc99c407",
+          "state": "Oregon",
+          "county": "Washington",
+          "counties": [
+            "Washington"
+          ],
+          "county_number": 34,
+          "water_name": "Henry Hagg Lake",
+          "water_type": "lake",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-583045a376a2",
+              "access_point_name": "Eagle Landing A and C ramps",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+              "access_details": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+              "county": "Washington",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": false,
+                "ada_parking": true,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 35,
+      "county": "Wheeler",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-e682308b0856",
+          "state": "Oregon",
+          "county": "Wheeler",
+          "counties": [
+            "Wheeler"
+          ],
+          "county_number": 35,
+          "water_name": "John Day River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Bureau of Land Management"
+          ],
+          "water_source_urls": [
+            "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-ddc08c6adca0",
+              "access_point_name": "Service Creek River Access Park",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Bureau of Land Management",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
+              "verification_evidence": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+              "access_details": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+              "county": "Wheeler",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "open",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": true,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    },
+    {
+      "county_number": 36,
+      "county": "Yamhill",
+      "public_water_count": 1,
+      "verified_access_point_count": 1,
+      "report_count": 0,
+      "waters": [
+        {
+          "water_id": "or-water-0dfb3a89e4b8",
+          "state": "Oregon",
+          "county": "Yamhill",
+          "counties": [
+            "Yamhill"
+          ],
+          "county_number": 36,
+          "water_name": "Yamhill River",
+          "water_type": "river",
+          "latitude": null,
+          "longitude": null,
+          "species": [],
+          "metadata_sources": [
+            "Oregon State Marine Board"
+          ],
+          "water_source_urls": [
+            "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+          ],
+          "access_points": [
+            {
+              "access_id": "or-access-c2eafa24b1b2",
+              "access_point_name": "Dayton Landing boat ramp",
+              "public_access_status": "verified_public",
+              "entire_shoreline_public": false,
+              "verification_method": "named facility or access site documented by an official government source",
+              "source_name": "Oregon State Marine Board",
+              "source_type": "official_public_access",
+              "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+              "verification_evidence": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+              "access_details": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+              "county": "Yamhill",
+              "latitude": null,
+              "longitude": null,
+              "directions_url": "",
+              "current_status": "advisory",
+              "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+              "amenities": {
+                "boat_ramp": true,
+                "shore_fishing": true,
+                "nonmotorized_launch": true,
+                "ada_parking": false,
+                "ada_restroom": false,
+                "ada_dock": false,
+                "ada_boat_launch": false,
+                "ada_fishing": false
+              },
+              "last_verified": "2026-08-05T18:30:32Z"
+            }
+          ],
+          "publication_status": "published_verified_public_access",
+          "access_point_count": 1,
+          "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+          "report_count": 0,
+          "reports": [],
+          "latest_report": null,
+          "report_status": "no_recent_odfw_match"
+        }
+      ]
+    }
+  ],
+  "flat_waters": [
+    {
+      "water_id": "or-water-3ee6741d8e48",
+      "state": "Oregon",
+      "county": "Baker",
+      "counties": [
+        "Baker"
+      ],
+      "county_number": 1,
+      "water_name": "Phillips Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Yellow perch",
+        "rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-f395a65c9fc2",
+          "access_point_name": "Mason Dam boat launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+          "access_details": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+          "county": "Baker",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-b1d21c24bbc2",
+          "state": "Oregon",
+          "counties": [
+            "Baker"
+          ],
+          "names": [
+            "Phillips Reservoir"
+          ],
+          "water_name": "Phillips Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Phillips Reservoir fishing update",
+          "title": "Phillips Reservoir fishing update",
+          "summary": "ODFW reported good perch fishing, including some large fish, in the Northeast Zone update.",
+          "catches": [
+            {
+              "species": "Yellow perch, rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Yellow perch, rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-b1d21c24bbc2",
+        "state": "Oregon",
+        "counties": [
+          "Baker"
+        ],
+        "names": [
+          "Phillips Reservoir"
+        ],
+        "water_name": "Phillips Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Phillips Reservoir fishing update",
+        "title": "Phillips Reservoir fishing update",
+        "summary": "ODFW reported good perch fishing, including some large fish, in the Northeast Zone update.",
+        "catches": [
+          {
+            "species": "Yellow perch, rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Yellow perch, rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-68a2bd9c1571",
+      "state": "Oregon",
+      "county": "Baker",
+      "counties": [
+        "Baker"
+      ],
+      "county_number": 1,
+      "water_name": "Unity Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-3a68306608cb",
+          "access_point_name": "Unity Lake State Recreation Site day-use ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+          "access_details": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+          "county": "Baker",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-de04e284d336",
+      "state": "Oregon",
+      "county": "Benton",
+      "counties": [
+        "Benton"
+      ],
+      "county_number": 2,
+      "water_name": "EE Wilson Wildlife Area Pond",
+      "water_type": "pond",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/articles/disabled-angler-access-map"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-1c1840516e60",
+          "access_point_name": "EE Wilson Wildlife Area Pond public angling access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_type": "official_public_access",
+          "official_source_url": "https://myodfw.com/articles/disabled-angler-access-map",
+          "verification_evidence": "ODFW identifies the wildlife-area pond as a public trout and warmwater fishing location with disabled-angler access.",
+          "access_details": "ODFW identifies the wildlife-area pond as a public trout and warmwater fishing location with disabled-angler access.",
+          "county": "Benton",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": true,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": true
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-5e068e0f74ea",
+      "state": "Oregon",
+      "county": "Clackamas",
+      "counties": [
+        "Clackamas"
+      ],
+      "county_number": 3,
+      "water_name": "Lake Harriet",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-80d41c9a4973",
+          "access_point_name": "Lake Harriet boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+          "access_details": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+          "county": "Clackamas",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-734d0bfd1c92",
+      "state": "Oregon",
+      "county": "Clackamas",
+      "counties": [
+        "Clackamas"
+      ],
+      "county_number": 3,
+      "water_name": "Trillium Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-95c49dd579a9",
+          "access_point_name": "Trillium Lake Campground and day-use boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the campground and day-use boating access sites open.",
+          "access_details": "The Marine Board reported the campground and day-use boating access sites open.",
+          "county": "Clackamas",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_scheduled_stocking",
+          "report_id": "or-report-cb2a8e82fbe7",
+          "state": "Oregon",
+          "counties": [
+            "Clackamas"
+          ],
+          "names": [
+            "Trillium Lake"
+          ],
+          "water_name": "Trillium Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official scheduled stocking",
+          "published_date": "2026-08-24",
+          "report_date": "2026-08-24",
+          "report_period": "Week of Aug. 24-28, 2026",
+          "observed_period": "Week of Aug. 24-28, 2026",
+          "headline": "Trillium Lake scheduled trout stocking",
+          "title": "Trillium Lake scheduled trout stocking",
+          "summary": "ODFW scheduled 2,000 legal and 133 trophy-size trout for the week beginning Aug. 24. Stocking schedules can change.",
+          "catches": [
+            {
+              "species": "Rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_scheduled_stocking",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "scheduled",
+          "freshness_status": "scheduled",
+          "freshness_days": -19,
+          "age_days": -19,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_scheduled_stocking",
+        "report_id": "or-report-cb2a8e82fbe7",
+        "state": "Oregon",
+        "counties": [
+          "Clackamas"
+        ],
+        "names": [
+          "Trillium Lake"
+        ],
+        "water_name": "Trillium Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official scheduled stocking",
+        "published_date": "2026-08-24",
+        "report_date": "2026-08-24",
+        "report_period": "Week of Aug. 24-28, 2026",
+        "observed_period": "Week of Aug. 24-28, 2026",
+        "headline": "Trillium Lake scheduled trout stocking",
+        "title": "Trillium Lake scheduled trout stocking",
+        "summary": "ODFW scheduled 2,000 legal and 133 trophy-size trout for the week beginning Aug. 24. Stocking schedules can change.",
+        "catches": [
+          {
+            "species": "Rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_scheduled_stocking",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "scheduled",
+        "freshness_status": "scheduled",
+        "freshness_days": -19,
+        "age_days": -19,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-1b44efe0c90f",
+      "state": "Oregon",
+      "county": "Clatsop",
+      "counties": [
+        "Clatsop"
+      ],
+      "county_number": 4,
+      "water_name": "Coffenbury Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-e8162a79e056",
+          "access_point_name": "Fort Stevens State Park boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Fort Stevens State Park boating access open.",
+          "access_details": "The Marine Board reported Fort Stevens State Park boating access open.",
+          "county": "Clatsop",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-cc11c3081d20",
+      "state": "Oregon",
+      "county": "Columbia",
+      "counties": [
+        "Columbia"
+      ],
+      "county_number": 5,
+      "water_name": "Scappoose Bay",
+      "water_type": "bay",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-a19970d51884",
+          "access_point_name": "Scappoose Bay Marina boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+          "access_details": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+          "county": "Columbia",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": false,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-145f25ebf50e",
+      "state": "Oregon",
+      "county": "Columbia",
+      "counties": [
+        "Columbia"
+      ],
+      "county_number": 5,
+      "water_name": "Trojan Pond",
+      "water_type": "pond",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-340ca93cfc4b",
+          "access_point_name": "Trojan Pond paddle access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+          "access_details": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+          "county": "Columbia",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": true,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-618403aba027",
+      "state": "Oregon",
+      "county": "Coos",
+      "counties": [
+        "Coos"
+      ],
+      "county_number": 6,
+      "water_name": "Eel Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-a31a0034a493",
+          "access_point_name": "Eel Lake public boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+          "access_details": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+          "county": "Coos",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-03f802b918ae",
+      "state": "Oregon",
+      "county": "Coos",
+      "counties": [
+        "Coos"
+      ],
+      "county_number": 6,
+      "water_name": "Powers Pond",
+      "water_type": "pond",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-fe195eb33624",
+          "access_point_name": "Powers Park kayak launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the public kayak launch open.",
+          "access_details": "The Marine Board reported the public kayak launch open.",
+          "county": "Coos",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-54ff1ceddb32",
+      "state": "Oregon",
+      "county": "Crook",
+      "counties": [
+        "Crook"
+      ],
+      "county_number": 7,
+      "water_name": "Ochoco Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-20ec46ff2a15",
+          "access_point_name": "Ochoco Lake County Park boat launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+          "access_details": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+          "county": "Crook",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-b04533990e5f",
+      "state": "Oregon",
+      "county": "Crook",
+      "counties": [
+        "Crook"
+      ],
+      "county_number": 7,
+      "water_name": "Prineville Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-485106d63712",
+          "access_point_name": "Prineville State Park day-use ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+          "access_details": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+          "county": "Crook",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-804a5c59292b",
+      "state": "Oregon",
+      "county": "Curry",
+      "counties": [
+        "Curry"
+      ],
+      "county_number": 8,
+      "water_name": "Chetco River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Parks"
+      ],
+      "water_source_urls": [
+        "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-54691055de5a",
+          "access_point_name": "Alfred A. Loeb State Park river access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Parks",
+          "source_type": "official_public_access",
+          "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51",
+          "verification_evidence": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+          "access_details": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+          "county": "Curry",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-4503135426a0",
+      "state": "Oregon",
+      "county": "Curry",
+      "counties": [
+        "Curry"
+      ],
+      "county_number": 8,
+      "water_name": "Winchuck River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Parks"
+      ],
+      "water_source_urls": [
+        "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=57"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-8880a8da9e24",
+          "access_point_name": "Winchuck State Recreation Site",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Parks",
+          "source_type": "official_public_access",
+          "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=57",
+          "verification_evidence": "Oregon State Parks identifies public parking and river/ocean-beach access for fishing and other recreation.",
+          "access_details": "Oregon State Parks identifies public parking and river/ocean-beach access for fishing and other recreation.",
+          "county": "Curry",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-990d4fefc7d2",
+      "state": "Oregon",
+      "county": "Deschutes",
+      "counties": [
+        "Deschutes"
+      ],
+      "county_number": 9,
+      "water_name": "Crane Prairie Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout",
+        "kokanee"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/central-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-c9cd637dc266",
+          "access_point_name": "Crane Prairie Day Use and Rock Creek Day Use ramps",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+          "access_details": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+          "county": "Deschutes",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-c580312b1b07",
+          "state": "Oregon",
+          "counties": [
+            "Deschutes"
+          ],
+          "names": [
+            "Crane Prairie Reservoir"
+          ],
+          "water_name": "Crane Prairie Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Crane Prairie Reservoir fishing update",
+          "title": "Crane Prairie Reservoir fishing update",
+          "summary": "ODFW reported abundant rainbow trout, kokanee around 15 inches and generally good fishing.",
+          "catches": [
+            {
+              "species": "Rainbow trout, kokanee",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout, kokanee",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-c580312b1b07",
+        "state": "Oregon",
+        "counties": [
+          "Deschutes"
+        ],
+        "names": [
+          "Crane Prairie Reservoir"
+        ],
+        "water_name": "Crane Prairie Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Crane Prairie Reservoir fishing update",
+        "title": "Crane Prairie Reservoir fishing update",
+        "summary": "ODFW reported abundant rainbow trout, kokanee around 15 inches and generally good fishing.",
+        "catches": [
+          {
+            "species": "Rainbow trout, kokanee",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout, kokanee",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-cd3cba64ccd8",
+      "state": "Oregon",
+      "county": "Deschutes",
+      "counties": [
+        "Deschutes"
+      ],
+      "county_number": 9,
+      "water_name": "East Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-44124e2e1fb6",
+          "access_point_name": "East Lake public boating sites",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Cinder Hill, Hot Springs, resort and public boating access open, with some docks unavailable due to low water.",
+          "access_details": "The Marine Board reported Cinder Hill, Hot Springs, resort and public boating access open, with some docks unavailable due to low water.",
+          "county": "Deschutes",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-c689890df491",
+          "state": "Oregon",
+          "counties": [
+            "Deschutes"
+          ],
+          "names": [
+            "East Lake"
+          ],
+          "water_name": "East Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "Week of Jul. 6-10, 2026",
+          "observed_period": "Week of Jul. 6-10, 2026",
+          "headline": "East Lake trout stocking",
+          "title": "East Lake trout stocking",
+          "summary": "ODFW listed 2,500 legal-size trout for the stocking week beginning July 6.",
+          "catches": [
+            {
+              "species": "Rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-c689890df491",
+        "state": "Oregon",
+        "counties": [
+          "Deschutes"
+        ],
+        "names": [
+          "East Lake"
+        ],
+        "water_name": "East Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "Week of Jul. 6-10, 2026",
+        "observed_period": "Week of Jul. 6-10, 2026",
+        "headline": "East Lake trout stocking",
+        "title": "East Lake trout stocking",
+        "summary": "ODFW listed 2,500 legal-size trout for the stocking week beginning July 6.",
+        "catches": [
+          {
+            "species": "Rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-f934cfa6c98a",
+      "state": "Oregon",
+      "county": "Deschutes",
+      "counties": [
+        "Deschutes"
+      ],
+      "county_number": 9,
+      "water_name": "Paulina Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Trout",
+        "kokanee"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/central-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-6bcff9ac8ea1",
+          "access_point_name": "Paulina Lake boating sites",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+          "access_details": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+          "county": "Deschutes",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-8f47b59b419b",
+          "state": "Oregon",
+          "counties": [
+            "Deschutes"
+          ],
+          "names": [
+            "Paulina Lake"
+          ],
+          "water_name": "Paulina Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Paulina Lake fishing update",
+          "title": "Paulina Lake fishing update",
+          "summary": "ODFW reported good trout fishing and excellent kokanee fishing, with kokanee averaging roughly 13-14 inches.",
+          "catches": [
+            {
+              "species": "Trout, kokanee",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Trout, kokanee",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-8f47b59b419b",
+        "state": "Oregon",
+        "counties": [
+          "Deschutes"
+        ],
+        "names": [
+          "Paulina Lake"
+        ],
+        "water_name": "Paulina Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Paulina Lake fishing update",
+        "title": "Paulina Lake fishing update",
+        "summary": "ODFW reported good trout fishing and excellent kokanee fishing, with kokanee averaging roughly 13-14 inches.",
+        "catches": [
+          {
+            "species": "Trout, kokanee",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Trout, kokanee",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-2b7447dd8b5b",
+      "state": "Oregon",
+      "county": "Douglas",
+      "counties": [
+        "Douglas"
+      ],
+      "county_number": 10,
+      "water_name": "Diamond Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout",
+        "brown trout",
+        "tiger trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-8ce69d11f6c5",
+          "access_point_name": "Diamond Lake public boat launches",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+          "access_details": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+          "county": "Douglas",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-520b326f1c53",
+          "state": "Oregon",
+          "counties": [
+            "Douglas"
+          ],
+          "names": [
+            "Diamond Lake"
+          ],
+          "water_name": "Diamond Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-02",
+          "report_date": "2026-07-02",
+          "report_period": "2026-07-02",
+          "observed_period": "",
+          "headline": "Diamond Lake fishing update",
+          "title": "Diamond Lake fishing update",
+          "summary": "ODFW reported good angling and several limits, while reminding anglers that brown and tiger trout must be released.",
+          "catches": [
+            {
+              "species": "Rainbow trout, brown trout, tiger trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout, brown trout, tiger trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 34,
+          "age_days": 34,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-520b326f1c53",
+        "state": "Oregon",
+        "counties": [
+          "Douglas"
+        ],
+        "names": [
+          "Diamond Lake"
+        ],
+        "water_name": "Diamond Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-02",
+        "report_date": "2026-07-02",
+        "report_period": "2026-07-02",
+        "observed_period": "",
+        "headline": "Diamond Lake fishing update",
+        "title": "Diamond Lake fishing update",
+        "summary": "ODFW reported good angling and several limits, while reminding anglers that brown and tiger trout must be released.",
+        "catches": [
+          {
+            "species": "Rainbow trout, brown trout, tiger trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout, brown trout, tiger trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 34,
+        "age_days": 34,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-13a881f3fad1",
+      "state": "Oregon",
+      "county": "Douglas",
+      "counties": [
+        "Douglas"
+      ],
+      "county_number": 10,
+      "water_name": "Lemolo Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-e9a83ba6897d",
+          "access_point_name": "Poole Creek and East Lemolo boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+          "access_details": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+          "county": "Douglas",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-50c7799f6e6e",
+      "state": "Oregon",
+      "county": "Gilliam",
+      "counties": [
+        "Gilliam"
+      ],
+      "county_number": 11,
+      "water_name": "Columbia River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-7f5ba14aefaf",
+          "access_point_name": "Port of Arlington boat launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+          "access_details": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+          "county": "Gilliam",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-882754bcc9a3",
+      "state": "Oregon",
+      "county": "Grant",
+      "counties": [
+        "Grant"
+      ],
+      "county_number": 12,
+      "water_name": "Magone Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout",
+        "brook trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-db57045c2a34",
+          "access_point_name": "Magone Lake Campground boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+          "access_details": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+          "county": "Grant",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-462e9a27c24e",
+          "state": "Oregon",
+          "counties": [
+            "Grant"
+          ],
+          "names": [
+            "Magone Lake"
+          ],
+          "water_name": "Magone Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Magone Lake fishing update",
+          "title": "Magone Lake fishing update",
+          "summary": "ODFW reported that fishing is often good and that the lake had been stocked for 2026.",
+          "catches": [
+            {
+              "species": "Rainbow trout, brook trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout, brook trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-462e9a27c24e",
+        "state": "Oregon",
+        "counties": [
+          "Grant"
+        ],
+        "names": [
+          "Magone Lake"
+        ],
+        "water_name": "Magone Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Magone Lake fishing update",
+        "title": "Magone Lake fishing update",
+        "summary": "ODFW reported that fishing is often good and that the lake had been stocked for 2026.",
+        "catches": [
+          {
+            "species": "Rainbow trout, brook trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout, brook trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-db8bde4c6d25",
+      "state": "Oregon",
+      "county": "Harney",
+      "counties": [
+        "Harney"
+      ],
+      "county_number": 13,
+      "water_name": "Delintment Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-8bd36131d3ba",
+          "access_point_name": "Delintment Lake Campground boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported seasonal campground and boating access open.",
+          "access_details": "The Marine Board reported seasonal campground and boating access open.",
+          "county": "Harney",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-e3c80585dc19",
+      "state": "Oregon",
+      "county": "Hood River",
+      "counties": [
+        "Hood River"
+      ],
+      "county_number": 14,
+      "water_name": "Kingsley Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-5736e7afbd5d",
+          "access_point_name": "Kingsley Day Use concrete ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the day-use site and concrete boat ramp open.",
+          "access_details": "The Marine Board reported the day-use site and concrete boat ramp open.",
+          "county": "Hood River",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-7496d486c56d",
+      "state": "Oregon",
+      "county": "Jackson",
+      "counties": [
+        "Jackson"
+      ],
+      "county_number": 15,
+      "water_name": "Agate Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-397433cecfcc",
+          "access_point_name": "Agate Lake boat launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+          "access_details": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+          "county": "Jackson",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-f2198fd97a98",
+      "state": "Oregon",
+      "county": "Jackson",
+      "counties": [
+        "Jackson"
+      ],
+      "county_number": 15,
+      "water_name": "Lost Creek Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout",
+        "bass"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-2a54f08a98a9",
+          "access_point_name": "Takelma boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+          "access_details": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+          "county": "Jackson",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-b0a5d19be483",
+          "state": "Oregon",
+          "counties": [
+            "Jackson"
+          ],
+          "names": [
+            "Lost Creek Reservoir"
+          ],
+          "water_name": "Lost Creek Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Lost Creek Reservoir fishing update",
+          "title": "Lost Creek Reservoir fishing update",
+          "summary": "ODFW listed trolling at Lost Creek as a current best bet and reported very good fishing.",
+          "catches": [
+            {
+              "species": "Rainbow trout, bass",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout, bass",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-b0a5d19be483",
+        "state": "Oregon",
+        "counties": [
+          "Jackson"
+        ],
+        "names": [
+          "Lost Creek Reservoir"
+        ],
+        "water_name": "Lost Creek Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Lost Creek Reservoir fishing update",
+        "title": "Lost Creek Reservoir fishing update",
+        "summary": "ODFW listed trolling at Lost Creek as a current best bet and reported very good fishing.",
+        "catches": [
+          {
+            "species": "Rainbow trout, bass",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout, bass",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-2cd6d30a7138",
+      "state": "Oregon",
+      "county": "Jefferson",
+      "counties": [
+        "Jefferson"
+      ],
+      "county_number": 16,
+      "water_name": "Lake Billy Chinook",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-519425afc3b4",
+          "access_point_name": "Cove Palisades State Park ramps",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+          "access_details": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+          "county": "Jefferson",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-036eeaac1173",
+      "state": "Oregon",
+      "county": "Josephine",
+      "counties": [
+        "Josephine"
+      ],
+      "county_number": 17,
+      "water_name": "Lake Selmac",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout",
+        "bluegill",
+        "crappie",
+        "largemouth bass"
+      ],
+      "metadata_sources": [
+        "Oregon Department of Fish and Wildlife",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/articles/easy-angling-southwest-zone",
+        "https://myodfw.com/recreation-report/fishing-report/southwest-zone"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-be4e78eafefc",
+          "access_point_name": "Lake Selmac public campgrounds and access sites",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_type": "official_public_access",
+          "official_source_url": "https://myodfw.com/articles/easy-angling-southwest-zone",
+          "verification_evidence": "ODFW identifies Selmac as Josephine County's largest standing waterbody and directs anglers to its public campgrounds and access areas.",
+          "access_details": "ODFW identifies Selmac as Josephine County's largest standing waterbody and directs anglers to its public campgrounds and access areas.",
+          "county": "Josephine",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-61d4befe1c55",
+          "state": "Oregon",
+          "counties": [
+            "Josephine"
+          ],
+          "names": [
+            "Lake Selmac"
+          ],
+          "water_name": "Lake Selmac",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-05-05",
+          "report_date": "2026-05-05",
+          "report_period": "2026-05-05",
+          "observed_period": "",
+          "headline": "Lake Selmac fishing update",
+          "title": "Lake Selmac fishing update",
+          "summary": "ODFW reported recent trout stocking and highlighted the lake's bass, bluegill and crappie fishing.",
+          "catches": [
+            {
+              "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "stale",
+          "freshness_status": "stale",
+          "freshness_days": 92,
+          "age_days": 92,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-61d4befe1c55",
+        "state": "Oregon",
+        "counties": [
+          "Josephine"
+        ],
+        "names": [
+          "Lake Selmac"
+        ],
+        "water_name": "Lake Selmac",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-05-05",
+        "report_date": "2026-05-05",
+        "report_period": "2026-05-05",
+        "observed_period": "",
+        "headline": "Lake Selmac fishing update",
+        "title": "Lake Selmac fishing update",
+        "summary": "ODFW reported recent trout stocking and highlighted the lake's bass, bluegill and crappie fishing.",
+        "catches": [
+          {
+            "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "stale",
+        "freshness_status": "stale",
+        "freshness_days": 92,
+        "age_days": 92,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-d485cc1e0775",
+      "state": "Oregon",
+      "county": "Klamath",
+      "counties": [
+        "Klamath"
+      ],
+      "county_number": 18,
+      "water_name": "Agency Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-30bb6a9fcea4",
+          "access_point_name": "Henzel Park and Petric Park boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported both named public access sites open, with a health advisory noted for the location.",
+          "access_details": "The Marine Board reported both named public access sites open, with a health advisory noted for the location.",
+          "county": "Klamath",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-9b9c6d88818d",
+      "state": "Oregon",
+      "county": "Klamath",
+      "counties": [
+        "Klamath"
+      ],
+      "county_number": 18,
+      "water_name": "Lake of the Woods",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-655fa0fad9e6",
+          "access_point_name": "Aspen Point and Sunset Day Use launches",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported resort and public day-use launches open.",
+          "access_details": "The Marine Board reported resort and public day-use launches open.",
+          "county": "Klamath",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_scheduled_stocking",
+          "report_id": "or-report-771ce5d59f06",
+          "state": "Oregon",
+          "counties": [
+            "Klamath"
+          ],
+          "names": [
+            "Lake of the Woods"
+          ],
+          "water_name": "Lake of the Woods",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official scheduled stocking",
+          "published_date": "2026-09-14",
+          "report_date": "2026-09-14",
+          "report_period": "Week of Sep. 14-18, 2026",
+          "observed_period": "Week of Sep. 14-18, 2026",
+          "headline": "Lake of the Woods scheduled trout stocking",
+          "title": "Lake of the Woods scheduled trout stocking",
+          "summary": "ODFW scheduled 1,500 legal-size trout for the week beginning Sept. 14. Stocking schedules can change.",
+          "catches": [
+            {
+              "species": "Rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_scheduled_stocking",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "scheduled",
+          "freshness_status": "scheduled",
+          "freshness_days": -40,
+          "age_days": -40,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_scheduled_stocking",
+        "report_id": "or-report-771ce5d59f06",
+        "state": "Oregon",
+        "counties": [
+          "Klamath"
+        ],
+        "names": [
+          "Lake of the Woods"
+        ],
+        "water_name": "Lake of the Woods",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official scheduled stocking",
+        "published_date": "2026-09-14",
+        "report_date": "2026-09-14",
+        "report_period": "Week of Sep. 14-18, 2026",
+        "observed_period": "Week of Sep. 14-18, 2026",
+        "headline": "Lake of the Woods scheduled trout stocking",
+        "title": "Lake of the Woods scheduled trout stocking",
+        "summary": "ODFW scheduled 1,500 legal-size trout for the week beginning Sept. 14. Stocking schedules can change.",
+        "catches": [
+          {
+            "species": "Rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_scheduled_stocking",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "scheduled",
+        "freshness_status": "scheduled",
+        "freshness_days": -40,
+        "age_days": -40,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-ec0a45978703",
+      "state": "Oregon",
+      "county": "Lake",
+      "counties": [
+        "Lake"
+      ],
+      "county_number": 19,
+      "water_name": "Ana Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-d8c7f32cd263",
+          "access_point_name": "Ana Reservoir boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the ramp open and boarding docks floating.",
+          "access_details": "The Marine Board reported the ramp open and boarding docks floating.",
+          "county": "Lake",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_scheduled_stocking",
+          "report_id": "or-report-62f73a79fae5",
+          "state": "Oregon",
+          "counties": [
+            "Lake"
+          ],
+          "names": [
+            "Ana Reservoir"
+          ],
+          "water_name": "Ana Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official scheduled stocking",
+          "published_date": "2026-08-17",
+          "report_date": "2026-08-17",
+          "report_period": "Week of Aug. 17-21, 2026",
+          "observed_period": "Week of Aug. 17-21, 2026",
+          "headline": "Ana Reservoir scheduled trout stocking",
+          "title": "Ana Reservoir scheduled trout stocking",
+          "summary": "ODFW scheduled 2,400 legal-size trout for the week beginning Aug. 17. Stocking schedules can change.",
+          "catches": [
+            {
+              "species": "Rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_scheduled_stocking",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "scheduled",
+          "freshness_status": "scheduled",
+          "freshness_days": -12,
+          "age_days": -12,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_scheduled_stocking",
+        "report_id": "or-report-62f73a79fae5",
+        "state": "Oregon",
+        "counties": [
+          "Lake"
+        ],
+        "names": [
+          "Ana Reservoir"
+        ],
+        "water_name": "Ana Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official scheduled stocking",
+        "published_date": "2026-08-17",
+        "report_date": "2026-08-17",
+        "report_period": "Week of Aug. 17-21, 2026",
+        "observed_period": "Week of Aug. 17-21, 2026",
+        "headline": "Ana Reservoir scheduled trout stocking",
+        "title": "Ana Reservoir scheduled trout stocking",
+        "summary": "ODFW scheduled 2,400 legal-size trout for the week beginning Aug. 17. Stocking schedules can change.",
+        "catches": [
+          {
+            "species": "Rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_scheduled_stocking",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "scheduled",
+        "freshness_status": "scheduled",
+        "freshness_days": -12,
+        "age_days": -12,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-1ef2a8f0462e",
+      "state": "Oregon",
+      "county": "Lane",
+      "counties": [
+        "Lane"
+      ],
+      "county_number": 20,
+      "water_name": "Blue River Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-c2c5d9ad5da5",
+          "access_point_name": "Saddle Dam boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+          "access_details": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+          "county": "Lane",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-0a4a68332946",
+      "state": "Oregon",
+      "county": "Lane",
+      "counties": [
+        "Lane"
+      ],
+      "county_number": 20,
+      "water_name": "Fern Ridge Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Largemouth bass",
+        "bluegill",
+        "brown bullhead",
+        "crappie"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-1c6e2111bfce",
+          "access_point_name": "Orchard Point Marina boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+          "access_details": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+          "county": "Lane",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": true,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-86c1946a664b",
+          "state": "Oregon",
+          "counties": [
+            "Lane"
+          ],
+          "names": [
+            "Fern Ridge Reservoir"
+          ],
+          "water_name": "Fern Ridge Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "2026-07-06",
+          "observed_period": "",
+          "headline": "Fern Ridge Reservoir fishing update",
+          "title": "Fern Ridge Reservoir fishing update",
+          "summary": "ODFW reported the reservoir open year-round with strong warmwater opportunities and multiple public bank and ramp locations.",
+          "catches": [
+            {
+              "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-86c1946a664b",
+        "state": "Oregon",
+        "counties": [
+          "Lane"
+        ],
+        "names": [
+          "Fern Ridge Reservoir"
+        ],
+        "water_name": "Fern Ridge Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "2026-07-06",
+        "observed_period": "",
+        "headline": "Fern Ridge Reservoir fishing update",
+        "title": "Fern Ridge Reservoir fishing update",
+        "summary": "ODFW reported the reservoir open year-round with strong warmwater opportunities and multiple public bank and ramp locations.",
+        "catches": [
+          {
+            "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-3a8d37e1ce72",
+      "state": "Oregon",
+      "county": "Lincoln",
+      "counties": [
+        "Lincoln"
+      ],
+      "county_number": 21,
+      "water_name": "Siletz River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Summer steelhead",
+        "cutthroat trout",
+        "spring Chinook"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-1a88402da79c",
+          "access_point_name": "Moonshine Boat Ramp and named river accesses",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+          "access_details": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+          "county": "Lincoln",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-216693d77f42",
+          "state": "Oregon",
+          "counties": [
+            "Lincoln"
+          ],
+          "names": [
+            "Siletz River"
+          ],
+          "water_name": "Siletz River",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "2026-07-06",
+          "observed_period": "",
+          "headline": "Siletz River fishing update",
+          "title": "Siletz River fishing update",
+          "summary": "ODFW reported fair summer-steelhead fishing, low clear water and fish distributed through the system.",
+          "catches": [
+            {
+              "species": "Summer steelhead, spring Chinook, cutthroat trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Summer steelhead, spring Chinook, cutthroat trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-216693d77f42",
+        "state": "Oregon",
+        "counties": [
+          "Lincoln"
+        ],
+        "names": [
+          "Siletz River"
+        ],
+        "water_name": "Siletz River",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "2026-07-06",
+        "observed_period": "",
+        "headline": "Siletz River fishing update",
+        "title": "Siletz River fishing update",
+        "summary": "ODFW reported fair summer-steelhead fishing, low clear water and fish distributed through the system.",
+        "catches": [
+          {
+            "species": "Summer steelhead, spring Chinook, cutthroat trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Summer steelhead, spring Chinook, cutthroat trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-f2039b13bddc",
+      "state": "Oregon",
+      "county": "Lincoln",
+      "counties": [
+        "Lincoln"
+      ],
+      "county_number": 21,
+      "water_name": "Yaquina Bay",
+      "water_type": "bay",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-da6549baace8",
+          "access_point_name": "Port of Newport boating sites",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+          "access_details": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+          "county": "Lincoln",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-9767a20a0f67",
+      "state": "Oregon",
+      "county": "Linn",
+      "counties": [
+        "Linn"
+      ],
+      "county_number": 22,
+      "water_name": "Clear Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-115fbff77923",
+          "access_point_name": "Cold Water Cove and Clear Lake Resort ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+          "access_details": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+          "county": "Linn",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-b05b34acb272",
+      "state": "Oregon",
+      "county": "Linn",
+      "counties": [
+        "Linn"
+      ],
+      "county_number": 22,
+      "water_name": "Foster Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Trout",
+        "bass",
+        "catfish",
+        "perch"
+      ],
+      "metadata_sources": [
+        "Oregon Department of Fish and Wildlife",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/willamette-zone"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-39c10ee25563",
+          "access_point_name": "Foster Reservoir public ramps and bank access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_type": "official_public_access",
+          "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "verification_evidence": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+          "access_details": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+          "county": "Linn",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-5cd68c396e29",
+          "state": "Oregon",
+          "counties": [
+            "Linn"
+          ],
+          "names": [
+            "Foster Reservoir"
+          ],
+          "water_name": "Foster Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "2026-07-06",
+          "observed_period": "",
+          "headline": "Foster Reservoir fishing update",
+          "title": "Foster Reservoir fishing update",
+          "summary": "ODFW reported trout remaining from spring stocking and productive warmwater fishing near structure and drop-offs.",
+          "catches": [
+            {
+              "species": "Trout, bass, perch, catfish",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Trout, bass, perch, catfish",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-5cd68c396e29",
+        "state": "Oregon",
+        "counties": [
+          "Linn"
+        ],
+        "names": [
+          "Foster Reservoir"
+        ],
+        "water_name": "Foster Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "2026-07-06",
+        "observed_period": "",
+        "headline": "Foster Reservoir fishing update",
+        "title": "Foster Reservoir fishing update",
+        "summary": "ODFW reported trout remaining from spring stocking and productive warmwater fishing near structure and drop-offs.",
+        "catches": [
+          {
+            "species": "Trout, bass, perch, catfish",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Trout, bass, perch, catfish",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-2ae334ea116d",
+      "state": "Oregon",
+      "county": "Malheur",
+      "counties": [
+        "Malheur"
+      ],
+      "county_number": 23,
+      "water_name": "Lake Owyhee Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-d652a20ef88c",
+          "access_point_name": "Indian Creek and Gordon Gulch boat ramps",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+          "access_details": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+          "county": "Malheur",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-a4ff33f506b7",
+      "state": "Oregon",
+      "county": "Marion",
+      "counties": [
+        "Marion"
+      ],
+      "county_number": 24,
+      "water_name": "Turner Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-91b36d147852",
+          "access_point_name": "North Turner Lake boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+          "access_details": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+          "county": "Marion",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-564755d0f833",
+      "state": "Oregon",
+      "county": "Marion",
+      "counties": [
+        "Marion"
+      ],
+      "county_number": 24,
+      "water_name": "Walter Wirth Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Trout",
+        "bass",
+        "panfish"
+      ],
+      "metadata_sources": [
+        "Oregon Department of Fish and Wildlife",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/willamette-zone"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-ba47a1b7c3ff",
+          "access_point_name": "Cascades Gateway Park shoreline access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_type": "official_public_access",
+          "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "verification_evidence": "ODFW describes good public access around this Salem urban lake.",
+          "access_details": "ODFW describes good public access around this Salem urban lake.",
+          "county": "Marion",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": true,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-4a60f25172bd",
+          "state": "Oregon",
+          "counties": [
+            "Marion"
+          ],
+          "names": [
+            "Walter Wirth Lake"
+          ],
+          "water_name": "Walter Wirth Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "2026-07-06",
+          "observed_period": "",
+          "headline": "Walter Wirth Lake fishing update",
+          "title": "Walter Wirth Lake fishing update",
+          "summary": "ODFW reported that summer anglers can target bass and bluegill after the spring trout-stocking period.",
+          "catches": [
+            {
+              "species": "Trout, bass, panfish",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Trout, bass, panfish",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-4a60f25172bd",
+        "state": "Oregon",
+        "counties": [
+          "Marion"
+        ],
+        "names": [
+          "Walter Wirth Lake"
+        ],
+        "water_name": "Walter Wirth Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "2026-07-06",
+        "observed_period": "",
+        "headline": "Walter Wirth Lake fishing update",
+        "title": "Walter Wirth Lake fishing update",
+        "summary": "ODFW reported that summer anglers can target bass and bluegill after the spring trout-stocking period.",
+        "catches": [
+          {
+            "species": "Trout, bass, panfish",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Trout, bass, panfish",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-8f9d62b89a7f",
+      "state": "Oregon",
+      "county": "Morrow",
+      "counties": [
+        "Morrow"
+      ],
+      "county_number": 25,
+      "water_name": "Willow Creek Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Trout",
+        "bass",
+        "crappie"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-20aebb4fea15",
+          "access_point_name": "Turner Day Park",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+          "access_details": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+          "county": "Morrow",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-052e78670613",
+          "state": "Oregon",
+          "counties": [
+            "Morrow"
+          ],
+          "names": [
+            "Willow Creek Reservoir"
+          ],
+          "water_name": "Willow Creek Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "Willow Creek Reservoir fishing update",
+          "title": "Willow Creek Reservoir fishing update",
+          "summary": "ODFW listed Willow Creek Reservoir as a current best bet for trout, bass and crappie.",
+          "catches": [
+            {
+              "species": "Trout, bass, crappie",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Trout, bass, crappie",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-052e78670613",
+        "state": "Oregon",
+        "counties": [
+          "Morrow"
+        ],
+        "names": [
+          "Willow Creek Reservoir"
+        ],
+        "water_name": "Willow Creek Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "Willow Creek Reservoir fishing update",
+        "title": "Willow Creek Reservoir fishing update",
+        "summary": "ODFW listed Willow Creek Reservoir as a current best bet for trout, bass and crappie.",
+        "catches": [
+          {
+            "species": "Trout, bass, crappie",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Trout, bass, crappie",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-3fdfba829bf0",
+      "state": "Oregon",
+      "county": "Multnomah",
+      "counties": [
+        "Multnomah"
+      ],
+      "county_number": 26,
+      "water_name": "Benson Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-3ee53da595bf",
+          "access_point_name": "Benson State Recreation Area",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+          "access_details": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+          "county": "Multnomah",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": true,
+            "ada_restroom": true,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-a19fc2e1cdec",
+      "state": "Oregon",
+      "county": "Polk",
+      "counties": [
+        "Polk"
+      ],
+      "county_number": 27,
+      "water_name": "Willamette River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-2d5d5bb082ac",
+          "access_point_name": "Independence Riverview Park nonmotorized launch",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+          "access_details": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+          "county": "Polk",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": false,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-98e3ae7c1c55",
+      "state": "Oregon",
+      "county": "Sherman",
+      "counties": [
+        "Sherman"
+      ],
+      "county_number": 28,
+      "water_name": "John Day River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Bureau of Land Management"
+      ],
+      "water_source_urls": [
+        "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-394d7aedd09a",
+          "access_point_name": "Cottonwood / J.S. Burres access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Bureau of Land Management",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
+          "verification_evidence": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+          "access_details": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+          "county": "Sherman",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": true,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-cd683b049322",
+      "state": "Oregon",
+      "county": "Tillamook",
+      "counties": [
+        "Tillamook"
+      ],
+      "county_number": 29,
+      "water_name": "Cape Meares Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-ba73f78f3102",
+          "access_point_name": "Cape Meares Lake boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+          "access_details": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+          "county": "Tillamook",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-17a7fdead211",
+      "state": "Oregon",
+      "county": "Tillamook",
+      "counties": [
+        "Tillamook"
+      ],
+      "county_number": 29,
+      "water_name": "Wilson River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Summer steelhead",
+        "cutthroat trout"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-2263e7f449de",
+          "access_point_name": "Sollie Smith and named river accesses",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported several named public accesses open, while low water can limit drift boats upstream.",
+          "access_details": "The Marine Board reported several named public accesses open, while low water can limit drift boats upstream.",
+          "county": "Tillamook",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-0f06abb2a2f9",
+          "state": "Oregon",
+          "counties": [
+            "Tillamook"
+          ],
+          "names": [
+            "Wilson River"
+          ],
+          "water_name": "Wilson River",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-06",
+          "report_date": "2026-07-06",
+          "report_period": "2026-07-06",
+          "observed_period": "",
+          "headline": "Wilson River fishing update",
+          "title": "Wilson River fishing update",
+          "summary": "ODFW reported summer steelhead throughout the fishery and recommended stealth during low, clear conditions.",
+          "catches": [
+            {
+              "species": "Summer steelhead, cutthroat trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Summer steelhead, cutthroat trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 30,
+          "age_days": 30,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-0f06abb2a2f9",
+        "state": "Oregon",
+        "counties": [
+          "Tillamook"
+        ],
+        "names": [
+          "Wilson River"
+        ],
+        "water_name": "Wilson River",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-06",
+        "report_date": "2026-07-06",
+        "report_period": "2026-07-06",
+        "observed_period": "",
+        "headline": "Wilson River fishing update",
+        "title": "Wilson River fishing update",
+        "summary": "ODFW reported summer steelhead throughout the fishery and recommended stealth during low, clear conditions.",
+        "catches": [
+          {
+            "species": "Summer steelhead, cutthroat trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Summer steelhead, cutthroat trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 30,
+        "age_days": 30,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-7239d05bd754",
+      "state": "Oregon",
+      "county": "Umatilla",
+      "counties": [
+        "Umatilla"
+      ],
+      "county_number": 30,
+      "water_name": "McKay Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Bass",
+        "rainbow trout",
+        "yellow perch"
+      ],
+      "metadata_sources": [
+        "Oregon State Marine Board",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-dcdfd0114f3d",
+          "access_point_name": "McKay Reservoir north and south boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+          "access_details": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+          "county": "Umatilla",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_fishing_report",
+          "report_id": "or-report-401ca47737ee",
+          "state": "Oregon",
+          "counties": [
+            "Umatilla"
+          ],
+          "names": [
+            "McKay Reservoir"
+          ],
+          "water_name": "McKay Reservoir",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official ODFW fishing report",
+          "published_date": "2026-07-09",
+          "report_date": "2026-07-09",
+          "report_period": "2026-07-09",
+          "observed_period": "",
+          "headline": "McKay Reservoir fishing update",
+          "title": "McKay Reservoir fishing update",
+          "summary": "ODFW reported good bass and panfish fishing and noted a current harmful-algae precaution.",
+          "catches": [
+            {
+              "species": "Bass, yellow perch, rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Bass, yellow perch, rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_fishing_report",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "current",
+          "freshness_status": "current",
+          "freshness_days": 27,
+          "age_days": 27,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_fishing_report",
+        "report_id": "or-report-401ca47737ee",
+        "state": "Oregon",
+        "counties": [
+          "Umatilla"
+        ],
+        "names": [
+          "McKay Reservoir"
+        ],
+        "water_name": "McKay Reservoir",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official ODFW fishing report",
+        "published_date": "2026-07-09",
+        "report_date": "2026-07-09",
+        "report_period": "2026-07-09",
+        "observed_period": "",
+        "headline": "McKay Reservoir fishing update",
+        "title": "McKay Reservoir fishing update",
+        "summary": "ODFW reported good bass and panfish fishing and noted a current harmful-algae precaution.",
+        "catches": [
+          {
+            "species": "Bass, yellow perch, rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Bass, yellow perch, rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_fishing_report",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "current",
+        "freshness_status": "current",
+        "freshness_days": 27,
+        "age_days": 27,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-0b5832be53c4",
+      "state": "Oregon",
+      "county": "Union",
+      "counties": [
+        "Union"
+      ],
+      "county_number": 31,
+      "water_name": "Jubilee Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-698ca0110bef",
+          "access_point_name": "Jubilee Lake Campground boating access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported campground and boating access open.",
+          "access_details": "The Marine Board reported campground and boating access open.",
+          "county": "Union",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-189377d51cb9",
+      "state": "Oregon",
+      "county": "Wallowa",
+      "counties": [
+        "Wallowa"
+      ],
+      "county_number": 32,
+      "water_name": "Wallowa Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [
+        "Rainbow trout"
+      ],
+      "metadata_sources": [
+        "Oregon Department of Fish and Wildlife",
+        "Oregon Department of Fish and Wildlife"
+      ],
+      "water_source_urls": [
+        "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "https://myodfw.com/recreation-report/fishing-report/northeast-zone"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-caeb9433efab",
+          "access_point_name": "Wallowa Lake State Park public access",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_type": "official_public_access",
+          "official_source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+          "verification_evidence": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+          "access_details": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+          "county": "Wallowa",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": true,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 1,
+      "reports": [
+        {
+          "report_kind": "official_scheduled_stocking",
+          "report_id": "or-report-9f1f3c630ded",
+          "state": "Oregon",
+          "counties": [
+            "Wallowa"
+          ],
+          "names": [
+            "Wallowa Lake"
+          ],
+          "water_name": "Wallowa Lake",
+          "agency": "Oregon Department of Fish and Wildlife",
+          "report_type": "Official scheduled stocking",
+          "published_date": "2026-08-03",
+          "report_date": "2026-08-03",
+          "report_period": "Week of Aug. 3-7, 2026",
+          "observed_period": "Week of Aug. 3-7, 2026",
+          "headline": "Wallowa Lake scheduled trout stocking",
+          "title": "Wallowa Lake scheduled trout stocking",
+          "summary": "ODFW scheduled 180 trophy-size rainbow trout for the week beginning Aug. 3. Stocking schedules can change.",
+          "catches": [
+            {
+              "species": "Rainbow trout",
+              "metric": "ODFW update",
+              "detail": ""
+            }
+          ],
+          "conditions": [],
+          "rating": "",
+          "species": "Rainbow trout",
+          "techniques": "",
+          "access_notes": "",
+          "source_type": "official_scheduled_stocking",
+          "source_name": "Oregon Department of Fish and Wildlife",
+          "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+          "official": true,
+          "specificity": "Matched Oregon verified public water",
+          "freshness": "very_current",
+          "freshness_status": "very_current",
+          "freshness_days": 2,
+          "age_days": 2,
+          "last_checked_at": "2026-08-05T18:30:32Z",
+          "source_status": "available",
+          "source_error": "",
+          "review_required": false
+        }
+      ],
+      "latest_report": {
+        "report_kind": "official_scheduled_stocking",
+        "report_id": "or-report-9f1f3c630ded",
+        "state": "Oregon",
+        "counties": [
+          "Wallowa"
+        ],
+        "names": [
+          "Wallowa Lake"
+        ],
+        "water_name": "Wallowa Lake",
+        "agency": "Oregon Department of Fish and Wildlife",
+        "report_type": "Official scheduled stocking",
+        "published_date": "2026-08-03",
+        "report_date": "2026-08-03",
+        "report_period": "Week of Aug. 3-7, 2026",
+        "observed_period": "Week of Aug. 3-7, 2026",
+        "headline": "Wallowa Lake scheduled trout stocking",
+        "title": "Wallowa Lake scheduled trout stocking",
+        "summary": "ODFW scheduled 180 trophy-size rainbow trout for the week beginning Aug. 3. Stocking schedules can change.",
+        "catches": [
+          {
+            "species": "Rainbow trout",
+            "metric": "ODFW update",
+            "detail": ""
+          }
+        ],
+        "conditions": [],
+        "rating": "",
+        "species": "Rainbow trout",
+        "techniques": "",
+        "access_notes": "",
+        "source_type": "official_scheduled_stocking",
+        "source_name": "Oregon Department of Fish and Wildlife",
+        "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "official": true,
+        "specificity": "Matched Oregon verified public water",
+        "freshness": "very_current",
+        "freshness_status": "very_current",
+        "freshness_days": 2,
+        "age_days": 2,
+        "last_checked_at": "2026-08-05T18:30:32Z",
+        "source_status": "available",
+        "source_error": "",
+        "review_required": false
+      },
+      "report_status": "official_information_available"
+    },
+    {
+      "water_id": "or-water-0144bfde4aff",
+      "state": "Oregon",
+      "county": "Wasco",
+      "counties": [
+        "Wasco"
+      ],
+      "county_number": 33,
+      "water_name": "Rock Creek Reservoir",
+      "water_type": "reservoir",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-086014545eb9",
+          "access_point_name": "Rock Creek Reservoir Campground and day use",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+          "access_details": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+          "county": "Wasco",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-5011fc99c407",
+      "state": "Oregon",
+      "county": "Washington",
+      "counties": [
+        "Washington"
+      ],
+      "county_number": 34,
+      "water_name": "Henry Hagg Lake",
+      "water_type": "lake",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-583045a376a2",
+          "access_point_name": "Eagle Landing A and C ramps",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+          "access_details": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+          "county": "Washington",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": false,
+            "ada_parking": true,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-e682308b0856",
+      "state": "Oregon",
+      "county": "Wheeler",
+      "counties": [
+        "Wheeler"
+      ],
+      "county_number": 35,
+      "water_name": "John Day River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Bureau of Land Management"
+      ],
+      "water_source_urls": [
+        "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-ddc08c6adca0",
+          "access_point_name": "Service Creek River Access Park",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Bureau of Land Management",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
+          "verification_evidence": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+          "access_details": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+          "county": "Wheeler",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "open",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": true,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    },
+    {
+      "water_id": "or-water-0dfb3a89e4b8",
+      "state": "Oregon",
+      "county": "Yamhill",
+      "counties": [
+        "Yamhill"
+      ],
+      "county_number": 36,
+      "water_name": "Yamhill River",
+      "water_type": "river",
+      "latitude": null,
+      "longitude": null,
+      "species": [],
+      "metadata_sources": [
+        "Oregon State Marine Board"
+      ],
+      "water_source_urls": [
+        "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx"
+      ],
+      "access_points": [
+        {
+          "access_id": "or-access-c2eafa24b1b2",
+          "access_point_name": "Dayton Landing boat ramp",
+          "public_access_status": "verified_public",
+          "entire_shoreline_public": false,
+          "verification_method": "named facility or access site documented by an official government source",
+          "source_name": "Oregon State Marine Board",
+          "source_type": "official_public_access",
+          "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
+          "verification_evidence": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+          "access_details": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+          "county": "Yamhill",
+          "latitude": null,
+          "longitude": null,
+          "directions_url": "",
+          "current_status": "advisory",
+          "open_dates": "Verify current closures, fire restrictions, fees and posted signs before travel.",
+          "amenities": {
+            "boat_ramp": true,
+            "shore_fishing": true,
+            "nonmotorized_launch": true,
+            "ada_parking": false,
+            "ada_restroom": false,
+            "ada_dock": false,
+            "ada_boat_launch": false,
+            "ada_fishing": false
+          },
+          "last_verified": "2026-08-05T18:30:32Z"
+        }
+      ],
+      "publication_status": "published_verified_public_access",
+      "access_point_count": 1,
+      "public_access_verification": "Only the named access site is verified public; surrounding shorelines and roads may be private or restricted.",
+      "report_count": 0,
+      "reports": [],
+      "latest_report": null,
+      "report_status": "no_recent_odfw_match"
+    }
+  ],
+  "flat_reports": [
+    {
+      "report_kind": "official_scheduled_stocking",
+      "report_id": "or-report-771ce5d59f06",
+      "state": "Oregon",
+      "counties": [
+        "Klamath"
+      ],
+      "names": [
+        "Lake of the Woods"
+      ],
+      "water_name": "Lake of the Woods",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official scheduled stocking",
+      "published_date": "2026-09-14",
+      "report_date": "2026-09-14",
+      "report_period": "Week of Sep. 14-18, 2026",
+      "observed_period": "Week of Sep. 14-18, 2026",
+      "headline": "Lake of the Woods scheduled trout stocking",
+      "title": "Lake of the Woods scheduled trout stocking",
+      "summary": "ODFW scheduled 1,500 legal-size trout for the week beginning Sept. 14. Stocking schedules can change.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_scheduled_stocking",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "scheduled",
+      "freshness_status": "scheduled",
+      "freshness_days": -40,
+      "age_days": -40,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_scheduled_stocking",
+      "report_id": "or-report-cb2a8e82fbe7",
+      "state": "Oregon",
+      "counties": [
+        "Clackamas"
+      ],
+      "names": [
+        "Trillium Lake"
+      ],
+      "water_name": "Trillium Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official scheduled stocking",
+      "published_date": "2026-08-24",
+      "report_date": "2026-08-24",
+      "report_period": "Week of Aug. 24-28, 2026",
+      "observed_period": "Week of Aug. 24-28, 2026",
+      "headline": "Trillium Lake scheduled trout stocking",
+      "title": "Trillium Lake scheduled trout stocking",
+      "summary": "ODFW scheduled 2,000 legal and 133 trophy-size trout for the week beginning Aug. 24. Stocking schedules can change.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_scheduled_stocking",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "scheduled",
+      "freshness_status": "scheduled",
+      "freshness_days": -19,
+      "age_days": -19,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_scheduled_stocking",
+      "report_id": "or-report-62f73a79fae5",
+      "state": "Oregon",
+      "counties": [
+        "Lake"
+      ],
+      "names": [
+        "Ana Reservoir"
+      ],
+      "water_name": "Ana Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official scheduled stocking",
+      "published_date": "2026-08-17",
+      "report_date": "2026-08-17",
+      "report_period": "Week of Aug. 17-21, 2026",
+      "observed_period": "Week of Aug. 17-21, 2026",
+      "headline": "Ana Reservoir scheduled trout stocking",
+      "title": "Ana Reservoir scheduled trout stocking",
+      "summary": "ODFW scheduled 2,400 legal-size trout for the week beginning Aug. 17. Stocking schedules can change.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_scheduled_stocking",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "scheduled",
+      "freshness_status": "scheduled",
+      "freshness_days": -12,
+      "age_days": -12,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_scheduled_stocking",
+      "report_id": "or-report-9f1f3c630ded",
+      "state": "Oregon",
+      "counties": [
+        "Wallowa"
+      ],
+      "names": [
+        "Wallowa Lake"
+      ],
+      "water_name": "Wallowa Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official scheduled stocking",
+      "published_date": "2026-08-03",
+      "report_date": "2026-08-03",
+      "report_period": "Week of Aug. 3-7, 2026",
+      "observed_period": "Week of Aug. 3-7, 2026",
+      "headline": "Wallowa Lake scheduled trout stocking",
+      "title": "Wallowa Lake scheduled trout stocking",
+      "summary": "ODFW scheduled 180 trophy-size rainbow trout for the week beginning Aug. 3. Stocking schedules can change.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_scheduled_stocking",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "very_current",
+      "freshness_status": "very_current",
+      "freshness_days": 2,
+      "age_days": 2,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-b1d21c24bbc2",
+      "state": "Oregon",
+      "counties": [
+        "Baker"
+      ],
+      "names": [
+        "Phillips Reservoir"
+      ],
+      "water_name": "Phillips Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Phillips Reservoir fishing update",
+      "title": "Phillips Reservoir fishing update",
+      "summary": "ODFW reported good perch fishing, including some large fish, in the Northeast Zone update.",
+      "catches": [
+        {
+          "species": "Yellow perch, rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Yellow perch, rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-462e9a27c24e",
+      "state": "Oregon",
+      "counties": [
+        "Grant"
+      ],
+      "names": [
+        "Magone Lake"
+      ],
+      "water_name": "Magone Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Magone Lake fishing update",
+      "title": "Magone Lake fishing update",
+      "summary": "ODFW reported that fishing is often good and that the lake had been stocked for 2026.",
+      "catches": [
+        {
+          "species": "Rainbow trout, brook trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout, brook trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-401ca47737ee",
+      "state": "Oregon",
+      "counties": [
+        "Umatilla"
+      ],
+      "names": [
+        "McKay Reservoir"
+      ],
+      "water_name": "McKay Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "McKay Reservoir fishing update",
+      "title": "McKay Reservoir fishing update",
+      "summary": "ODFW reported good bass and panfish fishing and noted a current harmful-algae precaution.",
+      "catches": [
+        {
+          "species": "Bass, yellow perch, rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Bass, yellow perch, rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-052e78670613",
+      "state": "Oregon",
+      "counties": [
+        "Morrow"
+      ],
+      "names": [
+        "Willow Creek Reservoir"
+      ],
+      "water_name": "Willow Creek Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Willow Creek Reservoir fishing update",
+      "title": "Willow Creek Reservoir fishing update",
+      "summary": "ODFW listed Willow Creek Reservoir as a current best bet for trout, bass and crappie.",
+      "catches": [
+        {
+          "species": "Trout, bass, crappie",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Trout, bass, crappie",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-c580312b1b07",
+      "state": "Oregon",
+      "counties": [
+        "Deschutes"
+      ],
+      "names": [
+        "Crane Prairie Reservoir"
+      ],
+      "water_name": "Crane Prairie Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Crane Prairie Reservoir fishing update",
+      "title": "Crane Prairie Reservoir fishing update",
+      "summary": "ODFW reported abundant rainbow trout, kokanee around 15 inches and generally good fishing.",
+      "catches": [
+        {
+          "species": "Rainbow trout, kokanee",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout, kokanee",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-8f47b59b419b",
+      "state": "Oregon",
+      "counties": [
+        "Deschutes"
+      ],
+      "names": [
+        "Paulina Lake"
+      ],
+      "water_name": "Paulina Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Paulina Lake fishing update",
+      "title": "Paulina Lake fishing update",
+      "summary": "ODFW reported good trout fishing and excellent kokanee fishing, with kokanee averaging roughly 13-14 inches.",
+      "catches": [
+        {
+          "species": "Trout, kokanee",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Trout, kokanee",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-b0a5d19be483",
+      "state": "Oregon",
+      "counties": [
+        "Jackson"
+      ],
+      "names": [
+        "Lost Creek Reservoir"
+      ],
+      "water_name": "Lost Creek Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-09",
+      "report_date": "2026-07-09",
+      "report_period": "2026-07-09",
+      "observed_period": "",
+      "headline": "Lost Creek Reservoir fishing update",
+      "title": "Lost Creek Reservoir fishing update",
+      "summary": "ODFW listed trolling at Lost Creek as a current best bet and reported very good fishing.",
+      "catches": [
+        {
+          "species": "Rainbow trout, bass",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout, bass",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 27,
+      "age_days": 27,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-c689890df491",
+      "state": "Oregon",
+      "counties": [
+        "Deschutes"
+      ],
+      "names": [
+        "East Lake"
+      ],
+      "water_name": "East Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "Week of Jul. 6-10, 2026",
+      "observed_period": "Week of Jul. 6-10, 2026",
+      "headline": "East Lake trout stocking",
+      "title": "East Lake trout stocking",
+      "summary": "ODFW listed 2,500 legal-size trout for the stocking week beginning July 6.",
+      "catches": [
+        {
+          "species": "Rainbow trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-86c1946a664b",
+      "state": "Oregon",
+      "counties": [
+        "Lane"
+      ],
+      "names": [
+        "Fern Ridge Reservoir"
+      ],
+      "water_name": "Fern Ridge Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "2026-07-06",
+      "observed_period": "",
+      "headline": "Fern Ridge Reservoir fishing update",
+      "title": "Fern Ridge Reservoir fishing update",
+      "summary": "ODFW reported the reservoir open year-round with strong warmwater opportunities and multiple public bank and ramp locations.",
+      "catches": [
+        {
+          "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Largemouth bass, crappie, bluegill, brown bullhead",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-5cd68c396e29",
+      "state": "Oregon",
+      "counties": [
+        "Linn"
+      ],
+      "names": [
+        "Foster Reservoir"
+      ],
+      "water_name": "Foster Reservoir",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "2026-07-06",
+      "observed_period": "",
+      "headline": "Foster Reservoir fishing update",
+      "title": "Foster Reservoir fishing update",
+      "summary": "ODFW reported trout remaining from spring stocking and productive warmwater fishing near structure and drop-offs.",
+      "catches": [
+        {
+          "species": "Trout, bass, perch, catfish",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Trout, bass, perch, catfish",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-4a60f25172bd",
+      "state": "Oregon",
+      "counties": [
+        "Marion"
+      ],
+      "names": [
+        "Walter Wirth Lake"
+      ],
+      "water_name": "Walter Wirth Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "2026-07-06",
+      "observed_period": "",
+      "headline": "Walter Wirth Lake fishing update",
+      "title": "Walter Wirth Lake fishing update",
+      "summary": "ODFW reported that summer anglers can target bass and bluegill after the spring trout-stocking period.",
+      "catches": [
+        {
+          "species": "Trout, bass, panfish",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Trout, bass, panfish",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-216693d77f42",
+      "state": "Oregon",
+      "counties": [
+        "Lincoln"
+      ],
+      "names": [
+        "Siletz River"
+      ],
+      "water_name": "Siletz River",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "2026-07-06",
+      "observed_period": "",
+      "headline": "Siletz River fishing update",
+      "title": "Siletz River fishing update",
+      "summary": "ODFW reported fair summer-steelhead fishing, low clear water and fish distributed through the system.",
+      "catches": [
+        {
+          "species": "Summer steelhead, spring Chinook, cutthroat trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Summer steelhead, spring Chinook, cutthroat trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-0f06abb2a2f9",
+      "state": "Oregon",
+      "counties": [
+        "Tillamook"
+      ],
+      "names": [
+        "Wilson River"
+      ],
+      "water_name": "Wilson River",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-06",
+      "report_date": "2026-07-06",
+      "report_period": "2026-07-06",
+      "observed_period": "",
+      "headline": "Wilson River fishing update",
+      "title": "Wilson River fishing update",
+      "summary": "ODFW reported summer steelhead throughout the fishery and recommended stealth during low, clear conditions.",
+      "catches": [
+        {
+          "species": "Summer steelhead, cutthroat trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Summer steelhead, cutthroat trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 30,
+      "age_days": 30,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-520b326f1c53",
+      "state": "Oregon",
+      "counties": [
+        "Douglas"
+      ],
+      "names": [
+        "Diamond Lake"
+      ],
+      "water_name": "Diamond Lake",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-07-02",
+      "report_date": "2026-07-02",
+      "report_period": "2026-07-02",
+      "observed_period": "",
+      "headline": "Diamond Lake fishing update",
+      "title": "Diamond Lake fishing update",
+      "summary": "ODFW reported good angling and several limits, while reminding anglers that brown and tiger trout must be released.",
+      "catches": [
+        {
+          "species": "Rainbow trout, brown trout, tiger trout",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout, brown trout, tiger trout",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "current",
+      "freshness_status": "current",
+      "freshness_days": 34,
+      "age_days": 34,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    },
+    {
+      "report_kind": "official_fishing_report",
+      "report_id": "or-report-61d4befe1c55",
+      "state": "Oregon",
+      "counties": [
+        "Josephine"
+      ],
+      "names": [
+        "Lake Selmac"
+      ],
+      "water_name": "Lake Selmac",
+      "agency": "Oregon Department of Fish and Wildlife",
+      "report_type": "Official ODFW fishing report",
+      "published_date": "2026-05-05",
+      "report_date": "2026-05-05",
+      "report_period": "2026-05-05",
+      "observed_period": "",
+      "headline": "Lake Selmac fishing update",
+      "title": "Lake Selmac fishing update",
+      "summary": "ODFW reported recent trout stocking and highlighted the lake's bass, bluegill and crappie fishing.",
+      "catches": [
+        {
+          "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+          "metric": "ODFW update",
+          "detail": ""
+        }
+      ],
+      "conditions": [],
+      "rating": "",
+      "species": "Rainbow trout, largemouth bass, bluegill, crappie",
+      "techniques": "",
+      "access_notes": "",
+      "source_type": "official_fishing_report",
+      "source_name": "Oregon Department of Fish and Wildlife",
+      "source_url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+      "official": true,
+      "specificity": "Matched Oregon verified public water",
+      "freshness": "stale",
+      "freshness_status": "stale",
+      "freshness_days": 92,
+      "age_days": 92,
+      "last_checked_at": "2026-08-05T18:30:32Z",
+      "source_status": "available",
+      "source_error": "",
+      "review_required": false
+    }
+  ]
+};
