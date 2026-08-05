@@ -1,0 +1,48 @@
+{
+  "state": "Washington",
+  "generated_at": "2026-08-05T15:21:12Z",
+  "snapshot_type": "official_wdfw_access_page_recovery_baseline",
+  "sources": {
+    "water_access": {
+      "complete": true,
+      "required": true,
+      "source_name": "Washington Department of Fish and Wildlife",
+      "source_url": "https://wdfw.wa.gov/places-to-go/water-access-sites",
+      "official_arcgis_layer": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/FP_Projects/MajorFishingArea/MapServer/0",
+      "download_method": "official_wdfw_individual_access_pages_recovery_snapshot",
+      "downloaded_feature_count": 176,
+      "usable_records": 176,
+      "unique_official_page_count": 176,
+      "scope_note": "Each record verifies only the named WDFW access facility; it does not declare an entire shoreline, river reach, road, or neighboring parcel public."
+    },
+    "shore_fishing": {
+      "complete": false,
+      "optional": true,
+      "not_in_snapshot": true,
+      "source_url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/FP_FishMaps/ShoreFishingSites/MapServer/0"
+    },
+    "public_piers": {
+      "complete": false,
+      "optional": true,
+      "not_in_snapshot": true,
+      "source_url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/FP_Projects/MajorFishingArea/MapServer/1"
+    },
+    "lowland_lakes": {
+      "complete": false,
+      "optional": true,
+      "not_in_snapshot": true,
+      "source_url": "https://geodataservices.wdfw.wa.gov/arcgis/rest/services/ApplicationServices/FishWA_2014_AllLakes_PROD/MapServer/2"
+    },
+    "fish_plants": {
+      "complete": false,
+      "optional": true,
+      "not_in_snapshot": true,
+      "source_url": "https://data.wa.gov/resource/6fex-3r7d.json"
+    }
+  },
+  "warnings": [
+    "Recovery snapshot built from individually indexed official WDFW water-access-area pages because the bulk ArcGIS service was unavailable in the packaging environment.",
+    "This snapshot is a verified public-access baseline, not an exhaustive inventory of every WDFW site. The included GitHub workflow refreshes Washington from WDFW official data when run.",
+    "Coordinates and amenities were intentionally left blank unless explicitly present in the recovered official-page record; no locations or facilities were inferred."
+  ]
+}
