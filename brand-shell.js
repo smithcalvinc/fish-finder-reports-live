@@ -1,7 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[['idaho-county-reports.html','Idaho'],['montana-county-reports.html','Montana'],['utah-county-reports.html','Utah'],['colorado-county-reports.html','Colorado'],['wyoming-county-reports.html','Wyoming'],['nevada-county-reports.html','Nevada'],['oregon-county-reports.html','Oregon'],['washington-county-reports.html','Washington'],['northern-california-county-reports.html','Northern California']];
+  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports']];
 
 
   function cleanEscapedReportMarkupText(value){
