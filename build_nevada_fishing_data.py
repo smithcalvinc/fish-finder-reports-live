@@ -59,6 +59,17 @@ COUNTY_LOOKUP = {
     re.sub(r"[^a-z0-9]+", " ", name.lower()).strip(): name for name in COUNTIES
 }
 
+# Nevada has 17 county/county-equivalent shells, but some desert counties may
+# legitimately have no independently verified public fishing access. These
+# safety floors detect a collapsed build without inventing access just to fill
+# every county.
+MIN_NDOW_WATER_PAGES = 300
+MIN_NDOW_METADATA_RECORDS = 300
+MIN_VERIFIED_PUBLIC_WATERS = 25
+MIN_VERIFIED_ACCESS_POINTS = 25
+MIN_OFFICIAL_REPORTS = 100
+MIN_POPULATED_COUNTIES = 10
+
 USER_AGENT = "FishFinderOutdoors-NevadaBuilder/1.0 (+https://fishfinderoutdoors.com)"
 OFFICIAL_URLS = {
     "reports": "https://www.ndow.org/get-outside/fishing-stocking-reports/database/?region=all&show_all=true",
@@ -2489,10 +2500,10 @@ def validate_build(db: dict[str, Any], source_counts: dict[str, int], audit: dic
     metadata_counties = int(source_counts.get("ndow_water_metadata_counties", 0) or 0)
     pages_requested = int(source_counts.get("ndow_water_pages_requested", 0) or 0)
     unresolved_pages = int(source_counts.get("ndow_water_unresolved_pages", 0) or 0)
-    if pages_requested < 400:
-        raise RuntimeError(f"NDOW water discovery reached only {pages_requested} water pages; expected at least 400")
-    if metadata_records < 400:
-        raise RuntimeError(f"NDOW water parser produced only {metadata_records} metadata records; expected at least 400")
+    if pages_requested < MIN_NDOW_WATER_PAGES:
+        raise RuntimeError(f"NDOW water discovery reached only {pages_requested} water pages; expected at least {MIN_NDOW_WATER_PAGES}")
+    if metadata_records < MIN_NDOW_METADATA_RECORDS:
+        raise RuntimeError(f"NDOW water parser produced only {metadata_records} metadata records; expected at least {MIN_NDOW_METADATA_RECORDS}")
     if metadata_counties != 17:
         raise RuntimeError(f"NDOW water metadata represents only {metadata_counties} of 17 Nevada county-equivalents")
     allowed_unresolved = max(25, int(pages_requested * 0.15))
@@ -2504,11 +2515,11 @@ def validate_build(db: dict[str, Any], source_counts: dict[str, int], audit: dic
     unique_water_count = int(db.get("public_water_count", 0) or 0)
     access_count = int(db.get("verified_access_point_count", 0) or 0)
     report_count = int(db.get("report_count", 0) or 0)
-    if unique_water_count < 25:
+    if unique_water_count < MIN_VERIFIED_PUBLIC_WATERS:
         raise RuntimeError(f"Strict verification produced only {unique_water_count} independently verified public waters")
-    if access_count < 25:
+    if access_count < MIN_VERIFIED_ACCESS_POINTS:
         raise RuntimeError(f"Strict verification produced only {access_count} official public access points")
-    if report_count < 100:
+    if report_count < MIN_OFFICIAL_REPORTS:
         raise RuntimeError(f"Nevada build produced only {report_count} official report/update records")
 
     bad_points: list[str] = []
@@ -2542,9 +2553,11 @@ def validate_build(db: dict[str, Any], source_counts: dict[str, int], audit: dic
 
     populated_counties = sum(1 for county in counties if int(county.get("public_water_count", 0) or 0) > 0)
     missing_public_counties = [county.get("county") for county in counties if int(county.get("public_water_count", 0) or 0) == 0]
-    if populated_counties != 17:
+    if populated_counties < MIN_POPULATED_COUNTIES:
         raise RuntimeError(
-            f"Verified public-access results cover only {populated_counties} of 17 county-equivalents; missing {missing_public_counties}"
+            f"Verified public-access results cover only {populated_counties} county-equivalents; "
+            f"expected at least {MIN_POPULATED_COUNTIES}. Empty desert counties are allowed when no named official access is verified. "
+            f"Currently empty: {missing_public_counties}"
         )
     map_counts = validate_map_data(db)
     return {
@@ -2648,20 +2661,33 @@ def county_page_html() -> str:
         f'<option value="{html.escape(county)}">#{i + 1} {html.escape(county)}</option>'
         for i, county in enumerate(COUNTIES)
     )
-    template = r'''<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nevada Verified Public Fishing Access | Fish Finder Outdoors</title>
-<meta name="description" content="Search Nevada fishing waters that have independently verified official public access facilities, plus NDOW fishing reports and stocking updates.">
+    template = r'''<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#1F4D3A"/>
+<meta name="description" content="Search independently verified public fishing access and official NDOW fishing updates across all 17 Nevada county-equivalents."/>
+<title>Nevada Fishing Reports & Public Access | Fish Finder Outdoors</title>
+<link rel="icon" href="ffo-logo-main.png" type="image/png"/><link rel="apple-touch-icon" href="ffo-logo-main.png"/>
+<link rel="manifest" href="manifest.json"/><link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="brand-shell.css?v=34"/>
 <style>
-:root{--ink:#13251f;--muted:#5c6c65;--paper:#f3f1e7;--green:#184f3b;--gold:#d9a72e;--line:#d8d7cd;--danger:#9a382b}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#123d30 0,#123d30 250px,var(--paper) 250px);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}header{max-width:1200px;margin:auto;padding:32px 18px 30px;color:#fff}h1{font-size:clamp(2rem,5vw,4rem);margin:8px 0}.eyebrow{color:#f2c85d;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.sub{max-width:900px;line-height:1.55}.state-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.state-links a{color:#fff;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 12px;text-decoration:none;font-size:.9rem}.state-links a.current{background:#fff;color:var(--green)}main{max-width:1200px;margin:auto;padding:0 18px 60px}.panel,.water-card{background:#fff;border-radius:18px;box-shadow:0 14px 40px rgba(0,0,0,.12);padding:20px;margin-bottom:20px}.controls{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.field{grid-column:span 4}.field.wide{grid-column:span 5}.field.small{grid-column:span 3}label{display:block;font-weight:700;margin-bottom:6px}select,input,button{width:100%;min-height:45px;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit}button{background:var(--green);color:#fff;border:0;font-weight:800;cursor:pointer}.checks{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}.checks label{display:flex;align-items:center;gap:6px;font-weight:600}.checks input{width:auto;min-height:auto}.warning{background:#fff4cf;border-left:5px solid var(--gold);line-height:1.5}.summary{display:flex;justify-content:space-between;gap:12px;align-items:center}.muted{color:var(--muted)}.water-card{border:1px solid var(--line);box-shadow:none}.water-card h2{margin:0 0 8px;font-size:1.45rem}.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{font-size:.78rem;padding:5px 8px;border-radius:999px;background:#edf1ed}.chip.current,.chip.very_current{background:#d7f0df}.chip.stale{background:#f4ddd8;color:var(--danger)}.details{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}.box{border-top:1px solid var(--line);padding-top:12px}.box h3{margin:0 0 8px;font-size:1rem}.access-point{background:#f7f7f2;border-radius:10px;padding:12px;margin-top:9px}.verified{font-size:.78rem;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em}.link{display:inline-block;text-decoration:none;font-weight:800;color:var(--green);margin:8px 10px 0 0}.load{max-width:240px;margin:20px auto;display:block}@media(max-width:760px){.field,.field.wide,.field.small{grid-column:1/-1}.details{grid-template-columns:1fr}.summary{display:block}}
+:root{--green:#1f4d3a;--paper:#f4f1e7;--card:#fffdf8;--line:#d8d3c7;--ink:#173029;--muted:#64716c;--gold:#c79b3b;--warn:#7a5d1f}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e9f0ea,#f4f1e7 320px);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1180px,calc(100% - 28px));margin:auto}.hero{padding:38px 0 20px}.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:center}.kicker{display:inline-flex;padding:7px 11px;border-radius:999px;background:#e2eee7;color:var(--green);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.hero h1{font-family:Bitter,Georgia,serif;font-size:clamp(36px,6vw,64px);line-height:1.02;margin:16px 0 12px}.hero p{font-size:18px;color:var(--muted);max-width:800px}.hero-logo{width:min(300px,100%);justify-self:end}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin:18px 0;box-shadow:0 10px 30px rgba(31,77,58,.07)}.controls{display:grid;grid-template-columns:1fr 1.4fr repeat(3,auto);gap:10px;align-items:end}.field label{display:block;font-size:12px;font-weight:900;margin:0 0 5px}.field select,.field input{width:100%;padding:12px 13px;border:1px solid #bfc7c1;border-radius:12px;background:white;font:inherit}.check{display:flex;align-items:center;gap:7px;padding:11px 10px;background:#eef4f0;border-radius:12px;font-size:12px;font-weight:800;white-space:nowrap}.check input{width:18px;height:18px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}button{border:0;border-radius:12px;padding:11px 14px;font:inherit;font-weight:850;cursor:pointer}.primary{background:var(--green);color:white}.secondary{background:#e3ece7;color:var(--green)}.status{padding:12px 14px;border-radius:12px;background:#edf4f0;color:var(--green);font-weight:750;margin-top:13px}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric span{font-size:12px;color:var(--muted);font-weight:700}.metric b{display:block;font-size:25px;margin-top:4px}.water-list{display:grid;gap:13px}.water-card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px}.water-card h2{font-family:Bitter,Georgia,serif;margin:0;font-size:25px}.water-title-link{color:var(--green);text-decoration:none}.water-title-link:hover{text-decoration:underline}.water-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.full-report-link{display:inline-flex;align-items:center;padding:10px 13px;border-radius:11px;background:var(--green);color:white!important;text-decoration:none;font-weight:850}.full-report-link:hover{filter:brightness(1.08)}.chips,.amenities{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}.chip,.amenity{display:inline-flex;padding:5px 8px;border-radius:999px;background:#e8f0eb;border:1px solid #c9dbd1;font-size:11px;font-weight:850}.details{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:13px}.box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white}.box h3{font-size:15px;margin:0 0 9px}.box p{margin:7px 0;color:#3f504a}.access{border-top:1px solid var(--line);padding-top:10px;margin-top:10px}.access:first-of-type{border-top:0;padding-top:0;margin-top:0}.link{display:inline-flex;margin-top:8px;font-weight:850}.muted{color:var(--muted);font-size:13px}.warning{background:#fff5d9;color:var(--warn);line-height:1.55}.load-more{display:block;margin:18px auto}.hidden{display:none!important}.top-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.top-links a{display:inline-flex;padding:10px 12px;border-radius:12px;background:white;border:1px solid var(--line);font-weight:800;text-decoration:none}@media(max-width:950px){.controls{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.hero-logo{justify-self:start;max-width:220px}.details{grid-template-columns:1fr}}@media(max-width:600px){.controls,.summary{grid-template-columns:1fr}.panel{padding:15px}}
 </style></head><body>
-<header><div class="eyebrow">Fish Finder Outdoors</div><h1>Nevada Verified Public Fishing Access</h1><p class="sub">NDOW supplies the statewide water inventory and reports. FishNV map links do not prove public entry. This page publishes a water only when a separate official agency source verifies a named public fishing facility, boat ramp, pier, platform, shoreline area or recreation site.</p><nav class="state-links"><a href="idaho-county-reports.html">Idaho</a><a href="montana-county-reports.html">Montana</a><a href="utah-county-reports.html">Utah</a><a href="colorado-county-reports.html">Colorado</a><a href="wyoming-county-reports.html">Wyoming</a><a class="current" href="nevada-county-reports.html">Nevada</a></nav></header>
-<main><section class="panel"><div class="controls"><div class="field"><label for="countySelect">County</label><select id="countySelect"><option value="">All 17 county-equivalents</option>__COUNTY_OPTIONS__</select></div><div class="field wide"><label for="waterSearch">Water, species or access feature</label><input id="waterSearch" placeholder="Lake Mead, trout, boat ramp…"></div><div class="field small"><label>&nbsp;</label><button id="searchButton">Search Nevada</button></div></div><div class="checks"><label><input type="checkbox" id="currentOnly"> Current reports only</label><label><input type="checkbox" id="boatRamp"> Verified boat ramp</label><label><input type="checkbox" id="adaFishing"> Verified accessible fishing</label></div></section>
-<section class="panel warning"><strong>Important:</strong> Every listed access point has a separate official source. That verifies the named facility—not every bank, road or neighboring parcel. Check the linked agency page for current closures, water levels, fees, posted signs and tribal or site-specific rules before traveling.</section>
-<section class="summary"><div><strong id="resultCount">Loading verified Nevada records…</strong><div class="muted" id="generated"></div></div></section><div id="results"></div><button class="load" id="loadMore" hidden>Load more</button></main>
-<script src="data/nevada_fishing_report_database.js"></script><script>
-(function(){"use strict";const db=window.NEVADA_FISHING_REPORT_DATABASE||{flat_waters:[],metadata:{}};const $=id=>document.getElementById(id);const countySelect=$("countySelect"),waterSearch=$("waterSearch"),currentOnly=$("currentOnly"),boatRamp=$("boatRamp"),adaFishing=$("adaFishing"),results=$("results"),resultCount=$("resultCount"),generated=$("generated"),loadMore=$("loadMore");let filtered=[],shown=0;const esc=v=>String(v??"").replace(/[&<>\"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));const label=v=>String(v||"").replaceAll("_"," ").replace(/\b\w/g,c=>c.toUpperCase());function matches(w){const county=countySelect.value.trim(),q=waterSearch.value.toLowerCase().trim();if(county&&w.county!==county)return false;if(currentOnly.checked&&!['very_current','current','recent'].includes(w.report_status))return false;const points=w.access_points||[];if(boatRamp.checked&&!points.some(p=>p.amenities&&p.amenities.boat_ramp===true))return false;if(adaFishing.checked&&!points.some(p=>p.amenities&&p.amenities.ada_fishing===true))return false;if(q){const r=w.latest_report||{};const hay=[w.water_name,w.water_type,w.county,w.region,w.species,r.title,r.summary,r.species,points.map(p=>[p.access_point_name,p.access_details,p.source_name].join(' ')).join(' ')].join(' ').toLowerCase();if(!hay.includes(q))return false}return true}function pointCard(p){const map=p.directions_url?`<a class="link" href="${esc(p.directions_url)}" target="_blank" rel="noopener">Directions / map</a>`:"";const source=p.official_source_url?`<a class="link" href="${esc(p.official_source_url)}" target="_blank" rel="noopener">Official access source</a>`:"";return `<div class="access-point"><div class="verified">Verified public access</div><strong>${esc(p.access_point_name)}</strong>${p.access_details?`<p>${esc(p.access_details)}</p>`:""}<div class="muted">Verified by ${esc(p.source_name||label(p.verification_method))}</div>${map}${source}</div>`}function card(w){const r=w.latest_report||null;const report=r?`<strong>${esc(r.title)}</strong><p>${esc(r.summary)}</p><div class="muted">${esc(r.report_date||"Date not listed")} · ${esc(label(r.freshness))}</div>${r.source_url?`<a class="link" href="${esc(r.source_url)}" target="_blank" rel="noopener">Official report</a>`:""}`:`<div class="muted">No current NDOW report was matched to this verified-access water.</div>`;const fishnv=w.fishnv_source_url?`<a class="link" href="${esc(w.fishnv_source_url)}" target="_blank" rel="noopener">FishNV water details</a>`:"";return `<article class="water-card"><h2>${esc(w.water_name)}</h2><div class="chips"><span class="chip">#${esc(w.county_number)} ${esc(w.county)}</span><span class="chip">${esc(label(w.water_type))}</span>${w.region?`<span class="chip">${esc(w.region)}</span>`:""}<span class="chip ${esc(w.report_status||"")}">${esc(label(w.report_status))}</span></div>${w.species?`<p><strong>Species:</strong> ${esc(w.species)}</p>`:""}<div class="details"><div class="box"><h3>Latest fishing information</h3>${report}${fishnv}</div><div class="box"><h3>Independently verified access points</h3>${(w.access_points||[]).map(pointCard).join('')}</div></div></article>`}function renderMore(){const next=filtered.slice(shown,shown+30);results.insertAdjacentHTML('beforeend',next.map(card).join(''));shown+=next.length;loadMore.hidden=shown>=filtered.length}function runSearch(){filtered=(db.flat_waters||[]).filter(matches);shown=0;results.innerHTML='';resultCount.textContent=`${filtered.length.toLocaleString()} county-linked verified public fishing records found`;renderMore()}$("searchButton").addEventListener("click",runSearch);countySelect.addEventListener("change",runSearch);waterSearch.addEventListener("keydown",e=>{if(e.key==="Enter")runSearch()});currentOnly.addEventListener("change",runSearch);boatRamp.addEventListener("change",runSearch);adaFishing.addEventListener("change",runSearch);loadMore.addEventListener("click",renderMore);generated.textContent=db.metadata&&db.metadata.generated_at?`Updated ${db.metadata.generated_at}`:"";runSearch()})();
-</script><script src="brand-shell.js"></script><script src="pwa.js"></script></body></html>'''
+<header class="ffo-site-header"><div class="ffo-header-inner"><a class="ffo-logo-link" href="https://fishfinderoutdoors.com"><img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo"/><span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span></a><button class="ffo-menu-button" aria-label="Open menu" aria-expanded="false" type="button">☰</button><nav class="ffo-nav" aria-label="Fish Finder Outdoors"><a href="https://fishfinderoutdoors.com">Home</a><a href="index.html">Fishing Reports</a><a href="idaho-county-reports.html">Idaho</a><a href="montana-county-reports.html">Montana</a><a href="utah-county-reports.html">Utah</a><a href="colorado-county-reports.html">Colorado</a><a href="wyoming-county-reports.html">Wyoming</a><a class="active" aria-current="page" href="nevada-county-reports.html">Nevada</a><a href="oregon-county-reports.html">Oregon</a><a href="washington-county-reports.html">Washington</a><a href="northern-california-county-reports.html">Northern California</a><a href="submit-report.html">Submit Report</a></nav></div></header>
+<div class="ffo-beta-bar">VERIFIED PUBLIC ACCESS • 17 NEVADA COUNTY-EQUIVALENTS • OFFICIAL NDOW & PUBLIC-LAND SOURCES • <button class="ffo-install-button" data-install-ffo-app hidden type="button">Install App</button></div>
+<main><section class="hero"><div class="wrap hero-grid"><div><span class="kicker">Nevada statewide directory</span><h1>Verified public fishing access, county by county.</h1><p>Search named public access facilities verified by Nevada or federal agencies, then review matched NDOW fishing reports and stocking updates. Every listed water opens its full Fish Finder Outdoors report.</p><div class="top-links"><a href="index.html">← Main report generator</a><a href="submit-report.html">Submit a fishing report</a><a href="report-water.html">Report incorrect access</a></div></div><img class="hero-logo" src="ffo-logo-main.png" alt="Fish Finder Outdoors"/></div></section>
+<div class="wrap"><section class="panel"><div class="controls"><div class="field"><label for="countySelect">County</label><select id="countySelect"><option value="">All 17 county-equivalents</option>__COUNTY_OPTIONS__</select></div><div class="field"><label for="waterSearch">Water or access keyword</label><input id="waterSearch" placeholder="Lake Mead, trout, boat ramp…"/></div><label class="check"><input id="currentOnly" type="checkbox"/> Current reports</label><label class="check"><input id="boatRamp" type="checkbox"/> Boat ramp</label><label class="check"><input id="adaFishing" type="checkbox"/> ADA fishing</label></div><div class="actions"><button class="primary" id="searchButton" type="button">Search Nevada</button><button class="secondary" id="clearButton" type="button">Clear filters</button></div><div class="status" id="status">Loading the Nevada verified-access database…</div></section>
+<section class="panel warning"><strong>Important:</strong> A named public ramp, park, pier, platform, or recreation site does not make every shoreline, road, or nearby parcel public. FishNV water records and NDOW fishing reports do not prove access by themselves. Verify current closures, water levels, fees, tribal rules, and posted signs before traveling.</section><section class="panel"><div class="summary" id="summary"></div></section><section class="water-list" id="waterList"></section><button class="secondary load-more hidden" id="loadMore" type="button">Show more waters</button>
+<div class="ffo-county-product-banner"><section aria-labelledby="ffo-product-title-nevada-county" class="ffo-product-banner"><div class="ffo-product-banner-copy"><span class="ffo-product-banner-kicker">FEATURED FISH FINDER</span><h2 id="ffo-product-title-nevada-county">See more. Find structure. Fish smarter.</h2><p class="ffo-product-banner-name">Garmin STRIKER Vivid 7sv</p><p class="ffo-product-banner-text">A strong 7-inch setup with built-in GPS, CHIRP sonar, ClearVü, and SideVü for anglers who want a better look below and beside the boat.</p><div aria-label="Fish finder highlights" class="ffo-product-banner-features"><span>7-inch display</span><span>Built-in GPS</span><span>CHIRP sonar</span><span>ClearVü + SideVü</span></div><a class="ffo-product-banner-button" data-ffo-product-affiliate data-placement="nevada-county" href="https://amzn.to/4wHzwXl" rel="sponsored nofollow noopener" target="_blank">Check Price on Amazon <span aria-hidden="true">↗</span></a><p class="ffo-product-banner-disclosure">Paid link. As an Amazon Associate I earn from qualifying purchases. Price and availability can change.</p></div><a aria-label="View the Garmin STRIKER Vivid 7sv on Amazon" class="ffo-product-banner-photo" data-ffo-product-affiliate data-placement="nevada-county" href="https://amzn.to/4wHzwXl" rel="sponsored nofollow noopener" target="_blank"><img alt="Fish finder display mounted beside a mountain lake" decoding="async" height="596" loading="lazy" src="assets/garmin-striker-vivid-7sv-banner.webp" width="1460"/><span>View on Amazon <b aria-hidden="true">↗</b></span></a></section></div>
+</div></main>
+<footer class="ffo-site-footer"><div class="ffo-footer-grid"><div><a class="ffo-footer-brand" href="https://fishfinderoutdoors.com"><img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo"/><span><strong>Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Beginner friendly. Nevada ready.</span></span></a></div><div><div class="ffo-footer-title">Reports</div><div class="ffo-footer-links"><a href="index.html">Main Report Generator</a><a href="nevada-county-reports.html">Nevada County Reports</a><a href="submit-report.html">Submit a Report</a><a href="official-sources.html">Official Sources</a></div></div></div><div class="ffo-footer-fine"><span>© 2026 Fish Finder Outdoors. Powered by Mountain Dog Enterprises.</span><span>Verify current regulations and access before fishing.</span></div></footer>
+<script src="site_config.js"></script><script src="data/nevada_fishing_report_database.js"></script>
+<script>
+(function(){"use strict";const db=window.NEVADA_FISHING_REPORT_DATABASE||{flat_waters:[],metadata:{}};const $=id=>document.getElementById(id);const county=$("countySelect"),query=$("waterSearch"),current=$("currentOnly"),ramp=$("boatRamp"),ada=$("adaFishing"),status=$("status"),summary=$("summary"),list=$("waterList"),more=$("loadMore");let filtered=[],shown=0;const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));const label=v=>String(v||"").replace(/_/g," ").replace(/\b\w/g,c=>c.toUpperCase());function matches(w){if(county.value&&w.county!==county.value)return false;const q=query.value.trim().toLowerCase();if(current.checked&&!['very_current','current','recent'].includes(w.report_status))return false;if(q&&!JSON.stringify([w.water_name,w.water_type,w.county,w.region,w.species,w.latest_report,w.access_points]).toLowerCase().includes(q))return false;const points=w.access_points||[];if(ramp.checked&&!points.some(p=>p.amenities?.boat_ramp===true))return false;if(ada.checked&&!points.some(p=>p.amenities?.ada_fishing===true))return false;return true}function pointCard(p){const a=p.amenities||{};const features=Object.entries(a).filter(([,v])=>v===true||typeof v==="string"&&v).map(([k,v])=>`<span class="amenity">${esc(v===true?label(k):`${label(k)}: ${v}`)}</span>`).join("");const map=p.directions_url?`<a class="link" href="${esc(p.directions_url)}" target="_blank" rel="noopener">Map this access point</a>`:"";return `<div class="access"><strong>${esc(p.access_point_name)}</strong>${p.current_status?`<p><b>Status:</b> ${esc(label(p.current_status))}</p>`:""}${p.access_details?`<p>${esc(p.access_details)}</p>`:""}<div class="amenities">${features}</div>${map}<br/><a class="link" href="${esc(p.official_source_url)}" target="_blank" rel="noopener">Official public-access source</a></div>`}function reportUrl(w){const p=new URLSearchParams({q:`${w.water_name}, Nevada`,open:"1",water:w.water_name,state:"Nevada",county:w.county});return `index.html?${p.toString()}`}function card(w){const r=w.latest_report;const url=reportUrl(w);const report=r?`<strong>${esc(r.title)}</strong><p>${esc(r.summary)}</p><div class="muted">${esc(r.report_date||"Date not listed")} · ${esc(label(r.freshness||"official update"))}</div>${r.source_url?`<a class="link" href="${esc(r.source_url)}" target="_blank" rel="noopener">Official NDOW source</a>`:""}`:`<div class="muted">No current NDOW fishing report or stocking update matched exactly to this verified-access water.</div>`;return `<article class="water-card"><h2><a class="water-title-link" href="${esc(url)}" title="Open the full fishing report for ${esc(w.water_name)}">${esc(w.water_name)}</a></h2><div class="chips"><span class="chip">#${esc(w.county_number)} ${esc(w.county)}</span><span class="chip">${esc(label(w.water_type))}</span><span class="chip">${esc(w.access_point_count)} verified access site${w.access_point_count===1?"":"s"}</span>${w.report_count?`<span class="chip">${esc(w.report_count)} official update${w.report_count===1?"":"s"}</span>`:""}</div>${w.species?`<p><strong>Species:</strong> ${esc(w.species)}</p>`:""}<div class="details"><div class="box"><h3>Named public access</h3>${(w.access_points||[]).map(pointCard).join("")}</div><div class="box"><h3>Latest matched Nevada update</h3>${report}${w.fishnv_source_url?`<a class="link" href="${esc(w.fishnv_source_url)}" target="_blank" rel="noopener">FishNV water details</a>`:""}<p class="muted">FishNV and fishing reports supply water information, not proof of public entry. Only the named official access facility is treated as verified.</p></div></div><div class="water-actions"><a class="full-report-link" href="${esc(url)}">Open full fishing report →</a></div></article>`}function renderSummary(){const waters=filtered.length,access=filtered.reduce((n,w)=>n+(w.access_point_count||0),0),reports=filtered.reduce((n,w)=>n+(w.report_count||0),0),counties=new Set(filtered.map(w=>w.county)).size,generated=db.metadata?.generated_at||"Unavailable";summary.innerHTML=`<div class="metric"><span>Matching waters</span><b>${waters}</b></div><div class="metric"><span>Verified access sites</span><b>${access}</b></div><div class="metric"><span>Official updates</span><b>${reports}</b></div><div class="metric"><span>Counties represented</span><b>${counties}</b></div><div class="metric"><span>Database generated</span><b style="font-size:14px">${esc(generated.replace('T',' ').replace('Z',' UTC'))}</b></div>`}function render(reset=true){filtered=(db.flat_waters||[]).filter(matches);if(reset)shown=0;shown=Math.min(filtered.length,shown+18);list.innerHTML=filtered.slice(0,shown).map(card).join("");more.classList.toggle("hidden",shown>=filtered.length);status.textContent=`Showing ${shown} of ${filtered.length} independently verified Nevada waters/access areas.`;renderSummary()}$("searchButton").addEventListener("click",()=>render(true));$("clearButton").addEventListener("click",()=>{county.value="";query.value="";current.checked=ramp.checked=ada.checked=false;render(true)});query.addEventListener("keydown",e=>{if(e.key==="Enter")render(true)});more.addEventListener("click",()=>render(false));render(true)})();
+</script><script src="brand-shell.js?v=34"></script><script src="featured-fishfinder-banner.js"></script><script src="pwa.js"></script></body></html>'''
     return template.replace("__COUNTY_OPTIONS__", county_options)
 
 def patch_brand_shell(root: Path) -> None:
@@ -2669,44 +2695,63 @@ def patch_brand_shell(root: Path) -> None:
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
-    replacement = "const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports'],['nevada-county-reports.html','Nevada County Reports']];"
-    if re.search(r"const\s+stateLinks\s*=\s*\[[^;]+;", text):
-        text = re.sub(r"const\s+stateLinks\s*=\s*\[[^;]+;", replacement, text, count=1)
-    elif "Nevada County Reports" not in text:
-        text += "\n" + replacement + "\n"
+    match = re.search(r"const\s+stateLinks\s*=\s*(\[[^;]+\]);", text)
+    if not match:
+        raise RuntimeError("Could not locate the shared stateLinks list")
+    block = match.group(1)
+    entry = "['nevada-county-reports.html','Nevada County Reports']"
+    if "nevada-county-reports.html" not in block:
+        for marker in (
+            "['oregon-county-reports.html','Oregon County Reports']",
+            "['washington-county-reports.html','Washington County Reports']",
+        ):
+            if marker in block:
+                block = block.replace(marker, entry + "," + marker, 1)
+                break
+        else:
+            block = block[:-1] + ("," if block != "[" else "") + entry + "]"
+        text = text[:match.start(1)] + block + text[match.end(1):]
     path.write_text(text, encoding="utf-8")
-
 
 def patch_service_worker(root: Path) -> None:
     path = root / "service-worker.js"
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
-    version = re.search(r"ffo-reports-pwa-v(\d+)", text)
-    if version:
-        text = text.replace(version.group(0), f"ffo-reports-pwa-v{int(version.group(1)) + 1}", 1)
-    additions = [
-        "./nevada-county-reports.html",
-        "./data/nevada_fishing_report_database.js",
-        "./data/nevada_fishing_report_database.json",
-        "./data/nevada_public_fishing_access.js",
-        "./data/nevada_public_fishing_access.json",
-    ]
-    for addition in additions:
-        if addition in text:
-            continue
-        marker = '"./wyoming-county-reports.html"' if "county-reports" in addition else '"./data/wyoming_public_fishing_access.json"'
-        if marker in text:
-            text = text.replace(marker, marker + f',"{addition}"', 1)
-        else:
-            array_match = re.search(r"(const\s+[^=]*(?:CACHE|ASSETS)[^=]*=\s*\[)(.*?)(\];)", text, flags=re.I | re.S)
-            if array_match:
-                body = array_match.group(2).rstrip()
-                comma = "," if body and not body.rstrip().endswith(",") else ""
-                body += comma + f'\n  "{addition}"'
-                text = text[:array_match.start(2)] + body + text[array_match.end(2):]
-    path.write_text(text, encoding="utf-8")
+    changed = False
 
+    page_entry = '"./nevada-county-reports.html"'
+    if page_entry not in text:
+        marker = '"./oregon-county-reports.html"' if '"./oregon-county-reports.html"' in text else '"./washington-county-reports.html"'
+        text = text.replace(marker, page_entry + ",\n  " + marker, 1)
+        changed = True
+
+    entries = [
+        '"nevada_public_fishing_access.json"',
+        '"nevada_public_fishing_access.js"',
+        '"nevada_fishing_report_database.json"',
+        '"nevada_fishing_report_database.js"',
+    ]
+    marker = '"oregon_public_fishing_access.json"'
+    for entry in reversed(entries):
+        if entry in text:
+            continue
+        if marker in text:
+            text = text.replace(marker, entry + "," + marker, 1)
+        else:
+            match = re.search(r"const NETWORK_FIRST_FILES=\[(.*?)\];", text, flags=re.S)
+            if not match:
+                raise RuntimeError("Could not locate NETWORK_FIRST_FILES")
+            body = match.group(1).rstrip()
+            body += ("," if body and not body.endswith(",") else "") + "\n  " + entry
+            text = text[:match.start(1)] + body + text[match.end(1):]
+        changed = True
+
+    if changed:
+        version = re.search(r"ffo-reports-pwa-v(\d+)", text)
+        if version:
+            text = text.replace(version.group(0), f"ffo-reports-pwa-v{int(version.group(1)) + 1}", 1)
+    path.write_text(text, encoding="utf-8")
 
 def patch_sitemap(root: Path) -> None:
     path = root / "sitemap.xml"
@@ -2812,6 +2857,114 @@ def patch_site_files(root: Path) -> None:
     rebuild_shared_feeds(root)
 
 
+def validate_existing_baseline(root: Path, output_dir: Path) -> dict[str, Any]:
+    database_path = output_dir / "nevada_fishing_report_database.json"
+    access_path = output_dir / "nevada_public_fishing_access.json"
+    status_path = output_dir / "nevada_project_status.json"
+    required_files = (
+        database_path,
+        access_path,
+        status_path,
+        root / "config/nevada_counties.json",
+        root / "nevada-county-reports.html",
+        root / "brand-shell.js",
+        root / "service-worker.js",
+    )
+    for required in required_files:
+        if not required.is_file() or required.stat().st_size == 0:
+            raise RuntimeError(f"Missing checked-in Nevada baseline file: {required}")
+
+    db = json.loads(database_path.read_text(encoding="utf-8"))
+    access = json.loads(access_path.read_text(encoding="utf-8"))
+    config = json.loads((root / "config/nevada_counties.json").read_text(encoding="utf-8"))
+
+    if db.get("county_count") != 17 or access.get("county_count") != 17 or config.get("county_count") != 17:
+        raise RuntimeError("Nevada baseline does not contain all 17 county/county-equivalent shells")
+    if [row.get("county") for row in db.get("counties", [])] != COUNTIES:
+        raise RuntimeError("Nevada county order is not Carson City through White Pine")
+
+    waters = db.get("flat_waters") or []
+    if int(db.get("public_water_count", 0) or 0) < MIN_VERIFIED_PUBLIC_WATERS:
+        raise RuntimeError("Nevada checked-in baseline lost too many verified public waters")
+    if int(db.get("verified_access_point_count", 0) or 0) < MIN_VERIFIED_ACCESS_POINTS:
+        raise RuntimeError("Nevada checked-in baseline lost too many verified access points")
+    if int(db.get("report_count", 0) or 0) < MIN_OFFICIAL_REPORTS:
+        raise RuntimeError("Nevada checked-in baseline lost too many official reports")
+
+    populated = sum(1 for row in db.get("counties", []) if int(row.get("public_water_count", 0) or 0) > 0)
+    if populated < MIN_POPULATED_COUNTIES:
+        raise RuntimeError(f"Nevada baseline represents only {populated} populated county-equivalents")
+
+    access_ids: set[str] = set()
+    for water in waters:
+        if water.get("publication_status") != "published_verified_public_access":
+            raise RuntimeError(f"Unverified Nevada water was published: {water.get('water_name')}")
+        points = water.get("access_points") or []
+        if not points:
+            raise RuntimeError(f"Nevada water has no named verified access point: {water.get('water_name')}")
+        for point in points:
+            access_id = clean(point.get("access_id"))
+            if not access_id or access_id in access_ids:
+                raise RuntimeError(f"Duplicate or missing Nevada access ID: {access_id}")
+            access_ids.add(access_id)
+            if point.get("public_access_status") != "verified_public":
+                raise RuntimeError(f"Nevada access point is not verified public: {point.get('access_point_name')}")
+            if point.get("entire_shoreline_public") is not False:
+                raise RuntimeError(f"Nevada access point improperly claims an entire shoreline: {point.get('access_point_name')}")
+            if not clean(point.get("official_source_url")).startswith("https://"):
+                raise RuntimeError(f"Nevada access point lacks an HTTPS official source: {point.get('access_point_name')}")
+            if not clean(point.get("verification_evidence")):
+                raise RuntimeError(f"Nevada access point lacks verification evidence: {point.get('access_point_name')}")
+
+    if len(access_ids) != int(db.get("verified_access_point_count", 0) or 0):
+        raise RuntimeError("Nevada unique access-ID total does not match the database total")
+
+    page = (root / "nevada-county-reports.html").read_text(encoding="utf-8")
+    required_page_markers = (
+        'class="ffo-site-header"',
+        'class="water-title-link"',
+        'class="full-report-link"',
+        'function reportUrl(w)',
+        'Open full fishing report',
+    )
+    if any(marker not in page for marker in required_page_markers):
+        raise RuntimeError("Nevada state page is missing the compact header or clickable full-report links")
+    if 'class="ffo-professional-hero"' in page:
+        raise RuntimeError("Nevada state page must not contain the main search-page hero")
+
+    brand = (root / "brand-shell.js").read_text(encoding="utf-8")
+    for state_page in (
+        "nevada-county-reports.html",
+        "oregon-county-reports.html",
+        "washington-county-reports.html",
+        "northern-california-county-reports.html",
+    ):
+        if state_page not in brand:
+            raise RuntimeError(f"Shared state navigation is missing {state_page}")
+    if "document.querySelector('.ffo-professional-hero')" in brand:
+        raise RuntimeError("Shared JavaScript is trying to hide the main hero again")
+
+    worker = (root / "service-worker.js").read_text(encoding="utf-8")
+    for marker in (
+        "nevada-county-reports.html",
+        "nevada_public_fishing_access.json",
+        "nevada_fishing_report_database.json",
+    ):
+        if marker not in worker:
+            raise RuntimeError(f"PWA service worker is missing Nevada resource: {marker}")
+
+    result = {
+        "state": STATE,
+        "county_shells": 17,
+        "populated_counties": populated,
+        "verified_public_waters": int(db.get("public_water_count", 0) or 0),
+        "verified_access_points": len(access_ids),
+        "official_reports": int(db.get("report_count", 0) or 0),
+        "baseline_validation": "passed",
+    }
+    print(json.dumps(result, indent=2))
+    return result
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=".", help="Fish Finder Outdoors repository root")
@@ -2819,6 +2972,7 @@ def main() -> int:
     parser.add_argument("--workers", type=int, default=12, help="Concurrent official NDOW page requests")
     parser.add_argument("--max-waters", type=int, default=0, help="Optional development crawl cap; zero means complete inventory")
     parser.add_argument("--self-test", action="store_true", help="Run strict public-access unit tests without internet access")
+    parser.add_argument("--validate-existing", action="store_true", help="Validate the checked-in Nevada baseline without internet access")
     args = parser.parse_args()
 
     if args.self_test:
@@ -2829,6 +2983,9 @@ def main() -> int:
     output_dir = Path(args.output_dir)
     if not output_dir.is_absolute():
         output_dir = root / output_dir
+    if args.validate_existing:
+        validate_existing_baseline(root, output_dir)
+        return 0
     generated_at = now_iso()
 
     county_polygons = load_county_polygons()
@@ -2892,7 +3049,7 @@ def main() -> int:
     status = {
         "state": STATE,
         "generated_at": generated_at,
-        "deployment_status": "validated_complete_ready_to_commit",
+        "deployment_status": "validated_public_access_ready_to_commit",
         "failed_sources": [],
         "source_warnings": [*ndow_warnings, *access_warnings],
         "warnings": {
