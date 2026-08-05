@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-reports-pwa-v26";
+const CACHE_VERSION="ffo-reports-pwa-v27";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -8,6 +8,7 @@ const APP_SHELL=[
   "./utah-county-reports.html","./colorado-county-reports.html",
   "./wyoming-county-reports.html",
   "./washington-county-reports.html",
+  "./northern-california-county-reports.html",
   "./brand-shell.css","./brand-shell.js","./pwa.js",
   "./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
@@ -31,6 +32,8 @@ const NETWORK_FIRST_FILES=[
   "wyoming_fishing_report_database.json","wyoming_fishing_report_database.js",
   "washington_public_fishing_access.json","washington_public_fishing_access.js",
   "washington_fishing_report_database.json","washington_fishing_report_database.js",
+  "northern_california_public_fishing_access.json","northern_california_public_fishing_access.js",
+  "northern_california_fishing_report_database.json","northern_california_fishing_report_database.js",
   "colorado_public_fishing_access.js","colorado_fishing_report_database.json",
   "colorado_fishing_report_database.js","utah_public_fishing_access.js",
   "utah_fishing_report_database.json","utah_fishing_report_database.js"

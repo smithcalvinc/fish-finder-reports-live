@@ -1,8 +1,8 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-08-05T15:21:12Z",
+  "last_run": "2026-08-05T16:59:24Z",
   "mode": "multi-state-database",
-  "state_count": 7,
+  "state_count": 8,
   "states": [
     {
       "state": "Colorado",
@@ -33,6 +33,15 @@ window.FFO_UPDATE_STATUS = {
       "generated_at": "2026-07-26T20:23:42Z"
     },
     {
+      "state": "Northern California",
+      "jurisdiction_state": "California",
+      "region_type": "substate_region",
+      "report_count": 0,
+      "public_water_count": 57,
+      "county_count": 26,
+      "generated_at": "2026-08-05T16:59:24Z"
+    },
+    {
       "state": "Utah",
       "report_count": 3538,
       "public_water_count": 856,
@@ -55,8 +64,8 @@ window.FFO_UPDATE_STATUS = {
     }
   ],
   "reports_total": 6828,
-  "public_water_count": 16243,
-  "county_count": 272,
+  "public_water_count": 16300,
+  "county_count": 298,
   "unique_sources": 1574,
   "freshness": {
     "current": 848,

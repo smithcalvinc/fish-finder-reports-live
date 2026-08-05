@@ -1,7 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports'],['washington-county-reports.html','Washington County Reports']];
+  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports'],['washington-county-reports.html','Washington County Reports'],['northern-california-county-reports.html','Northern California Reports']];
 
   const STATE_RULES={
     Idaho:{
@@ -37,7 +37,13 @@
     },
     California:{
       agency:'California Department of Fish and Wildlife',
-      rules:'https://wildlife.ca.gov/Regulations/Fishing'
+      rules:'https://wildlife.ca.gov/Regulations/Fishing',
+      emergency:'https://wildlife.ca.gov/Fishing/Inland/Low-Flow'
+    },
+    'Northern California':{
+      agency:'California Department of Fish and Wildlife',
+      rules:'https://wildlife.ca.gov/Regulations/Fishing',
+      emergency:'https://wildlife.ca.gov/Fishing/Inland/Low-Flow'
     },
     Colorado:{
       agency:'Colorado Parks and Wildlife',
