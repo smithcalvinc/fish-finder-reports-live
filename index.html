@@ -2,23 +2,6 @@
 
 <html lang="en">
 <head>
-<script>
-(function () {
-  var legacyHost = "fish-finder-reports-live.wasmer.app";
-  var officialHost = "reports.fishfinderoutdoors.com";
-
-  if (window.location.hostname === legacyHost) {
-    var destination =
-      "https://" +
-      officialHost +
-      window.location.pathname +
-      window.location.search +
-      window.location.hash;
-
-    window.location.replace(destination);
-  }
-})();
-</script>
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W1278FPSQK"></script>
 <script>
@@ -179,7 +162,7 @@
     .nearby-water-buttons button small{font-weight:700;opacity:.7}
     @media(max-width:720px){.nearby-quick-heading{align-items:stretch;flex-direction:column}.nearby-location-button{width:100%}}
 </style>
-<link href="brand-shell.css" rel="stylesheet"/>
+<link href="brand-shell.css?v=28" rel="stylesheet"/>
 <meta content="Fishing Reports Near Me | Fish Finder Outdoors" property="og:title"/>
 <meta content="Search public fishing waters, review dated fishing updates, check access information, and compare official agency sources before you make the drive." property="og:description"/>
 <meta content="website" property="og:type"/>
@@ -1430,6 +1413,15 @@ $("searchForm").addEventListener("submit",async e=>{
       </button>`;
     }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
+    const directParams=new URLSearchParams(location.search);
+    if(directParams.get("open")==="1"){
+      const wanted=normalize(directParams.get("water")||q);
+      const exactIndex=rows.findIndex(row=>normalize(row.name)===wanted);
+      const closeIndex=rows.findIndex(row=>normalize(row.name).includes(wanted)||wanted.includes(normalize(row.name)));
+      const selectedIndex=exactIndex>=0?exactIndex:closeIndex>=0?closeIndex:0;
+      await loadReport(rows[selectedIndex]);
+      return;
+    }
     if(townSearch){
       renderNearbyQuickWaters(rows,rows[0].nearby_town_label||q);
     }
