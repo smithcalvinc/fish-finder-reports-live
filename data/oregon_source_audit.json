@@ -1,33 +1,58 @@
 {
   "state": "Oregon",
-  "generated_at": "2026-08-05T18:30:32Z",
+  "generated_at": "2026-08-05T19:25:45Z",
   "sources": {
     "marine_board_access": {
       "url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
       "complete": true,
-      "mode": "checked_in_verified_baseline",
       "source_date": "2026-07-29",
-      "matched_seed_waters": 52
-    },
-    "odfw_recreation_reports": {
-      "urls": {
-        "Northwest": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
-        "Central": "https://myodfw.com/recreation-report/fishing-report/central-zone",
-        "Northeast": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
-        "Southwest": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
-        "Southeast": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
-        "Willamette": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
-        "Columbia": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
-        "Marine": "https://myodfw.com/recreation-report/fishing-report/marine-zone"
-      },
-      "complete": true,
-      "mode": "checked_in_official_summaries",
-      "report_count": 19
+      "matched_seed_waters": 45,
+      "seed_water_count": 52
     },
     "odfw_stocking": {
       "url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+      "complete": false,
+      "parsed_rows": 0
+    },
+    "odfw_northwest": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
       "complete": true,
-      "mode": "checked_in_official_schedule_rows"
+      "source_date": "2026-07-30"
+    },
+    "odfw_central": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_northeast": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_southwest": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_southeast": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_willamette": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_columbia": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
+    },
+    "odfw_marine": {
+      "url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
+      "complete": true,
+      "source_date": "2026-07-30"
     }
   }
 }

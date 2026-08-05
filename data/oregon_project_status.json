@@ -1,8 +1,8 @@
 {
   "state": "Oregon",
-  "generated_at": "2026-08-05T18:30:32Z",
+  "generated_at": "2026-08-05T19:25:45Z",
   "deployment_status": "validated_complete_ready_to_commit",
-  "snapshot_type": "official_oregon_access_recovery_baseline",
+  "snapshot_type": "official_oregon_live_refresh",
   "validation": {
     "passed": true,
     "errors": [],

@@ -3,40 +3,65 @@ window.OREGON_FISHING_REPORT_DATABASE = {
   "metadata": {
     "state": "Oregon",
     "state_abbr": "OR",
-    "generated_at": "2026-08-05T18:30:32Z",
+    "generated_at": "2026-08-05T19:25:45Z",
     "public_access_only": true,
     "access_scope": "Named official public access sites only; no whole-shoreline claim.",
     "regulations_url": "https://myodfw.com/fishing/licensing-info",
     "boat_map_url": "https://experience.arcgis.com/experience/4b7b35b9e8d44a03b589f2f7cc7c5d07",
     "builder_version": "1.0",
-    "snapshot_type": "official_oregon_access_recovery_baseline",
+    "snapshot_type": "official_oregon_live_refresh",
     "source_audits": {
       "marine_board_access": {
         "url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
         "complete": true,
-        "mode": "checked_in_verified_baseline",
         "source_date": "2026-07-29",
-        "matched_seed_waters": 52
-      },
-      "odfw_recreation_reports": {
-        "urls": {
-          "Northwest": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
-          "Central": "https://myodfw.com/recreation-report/fishing-report/central-zone",
-          "Northeast": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
-          "Southwest": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
-          "Southeast": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
-          "Willamette": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
-          "Columbia": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
-          "Marine": "https://myodfw.com/recreation-report/fishing-report/marine-zone"
-        },
-        "complete": true,
-        "mode": "checked_in_official_summaries",
-        "report_count": 19
+        "matched_seed_waters": 45,
+        "seed_water_count": 52
       },
       "odfw_stocking": {
         "url": "https://myodfw.com/fishing/species/trout/stocking-schedule",
+        "complete": false,
+        "parsed_rows": 0
+      },
+      "odfw_northwest": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/northwest-zone",
         "complete": true,
-        "mode": "checked_in_official_schedule_rows"
+        "source_date": "2026-07-30"
+      },
+      "odfw_central": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/central-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_northeast": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_southwest": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/southwest-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_southeast": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/southeast-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_willamette": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_columbia": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/columbia-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
+      },
+      "odfw_marine": {
+        "url": "https://myodfw.com/recreation-report/fishing-report/marine-zone",
+        "complete": true,
+        "source_date": "2026-07-30"
       }
     }
   },
@@ -86,8 +111,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
-              "access_details": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+              "verification_evidence": "The reservoir is 12% full. Mason Dam boat launch, Union Creek Campground and boat ramp are open.",
+              "access_details": "The reservoir is 12% full. Mason Dam boat launch, Union Creek Campground and boat ramp are open.",
               "county": "Baker",
               "latitude": null,
               "longitude": null,
@@ -104,7 +129,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -153,7 +178,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -200,7 +225,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -236,8 +261,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
-              "access_details": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+              "verification_evidence": "Unity Reservoir is at 23% water capacity. The water level at the State Park Day Use boat ramp is approximately 2 feet above the bottom of the ramp. Launch with caution.",
+              "access_details": "Unity Reservoir is at 23% water capacity. The water level at the State Park Day Use boat ramp is approximately 2 feet above the bottom of the ramp. Launch with caution.",
               "county": "Baker",
               "latitude": null,
               "longitude": null,
@@ -254,7 +279,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -321,7 +346,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": true
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -370,8 +395,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
-              "access_details": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+              "verification_evidence": "Lake Harriet Campground is open. Lake Harriet boat ramp is open year-round, weather permitting.",
+              "access_details": "Lake Harriet Campground is open. Lake Harriet boat ramp is open year-round, weather permitting.",
               "county": "Clackamas",
               "latitude": null,
               "longitude": null,
@@ -388,7 +413,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -432,8 +457,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the campground and day-use boating access sites open.",
-              "access_details": "The Marine Board reported the campground and day-use boating access sites open.",
+              "verification_evidence": "Trillium Lake Campground and Day Use boating access sites are open.",
+              "access_details": "Trillium Lake Campground and Day Use boating access sites are open.",
               "county": "Clackamas",
               "latitude": null,
               "longitude": null,
@@ -450,7 +475,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -499,7 +524,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "scheduled",
               "freshness_days": -19,
               "age_days": -19,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -546,7 +571,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "scheduled",
             "freshness_days": -19,
             "age_days": -19,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -591,8 +616,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Fort Stevens State Park boating access open.",
-              "access_details": "The Marine Board reported Fort Stevens State Park boating access open.",
+              "verification_evidence": "Fort Stevens State Park boating access is open.",
+              "access_details": "Fort Stevens State Park boating access is open.",
               "county": "Clatsop",
               "latitude": null,
               "longitude": null,
@@ -609,7 +634,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -658,8 +683,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
-              "access_details": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+              "verification_evidence": "Scappoose Bay Marina and boat ramp are open. The pumpout and dump station are operational. There is no fishing or fish cleaning allowed in the Marina.",
+              "access_details": "Scappoose Bay Marina and boat ramp are open. The pumpout and dump station are operational. There is no fishing or fish cleaning allowed in the Marina.",
               "county": "Columbia",
               "latitude": null,
               "longitude": null,
@@ -676,7 +701,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -716,8 +741,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
-              "access_details": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+              "verification_evidence": "Trojan Pond paddle access is open year-round. The picnic areas and flush restroom are open.",
+              "access_details": "Trojan Pond paddle access is open year-round. The picnic areas and flush restroom are open.",
               "county": "Columbia",
               "latitude": null,
               "longitude": null,
@@ -734,7 +759,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -783,8 +808,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board includes Eel Lake among its current public boating-access locations.",
-              "access_details": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+              "verification_evidence": "William M. Tugman State Park boat launch and kayak launch are open.",
+              "access_details": "William M. Tugman State Park boat launch and kayak launch are open.",
               "county": "Coos",
               "latitude": null,
               "longitude": null,
@@ -801,7 +826,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -841,8 +866,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the public kayak launch open.",
-              "access_details": "The Marine Board reported the public kayak launch open.",
+              "verification_evidence": "Powers Park Kayak Launch is open.",
+              "access_details": "Powers Park Kayak Launch is open.",
               "county": "Coos",
               "latitude": null,
               "longitude": null,
@@ -859,7 +884,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -908,8 +933,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
-              "access_details": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+              "verification_evidence": "The reservoir is 33% full, and the boat launch at the county park is open. Recommended for small boat launch only.",
+              "access_details": "The reservoir is 33% full, and the boat launch at the county park is open. Recommended for small boat launch only.",
               "county": "Crook",
               "latitude": null,
               "longitude": null,
@@ -926,7 +951,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -966,8 +991,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
-              "access_details": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+              "verification_evidence": "ADVISORY: Oregon Health Authority has released an advisory for this location. Prineville Reservoir water level is at 40%. Water levels are decreasing. View water level in relation to ramps at the Bureau of Reclamation's website. Due to low water, the Bear Creek Floating restroom has been removed for the season. Prineville State Park Day Use is open year-round, and the docks are installed. There is approximately 4 feet of water over the end of the ramp. Jasper Point boat ramp is open. Low water has exposed the bottom of the ramp. Paddlecraft can still be carried down to the water. Powderhouse Cove boating access is closed. The day use area and parking lot are still open.",
+              "access_details": "ADVISORY: Oregon Health Authority has released an advisory for this location. Prineville Reservoir water level is at 40%. Water levels are decreasing. View water level in relation to ramps at the Bureau of Reclamation's website. Due to low water, the Bear Creek Floating restroom has been removed for the season. Prineville State Park Day Use is open year-round, and the docks are installed. There is approximately 4 feet of water over the end of the ramp. Jasper Point boat ramp is open. Low water has exposed the bottom of the ramp. Paddlecraft can still be carried down to the water. Powderhouse Cove boating access is closed. The day use area and parking lot are still open.",
               "county": "Crook",
               "latitude": null,
               "longitude": null,
@@ -984,7 +1009,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1033,8 +1058,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Parks",
               "source_type": "official_public_access",
               "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51",
-              "verification_evidence": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
-              "access_details": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+              "verification_evidence": "The Port of Brookings Harbor boat ramp and short-term tie-up dock are open. The pumpout and dump station is available. Alfred A. Loeb State Park access to the gravel bar is open. There is a drop-off on the access to the gravel bar. Miller Bar, Nook Bar, Redwood Bar, and South Fork Campgrounds and Day Use areas have large drop-offs on the access to the gravel bar.",
+              "access_details": "The Port of Brookings Harbor boat ramp and short-term tie-up dock are open. The pumpout and dump station is available. Alfred A. Loeb State Park access to the gravel bar is open. There is a drop-off on the access to the gravel bar. Miller Bar, Nook Bar, Redwood Bar, and South Fork Campgrounds and Day Use areas have large drop-offs on the access to the gravel bar.",
               "county": "Curry",
               "latitude": null,
               "longitude": null,
@@ -1051,7 +1076,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1109,7 +1134,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1163,8 +1188,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
-              "access_details": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+              "verification_evidence": "The Reservoir is at 82% water capacity. Rock Creek Day Use and Crane Prairie Day Use are open with docks installed for the season. Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
+              "access_details": "The Reservoir is at 82% water capacity. Rock Creek Day Use and Crane Prairie Day Use are open with docks installed for the season. Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
               "county": "Deschutes",
               "latitude": null,
               "longitude": null,
@@ -1181,7 +1206,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1230,7 +1255,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -1277,7 +1302,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -1335,7 +1360,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1384,7 +1409,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -1431,7 +1456,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -1472,8 +1497,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
-              "access_details": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+              "verification_evidence": "Paulina Lake Campground has installed new permanent boarding docks. Little Crater and Paulina Lake boating sites are open, and their docks have been installed.",
+              "access_details": "Paulina Lake Campground has installed new permanent boarding docks. Little Crater and Paulina Lake boating sites are open, and their docks have been installed.",
               "county": "Deschutes",
               "latitude": null,
               "longitude": null,
@@ -1490,7 +1515,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1539,7 +1564,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -1586,7 +1611,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -1637,8 +1662,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
-              "access_details": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+              "verification_evidence": "Diamond Lake Campground, North and South Lake Boat launches, and Thielsen View Boat Ramp are open. Diamond Lake Resort has a webcam so that you can view current conditions",
+              "access_details": "Diamond Lake Campground, North and South Lake Boat launches, and Thielsen View Boat Ramp are open. Diamond Lake Resort has a webcam so that you can view current conditions",
               "county": "Douglas",
               "latitude": null,
               "longitude": null,
@@ -1655,7 +1680,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1704,7 +1729,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 34,
               "age_days": 34,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -1751,7 +1776,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 34,
             "age_days": 34,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -1787,8 +1812,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
-              "access_details": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+              "verification_evidence": "Poole Creek Boat ramp and East Lemolo Campground boating access are open.",
+              "access_details": "Poole Creek Boat ramp and East Lemolo Campground boating access are open.",
               "county": "Douglas",
               "latitude": null,
               "longitude": null,
@@ -1805,7 +1830,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1854,8 +1879,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
-              "access_details": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+              "verification_evidence": "ADVISORY: Port of Hood River Fuel dock is temporarily closed for maintenance. There is no estimated opening date at this time. ADVISORY: The fish cleaning station at Boardman Marina and RV park is closed until further notice. ADVISORY: City of St. Helens Courthouse docks face high afternoon/evening congestion every Thursday night through August 27, 2026 for 13 Nights on the River Summer Concerts. Hammond Marina is open. Rainier Marina is open, and the pumpout and dump station are operational.",
+              "access_details": "ADVISORY: Port of Hood River Fuel dock is temporarily closed for maintenance. There is no estimated opening date at this time. ADVISORY: The fish cleaning station at Boardman Marina and RV park is closed until further notice. ADVISORY: City of St. Helens Courthouse docks face high afternoon/evening congestion every Thursday night through August 27, 2026 for 13 Nights on the River Summer Concerts. Hammond Marina is open. Rainier Marina is open, and the pumpout and dump station are operational.",
               "county": "Gilliam",
               "latitude": null,
               "longitude": null,
@@ -1872,7 +1897,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1926,8 +1951,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
-              "access_details": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+              "verification_evidence": "Magone Lake Campground and boating access are open. This is a great lake for small boats and paddlecraft.",
+              "access_details": "Magone Lake Campground and boating access are open. This is a great lake for small boats and paddlecraft.",
               "county": "Grant",
               "latitude": null,
               "longitude": null,
@@ -1944,7 +1969,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -1993,7 +2018,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -2040,7 +2065,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -2085,8 +2110,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported seasonal campground and boating access open.",
-              "access_details": "The Marine Board reported seasonal campground and boating access open.",
+              "verification_evidence": "Delintment Lake Campground and boating access are open for the season. This is a great location for paddlers to access water.",
+              "access_details": "Delintment Lake Campground and boating access are open for the season. This is a great location for paddlers to access water.",
               "county": "Harney",
               "latitude": null,
               "longitude": null,
@@ -2103,7 +2128,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2152,8 +2177,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the day-use site and concrete boat ramp open.",
-              "access_details": "The Marine Board reported the day-use site and concrete boat ramp open.",
+              "verification_evidence": "Kingsley Day Use and concrete boat ramp is open. Remember to check the waterway rules for boat operation. Boat Oregon Map",
+              "access_details": "Kingsley Day Use and concrete boat ramp is open. Remember to check the waterway rules for boat operation. Boat Oregon Map",
               "county": "Hood River",
               "latitude": null,
               "longitude": null,
@@ -2170,7 +2195,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2219,8 +2244,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
-              "access_details": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+              "verification_evidence": "Agate Lake Boat Launch is open. The lake is 28% full",
+              "access_details": "Agate Lake Boat Launch is open. The lake is 28% full",
               "county": "Jackson",
               "latitude": null,
               "longitude": null,
@@ -2237,7 +2262,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2282,8 +2307,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
-              "access_details": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+              "verification_evidence": "Lost Creek Reservoir water levels are at 43%. The Takelma boating access site has more than 60 feet of water over the end of the boat ramp. Joseph Stewart Resort and Marina are open, and the water is at the bottom of the ramp.",
+              "access_details": "Lost Creek Reservoir water levels are at 43%. The Takelma boating access site has more than 60 feet of water over the end of the boat ramp. Joseph Stewart Resort and Marina are open, and the water is at the bottom of the ramp.",
               "county": "Jackson",
               "latitude": null,
               "longitude": null,
@@ -2300,7 +2325,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2349,7 +2374,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -2396,7 +2421,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -2441,8 +2466,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
-              "access_details": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+              "verification_evidence": "ALERT: There are public land closures due to wildfire activity. Review restrictions and closures before your trip. ADVISORY: Aerial fire suppression efforts are pulling from Lake Billy Chinook. Please remain aware of surroundings and give way to planes to draw from the lake. Floating Restrooms have been deployed for the season.",
+              "access_details": "ALERT: There are public land closures due to wildfire activity. Review restrictions and closures before your trip. ADVISORY: Aerial fire suppression efforts are pulling from Lake Billy Chinook. Please remain aware of surroundings and give way to planes to draw from the lake. Floating Restrooms have been deployed for the season.",
               "county": "Jefferson",
               "latitude": null,
               "longitude": null,
@@ -2459,7 +2484,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2533,7 +2558,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2582,7 +2607,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "stale",
               "freshness_days": 92,
               "age_days": 92,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -2629,7 +2654,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "stale",
             "freshness_days": 92,
             "age_days": 92,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -2692,7 +2717,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2736,8 +2761,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported resort and public day-use launches open.",
-              "access_details": "The Marine Board reported resort and public day-use launches open.",
+              "verification_evidence": "Rainbow Bay and Lake of the Woods Resort are open. The Lake of the Woods Resort has a live web camera on its website to view conditions. Aspen Point Day Use and Sunset Day Use Boat Launches are open.",
+              "access_details": "Rainbow Bay and Lake of the Woods Resort are open. The Lake of the Woods Resort has a live web camera on its website to view conditions. Aspen Point Day Use and Sunset Day Use Boat Launches are open.",
               "county": "Klamath",
               "latitude": null,
               "longitude": null,
@@ -2754,7 +2779,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2803,7 +2828,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "scheduled",
               "freshness_days": -40,
               "age_days": -40,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -2850,7 +2875,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "scheduled",
             "freshness_days": -40,
             "age_days": -40,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -2899,8 +2924,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the ramp open and boarding docks floating.",
-              "access_details": "The Marine Board reported the ramp open and boarding docks floating.",
+              "verification_evidence": "The boat ramp is open, and the boarding docks are floating.",
+              "access_details": "The boat ramp is open, and the boarding docks are floating.",
               "county": "Lake",
               "latitude": null,
               "longitude": null,
@@ -2917,7 +2942,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -2966,7 +2991,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "scheduled",
               "freshness_days": -12,
               "age_days": -12,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -3013,7 +3038,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "scheduled",
             "freshness_days": -12,
             "age_days": -12,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -3058,8 +3083,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
-              "access_details": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+              "verification_evidence": "Blue River Reservoir is currently listed at 46% water capacity. Saddle Dam boat ramp is open; the water level is at the bottom of the ramp. Paddlecraft can be carried down. Lookout Boat Launch is closed.",
+              "access_details": "Blue River Reservoir is currently listed at 46% water capacity. Saddle Dam boat ramp is open; the water level is at the bottom of the ramp. Paddlecraft can be carried down. Lookout Boat Launch is closed.",
               "county": "Lane",
               "latitude": null,
               "longitude": null,
@@ -3076,7 +3101,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3123,8 +3148,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
-              "access_details": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+              "verification_evidence": "Reservoir levels are at approximately 69% water capacity. Orchard Point Marina is open. There is approximately 6 feet of water over the bottom of the boat ramp. The pumpout and dump station are open. Richardson Park Marina is open. There is approximately 5 feet of water over the bottom of the boat ramp. The pumpout and dump station are offline for the season. Boaters can use the pumpout and dump station at Orchard Point Marina. Fern Ridge Shores is open year-round. There is approximately 3 feet of water over the bottom of the ramp Perkins Peninsula Park is open. The water is approximately 2 feet over the bottom of the boat ramp.",
+              "access_details": "Reservoir levels are at approximately 69% water capacity. Orchard Point Marina is open. There is approximately 6 feet of water over the bottom of the boat ramp. The pumpout and dump station are open. Richardson Park Marina is open. There is approximately 5 feet of water over the bottom of the boat ramp. The pumpout and dump station are offline for the season. Boaters can use the pumpout and dump station at Orchard Point Marina. Fern Ridge Shores is open year-round. There is approximately 3 feet of water over the bottom of the ramp Perkins Peninsula Park is open. The water is approximately 2 feet over the bottom of the boat ramp.",
               "county": "Lane",
               "latitude": null,
               "longitude": null,
@@ -3141,7 +3166,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3190,7 +3215,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -3237,7 +3262,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -3288,8 +3313,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
-              "access_details": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+              "verification_evidence": "Alder Island Paddler Access, Ichwhit Park, Strome Park, Jack Morgan Park, Ojalla Bridge Slide, Old Mill Park, Hee Hee Illahee, Twin Bridges and Moonshine Boat Ramp are open. Siltcoos Lake (Lane and Douglas Counties) Westlake County Park is open.",
+              "access_details": "Alder Island Paddler Access, Ichwhit Park, Strome Park, Jack Morgan Park, Ojalla Bridge Slide, Old Mill Park, Hee Hee Illahee, Twin Bridges and Moonshine Boat Ramp are open. Siltcoos Lake (Lane and Douglas Counties) Westlake County Park is open.",
               "county": "Lincoln",
               "latitude": null,
               "longitude": null,
@@ -3306,7 +3331,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3355,7 +3380,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -3402,7 +3427,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -3438,8 +3463,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
-              "access_details": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+              "verification_evidence": "The Port of Newport boating sites are open. Check with",
+              "access_details": "The Port of Newport boating sites are open. Check with",
               "county": "Lincoln",
               "latitude": null,
               "longitude": null,
@@ -3456,7 +3481,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3505,8 +3530,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
-              "access_details": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+              "verification_evidence": "Cold Water Cove is open. Clear Lake Resort, Marina, and boat ramp are open.",
+              "access_details": "Cold Water Cove is open. Clear Lake Resort, Marina, and boat ramp are open.",
               "county": "Linn",
               "latitude": null,
               "longitude": null,
@@ -3523,7 +3548,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3569,8 +3594,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon Department of Fish and Wildlife",
               "source_type": "official_public_access",
               "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
-              "verification_evidence": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
-              "access_details": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+              "verification_evidence": "ADVISORY: Road construction on North River Drive will be taking place this summer. Traffic will be periodically affected, and visitors may need to take alternative routes depending on where work is taking place The county will attempt to update frequently on their Linn County Parks and Recreation Facebook Page The floating restroom is currently under repair due to vandalism and is closed. The Reservoir is currently at 96% storage. Sunnyside County Park is open. There is over 22 feet of water at the bottom of the ramp. Gedney Creek boat ramp is open. There is over 16 feet of water at the bottom of the ramp",
+              "access_details": "ADVISORY: Road construction on North River Drive will be taking place this summer. Traffic will be periodically affected, and visitors may need to take alternative routes depending on where work is taking place The county will attempt to update frequently on their Linn County Parks and Recreation Facebook Page The floating restroom is currently under repair due to vandalism and is closed. The Reservoir is currently at 96% storage. Sunnyside County Park is open. There is over 22 feet of water at the bottom of the ramp. Gedney Creek boat ramp is open. There is over 16 feet of water at the bottom of the ramp",
               "county": "Linn",
               "latitude": null,
               "longitude": null,
@@ -3587,7 +3612,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3636,7 +3661,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -3683,7 +3708,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -3728,8 +3753,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
-              "access_details": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+              "verification_evidence": "ADVISORY: The waterline for McCormack campground will be under construction in Spring 2026. Visit the website for updates. Lake Owyhee levels are at 33% Indian Creek boat ramp is open. There is approximately 27 feet of water at the bottom of the ramp. The docks have been installed. Gordon Gulch boat ramp is open. There is approximately 11 feet of water at the bottom of the ramp. The docks are installed. Lake Owyhee State Park is open year-round. Leslie Gulch boat ramp is open. The water is below the bottom of the ramp. Hand launch only.",
+              "access_details": "ADVISORY: The waterline for McCormack campground will be under construction in Spring 2026. Visit the website for updates. Lake Owyhee levels are at 33% Indian Creek boat ramp is open. There is approximately 27 feet of water at the bottom of the ramp. The docks have been installed. Gordon Gulch boat ramp is open. There is approximately 11 feet of water at the bottom of the ramp. The docks are installed. Lake Owyhee State Park is open year-round. Leslie Gulch boat ramp is open. The water is below the bottom of the ramp. Hand launch only.",
               "county": "Malheur",
               "latitude": null,
               "longitude": null,
@@ -3746,7 +3771,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3795,8 +3820,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
-              "access_details": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+              "verification_evidence": "North Turner Lake boat ramp is open every day from dawn to dusk unless the gate is closed.",
+              "access_details": "North Turner Lake boat ramp is open every day from dawn to dusk unless the gate is closed.",
               "county": "Marion",
               "latitude": null,
               "longitude": null,
@@ -3813,7 +3838,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3876,7 +3901,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -3925,7 +3950,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -3972,7 +3997,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -4023,8 +4048,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
-              "access_details": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+              "verification_evidence": "Klum Landing Park boat ramp is open.",
+              "access_details": "Klum Landing Park boat ramp is open.",
               "county": "Morrow",
               "latitude": null,
               "longitude": null,
@@ -4041,7 +4066,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4090,7 +4115,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -4137,7 +4162,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -4182,8 +4207,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
-              "access_details": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+              "verification_evidence": "Benson State Recreation Area is open. This is a great location for paddlers to access alongside the Columbia River. The Lake is stocked with fish from March through October.",
+              "access_details": "Benson State Recreation Area is open. This is a great location for paddlers to access alongside the Columbia River. The Lake is stocked with fish from March through October.",
               "county": "Multnomah",
               "latitude": null,
               "longitude": null,
@@ -4200,7 +4225,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4249,8 +4274,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
-              "access_details": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+              "verification_evidence": "Howard Buford Recreation Area primitive paddle access is open. Lower Willamette River (Confluence with Columbia River to Willamette Falls) ADVISORY: Milwaukie Bay Park will be hosting the Milwaukie Little Float on August 1. The boat ramp will remain open to the public, but congestion is expected. ADVISORY: Foothills Park will have weekly concerts every Wednesday in July starting on the 8th. The docks fill up with boats, and there is usually no space from 5 pm to 10 pm. ADVISORY: St. John's Bridge in Cathedral Park continues to be under restoration. The project has been extended due to the need for more extensive concrete repairs. ODOT anticipates completing the work in Cathedral Park by March 2027, and all work will be completed by June 2027. The boat ramp, docks, and parking area are open during construction",
+              "access_details": "Howard Buford Recreation Area primitive paddle access is open. Lower Willamette River (Confluence with Columbia River to Willamette Falls) ADVISORY: Milwaukie Bay Park will be hosting the Milwaukie Little Float on August 1. The boat ramp will remain open to the public, but congestion is expected. ADVISORY: Foothills Park will have weekly concerts every Wednesday in July starting on the 8th. The docks fill up with boats, and there is usually no space from 5 pm to 10 pm. ADVISORY: St. John's Bridge in Cathedral Park continues to be under restoration. The project has been extended due to the need for more extensive concrete repairs. ODOT anticipates completing the work in Cathedral Park by March 2027, and all work will be completed by June 2027. The boat ramp, docks, and parking area are open during construction",
               "county": "Polk",
               "latitude": null,
               "longitude": null,
@@ -4267,7 +4292,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4316,8 +4341,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Bureau of Land Management",
               "source_type": "official_public_access",
               "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
-              "verification_evidence": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
-              "access_details": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+              "verification_evidence": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
+              "access_details": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
               "county": "Sherman",
               "latitude": null,
               "longitude": null,
@@ -4334,7 +4359,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4383,8 +4408,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
-              "access_details": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+              "verification_evidence": "The Cape Meares Lake boat ramp is open. Use caution when launching, as you may encroach on Bay Ocean Rd. There is very limited parking across the road.",
+              "access_details": "The Cape Meares Lake boat ramp is open. Use caution when launching, as you may encroach on Bay Ocean Rd. There is very limited parking across the road.",
               "county": "Tillamook",
               "latitude": null,
               "longitude": null,
@@ -4401,7 +4426,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4464,7 +4489,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4513,7 +4538,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 30,
               "age_days": 30,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -4560,7 +4585,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 30,
             "age_days": 30,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -4611,8 +4636,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
-              "access_details": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+              "verification_evidence": "The reservoir is 40% full. The North and South boating access sites are open. Fishing is allowed March 1 through September 30.",
+              "access_details": "The reservoir is 40% full. The North and South boating access sites are open. Fishing is allowed March 1 through September 30.",
               "county": "Umatilla",
               "latitude": null,
               "longitude": null,
@@ -4629,7 +4654,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4678,7 +4703,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "current",
               "freshness_days": 27,
               "age_days": 27,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -4725,7 +4750,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "current",
             "freshness_days": 27,
             "age_days": 27,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -4770,8 +4795,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported campground and boating access open.",
-              "access_details": "The Marine Board reported campground and boating access open.",
+              "verification_evidence": "Jubilee Lake Campground and boating access are open. This beautiful lake is a nice place for paddlers to explore.",
+              "access_details": "Jubilee Lake Campground and boating access are open. This beautiful lake is a nice place for paddlers to explore.",
               "county": "Union",
               "latitude": null,
               "longitude": null,
@@ -4788,7 +4813,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4841,8 +4866,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon Department of Fish and Wildlife",
               "source_type": "official_public_access",
               "official_source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
-              "verification_evidence": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
-              "access_details": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+              "verification_evidence": "ADVISORY: The east portion of the parking lot at the County Park boat ramp is closed due to storage of construction equipment for construction work on the Dam. Dam work is expected to continue into the summer of 2027. Wallowa Lake State Park boat ramp and Wallowa County Park are open. Wallowa Lake Marina is open. Contact the marina to confirm hours.",
+              "access_details": "ADVISORY: The east portion of the parking lot at the County Park boat ramp is closed due to storage of construction equipment for construction work on the Dam. Dam work is expected to continue into the summer of 2027. Wallowa Lake State Park boat ramp and Wallowa County Park are open. Wallowa Lake Marina is open. Contact the marina to confirm hours.",
               "county": "Wallowa",
               "latitude": null,
               "longitude": null,
@@ -4859,7 +4884,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -4908,7 +4933,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "freshness_status": "very_current",
               "freshness_days": 2,
               "age_days": 2,
-              "last_checked_at": "2026-08-05T18:30:32Z",
+              "last_checked_at": "2026-08-05T19:25:45Z",
               "source_status": "available",
               "source_error": "",
               "review_required": false
@@ -4955,7 +4980,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "freshness_status": "very_current",
             "freshness_days": 2,
             "age_days": 2,
-            "last_checked_at": "2026-08-05T18:30:32Z",
+            "last_checked_at": "2026-08-05T19:25:45Z",
             "source_status": "available",
             "source_error": "",
             "review_required": false
@@ -5000,8 +5025,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
-              "access_details": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+              "verification_evidence": "Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
+              "access_details": "Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
               "county": "Wasco",
               "latitude": null,
               "longitude": null,
@@ -5018,7 +5043,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -5067,8 +5092,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
-              "access_details": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+              "verification_evidence": "Remember to check boat operation waterway rules on the Boat Oregon Map. There is a 200 ft. slow -no wake zone around the entire perimeter of the lake. Boats operating east of the buoy line must move in a counterclockwise direction and not exceed 35mph. Protect your boating activities and follow the rules! Eagle Landing Boating Access (A Ramp) and C ramp boating access have approximately 45 feet of water over the bottom of the boat ramps.",
+              "access_details": "Remember to check boat operation waterway rules on the Boat Oregon Map. There is a 200 ft. slow -no wake zone around the entire perimeter of the lake. Boats operating east of the buoy line must move in a counterclockwise direction and not exceed 35mph. Protect your boating activities and follow the rules! Eagle Landing Boating Access (A Ramp) and C ramp boating access have approximately 45 feet of water over the bottom of the boat ramps.",
               "county": "Washington",
               "latitude": null,
               "longitude": null,
@@ -5085,7 +5110,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -5134,8 +5159,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Bureau of Land Management",
               "source_type": "official_public_access",
               "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
-              "verification_evidence": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
-              "access_details": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+              "verification_evidence": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
+              "access_details": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
               "county": "Wheeler",
               "latitude": null,
               "longitude": null,
@@ -5152,7 +5177,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -5201,8 +5226,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
               "source_name": "Oregon State Marine Board",
               "source_type": "official_public_access",
               "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-              "verification_evidence": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
-              "access_details": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+              "verification_evidence": "Dayton Landing Boat Ramp is open and cleaned of debris. It is recommended not to launch trailered boats here as the ramp is in poor condition below the water level.",
+              "access_details": "Dayton Landing Boat Ramp is open and cleaned of debris. It is recommended not to launch trailered boats here as the ramp is in poor condition below the water level.",
               "county": "Yamhill",
               "latitude": null,
               "longitude": null,
@@ -5219,7 +5244,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
                 "ada_boat_launch": false,
                 "ada_fishing": false
               },
-              "last_verified": "2026-08-05T18:30:32Z"
+              "last_verified": "2026-08-05T19:25:45Z"
             }
           ],
           "publication_status": "published_verified_public_access",
@@ -5268,8 +5293,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
-          "access_details": "The Marine Board reported Mason Dam boat launch and nearby campground ramps open.",
+          "verification_evidence": "The reservoir is 12% full. Mason Dam boat launch, Union Creek Campground and boat ramp are open.",
+          "access_details": "The reservoir is 12% full. Mason Dam boat launch, Union Creek Campground and boat ramp are open.",
           "county": "Baker",
           "latitude": null,
           "longitude": null,
@@ -5286,7 +5311,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5335,7 +5360,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -5382,7 +5407,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -5418,8 +5443,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
-          "access_details": "The Marine Board reported the state-park day-use ramp open, with low-water launch caution.",
+          "verification_evidence": "Unity Reservoir is at 23% water capacity. The water level at the State Park Day Use boat ramp is approximately 2 feet above the bottom of the ramp. Launch with caution.",
+          "access_details": "Unity Reservoir is at 23% water capacity. The water level at the State Park Day Use boat ramp is approximately 2 feet above the bottom of the ramp. Launch with caution.",
           "county": "Baker",
           "latitude": null,
           "longitude": null,
@@ -5436,7 +5461,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5494,7 +5519,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": true
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5534,8 +5559,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
-          "access_details": "The Marine Board reported the campground open and the boat ramp available year-round, weather permitting.",
+          "verification_evidence": "Lake Harriet Campground is open. Lake Harriet boat ramp is open year-round, weather permitting.",
+          "access_details": "Lake Harriet Campground is open. Lake Harriet boat ramp is open year-round, weather permitting.",
           "county": "Clackamas",
           "latitude": null,
           "longitude": null,
@@ -5552,7 +5577,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5596,8 +5621,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the campground and day-use boating access sites open.",
-          "access_details": "The Marine Board reported the campground and day-use boating access sites open.",
+          "verification_evidence": "Trillium Lake Campground and Day Use boating access sites are open.",
+          "access_details": "Trillium Lake Campground and Day Use boating access sites are open.",
           "county": "Clackamas",
           "latitude": null,
           "longitude": null,
@@ -5614,7 +5639,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5663,7 +5688,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "scheduled",
           "freshness_days": -19,
           "age_days": -19,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -5710,7 +5735,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "scheduled",
         "freshness_days": -19,
         "age_days": -19,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -5746,8 +5771,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Fort Stevens State Park boating access open.",
-          "access_details": "The Marine Board reported Fort Stevens State Park boating access open.",
+          "verification_evidence": "Fort Stevens State Park boating access is open.",
+          "access_details": "Fort Stevens State Park boating access is open.",
           "county": "Clatsop",
           "latitude": null,
           "longitude": null,
@@ -5764,7 +5789,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5804,8 +5829,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
-          "access_details": "The Marine Board reported the marina and boat ramp open; fishing is not allowed inside the marina itself.",
+          "verification_evidence": "Scappoose Bay Marina and boat ramp are open. The pumpout and dump station are operational. There is no fishing or fish cleaning allowed in the Marina.",
+          "access_details": "Scappoose Bay Marina and boat ramp are open. The pumpout and dump station are operational. There is no fishing or fish cleaning allowed in the Marina.",
           "county": "Columbia",
           "latitude": null,
           "longitude": null,
@@ -5822,7 +5847,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5862,8 +5887,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
-          "access_details": "The Marine Board reported paddle access open year-round, with picnic and restroom facilities available.",
+          "verification_evidence": "Trojan Pond paddle access is open year-round. The picnic areas and flush restroom are open.",
+          "access_details": "Trojan Pond paddle access is open year-round. The picnic areas and flush restroom are open.",
           "county": "Columbia",
           "latitude": null,
           "longitude": null,
@@ -5880,7 +5905,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5920,8 +5945,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board includes Eel Lake among its current public boating-access locations.",
-          "access_details": "The Marine Board includes Eel Lake among its current public boating-access locations.",
+          "verification_evidence": "William M. Tugman State Park boat launch and kayak launch are open.",
+          "access_details": "William M. Tugman State Park boat launch and kayak launch are open.",
           "county": "Coos",
           "latitude": null,
           "longitude": null,
@@ -5938,7 +5963,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -5978,8 +6003,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the public kayak launch open.",
-          "access_details": "The Marine Board reported the public kayak launch open.",
+          "verification_evidence": "Powers Park Kayak Launch is open.",
+          "access_details": "Powers Park Kayak Launch is open.",
           "county": "Coos",
           "latitude": null,
           "longitude": null,
@@ -5996,7 +6021,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6036,8 +6061,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
-          "access_details": "The Marine Board reported the county-park launch open for small boats under low-water conditions.",
+          "verification_evidence": "The reservoir is 33% full, and the boat launch at the county park is open. Recommended for small boat launch only.",
+          "access_details": "The reservoir is 33% full, and the boat launch at the county park is open. Recommended for small boat launch only.",
           "county": "Crook",
           "latitude": null,
           "longitude": null,
@@ -6054,7 +6079,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6094,8 +6119,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
-          "access_details": "The Marine Board reported the state-park ramp open with low-water advisories; other ramps vary by water level.",
+          "verification_evidence": "ADVISORY: Oregon Health Authority has released an advisory for this location. Prineville Reservoir water level is at 40%. Water levels are decreasing. View water level in relation to ramps at the Bureau of Reclamation's website. Due to low water, the Bear Creek Floating restroom has been removed for the season. Prineville State Park Day Use is open year-round, and the docks are installed. There is approximately 4 feet of water over the end of the ramp. Jasper Point boat ramp is open. Low water has exposed the bottom of the ramp. Paddlecraft can still be carried down to the water. Powderhouse Cove boating access is closed. The day use area and parking lot are still open.",
+          "access_details": "ADVISORY: Oregon Health Authority has released an advisory for this location. Prineville Reservoir water level is at 40%. Water levels are decreasing. View water level in relation to ramps at the Bureau of Reclamation's website. Due to low water, the Bear Creek Floating restroom has been removed for the season. Prineville State Park Day Use is open year-round, and the docks are installed. There is approximately 4 feet of water over the end of the ramp. Jasper Point boat ramp is open. Low water has exposed the bottom of the ramp. Paddlecraft can still be carried down to the water. Powderhouse Cove boating access is closed. The day use area and parking lot are still open.",
           "county": "Crook",
           "latitude": null,
           "longitude": null,
@@ -6112,7 +6137,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6152,8 +6177,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Parks",
           "source_type": "official_public_access",
           "official_source_url": "https://stateparks.oregon.gov/index.cfm?do=park.profile&parkId=51",
-          "verification_evidence": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
-          "access_details": "Oregon State Parks identifies public river and gravel-bar fishing access at Loeb State Park.",
+          "verification_evidence": "The Port of Brookings Harbor boat ramp and short-term tie-up dock are open. The pumpout and dump station is available. Alfred A. Loeb State Park access to the gravel bar is open. There is a drop-off on the access to the gravel bar. Miller Bar, Nook Bar, Redwood Bar, and South Fork Campgrounds and Day Use areas have large drop-offs on the access to the gravel bar.",
+          "access_details": "The Port of Brookings Harbor boat ramp and short-term tie-up dock are open. The pumpout and dump station is available. Alfred A. Loeb State Park access to the gravel bar is open. There is a drop-off on the access to the gravel bar. Miller Bar, Nook Bar, Redwood Bar, and South Fork Campgrounds and Day Use areas have large drop-offs on the access to the gravel bar.",
           "county": "Curry",
           "latitude": null,
           "longitude": null,
@@ -6170,7 +6195,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6228,7 +6253,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6273,8 +6298,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
-          "access_details": "The Marine Board reported both day-use access locations open with seasonal docks installed.",
+          "verification_evidence": "The Reservoir is at 82% water capacity. Rock Creek Day Use and Crane Prairie Day Use are open with docks installed for the season. Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
+          "access_details": "The Reservoir is at 82% water capacity. Rock Creek Day Use and Crane Prairie Day Use are open with docks installed for the season. Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
           "county": "Deschutes",
           "latitude": null,
           "longitude": null,
@@ -6291,7 +6316,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6340,7 +6365,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -6387,7 +6412,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -6445,7 +6470,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6494,7 +6519,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -6541,7 +6566,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -6582,8 +6607,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
-          "access_details": "The Marine Board reported Paulina Lake boating sites open with permanent or seasonal docking facilities.",
+          "verification_evidence": "Paulina Lake Campground has installed new permanent boarding docks. Little Crater and Paulina Lake boating sites are open, and their docks have been installed.",
+          "access_details": "Paulina Lake Campground has installed new permanent boarding docks. Little Crater and Paulina Lake boating sites are open, and their docks have been installed.",
           "county": "Deschutes",
           "latitude": null,
           "longitude": null,
@@ -6600,7 +6625,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6649,7 +6674,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -6696,7 +6721,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -6738,8 +6763,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
-          "access_details": "The Marine Board reported the campground and north, south and Thielsen View launches open.",
+          "verification_evidence": "Diamond Lake Campground, North and South Lake Boat launches, and Thielsen View Boat Ramp are open. Diamond Lake Resort has a webcam so that you can view current conditions",
+          "access_details": "Diamond Lake Campground, North and South Lake Boat launches, and Thielsen View Boat Ramp are open. Diamond Lake Resort has a webcam so that you can view current conditions",
           "county": "Douglas",
           "latitude": null,
           "longitude": null,
@@ -6756,7 +6781,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6805,7 +6830,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 34,
           "age_days": 34,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -6852,7 +6877,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 34,
         "age_days": 34,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -6888,8 +6913,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
-          "access_details": "The Marine Board reported Poole Creek ramp and East Lemolo campground boating access open.",
+          "verification_evidence": "Poole Creek Boat ramp and East Lemolo Campground boating access are open.",
+          "access_details": "Poole Creek Boat ramp and East Lemolo Campground boating access are open.",
           "county": "Douglas",
           "latitude": null,
           "longitude": null,
@@ -6906,7 +6931,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -6946,8 +6971,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
-          "access_details": "The Marine Board reported the Port of Arlington motorized and nonmotorized launches and tie-up dock open.",
+          "verification_evidence": "ADVISORY: Port of Hood River Fuel dock is temporarily closed for maintenance. There is no estimated opening date at this time. ADVISORY: The fish cleaning station at Boardman Marina and RV park is closed until further notice. ADVISORY: City of St. Helens Courthouse docks face high afternoon/evening congestion every Thursday night through August 27, 2026 for 13 Nights on the River Summer Concerts. Hammond Marina is open. Rainier Marina is open, and the pumpout and dump station are operational.",
+          "access_details": "ADVISORY: Port of Hood River Fuel dock is temporarily closed for maintenance. There is no estimated opening date at this time. ADVISORY: The fish cleaning station at Boardman Marina and RV park is closed until further notice. ADVISORY: City of St. Helens Courthouse docks face high afternoon/evening congestion every Thursday night through August 27, 2026 for 13 Nights on the River Summer Concerts. Hammond Marina is open. Rainier Marina is open, and the pumpout and dump station are operational.",
           "county": "Gilliam",
           "latitude": null,
           "longitude": null,
@@ -6964,7 +6989,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7009,8 +7034,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
-          "access_details": "The Marine Board reported the campground and boating access open for small boats and paddlecraft.",
+          "verification_evidence": "Magone Lake Campground and boating access are open. This is a great lake for small boats and paddlecraft.",
+          "access_details": "Magone Lake Campground and boating access are open. This is a great lake for small boats and paddlecraft.",
           "county": "Grant",
           "latitude": null,
           "longitude": null,
@@ -7027,7 +7052,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7076,7 +7101,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -7123,7 +7148,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -7159,8 +7184,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported seasonal campground and boating access open.",
-          "access_details": "The Marine Board reported seasonal campground and boating access open.",
+          "verification_evidence": "Delintment Lake Campground and boating access are open for the season. This is a great location for paddlers to access water.",
+          "access_details": "Delintment Lake Campground and boating access are open for the season. This is a great location for paddlers to access water.",
           "county": "Harney",
           "latitude": null,
           "longitude": null,
@@ -7177,7 +7202,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7217,8 +7242,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the day-use site and concrete boat ramp open.",
-          "access_details": "The Marine Board reported the day-use site and concrete boat ramp open.",
+          "verification_evidence": "Kingsley Day Use and concrete boat ramp is open. Remember to check the waterway rules for boat operation. Boat Oregon Map",
+          "access_details": "Kingsley Day Use and concrete boat ramp is open. Remember to check the waterway rules for boat operation. Boat Oregon Map",
           "county": "Hood River",
           "latitude": null,
           "longitude": null,
@@ -7235,7 +7260,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7275,8 +7300,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
-          "access_details": "The Marine Board reported the named public boat launch open, with low reservoir levels noted.",
+          "verification_evidence": "Agate Lake Boat Launch is open. The lake is 28% full",
+          "access_details": "Agate Lake Boat Launch is open. The lake is 28% full",
           "county": "Jackson",
           "latitude": null,
           "longitude": null,
@@ -7293,7 +7318,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7338,8 +7363,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
-          "access_details": "The Marine Board reported Takelma access and Joseph Stewart Resort/Marina available, with water-level cautions.",
+          "verification_evidence": "Lost Creek Reservoir water levels are at 43%. The Takelma boating access site has more than 60 feet of water over the end of the boat ramp. Joseph Stewart Resort and Marina are open, and the water is at the bottom of the ramp.",
+          "access_details": "Lost Creek Reservoir water levels are at 43%. The Takelma boating access site has more than 60 feet of water over the end of the boat ramp. Joseph Stewart Resort and Marina are open, and the water is at the bottom of the ramp.",
           "county": "Jackson",
           "latitude": null,
           "longitude": null,
@@ -7356,7 +7381,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7405,7 +7430,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -7452,7 +7477,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -7488,8 +7513,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
-          "access_details": "The Marine Board reported state-park day-use ramps open, while some wildfire-area access can change.",
+          "verification_evidence": "ALERT: There are public land closures due to wildfire activity. Review restrictions and closures before your trip. ADVISORY: Aerial fire suppression efforts are pulling from Lake Billy Chinook. Please remain aware of surroundings and give way to planes to draw from the lake. Floating Restrooms have been deployed for the season.",
+          "access_details": "ALERT: There are public land closures due to wildfire activity. Review restrictions and closures before your trip. ADVISORY: Aerial fire suppression efforts are pulling from Lake Billy Chinook. Please remain aware of surroundings and give way to planes to draw from the lake. Floating Restrooms have been deployed for the season.",
           "county": "Jefferson",
           "latitude": null,
           "longitude": null,
@@ -7506,7 +7531,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7571,7 +7596,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7620,7 +7645,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "stale",
           "freshness_days": 92,
           "age_days": 92,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -7667,7 +7692,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "stale",
         "freshness_days": 92,
         "age_days": 92,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -7721,7 +7746,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7765,8 +7790,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported resort and public day-use launches open.",
-          "access_details": "The Marine Board reported resort and public day-use launches open.",
+          "verification_evidence": "Rainbow Bay and Lake of the Woods Resort are open. The Lake of the Woods Resort has a live web camera on its website to view conditions. Aspen Point Day Use and Sunset Day Use Boat Launches are open.",
+          "access_details": "Rainbow Bay and Lake of the Woods Resort are open. The Lake of the Woods Resort has a live web camera on its website to view conditions. Aspen Point Day Use and Sunset Day Use Boat Launches are open.",
           "county": "Klamath",
           "latitude": null,
           "longitude": null,
@@ -7783,7 +7808,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7832,7 +7857,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "scheduled",
           "freshness_days": -40,
           "age_days": -40,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -7879,7 +7904,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "scheduled",
         "freshness_days": -40,
         "age_days": -40,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -7919,8 +7944,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the ramp open and boarding docks floating.",
-          "access_details": "The Marine Board reported the ramp open and boarding docks floating.",
+          "verification_evidence": "The boat ramp is open, and the boarding docks are floating.",
+          "access_details": "The boat ramp is open, and the boarding docks are floating.",
           "county": "Lake",
           "latitude": null,
           "longitude": null,
@@ -7937,7 +7962,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -7986,7 +8011,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "scheduled",
           "freshness_days": -12,
           "age_days": -12,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -8033,7 +8058,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "scheduled",
         "freshness_days": -12,
         "age_days": -12,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -8069,8 +8094,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
-          "access_details": "The Marine Board reported Saddle Dam access open for launching or carry-down use depending on water level; Lookout launch was closed.",
+          "verification_evidence": "Blue River Reservoir is currently listed at 46% water capacity. Saddle Dam boat ramp is open; the water level is at the bottom of the ramp. Paddlecraft can be carried down. Lookout Boat Launch is closed.",
+          "access_details": "Blue River Reservoir is currently listed at 46% water capacity. Saddle Dam boat ramp is open; the water level is at the bottom of the ramp. Paddlecraft can be carried down. Lookout Boat Launch is closed.",
           "county": "Lane",
           "latitude": null,
           "longitude": null,
@@ -8087,7 +8112,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8134,8 +8159,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
-          "access_details": "The Marine Board reported Orchard Point and other named public ramps open, with changing water depth.",
+          "verification_evidence": "Reservoir levels are at approximately 69% water capacity. Orchard Point Marina is open. There is approximately 6 feet of water over the bottom of the boat ramp. The pumpout and dump station are open. Richardson Park Marina is open. There is approximately 5 feet of water over the bottom of the boat ramp. The pumpout and dump station are offline for the season. Boaters can use the pumpout and dump station at Orchard Point Marina. Fern Ridge Shores is open year-round. There is approximately 3 feet of water over the bottom of the ramp Perkins Peninsula Park is open. The water is approximately 2 feet over the bottom of the boat ramp.",
+          "access_details": "Reservoir levels are at approximately 69% water capacity. Orchard Point Marina is open. There is approximately 6 feet of water over the bottom of the boat ramp. The pumpout and dump station are open. Richardson Park Marina is open. There is approximately 5 feet of water over the bottom of the boat ramp. The pumpout and dump station are offline for the season. Boaters can use the pumpout and dump station at Orchard Point Marina. Fern Ridge Shores is open year-round. There is approximately 3 feet of water over the bottom of the ramp Perkins Peninsula Park is open. The water is approximately 2 feet over the bottom of the boat ramp.",
           "county": "Lane",
           "latitude": null,
           "longitude": null,
@@ -8152,7 +8177,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8201,7 +8226,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -8248,7 +8273,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -8290,8 +8315,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
-          "access_details": "The Marine Board reported multiple public paddle, slide and ramp sites open along the river.",
+          "verification_evidence": "Alder Island Paddler Access, Ichwhit Park, Strome Park, Jack Morgan Park, Ojalla Bridge Slide, Old Mill Park, Hee Hee Illahee, Twin Bridges and Moonshine Boat Ramp are open. Siltcoos Lake (Lane and Douglas Counties) Westlake County Park is open.",
+          "access_details": "Alder Island Paddler Access, Ichwhit Park, Strome Park, Jack Morgan Park, Ojalla Bridge Slide, Old Mill Park, Hee Hee Illahee, Twin Bridges and Moonshine Boat Ramp are open. Siltcoos Lake (Lane and Douglas Counties) Westlake County Park is open.",
           "county": "Lincoln",
           "latitude": null,
           "longitude": null,
@@ -8308,7 +8333,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8357,7 +8382,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -8404,7 +8429,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -8440,8 +8465,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
-          "access_details": "The Marine Board reported Port of Newport boating sites open and directs users to verify bar conditions.",
+          "verification_evidence": "The Port of Newport boating sites are open. Check with",
+          "access_details": "The Port of Newport boating sites are open. Check with",
           "county": "Lincoln",
           "latitude": null,
           "longitude": null,
@@ -8458,7 +8483,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8498,8 +8523,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
-          "access_details": "The Marine Board reported both Cold Water Cove and the resort marina/boat ramp open.",
+          "verification_evidence": "Cold Water Cove is open. Clear Lake Resort, Marina, and boat ramp are open.",
+          "access_details": "Cold Water Cove is open. Clear Lake Resort, Marina, and boat ramp are open.",
           "county": "Linn",
           "latitude": null,
           "longitude": null,
@@ -8516,7 +8541,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8562,8 +8587,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon Department of Fish and Wildlife",
           "source_type": "official_public_access",
           "official_source_url": "https://myodfw.com/recreation-report/fishing-report/willamette-zone",
-          "verification_evidence": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
-          "access_details": "ODFW reports multiple seasonal boat ramps and public bank-access areas around the reservoir.",
+          "verification_evidence": "ADVISORY: Road construction on North River Drive will be taking place this summer. Traffic will be periodically affected, and visitors may need to take alternative routes depending on where work is taking place The county will attempt to update frequently on their Linn County Parks and Recreation Facebook Page The floating restroom is currently under repair due to vandalism and is closed. The Reservoir is currently at 96% storage. Sunnyside County Park is open. There is over 22 feet of water at the bottom of the ramp. Gedney Creek boat ramp is open. There is over 16 feet of water at the bottom of the ramp",
+          "access_details": "ADVISORY: Road construction on North River Drive will be taking place this summer. Traffic will be periodically affected, and visitors may need to take alternative routes depending on where work is taking place The county will attempt to update frequently on their Linn County Parks and Recreation Facebook Page The floating restroom is currently under repair due to vandalism and is closed. The Reservoir is currently at 96% storage. Sunnyside County Park is open. There is over 22 feet of water at the bottom of the ramp. Gedney Creek boat ramp is open. There is over 16 feet of water at the bottom of the ramp",
           "county": "Linn",
           "latitude": null,
           "longitude": null,
@@ -8580,7 +8605,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8629,7 +8654,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -8676,7 +8701,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -8712,8 +8737,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
-          "access_details": "The Marine Board reported multiple public ramps open, with some launches reduced to hand carry by low water.",
+          "verification_evidence": "ADVISORY: The waterline for McCormack campground will be under construction in Spring 2026. Visit the website for updates. Lake Owyhee levels are at 33% Indian Creek boat ramp is open. There is approximately 27 feet of water at the bottom of the ramp. The docks have been installed. Gordon Gulch boat ramp is open. There is approximately 11 feet of water at the bottom of the ramp. The docks are installed. Lake Owyhee State Park is open year-round. Leslie Gulch boat ramp is open. The water is below the bottom of the ramp. Hand launch only.",
+          "access_details": "ADVISORY: The waterline for McCormack campground will be under construction in Spring 2026. Visit the website for updates. Lake Owyhee levels are at 33% Indian Creek boat ramp is open. There is approximately 27 feet of water at the bottom of the ramp. The docks have been installed. Gordon Gulch boat ramp is open. There is approximately 11 feet of water at the bottom of the ramp. The docks are installed. Lake Owyhee State Park is open year-round. Leslie Gulch boat ramp is open. The water is below the bottom of the ramp. Hand launch only.",
           "county": "Malheur",
           "latitude": null,
           "longitude": null,
@@ -8730,7 +8755,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8770,8 +8795,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
-          "access_details": "The Marine Board reported the ramp open daily from dawn to dusk unless the gate is closed.",
+          "verification_evidence": "North Turner Lake boat ramp is open every day from dawn to dusk unless the gate is closed.",
+          "access_details": "North Turner Lake boat ramp is open every day from dawn to dusk unless the gate is closed.",
           "county": "Marion",
           "latitude": null,
           "longitude": null,
@@ -8788,7 +8813,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8851,7 +8876,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -8900,7 +8925,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -8947,7 +8972,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -8989,8 +9014,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
-          "access_details": "The Marine Board reported Turner Day Park open and published the current reservoir level.",
+          "verification_evidence": "Klum Landing Park boat ramp is open.",
+          "access_details": "Klum Landing Park boat ramp is open.",
           "county": "Morrow",
           "latitude": null,
           "longitude": null,
@@ -9007,7 +9032,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9056,7 +9081,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -9103,7 +9128,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -9139,8 +9164,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
-          "access_details": "The Marine Board reported the state recreation area open and identifies the lake as stocked during the season.",
+          "verification_evidence": "Benson State Recreation Area is open. This is a great location for paddlers to access alongside the Columbia River. The Lake is stocked with fish from March through October.",
+          "access_details": "Benson State Recreation Area is open. This is a great location for paddlers to access alongside the Columbia River. The Lake is stocked with fish from March through October.",
           "county": "Multnomah",
           "latitude": null,
           "longitude": null,
@@ -9157,7 +9182,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9197,8 +9222,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
-          "access_details": "The Marine Board reported the Independence Riverview Park nonmotorized launch open.",
+          "verification_evidence": "Howard Buford Recreation Area primitive paddle access is open. Lower Willamette River (Confluence with Columbia River to Willamette Falls) ADVISORY: Milwaukie Bay Park will be hosting the Milwaukie Little Float on August 1. The boat ramp will remain open to the public, but congestion is expected. ADVISORY: Foothills Park will have weekly concerts every Wednesday in July starting on the 8th. The docks fill up with boats, and there is usually no space from 5 pm to 10 pm. ADVISORY: St. John's Bridge in Cathedral Park continues to be under restoration. The project has been extended due to the need for more extensive concrete repairs. ODOT anticipates completing the work in Cathedral Park by March 2027, and all work will be completed by June 2027. The boat ramp, docks, and parking area are open during construction",
+          "access_details": "Howard Buford Recreation Area primitive paddle access is open. Lower Willamette River (Confluence with Columbia River to Willamette Falls) ADVISORY: Milwaukie Bay Park will be hosting the Milwaukie Little Float on August 1. The boat ramp will remain open to the public, but congestion is expected. ADVISORY: Foothills Park will have weekly concerts every Wednesday in July starting on the 8th. The docks fill up with boats, and there is usually no space from 5 pm to 10 pm. ADVISORY: St. John's Bridge in Cathedral Park continues to be under restoration. The project has been extended due to the need for more extensive concrete repairs. ODOT anticipates completing the work in Cathedral Park by March 2027, and all work will be completed by June 2027. The boat ramp, docks, and parking area are open during construction",
           "county": "Polk",
           "latitude": null,
           "longitude": null,
@@ -9215,7 +9240,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9255,8 +9280,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Bureau of Land Management",
           "source_type": "official_public_access",
           "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
-          "verification_evidence": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
-          "access_details": "BLM's official John Day River launch guide identifies Cottonwood/J.S. Burres as a public launch/take-out, with state-park camping across the river.",
+          "verification_evidence": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
+          "access_details": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
           "county": "Sherman",
           "latitude": null,
           "longitude": null,
@@ -9273,7 +9298,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9313,8 +9338,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
-          "access_details": "The Marine Board reported the ramp open with limited parking and a road-edge launching caution.",
+          "verification_evidence": "The Cape Meares Lake boat ramp is open. Use caution when launching, as you may encroach on Bay Ocean Rd. There is very limited parking across the road.",
+          "access_details": "The Cape Meares Lake boat ramp is open. Use caution when launching, as you may encroach on Bay Ocean Rd. There is very limited parking across the road.",
           "county": "Tillamook",
           "latitude": null,
           "longitude": null,
@@ -9331,7 +9356,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9394,7 +9419,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9443,7 +9468,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 30,
           "age_days": 30,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -9490,7 +9515,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 30,
         "age_days": 30,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -9532,8 +9557,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
-          "access_details": "The Marine Board reported both public access sites open and fishing season dates of March 1 through September 30.",
+          "verification_evidence": "The reservoir is 40% full. The North and South boating access sites are open. Fishing is allowed March 1 through September 30.",
+          "access_details": "The reservoir is 40% full. The North and South boating access sites are open. Fishing is allowed March 1 through September 30.",
           "county": "Umatilla",
           "latitude": null,
           "longitude": null,
@@ -9550,7 +9575,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9599,7 +9624,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "current",
           "freshness_days": 27,
           "age_days": 27,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -9646,7 +9671,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "current",
         "freshness_days": 27,
         "age_days": 27,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -9682,8 +9707,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported campground and boating access open.",
-          "access_details": "The Marine Board reported campground and boating access open.",
+          "verification_evidence": "Jubilee Lake Campground and boating access are open. This beautiful lake is a nice place for paddlers to explore.",
+          "access_details": "Jubilee Lake Campground and boating access are open. This beautiful lake is a nice place for paddlers to explore.",
           "county": "Union",
           "latitude": null,
           "longitude": null,
@@ -9700,7 +9725,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9744,8 +9769,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon Department of Fish and Wildlife",
           "source_type": "official_public_access",
           "official_source_url": "https://myodfw.com/recreation-report/fishing-report/northeast-zone",
-          "verification_evidence": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
-          "access_details": "ODFW's current Northeast Zone report and stocking schedule identify Wallowa Lake as an active public fishery.",
+          "verification_evidence": "ADVISORY: The east portion of the parking lot at the County Park boat ramp is closed due to storage of construction equipment for construction work on the Dam. Dam work is expected to continue into the summer of 2027. Wallowa Lake State Park boat ramp and Wallowa County Park are open. Wallowa Lake Marina is open. Contact the marina to confirm hours.",
+          "access_details": "ADVISORY: The east portion of the parking lot at the County Park boat ramp is closed due to storage of construction equipment for construction work on the Dam. Dam work is expected to continue into the summer of 2027. Wallowa Lake State Park boat ramp and Wallowa County Park are open. Wallowa Lake Marina is open. Contact the marina to confirm hours.",
           "county": "Wallowa",
           "latitude": null,
           "longitude": null,
@@ -9762,7 +9787,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9811,7 +9836,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "freshness_status": "very_current",
           "freshness_days": 2,
           "age_days": 2,
-          "last_checked_at": "2026-08-05T18:30:32Z",
+          "last_checked_at": "2026-08-05T19:25:45Z",
           "source_status": "available",
           "source_error": "",
           "review_required": false
@@ -9858,7 +9883,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
         "freshness_status": "very_current",
         "freshness_days": 2,
         "age_days": 2,
-        "last_checked_at": "2026-08-05T18:30:32Z",
+        "last_checked_at": "2026-08-05T19:25:45Z",
         "source_status": "available",
         "source_error": "",
         "review_required": false
@@ -9894,8 +9919,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
-          "access_details": "The Marine Board reported the campground and day-use boating access open, with seasonal parking restrictions possible.",
+          "verification_evidence": "Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
+          "access_details": "Browns Mountain boating access has a shallow slope. The unimproved location on the reservoir provides for calmer water and is a great place for paddlers to explore.",
           "county": "Wasco",
           "latitude": null,
           "longitude": null,
@@ -9912,7 +9937,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -9952,8 +9977,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
-          "access_details": "The Marine Board reported the named ramps open and highlighted lake-specific boating-operation rules.",
+          "verification_evidence": "Remember to check boat operation waterway rules on the Boat Oregon Map. There is a 200 ft. slow -no wake zone around the entire perimeter of the lake. Boats operating east of the buoy line must move in a counterclockwise direction and not exceed 35mph. Protect your boating activities and follow the rules! Eagle Landing Boating Access (A Ramp) and C ramp boating access have approximately 45 feet of water over the bottom of the boat ramps.",
+          "access_details": "Remember to check boat operation waterway rules on the Boat Oregon Map. There is a 200 ft. slow -no wake zone around the entire perimeter of the lake. Boats operating east of the buoy line must move in a counterclockwise direction and not exceed 35mph. Protect your boating activities and follow the rules! Eagle Landing Boating Access (A Ramp) and C ramp boating access have approximately 45 feet of water over the bottom of the boat ramps.",
           "county": "Washington",
           "latitude": null,
           "longitude": null,
@@ -9970,7 +9995,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -10010,8 +10035,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Bureau of Land Management",
           "source_type": "official_public_access",
           "official_source_url": "https://www.blm.gov/sites/default/files/JDR_Seg_Camp%20info.pdf",
-          "verification_evidence": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
-          "access_details": "BLM's official launch guide identifies Service Creek as a public boat launch and walk-in campground on the John Day River.",
+          "verification_evidence": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
+          "access_details": "ALERT: There are public land closures along the John Day River due to wildfire activity. Review restrictions and closures before visiting.",
           "county": "Wheeler",
           "latitude": null,
           "longitude": null,
@@ -10028,7 +10053,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -10068,8 +10093,8 @@ window.OREGON_FISHING_REPORT_DATABASE = {
           "source_name": "Oregon State Marine Board",
           "source_type": "official_public_access",
           "official_source_url": "https://www.oregon.gov/osmb/boater-info/Pages/Opportunities-and-Access.aspx",
-          "verification_evidence": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
-          "access_details": "The Marine Board reported the ramp open but advised against trailered launching because of underwater ramp condition.",
+          "verification_evidence": "Dayton Landing Boat Ramp is open and cleaned of debris. It is recommended not to launch trailered boats here as the ramp is in poor condition below the water level.",
+          "access_details": "Dayton Landing Boat Ramp is open and cleaned of debris. It is recommended not to launch trailered boats here as the ramp is in poor condition below the water level.",
           "county": "Yamhill",
           "latitude": null,
           "longitude": null,
@@ -10086,7 +10111,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
             "ada_boat_launch": false,
             "ada_fishing": false
           },
-          "last_verified": "2026-08-05T18:30:32Z"
+          "last_verified": "2026-08-05T19:25:45Z"
         }
       ],
       "publication_status": "published_verified_public_access",
@@ -10140,7 +10165,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "scheduled",
       "freshness_days": -40,
       "age_days": -40,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10186,7 +10211,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "scheduled",
       "freshness_days": -19,
       "age_days": -19,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10232,7 +10257,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "scheduled",
       "freshness_days": -12,
       "age_days": -12,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10278,7 +10303,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "very_current",
       "freshness_days": 2,
       "age_days": 2,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10324,7 +10349,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10370,7 +10395,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10416,7 +10441,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10462,7 +10487,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10508,7 +10533,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10554,7 +10579,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10600,7 +10625,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 27,
       "age_days": 27,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10646,7 +10671,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10692,7 +10717,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10738,7 +10763,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10784,7 +10809,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10830,7 +10855,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10876,7 +10901,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 30,
       "age_days": 30,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10922,7 +10947,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "current",
       "freshness_days": 34,
       "age_days": 34,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false
@@ -10968,7 +10993,7 @@ window.OREGON_FISHING_REPORT_DATABASE = {
       "freshness_status": "stale",
       "freshness_days": 92,
       "age_days": 92,
-      "last_checked_at": "2026-08-05T18:30:32Z",
+      "last_checked_at": "2026-08-05T19:25:45Z",
       "source_status": "available",
       "source_error": "",
       "review_required": false

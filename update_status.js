@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-08-05T18:30:32Z",
+  "last_run": "2026-08-05T19:25:45Z",
   "mode": "multi-state-database",
   "state_count": 9,
   "states": [
@@ -46,7 +46,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 19,
       "public_water_count": 52,
       "county_count": 36,
-      "generated_at": "2026-08-05T18:30:32Z"
+      "generated_at": "2026-08-05T19:25:45Z"
     },
     {
       "state": "Utah",
