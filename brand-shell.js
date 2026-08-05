@@ -263,8 +263,6 @@
 
   [
     document.querySelector('.ffo-beta-bar'),
-    document.querySelector('.ffo-professional-hero'),
-    document.querySelector('.ffo-trust-strip'),
     document.querySelector('.pwa-install-feature')
   ].forEach(element=>{
     if(element){
