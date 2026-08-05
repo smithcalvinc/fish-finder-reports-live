@@ -23,7 +23,7 @@
     style.textContent=`
       .admin-water-panel{border-left:6px solid #1F4D3A}
       .admin-water-panel h2{margin-bottom:6px}
-      .admin-water-controls{display:grid;grid-template-columns:minmax(180px,.75fr) minmax(230px,1.35fr) minmax(180px,.85fr) auto;gap:10px;align-items:end;margin:16px 0 12px}
+      .admin-water-controls{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(180px,.8fr) minmax(230px,1.25fr) auto auto;gap:10px;align-items:end;margin:16px 0 12px}
       .admin-water-controls label{display:grid;gap:6px;color:#31443e;font-size:12px;font-weight:850}
       .admin-water-controls input,.admin-water-controls select{width:100%;min-height:44px;border:1px solid #b8c5bf;border-radius:9px;background:#fff;padding:10px 11px;color:#17231f;font:inherit}
       .admin-water-controls button{min-height:44px}
@@ -57,7 +57,7 @@
         ["County shells",status.county_count??index.county_shell_count??0],
         ["Public-water rows",status.public_water_count??index.source_public_water_rows??0],
         ["Unique water names",index.unique_water_count??waters.length],
-        ["Report records",status.reports_total??index.aggregate_report_total??0],
+        ["Unique report records",status.reports_total??index.aggregate_report_total??0],
         ["Review required",status.review_required??0]
       ];
       summary.innerHTML=metrics.map(([label,value])=>`<div class="metric"><span class="meta">${esc(label)}</span><b>${esc(fmt(value))}</b></div>`).join("");
@@ -109,12 +109,13 @@
         <span>${esc(fmt(index.unique_water_count||waters.length))} unique water names</span>
         <span>Index updated ${esc(date(index.generated_at))}</span>
       </div>
-      <div class="admin-water-controls">
+      <form class="admin-water-controls" id="adminWaterSearchForm">
         <label>State or region<select id="adminStateFilter"><option value="">All completed regions</option>${states.map(row=>`<option value="${esc(row.state)}">${esc(row.state)} (${esc(fmt(row.unique_water_names))})</option>`).join("")}</select></label>
-        <label>Body of water<input id="adminWaterQuery" type="search" autocomplete="off" placeholder="Lake, river, reservoir, creek or pond"></label>
-        <label>County<input id="adminCountyQuery" type="search" autocomplete="off" placeholder="Optional county"></label>
+        <label>County<input id="adminCountyQuery" type="search" autocomplete="off" placeholder="Example: Fremont"></label>
+        <label>Body of water<input id="adminWaterQuery" type="search" autocomplete="off" placeholder="Example: Beaver Creek"></label>
+        <button class="primary" id="adminWaterSearch" type="submit">Search database</button>
         <button class="secondary" id="adminWaterClear" type="button">Clear</button>
-      </div>
+      </form>
       <div id="adminIndexWarning"></div>
       <p class="admin-search-message" id="adminWaterMessage"></p>
       <div class="table-wrap"><table class="admin-water-results"><thead><tr><th>Body of water</th><th>State / counties</th><th>Type and access</th><th>Reports</th><th>Open</th></tr></thead><tbody id="adminWaterRows"></tbody></table></div>
@@ -181,8 +182,8 @@
     const waterQuery=clean($("adminWaterQuery")?.value);
     const countyQuery=clean($("adminCountyQuery")?.value);
     if(!state&&!waterQuery&&!countyQuery){
-      body.innerHTML='<tr><td colspan="5">Choose a state or type a body of water to begin.</td></tr>';
-      message.textContent="The search waits until you choose at least one filter so the private page stays fast.";
+      body.innerHTML='<tr><td colspan="5">Choose a state, enter a county, or enter a body of water, then click Search database.</td></tr>';
+      message.textContent="You can use any one filter or combine all three. Pressing Enter also runs the search.";
       if(overview)overview.hidden=false;
       return;
     }
@@ -224,16 +225,16 @@
   }
 
   function bind(){
-    ["adminStateFilter","adminWaterQuery","adminCountyQuery"].forEach(id=>{
-      const control=$(id);
-      if(control)control.addEventListener(id==="adminStateFilter"?"change":"input",renderSearch);
+    $("adminWaterSearchForm")?.addEventListener("submit",event=>{
+      event.preventDefault();
+      renderSearch();
     });
     $("adminWaterClear")?.addEventListener("click",()=>{
       $("adminStateFilter").value="";
       $("adminWaterQuery").value="";
       $("adminCountyQuery").value="";
       renderSearch();
-      $("adminWaterQuery").focus();
+      $("adminStateFilter").focus();
     });
   }
 
@@ -246,6 +247,12 @@
     repairEmptySourcePanel();
     bind();
     renderSearch();
+    if(!states.length||!waters.length){
+      const message=$("adminWaterMessage");
+      const button=$("adminWaterSearch");
+      if(message)message.textContent="The Admin water index has not been generated yet. Run the Update Admin Water Search Index workflow once.";
+      if(button)button.disabled=true;
+    }
   }
 
   if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});
