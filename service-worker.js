@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-reports-pwa-v38";
+const CACHE_VERSION="ffo-reports-pwa-v39";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
