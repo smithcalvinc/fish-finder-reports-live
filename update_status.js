@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-08-07T17:12:49Z",
+  "last_run": "2026-08-07T17:35:40Z",
   "mode": "multi-state-database",
   "state_count": 9,
   "states": [
@@ -9,7 +9,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 1365,
       "public_water_count": 1027,
       "county_count": 64,
-      "generated_at": "2026-08-07T01:38:39Z"
+      "generated_at": "2026-08-07T17:35:40Z"
     },
     {
       "state": "Idaho",
