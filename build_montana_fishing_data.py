@@ -1364,7 +1364,7 @@ def update_sitemap(root: Path) -> None:
     text = path.read_text(encoding="utf-8")
     entries = []
     for filename, priority in (("idaho-county-reports.html", "0.9"), ("montana-county-reports.html", "0.9")):
-        url = f"https://fish-finder-reports-live.wasmer.app/{filename}"
+        url = f"https://reports.fishfinderoutdoors.com/{filename}"
         if url not in text:
             entries.append(f"  <url>\n    <loc>{url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>{priority}</priority>\n  </url>\n")
     if entries:

@@ -1,71 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/</loc>
+    <loc>https://reports.fishfinderoutdoors.com/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/official-sources.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/official-sources.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/submit-report.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/submit-report.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/report-water.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/report-water.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/idaho-county-reports.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/idaho-county-reports.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/montana-county-reports.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/montana-county-reports.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/utah-county-reports.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/utah-county-reports.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/colorado-county-reports.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/colorado-county-reports.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/wyoming-county-reports.html</loc>
+    <loc>https://reports.fishfinderoutdoors.com/wyoming-county-reports.html</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <url><loc>https://fish-finder-reports-live.wasmer.app/nevada-county-reports.html</loc><lastmod>2026-07-26</lastmod></url>
-
-  <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/oregon-county-reports.html</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/washington-county-reports.html</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://fish-finder-reports-live.wasmer.app/northern-california-county-reports.html</loc>
-    <lastmod>2026-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
+  <url><loc>https://reports.fishfinderoutdoors.com/nevada-county-reports.html</loc><lastmod>2026-07-26</lastmod></url>
 </urlset>

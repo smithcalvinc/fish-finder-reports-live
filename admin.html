@@ -1,432 +1,267 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="googlebot" content="noindex,nofollow,noarchive">
-<meta name="theme-color" content="#1f4d3a">
-<title>Private Water Search | Fish Finder Outdoors</title>
-<link rel="icon" href="ffo-logo-main.png" type="image/png">
-<link rel="apple-touch-icon" href="ffo-logo-main.png">
-<link rel="stylesheet" href="brand-shell.css">
-<script src="update_status.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-W1278FPSQK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W1278FPSQK');
+</script>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&amp;family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Private Report Admin | Fish Finder Outdoors</title>
 <style>
-:root{
-  --green:#1f4d3a;--green-dark:#123f35;--paper:#f3f0e7;--card:#fffdf8;
-  --line:#d8d2c5;--ink:#183029;--muted:#62706b;--warning:#77591b;
-  --danger:#96352c;--blue:#245b78
-}
-*{box-sizing:border-box}
-body{margin:0;background:linear-gradient(180deg,#e8f0eb 0,#f3f0e7 340px);color:var(--ink);font-family:Inter,Arial,sans-serif}
-.wrap{width:min(1180px,calc(100% - 28px));margin:auto}
-.private-bar{background:#173f34;color:#fff;text-align:center;padding:8px 12px;font-size:12px;font-weight:850;letter-spacing:.06em}
-.hero{padding:34px 0 16px}
-.hero-grid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
-.hero h1{font-family:Georgia,serif;font-size:clamp(36px,6vw,58px);line-height:1.02;margin:8px 0 10px}
-.hero p{max-width:760px;margin:0;color:var(--muted);font-size:17px;line-height:1.55}
-.hero img{width:118px;height:118px;object-fit:contain}
-.quick-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
-.quick-links a,.button,button{
-  display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:11px;
-  padding:11px 14px;font:inherit;font-weight:850;text-decoration:none;cursor:pointer
-}
-.primary{background:var(--green);color:white}
-.secondary{background:#e3ece7;color:var(--green-dark)}
-.github{background:#e8edf0;color:#243f4b}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin:17px 0;box-shadow:0 9px 24px rgba(31,77,58,.07)}
-.search-panel{border-left:7px solid var(--green)}
-.search-panel h2{margin:0 0 6px;font-family:Georgia,serif;font-size:29px}
-.instructions{margin:0;color:var(--muted);line-height:1.55}
-.search-form{display:grid;grid-template-columns:1fr 1fr 1.25fr auto auto;gap:10px;align-items:end;margin-top:18px}
-.field label{display:block;font-size:12px;font-weight:900;margin-bottom:6px}
-.field select,.field input{
-  width:100%;min-height:46px;padding:11px 12px;border:1px solid #b9c3bd;
-  border-radius:10px;background:white;color:var(--ink);font:inherit
-}
-.search-form button{min-height:46px}
-.status{margin-top:13px;padding:12px 14px;border-radius:11px;background:#edf4f0;color:var(--green-dark);font-weight:750;line-height:1.45}
-.status.error{background:#f8e4e1;color:var(--danger)}
-.status.warning{background:#fff2cf;color:var(--warning)}
-.status.loading{background:#e9f0f4;color:#244f66}
-.compact-summary{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}
-.compact-summary span{display:inline-flex;padding:7px 10px;border-radius:999px;background:#eef3f0;border:1px solid #cfdbd5;color:#345047;font-size:12px;font-weight:800}
-.results-panel[hidden]{display:none}
-.results-head{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:12px}
-.results-head h2{margin:0;font-family:Georgia,serif}
-.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:13px}
-table{width:100%;border-collapse:collapse;min-width:920px;background:white}
-th,td{text-align:left;padding:11px 10px;border-bottom:1px solid #e3ded3;font-size:13px;vertical-align:top}
-th{background:#f1f4f2;color:#324a43;font-size:12px;letter-spacing:.02em}
-.water-name{font-size:15px;font-weight:900;color:#173f34}
-.meta{color:var(--muted);font-size:12px;line-height:1.45;margin-top:3px}
-.actions{display:flex;gap:6px;flex-wrap:wrap}
-.actions a{display:inline-flex;padding:7px 9px;border-radius:8px;border:1px solid #bac7c1;background:white;color:#17483b;text-decoration:none;font-size:12px;font-weight:850;white-space:nowrap}
-.actions a.primary-link{background:var(--green);border-color:var(--green);color:white}
-.actions a.edit-link{background:#e8edf0;border-color:#cbd6dc;color:#274957}
-.empty{padding:28px;text-align:center;color:var(--muted)}
-.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.help-card{border:1px solid var(--line);border-radius:13px;background:white;padding:14px}
-.help-card strong{display:block;margin-bottom:5px}
-.help-card span{font-size:13px;color:var(--muted);line-height:1.45}
-footer{padding:28px 0 42px;color:var(--muted);font-size:13px}
-@media(max-width:980px){.search-form{grid-template-columns:1fr 1fr}.hero-grid{grid-template-columns:1fr}.hero img{display:none}.help-grid{grid-template-columns:1fr}}
-@media(max-width:560px){.search-form{grid-template-columns:1fr}.panel{padding:15px}.results-head{display:block}.results-head .meta{margin-top:7px}}
+:root{--green:#123f35;--green2:#1f6c58;--bg:#f3f0e7;--card:#fffdf8;--line:#d9d3c5;--ink:#18302a;--muted:#63716c;--gold:#d5a13b;--danger:#a43b32}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}.wrap{width:min(1200px,calc(100% - 28px));margin:auto}header{padding:32px 0 20px}h1{font-family:Georgia,serif;font-size:clamp(34px,6vw,56px);margin:20px 0 9px}.lede{color:var(--muted);font-size:17px}.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:19px;margin:16px 0}.summary{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.metric{background:white;border:1px solid var(--line);border-radius:14px;padding:13px}.metric b{display:block;font-size:24px;margin-top:4px}.actions{display:flex;gap:8px;flex-wrap:wrap}.button,button{border:0;border-radius:12px;padding:10px 13px;font-weight:850;text-decoration:none;cursor:pointer}input,textarea{width:100%;padding:11px;border:1px solid var(--line);border-radius:11px;background:white;font:inherit}textarea{min-height:230px;resize:vertical}.import-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.preview-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:white;min-height:230px}.preview-box h3{margin-top:0}.private{background:#fff0ca;border-left:5px solid var(--gold);padding:10px;border-radius:10px}.success{background:#dff0e7;border-left:5px solid var(--green2);padding:10px;border-radius:10px}.primary{background:var(--green);color:white}.secondary{background:#e4ebe7;color:var(--green)}select{padding:10px;border:1px solid var(--line);border-radius:10px;background:white}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:900px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:11px 9px;font-size:13px;vertical-align:top}th{position:sticky;top:0;background:var(--card)}.pill{display:inline-flex;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:900}.ok{background:#dff0e7;color:#176354}.aging{background:#fff0c6;color:#77591b}.bad{background:#f7dedb;color:#943229}.review{background:#eadff1;color:#704484}.meta{color:var(--muted);font-size:13px}.submission{border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;background:white}.submission h3{margin:0 0 6px}.hidden{display:none}.edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.edit-grid .full{grid-column:1/-1}.edit-grid label{font-size:12px;font-weight:850}.decision-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.water-note{border-radius:12px;padding:11px;background:#eef5f1;border:1px solid #cbded4}@media(max-width:700px){.edit-grid{grid-template-columns:1fr}.edit-grid .full{grid-column:auto}}@media(max-width:800px){.summary{grid-template-columns:1fr 1fr}.import-grid{grid-template-columns:1fr}}
 </style>
-</head>
+<link href="brand-shell.css" rel="stylesheet"/>
+<script src="site_config.js"></script>
+<script src="recent_fishing_reports.js"></script>
+<script src="community_fishing_reports.js"></script>
+<script src="official_state_sources.js"></script>
+<script src="official_water_overrides.js"></script>
+<script src="regional_water_search.js"></script>
+<script src="update_status.js"></script>
+<meta content="noindex, nofollow, noarchive" name="robots"/><meta content="noindex, nofollow, noarchive" name="googlebot"/><link href="ffo-logo-main.png" rel="icon" type="image/png"/><link href="ffo-logo-main.png" rel="apple-touch-icon"/><meta content="#1F4D3A" name="theme-color"/></head>
 <body>
 <header class="ffo-site-header">
-  <div class="ffo-header-inner">
-    <a class="ffo-logo-link" href="https://fishfinderoutdoors.com">
-      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors logo">
-      <span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
-    </a>
-    <button class="ffo-menu-button" aria-label="Open menu" aria-expanded="false" type="button">☰</button>
-    <nav class="ffo-nav" aria-label="Fish Finder Outdoors">
-      <a href="https://fishfinderoutdoors.com">Home</a>
-      <a href="index.html">Fishing Reports</a>
-      <a href="submit-report.html">Submit Report</a>
-      <a href="report-water.html">Water Correction</a>
-    </nav>
-  </div>
+<div class="ffo-header-inner">
+<a class="ffo-logo-link" href="https://www.fishfinderoutdoors.com">
+<img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
+<span class="ffo-wordmark"><strong>Fish Finder</strong><span>Outdoors</span></span>
+</a>
+<button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
+<nav aria-label="Fish Finder Outdoors" class="ffo-nav">
+<a href="https://www.fishfinderoutdoors.com">Home</a>
+<a href="https://www.fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
+<a href="index.html">Fishing Reports</a>
+<a href="https://www.fishfinderoutdoors.com/#trout">Trout</a>
+<a href="https://www.fishfinderoutdoors.com/#bass">Bass</a>
+<a href="https://www.fishfinderoutdoors.com/#panfish">Panfish</a>
+<a href="https://www.fishfinderoutdoors.com/#catfish">Catfish</a>
+<a href="https://www.fishfinderoutdoors.com/#logbooks">Logbooks</a>
+<a class="ffo-nav-cta" href="submit-report.html">Submit Report</a>
+</nav>
+</div>
 </header>
-
-<div class="private-bar">PRIVATE ADMIN TOOL • SEARCH LOADS ONE STATE AT A TIME</div>
-
+<div class="ffo-beta-bar">PRIVATE TOOL • Fish Finder Outdoors report management</div>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a class="button primary hidden" id="actionsLink" rel="noopener" target="_blank">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
-  <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <strong>Fish Finder Outdoors Admin</strong>
-        <h1>Find the water you need to check or update.</h1>
-        <p>This page stays empty and fast until you press Search. Choose a state first, then optionally narrow it by county or body of water.</p>
-        <div class="quick-links">
-          <a class="button secondary" href="index.html">Open report generator</a>
-          <a class="button secondary" href="submit-report.html">Catch-report form</a>
-          <a class="button secondary" href="report-water.html">Water-correction form</a>
-          <a class="button github" href="https://github.com/smithcalvinc/fish-finder-reports-live/tree/main/data" target="_blank" rel="noopener">Open GitHub data folder</a>
-        </div>
-      </div>
-      <img src="ffo-logo-main.png" alt="Fish Finder Outdoors">
-    </div>
-  </section>
-
-  <section class="panel search-panel">
-    <h2>Search the fishing database</h2>
-    <p class="instructions"><strong>State is required.</strong> County and body of water are optional. Press Enter or click Search database.</p>
-
-    <form id="adminSearchForm" class="search-form">
-      <div class="field">
-        <label for="stateFilter">State or region</label>
-        <select id="stateFilter" required>
-          <option value="">Choose a state</option>
-          <option value="Idaho">Idaho</option>
-          <option value="Montana">Montana</option>
-          <option value="Utah">Utah</option>
-          <option value="Colorado">Colorado</option>
-          <option value="Wyoming">Wyoming</option>
-          <option value="Nevada">Nevada</option>
-          <option value="Oregon">Oregon</option>
-          <option value="Washington">Washington</option>
-          <option value="Northern California">Northern California</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="countyFilter">County</label>
-        <input id="countyFilter" type="search" autocomplete="off" placeholder="Example: Fremont">
-      </div>
-
-      <div class="field">
-        <label for="waterFilter">Body of water</label>
-        <input id="waterFilter" type="search" autocomplete="off" placeholder="Lake, river, reservoir, creek or pond">
-      </div>
-
-      <button class="primary" type="submit">Search database</button>
-      <button class="secondary" id="clearSearch" type="button">Clear</button>
-    </form>
-
-    <div id="searchStatus" class="status">Choose a state, add any optional filters, then press Search database.</div>
-    <div id="databaseSummary" class="compact-summary"></div>
-  </section>
-
-  <section class="panel results-panel" id="resultsPanel" hidden>
-    <div class="results-head">
-      <h2>Search results</h2>
-      <div class="meta" id="resultsMessage"></div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Body of water</th>
-            <th>State / county</th>
-            <th>Type / access</th>
-            <th>Reports</th>
-            <th>Open or update</th>
-          </tr>
-        </thead>
-        <tbody id="resultsRows"></tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="panel">
-    <div class="help-grid">
-      <div class="help-card"><strong>Search by state</strong><span>Choose a state and press Search. The first 100 waters appear. Add a county or water name to narrow it.</span></div>
-      <div class="help-card"><strong>Search by county</strong><span>Choose the state, type all or part of the county name, and press Search.</span></div>
-      <div class="help-card"><strong>Search by water</strong><span>Choose the state, type all or part of the lake, river, reservoir, creek or pond name, and press Search.</span></div>
-    </div>
-  </section>
+<section class="panel"><div class="summary" id="summary"></div><p class="meta" id="lastRun"></p></section>
+<section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"/></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button class="secondary" id="exportReview">Export review queue</button><button class="secondary" id="exportSubmissions">Export local submissions</button></div></section>
+<section class="panel"><h2>Official report sources</h2><div class="table-wrap"><table><thead><tr><th>Water / area</th><th>Agency</th><th>Published</th><th>Freshness</th><th>Source status</th><th>Last checked</th><th>Source</th></tr></thead><tbody id="reportRows"></tbody></table></div></section>
+<section class="panel"><h2>Add an emailed angler report</h2><p class="meta">Open the email, copy the complete message body, paste it below, then approve it. The downloaded file includes all existing community reports plus the new one.</p><div class="import-grid"><div><label for="emailPaste"><strong>Paste the emailed report</strong></label><textarea id="emailPaste" placeholder="Paste the message containing FFO_REPORT_BEGIN and FFO_REPORT_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseEmail">Parse emailed report</button><button class="secondary" id="clearImport">Clear</button></div></div><div class="preview-box" id="importPreview"><p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p></div></div><div class="actions" style="margin-top:12px"><button class="primary hidden" id="approveDownload">Approve and download community_fishing_reports.js</button><a class="button secondary hidden" id="communityGithubLink" rel="noopener" target="_blank">Open report file in GitHub</a></div><p class="meta" id="communityCount"></p></section><section class="panel"><h2>Approve a missing-water or access correction</h2><p class="meta">Paste the complete correction email. You can resolve coordinates, edit the reviewed record, then download one replacement <code>official_water_overrides.js</code> file. Public additions require coordinates. Private or closed-water blocks only require the correct name and state.</p><div class="import-grid"><div><label for="waterEmailPaste"><strong>Paste the correction email</strong></label><textarea id="waterEmailPaste" placeholder="Paste the message containing FFO_WATER_CORRECTION_BEGIN and FFO_WATER_CORRECTION_END"></textarea><div class="actions" style="margin-top:10px"><button class="secondary" id="parseWaterEmail">Parse water correction</button><button class="secondary hidden" id="resolveWater">Find coordinates automatically</button><button class="secondary" id="clearWaterImport">Clear</button></div></div><div class="preview-box" id="waterImportPreview"><p class="meta">The editable correction preview will appear here. Private contact information is never included in the downloaded public file.</p></div></div><div class="decision-row"><button class="primary hidden" id="approvePublicWater">Approve public water and download official_water_overrides.js</button><button class="secondary hidden" id="approveHiddenWater">Hide private/closed water and download file</button><a class="button secondary hidden" id="waterGithubLink" rel="noopener" target="_blank">Open correction file in GitHub</a></div><p class="meta" id="waterOverrideCount"></p></section><section class="panel"><h2>Local browser backups</h2><p class="meta">These submissions exist only in this browser unless a public endpoint is configured. They are not published automatically.</p><div id="submissions"></div></section>
 </main>
-
-<footer class="wrap">
-  Private Fish Finder Outdoors management page. Verify official regulations and access before publishing changes.
-</footer>
-
 <script>
-(function(){
-  "use strict";
+const $=id=>document.getElementById(id);
+const cfg=window.FFO_SITE_CONFIG||{},data=window.FFO_RECENT_REPORTS||{reports:[]},communityData=window.FFO_COMMUNITY_REPORTS||{reports:[]},waterOverrideData=window.FFO_WATER_OVERRIDES||{records:[]},status=window.FFO_UPDATE_STATUS||{};
+const reports=data.reports||[];
+function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
+function fmtDate(v){if(!v)return"—";const d=new Date(v);return isNaN(d)?v:d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
+function pclass(r){if(r.review_required)return"review";if(r.source_status==="unreachable"||r.freshness_status==="stale")return"bad";if(r.freshness_status==="aging")return"aging";return"ok";}
+function label(r){if(r.review_required)return"Review required";if(r.source_status==="unreachable")return"Unreachable";return r.source_status||"Pending";}
+function matches(r,f){if(f==="all")return true;if(f==="review")return!!r.review_required;if(f==="stale"||f==="aging"||f==="current")return r.freshness_status===f;if(f==="unreachable")return r.source_status==="unreachable";return true;}
+function render(){
+ const f=$("filter").value,q=String($("sourceSearch").value||"").toLowerCase().trim();
+ $("reportRows").innerHTML=reports.filter(r=>matches(r,f)).filter(r=>!q||JSON.stringify(r).toLowerCase().includes(q)).map(r=>`<tr><td><b>${esc((r.names||[])[0]||r.specificity||"Report")}</b><div class="meta">${esc(r.headline||"")}</div></td><td>${esc(r.agency)}</td><td>${esc(r.published_date||"—")}<div class="meta">${esc(r.freshness_days??"—")} days old</div></td><td><span class="pill ${pclass(r)}">${esc(r.freshness_status||"unknown")}</span></td><td><span class="pill ${pclass(r)}">${esc(label(r))}</span>${r.source_error?`<div class="meta">${esc(r.source_error)}</div>`:""}</td><td>${esc(fmtDate(r.last_checked_at))}</td><td><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Official source ↗</a></td></tr>`).join("")||'<tr><td colspan="7">No reports match this filter.</td></tr>';
+}
+function download(name,value){const blob=new Blob([JSON.stringify(value,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+const fresh=status.freshness||{};
+$("summary").innerHTML=[
+ ["Reports",status.reports_total??reports.length],["Current",fresh.current??0],["Aging",fresh.aging??0],["Stale",fresh.stale??0],["Review",status.review_required??reports.filter(r=>r.review_required).length]
+].map(x=>`<div class="metric"><span class="meta">${x[0]}</span><b>${x[1]}</b></div>`).join("");
+$("lastRun").textContent=`Last automatic check: ${fmtDate(status.last_run)} · ${status.unique_sources??0} unique official sources · ${status.unreachable_sources??0} unreachable.`;
+$("filter").addEventListener("change",render);$("sourceSearch").addEventListener("input",render);render();
+$("exportReview").addEventListener("click",()=>download("ffo-review-queue.json",reports.filter(r=>r.review_required||r.freshness_status==="stale"||r.source_status==="unreachable")));
 
-  const REPO="smithcalvinc/fish-finder-reports-live";
-  const STATES={
-    "Idaho":{file:"data/idaho_fishing_report_database.json",page:"idaho-county-reports.html",queryState:"Idaho"},
-    "Montana":{file:"data/montana_fishing_report_database.json",page:"montana-county-reports.html",queryState:"Montana"},
-    "Utah":{file:"data/utah_fishing_report_database.json",page:"utah-county-reports.html",queryState:"Utah"},
-    "Colorado":{file:"data/colorado_fishing_report_database.json",page:"colorado-county-reports.html",queryState:"Colorado"},
-    "Wyoming":{file:"data/wyoming_fishing_report_database.json",page:"wyoming-county-reports.html",queryState:"Wyoming"},
-    "Nevada":{file:"data/nevada_fishing_report_database.json",page:"nevada-county-reports.html",queryState:"Nevada"},
-    "Oregon":{file:"data/oregon_fishing_report_database.json",page:"oregon-county-reports.html",queryState:"Oregon"},
-    "Washington":{file:"data/washington_fishing_report_database.json",page:"washington-county-reports.html",queryState:"Washington"},
-    "Northern California":{file:"data/northern_california_fishing_report_database.json",page:"northern-california-county-reports.html",queryState:"California"}
+let parsedEmailReport=null;let workingCommunityReports=JSON.parse(JSON.stringify(communityData.reports||[]));
+function cleanLine(value){return String(value||"").replace(/[\r\n]+/g," ").replace(/\s+/g," ").trim();}
+function parseEmailedReport(raw){const text=String(raw||"");const match=text.match(/FFO_REPORT_BEGIN([\s\S]*?)FFO_REPORT_END/i);if(!match)throw new Error("The FFO report markers were not found. Copy the complete email body.");const values={};match[1].split(/\r?\n/).forEach(line=>{const split=line.indexOf(":");if(split<1)return;values[line.slice(0,split).trim().toUpperCase()]=line.slice(split+1).trim();});const required=["SUBMISSION_ID","WATERBODY","STATE","FISHING_DATE","SPECIES","BAIT_OR_LURE"];const missing=required.filter(key=>!values[key]);if(missing.length)throw new Error("Missing required report fields: "+missing.join(", "));if(values.PUBLICATION_PERMISSION!=="YES")throw new Error("The angler did not grant publication permission.");return{submission_id:cleanLine(values.SUBMISSION_ID),submitted_at:cleanLine(values.SUBMITTED_AT),waterbody:cleanLine(values.WATERBODY),state:cleanLine(values.STATE),fishing_date:cleanLine(values.FISHING_DATE),time:cleanLine(values.TIME),species:cleanLine(values.SPECIES),count:Math.max(0,Number(values.COUNT||0)),kept:Math.max(0,Number(values.KEPT||0)),size:cleanLine(values.SIZE),bait_or_lure:cleanLine(values.BAIT_OR_LURE),method:cleanLine(values.METHOD),notes:cleanLine(values.NOTES),photo_url:cleanLine(values.PHOTO_URL),display_name:cleanLine(values.DISPLAY_NAME),private_contact:cleanLine(values.PRIVATE_CONTACT)};}
+function safeDate(value){const date=new Date(String(value||"")+"T12:00:00");return Number.isNaN(date.getTime())?new Date():date;}
+function freshnessFromDate(value){const days=Math.max(0,Math.floor((Date.now()-safeDate(value).getTime())/86400000));const currentDays=Number(cfg.current_report_days||14),agingDays=Number(cfg.aging_report_days||45);return{status:days<=currentDays?"current":days<=agingDays?"aging":"stale",days};}
+function publicCommunityReport(packet){const approvedAt=new Date().toISOString(),fresh=freshnessFromDate(packet.fishing_date),catchMetric=`${packet.count} caught${packet.kept?` · ${packet.kept} kept`:""}`,detail=[packet.bait_or_lure,packet.method,packet.time,packet.size].filter(Boolean).join(" · "),angler=packet.display_name||"Community angler",summaryParts=[`${angler} reported ${packet.count} ${packet.species} at ${packet.waterbody}.`,`The reported bait or lure was ${packet.bait_or_lure}.`,packet.notes].filter(Boolean);return{report_kind:"community",submission_id:packet.submission_id,state:packet.state,names:[packet.waterbody],agency:angler,report_type:"Manually reviewed angler submission",published_date:packet.fishing_date,report_period:`Fishing trip on ${packet.fishing_date}${packet.time?` · ${packet.time}`:""}`,headline:`${packet.species} reported at ${packet.waterbody}`,summary:summaryParts.join(" "),catches:[{species:packet.species,metric:catchMetric,detail}],conditions:packet.notes?[packet.notes]:[],source_url:"",photo_url:packet.photo_url||"",specificity:"Exact waterbody — angler submitted",submitted_at:packet.submitted_at||"",approved_at:approvedAt,freshness_status:fresh.status,freshness_days:fresh.days,last_checked_at:approvedAt,source_status:"community-reviewed",review_required:false};}
+function renderImportPreview(packet,error){const box=$("importPreview");if(error){box.innerHTML=`<div class="private"><strong>Could not read this report.</strong><p>${esc(error)}</p></div>`;$("approveDownload").classList.add("hidden");return;}box.innerHTML=`<h3>${esc(packet.species)} · ${esc(packet.waterbody)}, ${esc(packet.state)}</h3><p><strong>${esc(packet.count)} caught</strong>${packet.kept?` · ${esc(packet.kept)} kept`:""} · ${esc(packet.fishing_date)} · ${esc(packet.time||"Time not listed")}</p><p><strong>Bait/lure:</strong> ${esc(packet.bait_or_lure)}<br><strong>Method:</strong> ${esc(packet.method||"Not listed")}<br><strong>Size:</strong> ${esc(packet.size||"Not listed")}</p><p>${esc(packet.notes||"No additional notes.")}</p><div class="private"><strong>Private verification contact</strong><br>${esc(packet.private_contact||"Not provided")}<br><span class="meta">This will not be placed in the public website file.</span></div>`;$("approveDownload").classList.remove("hidden");}
+function communityFileText(){const today=new Date().toISOString().slice(0,10),file={version:`${today}-community`,updated_at:today,coverage_note:"Manually approved angler submissions. These reports are separate from official agency reports and are not independently verified.",reports:workingCommunityReports};return "/* Manually approved Fish Finder Outdoors angler reports. */\nwindow.FFO_COMMUNITY_REPORTS = "+JSON.stringify(file,null,2)+";\n";}
+function downloadText(name,text){const blob=new Blob([text],{type:"application/javascript"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
+function renderCommunityCount(){$("communityCount").textContent=`The current website file contains ${workingCommunityReports.length} approved community report${workingCommunityReports.length===1?"":"s"}.`;}
+$("parseEmail").addEventListener("click",()=>{try{parsedEmailReport=parseEmailedReport($("emailPaste").value);renderImportPreview(parsedEmailReport);}catch(error){parsedEmailReport=null;renderImportPreview(null,error.message);}});
+$("clearImport").addEventListener("click",()=>{$("emailPaste").value="";parsedEmailReport=null;$("importPreview").innerHTML='<p class="meta">The report preview will appear here. Private contact information is shown for review but is automatically excluded from the public file.</p>';$("approveDownload").classList.add("hidden");});
+$("approveDownload").addEventListener("click",()=>{if(!parsedEmailReport)return;const report=publicCommunityReport(parsedEmailReport);workingCommunityReports=workingCommunityReports.filter(row=>row.submission_id!==report.submission_id);workingCommunityReports.unshift(report);downloadText("community_fishing_reports.js",communityFileText());$("importPreview").innerHTML=`<div class="success"><strong>Approved.</strong><p>The updated community report file was downloaded. Replace only <code>community_fishing_reports.js</code> in the root of GitHub and commit it to main.</p></div>`;$("approveDownload").classList.add("hidden");parsedEmailReport=null;renderCommunityCount();});renderCommunityCount();
+
+
+let parsedWaterCorrection=null;
+let workingWaterOverrides=JSON.parse(JSON.stringify(waterOverrideData.records||[]));
+
+function parseWaterCorrection(raw){
+  const text=String(raw||"");
+  const match=text.match(/FFO_WATER_CORRECTION_BEGIN([\s\S]*?)FFO_WATER_CORRECTION_END/i);
+  if(!match)throw new Error("The water-correction markers were not found. Copy the complete email body.");
+  const values={};
+  match[1].split(/\r?\n/).forEach(line=>{
+    const split=line.indexOf(":");if(split<1)return;
+    values[line.slice(0,split).trim().toUpperCase()]=line.slice(split+1).trim();
+  });
+  const required=["CORRECTION_ID","ISSUE","WATERBODY","STATE","NEAREST_TOWN","DETAILS"];
+  const missing=required.filter(key=>!values[key]);
+  if(missing.length)throw new Error("Missing correction fields: "+missing.join(", "));
+  if(values.ACCURACY_ATTESTATION!=="YES")throw new Error("The submitter did not confirm accuracy.");
+  return{
+    correction_id:cleanLine(values.CORRECTION_ID),
+    submitted_at:cleanLine(values.SUBMITTED_AT),
+    issue:cleanLine(values.ISSUE),
+    waterbody:cleanLine(values.WATERBODY),
+    state:cleanLine(values.STATE),
+    nearest_town:cleanLine(values.NEAREST_TOWN),
+    water_type:cleanLine(values.WATER_TYPE||"lake").toLowerCase(),
+    correct_access:cleanLine(values.CORRECT_ACCESS||"unknown").toLowerCase(),
+    latitude:cleanLine(values.LATITUDE),
+    longitude:cleanLine(values.LONGITUDE),
+    official_url:cleanLine(values.OFFICIAL_URL),
+    details:cleanLine(values.DETAILS),
+    submitted_by:cleanLine(values.SUBMITTED_BY),
+    private_contact:cleanLine(values.PRIVATE_CONTACT)
   };
-  const cache=new Map();
-  const $=id=>document.getElementById(id);
-  const clean=value=>String(value??"").replace(/\s+/g," ").trim();
-  const norm=value=>clean(value).toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();
-  const esc=value=>String(value??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
-  const fmt=value=>Number(value||0).toLocaleString();
+}
 
-  function setStatus(message,type=""){
-    const box=$("searchStatus");
-    box.className="status"+(type?` ${type}`:"");
-    box.textContent=message;
+function waterEditValues(){
+  return{
+    name:cleanLine($("waterEditName")?.value||""),
+    state:cleanLine($("waterEditState")?.value||""),
+    nearest_town:cleanLine($("waterEditTown")?.value||""),
+    type:cleanLine($("waterEditType")?.value||"lake").toLowerCase(),
+    lat:Number($("waterEditLat")?.value),
+    lon:Number($("waterEditLon")?.value),
+    official_url:cleanLine($("waterEditUrl")?.value||""),
+    public_access_note:cleanLine($("waterEditNote")?.value||""),
+    access_status:cleanLine($("waterEditAccess")?.value||"unknown")
+  };
+}
+
+function renderWaterPreview(packet,error){
+  const box=$("waterImportPreview");
+  if(error){
+    box.innerHTML=`<div class="private"><strong>Could not read this correction.</strong><p>${esc(error)}</p></div>`;
+    $("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");return;
   }
+  const source=window.FFO_STATE_SOURCES?.byState?.(packet.state);
+  box.innerHTML=`<h3>${esc(packet.waterbody)} · ${esc(packet.state)}</h3><div class="water-note"><strong>Submitted issue:</strong> ${esc(packet.issue)}<br>${esc(packet.details)}</div><div class="edit-grid" style="margin-top:12px">
+  <label>Water name<input id="waterEditName" value="${esc(packet.waterbody)}"></label>
+  <label>State<input id="waterEditState" value="${esc(packet.state)}"></label>
+  <label>Nearest town<input id="waterEditTown" value="${esc(packet.nearest_town)}"></label>
+  <label>Water type<input id="waterEditType" value="${esc(packet.water_type)}"></label>
+  <label>Latitude<input id="waterEditLat" inputmode="decimal" value="${esc(packet.latitude)}"></label>
+  <label>Longitude<input id="waterEditLon" inputmode="decimal" value="${esc(packet.longitude)}"></label>
+  <label class="full">Official / managing-agency URL<input id="waterEditUrl" value="${esc(packet.official_url||source?.directory_url||"")}"></label>
+  <label>Access status<select id="waterEditAccess"><option value="open">Public/open</option><option value="restricted">Public with conditions</option><option value="unknown">Access must be verified</option><option value="private">Private</option><option value="closed">Closed</option></select></label>
+  <label class="full">Public access note<textarea id="waterEditNote" style="min-height:100px">${esc(packet.details)}</textarea></label>
+  </div><div class="private"><strong>Private submitter contact</strong><br>${esc(packet.private_contact||"Not provided")}<br><span class="meta">Excluded from the public file.</span></div>`;
+  $("waterEditAccess").value=["private-water-shown","closed-water-shown"].includes(packet.issue)?(packet.issue.startsWith("private")?"private":"closed"):(packet.correct_access==="conditional"?"restricted":packet.correct_access);
+  $("approvePublicWater").classList.remove("hidden");
+  $("approveHiddenWater").classList.remove("hidden");
+  $("resolveWater").classList.remove("hidden");
+}
 
-  function rowsFromDatabase(database){
-    if(Array.isArray(database?.flat_waters))return database.flat_waters;
-    const rows=[];
-    for(const county of database?.counties||[]){
-      for(const water of county?.waters||[]){
-        rows.push({...water,county:water.county||county.county});
-      }
-    }
-    return rows;
-  }
+function normalizeWater(value){return cleanLine(value).toLowerCase().replace(/[^a-z0-9\s]/g," ").replace(/\s+/g," ").trim();}
+function waterOverrideKey(row){return`${normalizeWater(row.name)}|${normalizeWater(row.state)}`;}
 
-  function waterName(row){
-    return clean(row.water_name||row.name||row.water||row.title);
-  }
+async function resolveCorrectionCoordinates(){
+  if(!parsedWaterCorrection)return;
+  const values=waterEditValues();
+  $("resolveWater").disabled=true;$("resolveWater").textContent="Searching official names…";
+  try{
+    const query=`${values.name}, ${values.state}`;
+    const rows=await window.FFO_REGION_SEARCH.search(query);
+    const exact=rows.find(row=>normalizeWater(row.name)===normalizeWater(values.name))||rows[0];
+    if(!exact)throw new Error("No official geographic-name match was found.");
+    $("waterEditName").value=exact.name;
+    $("waterEditLat").value=Number(exact.lat).toFixed(6);
+    $("waterEditLon").value=Number(exact.lon).toFixed(6);
+    if(!$("waterEditType").value)$("waterEditType").value=exact.type||"water";
+    if(!$("waterEditState").value)$("waterEditState").value=exact.state||values.state;
+    $("waterEditNote").value=cleanLine($("waterEditNote").value+` Official geographic-name match resolved at ${Number(exact.lat).toFixed(5)}, ${Number(exact.lon).toFixed(5)}.`);
+  }catch(error){alert(error.message||"Coordinates could not be resolved.");}
+  finally{$("resolveWater").disabled=false;$("resolveWater").textContent="Find coordinates automatically";}
+}
 
-  function counties(row){
-    const values=[];
-    if(Array.isArray(row.counties))values.push(...row.counties);
-    if(row.county)values.push(row.county);
-    return [...new Set(values.map(clean).filter(Boolean))];
-  }
+function publicWaterOverride(){
+  const values=waterEditValues();
+  if(!values.name||!values.state)throw new Error("Water name and state are required.");
+  if(!Number.isFinite(values.lat)||!Number.isFinite(values.lon))throw new Error("A public water needs valid latitude and longitude. Use Find coordinates automatically or enter them.");
+  const source=window.FFO_STATE_SOURCES?.byState?.(values.state);
+  return{
+    correction_id:parsedWaterCorrection.correction_id,
+    approved_at:new Date().toISOString(),
+    name:values.name,
+    aliases:[values.name],
+    display_name:`${values.name}${values.nearest_town?`, near ${values.nearest_town}`:""}, ${values.state}`,
+    lat:values.lat,lon:values.lon,state:values.state,
+    category:"water",type:values.type||"water",
+    nearby_towns:values.nearest_town?[normalizeWater(values.nearest_town),normalizeWater(`${values.nearest_town} ${values.state}`)]:[],
+    nearby_town_label:values.nearest_town,
+    official_url:values.official_url||source?.directory_url||"",
+    public_access_verified:values.access_status==="open"||values.access_status==="restricted",
+    access_status:["open","restricted"].includes(values.access_status)?values.access_status:"unknown",
+    public_access_note:values.public_access_note||"Approved directory correction. Verify current access before traveling.",
+    public_access_source:source?.agency||"Manually reviewed directory correction",
+    visibility:"public",
+    approved_override:true
+  };
+}
 
-  function sourceUrl(row){
-    const candidates=[
-      row.official_access_source_url,row.official_source_url,row.fishnv_source_url,
-      row.metadata_source,row.official_url,row.source_url
-    ];
-    for(const point of row.access_points||[]){
-      if(point&&typeof point==="object"){
-        candidates.push(point.source_url,point.official_url,point.verification_url);
-      }
-    }
-    return candidates.map(clean).find(value=>value.startsWith("https://"))||"";
-  }
+function hiddenWaterOverride(){
+  const values=waterEditValues();
+  if(!values.name||!values.state)throw new Error("Water name and state are required.");
+  return{
+    correction_id:parsedWaterCorrection.correction_id,
+    approved_at:new Date().toISOString(),
+    name:values.name,state:values.state,
+    category:"water",type:values.type||"water",
+    access_status:values.access_status==="closed"?"closed":"private",
+    visibility:"hidden",
+    public_access_note:values.public_access_note||"Known private or closed water removed from public search results.",
+    official_url:values.official_url||""
+  };
+}
 
-  function accessText(row){
-    const names=[];
-    for(const point of row.access_points||[]){
-      const name=typeof point==="string"
-        ?clean(point)
-        :clean(point?.access_point_name||point?.name||point?.access_name||point?.site_name||point?.facility_name);
-      if(name)names.push(name);
-    }
-    return [...new Set(names)].slice(0,3).join(" · ")
-      ||clean(row.public_access_verification||row.access_status||row.public_access_status||row.publication_status)
-      ||"Public-water database record";
-  }
+function waterOverrideFileText(){
+  const today=new Date().toISOString().slice(0,10);
+  const file={version:`${today}-approved-corrections`,updated_at:today,coverage_note:"Manually reviewed missing-water additions and private/closed-water corrections.",records:workingWaterOverrides};
+  return "/* Approved Fish Finder Outdoors water-directory corrections. */\nwindow.FFO_WATER_OVERRIDES = "+JSON.stringify(file,null,2)+";\n";
+}
+function renderWaterOverrideCount(){
+  const visible=workingWaterOverrides.filter(row=>row.visibility!=="hidden").length;
+  const hidden=workingWaterOverrides.filter(row=>row.visibility==="hidden").length;
+  $("waterOverrideCount").textContent=`Correction file: ${visible} public addition${visible===1?"":"s"} · ${hidden} hidden private/closed record${hidden===1?"":"s"}.`;
+}
+function saveWaterOverride(record){
+  workingWaterOverrides=workingWaterOverrides.filter(row=>waterOverrideKey(row)!==waterOverrideKey(record));
+  workingWaterOverrides.unshift(record);
+  downloadText("official_water_overrides.js",waterOverrideFileText());
+  $("waterImportPreview").innerHTML=`<div class="success"><strong>Correction approved.</strong><p>Replace only <code>official_water_overrides.js</code> in the GitHub root and commit it to main.</p></div>`;
+  parsedWaterCorrection=null;
+  $("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");
+  renderWaterOverrideCount();
+}
+$("parseWaterEmail").addEventListener("click",()=>{try{parsedWaterCorrection=parseWaterCorrection($("waterEmailPaste").value);renderWaterPreview(parsedWaterCorrection);}catch(error){parsedWaterCorrection=null;renderWaterPreview(null,error.message);}});
+$("resolveWater").addEventListener("click",resolveCorrectionCoordinates);
+$("clearWaterImport").addEventListener("click",()=>{$("waterEmailPaste").value="";parsedWaterCorrection=null;$("waterImportPreview").innerHTML='<p class="meta">The editable correction preview will appear here.</p>';$("approvePublicWater").classList.add("hidden");$("approveHiddenWater").classList.add("hidden");$("resolveWater").classList.add("hidden");});
+$("approvePublicWater").addEventListener("click",()=>{try{saveWaterOverride(publicWaterOverride());}catch(error){alert(error.message);}});
+$("approveHiddenWater").addEventListener("click",()=>{try{saveWaterOverride(hiddenWaterOverride());}catch(error){alert(error.message);}});
+renderWaterOverrideCount();
 
-  function reportCount(row){
-    const direct=Number(row.report_count);
-    if(Number.isFinite(direct))return direct;
-    if(Array.isArray(row.recent_reports))return row.recent_reports.length;
-    if(Array.isArray(row.reports))return row.reports.length;
-    return 0;
-  }
-
-  function validCoordinate(value,min,max){
-    const number=Number(value);
-    return Number.isFinite(number)&&number>=min&&number<=max;
-  }
-
-  function fullReportUrl(row,stateLabel,config){
-    const county=counties(row)[0]||"";
-    const name=waterName(row);
-    const params=new URLSearchParams({
-      q:[name,county,config.queryState].filter(Boolean).join(", "),
-      open:"1",
-      water:name,
-      state:stateLabel
-    });
-    if(county)params.set("county",county);
-    const lat=row.latitude??row.lat;
-    const lon=row.longitude??row.lon;
-    if(validCoordinate(lat,-90,90)&&validCoordinate(lon,-180,180)){
-      params.set("lat",String(lat));
-      params.set("lon",String(lon));
-      params.set("direct","1");
-    }
-    const source=sourceUrl(row);
-    if(source)params.set("source",source);
-    return `index.html?${params.toString()}`;
-  }
-
-  function githubDataUrl(config){
-    return `https://github.com/${REPO}/blob/main/${config.file}`;
-  }
-
-  async function loadState(stateLabel){
-    if(cache.has(stateLabel))return cache.get(stateLabel);
-    const config=STATES[stateLabel];
-    if(!config)throw new Error("Choose a valid state.");
-    setStatus(`Loading the ${stateLabel} database…`,"loading");
-    const response=await fetch(`${config.file}?admin=${Date.now()}`,{cache:"no-store"});
-    if(!response.ok)throw new Error(`${stateLabel} database returned ${response.status}.`);
-    const database=await response.json();
-    const payload={database,rows:rowsFromDatabase(database)};
-    cache.set(stateLabel,payload);
-    return payload;
-  }
-
-  function searchRows(rows,countyQuery,waterQuery){
-    const cq=norm(countyQuery);
-    const wq=norm(waterQuery);
-    return rows
-      .filter(row=>{
-        const name=norm(waterName(row));
-        const countyValues=counties(row).map(norm);
-        return (!wq||name.includes(wq))&&(!cq||countyValues.some(value=>value.includes(cq)));
-      })
-      .map(row=>{
-        const name=norm(waterName(row));
-        let score=0;
-        if(wq){
-          if(name===wq)score+=1000;
-          else if(name.startsWith(wq))score+=700;
-          else if(name.includes(wq))score+=400;
-        }
-        if(cq&&counties(row).some(value=>norm(value)===cq))score+=300;
-        score+=Math.min(100,reportCount(row));
-        return {row,score};
-      })
-      .sort((a,b)=>b.score-a.score||waterName(a.row).localeCompare(waterName(b.row)))
-      .map(item=>item.row);
-  }
-
-  function renderSummary(database,rows,stateLabel){
-    const status=window.FFO_UPDATE_STATUS||{};
-    const stateStatus=(status.states||[]).find(row=>row.state===stateLabel)||{};
-    $("databaseSummary").innerHTML=[
-      `${fmt(database.county_count||stateStatus.county_count)} county shells`,
-      `${fmt(database.public_water_count||stateStatus.public_water_count||rows.length)} public-water rows`,
-      `${fmt(database.report_count||stateStatus.report_count)} state report records`,
-      `Last generated ${esc(clean(database.metadata?.generated_at||stateStatus.generated_at)||"unknown")}`
-    ].map(value=>`<span>${value}</span>`).join("");
-  }
-
-  function renderResults(matches,stateLabel,config){
-    const visible=matches.slice(0,100);
-    $("resultsPanel").hidden=false;
-    $("resultsMessage").textContent=matches.length>100
-      ? `${fmt(matches.length)} matches. Showing the first 100—add a county or water name to narrow the list.`
-      : `${fmt(matches.length)} matching water record${matches.length===1?"":"s"}.`;
-
-    $("resultsRows").innerHTML=visible.map(row=>{
-      const name=waterName(row)||"Unnamed water";
-      const countyText=counties(row).join(", ")||"County not listed";
-      const type=clean(row.water_type||row.type||"Waterbody");
-      const access=accessText(row);
-      const count=reportCount(row);
-      const latest=clean(row.latest_report?.report_date||row.latest_report?.published_date||row.latest_report_date);
-      const source=sourceUrl(row);
-      return `<tr>
-        <td><div class="water-name">${esc(name)}</div>${source?`<div class="meta"><a href="${esc(source)}" target="_blank" rel="noopener">Official source ↗</a></div>`:""}</td>
-        <td><strong>${esc(stateLabel)}</strong><div class="meta">${esc(countyText)}</div></td>
-        <td>${esc(type)}<div class="meta">${esc(access)}</div></td>
-        <td>${esc(fmt(count))}${latest?`<div class="meta">Latest: ${esc(latest)}</div>`:""}</td>
-        <td><div class="actions">
-          <a class="primary-link" href="${esc(fullReportUrl(row,stateLabel,config))}" target="_blank" rel="noopener">Full report</a>
-          <a href="${esc(config.page)}" target="_blank" rel="noopener">State page</a>
-          <a class="edit-link" href="${esc(githubDataUrl(config))}" target="_blank" rel="noopener">Open data file</a>
-        </div></td>
-      </tr>`;
-    }).join("")||'<tr><td colspan="5" class="empty">No water records matched those filters.</td></tr>';
-  }
-
-  $("adminSearchForm").addEventListener("submit",async event=>{
-    event.preventDefault();
-    const stateLabel=clean($("stateFilter").value);
-    const countyQuery=clean($("countyFilter").value);
-    const waterQuery=clean($("waterFilter").value);
-    if(!stateLabel){
-      setStatus("Choose a state before searching.","error");
-      $("stateFilter").focus();
-      return;
-    }
-    try{
-      const config=STATES[stateLabel];
-      const {database,rows}=await loadState(stateLabel);
-      renderSummary(database,rows,stateLabel);
-      const matches=searchRows(rows,countyQuery,waterQuery);
-      renderResults(matches,stateLabel,config);
-      setStatus(
-        matches.length
-          ?`Search complete. Found ${fmt(matches.length)} matching ${stateLabel} water record${matches.length===1?"":"s"}.`
-          :"Search complete. No matching water records were found.",
-        matches.length?"":"warning"
-      );
-      $("resultsPanel").scrollIntoView({behavior:"smooth",block:"start"});
-    }catch(error){
-      console.error(error);
-      setStatus(`Search could not load: ${error.message}`,"error");
-    }
-  });
-
-  $("clearSearch").addEventListener("click",()=>{
-    $("adminSearchForm").reset();
-    $("resultsPanel").hidden=true;
-    $("resultsRows").innerHTML="";
-    $("resultsMessage").textContent="";
-    $("databaseSummary").innerHTML="";
-    setStatus("Choose a state, add any optional filters, then press Search database.");
-    $("stateFilter").focus();
-  });
-
-  const status=window.FFO_UPDATE_STATUS||{};
-  if(status.state_count){
-    $("databaseSummary").innerHTML=[
-      `${fmt(status.state_count)} completed regions`,
-      `${fmt(status.county_count)} county shells`,
-      `${fmt(status.public_water_count)} public-water rows`,
-      `${fmt(status.reports_total)} unique report records`
-    ].map(value=>`<span>${value}</span>`).join("");
-  }
-})();
+function localRows(){try{return JSON.parse(localStorage.getItem("ffo:pending-submissions")||"[]");}catch{return[];}}
+function saveRows(rows){localStorage.setItem("ffo:pending-submissions",JSON.stringify(rows));renderSubmissions();}
+function renderSubmissions(){const rows=localRows();$("submissions").innerHTML=rows.length?rows.map((r,i)=>`<div class="submission"><h3>${esc(r.species)} · ${esc(r.waterbody)}, ${esc(r.state)}</h3><div class="meta">${esc(r.fishing_date)} · ${esc(r.bait_or_lure)} · ${esc(r.status||"pending")}</div><p>${esc(r.notes||"No notes")}</p><div class="actions"><button class="secondary" data-action="approve" data-i="${i}">Mark approved locally</button><button class="secondary" data-action="reject" data-i="${i}">Reject locally</button><button class="secondary" data-action="remove" data-i="${i}">Remove</button></div></div>`).join(""):'<p class="meta">No local submissions in this browser.</p>';document.querySelectorAll("[data-action]").forEach(b=>b.addEventListener("click",()=>{const rows=localRows(),i=Number(b.dataset.i);if(b.dataset.action==="remove")rows.splice(i,1);else rows[i].status=b.dataset.action==="approve"?"approved-local":"rejected-local";saveRows(rows);}));}
+renderSubmissions();
+$("exportSubmissions").addEventListener("click",()=>download("ffo-local-submissions.json",localRows()));
+if(cfg.github_repository_url){const base=cfg.github_repository_url.replace(/\/$/,"");const a=$("actionsLink");a.href=base+"/actions";a.classList.remove("hidden");const communityLink=$("communityGithubLink");communityLink.href=base+"/blob/main/community_fishing_reports.js";communityLink.classList.remove("hidden");const waterLink=$("waterGithubLink");waterLink.href=base+"/blob/main/official_water_overrides.js";waterLink.classList.remove("hidden");}
 </script>
 <script src="brand-shell.js"></script>
 </body>

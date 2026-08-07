@@ -978,7 +978,7 @@ def patch_site_files(root: Path) -> None:
     if sitemap.exists():
         text = sitemap.read_text(encoding="utf-8")
         if "utah-county-reports.html" not in text:
-            block = """  <url>\n    <loc>https://fish-finder-reports-live.wasmer.app/utah-county-reports.html</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n"""
+            block = """  <url>\n    <loc>https://reports.fishfinderoutdoors.com/utah-county-reports.html</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>\n"""
             text = text.replace("</urlset>", block + "</urlset>")
             sitemap.write_text(text, encoding="utf-8")
 

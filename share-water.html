@@ -32,7 +32,7 @@
   </main>
   <script>
     (function(){
-      const target=new URL('https://reports.fishfinderoutdoors.com/');
+      const target=new URL('./',window.location.href);
       target.search=window.location.search;
       const link=document.getElementById('openReport');
       if(link)link.href=target.href;
