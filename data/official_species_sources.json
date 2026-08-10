@@ -1,6 +1,6 @@
 {
   "version": "2026.08.10-v1",
-  "generated_at": "2026-08-10T19:14:14Z",
+  "generated_at": "2026-08-10T20:23:02Z",
   "coverage_note": "Water-specific species copied only from exact official government water pages. Empty or failed lookups are not converted into statewide assumptions.",
   "states": {
     "Idaho": [
@@ -34079,6 +34079,1002 @@
         "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/williams-lake-spokane",
         "evidence_type": "Exact official state water page",
         "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      }
+    ],
+    "Colorado": [
+      {
+        "name": "Animas River",
+        "aliases": [],
+        "counties": [
+          "La Plata"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/AnimasRiverDurango.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Antero Reservoir",
+        "aliases": [],
+        "counties": [
+          "Park"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/AnteroReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Arkansas River",
+        "aliases": [],
+        "counties": [
+          "Pueblo"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ArkansasRiverPueblo.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Arkansas River",
+        "aliases": [],
+        "counties": [
+          "Lake"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ArkansasRiverUpper.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Arvada Reservoir",
+        "aliases": [],
+        "counties": [
+          "Jefferson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ArvadaBlunnReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Aurora Reservoir",
+        "aliases": [],
+        "counties": [
+          "Arapahoe"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/AuroraReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Barker Reservoir",
+        "aliases": [],
+        "counties": [
+          "Boulder"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BarkerReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Barr Lake",
+        "aliases": [],
+        "counties": [
+          "Adams"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BarrLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Bear Creek",
+        "aliases": [],
+        "counties": [
+          "Jefferson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BearCreek.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Bear Creek Reservoir",
+        "aliases": [],
+        "counties": [
+          "Jefferson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BearCreekReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Betty Lake",
+        "aliases": [],
+        "counties": [
+          "Boulder"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/IndianPeaksWildernessLakes.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Big Thompson River",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BigThompsonRiver.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Blue Mesa Reservoir",
+        "aliases": [],
+        "counties": [
+          "Gunnison"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BlueMesaReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Boedecker Reservoir",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BoedeckerReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Boulder City Reservoir",
+        "aliases": [],
+        "counties": [
+          "Boulder"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BoulderCityReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Boyd Lake",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BoydLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Brush Hollow Reservoir",
+        "aliases": [],
+        "counties": [
+          "Fremont"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/BrushHollowReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Cache la Poudre River",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/CachelaPoudreRiverCanyon.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Carter Lake",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/CarterLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Chambers Lake",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ChambersLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Chatfield Reservoir",
+        "aliases": [],
+        "counties": [
+          "Douglas"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ChatfieldReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Cherry Creek Reservoir",
+        "aliases": [],
+        "counties": [
+          "Arapahoe"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/CherryCreekReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clear Creek",
+        "aliases": [],
+        "counties": [
+          "Clear Creek"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ClearCreek.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clear Creek Reservoir",
+        "aliases": [],
+        "counties": [
+          "Chaffee"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ClearCreekReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Colorado River",
+        "aliases": [],
+        "counties": [
+          "Grand"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ColoradoRiverStateBridgeDotsero.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Crawford Reservoir",
+        "aliases": [],
+        "counties": [
+          "Delta"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/CrawfordReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "De Weese Reservoir",
+        "aliases": [],
+        "counties": [
+          "Custer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/DeWeeseReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Delaney Buttes Lake, East",
+        "aliases": [],
+        "counties": [
+          "Jackson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/EastDelaneyButtesLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Delaney Buttes Lake, North",
+        "aliases": [],
+        "counties": [
+          "Jackson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/NorthDelaneyButtesLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Delaney Buttes Lake, South",
+        "aliases": [],
+        "counties": [
+          "Jackson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/SouthDelaneyButtesLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "DePoorter Lake",
+        "aliases": [],
+        "counties": [
+          "Sedgwick"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/DepoortersLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Dillon Reservoir",
+        "aliases": [],
+        "counties": [
+          "Summit"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/DillonReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Douglas Reservoir",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/DouglasReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Eggleston Lake, Big",
+        "aliases": [],
+        "counties": [
+          "Delta"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/EgglestonLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Elevenmile Reservoir",
+        "aliases": [],
+        "counties": [
+          "Park"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/ElevenmileReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Green Mountain Reservoir",
+        "aliases": [],
+        "counties": [
+          "Summit"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/GreenMountainReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Gross Reservoir",
+        "aliases": [],
+        "counties": [
+          "Boulder"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/GrossReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Gunnison River",
+        "aliases": [],
+        "counties": [
+          "Gunnison"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/GunnisonRiveratGunnison.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Gunnison River, Lake Fork",
+        "aliases": [],
+        "counties": [
+          "Hinsdale"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/LakeForkGunnisonRiver.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Harvey Gap Reservoir",
+        "aliases": [],
+        "counties": [
+          "Garfield"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/HarveyGap.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Henry Lake",
+        "aliases": [],
+        "counties": [
+          "Crowley"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/HenryLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Highline Lake",
+        "aliases": [],
+        "counties": [
+          "Mesa"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/HighlineLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Jackson Reservoir",
+        "aliases": [],
+        "counties": [
+          "Morgan"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/JacksonReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Joe Wright Reservoir",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/JoeWrightReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "John Martin Reservoir",
+        "aliases": [],
+        "counties": [
+          "Bent"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/JohnMartinReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Jumbo Annex",
+        "aliases": [],
+        "counties": [
+          "Logan"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/JumboAnnexReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake John",
+        "aliases": [],
+        "counties": [
+          "Jackson"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/LakeJohn.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lon Hagler Reservoir",
+        "aliases": [],
+        "counties": [
+          "Larimer"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/LonHagler.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Martin Lake",
+        "aliases": [],
+        "counties": [
+          "Huerfano"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/MartinLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "McCall Lake",
+        "aliases": [],
+        "counties": [
+          "Boulder"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/McCallLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "McPhee Reservoir",
+        "aliases": [],
+        "counties": [
+          "Montezuma"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/McPheeReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Meredith Reservoir",
+        "aliases": [],
+        "counties": [
+          "Crowley"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/MeredithReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Miramonte Reservoir",
+        "aliases": [],
+        "counties": [
+          "San Miguel"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/MiramonteReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Nee Noshe Reservoir",
+        "aliases": [],
+        "counties": [
+          "Kiowa"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/NeeNosheReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Neeskah Reservoir",
+        "aliases": [],
+        "counties": [
+          "Kiowa"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/QueensReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "North Sterling Reservoir",
+        "aliases": [],
+        "counties": [
+          "Logan"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/NorthSterlingReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Quincy Reservoir",
+        "aliases": [],
+        "counties": [
+          "Arapahoe"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/QuincyReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Rampart Reservoir",
+        "aliases": [],
+        "counties": [
+          "El Paso"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/RampartReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Ridgway Reservoir",
+        "aliases": [],
+        "counties": [
+          "Ouray"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/RidgwayReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Rio Grande River",
+        "aliases": [],
+        "counties": [
+          "Rio Grande"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/RioGrandeRiver.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Ruedi Reservoir",
+        "aliases": [],
+        "counties": [
+          "Pitkin"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/RuediReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "San Juan River",
+        "aliases": [],
+        "counties": [
+          "Archuleta"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/SanJuanRiverPagosaSprings.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Skaguay Reservoir",
+        "aliases": [],
+        "counties": [
+          "Teller"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/SkaguayReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "South Platte River",
+        "aliases": [],
+        "counties": [
+          "Park"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/SouthPlatteRiverAtTheDreamStream.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Spinney Mountain Reservoir",
+        "aliases": [],
+        "counties": [
+          "Park"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/SpinneyMountainReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Stalker Lake",
+        "aliases": [],
+        "counties": [
+          "Yuma"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/StalkerLake.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Taylor Park Reservoir",
+        "aliases": [],
+        "counties": [
+          "Gunnison"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/TaylorParkReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Taylor River",
+        "aliases": [],
+        "counties": [
+          "Gunnison"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/TaylorRiverbelowTaylorParkRes.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Union Reservoir",
+        "aliases": [],
+        "counties": [
+          "Weld"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/UnionReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Williams Fork Reservoir",
+        "aliases": [],
+        "counties": [
+          "Grand"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/WilliamsForkReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Wolford Mountain Reservoir",
+        "aliases": [],
+        "counties": [
+          "Grand"
+        ],
+        "species": [],
+        "source_name": "Colorado Parks and Wildlife — Fishery Survey",
+        "source_url": "https://cpw.state.co.us/thingstodo/Fishery%20Survey%20Summaries/WolfordMountainReservoir.pdf",
+        "evidence_type": "Exact CPW fishery-survey document",
+        "note": "Fish named in the linked CPW survey for this exact water; a survey may be historical or incomplete and does not guarantee a current bite.",
         "status": "no_species_published",
         "checked_at": "2026-08-10"
       }
