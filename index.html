@@ -918,12 +918,74 @@ function nearbyPublicWaterMatches(q){
       town_search:true
     }));
 }
+function locationNameKeys(row){
+  return [...new Set([row?.name,...(row?.aliases||[])].map(normalize).filter(Boolean))];
+}
+function sameLocationRecord(a,b){
+  const namesA=locationNameKeys(a),namesB=new Set(locationNameKeys(b));
+  if(!namesA.some(name=>namesB.has(name)))return false;
+  if(normalize(a?.state)!==normalize(b?.state))return false;
+
+  const gnisA=String(a?.gnis_id||"").trim(),gnisB=String(b?.gnis_id||"").trim();
+  if(gnisA&&gnisB&&gnisA===gnisB)return true;
+  const officialA=String(a?.official_url||"").trim(),officialB=String(b?.official_url||"").trim();
+  if(officialA&&officialB&&officialA===officialB)return true;
+
+  const latA=Number(a?.lat),lonA=Number(a?.lon),latB=Number(b?.lat),lonB=Number(b?.lon);
+  if(![latA,lonA,latB,lonB].every(Number.isFinite))return false;
+  const distance=miles(latA,lonA,latB,lonB);
+  if(distance<=0.25)return true;
+
+  const curatedA=!!(a?.local_directory||a?.approved_override||a?.official_url);
+  const curatedB=!!(b?.local_directory||b?.approved_override||b?.official_url);
+  const geographicA=!!(a?.gnis_official||a?.map_fallback);
+  const geographicB=!!(b?.gnis_official||b?.map_fallback);
+  if(!((curatedA&&geographicB)||(curatedB&&geographicA)))return false;
+
+  const kind=normalize(`${a?.type||""} ${b?.type||""} ${a?.category||""} ${b?.category||""}`);
+  const maximumDistance=kind.includes("reservoir")?45:
+    /river|stream|creek|canal/.test(kind)?30:
+      kind.includes("lake")?20:/pond|lagoon/.test(kind)?8:12;
+  return distance<=maximumDistance;
+}
+function locationRecordPriority(row){
+  const access=reportAccess(row,{public_access:!!row?.public_access_verified,access_status:row?.access_status||"unknown"});
+  let priority=access.status!=="unknown"?1000:0;
+  if(row?.approved_override)priority+=700;
+  if(row?.local_directory)priority+=500;
+  if(row?.official_url)priority+=250;
+  if(row?.public_access_source_url)priority+=100;
+  if(row?.gnis_official)priority+=80;
+  if(row?.map_fallback)priority+=20;
+  return priority;
+}
+function mergeLocationRecords(a,b){
+  const preferred=locationRecordPriority(b)>locationRecordPriority(a)?b:a;
+  const other=preferred===a?b:a;
+  const merged={...other,...preferred};
+  merged.aliases=[...new Set([...(preferred.aliases||[]),...(other.aliases||[])])];
+  ["gnis_official","local_directory","approved_override","nearby_public","town_search","map_fallback"].forEach(field=>{
+    merged[field]=!!(preferred[field]||other[field]);
+  });
+  ["name_source","name_source_url","gnis_id","gnis_feature_class","nearby_town_label"].forEach(field=>{
+    merged[field]=preferred[field]||other[field]||"";
+  });
+  const preferredAccess=reportAccess(preferred,{public_access:!!preferred.public_access_verified,access_status:preferred.access_status||"unknown"});
+  const otherAccess=reportAccess(other,{public_access:!!other.public_access_verified,access_status:other.access_status||"unknown"});
+  const accessRecord=preferredAccess.status!=="unknown"?preferred:otherAccess.status!=="unknown"?other:preferred;
+  ["public_access_verified","access_status","access_check_required","public_access_note","public_access_source","public_access_source_url","public_access_method"].forEach(field=>{
+    if(field in accessRecord)merged[field]=accessRecord[field];
+  });
+  const distances=[Number(preferred.distance_miles),Number(other.distance_miles)].filter(Number.isFinite);
+  if(distances.length)merged.distance_miles=Math.min(...distances);
+  return merged;
+}
 function dedupeLocations(rows){
-  const seen=new Set(),out=[];
-  for(const row of rows){
-    const key=`${normalize(row.name)}|${row.state||""}|${Number(row.lat).toFixed(3)}|${Number(row.lon).toFixed(3)}`;
-    if(seen.has(key))continue;
-    seen.add(key);out.push(row);
+  const out=[];
+  for(const row of rows||[]){
+    const duplicateIndex=out.findIndex(existing=>sameLocationRecord(existing,row));
+    if(duplicateIndex===-1)out.push(row);
+    else out[duplicateIndex]=mergeLocationRecords(out[duplicateIndex],row);
   }
   return out;
 }
@@ -1330,7 +1392,7 @@ $("searchForm").addEventListener("submit",async e=>{
         <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
         <span>${esc(access.note)}</span>
-        <span class="result-badges">${accessBadge}${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.approved_override?'<span class="result-badge">Approved directory correction</span>':r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official?'<span class="result-badge">USGS official name</span>':""}${r.type==="river"?'<span class="result-badge">Use designated access points</span>':""}</span>
+        <span class="result-badges">${accessBadge}${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.approved_override?'<span class="result-badge">Approved directory correction</span>':r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official&&!r.local_directory?'<span class="result-badge">USGS official name</span>':""}${r.type==="river"?'<span class="result-badge">Use designated access points</span>':""}</span>
       </button>`;
     }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
