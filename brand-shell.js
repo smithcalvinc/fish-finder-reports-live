@@ -648,13 +648,109 @@
     #report-search.ffo-results-first-layout > .hint{
       margin-top:16px;
     }
+    .ffo-results-reset{display:none}
+    body.ffo-focused-results .ffo-beta-bar,
+    body.ffo-focused-results .ffo-professional-hero,
+    body.ffo-focused-results .ffo-trust-strip,
+    body.ffo-focused-results .ffo-human-intro,
+    body.ffo-focused-results main.wrap > .pwa-install-feature,
+    body.ffo-focused-results main.wrap > .saved-panel,
+    body.ffo-focused-results #beta-search-guide{
+      display:none!important;
+    }
+    body.ffo-focused-results main.wrap{padding-top:14px}
+    body.ffo-focused-results #report-search{
+      margin-top:0;
+      padding:16px;
+      border-radius:12px;
+      box-shadow:none;
+    }
+    body.ffo-focused-results #report-search > .ffo-section-label,
+    body.ffo-focused-results #report-search > .ffo-beta-panel,
+    body.ffo-focused-results #report-search > .tool-proof-line,
+    body.ffo-focused-results #report-search > .ffo-local-examples,
+    body.ffo-focused-results #report-search > .hint,
+    body.ffo-focused-results #report-search > .nearby-quick-card,
+    body.ffo-focused-results #report-search > .search-help,
+    body.ffo-focused-results #report-search > .ffo-coverage-note,
+    body.ffo-focused-results #report-search > .regional-coverage,
+    body.ffo-focused-results #report-search > .legend,
+    body.ffo-focused-results #report-search #nearMe,
+    body.ffo-focused-results #reportNextActions,
+    body.ffo-focused-results #report .report-actions button:not(#shareWater):not(#favoriteLocation){
+      display:none!important;
+    }
+    body.ffo-focused-results #report-search .search-row{
+      grid-template-columns:minmax(0,1fr) auto auto;
+    }
+    body.ffo-focused-results .ffo-results-reset{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+    }
+    body.ffo-focused-results #report{
+      padding-bottom:18px;
+    }
     @media(max-width:760px){
       #report-search.ffo-results-first-layout #results:not(:empty){padding:9px}
       #report-search.ffo-results-first-layout #results .result{padding:14px 12px}
       #report-search.ffo-results-first-layout > #report.ffo-inline-report{padding-top:10px}
+      body.ffo-focused-results #report-search{padding:12px}
+      body.ffo-focused-results #report-search .search-row{grid-template-columns:1fr}
     }
   `;
   document.head.appendChild(resultsFirstStyle);
   organizePrimarySearchFlow();
+
+  /* Keep the full landing page intact until search feedback or a report exists. */
+  const installFocusedResultsMode=()=>{
+    const form=document.getElementById('searchForm');
+    const input=document.getElementById('locationInput');
+    const statusBox=document.getElementById('status');
+    const resultBox=document.getElementById('results');
+    const reportSection=document.getElementById('report');
+    const reportGrid=document.getElementById('reportGrid');
+    if(!form||!input||!statusBox||!resultBox||!reportSection)return;
+
+    let resetButton=document.getElementById('ffoResultsReset');
+    if(!resetButton){
+      resetButton=document.createElement('button');
+      resetButton.id='ffoResultsReset';
+      resetButton.className='secondary ffo-results-reset';
+      resetButton.type='button';
+      resetButton.textContent='Start a new search';
+      form.appendChild(resetButton);
+    }
+
+    const hasActiveStatus=()=>
+      !statusBox.classList.contains('hidden')&&Boolean(statusBox.textContent.trim());
+    const syncMode=()=>{
+      const active=hasActiveStatus()||resultBox.childElementCount>0||
+        !reportSection.classList.contains('hidden');
+      document.body.classList.toggle('ffo-focused-results',active);
+    };
+
+    const observer=new MutationObserver(syncMode);
+    observer.observe(statusBox,{attributes:true,childList:true,subtree:true});
+    observer.observe(resultBox,{childList:true,subtree:true});
+    observer.observe(reportSection,{attributes:true,attributeFilter:['class']});
+
+    resetButton.addEventListener('click',()=>{
+      statusBox.className='status hidden';
+      statusBox.replaceChildren();
+      resultBox.replaceChildren();
+      reportGrid?.replaceChildren();
+      reportSection.classList.add('hidden');
+      input.value='';
+      history.replaceState(null,'',location.pathname);
+      document.body.classList.remove('ffo-focused-results');
+      input.focus();
+      document.getElementById('report-search')?.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+
+    syncMode();
+  };
+
+  installFocusedResultsMode();
   installReportMarkupCleaner();
 })();
