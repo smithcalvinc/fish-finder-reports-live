@@ -40,18 +40,6 @@
     {name:"Wisconsin",code:"WI"},{name:"Wyoming",code:"WY"}
   ];
 
-  const OFFICIAL_FINDERS = {
-    Idaho:"https://idfg.idaho.gov/ifwis/fishingplanner/",
-    Montana:"https://fwp.mt.gov/fish",
-    Wyoming:"https://wgfd.wyo.gov/fishing-boating",
-    Utah:"https://dwrapps.utah.gov/fishing/",
-    Nevada:"https://www.ndow.org/get-outside/fishing-stocking-reports/database/",
-    Oregon:"https://myodfw.com/recreation-report/fishing-report",
-    Washington:"https://wdfw.wa.gov/fishing/locations",
-    California:"https://wildlife.ca.gov/Fishing/Guide",
-    Colorado:"https://cpw.state.co.us/maps-and-gis"
-  };
-
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
   const STATE_CODE_PATTERN = REGION_STATES.map(state=>state.code).join("|");
   const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v5:";
@@ -502,7 +490,7 @@
         resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
       };
       const timeout=setTimeout(finish,8000);
-      script.src="official_access_index.js?v=55";
+      script.src="official_access_index.js?v=56";
       script.async=true;
       script.onload=finish;
       script.onerror=finish;
@@ -689,7 +677,7 @@
         public_access_source_url:officialRecord.source_url,
         public_access_method:officialRecord.method||"official-state-access-index",
         official_access_sites:officialRecord.access_site_names||[],
-        official_url:row.official_url||officialRecord.source_url
+        official_url:officialRecord.water_url||row.official_url||officialRecord.source_url
       };
     }
 
@@ -882,7 +870,7 @@
       agency:source.agency,
       url:window.FFO_STATE_SOURCES.searchUrl(source,query)
     };
-    return state?{state:state.name,url:OFFICIAL_FINDERS[state.name]}:null;
+    return null;
   }
 
   async function search(query){

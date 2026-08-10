@@ -34,7 +34,13 @@ That file stores both:
 
 ## Official directory page
 
-`official-sources.html` lists the primary fishing directory and rules source for all nine states/areas.
+`official-sources.html` lists a primary fish-and-wildlife fishing source for all 50 states.
+
+FFO's deeper searchable datasets currently cover Idaho, Montana, Utah, Colorado,
+Wyoming, Nevada, Oregon, Washington and Northern California. Fish species are
+shown only when an official record is tied to the exact named water. When an
+exact record has not been imported, the result links to the responsible state
+agency and a Google search restricted to that agency's official domains.
 
 ## Upload
 

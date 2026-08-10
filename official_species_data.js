@@ -1,7 +1,7 @@
 window.FFO_OFFICIAL_SPECIES = {
-  "version": "2026.07.19-phase6.1.1",
-  "checked_at": "2026-07-19",
-  "coverage_note": "Expanded exact-waterbody records and local aliases, including Bannock Reservoir and Edson Fichter Pond in Pocatello. Unmatched waters still receive no statewide assumptions.",
+  "version": "2026.08.10-v57",
+  "checked_at": "2026-08-10",
+  "coverage_note": "Curated exact-water records, including Lake Walcott and Lake Oroville. Generated state imports and live exact-page lookups are stored separately; unmatched waters never receive statewide species assumptions.",
   "waters": [
     {
       "state": "Idaho",
@@ -1075,6 +1075,67 @@ window.FFO_OFFICIAL_SPECIES = {
       ],
       "scope": "IDFG recommended game fish, newest listed trout stocking and other fish documented in official stocking records.",
       "source_checked": "2026-07-19"
+    },
+    {
+      "state": "Idaho",
+      "names": [
+        "Lake Walcott",
+        "Walcott Lake"
+      ],
+      "agency": "Idaho Fish and Game",
+      "source_label": "Idaho Fishing Planner — Lake Walcott",
+      "source_url": "https://idfg.idaho.gov/ifwis/fishingplanner/water/1133831426835",
+      "recommended": [
+        "Bluegill / Pumpkinseed / Sunfish",
+        "Largemouth Bass",
+        "Yellow Perch",
+        "Smallmouth Bass",
+        "Rainbow Trout"
+      ],
+      "surveyed": [
+        {"name": "Common Carp", "year": 2024},
+        {"name": "Kokanee", "year": 2024},
+        {"name": "Smallmouth Bass", "year": 2024},
+        {"name": "Utah Chub", "year": 2024},
+        {"name": "Utah Sucker", "year": 2024},
+        {"name": "Yellow Perch", "year": 2024},
+        {"name": "Rainbow Trout", "year": 2023},
+        {"name": "Redside Shiner", "year": 2023},
+        {"name": "White Crappie", "year": 2023},
+        {"name": "Brown Trout", "year": 2005}
+      ],
+      "stocked": [
+        {"name": "White Sturgeon", "date": "2026-06-03"},
+        {"name": "Rainbow Trout — Triploid", "date": "2025-03-11"}
+      ],
+      "documented": [],
+      "scope": "IDFG recommended game fish, named survey observations, and recent stocking records for Lake Walcott.",
+      "source_checked": "2026-08-10"
+    },
+    {
+      "state": "California",
+      "names": [
+        "Lake Oroville",
+        "Oroville Lake"
+      ],
+      "agency": "California State Parks",
+      "source_label": "California State Parks — Lake Oroville State Recreation Area",
+      "source_url": "https://www.parks.ca.gov/?page_id=948",
+      "recommended": [],
+      "surveyed": [],
+      "stocked": [],
+      "documented": [
+        "Largemouth Bass",
+        "Smallmouth Bass",
+        "Chinook Salmon",
+        "Catfish — exact species not specified",
+        "Lake Trout (Mackinaw)",
+        "White Sturgeon",
+        "Brown Trout",
+        "White Crappie"
+      ],
+      "scope": "Fish explicitly listed on California State Parks' Lake Oroville recreation page; this is not a current bite report or a complete biological survey.",
+      "source_checked": "2026-08-10"
     }
   ]
 };

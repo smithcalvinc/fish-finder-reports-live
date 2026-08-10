@@ -30,6 +30,24 @@ COPYRIGHT
 The database stores short summaries and source links. It does not reproduce
 complete fishing reports or social-media posts.
 
+FISH SPECIES EVIDENCE
+---------------------
+Every search result displays a species status. FFO lists a fish only when an
+official record, survey, stocking entry, report, or exact state-agency water
+page ties that fish to the named water. A statewide species list is never used
+as if every fish on it occurs in every lake.
+
+The results page routes all 50 states to their official fish-and-wildlife
+source. Idaho, Montana, Utah, Colorado, Wyoming, Nevada, Oregon, Washington and
+Northern California currently have deeper imported records; additional exact
+records are refreshed by state-specific adapters. California's CDFW High
+Mountain Lakes survey is imported as exact coordinate-level survey evidence.
+
+State agencies do not all publish a water-specific species list for every
+named lake. When no exact list has been loaded, FFO says so and links both the
+official state directory and a Google query restricted to that agency's
+official domains. "No exact record loaded" does not mean "no fish."
+
 NOT EVERY WATER RECEIVES PUBLIC REPORTS
 ---------------------------------------
 Some small ponds, creeks and remote waters may have no recent public report.

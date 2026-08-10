@@ -263,7 +263,7 @@
 </section>
 <section aria-label="Fishing location search" class="search-panel" id="report-search">
 <span class="ffo-section-label">Free beta report tool</span>
-<div class="ffo-beta-panel"><h2>Search a water or town.</h2><p>Search by official water name, local name, town, or coordinates. This tool does not currently offer a dedicated species search. State-agency records and approved corrections appear first.</p></div><div class="tool-proof-line">Free to use • 9-state regional coverage • Official sources linked • Direct water sharing built in</div>
+<div class="ffo-beta-panel"><h2>Search a water or town.</h2><p>Search by official water name, local name, town, or coordinates. Every result shows its exact-water fish-species evidence status, fishing-report status and available access information.</p></div><div class="tool-proof-line">Free to use • Nationwide water-name search • All 50 state agencies linked • Direct water sharing built in</div>
 <form class="search-row" id="searchForm">
 <input aria-label="Fishing location" autocomplete="off" id="locationInput" placeholder="Water or town: American Falls Reservoir or Pocatello"/>
 <button class="primary" type="submit">Find location</button>
@@ -282,9 +282,9 @@
 <div aria-live="polite" class="nearby-quick-status" id="nearbyQuickStatus">Your location is not shared unless you choose to use it.</div>
 <div aria-label="Nearby fishing water shortcuts" class="local-searches nearby-water-buttons" id="nearbyWaterButtons"></div>
 </section>
-<div class="search-help"><strong>Official-source regional coverage:</strong> Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado. The correct state fishing directory is shown with every search. Known private and closed waters are hidden, while uncertain access is labeled instead of silently deleting the water.</div><div class="ffo-coverage-note"><strong>Can’t find a known water?</strong> <a href="report-water.html">Report a missing water or incorrect access</a>. Approved corrections become part of the search directory without rewriting the whole site.</div>
+<div class="search-help"><strong>Nationwide official-source routing:</strong> the responsible state fish and wildlife agency is attached to searches in all 50 states. Exact-water species names appear only when FFO can tie them to that water; statewide fish lists are never presented as lake-specific evidence. Known private and closed waters are hidden, while uncertain access is labeled.</div><div class="ffo-coverage-note"><strong>Can’t find a known water?</strong> <a href="report-water.html">Report a missing water or incorrect access</a>. Approved corrections become part of the search directory without rewriting the whole site.</div>
 <div class="regional-coverage">
-<strong>Official water-name search coverage</strong>
+<strong>Expanded state datasets currently installed</strong>
 <div class="state-chips">
 <span class="state-chip">Idaho</span><span class="state-chip">Montana</span>
 <span class="state-chip">Wyoming</span><span class="state-chip">Utah</span>
@@ -323,13 +323,13 @@
 <section class="ffo-seo-section" id="beta-search-guide">
 <div class="ffo-seo-inner">
 <div>
-<span class="ffo-section-label">Regional fishing search beta</span>
+<span class="ffo-section-label">Nationwide fishing search beta</span>
 <h2>Find fishing waters near a town, then verify the details.</h2>
 <p>Enter a town, lake, reservoir, pond, river, stream or coordinate. For town searches, Fish Finder Outdoors looks for named fishing waters within roughly 50 miles when the available agency and geographic data support that search.</p>
 <p>No database contains every public fishing access point. Results therefore include the correct official state fishing directory, access labels and a missing-water correction form.</p>
 </div>
 <div class="ffo-seo-cards">
-<article><h3>Covered region</h3><p>Idaho, Montana, Wyoming, Utah, Nevada, Oregon, Washington, Northern California and Colorado.</p></article>
+<article><h3>Official state sources</h3><p>All 50 state fish and wildlife agencies are routed from nationwide results. Nine western state datasets currently provide deeper report, species and access indexing.</p></article>
 <article><h3>Private-water screening</h3><p>Known private and closed waters are hidden. Fee, permit, seasonal and unconfirmed access are labeled instead of silently deleted.</p></article>
 <article><h3>Community corrections</h3><p>Anglers can report a missing water or incorrect access. Every correction is reviewed before it changes the public directory.</p></article>
 </div>
@@ -378,11 +378,11 @@
 </footer>
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
-<script src="official_species_index.js?v=55"></script>
+<script src="official_species_index.js?v=57"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js?v=55"></script>
-<script src="access_point_directory.js?v=55"></script>
-<script src="regional_water_search.js?v=55"></script>
+<script src="official_water_overrides.js?v=57"></script>
+<script src="access_point_directory.js?v=57"></script>
+<script src="regional_water_search.js?v=57"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -396,16 +396,28 @@ let lastSearch = 0;
 
 const EXPANDED = new Set(["Idaho","Montana","Wyoming","Utah","Nevada","Oregon","Washington","California","Colorado"]);
 const GUIDES = {
-Idaho:{species:["rainbow trout","cutthroat trout","brown trout","kokanee","smallmouth bass","yellow perch","channel catfish","white sturgeon"],agency:"Idaho Fish and Game",report:"https://idfg.idaho.gov/fish",rules:"https://idfg.idaho.gov/rules/fish",stocking:"https://idfg.idaho.gov/ifwis/fishingplanner/stocking/",finder:"https://idfg.idaho.gov/ifwis/fishingplanner/"},
-Montana:{species:["rainbow trout","cutthroat trout","brown trout","lake trout","walleye","northern pike","kokanee","smallmouth bass"],agency:"Montana Fish, Wildlife & Parks",report:"https://fwp.mt.gov/fish",rules:"https://fwp.mt.gov/fish/regulations",stocking:"https://fwp.mt.gov/fish/stocking.html"},
-Wyoming:{species:["cutthroat trout","rainbow trout","brown trout","lake trout","kokanee","walleye","smallmouth bass","channel catfish"],agency:"Wyoming Game and Fish Department",report:"https://wgfd.wyo.gov/fishing-boating",rules:"https://wgfd.wyo.gov/regulations",stocking:"https://wgfd.wyo.gov/fishing-boating"},
-Utah:{species:["rainbow trout","cutthroat trout","brown trout","kokanee","lake trout","tiger trout","largemouth bass","walleye","tiger muskie"],agency:"Utah Division of Wildlife Resources",report:"https://wildlife.utah.gov/fishing",rules:"https://wildlife.utah.gov/guidebooks?sec=10",stocking:"https://wildlife.utah.gov/fishing"},
-Nevada:{species:["rainbow trout","brown trout","largemouth bass","smallmouth bass","striped bass","channel catfish","crappie","walleye"],agency:"Nevada Department of Wildlife",report:"https://www.ndow.org/get-outside/fishing-stocking-reports/database/",rules:"https://www.ndow.org/rules-regulations/",stocking:"https://www.ndow.org/get-outside/fishing-stocking-reports/"},
-Oregon:{species:["rainbow trout","salmon","steelhead","kokanee","smallmouth bass","largemouth bass","crappie","white sturgeon","rockfish"],agency:"Oregon Department of Fish & Wildlife",report:"https://myodfw.com/recreation-report/fishing-report",rules:"https://myodfw.com/fishing/regulations",stocking:"https://myodfw.com/fishing/species/trout/stocking-schedule"},
-Washington:{species:["rainbow trout","salmon","steelhead","kokanee","smallmouth bass","walleye","white sturgeon","halibut"],agency:"Washington Department of Fish & Wildlife",report:"https://wdfw.wa.gov/fishing",rules:"https://wdfw.wa.gov/fishing/regulations",stocking:"https://wdfw.wa.gov/fishing/reports/stocking/trout-plants/all",emergency:"https://wdfw.wa.gov/fishing/regulations/emergency-rules"},
-California:{species:["rainbow trout","brown trout","salmon","steelhead","kokanee","largemouth bass","smallmouth bass","channel catfish","white sturgeon","rockfish"],agency:"California Department of Fish and Wildlife",report:"https://wildlife.ca.gov/Fishing",rules:"https://wildlife.ca.gov/Regulations/Fishing",stocking:"https://wildlife.ca.gov/Fishing/Guide",finder:"https://wildlife.ca.gov/Fishing/Guide"},
-Colorado:{species:["rainbow trout","cutthroat trout","brown trout","kokanee","walleye","smallmouth bass","northern pike","tiger muskie","channel catfish"],agency:"Colorado Parks and Wildlife",report:"https://cpw.state.co.us/fishing",rules:"https://cpw.state.co.us/rules-and-regulations",stocking:"https://cpw.state.co.us/activities/fishing/fishing-awards-and-records/fish-stocking-report",finder:"https://cpw.state.co.us/bodies-water-finder"}
+Idaho:{agency:"Idaho Fish and Game",report:"https://idfg.idaho.gov/fish",rules:"https://idfg.idaho.gov/rules/fish",stocking:"https://idfg.idaho.gov/ifwis/fishingplanner/stocking/",finder:"https://idfg.idaho.gov/ifwis/fishingplanner/"},
+Montana:{agency:"Montana Fish, Wildlife & Parks",report:"https://fwp.mt.gov/fish",rules:"https://fwp.mt.gov/fish/regulations",stocking:"https://fwp.mt.gov/fish/stocking.html"},
+Wyoming:{agency:"Wyoming Game and Fish Department",report:"https://wgfd.wyo.gov/fishing-boating",rules:"https://wgfd.wyo.gov/regulations",stocking:"https://wgfd.wyo.gov/fishing-boating"},
+Utah:{agency:"Utah Division of Wildlife Resources",report:"https://wildlife.utah.gov/fishing",rules:"https://wildlife.utah.gov/guidebooks?sec=10",stocking:"https://wildlife.utah.gov/fishing"},
+Nevada:{agency:"Nevada Department of Wildlife",report:"https://www.ndow.org/get-outside/fishing-stocking-reports/database/",rules:"https://www.ndow.org/rules-regulations/",stocking:"https://www.ndow.org/get-outside/fishing-stocking-reports/"},
+Oregon:{agency:"Oregon Department of Fish & Wildlife",report:"https://myodfw.com/recreation-report/fishing-report",rules:"https://myodfw.com/fishing/regulations",stocking:"https://myodfw.com/fishing/species/trout/stocking-schedule"},
+Washington:{agency:"Washington Department of Fish & Wildlife",report:"https://wdfw.wa.gov/fishing",rules:"https://wdfw.wa.gov/fishing/regulations",stocking:"https://wdfw.wa.gov/fishing/reports/stocking/trout-plants/all",emergency:"https://wdfw.wa.gov/fishing/regulations/emergency-rules"},
+California:{agency:"California Department of Fish and Wildlife",report:"https://wildlife.ca.gov/Fishing",rules:"https://wildlife.ca.gov/Regulations/Fishing",stocking:"https://wildlife.ca.gov/Fishing/Guide",finder:"https://wildlife.ca.gov/Fishing/Guide"},
+Colorado:{agency:"Colorado Parks and Wildlife",report:"https://cpw.state.co.us/fishing",rules:"https://cpw.state.co.us/rules-and-regulations",stocking:"https://cpw.state.co.us/activities/fishing/fishing-awards-and-records/fish-stocking-report",finder:"https://cpw.state.co.us/bodies-water-finder"}
 };
+function guideForState(stateName){
+  if(GUIDES[stateName])return GUIDES[stateName];
+  const source=window.FFO_STATE_SOURCES?.byState?.(stateName);
+  if(!source)return null;
+  return{
+    agency:source.agency,
+    report:source.reports_url||source.directory_url,
+    rules:source.rules_url||"",
+    stocking:source.stocking_url||"",
+    finder:source.directory_url||""
+  };
+}
 const PARAMETERS={"00010":"Water temperature","00060":"Streamflow","00065":"Gage height"};
 const WATER_TYPES = new Set(["water","reservoir","lake","river","stream","canal","bay","pond","lagoon","strait","inlet","harbour","harbor"]);
 
@@ -1089,7 +1101,8 @@ function stateSourceFor(query,rows){
 function agencyPanel(source,query){
   if(!source)return"";
   const officialUrl=window.FFO_STATE_SOURCES.searchUrl(source,query);
-  return`<div class="ffo-agency-panel"><strong>${esc(source.agency)}</strong><p>${esc(source.description)} ${esc(source.coverage_label||"")}</p><div class="ffo-agency-actions"><a href="${esc(officialUrl)}" target="_blank" rel="noopener">Search the official ${esc(source.state)} directory ↗</a>${source.rules_url?`<a class="secondary" href="${esc(source.rules_url)}" target="_blank" rel="noopener">Current rules ↗</a>`:""}<a class="secondary" href="report-water.html?q=${encodeURIComponent(query)}&state=${encodeURIComponent(source.state)}">Report a missing or incorrect water</a></div></div>`;
+  const officialSpeciesSearch=window.FFO_STATE_SOURCES.googleOfficialSearchUrl(source,query);
+  return`<div class="ffo-agency-panel"><strong>${esc(source.agency)}</strong><p>${esc(source.description)} ${esc(source.coverage_label||"")}</p><div class="ffo-agency-actions"><a href="${esc(officialUrl)}" target="_blank" rel="noopener">Open the official ${esc(source.state)} fishing source ↗</a><a class="secondary" href="${esc(officialSpeciesSearch)}" target="_blank" rel="noopener">Search official-site species records ↗</a>${source.rules_url?`<a class="secondary" href="${esc(source.rules_url)}" target="_blank" rel="noopener">Current rules ↗</a>`:""}<a class="secondary" href="report-water.html?q=${encodeURIComponent(query)}&state=${encodeURIComponent(source.state)}">Report a missing or incorrect water</a></div></div>`;
 }
 function isWaterResult(r){return WATER_TYPES.has(String(r.type||"").toLowerCase())||WATER_TYPES.has(String(r.category||"").toLowerCase())||/(lake|reservoir|river|creek|stream|pond|bay|ocean|canal|fork)/i.test(r.name||"");}
 function searchPriority(r,q){
@@ -1138,28 +1151,41 @@ function officialSpeciesNames(record){
 function canonicalSpeciesState(value){
   return normalize(value)==="northern california"?"California":String(value||"");
 }
-function findIndexedSpecies(loc){
-  const dataset=window.FFO_OFFICIAL_SPECIES_INDEX||{states:{}};
-  const stateName=canonicalSpeciesState(loc?.state);
-  let rows=dataset.states?.[stateName]||[];
+function waterNameSignature(value){
+  const words=normalize(value).split(" ").filter(Boolean).map(word=>({lakes:"lake",reservoirs:"reservoir",ponds:"pond"})[word]||word);
+  return words.length>1?[...words].sort().join(" "):"";
+}
+function waterNameBaseSignature(value){
+  return waterNameSignature(value).split(" ").filter(word=>word!=="big").join(" ");
+}
+function findNamedWaterRow(rows,loc){
   if(!rows.length)return null;
 
   const locationNames=new Set([loc?.name,...(loc?.aliases||[])].map(normalize).filter(Boolean));
+  const locationSignatures=new Set([...locationNames].map(waterNameSignature).filter(Boolean));
   const displayName=normalize(loc?.display_name);
   const countyName=normalize(loc?.county);
   let matches=rows.map(row=>{
     const names=[row.name,...(row.aliases||[])].map(normalize).filter(Boolean);
-    const exact=names.some(name=>locationNames.has(name));
-    const displayPrefix=!exact&&names.some(name=>displayName===name||displayName.startsWith(name+" "));
-    if(!exact&&!displayPrefix)return null;
-    const countyMatch=countyName&&!(row.counties||[]).length
-      ?false
-      :(row.counties||[]).some(county=>countyName.includes(normalize(county))||normalize(county).includes(countyName));
+    const rowCounties=(row.counties||[]).map(normalize).filter(Boolean);
+    const countyMatch=!!countyName&&rowCounties.some(county=>countyName.includes(county)||county.includes(countyName));
+    if(countyName&&rowCounties.length&&!countyMatch)return null;
     let distance=null;
     if(Number.isFinite(Number(loc?.lat))&&Number.isFinite(Number(loc?.lon))&&Number.isFinite(Number(row.lat))&&Number.isFinite(Number(row.lon))){
       distance=miles(Number(loc.lat),Number(loc.lon),Number(row.lat),Number(row.lon));
     }
-    return{row,score:(exact?500:300)+(countyMatch?120:0)+(distance!==null&&distance<=15?100-Math.round(distance):0),countyMatch,distance};
+    const exact=names.some(name=>locationNames.has(name));
+    const reordered=!exact&&names.some(name=>locationSignatures.has(waterNameSignature(name)));
+    const nearbyQualifierVariant=!exact&&!reordered&&distance!==null&&distance<=1&&names.some(name=>
+      [...locationNames].some(locationName=>{
+        const rowBase=waterNameBaseSignature(name),locationBase=waterNameBaseSignature(locationName);
+        return!!rowBase&&rowBase===locationBase;
+      })
+    );
+    const displayPrefix=!exact&&!reordered&&!nearbyQualifierVariant&&names.some(name=>displayName===name||displayName.startsWith(name+" "));
+    if(!exact&&!reordered&&!nearbyQualifierVariant&&!displayPrefix)return null;
+    if(!rowCounties.length&&distance!==null&&distance>15)return null;
+    return{row,score:(exact?500:reordered?440:nearbyQualifierVariant?400:300)+(countyMatch?120:0)+(distance!==null&&distance<=15?100-Math.round(distance):0),countyMatch,distance};
   }).filter(Boolean);
   if(!matches.length)return null;
   if(countyName&&matches.some(match=>match.countyMatch))matches=matches.filter(match=>match.countyMatch);
@@ -1168,13 +1194,41 @@ function findIndexedSpecies(loc){
   matches.sort((a,b)=>b.score-a.score);
   return matches[0].row;
 }
+function findIndexedSpecies(loc){
+  const dataset=window.FFO_OFFICIAL_SPECIES_INDEX||{states:{}};
+  const stateName=canonicalSpeciesState(loc?.state);
+  return findNamedWaterRow(dataset.states?.[stateName]||[],loc);
+}
+function findIndexedSpeciesLookup(loc){
+  const dataset=window.FFO_OFFICIAL_SPECIES_INDEX||{lookups:{}};
+  const stateName=canonicalSpeciesState(loc?.state);
+  return findNamedWaterRow(dataset.lookups?.[stateName]||[],loc);
+}
+function exactOfficialWaterUrl(value){
+  const url=String(value||"");
+  return /\/ifwis\/fishingplanner\/water\/\d+/i.test(url)||
+    /\/fishing\/locations\/(?:lowland-lakes|high-lakes)\//i.test(url)||
+    /\/waters\/[^/?#]+\/?$/i.test(url)||
+    /\/body-of-water\//i.test(url);
+}
 function speciesLookupLinks(loc){
   const stateSource=window.FFO_STATE_SOURCES?.byState?.(canonicalSpeciesState(loc?.state));
   const query=[loc?.name,canonicalSpeciesState(loc?.state)].filter(Boolean).join(", ");
+  const exactLookup=findIndexedSpeciesLookup(loc);
+  const verifiedLookup=exactLookup?.verified!==false?exactLookup:null;
+  const officialUrl=verifiedLookup?.source_url||loc?.official_url||
+    (stateSource?window.FFO_STATE_SOURCES.searchUrl(stateSource,loc?.name||""):"");
   return{
-    official_url:stateSource?window.FFO_STATE_SOURCES.searchUrl(stateSource,loc?.name||""):"",
-    official_label:stateSource?`Search the official ${stateSource.state} fishing directory`:"",
-    google_url:`https://www.google.com/search?q=${encodeURIComponent(`fish species in ${query}`)}`,
+    official_url:officialUrl,
+    official_label:verifiedLookup
+      ?`Open the exact ${stateSource?.state||canonicalSpeciesState(loc?.state)} agency water page`
+      :loc?.official_url
+        ?"Open the official water page"
+        :stateSource?`Search the official ${stateSource.state} fishing directory`:"",
+    official_exact:!!(verifiedLookup||exactOfficialWaterUrl(loc?.official_url)),
+    google_url:stateSource
+      ?window.FFO_STATE_SOURCES.googleOfficialSearchUrl(stateSource,loc?.name||query)
+      :`https://www.google.com/search?q=${encodeURIComponent(`fish species in ${query}`)}`,
     submit_url:`submit-report.html?water=${encodeURIComponent(loc?.name||"")}&state=${encodeURIComponent(canonicalSpeciesState(loc?.state))}`
   };
 }
@@ -1237,11 +1291,182 @@ function speciesSummaryFor(loc,options={}){
   }
 
   return{
-    status:"not-found",specificity:"none",official:false,names:[],source_name:"",source_url:"",
-    evidence_label:"No water-specific species record loaded",
-    note:"FFO did not find a water-specific species record in its current official datasets. Statewide fish lists are intentionally not shown as if they apply to this water.",
+    status:"not-found",specificity:"none",official:false,names:[],
+    source_name:window.FFO_STATE_SOURCES?.byState?.(canonicalSpeciesState(loc?.state))?.agency||"",
+    source_url:"",evidence_label:"Official state lookup available — no exact species record loaded",
+    note:"FFO has not loaded a species record tied to this exact water. The official agency directory and an official-domain Google search are linked below; statewide fish lists are intentionally not shown as if they apply to this water.",
     source_checked:"",...links
   };
+}
+const LIVE_SPECIES_READER="https://r.jina.ai/";
+const LIVE_SPECIES_CACHE_AGE=30*24*60*60*1000;
+const LIVE_SPECIES_HOSTS=new Set(["cpw.state.co.us","idfg.idaho.gov","www.ndow.org","ndow.org","wdfw.wa.gov"]);
+function liveSpeciesSourceUrls(loc){
+  const lookup=findIndexedSpeciesLookup(loc);
+  if(!lookup)return[];
+  return[lookup.source_url,...(lookup.alternate_source_urls||[])].filter(url=>{
+    try{return LIVE_SPECIES_HOSTS.has(new URL(url).hostname.toLowerCase());}catch{return false;}
+  });
+}
+function liveSpeciesLabel(value){
+  let label=String(value||"")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g,"$1")
+    .replace(/\s*\([^)]*[a-z]{2,}\s+[a-z]{2,}[^)]*\)\s*$/i,"")
+    .replace(/\s+-\s+Triploid\b/i," — Triploid")
+    .replace(/\s+observed\s+in\s+\d{4}.*$/i,"")
+    .trim();
+  if(!label||/^(species|no stocking records found)$/i.test(label))return"";
+  if(/^[A-Za-z][A-Za-z0-9 /'()×—.-]+$/.test(label))label=label.toLowerCase().replace(/\b\w/g,char=>char.toUpperCase());
+  return({"Small Mouth Bass":"Smallmouth Bass","Large Mouth Bass":"Largemouth Bass","Kokanee Salmon":"Kokanee","Mackinaw":"Lake Trout (Mackinaw)"})[label]||label;
+}
+function liveObservedCommonName(value){
+  const text=String(value||"").replace(/\s+observed\s+in\s+\d{4}.*$/i,"").trim();
+  const match=text.match(/^(.+?)\s+[A-Z][a-z]+(?:\s+(?:[a-z][a-z.-]*|x)){1,5}$/);
+  return liveSpeciesLabel(match?match[1]:text);
+}
+function markdownSection(lines,phrase){
+  const target=normalize(phrase);let active=false;const output=[];
+  for(const raw of lines){
+    const line=String(raw||"").trim(),heading=line.replace(/^#{1,6}\s*/,"").replace(/:$/,"");
+    if(!active&&normalize(heading).includes(target)){active=true;continue;}
+    if(!active)continue;
+    if(/^#{1,6}\s+/.test(line))break;
+    output.push(line);
+  }
+  return output;
+}
+function parseIdahoSpeciesMarkdown(text,loc){
+  if(!normalize(text).includes(normalize(loc.name)))return[];
+  const lines=String(text||"").split(/\r?\n/),found=[];
+  for(const line of markdownSection(lines,"Recommended Game Fish")){
+    const match=line.match(/^[-*]\s+(.+)$/);if(match)found.push(liveSpeciesLabel(match[1].split(" (")[0]));
+  }
+  for(const line of markdownSection(lines,"Species Observed in Surveys")){
+    const match=line.match(/^[-*]\s+(.+)$/);if(match)found.push(liveObservedCommonName(match[1]));
+  }
+  for(const line of markdownSection(lines,"Fish Stocking Records")){
+    const cells=line.split("|").map(value=>value.trim()).filter(Boolean);
+    if(cells.length>=2&&/^\d{4}[/-]\d{2}[/-]\d{2}$/.test(cells[0]))found.push(liveSpeciesLabel(cells[1]));
+  }
+  return[...new Set(found.filter(Boolean))];
+}
+function parseWashingtonSpeciesMarkdown(text,loc){
+  const normalized=normalize(text);
+  if(!normalized.includes(normalize(loc.name)))return[];
+  const county=normalize(loc.county).replace(/\bcounty\b/g,"").trim();
+  const listedCounty=String(text||"").match(/\bCounty:\s*([^\n]+)/i)?.[1]||"";
+  if(county&&listedCounty&&!normalize(listedCounty).includes(county))return[];
+  const found=[];
+  for(const line of markdownSection(String(text||"").split(/\r?\n/),"Species you might catch")){
+    const match=line.match(/^[-*]\s+(.+)$/);if(match)found.push(liveSpeciesLabel(match[1]));
+  }
+  return[...new Set(found.filter(Boolean))];
+}
+const LIVE_NEVADA_SPECIES_PATTERNS=[
+  [/\barctic grayling\b/i,"Arctic Grayling"],[/\bblack crapp(?:ie|ies)\b/i,"Black Crappie"],
+  [/\bbluegill\b/i,"Bluegill"],[/\bbrook trout\b/i,"Brook Trout"],[/\bbrown trout\b/i,"Brown Trout"],
+  [/\bbull trout\b/i,"Bull Trout"],[/\bburbot\b/i,"Burbot"],[/\bchannel catfish\b/i,"Channel Catfish"],
+  [/\bchinook(?: salmon)?\b/i,"Chinook Salmon"],[/\bcoho(?: salmon)?\b/i,"Coho Salmon"],
+  [/\bcommon carp\b|\bcarp\b/i,"Common Carp"],[/\bcutthroat trout\b/i,"Cutthroat Trout"],
+  [/\bkokanee\b/i,"Kokanee"],[/\blake trout\b|\bmackinaw\b/i,"Lake Trout (Mackinaw)"],
+  [/\blargemouth bass\b/i,"Largemouth Bass"],[/\bmountain whitefish\b/i,"Mountain Whitefish"],
+  [/\bnorthern pike\b/i,"Northern Pike"],[/\brainbow trout\b/i,"Rainbow Trout"],
+  [/\bsmallmouth bass\b/i,"Smallmouth Bass"],[/\bspotted bass\b/i,"Spotted Bass"],
+  [/\bstriped bass\b|\bstriper(?:s)?\b/i,"Striped Bass"],[/\btiger muskie\b/i,"Tiger Muskie"],
+  [/\btiger trout\b/i,"Tiger Trout"],[/\bwalleye\b/i,"Walleye"],[/\bwhite bass\b/i,"White Bass"],
+  [/\bwhite catfish\b/i,"White Catfish"],[/\bwhite crapp(?:ie|ies)\b/i,"White Crappie"],
+  [/\bwhite sturgeon\b/i,"White Sturgeon"],[/\bwiper(?:s)?\b/i,"Wiper"],[/\byellow perch\b/i,"Yellow Perch"]
+];
+const LIVE_COLORADO_SPECIES_PATTERNS=[
+  ...LIVE_NEVADA_SPECIES_PATTERNS,
+  [/\bblack bullhead\b/i,"Black Bullhead"],[/\bbluehead sucker\b/i,"Bluehead Sucker"],
+  [/\bbrown bullhead\b/i,"Brown Bullhead"],[/\bcolorado river cutthroat(?: trout)?\b/i,"Colorado River Cutthroat Trout"],
+  [/\bcreek chub\b/i,"Creek Chub"],[/\bcutbow(?: trout)?\b/i,"Cutbow Trout"],
+  [/\bfathead minnow\b/i,"Fathead Minnow"],[/\bfreshwater drum\b/i,"Freshwater Drum"],
+  [/\bgizzard shad\b/i,"Gizzard Shad"],[/\bgolden shiner\b/i,"Golden Shiner"],
+  [/\bgolden trout\b/i,"Golden Trout"],[/\bgrass carp\b/i,"Grass Carp"],
+  [/\bgreen sunfish\b/i,"Green Sunfish"],[/\bgreenback cutthroat(?: trout)?\b/i,"Greenback Cutthroat Trout"],
+  [/\blake chub\b/i,"Lake Chub"],[/\blongnose dace\b/i,"Longnose Dace"],
+  [/\blongnose sucker\b/i,"Longnose Sucker"],[/\bmountain sucker\b/i,"Mountain Sucker"],
+  [/\bplains killifish\b/i,"Plains Killifish"],[/\bred shiner\b/i,"Red Shiner"],
+  [/\brio grande chub\b/i,"Rio Grande Chub"],[/\brio grande cutthroat(?: trout)?\b/i,"Rio Grande Cutthroat Trout"],
+  [/\broundtail chub\b/i,"Roundtail Chub"],[/\bsauger\b/i,"Sauger"],[/\bsaugeye\b/i,"Saugeye"],
+  [/\bsnake river cutthroat(?: trout)?\b/i,"Snake River Cutthroat Trout"],
+  [/\bspeckled dace\b/i,"Speckled Dace"],[/\bsplake\b/i,"Splake"],
+  [/\bwhite sucker\b/i,"White Sucker"],[/\byellow bullhead\b/i,"Yellow Bullhead"]
+];
+function speciesFromPatterns(text,patterns){
+  const found=[];
+  for(const [pattern,label] of patterns){
+    if(pattern.test(text)&&!found.includes(label))found.push(label);
+  }
+  return found;
+}
+function parseNevadaSpeciesMarkdown(text,loc){
+  if(!normalize(text).includes(normalize(loc.name)))return[];
+  const lines=String(text||"").split(/\r?\n/);
+  const evidence=["Fishing Report","Stocking Updates","Pertinent Information"]
+    .flatMap(heading=>markdownSection(lines,heading)).join(" ");
+  return speciesFromPatterns(evidence,LIVE_NEVADA_SPECIES_PATTERNS);
+}
+function parseColoradoSpeciesMarkdown(text,loc){
+  const normalized=normalize(text),expected=normalize(loc.name);
+  if(expected&&!normalized.includes(expected)){
+    const shortened=expected.replace(/\b(lake|reservoir|pond|impoundment)s?\b/g,"").replace(/\s+/g," ").trim();
+    if(shortened.length<5||!normalized.includes(shortened))return[];
+  }
+  let found=speciesFromPatterns(text,LIVE_COLORADO_SPECIES_PATTERNS);
+  if(!/\bcommon carp\b/i.test(text))found=found.filter(label=>label!=="Common Carp");
+  if(found.some(label=>label!=="Cutthroat Trout"&&label.endsWith("Cutthroat Trout")))found=found.filter(label=>label!=="Cutthroat Trout");
+  return found;
+}
+async function readOfficialSpeciesPage(sourceUrl,loc){
+  const key=`official-species-reader:${sourceUrl}`;
+  const cached=getCache(key,LIVE_SPECIES_CACHE_AGE);
+  if(cached)return cached;
+  const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),18000);
+  try{
+    const response=await fetch(LIVE_SPECIES_READER+sourceUrl,{headers:{Accept:"text/plain"},mode:"cors",signal:controller.signal});
+    if(!response.ok)throw new Error(`Official page reader returned ${response.status}`);
+    const text=await response.text();
+    const stateName=canonicalSpeciesState(loc.state);
+    const names=stateName==="Colorado"
+      ?parseColoradoSpeciesMarkdown(text,loc)
+      :stateName==="Idaho"
+        ?parseIdahoSpeciesMarkdown(text,loc)
+        :stateName==="Nevada"
+          ?parseNevadaSpeciesMarkdown(text,loc)
+          :stateName==="Washington"
+            ?parseWashingtonSpeciesMarkdown(text,loc):[];
+    const record={names,source_url:sourceUrl,checked_at:new Date().toISOString()};
+    setCache(key,record);return record;
+  }finally{clearTimeout(timeout);}
+}
+async function speciesSummaryForLive(loc,options={}){
+  const base=options.base||speciesSummaryFor(loc,options);
+  if((base.names||[]).length)return base;
+  for(const sourceUrl of liveSpeciesSourceUrls(loc)){
+    try{
+      const live=await readOfficialSpeciesPage(sourceUrl,loc);
+      if(!live.names.length)continue;
+      const lookup=findIndexedSpeciesLookup(loc),links=speciesLookupLinks(loc);
+      return{
+        status:"live-official",specificity:"species",official:true,names:live.names,
+        source_name:lookup?.source_name||"Official state fish and wildlife agency",source_url:sourceUrl,
+        evidence_label:"Live exact official water-page record",
+        note:"FFO read these fish from the current official page for this exact water. Survey and stocking history do not guarantee a current bite.",
+        source_checked:live.checked_at,...links,official_url:sourceUrl,official_exact:true
+      };
+    }catch{}
+  }
+  return base;
+}
+async function enrichSpeciesSummaries(rows){
+  const queue=(rows||[]).slice(0,12).filter(row=>!(row.species_summary?.names||speciesSummaryFor(row).names||[]).length&&liveSpeciesSourceUrls(row).length);
+  let cursor=0;
+  const worker=async()=>{while(cursor<queue.length){const row=queue[cursor++];row.species_summary=await speciesSummaryForLive(row,{base:speciesSummaryFor(row)});}};
+  await Promise.all(Array.from({length:Math.min(3,queue.length)},worker));
+  return rows;
 }
 function reportPublishedAgeDays(value){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;
@@ -1560,14 +1785,14 @@ async function makeReport(loc){
   const profile=findProfile(loc);
   const official=findOfficialSpecies(loc);
   const catchReport=findRecentCatchReport(loc);
-  const speciesSummary=speciesSummaryFor(loc,{official,catchReport});
+  const speciesSummary=await speciesSummaryForLive(loc,{official,catchReport});
   const knownAccess=window.FFO_ACCESS_POINTS?.knownForWater?.(loc)||loc.access_points||[];
   const settled=await Promise.allSettled([nws(loc.lat,loc.lon),usgs(loc.lat,loc.lon),tides(loc.lat,loc.lon,type)]);
   const w=settled[0].status==="fulfilled"?settled[0].value:{available:false,current:null,next_12h:{},forecast_periods:[],alerts:[]};
   const u=settled[1].status==="fulfilled"?settled[1].value:{available:false,measurements:[],api:"USGS Water Data",source_url:"https://waterdata.usgs.gov/"};
   const t=settled[2].status==="fulfilled"?settled[2].value:{available:false};
   const exp=EXPANDED.has(loc.state)&&(loc.state!=="California"||loc.lat>=36);
-  const g=GUIDES[loc.state];
+  const g=guideForState(loc.state);
   const sources=[
     {name:"National Weather Service",url:w.source_url||"https://www.weather.gov/",kind:"live"},
     {name:u.api||"USGS Water Data",url:u.source_url||"https://waterdata.usgs.gov/",kind:"live"}
@@ -1627,7 +1852,12 @@ $("searchForm").addEventListener("submit",async e=>{
   e.preventDefault();const q=$("locationInput").value.trim();if(q.length<2){status("Enter at least two characters.",true);return;}
   $("results").innerHTML="";status('<span class="pulse"></span> Searching nearby fishing waters and screening private access…');
   try{
-    const rows=await searchPlaces(q);clearStatus();
+    const rows=await searchPlaces(q);
+    if(rows.length){
+      status('<span class="pulse"></span> Checking exact official fish-species pages…');
+      await enrichSpeciesSummaries(rows);
+    }
+    clearStatus();
     if(!rows.length){
       const source=stateSourceFor(q,[]);
       const official=source?agencyPanel(source,q):"";
@@ -1639,7 +1869,7 @@ $("searchForm").addEventListener("submit",async e=>{
     $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Every water shows its fish-species status, fishing-report status, and any named access points already in FFO. Select a water for sources and live lookup links.</div>`+rows.map((r,i)=>{
       const access=reportAccess(r,{public_access:!!r.public_access_verified,access_status:r.access_status||"unknown"});
       const currentReport=findRecentCatchReport(r),olderReport=currentReport?null:findOfficialReportLink(r);
-      const speciesSummary=speciesSummaryFor(r,{catchReport:currentReport});
+      const speciesSummary=r.species_summary||speciesSummaryFor(r,{catchReport:currentReport});
       const accessPoints=window.FFO_ACCESS_POINTS?.knownForWater?.(r)||[];
       r.access_points=accessPoints;
       r.species_summary=speciesSummary;
@@ -1657,9 +1887,12 @@ $("searchForm").addEventListener("submit",async e=>{
           ?`<span class="result-report-status result-report-older"><b>OLDER OFFICIAL FISHING INFORMATION FOUND.</b> Select this water to open the dated agency source.</span>`
           :`<span class="result-report-status result-report-missing"><b>NO FISHING REPORT FOUND FOR THIS LOCATION.</b> If you have a fishing report, select this water and submit it to FFO.</span>`;
       const speciesPreview=speciesSummary.names.slice(0,6);
+      const speciesAgency=window.FFO_STATE_SOURCES?.byState?.(canonicalSpeciesState(r.state))?.agency||"the responsible state agency";
       const speciesStatus=speciesPreview.length
         ?`<span class="result-species-status result-species-found"><b>${speciesSummary.specificity==="group"?"AGENCY FISH INFORMATION":"KNOWN FISH SPECIES"} (${speciesSummary.names.length}).</b> ${esc(speciesPreview.join(" · "))}${speciesSummary.names.length>speciesPreview.length?` · +${speciesSummary.names.length-speciesPreview.length} more`:""}. Select this water for the evidence source.</span>`
-        :`<span class="result-species-status result-species-missing"><b>NO WATER-SPECIFIC FISH SPECIES RECORD FOUND.</b> Select this water to check available official and Google sources for this exact location.</span>`;
+        :speciesSummary.official_exact
+          ?`<span class="result-species-status result-species-missing"><b>EXACT OFFICIAL WATER PAGE FOUND — SPECIES LIST COULD NOT BE LOADED.</b> Select this water to open the agency page directly.</span>`
+          :`<span class="result-species-status result-species-missing"><b>OFFICIAL SPECIES LOOKUP AVAILABLE — NO EXACT LIST LOADED.</b> Select this water to search ${esc(speciesAgency)} for this exact location.</span>`;
       return`<button class="result ${accessClass}" data-index="${i}">
         <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
@@ -1818,7 +2051,7 @@ function renderAccessPointDirectory(locationData){
 }
 function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v),speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),sp=speciesSummary.names||[];
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],cards=[],g=guideForState(r.location.state),v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v),speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),sp=speciesSummary.names||[];
   const officialSourceUrl=r.location.official_url||speciesSummary.source_url||official?.source_url||"";
   const submitUrl=`submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
 
@@ -1855,12 +2088,12 @@ function renderReport(r){
   const addSpeciesLink=(label,url)=>{if(url&&!speciesLinks.some(link=>link.url===url))speciesLinks.push({label,url});};
   addSpeciesLink("Open the species evidence source",speciesSummary.source_url);
   addSpeciesLink(speciesSummary.official_label||"Search the official fishing directory",speciesSummary.official_url);
-  addSpeciesLink("Search Google for species at this exact water",speciesSummary.google_url);
+  addSpeciesLink("Search official state websites with Google",speciesSummary.google_url);
   addSpeciesLink("Submit a fishing report to FFO",speciesSummary.submit_url||submitUrl);
   cards.push(`<article class="card full species-summary-card">
     <div class="eyebrow">${esc(speciesSummary.evidence_label)}</div>
-    <h3>${sp.length?(speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"):"NO WATER-SPECIFIC FISH SPECIES RECORD FOUND."}</h3>
-    ${sp.length?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>`:`<p>FFO did not find a species list tied to this exact water in its current official datasets. That does not mean the water has no fish; it means FFO will not substitute a statewide list or guess.</p><p>If you have a fishing report for this location, submit it to FFO so the species and location information can be reviewed and updated.</p>`}
+    <h3>${sp.length?(speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"):speciesSummary.official_exact?"EXACT OFFICIAL WATER PAGE FOUND — SPECIES LIST COULD NOT BE LOADED.":"NO WATER-SPECIFIC FISH SPECIES RECORD LOADED."}</h3>
+    ${sp.length?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>`:speciesSummary.official_exact?`<p>FFO matched the exact agency water page, but its species list could not be read during this search. Open that page below for the official list. FFO will not replace it with a statewide list or guess.</p>`:`<p>FFO did not find a species list tied to this exact water in its current official datasets. That does not mean the water has no fish; it means FFO will not substitute a statewide list or guess.</p><p>If you have a fishing report for this location, submit it to FFO so the species and location information can be reviewed and updated.</p>`}
     <p class="meta" style="margin-top:11px">${speciesSummary.source_name?`${esc(speciesSummary.source_name)}. `:""}${esc(speciesSummary.note)}</p>
     <div class="quick-links" style="margin-top:12px">${speciesLinks.map(link=>`<a href="${esc(link.url)}"${/^https?:/i.test(link.url)?' target="_blank" rel="noopener"':""}>${esc(link.label)} ↗</a>`).join("")}</div>
   </article>`);
@@ -1898,7 +2131,7 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=guideForState(r.location.state),v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Updated: ${dateFmt(r.generated_at)}`,
@@ -1915,7 +2148,7 @@ function reportText(r){
     communityReport?`Verification: Manually reviewed by FFO; not independently verified.`:"",
     catchReport?.source_url?`Original report: ${catchReport.source_url}`:"",
     !catchReport?`If you have a fishing report for this location, please submit it to FFO: ${submitUrl}`:"",
-    species.length?`${speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"}${speciesSummary.source_name?` (${speciesSummary.source_name})`:""}: ${species.join(", ")}`:`NO WATER-SPECIFIC FISH SPECIES RECORD FOUND FOR THIS LOCATION.`,
+    species.length?`${speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"}${speciesSummary.source_name?` (${speciesSummary.source_name})`:""}: ${species.join(", ")}`:speciesSummary.official_exact?`EXACT OFFICIAL WATER PAGE FOUND, BUT ITS SPECIES LIST COULD NOT BE LOADED.`:`NO WATER-SPECIFIC FISH SPECIES RECORD LOADED FOR THIS LOCATION.`,
     `Species evidence note: ${speciesSummary.note}`,
     speciesSummary.source_url?`Species evidence source: ${speciesSummary.source_url}`:"",
     speciesSummary.official_url?`Official species lookup: ${speciesSummary.official_url}`:"",
@@ -2138,6 +2371,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=55"></script>
-<script src="pwa.js?v=55"></script></body>
+<script src="brand-shell.js?v=57"></script>
+<script src="pwa.js?v=56"></script></body>
 </html>

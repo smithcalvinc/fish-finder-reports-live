@@ -16,7 +16,7 @@ window.FFO_WATER_OVERRIDES = {
       county:"Minidoka",
       category:"water",
       type:"lake",
-      official_url:"https://parksandrecreation.idaho.gov/state-park/lake-walcott-state-park/",
+      official_url:"https://idfg.idaho.gov/ifwis/fishingplanner/water/1133831426835",
       nearby_towns:["rupert","rupert idaho","minidoka county"],
       nearby_town_label:"Rupert",
       public_access_verified:true,
