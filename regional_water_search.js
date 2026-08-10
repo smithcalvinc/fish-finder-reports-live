@@ -54,7 +54,7 @@
 
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
   const STATE_CODE_PATTERN = REGION_STATES.map(state=>state.code).join("|");
-  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v4:";
+  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v5:";
   const ACCESS_CACHE_PREFIX = "ffo:padus-access:v3:";
   const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
@@ -265,6 +265,39 @@
     );
   }
 
+  function approvedPublicOverride(row){
+    const records=window.FFO_WATER_OVERRIDES?.records||[];
+    const rowState=normalize(row?.state);
+    const rowNames=new Set([row?.name,...(row?.aliases||[])]
+      .map(name=>normalize(expandCommonTerms(name)))
+      .filter(Boolean));
+    if(!rowState||!rowNames.size)return null;
+
+    const rowCounty=normalize(row?.county).replace(/\bcounty\b/g,"").trim();
+    const lat=Number(row?.lat),lon=Number(row?.lon);
+    return records
+      .filter(item=>
+        item.public_access_verified===true&&
+        item.visibility!=="hidden"&&
+        item.access_status!=="private"&&
+        item.access_status!=="closed"&&
+        normalize(item.state)===rowState&&
+        [item.name,...(item.aliases||[])]
+          .map(name=>normalize(expandCommonTerms(name)))
+          .some(name=>rowNames.has(name))
+      )
+      .map(item=>{
+        const itemCounty=normalize(item.county).replace(/\bcounty\b/g,"").trim();
+        const itemLat=Number(item.lat),itemLon=Number(item.lon);
+        const hasDistance=[lat,lon,itemLat,itemLon].every(Number.isFinite);
+        const distance=hasDistance?distanceMiles(lat,lon,itemLat,itemLon):null;
+        const countyMatch=!!(rowCounty&&itemCounty&&rowCounty===itemCounty);
+        return{item,distance,plausible:!hasDistance||distance<=50||countyMatch};
+      })
+      .filter(match=>match.plausible)
+      .sort((a,b)=>(a.distance??Number.MAX_SAFE_INTEGER)-(b.distance??Number.MAX_SAFE_INTEGER))[0]?.item||null;
+  }
+
   function mapFeature(feature, explicit){
     const attributes = feature.attributes || {};
     const point = geometryPoint(feature.geometry);
@@ -468,7 +501,7 @@
         resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
       };
       const timeout=setTimeout(finish,8000);
-      script.src="official_access_index.js?v=1";
+      script.src="official_access_index.js?v=53";
       script.async=true;
       script.onload=finish;
       script.onerror=finish;
@@ -618,6 +651,20 @@
 
   async function verifyPublicAccess(row){
     if(!row||!isWater(row))return null;
+
+    const approvedOverride=approvedPublicOverride(row);
+    if(approvedOverride){
+      return{
+        ...row,
+        ...approvedOverride,
+        aliases:[...new Set([...(row.aliases||[]),...(approvedOverride.aliases||[])])],
+        public_access_verified:true,
+        access_status:approvedOverride.access_status==="restricted"?"restricted":"open",
+        access_check_required:false,
+        approved_override:true,
+        local_directory:true
+      };
+    }
 
     if(row.public_access_verified){
       return{

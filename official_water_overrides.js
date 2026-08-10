@@ -2,7 +2,7 @@
    Public additions appear before fallback map results.
    Hidden entries suppress known private or closed waters by name and state. */
 window.FFO_WATER_OVERRIDES = {
-  version: "2026-08-10-official-access-corrections",
+  version: "2026-08-10-official-access-corrections-v2",
   updated_at: "2026-08-10",
   coverage_note: "Manually reviewed missing-water additions, official access evidence, and private/closed-water corrections.",
   records: [

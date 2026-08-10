@@ -358,8 +358,8 @@
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js"></script>
-<script src="regional_water_search.js?v=4"></script>
+<script src="official_water_overrides.js?v=53"></script>
+<script src="regional_water_search.js?v=53"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -1255,7 +1255,7 @@ async function searchPlaces(q){
   if(nearbyPublic.length)return nearbyPublic;
 
   const local=localWaterMatches(q);
-  const key="geo-access-v4:"+q.toLowerCase(),cached=getCache(key,604800000);
+  const key="geo-access-v5:"+q.toLowerCase(),cached=getCache(key,604800000);
   if(cached){
     const refreshed=await verifyEveryResultAccess(dedupeLocations([...local,...cached]));
     return dedupeLocations(refreshed)
@@ -1484,9 +1484,20 @@ $("nearMe").addEventListener("click",()=>{
   $("nearbyQuickCard")?.scrollIntoView({behavior:"smooth",block:"center"});
 });
 async function loadReport(loc){
-  state.selected=loc;$("results").innerHTML="";$("report").className="report hidden";updateFavoriteButton();
+  $("results").innerHTML="";$("report").className="report hidden";
   status('<span class="pulse"></span> Gathering recent catch reports, live conditions and official waterbody information…');
   try{
+    const verifier=window.FFO_REGION_SEARCH?.verifyPublicAccess;
+    if(isWaterResult(loc)&&verifier){
+      const checked=await verifier(loc);
+      if(!checked){
+        state.selected=null;
+        status("This saved water no longer passes FFO's access screening. Search again for current public-access options.",true);
+        return;
+      }
+      loc=checked;
+    }
+    state.selected=loc;updateFavoriteButton();
     const r=await makeReport(loc);state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();updateReportActions(loc);
     const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",public_access:loc.public_access_verified?"1":"0",access_status:loc.access_status||"",access_note:loc.public_access_note||"",access_source:loc.public_access_source||"",access_source_url:loc.public_access_source_url||"",access_method:loc.public_access_method||"",official_url:loc.official_url||"",auto:"1"});
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
@@ -1842,6 +1853,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js"></script>
-<script src="pwa.js"></script></body>
+<script src="brand-shell.js?v=53"></script>
+<script src="pwa.js?v=53"></script></body>
 </html>
