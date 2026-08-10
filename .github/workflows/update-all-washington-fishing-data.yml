@@ -2,6 +2,15 @@ name: Update Washington Fishing Data — Official Public Access
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "build_washington_fishing_data.py"
+      - "build_official_species_index.py"
+      - "refresh_official_species_sources.py"
+      - "data/official_species_sources.json"
+      - ".github/workflows/update-all-washington-fishing-data.yml"
   schedule:
     - cron: "47 16 * * *"
 
@@ -15,7 +24,7 @@ concurrency:
 jobs:
   build-washington:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -34,6 +43,10 @@ jobs:
           else
             echo "WDFW refresh was unavailable; preserving the verified Washington baseline already in the repository."
           fi
+      - name: Refresh exact Washington lake species and browser index
+        run: |
+          python refresh_official_species_sources.py --state Washington --workers 6
+          python build_official_species_index.py
       - name: Validate Washington output structure
         shell: bash
         run: |
@@ -88,7 +101,7 @@ jobs:
       - name: Commit Washington refresh when changed
         shell: bash
         run: |
-          files=(data/washington_* config/washington_* washington-county-reports.html brand-shell.js service-worker.js sitemap.xml recent_fishing_reports.js update_status.js)
+          files=(data/washington_* data/official_species_sources.json config/washington_* washington-county-reports.html brand-shell.js service-worker.js sitemap.xml recent_fishing_reports.js update_status.js official_species_index.js)
           if [[ -z "$(git status --porcelain -- "${files[@]}")" ]]; then
             echo "No Washington changes to commit."
             exit 0

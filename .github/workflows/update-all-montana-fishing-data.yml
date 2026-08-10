@@ -44,6 +44,9 @@ jobs:
             --output-dir data \
             --social-file data/montana_public_social_reports.csv
 
+      - name: Rebuild exact-water species index
+        run: python build_official_species_index.py
+
       - name: Validate all 56 counties and integration files
         shell: bash
         run: |
@@ -89,6 +92,7 @@ jobs:
             sitemap.xml
             recent_fishing_reports.js
             update_status.js
+            official_species_index.js
           )
           if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
             echo "No Montana fishing-data changes to commit."

@@ -7,6 +7,8 @@ on:
       - main
     paths:
       - "build_colorado_fishing_data.py"
+      - "build_official_species_index.py"
+      - "refresh_official_species_sources.py"
       - ".github/workflows/update-all-colorado-fishing-data.yml"
   schedule:
     - cron: "47 14 * * *"
@@ -40,6 +42,12 @@ jobs:
           python build_colorado_fishing_data.py \
             --root . \
             --output-dir data
+
+      - name: Refresh exact Colorado species surveys
+        run: python refresh_official_species_sources.py --state Colorado --workers 4 --max-age-days 120
+
+      - name: Rebuild exact-water species index
+        run: python build_official_species_index.py
 
       - name: Validate Colorado output files and counties
         shell: bash
@@ -82,6 +90,8 @@ jobs:
             sitemap.xml
             recent_fishing_reports.js
             update_status.js
+            data/official_species_sources.json
+            official_species_index.js
           )
 
           if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then

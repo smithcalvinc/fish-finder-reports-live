@@ -8,6 +8,9 @@ on:
     paths:
       - "build_idaho_public_fishing_access.py"
       - "build_idaho_fishing_report_database.py"
+      - "build_official_species_index.py"
+      - "refresh_official_species_sources.py"
+      - "data/official_species_sources.json"
       - "config/fishing_report_sources.json"
       - "config/water_aliases.json"
       - "data/public_social_reports.csv"
@@ -25,7 +28,7 @@ concurrency:
 jobs:
   update-all-fishing-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
 
     steps:
       - name: Check out repository
@@ -49,6 +52,11 @@ jobs:
             --aliases-file config/water_aliases.json \
             --social-file data/public_social_reports.csv \
             --output-dir data
+
+      - name: Refresh exact Idaho water species and browser index
+        run: |
+          python refresh_official_species_sources.py --state Idaho --workers 6
+          python build_official_species_index.py
 
       - name: Validate all 44 counties and output files
         shell: bash
@@ -78,13 +86,14 @@ jobs:
       - name: Commit data changes
         shell: bash
         run: |
-          if [[ -z "$(git status --porcelain -- data)" ]]; then
+          FILES=(data official_species_index.js)
+          if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
             echo "No fishing-data changes to commit."
             exit 0
           fi
 
           git config user.name "Fish Finder Outdoors Data Builder"
           git config user.email "actions@users.noreply.github.com"
-          git add data
+          git add "${FILES[@]}"
           git commit -m "Update Idaho public access and fishing reports"
           git push

@@ -7,6 +7,8 @@ on:
       - main
     paths:
       - "build_nevada_fishing_data.py"
+      - "build_official_species_index.py"
+      - "refresh_official_species_sources.py"
       - ".github/workflows/update-all-nevada-fishing-data.yml"
   schedule:
     - cron: "37 15 * * *"
@@ -65,6 +67,12 @@ jobs:
           python build_nevada_fishing_data.py \
             --root . \
             --output-dir data
+
+      - name: Refresh exact Nevada water-page species
+        run: python refresh_official_species_sources.py --state Nevada
+
+      - name: Rebuild exact-water species index
+        run: python build_official_species_index.py
 
       - name: Validate Nevada source separation, access evidence and website integration
         shell: bash
@@ -206,6 +214,8 @@ jobs:
             sitemap.xml
             recent_fishing_reports.js
             update_status.js
+            data/official_species_sources.json
+            official_species_index.js
           )
           if [[ -z "$(git status --porcelain -- "${FILES[@]}")" ]]; then
             echo "No Nevada fishing-data changes to commit."

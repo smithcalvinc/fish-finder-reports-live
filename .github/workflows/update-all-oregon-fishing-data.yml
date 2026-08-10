@@ -42,6 +42,9 @@ jobs:
             echo "Oregon official sources were incomplete or unavailable. Preserving the verified checked-in baseline."
           fi
 
+      - name: Rebuild exact-water species index
+        run: python build_official_species_index.py
+
       - name: Validate Oregon output and public-access safeguards
         shell: bash
         run: |
@@ -61,6 +64,7 @@ jobs:
             oregon-county-reports.html
             recent_fishing_reports.js
             update_status.js
+            official_species_index.js
           )
           for file in "${required_files[@]}"; do
             test -s "$file" || { echo "Missing or empty output: $file"; exit 1; }

@@ -42,6 +42,11 @@ jobs:
             echo "California official sources were incomplete or unavailable. Preserving the verified checked-in baseline."
           fi
 
+      - name: Rebuild exact-water species index
+        run: |
+          python refresh_official_species_sources.py --state California
+          python build_official_species_index.py
+
       - name: Validate Northern California output and southern boundary block
         shell: bash
         run: |
@@ -140,6 +145,8 @@ jobs:
             config/northern_california_*
             recent_fishing_reports.js
             update_status.js
+            data/official_species_sources.json
+            official_species_index.js
           )
           if [[ -z "$(git status --porcelain -- "${files[@]}")" ]]; then
             echo "No Northern California changes to commit."
