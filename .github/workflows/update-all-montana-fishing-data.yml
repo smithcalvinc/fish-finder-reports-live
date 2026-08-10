@@ -5,11 +5,12 @@ on:
   push:
     branches:
       - main
+    # Only Montana-specific inputs trigger this writer. Workflow edits use the
+    # staggered schedule or manual dispatch to avoid cross-state push races.
     paths:
       - "build_montana_fishing_data.py"
       - "data/montana_public_social_reports.csv"
       - "config/montana_water_aliases.json"
-      - ".github/workflows/update-all-montana-fishing-data.yml"
   schedule:
     - cron: "47 13 * * *"
 
@@ -37,12 +38,35 @@ jobs:
       - name: Install official-page parser
         run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
 
-      - name: Build Montana county, public-access and fishing-report data
+      - name: Refresh Montana data or preserve the verified baseline
+        shell: bash
         run: |
-          python build_montana_fishing_data.py \
-            --root . \
-            --output-dir data \
-            --social-file data/montana_public_social_reports.csv
+          set -o pipefail
+          baseline_files=(
+            data/montana_*
+            config/montana_*
+            montana-county-reports.html
+            build_admin_dashboard_files.py
+            fishing_report_search.js
+            brand-shell.js
+            service-worker.js
+            sitemap.xml
+            recent_fishing_reports.js
+            update_status.js
+          )
+          if python build_montana_fishing_data.py \
+              --root . \
+              --output-dir data \
+              --social-file data/montana_public_social_reports.csv; then
+            echo "Montana official refresh completed."
+          else
+            git restore --source=HEAD --worktree -- "${baseline_files[@]}"
+            echo "::warning::Montana's official sources were unavailable or invalid. The verified checked-in baseline was restored; no partial live dataset will be published."
+            {
+              echo "### Montana source warning"
+              echo "The live official-source refresh was unavailable or invalid. This run restored the last verified Montana dataset instead of publishing partial data."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Rebuild exact-water species index
         run: python build_official_species_index.py

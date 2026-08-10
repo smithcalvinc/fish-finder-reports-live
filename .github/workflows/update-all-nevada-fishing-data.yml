@@ -5,11 +5,10 @@ on:
   push:
     branches:
       - main
+    # Shared species files and workflow edits use the staggered schedule or
+    # manual dispatch so several state publishers do not race to update main.
     paths:
       - "build_nevada_fishing_data.py"
-      - "build_official_species_index.py"
-      - "refresh_official_species_sources.py"
-      - ".github/workflows/update-all-nevada-fishing-data.yml"
   schedule:
     - cron: "37 15 * * *"
 

@@ -5,11 +5,12 @@ on:
   push:
     branches:
       - main
+    # Only Utah-specific inputs trigger this writer. Workflow edits use the
+    # staggered schedule or manual dispatch to avoid cross-state push races.
     paths:
       - "build_utah_fishing_data.py"
       - "data/utah_public_social_reports.csv"
       - "config/utah_water_aliases.json"
-      - ".github/workflows/update-all-utah-fishing-data.yml"
   schedule:
     - cron: "17 14 * * *"
 

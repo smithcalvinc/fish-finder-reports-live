@@ -5,9 +5,10 @@ on:
   push:
     branches:
       - main
+    # Only Wyoming-specific inputs trigger this writer. Workflow edits use the
+    # staggered schedule or manual dispatch to avoid cross-state push races.
     paths:
       - "build_wyoming_fishing_data.py"
-      - ".github/workflows/update-all-wyoming-fishing-data.yml"
   schedule:
     - cron: "17 15 * * *"
 
@@ -35,11 +36,21 @@ jobs:
       - name: Install report parser
         run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
 
-      - name: Build Wyoming fishing data
+      - name: Refresh Wyoming data or preserve the verified baseline
+        shell: bash
         run: |
-          python build_wyoming_fishing_data.py \
-            --root . \
-            --output-dir data
+          set -o pipefail
+          if python build_wyoming_fishing_data.py \
+              --root . \
+              --output-dir data; then
+            echo "Wyoming official refresh completed."
+          else
+            echo "::warning::Wyoming's official sources were unavailable or did not pass strict validation. The verified checked-in baseline was preserved; no partial live dataset will be published."
+            {
+              echo "### Wyoming source warning"
+              echo "The live official-source refresh was unavailable or failed strict validation. This run preserved the last verified Wyoming dataset instead of publishing partial data."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Rebuild exact-water species index
         run: python build_official_species_index.py

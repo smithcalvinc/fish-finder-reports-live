@@ -5,12 +5,10 @@ on:
   push:
     branches:
       - main
+    # Only Washington-specific inputs trigger this writer. Shared species files
+    # and workflow edits use the staggered schedule or manual dispatch.
     paths:
       - "build_washington_fishing_data.py"
-      - "build_official_species_index.py"
-      - "refresh_official_species_sources.py"
-      - "data/official_species_sources.json"
-      - ".github/workflows/update-all-washington-fishing-data.yml"
   schedule:
     - cron: "47 16 * * *"
 

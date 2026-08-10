@@ -5,11 +5,10 @@ on:
   push:
     branches:
       - main
+    # Shared species files and workflow edits use the staggered schedule or
+    # manual dispatch so several state publishers do not race to update main.
     paths:
       - "build_colorado_fishing_data.py"
-      - "build_official_species_index.py"
-      - "refresh_official_species_sources.py"
-      - ".github/workflows/update-all-colorado-fishing-data.yml"
   schedule:
     - cron: "47 14 * * *"
 
@@ -37,11 +36,21 @@ jobs:
       - name: Install report parser
         run: python -m pip install --disable-pip-version-check beautifulsoup4==4.13.4
 
-      - name: Build Colorado fishing data
+      - name: Refresh Colorado data or preserve the verified baseline
+        shell: bash
         run: |
-          python build_colorado_fishing_data.py \
-            --root . \
-            --output-dir data
+          set -o pipefail
+          if python build_colorado_fishing_data.py \
+              --root . \
+              --output-dir data; then
+            echo "Colorado official refresh completed."
+          else
+            echo "::warning::Colorado's official sources did not pass strict validation. The verified checked-in baseline was preserved; no partial live dataset will be published."
+            {
+              echo "### Colorado source warning"
+              echo "The live official-source refresh did not pass strict validation. This run preserved the last verified Colorado dataset instead of publishing partial data."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Refresh exact Colorado species surveys
         run: python refresh_official_species_sources.py --state Colorado --workers 4 --max-age-days 120
