@@ -1,6 +1,6 @@
 /* Automatically generated multi-state admin status. Do not hand-edit. */
 window.FFO_UPDATE_STATUS = {
-  "last_run": "2026-08-10T17:14:46Z",
+  "last_run": "2026-08-10T18:06:16Z",
   "mode": "multi-state-database",
   "state_count": 9,
   "states": [
@@ -65,7 +65,7 @@ window.FFO_UPDATE_STATUS = {
       "report_count": 590,
       "public_water_count": 468,
       "county_count": 23,
-      "generated_at": "2026-08-09T17:06:51Z"
+      "generated_at": "2026-08-10T18:06:16Z"
     }
   ],
   "reports_total": 6895,
