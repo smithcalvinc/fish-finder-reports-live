@@ -11,6 +11,11 @@ This is the proper regional beta architecture.
 5. Direct link to the correct official state fishing directory
 
 The search no longer treats one national access dataset as a complete fishing directory.
+The generated state-agency access index is searched directly; a water no longer
+depends on GNIS or a map provider returning the same name first. Compact water
+spellings such as `Clearlake` and `LakeOroville` are expanded before nationwide
+name lookup. Official records without coordinates remain searchable and never
+produce a false map marker at `0,0`.
 
 ## Sustainable correction workflow
 
@@ -41,6 +46,8 @@ Wyoming, Nevada, Oregon, Washington and Northern California. Fish species are
 shown only when an official record is tied to the exact named water. When an
 exact record has not been imported, the result links to the responsible state
 agency and a Google search restricted to that agency's official domains.
+The current official access index contains 15,501 valid named records across
+those nine expanded state datasets.
 
 ## Upload
 

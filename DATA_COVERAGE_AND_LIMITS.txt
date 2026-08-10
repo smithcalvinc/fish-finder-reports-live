@@ -5,6 +5,12 @@ PUBLIC ACCESS
 Only explicit official public-access evidence is included. A water appearing on
 a map is not automatically treated as legally reachable by the public.
 
+Official state access-index records are searchable in their own right. They do
+not depend on a second map or GNIS result appearing first. Records without a
+coordinate can still be returned with their agency source and access evidence;
+maps, directions, and coordinate-based live lookups stay hidden until a real
+coordinate is available.
+
 REPORT RANKING
 --------------
 1. Official Idaho Fish and Game reports

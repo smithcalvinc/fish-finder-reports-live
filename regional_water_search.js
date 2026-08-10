@@ -42,7 +42,7 @@
 
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
   const STATE_CODE_PATTERN = REGION_STATES.map(state=>state.code).join("|");
-  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v5:";
+  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v6:";
   const ACCESS_CACHE_PREFIX = "ffo:padus-access:v3:";
   const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
@@ -68,8 +68,26 @@
       .trim();
   }
 
+  function compactName(value){
+    return normalize(expandCommonTerms(value)).replace(/\s+/g, "");
+  }
+
+  function coordinateNumber(value){
+    if(value===null||value===undefined||String(value).trim()==="")return null;
+    const number=Number(value);
+    return Number.isFinite(number)?number:null;
+  }
+
+  function coordinatesFor(row){
+    const lat=coordinateNumber(row?.lat),lon=coordinateNumber(row?.lon);
+    if(lat===null||lon===null||lat < -90||lat > 90||lon < -180||lon > 180)return null;
+    return{lat,lon};
+  }
+
   function expandCommonTerms(value){
     return clean(value)
+      .replace(/\b(Lake|Reservoir|Pond|River|Creek|Stream)([A-Z][a-z0-9]+)\b/g, "$1 $2")
+      .replace(/\b([a-z0-9]{3,})(lake|reservoir|pond|river|creek|stream)\b/gi, "$1 $2")
       .replace(/\bres(?:erv)?\.?\b/gi, "Reservoir")
       .replace(/\brsvr\.?\b/gi, "Reservoir")
       .replace(/\bresevoir\b/gi, "Reservoir")
@@ -225,6 +243,7 @@
     if(type.includes("reservoir")) return "reservoir";
     if(type.includes("lake")) return "lake";
     if(type.includes("pond")) return "pond";
+    if(type.includes("creek")) return "river";
     if(type.includes("stream")) return "river";
     if(type.includes("river")) return "river";
     if(type.includes("canal")) return "canal";
@@ -232,6 +251,7 @@
     if(type.includes("channel")) return "channel";
     if(type.includes("harbor")) return "harbor";
     if(type.includes("sea")) return "sea";
+    if(type.includes("water") || type.includes("fishing") || type.includes("boating")) return "water";
     return type || "water";
   }
 
@@ -262,7 +282,7 @@
     if(!rowState||!rowNames.size)return null;
 
     const rowCounty=normalize(row?.county).replace(/\bcounty\b/g,"").trim();
-    const lat=Number(row?.lat),lon=Number(row?.lon);
+    const rowPoint=coordinatesFor(row);
     return records
       .filter(item=>
         item.public_access_verified===true&&
@@ -277,9 +297,11 @@
       )
       .map(item=>{
         const itemCounty=normalize(item.county).replace(/\bcounty\b/g,"").trim();
-        const itemLat=Number(item.lat),itemLon=Number(item.lon);
-        const hasDistance=[lat,lon,itemLat,itemLon].every(Number.isFinite);
-        const distance=hasDistance?distanceMiles(lat,lon,itemLat,itemLon):null;
+        const itemPoint=coordinatesFor(item);
+        const hasDistance=!!(rowPoint&&itemPoint);
+        const distance=hasDistance
+          ?distanceMiles(rowPoint.lat,rowPoint.lon,itemPoint.lat,itemPoint.lon)
+          :null;
         const countyMatch=!!(rowCounty&&itemCounty&&rowCounty===itemCounty);
         return{item,distance,plausible:!hasDistance||distance<=50||countyMatch};
       })
@@ -490,7 +512,7 @@
         resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
       };
       const timeout=setTimeout(finish,8000);
-      script.src="official_access_index.js?v=56";
+      script.src="official_access_index.js?v=58";
       script.async=true;
       script.onload=finish;
       script.onerror=finish;
@@ -529,6 +551,177 @@
     return{...entry,note,source_name:sourceName,source_url:sourceUrl};
   }
 
+  function officialEntryNames(entry){
+    return [...new Set([entry?.name,...(entry?.aliases||[])]
+      .map(clean)
+      .filter(Boolean))];
+  }
+
+  function countyKeys(row){
+    const values=Array.isArray(row?.counties)&&row.counties.length
+      ?row.counties
+      :[row?.county];
+    return new Set(values
+      .flatMap(value=>String(value||"").split(/\s*[\/;|]\s*/))
+      .map(value=>normalize(value).replace(/\bcounty\b/g,"").trim())
+      .filter(Boolean));
+  }
+
+  function countiesOverlap(a,b){
+    const left=countyKeys(a),right=countyKeys(b);
+    return [...left].some(county=>right.has(county));
+  }
+
+  function officialEntryMatchScore(entry,target,targetCompact){
+    const targetTokens=target.split(" ").filter(word=>word.length>1);
+    let best=0;
+    for(const label of officialEntryNames(entry)){
+      const name=normalize(expandCommonTerms(label));
+      const nameCompact=compactName(label);
+      if(name===target)best=Math.max(best,1000);
+      else if(nameCompact===targetCompact)best=Math.max(best,970);
+      else if(target.length>=3&&name.startsWith(target))best=Math.max(best,720);
+      else if(target.length>=4&&name.includes(target))best=Math.max(best,620);
+      else if(targetTokens.length&&targetTokens.every(word=>name.split(" ").includes(word))){
+        best=Math.max(best,500+targetTokens.length*20);
+      }
+    }
+    return best;
+  }
+
+  function materializeOfficialSearchRow(entry,stateName,matchScore){
+    const official=materializeOfficialAccess(entry);
+    if(!official)return null;
+    const point=coordinatesFor(entry);
+    const counties=(entry.counties||[]).map(clean).filter(Boolean);
+    const countyLabel=counties
+      .map(county=>`${county}${/county$/i.test(county)?"":" County"}`)
+      .join(" / ");
+    const sourceUrl=official.water_url||official.source_url||"";
+    return{
+      name:clean(entry.name),
+      aliases:officialEntryNames(entry).filter(name=>name!==clean(entry.name)),
+      display_name:[clean(entry.name),countyLabel,stateName].filter(Boolean).join(", "),
+      lat:point?.lat??null,
+      lon:point?.lon??null,
+      state:stateName,
+      county:counties[0]||"",
+      counties,
+      category:"water",
+      type:featureType(`${entry.type||""} ${entry.name||""}`),
+      local_directory:true,
+      official_directory_match:true,
+      public_access_verified:true,
+      access_status:entry.access_status==="restricted"?"restricted":"open",
+      access_check_required:false,
+      public_access_note:official.note,
+      public_access_source:official.source_name,
+      public_access_source_url:sourceUrl,
+      public_access_method:entry.method||"official-state-access-index",
+      official_access_sites:entry.access_site_names||[],
+      official_url:sourceUrl,
+      official_match_score:matchScore
+    };
+  }
+
+  async function enrichOfficialCoordinates(row,state){
+    if(coordinatesFor(row))return row;
+    const terms=officialEntryNames(row);
+    if(!terms.length)return row;
+
+    const settled=await Promise.allSettled([
+      queryLayerByName(4,row.name,state),
+      queryLayerByName(3,row.name,state)
+    ]);
+    const candidates=dedupe(settled.flatMap(result=>
+      result.status==="fulfilled"?result.value:[]
+    )).filter(candidate=>{
+      const candidateNames=officialEntryNames(candidate);
+      const exact=terms.some(term=>candidateNames.some(name=>
+        normalize(expandCommonTerms(term))===normalize(expandCommonTerms(name))||
+        compactName(term)===compactName(name)
+      ));
+      if(!exact)return false;
+      const officialCounties=countyKeys(row),candidateCounties=countyKeys(candidate);
+      return !officialCounties.size||!candidateCounties.size||countiesOverlap(row,candidate);
+    }).map(candidate=>({
+      candidate,
+      score:(countiesOverlap(row,candidate)?300:0)+
+        (normalize(expandCommonTerms(candidate.name))===normalize(expandCommonTerms(row.name))?200:150)
+    })).sort((a,b)=>b.score-a.score);
+
+    if(!candidates.length)return row;
+    if(candidates.length>1&&candidates[0].score===candidates[1].score){
+      const first=coordinatesFor(candidates[0].candidate);
+      const second=coordinatesFor(candidates[1].candidate);
+      if(first&&second&&distanceMiles(first.lat,first.lon,second.lat,second.lon)>1)return row;
+    }
+
+    const match=candidates[0].candidate;
+    return{
+      ...row,
+      lat:match.lat,
+      lon:match.lon,
+      type:row.type==="water"?match.type:row.type,
+      aliases:[...new Set([...(row.aliases||[]),...(match.aliases||[]),
+        ...(normalize(row.name)!==normalize(match.name)?[match.name]:[])])],
+      gnis_official:true,
+      name_source:match.name_source,
+      name_source_url:match.name_source_url,
+      gnis_id:match.gnis_id,
+      gnis_feature_class:match.gnis_feature_class,
+      coordinate_source:"USGS Geographic Names Information System"
+    };
+  }
+
+  async function searchOfficialIndex(query,state,maxResults=18){
+    const index=await ensureOfficialAccessIndex();
+    const target=normalize(expandCommonTerms(stripState(query)));
+    const targetCompact=compactName(stripState(query));
+    if(!index||target.length<2||targetCompact.length<2)return[];
+
+    const stateNames=state?[state.name]:Object.keys(index.states||{});
+    const matches=[];
+    for(const stateName of stateNames){
+      for(const entry of index.states?.[stateName]||[]){
+        if(entry.access_status==="closed"||entry.access_status==="private")continue;
+        const matchScore=officialEntryMatchScore(entry,target,targetCompact);
+        if(matchScore)matches.push({entry,stateName,matchScore});
+      }
+    }
+
+    matches.sort((a,b)=>b.matchScore-a.matchScore||
+      clean(a.entry.name).localeCompare(clean(b.entry.name)));
+    const rows=matches.slice(0,35)
+      .map(match=>materializeOfficialSearchRow(match.entry,match.stateName,match.matchScore))
+      .filter(Boolean);
+
+    const enriched=await Promise.all(rows.map((row,index)=>
+      index<12&&row.official_match_score>=970
+        ?enrichOfficialCoordinates(row,REGION_STATES.find(item=>item.name===row.state)||null)
+        :Promise.resolve(row)
+    ));
+    return dedupe(enriched).slice(0,maxResults);
+  }
+
+  async function auditOfficialIndex(){
+    const index=await ensureOfficialAccessIndex();
+    const states={},unreachable=[];
+    let total=0,reachable=0;
+    for(const [stateName,entries] of Object.entries(index?.states||{})){
+      let stateReachable=0;
+      for(const entry of entries||[]){
+        total+=1;
+        const target=normalize(expandCommonTerms(entry.name));
+        const matched=officialEntryMatchScore(entry,target,compactName(entry.name))>0;
+        if(matched){reachable+=1;stateReachable+=1;}
+        else unreachable.push({state:stateName,name:entry.name});
+      }
+      states[stateName]={total:(entries||[]).length,reachable:stateReachable};
+    }
+    return{total,reachable,unreachable,states};
+  }
+
   async function officialAccessRecord(row){
     await ensureOfficialAccessIndex();
     const stateName=clean(row?.state);
@@ -543,7 +736,7 @@
     if(!candidates.length)return null;
 
     const rowCounty=normalize(row?.county).replace(/\bcounty\b/g,"").trim();
-    const lat=Number(row?.lat),lon=Number(row?.lon);
+    const rowPoint=coordinatesFor(row);
     const kind=String(row?.type||row?.category||"").toLowerCase();
     const maximumDistance=/river|stream|creek|canal/.test(kind)?60:
       /pond|lagoon/.test(kind)?8:35;
@@ -553,9 +746,11 @@
       const exact=keys.includes(canonical);
       const countyMatch=rowCounty&&
         (entry.counties||[]).some(county=>normalize(county).replace(/\bcounty\b/g,"").trim()===rowCounty);
-      const entryLat=Number(entry.lat),entryLon=Number(entry.lon);
-      const hasDistance=[lat,lon,entryLat,entryLon].every(Number.isFinite);
-      const distance=hasDistance?distanceMiles(lat,lon,entryLat,entryLon):null;
+      const entryPoint=coordinatesFor(entry);
+      const hasDistance=!!(rowPoint&&entryPoint);
+      const distance=hasDistance
+        ?distanceMiles(rowPoint.lat,rowPoint.lon,entryPoint.lat,entryPoint.lon)
+        :null;
       const plausible=!hasDistance||distance<=maximumDistance||countyMatch;
       const score=(exact?500:300)+(countyMatch?180:0)+
         (distance===null?0:Math.max(0,160-distance*4));
@@ -600,8 +795,9 @@
   }
 
   async function padUsAccess(row){
-    const lat=Number(row?.lat),lon=Number(row?.lon);
-    if(!Number.isFinite(lat)||!Number.isFinite(lon))return null;
+    const point=coordinatesFor(row);
+    if(!point)return null;
+    const {lat,lon}=point;
 
     const key=`${lat.toFixed(5)},${lon.toFixed(5)}`;
     const cached=cacheRead(ACCESS_CACHE_PREFIX,key,ACCESS_CACHE_AGE_MS);
@@ -773,9 +969,12 @@
   function score(row,query,state){
     const target=normalize(stripState(expandCommonTerms(query)));
     const name=normalize(row.name);
+    const targetCompact=compactName(stripState(query));
+    const nameCompact=compactName(row.name);
     let points=0;
 
     if(name===target)points+=600;
+    else if(nameCompact===targetCompact)points+=580;
     else if(name.startsWith(target))points+=400;
     else if(name.includes(target))points+=280;
     else{
@@ -790,6 +989,7 @@
     else if(row.access_status==="map-candidate")points+=80;
     else if(row.access_status==="unknown")points+=50;
     if(row.public_access_verified)points+=80;
+    if(row.official_directory_match)points+=220;
     if(row.gnis_official)points+=120;
     if(row.type==="river"||row.type==="stream")points+=35;
     if(Number.isFinite(row.distance_miles))points+=Math.max(0,150-row.distance_miles*2.5);
@@ -805,18 +1005,91 @@
     return 2*R*Math.asin(Math.sqrt(h));
   }
 
+  function rowNameKeys(row){
+    return new Set(officialEntryNames(row).flatMap(name=>[
+      normalize(expandCommonTerms(name)),
+      compactName(name)
+    ]).filter(Boolean));
+  }
+
+  function sameWaterRow(a,b){
+    if(normalize(a?.state)!==normalize(b?.state))return false;
+    const namesA=rowNameKeys(a),namesB=rowNameKeys(b);
+    if(![...namesA].some(name=>namesB.has(name)))return false;
+
+    const gnisA=clean(a?.gnis_id),gnisB=clean(b?.gnis_id);
+    if(gnisA&&gnisB&&gnisA===gnisB)return true;
+
+    const pointA=coordinatesFor(a),pointB=coordinatesFor(b);
+    const countyA=countyKeys(a),countyB=countyKeys(b);
+    const countyMatch=countiesOverlap(a,b);
+    if(countyA.size&&countyB.size&&!countyMatch){
+      return !!(pointA&&pointB&&distanceMiles(pointA.lat,pointA.lon,pointB.lat,pointB.lon)<=0.25);
+    }
+    if(pointA&&pointB){
+      const distance=distanceMiles(pointA.lat,pointA.lon,pointB.lat,pointB.lon);
+      if(distance<=0.5)return true;
+      const directoryAndGeographic=
+        (a.official_directory_match&&(b.gnis_official||b.map_fallback))||
+        (b.official_directory_match&&(a.gnis_official||a.map_fallback));
+      const kind=normalize(`${a.type||""} ${b.type||""}`);
+      const maximumDistance=/river|stream|creek|canal/.test(kind)?60:
+        /pond|lagoon/.test(kind)?8:35;
+      return !!(directoryAndGeographic&&countyMatch&&distance<=maximumDistance);
+    }
+    return countyMatch;
+  }
+
+  function rowPriority(row){
+    let priority=0;
+    if(row?.official_directory_match)priority+=700;
+    if(row?.approved_override)priority+=650;
+    if(row?.public_access_verified)priority+=500;
+    if(row?.local_directory)priority+=300;
+    if(row?.gnis_official)priority+=180;
+    if(coordinatesFor(row))priority+=120;
+    return priority;
+  }
+
+  function mergeWaterRows(a,b){
+    const preferred=rowPriority(b)>rowPriority(a)?b:a;
+    const other=preferred===a?b:a;
+    const merged={...other,...preferred};
+    const point=coordinatesFor(preferred)||coordinatesFor(other);
+    if(point){merged.lat=point.lat;merged.lon=point.lon;}
+    else{merged.lat=null;merged.lon=null;}
+    merged.aliases=[...new Set([
+      ...(preferred.aliases||[]),...(other.aliases||[]),
+      ...(normalize(preferred.name)!==normalize(other.name)?[other.name]:[])
+    ].map(clean).filter(Boolean))];
+    merged.counties=[...new Set([...(preferred.counties||[]),...(other.counties||[]),
+      preferred.county,other.county].map(clean).filter(Boolean))];
+    merged.county=preferred.county||other.county||merged.counties[0]||"";
+    ["gnis_official","local_directory","official_directory_match","approved_override",
+      "nearby_public","town_search","map_fallback"].forEach(field=>{
+      merged[field]=!!(preferred[field]||other[field]);
+    });
+    ["name_source","name_source_url","gnis_id","gnis_feature_class","coordinate_source"].forEach(field=>{
+      merged[field]=preferred[field]||other[field]||"";
+    });
+    if(preferred.public_access_verified!==true&&other.public_access_verified===true){
+      ["public_access_verified","access_status","access_check_required","public_access_note",
+        "public_access_source","public_access_source_url","public_access_method","official_url"]
+        .forEach(field=>{if(field in other)merged[field]=other[field];});
+    }
+    merged.official_access_sites=[...new Set([
+      ...(preferred.official_access_sites||[]),...(other.official_access_sites||[])
+    ])];
+    if((merged.type==="water"||!merged.type)&&other.type&&other.type!=="water")merged.type=other.type;
+    return merged;
+  }
+
   function dedupe(rows){
-    const seen=new Set(),output=[];
+    const output=[];
     for(const row of rows||[]){
-      const key=[
-        normalize(row.name),
-        row.state,
-        Number(row.lat).toFixed(4),
-        Number(row.lon).toFixed(4)
-      ].join("|");
-      if(seen.has(key))continue;
-      seen.add(key);
-      output.push(row);
+      const duplicate=output.findIndex(existing=>sameWaterRow(existing,row));
+      if(duplicate===-1)output.push(row);
+      else output[duplicate]=mergeWaterRows(output[duplicate],row);
     }
     return output;
   }
@@ -831,7 +1104,10 @@
       for(const result of settled){
         if(result.status==="fulfilled")rows.push(...result.value);
       }
-      if(rows.some(row=>normalize(row.name)===normalize(expandCommonTerms(stripState(query)))))break;
+      if(rows.some(row=>
+        normalize(row.name)===normalize(expandCommonTerms(stripState(query)))||
+        compactName(row.name)===compactName(stripState(query))
+      ))break;
     }
 
     const ranked=dedupe(rows)
@@ -880,14 +1156,18 @@
     const cached=cacheRead(CACHE_KEY_PREFIX,key,SEARCH_CACHE_AGE_MS);
     if(cached)return cached;
 
-    const exact=await exactWaterSearch(q,state);
+    const [official,exact]=await Promise.all([
+      searchOfficialIndex(q,state,18),
+      exactWaterSearch(q,state)
+    ]);
+    const primary=dedupe([...official,...exact]);
     let nearby=[];
 
-    if(!WATER_WORDS.test(q)||exact.length<3){
+    if(!WATER_WORDS.test(expandCommonTerms(q))||primary.length<3){
       nearby=await nearbyTownSearch(q,state);
     }
 
-    const combined=dedupe([...exact,...nearby])
+    const combined=dedupe([...primary,...nearby])
       .sort((a,b)=>score(b,q,state)-score(a,q,state))
       .slice(0,18);
 
@@ -896,8 +1176,9 @@
   }
 
   async function nearbyByCoordinates(lat,lon,stateName,label="Your location",radiusMiles=50){
-    const latitude=Number(lat),longitude=Number(lon);
-    if(!Number.isFinite(latitude)||!Number.isFinite(longitude))return[];
+    const point=coordinatesFor({lat,lon});
+    if(!point)return[];
+    const latitude=point.lat,longitude=point.lon;
 
     const state=
       REGION_STATES.find(item=>normalize(item.name)===normalize(stateName))||
@@ -943,6 +1224,8 @@
 
   window.FFO_REGION_SEARCH={
     search,
+    searchOfficialIndex,
+    auditOfficialIndex,
     nearbyByCoordinates,
     filterPublic,
     verifyPublicAccess,

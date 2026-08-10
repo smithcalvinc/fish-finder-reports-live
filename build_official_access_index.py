@@ -149,7 +149,7 @@ def build_state(
         if row.get("public_access") is False:
             continue
         water_name = clean(row.get("water_name"))
-        if not water_name:
+        if len(norm(water_name)) < 2:
             continue
 
         key = group_key(row)

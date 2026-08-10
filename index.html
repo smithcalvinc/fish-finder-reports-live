@@ -378,11 +378,11 @@
 </footer>
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
-<script src="official_species_index.js?v=57"></script>
+<script src="official_species_index.js?v=58"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js?v=57"></script>
-<script src="access_point_directory.js?v=57"></script>
-<script src="regional_water_search.js?v=57"></script>
+<script src="official_water_overrides.js?v=58"></script>
+<script src="access_point_directory.js?v=58"></script>
+<script src="regional_water_search.js?v=58"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -872,7 +872,11 @@ function buildBaitSuggestions(report){
 }
 
 function esc(v){return String(v??"").replace(/[&<>'"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));}
-function num(v){const n=Number(v);return Number.isFinite(n)?n:null;}
+function num(v){if(v===null||v===undefined||String(v).trim()==="")return null;const n=Number(v);return Number.isFinite(n)?n:null;}
+function locationCoordinates(loc){
+  const lat=num(loc?.lat),lon=num(loc?.lon);
+  return lat!==null&&lon!==null&&lat>=-90&&lat<=90&&lon>=-180&&lon<=180?{lat,lon}:null;
+}
 function fmt(v,d=0){const n=num(v);return n===null?"—":n.toFixed(d);}
 function dateFmt(v){if(!v)return"Time unavailable";const d=new Date(v);return isNaN(d)?v:d.toLocaleString([],{dateStyle:"medium",timeStyle:"short"});}
 function ageLabel(v){
@@ -971,9 +975,13 @@ function sameLocationRecord(a,b){
   const officialA=String(a?.official_url||"").trim(),officialB=String(b?.official_url||"").trim();
   if(officialA&&officialB&&officialA===officialB)return true;
 
-  const latA=Number(a?.lat),lonA=Number(a?.lon),latB=Number(b?.lat),lonB=Number(b?.lon);
-  if(![latA,lonA,latB,lonB].every(Number.isFinite))return false;
-  const distance=miles(latA,lonA,latB,lonB);
+  const pointA=locationCoordinates(a),pointB=locationCoordinates(b);
+  if(!pointA||!pointB){
+    const countyA=normalize(a?.county).replace(/\bcounty\b/g,"").trim();
+    const countyB=normalize(b?.county).replace(/\bcounty\b/g,"").trim();
+    return !!(countyA&&countyB&&countyA===countyB);
+  }
+  const distance=miles(pointA.lat,pointA.lon,pointB.lat,pointB.lon);
   if(distance<=0.25)return true;
 
   const curatedA=!!(a?.local_directory||a?.approved_override||a?.official_url);
@@ -1003,8 +1011,11 @@ function mergeLocationRecords(a,b){
   const preferred=locationRecordPriority(b)>locationRecordPriority(a)?b:a;
   const other=preferred===a?b:a;
   const merged={...other,...preferred};
+  const point=locationCoordinates(preferred)||locationCoordinates(other);
+  merged.lat=point?.lat??null;
+  merged.lon=point?.lon??null;
   merged.aliases=[...new Set([...(preferred.aliases||[]),...(other.aliases||[])])];
-  ["gnis_official","local_directory","approved_override","nearby_public","town_search","map_fallback"].forEach(field=>{
+  ["gnis_official","local_directory","official_directory_match","approved_override","nearby_public","town_search","map_fallback"].forEach(field=>{
     merged[field]=!!(preferred[field]||other[field]);
   });
   ["name_source","name_source_url","gnis_id","gnis_feature_class","nearby_town_label"].forEach(field=>{
@@ -1025,7 +1036,7 @@ function mergeLocationRecords(a,b){
       ?window.FFO_ACCESS_POINTS.mergePoints(combinedAccessPoints,merged)
       :combinedAccessPoints;
   }
-  const distances=[Number(preferred.distance_miles),Number(other.distance_miles)].filter(Number.isFinite);
+  const distances=[num(preferred.distance_miles),num(other.distance_miles)].filter(value=>value!==null);
   if(distances.length)merged.distance_miles=Math.min(...distances);
   return merged;
 }
@@ -1039,7 +1050,12 @@ function dedupeLocations(rows){
   return out;
 }
 function expandedSearchQueries(q){
-  const clean=String(q||"").trim(),queries=[clean];
+  const clean=String(q||"").trim();
+  const expanded=clean
+    .replace(/\b(Lake|Reservoir|Pond|River|Creek|Stream)([A-Z][a-z0-9]+)\b/g,"$1 $2")
+    .replace(/\b([a-z0-9]{3,})(lake|reservoir|pond|river|creek|stream)\b/gi,"$1 $2")
+    .replace(/\s+/g," ").trim();
+  const queries=[expanded,clean];
   const normalized=normalize(clean);
   if(!/\b[A-Z]{2}\b/.test(clean)&&!/,/.test(clean))queries.push(`${clean}, United States`);
   if(/\b(reservoir|lake|pond|river|creek|stream)\b/i.test(clean)===false){
@@ -1062,7 +1078,10 @@ function expandedSearchQueries(q){
   }
   return [...new Set(queries)].slice(0,4);
 }
-function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}
+function locationKey(loc){
+  const point=locationCoordinates(loc);
+  return `${normalize(loc.name)}|${loc.state||""}|${point?point.lat.toFixed(3):"no-lat"}|${point?point.lon.toFixed(3):"no-lon"}`;
+}
 function storedAccessPoints(loc){
   const points=(Array.isArray(loc.access_points)&&loc.access_points.length
     ?loc.access_points
@@ -1079,11 +1098,13 @@ function storedAccessPoints(loc){
   }));
 }
 function storedLocation(loc){
+  const point=locationCoordinates(loc);
   return{
     name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",
-    lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",
+    lat:point?.lat??null,lon:point?.lon??null,state:loc.state||"",county:loc.county||"",
     category:loc.category||"place",type:loc.type||"location",aliases:[...(loc.aliases||[])],
-    gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",
+    gnis_official:!!loc.gnis_official,local_directory:!!loc.local_directory,
+    official_directory_match:!!loc.official_directory_match,name_source:loc.name_source||"",
     name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",
     gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,
     access_status:loc.access_status||"",access_check_required:!!loc.access_check_required,
@@ -1106,7 +1127,11 @@ function agencyPanel(source,query){
 }
 function isWaterResult(r){return WATER_TYPES.has(String(r.type||"").toLowerCase())||WATER_TYPES.has(String(r.category||"").toLowerCase())||/(lake|reservoir|river|creek|stream|pond|bay|ocean|canal|fork)/i.test(r.name||"");}
 function searchPriority(r,q){
-  let p=0;const n=normalize(r.name),query=normalize(q);
+  let p=0;const n=normalize(r.name),stateName=normalize(r.state);
+  let query=normalize(q);
+  if(stateName)query=query.replace(new RegExp(`\\b${stateName.replace(/\s+/g,"\\s+")}\\b`,"g")," ").replace(/\s+/g," ").trim();
+  query=query.replace(/\b[a-z]{2}\b$/," ").replace(/\s+/g," ").trim();
+  const compactName=n.replace(/\s+/g,""),compactQuery=query.replace(/\s+/g,"");
   if(r.access_status==="open")p+=440;
   else if(r.access_status==="restricted")p+=310;
   else if(r.access_status==="fee-candidate")p+=260;
@@ -1115,9 +1140,10 @@ function searchPriority(r,q){
   if(r.public_access_verified)p+=120;
   if(r.nearby_public)p+=360;
   if(r.local_directory)p+=260;
+  if(r.official_directory_match)p+=360;
   if(r.gnis_official)p+=230;
   if(isWaterResult(r))p+=100;
-  if(n===query)p+=35;else if(n.startsWith(query))p+=18;else if(n.includes(query))p+=10;
+  if(n===query)p+=100;else if(compactName===compactQuery)p+=90;else if(n.startsWith(query))p+=18;else if(n.includes(query))p+=10;
   if(["city","town","village","county","administrative"].includes(String(r.type||"").toLowerCase()))p-=20;
   return p;
 }
@@ -1171,9 +1197,8 @@ function findNamedWaterRow(rows,loc){
     const countyMatch=!!countyName&&rowCounties.some(county=>countyName.includes(county)||county.includes(countyName));
     if(countyName&&rowCounties.length&&!countyMatch)return null;
     let distance=null;
-    if(Number.isFinite(Number(loc?.lat))&&Number.isFinite(Number(loc?.lon))&&Number.isFinite(Number(row.lat))&&Number.isFinite(Number(row.lon))){
-      distance=miles(Number(loc.lat),Number(loc.lon),Number(row.lat),Number(row.lon));
-    }
+    const locationPoint=locationCoordinates(loc),rowPoint=locationCoordinates(row);
+    if(locationPoint&&rowPoint)distance=miles(locationPoint.lat,locationPoint.lon,rowPoint.lat,rowPoint.lon);
     const exact=names.some(name=>locationNames.has(name));
     const reordered=!exact&&names.some(name=>locationSignatures.has(waterNameSignature(name)));
     const nearbyQualifierVariant=!exact&&!reordered&&distance!==null&&distance<=1&&names.some(name=>
@@ -1650,7 +1675,7 @@ async function searchPlaces(q){
   if(nearbyPublic.length)return nearbyPublic;
 
   const local=localWaterMatches(q);
-  const key="geo-access-v5:"+q.toLowerCase(),cached=getCache(key,604800000);
+  const key="geo-access-v6:"+q.toLowerCase(),cached=getCache(key,604800000);
   if(cached){
     const refreshed=await verifyEveryResultAccess(dedupeLocations([...local,...cached]));
     return dedupeLocations(refreshed)
@@ -1787,16 +1812,19 @@ async function makeReport(loc){
   const catchReport=findRecentCatchReport(loc);
   const speciesSummary=await speciesSummaryForLive(loc,{official,catchReport});
   const knownAccess=window.FFO_ACCESS_POINTS?.knownForWater?.(loc)||loc.access_points||[];
-  const settled=await Promise.allSettled([nws(loc.lat,loc.lon),usgs(loc.lat,loc.lon),tides(loc.lat,loc.lon,type)]);
-  const w=settled[0].status==="fulfilled"?settled[0].value:{available:false,current:null,next_12h:{},forecast_periods:[],alerts:[]};
-  const u=settled[1].status==="fulfilled"?settled[1].value:{available:false,measurements:[],api:"USGS Water Data",source_url:"https://waterdata.usgs.gov/"};
-  const t=settled[2].status==="fulfilled"?settled[2].value:{available:false};
-  const exp=EXPANDED.has(loc.state)&&(loc.state!=="California"||loc.lat>=36);
+  const point=locationCoordinates(loc);
+  const settled=point
+    ?await Promise.allSettled([nws(point.lat,point.lon),usgs(point.lat,point.lon),tides(point.lat,point.lon,type)])
+    :[];
+  const w=point&&settled[0]?.status==="fulfilled"?settled[0].value:{available:false,current:null,next_12h:{},forecast_periods:[],alerts:[]};
+  const u=point&&settled[1]?.status==="fulfilled"?settled[1].value:{available:false,measurements:[],api:"USGS Water Data",source_url:"https://waterdata.usgs.gov/"};
+  const t=point&&settled[2]?.status==="fulfilled"?settled[2].value:{available:false};
+  const exp=EXPANDED.has(loc.state)&&(loc.state!=="California"||!point||point.lat>=36);
   const g=guideForState(loc.state);
-  const sources=[
+  const sources=point?[
     {name:"National Weather Service",url:w.source_url||"https://www.weather.gov/",kind:"live"},
     {name:u.api||"USGS Water Data",url:u.source_url||"https://waterdata.usgs.gov/",kind:"live"}
-  ];
+  ]:[];
   if(t.available)sources.push({name:"NOAA Tides & Currents",url:t.source_url,kind:"live"});
   if(official)sources.push({name:official.source_label,url:official.source_url,kind:"official-species"});
   if(speciesSummary.source_url&&!sources.some(source=>source.url===speciesSummary.source_url))sources.push({name:`${speciesSummary.source_name} species evidence`,url:speciesSummary.source_url,kind:"official-species"});
@@ -1820,7 +1848,7 @@ async function makeReport(loc){
   return{
     generated_at:new Date().toISOString(),
     location:{
-      name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,
+      name:loc.name,state:loc.state||"",lat:point?.lat??null,lon:point?.lon??null,water_type:type,
       aliases:[...(loc.aliases||[])],gnis_official:!!loc.gnis_official,
       name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",
       gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",
@@ -1948,13 +1976,18 @@ async function loadReport(loc){
       access_search:enrichedLocation.access_search||{}
     };
     state.selected=loc;state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();updateReportActions(loc);
-    const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",public_access:loc.public_access_verified?"1":"0",access_status:loc.access_status||"",access_note:loc.public_access_note||"",access_source:loc.public_access_source||"",access_source_url:loc.public_access_source_url||"",access_method:loc.public_access_method||"",official_url:loc.official_url||"",auto:"1"});
+    const point=locationCoordinates(loc);
+    const searchState={name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",public_access:loc.public_access_verified?"1":"0",access_status:loc.access_status||"",access_note:loc.public_access_note||"",access_source:loc.public_access_source||"",access_source_url:loc.public_access_source_url||"",access_method:loc.public_access_method||"",official_url:loc.official_url||"",auto:"1"};
+    if(point){searchState.lat=String(point.lat);searchState.lon=String(point.lon);}
+    const p=new URLSearchParams(searchState);
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
   }catch{status("The report could not be completed. Please try again.",true);}
 }
 
 function mapLinks(locationData){
-  const lat=Number(locationData.lat),lon=Number(locationData.lon);
+  const point=locationCoordinates(locationData);
+  if(!point)return null;
+  const lat=point.lat,lon=point.lon;
   const latSpan=locationData.water_type==="river"?0.07:0.055;
   const lonSpan=locationData.water_type==="river"?0.10:0.075;
   const west=(lon-lonSpan).toFixed(5),south=(lat-latSpan).toFixed(5);
@@ -2108,7 +2141,7 @@ function renderReport(r){
   const tideDistance=num(r.tides?.station?.distance_miles);
   if(r.tides?.available&&tideDistance!==null&&tideDistance<=30)cards.push(`<article class="card full"><h3>Official nearby tide predictions</h3><p class="meta">${esc(r.tides.station.name)} · ${esc(tideDistance)} miles from the selected point. Confirm local current and bar conditions.</p><div class="metric-grid">${td.slice(0,6).map(x=>metric(x.type==="H"?"High tide":"Low tide",x.height_ft!=null?fmt(x.height_ft,1)+" ft":"—",dateFmt(x.time))).join("")}</div>${r.tides.source_url?`<div class="quick-links" style="margin-top:12px"><a href="${esc(r.tides.source_url)}" target="_blank" rel="noopener">Open NOAA tide predictions ↗</a></div>`:""}</article>`);
 
-  cards.push(`<article class="card full map-card">
+  if(map)cards.push(`<article class="card full map-card">
     <h3>Fishing location map</h3>
     <div class="map-copy"><p class="meta">The marker is the selected search point, not a verified launch or shoreline-access point. Check the official water page before traveling.</p><span class="coords">${esc(map.coordinates)}</span></div>
     <iframe class="map-frame" title="Map of ${esc(r.location.name)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${esc(map.embed)}"></iframe>
@@ -2132,6 +2165,7 @@ function renderReport(r){
 }
 function reportText(r){
   const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=guideForState(r.location.state),v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
+  const point=locationCoordinates(r.location);
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Updated: ${dateFmt(r.generated_at)}`,
@@ -2157,8 +2191,8 @@ function reportText(r){
     v.forecast?`Live NWS weather: ${c.shortForecast||"Unavailable"}${c.temperature!=null?`, ${c.temperature}°${c.temperatureUnit||"F"}`:""}${c.windSpeed?`, wind ${c.windSpeed} ${c.windDirection||""}`:""}`:"",
     v.forecast&&n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",
     alerts.length?`Active weather alerts: ${alerts.map(a=>a.event||a.headline||"Weather alert").join("; ")}`:"",
-    `Map coordinates: ${Number(r.location.lat).toFixed(5)}, ${Number(r.location.lon).toFixed(5)}`,
-    `Directions: https://www.google.com/maps/dir/?api=1&destination=${Number(r.location.lat).toFixed(6)},${Number(r.location.lon).toFixed(6)}`,
+    point?`Map coordinates: ${point.lat.toFixed(5)}, ${point.lon.toFixed(5)}`:"Map coordinates: unavailable for this official directory record.",
+    point?`Directions: https://www.google.com/maps/dir/?api=1&destination=${point.lat.toFixed(6)},${point.lon.toFixed(6)}`:"",
     g?.rules?`Current regulations: ${g.rules}`:"",
     `Verify current regulations and official agency information before fishing.`,
     `FishFinderOutdoors.com — Powered by Mountain Dog Enterprises`
@@ -2371,6 +2405,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=57"></script>
-<script src="pwa.js?v=56"></script></body>
+<script src="brand-shell.js?v=58"></script>
+<script src="pwa.js?v=58"></script></body>
 </html>
