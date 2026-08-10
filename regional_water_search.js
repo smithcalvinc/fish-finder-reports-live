@@ -278,6 +278,7 @@
     return records
       .filter(item=>
         item.public_access_verified===true&&
+        item.access_points_only!==true&&
         item.visibility!=="hidden"&&
         item.access_status!=="private"&&
         item.access_status!=="closed"&&
@@ -501,7 +502,7 @@
         resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
       };
       const timeout=setTimeout(finish,8000);
-      script.src="official_access_index.js?v=53";
+      script.src="official_access_index.js?v=54";
       script.async=true;
       script.onload=finish;
       script.onerror=finish;
@@ -687,6 +688,7 @@
         public_access_source:officialRecord.source_name,
         public_access_source_url:officialRecord.source_url,
         public_access_method:officialRecord.method||"official-state-access-index",
+        official_access_sites:officialRecord.access_site_names||[],
         official_url:row.official_url||officialRecord.source_url
       };
     }

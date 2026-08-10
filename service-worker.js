@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-reports-pwa-v53";
+const CACHE_VERSION="ffo-reports-pwa-v54";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -11,21 +11,21 @@ const APP_SHELL=[
   "./oregon-county-reports.html",
   "./washington-county-reports.html",
   "./northern-california-county-reports.html",
-  "./brand-shell.css","./brand-shell.js?v=53","./pwa.js?v=53",
+  "./brand-shell.css","./brand-shell.js?v=54","./pwa.js?v=54",
   "./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
   "./apple-touch-icon.png","./ffo-logo-main.png","./ffo-hero.jpg",
   "./ffo-water-divider.jpg","./official-sources.html","./submit-report.html",
   "./report-water.html","./404.html","./site_config.js",
-  "./official_state_sources.js","./official_water_overrides.js?v=53",
-  "./regional_water_search.js?v=53","./official_species_data.js",
+  "./official_state_sources.js","./official_water_overrides.js?v=54",
+  "./access_point_directory.js?v=54","./regional_water_search.js?v=54","./official_species_data.js",
   "./fishing_report_search.js"
 ];
 
 const NETWORK_FIRST_FILES=[
   "index.html","brand-shell.js","brand-shell.css","pwa.js","manifest.json",
   "recent_fishing_reports.js","community_fishing_reports.js","update_status.js",
-  "official_access_index.js","regional_water_search.js","official_water_overrides.js",
+  "official_access_index.js","regional_water_search.js","official_water_overrides.js","access_point_directory.js",
   "idaho_fishing_report_database.js","idaho_fishing_report_database.json",
   "montana_fishing_report_database.js","montana_fishing_report_database.json",
   "montana_public_fishing_access.js","montana_public_fishing_access.json",

@@ -131,6 +131,23 @@
     .result-report-found{background:#e8f3ed;color:#1b624e!important}
     .result-report-older{background:#fff3cf;color:#765716!important}
     .result-report-missing{background:#f3f1eb;color:#625f55!important}
+    .result-access-summary{display:block!important;margin-top:8px;padding:8px 10px;border-radius:9px;background:#edf5f8;color:#214f66!important;line-height:1.4}
+    .result-access-summary b{display:block;color:inherit;font-size:11px;letter-spacing:.02em}
+    .access-directory{border:2px solid #7fa3b4;background:linear-gradient(135deg,#f2f8fa,#fffdf8)}
+    .access-directory-intro{max-width:900px}
+    .access-point-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}
+    .access-point-item{border:1px solid var(--line);border-radius:14px;background:white;padding:14px}
+    .access-point-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .access-point-head h4{font-size:17px;line-height:1.25;margin:0}
+    .access-point-badges{display:flex;flex-wrap:wrap;gap:6px;margin:9px 0}
+    .access-point-pill{display:inline-flex;padding:4px 8px;border-radius:999px;background:#edf0ed;color:#41544d;font-size:10px;font-weight:850}
+    .access-point-pill.verified{background:#e1f0e8;color:#155b46}
+    .access-point-pill.candidate{background:#fff0c9;color:#72530d}
+    .access-amenities{font-size:13px;color:#42514c;margin:7px 0}
+    .access-point-item p{font-size:13px;margin:8px 0}
+    .access-point-item .quick-links a{padding:7px 9px;font-size:11px}
+    .access-discovery{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+    @media(max-width:760px){.access-point-list{grid-template-columns:1fr}.access-point-head{display:block}}
     @media(max-width:760px){
       .search-panel{padding:16px;border-radius:18px}
       .search-row button{width:100%;min-height:48px}
@@ -358,8 +375,9 @@
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js?v=53"></script>
-<script src="regional_water_search.js?v=53"></script>
+<script src="official_water_overrides.js?v=54"></script>
+<script src="access_point_directory.js?v=54"></script>
+<script src="regional_water_search.js?v=54"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -981,6 +999,15 @@ function mergeLocationRecords(a,b){
   ["public_access_verified","access_status","access_check_required","public_access_note","public_access_source","public_access_source_url","public_access_method"].forEach(field=>{
     if(field in accessRecord)merged[field]=accessRecord[field];
   });
+  merged.official_access_sites=[...new Set([
+    ...(preferred.official_access_sites||[]),...(other.official_access_sites||[])
+  ])];
+  const combinedAccessPoints=[...(preferred.access_points||[]),...(other.access_points||[])];
+  if(combinedAccessPoints.length){
+    merged.access_points=window.FFO_ACCESS_POINTS?.mergePoints
+      ?window.FFO_ACCESS_POINTS.mergePoints(combinedAccessPoints,merged)
+      :combinedAccessPoints;
+  }
   const distances=[Number(preferred.distance_miles),Number(other.distance_miles)].filter(Number.isFinite);
   if(distances.length)merged.distance_miles=Math.min(...distances);
   return merged;
@@ -1019,7 +1046,37 @@ function expandedSearchQueries(q){
   return [...new Set(queries)].slice(0,4);
 }
 function locationKey(loc){return `${normalize(loc.name)}|${loc.state||""}|${Number(loc.lat).toFixed(3)}|${Number(loc.lon).toFixed(3)}`;}
-function storedLocation(loc){return{name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",category:loc.category||"place",type:loc.type||"location",gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,access_status:loc.access_status||"",access_check_required:!!loc.access_check_required,public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",public_access_source_url:loc.public_access_source_url||"",public_access_method:loc.public_access_method||"",official_url:loc.official_url||"",nearby_town_label:loc.nearby_town_label||""};}
+function storedAccessPoints(loc){
+  const points=(Array.isArray(loc.access_points)&&loc.access_points.length
+    ?loc.access_points
+    :window.FFO_ACCESS_POINTS?.knownForWater?.(loc)||[]).slice(0,30);
+  return points.map(point=>({
+    name:point.name||"Access point",
+    access_type:point.access_type||"",
+    verification_status:point.verification_status||"",
+    amenities:[...(point.amenities||[])],
+    fee_note:point.fee_note||"",note:point.note||"",operator:point.operator||"",
+    source_name:point.source_name||"",source_url:point.source_url||"",
+    operator_url:point.operator_url||"",lat:point.lat,lon:point.lon,
+    last_checked:point.last_checked||""
+  }));
+}
+function storedLocation(loc){
+  return{
+    name:loc.name||"Saved water",display_name:loc.display_name||loc.name||"Saved water",
+    lat:Number(loc.lat),lon:Number(loc.lon),state:loc.state||"",county:loc.county||"",
+    category:loc.category||"place",type:loc.type||"location",aliases:[...(loc.aliases||[])],
+    gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",
+    name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",
+    gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,
+    access_status:loc.access_status||"",access_check_required:!!loc.access_check_required,
+    public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",
+    public_access_source_url:loc.public_access_source_url||"",
+    public_access_method:loc.public_access_method||"",official_url:loc.official_url||"",
+    official_access_sites:[...(loc.official_access_sites||[])],
+    access_points:storedAccessPoints(loc),nearby_town_label:loc.nearby_town_label||""
+  };
+}
 
 function stateSourceFor(query,rows){
   return window.FFO_STATE_SOURCES?.detect?.(query,rows)||null;
@@ -1390,6 +1447,7 @@ async function makeReport(loc){
   const profile=findProfile(loc);
   const official=findOfficialSpecies(loc);
   const catchReport=findRecentCatchReport(loc);
+  const knownAccess=window.FFO_ACCESS_POINTS?.knownForWater?.(loc)||loc.access_points||[];
   const settled=await Promise.allSettled([nws(loc.lat,loc.lon),usgs(loc.lat,loc.lon),tides(loc.lat,loc.lon,type)]);
   const w=settled[0].status==="fulfilled"?settled[0].value:{available:false,current:null,next_12h:{},forecast_periods:[],alerts:[]};
   const u=settled[1].status==="fulfilled"?settled[1].value:{available:false,measurements:[],api:"USGS Water Data",source_url:"https://waterdata.usgs.gov/"};
@@ -1421,7 +1479,19 @@ async function makeReport(loc){
   const tech=profile?[...profile.tips,...genericTechniques(type,w,u)].slice(0,6):genericTechniques(type,w,u);
   return{
     generated_at:new Date().toISOString(),
-    location:{name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,gnis_official:!!loc.gnis_official,name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",public_access_verified:!!loc.public_access_verified,access_status:loc.access_status||"",access_check_required:!!loc.access_check_required,public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",public_access_source_url:loc.public_access_source_url||"",public_access_method:loc.public_access_method||"",official_url:loc.official_url||""},
+    location:{
+      name:loc.name,state:loc.state||"",lat:loc.lat,lon:loc.lon,water_type:type,
+      aliases:[...(loc.aliases||[])],gnis_official:!!loc.gnis_official,
+      name_source:loc.name_source||"",name_source_url:loc.name_source_url||"",
+      gnis_id:loc.gnis_id||"",gnis_feature_class:loc.gnis_feature_class||"",
+      public_access_verified:!!loc.public_access_verified,access_status:loc.access_status||"",
+      access_check_required:!!loc.access_check_required,
+      public_access_note:loc.public_access_note||"",public_access_source:loc.public_access_source||"",
+      public_access_source_url:loc.public_access_source_url||"",
+      public_access_method:loc.public_access_method||"",official_url:loc.official_url||"",
+      official_access_sites:[...(loc.official_access_sites||[])],access_points:knownAccess,
+      access_discovery_links:window.FFO_ACCESS_POINTS?.discoveryLinks?.(loc)||[]
+    },
     coverage:{level:official?"Official species match":loc.gnis_official?"Official regional water-name match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official},
     profile,official_species:official,recent_catch_report:catchReport,
     outlook:outlook(w,u,t),
@@ -1453,11 +1523,17 @@ $("searchForm").addEventListener("submit",async e=>{
     }
     const townSearch=rows.some(r=>r.town_search);
     const source=stateSourceFor(q,rows);
-    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Official geographic names fill gaps. Check the access badge and posted signs before fishing.</div>`+rows.map((r,i)=>{
+    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Each water shows its fishing-report status and any named access points already in FFO. Select a water for the free nationwide ramp, marina, campground, resort, and park lookup.</div>`+rows.map((r,i)=>{
       const access=reportAccess(r,{public_access:!!r.public_access_verified,access_status:r.access_status||"unknown"});
       const currentReport=findRecentCatchReport(r),olderReport=currentReport?null:findOfficialReportLink(r);
+      const accessPoints=window.FFO_ACCESS_POINTS?.knownForWater?.(r)||[];
+      r.access_points=accessPoints;
       const accessClass=access.status==="open"?"local-result":access.status==="restricted"?"gnis-result":"result-water";
       const accessBadge=`<span class="result-badge">${esc(access.title)}</span>`;
+      const accessPointNames=accessPoints.slice(0,3).map(point=>point.name);
+      const accessPointStatus=accessPoints.length
+        ?`<span class="result-access-summary"><b>KNOWN ACCESS POINTS (${accessPoints.length}).</b> ${esc(accessPointNames.join(" · "))}${accessPoints.length>3?` · +${accessPoints.length-3} more`:""}. Select this water for sources, fees, directions, and nearby candidates.</span>`
+        :`<span class="result-access-summary"><b>ACCESS-POINT LOOKUP AVAILABLE.</b> Select this water to check nearby ramps, marinas, campgrounds, resorts, parks, and public-land facilities.</span>`;
       const reportStatus=currentReport
         ?currentReport.report_kind==="community"
           ?`<span class="result-report-status result-report-found"><b>FFO ANGLER REPORT FOUND.</b> Manually reviewed submission dated ${esc(dateFmt(currentReport.published_date))}. Select this water to read it.</span>`
@@ -1470,6 +1546,7 @@ $("searchForm").addEventListener("submit",async e=>{
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
         <span>${esc(access.note)}</span>
         <span class="result-badges">${accessBadge}${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.approved_override?'<span class="result-badge">Approved directory correction</span>':r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official&&!r.local_directory?'<span class="result-badge">USGS official name</span>':""}${r.type==="river"?'<span class="result-badge">Use designated access points</span>':""}</span>
+        ${accessPointStatus}
         ${reportStatus}
       </button>`;
     }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
@@ -1485,7 +1562,7 @@ $("nearMe").addEventListener("click",()=>{
 });
 async function loadReport(loc){
   $("results").innerHTML="";$("report").className="report hidden";
-  status('<span class="pulse"></span> Gathering recent catch reports, live conditions and official waterbody information…');
+  status('<span class="pulse"></span> Gathering fishing reports, live conditions, named access points, and nearby ramps, marinas, campgrounds, resorts, and parks…');
   try{
     const verifier=window.FFO_REGION_SEARCH?.verifyPublicAccess;
     if(isWaterResult(loc)&&verifier){
@@ -1497,8 +1574,27 @@ async function loadReport(loc){
       }
       loc=checked;
     }
-    state.selected=loc;updateFavoriteButton();
-    const r=await makeReport(loc);state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();updateReportActions(loc);
+    const accessDirectory=window.FFO_ACCESS_POINTS;
+    const fallbackAccess=()=>({
+      ...loc,
+      access_points:accessDirectory?.knownForWater?.(loc)||loc.access_points||[],
+      access_discovery_links:accessDirectory?.discoveryLinks?.(loc)||[],
+      access_search:{live:false,reason:"live-sources-unavailable"}
+    });
+    const [r,enrichedLocation]=await Promise.all([
+      makeReport(loc),
+      accessDirectory?.enrich
+        ?accessDirectory.enrich(loc,{live:true}).catch(fallbackAccess)
+        :Promise.resolve(fallbackAccess())
+    ]);
+    loc={...loc,...enrichedLocation};
+    r.location={
+      ...r.location,
+      access_points:enrichedLocation.access_points||r.location.access_points||[],
+      access_discovery_links:enrichedLocation.access_discovery_links||r.location.access_discovery_links||[],
+      access_search:enrichedLocation.access_search||{}
+    };
+    state.selected=loc;state.report=r;saveRecent(loc);clearStatus();renderReport(r);updateFavoriteButton();updateReportActions(loc);
     const p=new URLSearchParams({lat:loc.lat,lon:loc.lon,name:loc.name||"Selected location",state:loc.state||"",source_type:loc.type||"location",category:loc.category||"place",gnis:loc.gnis_official?"1":"0",gnis_id:loc.gnis_id||"",gnis_class:loc.gnis_feature_class||"",public_access:loc.public_access_verified?"1":"0",access_status:loc.access_status||"",access_note:loc.public_access_note||"",access_source:loc.public_access_source||"",access_source_url:loc.public_access_source_url||"",access_method:loc.public_access_method||"",official_url:loc.official_url||"",auto:"1"});
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
   }catch{status("The report could not be completed. Please try again.",true);}
@@ -1550,6 +1646,56 @@ function reportAccess(locationData,verification){
     sourceUrl
   };
 }
+function renderAccessPointDirectory(locationData){
+  const points=locationData.access_points||window.FFO_ACCESS_POINTS?.knownForWater?.(locationData)||[];
+  const discoveryLinks=locationData.access_discovery_links||window.FFO_ACCESS_POINTS?.discoveryLinks?.(locationData)||[];
+  const verifiedCount=points.filter(point=>point.verified||[
+    "agency-verified","operator-verified","publisher-documented","official-state-inventory"
+  ].includes(point.verification_status)).length;
+  const candidateCount=Math.max(0,points.length-verifiedCount);
+  const search=locationData.access_search||{};
+  const checkedSources=[
+    search.usgs_structures==="checked"?"USGS nearby campgrounds":"",
+    search.open_map==="checked"?"OpenStreetMap ramps, marinas, fishing sites, piers, and campgrounds":""
+  ].filter(Boolean);
+  const pointItems=points.map(point=>{
+    const verified=!!(point.verified||[
+      "agency-verified","operator-verified","publisher-documented","official-state-inventory"
+    ].includes(point.verification_status));
+    const verificationLabel=point.verification_label||window.FFO_ACCESS_POINTS?.verificationLabel?.(point.verification_status)||"Confirm access";
+    const typeLabel=point.access_type_label||window.FFO_ACCESS_POINTS?.accessTypeLabel?.(point.access_type)||point.access_type||"Access point";
+    const distance=Number.isFinite(Number(point.distance_miles))
+      ?`${Number(point.distance_miles).toFixed(1)} mi from selected point`:"";
+    const links=[];
+    if(point.source_url)links.push(`<a href="${esc(point.source_url)}" target="_blank" rel="noopener">${verified?"Open supporting source":"Open map source"} ↗</a>`);
+    if(point.operator_url&&point.operator_url!==point.source_url)links.push(`<a href="${esc(point.operator_url)}" target="_blank" rel="noopener">Operator details / fees ↗</a>`);
+    if(point.directions_url)links.push(`<a href="${esc(point.directions_url)}" target="_blank" rel="noopener">Directions ↗</a>`);
+    if(point.google_url)links.push(`<a href="${esc(point.google_url)}" target="_blank" rel="noopener">Check Google listing ↗</a>`);
+    return`<section class="access-point-item">
+      <div class="access-point-head"><h4>${esc(point.name)}</h4>${distance?`<span class="meta">${esc(distance)}</span>`:""}</div>
+      <div class="access-point-badges"><span class="access-point-pill ${verified?"verified":"candidate"}">${esc(verificationLabel)}</span><span class="access-point-pill">${esc(typeLabel)}</span></div>
+      ${(point.amenities||[]).length?`<p class="access-amenities"><strong>Listed facilities:</strong> ${esc(point.amenities.join(" · "))}</p>`:""}
+      ${point.operator?`<p><strong>Operator/manager:</strong> ${esc(point.operator)}</p>`:""}
+      ${point.note?`<p>${esc(point.note)}</p>`:""}
+      ${point.fee_note?`<p class="meta"><strong>Fees/conditions:</strong> ${esc(point.fee_note)}</p>`:""}
+      ${point.source_name?`<p class="meta"><strong>Evidence:</strong> ${esc(point.source_name)}${point.last_checked?` · checked ${esc(dateFmt(point.last_checked))}`:""}</p>`:""}
+      ${links.length?`<div class="quick-links">${links.join("")}</div>`:""}
+    </section>`;
+  }).join("");
+  const correctionUrl=`report-water.html?q=${encodeURIComponent(locationData.name||"")}&state=${encodeURIComponent(locationData.state||"")}&kind=access`;
+  return`<article class="card full access-directory">
+    <div class="eyebrow">Named access directory</div>
+    <h3>Known access points and nearby facilities</h3>
+    <p class="access-directory-intro">${points.length
+      ?`FFO found ${verifiedCount} source-backed access point${verifiedCount===1?"":"s"}${candidateCount?` and ${candidateCount} nearby map candidate${candidateCount===1?"":"s"}`:""}. Each entry is labeled separately so a nearby campground, marina, or ramp is not mistaken for confirmed fishing access.`
+      :"FFO has not yet matched a named access point to this water. Use the live Google lookup links below and send FFO any missing ramp, park, campground, resort, or shoreline access you verify."}</p>
+    ${pointItems?`<div class="access-point-list">${pointItems}</div>`:""}
+    <div class="access-discovery">
+      <p class="meta">${checkedSources.length?`Free nearby sources checked: ${esc(checkedSources.join("; "))}. `:""}Google links open live searches; FFO does not copy or claim verification of Google business listings. Confirm legal fishing access, ownership, fees, hours, closures, and posted signs with the agency or operator.</p>
+      <div class="quick-links">${discoveryLinks.map(link=>`<a href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.label)} ↗</a>`).join("")}<a href="${esc(correctionUrl)}">Report a missing or incorrect access point to FFO ↗</a></div>
+    </div>
+  </article>`;
+}
 function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
   const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v);
@@ -1582,6 +1728,8 @@ function renderReport(r){
     <p>If you have a fishing report for this location, please submit it to FFO so the location information can be updated.</p>
     <div class="quick-links">${g?.report?`<a href="${esc(g.report)}" target="_blank" rel="noopener">Check ${esc(g.agency)} fishing information ↗</a>`:""}<a href="${esc(submitUrl)}">Submit a Fishing Report to FFO ↗</a></div>
   </article>`);
+
+  cards.push(renderAccessPointDirectory(r.location));
 
   if(official&&sp.length)cards.push(`<article class="card full species-summary-card">
     <div class="eyebrow">Official waterbody record</div>
@@ -1624,12 +1772,18 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],species=r.regional?.common_species||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],species=r.regional?.common_species||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Updated: ${dateFmt(r.generated_at)}`,
     `Access: ${access.title}. ${access.note}`,
     access.sourceUrl?`Official water or access source: ${access.sourceUrl}`:"",
+    accessPoints.length?`Named access points (${accessPoints.length}):\n${accessPoints.map(point=>{
+      const label=point.verification_label||window.FFO_ACCESS_POINTS?.verificationLabel?.(point.verification_status)||"Confirm access";
+      const links=[point.source_url&&`source ${point.source_url}`,point.directions_url&&`directions ${point.directions_url}`,point.google_url&&`Google ${point.google_url}`].filter(Boolean).join(" · ");
+      return`- ${point.name} — ${label}${point.fee_note?`. ${point.fee_note}`:""}${links?` · ${links}`:""}`;
+    }).join("\n")}`:"No named access point is currently matched in FFO's directory.",
+    accessLinks.length?`Live access lookups:\n${accessLinks.map(link=>`- ${link.label}: ${link.url}`).join("\n")}`:"",
     catchReport?`${communityReport?"Manually reviewed FFO angler report":"Dated official agency record"} (${catchReport.report_period||dateFmt(catchReport.published_date)}): ${catchReport.headline}`:olderReport?`No current fishing report matched this water. Older official record: ${olderReport.source_url}`:`NO FISHING REPORT FOUND FOR THIS LOCATION.`,
     catchReport?`Report details: ${(catchReport.catches||[]).map(x=>`${x.species}: ${x.metric}`).join("; ")}`:"",
     communityReport?`Verification: Manually reviewed by FFO; not independently verified.`:"",
@@ -1853,6 +2007,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=53"></script>
-<script src="pwa.js?v=53"></script></body>
+<script src="brand-shell.js?v=54"></script>
+<script src="pwa.js?v=54"></script></body>
 </html>
