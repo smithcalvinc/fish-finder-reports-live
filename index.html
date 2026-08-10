@@ -359,7 +359,7 @@
 <script src="official_species_data.js"></script>
 <script src="official_state_sources.js"></script>
 <script src="official_water_overrides.js"></script>
-<script src="regional_water_search.js?v=3"></script>
+<script src="regional_water_search.js?v=4"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -1034,6 +1034,8 @@ function searchPriority(r,q){
   let p=0;const n=normalize(r.name),query=normalize(q);
   if(r.access_status==="open")p+=440;
   else if(r.access_status==="restricted")p+=310;
+  else if(r.access_status==="fee-candidate")p+=260;
+  else if(r.access_status==="map-candidate")p+=100;
   else if(r.access_status==="unknown")p+=80;
   if(r.public_access_verified)p+=120;
   if(r.nearby_public)p+=360;
@@ -1225,6 +1227,26 @@ function renderSaved(){
   }));
 }
 
+async function verifyEveryResultAccess(rows){
+  const verifier=window.FFO_REGION_SEARCH?.verifyPublicAccess;
+  if(!verifier)return rows||[];
+  const input=rows||[],output=[];
+  for(let start=0;start<input.length;start+=6){
+    const batch=input.slice(start,start+6);
+    const settled=await Promise.allSettled(batch.map(row=>
+      isWaterResult(row)?verifier(row):Promise.resolve(row)
+    ));
+    settled.forEach((result,index)=>{
+      if(result.status==="fulfilled"){
+        if(result.value)output.push(result.value);
+      }else{
+        output.push(batch[index]);
+      }
+    });
+  }
+  return output;
+}
+
 async function searchPlaces(q){
   const coordinate=parseCoordinateQuery(q);
   if(coordinate)return[coordinate];
@@ -1233,10 +1255,13 @@ async function searchPlaces(q){
   if(nearbyPublic.length)return nearbyPublic;
 
   const local=localWaterMatches(q);
-  const key="geo-access-v3:"+q.toLowerCase(),cached=getCache(key,604800000);
-  if(cached)return dedupeLocations([...local,...cached])
-    .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
-    .slice(0,16);
+  const key="geo-access-v4:"+q.toLowerCase(),cached=getCache(key,604800000);
+  if(cached){
+    const refreshed=await verifyEveryResultAccess(dedupeLocations([...local,...cached]));
+    return dedupeLocations(refreshed)
+      .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
+      .slice(0,16);
+  }
 
   let officialRows=[];
   if(window.FFO_REGION_SEARCH?.search){
@@ -1266,8 +1291,10 @@ async function searchPlaces(q){
             lat:Number(r.lat),lon:Number(r.lon),state:a.state||"",county:a.county||"",
             category:r.category||r.class||"place",type:r.type||"location",
             map_fallback:true,extratags:extra,
+            map_source_url:r.osm_type&&r.osm_id?`https://www.openstreetmap.org/${encodeURIComponent(r.osm_type)}/${encodeURIComponent(r.osm_id)}`:"",
             access:extra.access||"",ownership:extra.ownership||"",
-            operator:extra.operator||"",owner:extra.owner||""
+            operator:extra.operator||"",owner:extra.owner||"",
+            fee:extra.fee||"",website:extra.website||extra["contact:website"]||extra.url||""
           };
         }).filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)&&isWaterResult(x)));
       }catch{}
@@ -1278,7 +1305,8 @@ async function searchPlaces(q){
     }
   }
 
-  const combined=dedupeLocations([...local,...officialRows,...mapRows])
+  const accessChecked=await verifyEveryResultAccess(dedupeLocations([...local,...officialRows,...mapRows]));
+  const combined=dedupeLocations(accessChecked)
     .filter(row=>!waterBlocked(row))
     .sort((a,b)=>searchPriority(b,q)-searchPriority(a,q))
     .slice(0,16);
@@ -1490,6 +1518,18 @@ function reportAccess(locationData,verification){
   const methodEvidence=method&&method!=="no-private-evidence";
   const verified=!!(location.public_access_verified||v.public_access)&&!!note&&note!==inferredNote&&!!(sourceUrl||namedEvidence||methodEvidence);
   const rawStatus=v.access_status||location.access_status||"unknown";
+  if(rawStatus==="fee-candidate"&&note&&sourceUrl)return{
+    status:"restricted",
+    title:"Possible paid fishing access — confirm first",
+    note,
+    sourceUrl
+  };
+  if(rawStatus==="map-candidate"&&note)return{
+    status:"candidate",
+    title:"Map indicates possible public access — confirm first",
+    note,
+    sourceUrl
+  };
   if(verified&&rawStatus==="restricted")return{status:"restricted",title:"Public access has conditions",note,sourceUrl};
   if(verified)return{status:"open",title:"Public access documented",note,sourceUrl};
   return{
@@ -1624,7 +1664,7 @@ function localDirectoryWatersNear(lat,lon,radiusMiles=50){
 
 function mergeNearbyWaters(localRows,liveRows){
   const combined=dedupeLocations([...(localRows||[]),...(liveRows||[])]);
-  const accessRank={open:3,restricted:2,unknown:1};
+  const accessRank={open:3,restricted:2,"fee-candidate":2,"map-candidate":1,unknown:1};
   return combined.sort((a,b)=>{
     const verifiedDifference=
       Number(Boolean(b.public_access_verified))-Number(Boolean(a.public_access_verified));

@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-reports-pwa-v51";
+const CACHE_VERSION="ffo-reports-pwa-v52";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -25,7 +25,7 @@ const APP_SHELL=[
 const NETWORK_FIRST_FILES=[
   "index.html","brand-shell.js","brand-shell.css","pwa.js","manifest.json",
   "recent_fishing_reports.js","community_fishing_reports.js","update_status.js",
-  "regional_water_search.js","official_water_overrides.js",
+  "official_access_index.js","regional_water_search.js","official_water_overrides.js",
   "idaho_fishing_report_database.js","idaho_fishing_report_database.json",
   "montana_fishing_report_database.js","montana_fishing_report_database.json",
   "montana_public_fishing_access.js","montana_public_fishing_access.json",

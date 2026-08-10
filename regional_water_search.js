@@ -13,15 +13,31 @@
     "https://nominatim.openstreetmap.org/search";
 
   const REGION_STATES = [
-    {name:"Idaho", code:"ID"},
-    {name:"Montana", code:"MT"},
-    {name:"Wyoming", code:"WY"},
-    {name:"Utah", code:"UT"},
-    {name:"Nevada", code:"NV"},
-    {name:"Oregon", code:"OR"},
-    {name:"Washington", code:"WA"},
-    {name:"California", code:"CA", northOnly:true},
-    {name:"Colorado", code:"CO"}
+    {name:"Alabama",code:"AL"},{name:"Alaska",code:"AK"},
+    {name:"Arizona",code:"AZ"},{name:"Arkansas",code:"AR"},
+    {name:"California",code:"CA"},{name:"Colorado",code:"CO"},
+    {name:"Connecticut",code:"CT"},{name:"Delaware",code:"DE"},
+    {name:"Florida",code:"FL"},{name:"Georgia",code:"GA"},
+    {name:"Hawaii",code:"HI"},{name:"Idaho",code:"ID"},
+    {name:"Illinois",code:"IL"},{name:"Indiana",code:"IN"},
+    {name:"Iowa",code:"IA"},{name:"Kansas",code:"KS"},
+    {name:"Kentucky",code:"KY"},{name:"Louisiana",code:"LA"},
+    {name:"Maine",code:"ME"},{name:"Maryland",code:"MD"},
+    {name:"Massachusetts",code:"MA"},{name:"Michigan",code:"MI"},
+    {name:"Minnesota",code:"MN"},{name:"Mississippi",code:"MS"},
+    {name:"Missouri",code:"MO"},{name:"Montana",code:"MT"},
+    {name:"Nebraska",code:"NE"},{name:"Nevada",code:"NV"},
+    {name:"New Hampshire",code:"NH"},{name:"New Jersey",code:"NJ"},
+    {name:"New Mexico",code:"NM"},{name:"New York",code:"NY"},
+    {name:"North Carolina",code:"NC"},{name:"North Dakota",code:"ND"},
+    {name:"Ohio",code:"OH"},{name:"Oklahoma",code:"OK"},
+    {name:"Oregon",code:"OR"},{name:"Pennsylvania",code:"PA"},
+    {name:"Rhode Island",code:"RI"},{name:"South Carolina",code:"SC"},
+    {name:"South Dakota",code:"SD"},{name:"Tennessee",code:"TN"},
+    {name:"Texas",code:"TX"},{name:"Utah",code:"UT"},
+    {name:"Vermont",code:"VT"},{name:"Virginia",code:"VA"},
+    {name:"Washington",code:"WA"},{name:"West Virginia",code:"WV"},
+    {name:"Wisconsin",code:"WI"},{name:"Wyoming",code:"WY"}
   ];
 
   const OFFICIAL_FINDERS = {
@@ -37,8 +53,9 @@
   };
 
   const STATE_BY_CODE = Object.fromEntries(REGION_STATES.map(s => [s.code, s]));
-  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v3:";
-  const ACCESS_CACHE_PREFIX = "ffo:padus-access:v2:";
+  const STATE_CODE_PATTERN = REGION_STATES.map(state=>state.code).join("|");
+  const CACHE_KEY_PREFIX = "ffo:nearby-reliable:v4:";
+  const ACCESS_CACHE_PREFIX = "ffo:padus-access:v3:";
   const SEARCH_CACHE_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   const ACCESS_CACHE_AGE_MS = 30 * 24 * 60 * 60 * 1000;
   const WATER_WORDS = /\b(lake|reservoir|res\.?|pond|river|creek|stream|canal|bay|channel|lagoon|inlet|harbor|harbour)\b/i;
@@ -89,7 +106,7 @@
       }
     }
 
-    const abbreviation = text.match(/(?:,|\s)\s*(ID|MT|WY|UT|NV|OR|WA|CA|CO)\s*$/i);
+    const abbreviation = text.match(new RegExp(`(?:,|\\s)\\s*(${STATE_CODE_PATTERN})\\s*$`,"i"));
     return abbreviation ? STATE_BY_CODE[abbreviation[1].toUpperCase()] : null;
   }
 
@@ -98,7 +115,7 @@
     for(const state of REGION_STATES){
       text = text.replace(new RegExp(`\\b${state.name}\\b`, "ig"), " ");
     }
-    text = text.replace(/(?:,|\s)\s*(ID|MT|WY|UT|NV|OR|WA|CA|CO)\s*$/i, " ");
+    text = text.replace(new RegExp(`(?:,|\\s)\\s*(${STATE_CODE_PATTERN})\\s*$`,"i"), " ");
     return clean(text.replace(/\s*,\s*$/, ""));
   }
 
@@ -204,7 +221,6 @@
     const codes = stateCodes(attributes.state_alpha);
     let chosen = explicit && codes.includes(explicit.code) ? explicit : STATE_BY_CODE[codes[0]];
     if(!chosen) return null;
-    if(chosen.code === "CA" && Number(lat) < 35.0) return null;
     return chosen;
   }
 
@@ -369,8 +385,6 @@
       const state=stateFromAddress(row.address||{});
       if(!state)continue;
       if(explicit&&state.code!==explicit.code)continue;
-      if(state.code==="CA"&&lat<35)continue;
-
       const type=String(row.type||"").toLowerCase();
       const category=String(row.category||row.class||"").toLowerCase();
       const townish=["city","town","village","hamlet","municipality","county","administrative"].some(x=>type.includes(x)) ||
@@ -414,6 +428,155 @@
     return /\b(city|county|state|federal|municipal|public|parks?|fish and game|wildlife|forest service|blm|bureau of reclamation)\b/.test(combined);
   }
 
+  function paidAccessCandidate(row){
+    const extra=row?.extratags||{};
+    const access=normalize(row?.access||extra.access);
+    const fee=normalize(row?.fee||extra.fee);
+    const operator=clean(row?.operator||extra.operator||row?.owner||extra.owner);
+    const website=clean(row?.website||extra.website||extra["contact:website"]||extra.url);
+    const combined=normalize(`${row?.name||""} ${row?.display_name||""} ${operator}`);
+    const customerAccess=["yes","public","permissive","designated","customers","customer"].includes(access);
+    const commercial=/\b(resort|marina|campground|rv park|lodge|outfitter)\b/.test(combined);
+    const feeRequired=["yes","required","paid","fee"].includes(fee);
+    if(!website||!customerAccess||(!commercial&&!feeRequired))return null;
+    return{
+      ...row,
+      access_status:"fee-candidate",
+      public_access_verified:false,
+      access_check_required:true,
+      public_access_note:`The map record indicates customer or fee-based access${operator?` through ${operator}`:""}. FFO has not confirmed that fishing, parking, shoreline, or launch access is currently offered; check the operator website and posted rules before traveling.`,
+      public_access_source:"Map-listed private or fee access — confirm with operator",
+      public_access_source_url:website,
+      public_access_method:"map-paid-access-candidate"
+    };
+  }
+
+  const officialAccessLookups=new Map();
+  let officialAccessIndexPromise=null;
+
+  function ensureOfficialAccessIndex(){
+    if(window.FFO_OFFICIAL_ACCESS_INDEX)return Promise.resolve(window.FFO_OFFICIAL_ACCESS_INDEX);
+    if(officialAccessIndexPromise)return officialAccessIndexPromise;
+    if(typeof document==="undefined")return Promise.resolve(null);
+    officialAccessIndexPromise=new Promise(resolve=>{
+      const script=document.createElement("script");
+      let finished=false;
+      const finish=()=>{
+        if(finished)return;
+        finished=true;
+        clearTimeout(timeout);
+        resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
+      };
+      const timeout=setTimeout(finish,8000);
+      script.src="official_access_index.js?v=1";
+      script.async=true;
+      script.onload=finish;
+      script.onerror=finish;
+      document.head.appendChild(script);
+    });
+    return officialAccessIndexPromise;
+  }
+
+  function officialAccessLookup(stateName){
+    if(officialAccessLookups.has(stateName))return officialAccessLookups.get(stateName);
+    const entries=window.FFO_OFFICIAL_ACCESS_INDEX?.states?.[stateName]||[];
+    const lookup=new Map();
+    entries.forEach(entry=>{
+      [entry.name,...(entry.aliases||[])].forEach(name=>{
+        const key=normalize(expandCommonTerms(name));
+        if(!key)return;
+        if(!lookup.has(key))lookup.set(key,[]);
+        lookup.get(key).push(entry);
+      });
+    });
+    officialAccessLookups.set(stateName,lookup);
+    return lookup;
+  }
+
+  function materializeOfficialAccess(entry){
+    if(!entry)return null;
+    const indexedSource=window.FFO_OFFICIAL_ACCESS_INDEX?.sources?.[entry.source]||{};
+    const sourceName=entry.source_name||indexedSource.name||"Official public-access inventory";
+    const sourceUrl=entry.source_url||indexedSource.url||"";
+    const sites=(entry.access_site_names||[]).filter(Boolean);
+    let note=entry.note||`${sourceName} ${sites.length
+      ?`documents public fishing or boating access at ${sites.join(", ")}.`
+      :"includes this water in an official public fishing or access inventory."}`;
+    if(entry.evidence)note+=` ${entry.evidence}`;
+    note+=" The record confirms the listed water or named access site, not every shoreline or road; verify current signs, closures, hours, fees, and site rules.";
+    return{...entry,note,source_name:sourceName,source_url:sourceUrl};
+  }
+
+  async function officialAccessRecord(row){
+    await ensureOfficialAccessIndex();
+    const stateName=clean(row?.state);
+    if(!stateName)return null;
+    const lookup=officialAccessLookup(stateName);
+    if(!lookup.size)return null;
+
+    const keys=[row?.name,...(row?.aliases||[])]
+      .map(name=>normalize(expandCommonTerms(name)))
+      .filter(Boolean);
+    const candidates=[...new Set(keys.flatMap(key=>lookup.get(key)||[]))];
+    if(!candidates.length)return null;
+
+    const rowCounty=normalize(row?.county).replace(/\bcounty\b/g,"").trim();
+    const lat=Number(row?.lat),lon=Number(row?.lon);
+    const kind=String(row?.type||row?.category||"").toLowerCase();
+    const maximumDistance=/river|stream|creek|canal/.test(kind)?60:
+      /pond|lagoon/.test(kind)?8:35;
+
+    const ranked=candidates.map(entry=>{
+      const canonical=normalize(expandCommonTerms(entry.name));
+      const exact=keys.includes(canonical);
+      const countyMatch=rowCounty&&
+        (entry.counties||[]).some(county=>normalize(county).replace(/\bcounty\b/g,"").trim()===rowCounty);
+      const entryLat=Number(entry.lat),entryLon=Number(entry.lon);
+      const hasDistance=[lat,lon,entryLat,entryLon].every(Number.isFinite);
+      const distance=hasDistance?distanceMiles(lat,lon,entryLat,entryLon):null;
+      const plausible=!hasDistance||distance<=maximumDistance||countyMatch;
+      const score=(exact?500:300)+(countyMatch?180:0)+
+        (distance===null?0:Math.max(0,160-distance*4));
+      return{entry,plausible,score,distance};
+    }).filter(item=>item.plausible).sort((a,b)=>b.score-a.score);
+
+    if(!ranked.length)return null;
+    if(ranked.length>1&&ranked[0].score===ranked[1].score&&ranked[0].distance===null)return null;
+    return materializeOfficialAccess(ranked[0].entry);
+  }
+
+  function padUsUnitName(feature){
+    const attributes=feature?.attributes||{};
+    return clean(attributes.Unit_Nm||attributes.BndryName);
+  }
+
+  function padUsNameMatchesWater(feature,row){
+    const unit=normalize(expandCommonTerms(padUsUnitName(feature)));
+    if(!unit)return false;
+    return[row?.name,...(row?.aliases||[])]
+      .map(name=>normalize(expandCommonTerms(name)))
+      .filter(name=>name.length>=4&&/[^\d\s]/.test(name))
+      .some(name=>unit===name||unit.includes(name)||name.includes(unit));
+  }
+
+  function classifyPadUsFeatures(features,row,association){
+    const eligible=association==="named-nearby"
+      ?(features||[]).filter(feature=>padUsNameMatchesWater(feature,row))
+      :(features||[]);
+    const open=eligible.find(feature=>feature.attributes?.Pub_Access==="OA");
+    const restricted=eligible.find(feature=>feature.attributes?.Pub_Access==="RA");
+    const closed=eligible.find(feature=>feature.attributes?.Pub_Access==="XA");
+    const feature=open||restricted||closed;
+    if(!feature)return{status:"unknown",source:"USGS PAD-US Public Access"};
+    return{
+      status:open?"open":restricted?"restricted":"closed",
+      boundary:padUsUnitName(feature),
+      manager:clean(feature.attributes?.MngNm_Desc),
+      source:"USGS PAD-US Public Access",
+      association
+    };
+  }
+
   async function padUsAccess(row){
     const lat=Number(row?.lat),lon=Number(row?.lon);
     if(!Number.isFinite(lat)||!Number.isFinite(lon))return null;
@@ -422,40 +585,29 @@
     const cached=cacheRead(ACCESS_CACHE_PREFIX,key,ACCESS_CACHE_AGE_MS);
     if(cached!==null)return cached;
 
-    const params=new URLSearchParams({
-      geometry:`${lon},${lat}`,
-      geometryType:"esriGeometryPoint",
-      inSR:"4326",
-      spatialRel:"esriSpatialRelIntersects",
-      outFields:"Pub_Access,BndryName,Unit_Nm,MngNm_Desc,ST_Name",
-      returnGeometry:"false",
-      f:"json"
-    });
-
     try{
-      const body=await fetchJson(`${PADUS_QUERY}?${params}`);
-      const features=body.features||[];
-      const open=features.find(feature=>feature.attributes?.Pub_Access==="OA");
-      const closed=features.find(feature=>feature.attributes?.Pub_Access==="XA");
-      const restricted=features.find(feature=>feature.attributes?.Pub_Access==="RA");
-
-      const result=open?{
-        status:"open",
-        boundary:clean(open.attributes?.BndryName || open.attributes?.Unit_Nm),
-        manager:clean(open.attributes?.MngNm_Desc),
-        source:"USGS PAD-US Public Access"
-      }:closed?{
-        status:"closed",
-        boundary:clean(closed.attributes?.BndryName || closed.attributes?.Unit_Nm),
-        source:"USGS PAD-US Public Access"
-      }:restricted?{
-        status:"restricted",
-        boundary:clean(restricted.attributes?.BndryName || restricted.attributes?.Unit_Nm),
-        source:"USGS PAD-US Public Access"
-      }:{
-        status:"unknown",
-        source:"USGS PAD-US Public Access"
+      const baseParams={
+        geometry:`${lon},${lat}`,
+        geometryType:"esriGeometryPoint",
+        inSR:"4326",
+        spatialRel:"esriSpatialRelIntersects",
+        outFields:"Pub_Access,BndryName,Unit_Nm,MngNm_Desc,ST_Name",
+        returnGeometry:"false",
+        resultRecordCount:"200",
+        f:"json"
       };
+      const directBody=await fetchJson(`${PADUS_QUERY}?${new URLSearchParams(baseParams)}`);
+      let result=classifyPadUsFeatures(directBody.features||[],row,"intersects-water-point");
+
+      if(result.status==="unknown"){
+        const nearbyParams=new URLSearchParams({
+          ...baseParams,
+          distance:"16000",
+          units:"esriSRUnit_Meter"
+        });
+        const nearbyBody=await fetchJson(`${PADUS_QUERY}?${nearbyParams}`);
+        result=classifyPadUsFeatures(nearbyBody.features||[],row,"named-nearby");
+      }
 
       cacheWrite(ACCESS_CACHE_PREFIX,key,result);
       return result;
@@ -470,7 +622,7 @@
     if(row.public_access_verified){
       return{
         ...row,
-        access_status:"open",
+        access_status:row.access_status==="restricted"?"restricted":"open",
         public_access_verified:true,
         public_access_note:row.public_access_note||
           "Public fishing access is documented by the listed state or managing agency.",
@@ -478,16 +630,36 @@
       };
     }
 
+    const officialRecord=await officialAccessRecord(row);
+    if(officialRecord){
+      return{
+        ...row,
+        access_status:officialRecord.access_status==="restricted"?"restricted":"open",
+        public_access_verified:true,
+        public_access_note:officialRecord.note,
+        public_access_source:officialRecord.source_name,
+        public_access_source_url:officialRecord.source_url,
+        public_access_method:officialRecord.method||"official-state-access-index",
+        official_url:row.official_url||officialRecord.source_url
+      };
+    }
+
+    const paidCandidate=paidAccessCandidate(row);
+    if(paidCandidate)return paidCandidate;
+
     if(privateSignal(row))return null;
 
     if(explicitPublicSignal(row)){
+      const sourceUrl=clean(row.map_source_url||row.website||row.extratags?.website);
       return{
         ...row,
-        access_status:"open",
-        public_access_verified:true,
-        public_access_note:"Public access is explicitly identified in the map record.",
-        public_access_source:"Public map access record",
-        public_access_method:"explicit-map-access"
+        access_status:"map-candidate",
+        public_access_verified:false,
+        access_check_required:true,
+        public_access_note:"The map record labels this water or its manager as public. FFO has not matched that label to an official shoreline, launch, park, or road-access source; confirm the exact access point and posted rules before traveling.",
+        public_access_source:"Map-listed public access — official confirmation still needed",
+        public_access_source_url:sourceUrl,
+        public_access_method:"explicit-map-access-candidate"
       };
     }
 
@@ -497,17 +669,20 @@
 
     if(access?.status==="open"){
       const details=[access.boundary,access.manager].filter(Boolean).join(" · ");
+      const namedNearby=access.association==="named-nearby";
       return{
         ...row,
-        access_status:"open",
+        access_status:namedNearby?"restricted":"open",
         public_access_verified:true,
-        public_access_note:details
-          ?`Open public land or recreation access is documented here: ${details}.`
-          :"Open public land or recreation access is documented here.",
+        public_access_note:namedNearby
+          ?`USGS PAD-US identifies ${details||"a same-name public recreation area"} near this mapped water. This supports a public access option, but confirm the exact shoreline, entrance, fees, hours, and current park rules before traveling.`
+          :details
+            ?`Open public land or recreation access is documented at the mapped point: ${details}. Confirm the specific shoreline, launch, road, and current site rules.`
+            :"Open public land or recreation access is documented at the mapped point. Confirm the specific shoreline, launch, road, and current site rules.",
         public_access_source:"USGS PAD-US Public Access",
         public_access_source_url:
           "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-        public_access_method:"pad-us-open"
+        public_access_method:namedNearby?"pad-us-named-nearby":"pad-us-open"
       };
     }
 
@@ -552,7 +727,7 @@
 
     return dedupe(output)
       .sort((a,b)=>{
-        const rank={open:3,restricted:2,unknown:1};
+        const rank={open:3,restricted:2,"fee-candidate":2,"map-candidate":1,unknown:1};
         return(rank[b.access_status]||0)-(rank[a.access_status]||0);
       })
       .slice(0,maxResults);
@@ -574,6 +749,8 @@
     if(state&&row.state===state.name)points+=100;
     if(row.access_status==="open")points+=360;
     else if(row.access_status==="restricted")points+=220;
+    else if(row.access_status==="fee-candidate")points+=170;
+    else if(row.access_status==="map-candidate")points+=80;
     else if(row.access_status==="unknown")points+=50;
     if(row.public_access_verified)points+=80;
     if(row.gnis_official)points+=120;
@@ -720,7 +897,7 @@
           :distanceMiles(latitude,longitude,row.lat,row.lon)
       }))
       .sort((a,b)=>{
-        const accessRank={open:3,restricted:2,unknown:1};
+        const accessRank={open:3,restricted:2,"fee-candidate":2,"map-candidate":1,unknown:1};
         const rankDifference=(accessRank[b.access_status]||0)-(accessRank[a.access_status]||0);
         return rankDifference||a.distance_miles-b.distance_miles;
       })
@@ -736,8 +913,8 @@
     states:REGION_STATES.map(state=>state.name),
     public_only:false,
     private_water_filter:true,
-    service_name:"USGS GNIS names + PAD-US access screening",
+    service_name:"Nationwide USGS GNIS names + official state access records + PAD-US screening",
     service_url:"https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-web-services",
-    refreshed_label:"Reliable nearby waters + verified local directory + official sources"
+    refreshed_label:"All-result access checks + official state records + nationwide public-land screening"
   };
 })();
