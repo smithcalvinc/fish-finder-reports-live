@@ -1,11 +1,11 @@
 ﻿county_number,county,public_water_count,waters_with_reports,waters_without_reports,public_access_point_count,county_report_count
 1,Ada,95,8,87,2,5
-2,Adams,277,11,266,4,10
+2,Adams,277,11,266,4,9
 3,Bannock,171,5,166,2,5
 4,Bear Lake,172,9,163,0,6
 5,Benewah,132,6,126,2,4
 6,Bingham,116,8,108,6,7
-7,Blaine,437,35,402,4,44
+7,Blaine,437,35,402,4,43
 8,Boise,604,43,561,3,17
 9,Bonner,346,10,336,15,7
 10,Bonneville,220,14,206,4,9
@@ -14,32 +14,32 @@
 13,Camas,204,10,194,3,5
 14,Canyon,47,8,39,15,10
 15,Caribou,224,22,202,5,14
-16,Cassia,260,19,241,1,11
+16,Cassia,260,18,242,1,10
 17,Clark,212,9,203,1,7
 18,Clearwater,451,28,423,4,15
-19,Custer,1183,49,1134,15,49
+19,Custer,1183,49,1134,15,47
 20,Elmore,585,37,548,1,18
 21,Franklin,97,1,96,9,1
 22,Fremont,186,17,169,8,11
 23,Gem,93,2,91,5,2
 24,Gooding,87,21,66,5,7
-25,Idaho,1831,82,1749,2,57
+25,Idaho,1831,79,1752,2,54
 26,Jefferson,39,1,38,5,1
 27,Jerome,26,0,26,0,0
 28,Kootenai,296,11,285,10,7
 29,Latah,158,12,146,2,6
-30,Lemhi,765,29,736,14,34
-31,Lewis,27,6,21,3,25
+30,Lemhi,765,29,736,14,33
+31,Lewis,27,6,21,3,24
 32,Lincoln,73,2,71,0,3
 33,Madison,54,9,45,3,5
 34,Minidoka,40,0,40,2,0
-35,Nez Perce,95,9,86,3,26
+35,Nez Perce,95,9,86,3,25
 36,Oneida,134,6,128,6,5
 37,Owyhee,592,13,579,3,15
 38,Payette,38,2,36,2,2
 39,Power,96,7,89,3,5
 40,Shoshone,732,18,714,5,14
 41,Teton,99,6,93,4,6
-42,Twin Falls,150,7,143,2,6
-43,Valley,933,38,895,7,32
+42,Twin Falls,150,6,144,2,5
+43,Valley,933,37,896,7,31
 44,Washington,158,6,152,3,5
