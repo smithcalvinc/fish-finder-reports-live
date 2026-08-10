@@ -1,6 +1,6 @@
 {
   "version": "2026.08.10-v1",
-  "generated_at": "2026-08-10T18:39:42Z",
+  "generated_at": "2026-08-10T19:14:14Z",
   "coverage_note": "Water-specific species copied only from exact official government water pages. Empty or failed lookups are not converted into statewide assumptions.",
   "states": {
     "Idaho": [
@@ -33099,6 +33099,988 @@
         "survey_dates": [
           "2003-07-12"
         ]
+      }
+    ],
+    "Washington": [
+      {
+        "name": "Amber Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/amber-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Beaver Lake",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/beaver-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Benson Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/benson-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Big Lake",
+        "aliases": [],
+        "counties": [
+          "Skagit"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/big-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Blue Lake",
+        "aliases": [],
+        "counties": [
+          "Grant"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/blue-lake-grant",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Bonney Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/bonney-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Bosworth Lake",
+        "aliases": [],
+        "counties": [
+          "Snohomish"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/bosworth-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Cady Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/cady-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Carney Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/carney-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clark Pond",
+        "aliases": [],
+        "counties": [
+          "Franklin"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/clark-pond",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clear Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/clear-lake-pierce",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clear Lake",
+        "aliases": [],
+        "counties": [
+          "Skagit"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/clear-lake-skagit",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Clear Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/clear-lake-spokane",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Crescent Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/crescent-lake-pierce",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Crescent Lake",
+        "aliases": [],
+        "counties": [
+          "Snohomish"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/crescent-lake-snohomish",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Deer Lake",
+        "aliases": [],
+        "counties": [
+          "Island"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/deer-lake-island",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Egg Lake",
+        "aliases": [],
+        "counties": [
+          "San Juan"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/egg-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Failor Lake",
+        "aliases": [],
+        "counties": [
+          "Grays Harbor"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/failor-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Haven Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/haven-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Hummel Lake",
+        "aliases": [],
+        "counties": [
+          "San Juan"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/hummel-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Island Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/island-lake-mason",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Jackson Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/jackson-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Kress Lake",
+        "aliases": [],
+        "counties": [
+          "Cowlitz"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/kress-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Armstrong",
+        "aliases": [],
+        "counties": [
+          "Snohomish"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-armstrong",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Desire",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-desire",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Erie",
+        "aliases": [],
+        "counties": [
+          "Skagit"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-erie",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Fazon",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-fazon",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Fenwick",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-fenwick",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Geneva",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-geneva",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Goss",
+        "aliases": [],
+        "counties": [
+          "Island"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-goss",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Kapowsin",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-kapowsin",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake McMurray",
+        "aliases": [],
+        "counties": [
+          "Skagit"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-mcmurray",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Meridian",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-meridian",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Morton",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-morton",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Number 12",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-number-12",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Samish",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-samish",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Sutherland",
+        "aliases": [],
+        "counties": [
+          "Clallam"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-sutherland",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Terrell",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-terrell",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Whatcom",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-whatcom",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lake Whitman",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lake-whitman",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lavender Lake",
+        "aliases": [],
+        "counties": [
+          "Kittitas"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lavender-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Leland Lake",
+        "aliases": [],
+        "counties": [
+          "Jefferson"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/leland-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Liberty Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/liberty-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lone Lake",
+        "aliases": [],
+        "counties": [
+          "Island"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lone-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Long Lake",
+        "aliases": [],
+        "counties": [
+          "Grant"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/long-lake-grant",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Long Lake",
+        "aliases": [],
+        "counties": [
+          "Okanogan"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/long-lake-okanogan",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Lost Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/lost-lake-mason",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Martha Lake",
+        "aliases": [],
+        "counties": [
+          "Grant"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/martha-lake-grant",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Mesa Lake",
+        "aliases": [],
+        "counties": [
+          "Franklin"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/mesa-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Mineral Lake",
+        "aliases": [],
+        "counties": [
+          "Lewis"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/mineral-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Pearrygin Lake",
+        "aliases": [],
+        "counties": [
+          "Okanogan"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/pearrygin-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Phillips Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/phillips-lake-mason",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Plummer Lake",
+        "aliases": [],
+        "counties": [
+          "Lewis"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/plummer-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Rowland Lake",
+        "aliases": [],
+        "counties": [
+          "Klickitat"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/rowland-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Silver Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/silver-lake-spokane",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Silver Lake",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/silver-lake-whatcom",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Spencer Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/spencer-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Squalicum Lake",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/squalicum-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Steel Lake",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/steel-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Sunday Lake",
+        "aliases": [],
+        "counties": [
+          "Snohomish"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/sunday-lake-snohomish",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Swofford Pond",
+        "aliases": [],
+        "counties": [
+          "Lewis"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/swofford-pond",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Tanwax Lake",
+        "aliases": [],
+        "counties": [
+          "Pierce"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/tanwax-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Tee Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/tee-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Toad Lake",
+        "aliases": [],
+        "counties": [
+          "Whatcom"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/toad-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Trails End Lake",
+        "aliases": [],
+        "counties": [
+          "Mason"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/trails-end-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Vancouver Lake",
+        "aliases": [],
+        "counties": [
+          "Clark"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/vancouver-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Wagner Lake",
+        "aliases": [],
+        "counties": [
+          "Snohomish"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/wagner-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "West Medical Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/west-medical-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Wilderness Lake",
+        "aliases": [],
+        "counties": [
+          "King"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/wilderness-lake",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
+      },
+      {
+        "name": "Williams Lake",
+        "aliases": [],
+        "counties": [
+          "Spokane"
+        ],
+        "species": [],
+        "source_name": "Washington Department of Fish and Wildlife",
+        "source_url": "https://wdfw.wa.gov/fishing/locations/lowland-lakes/williams-lake-spokane",
+        "evidence_type": "Exact official state water page",
+        "note": "Fish listed on the linked official page for this exact water; stocking or past survey evidence does not guarantee a current bite.",
+        "status": "no_species_published",
+        "checked_at": "2026-08-10"
       }
     ]
   }
