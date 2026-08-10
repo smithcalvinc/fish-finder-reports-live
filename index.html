@@ -133,6 +133,10 @@
     .result-report-missing{background:#f3f1eb;color:#625f55!important}
     .result-access-summary{display:block!important;margin-top:8px;padding:8px 10px;border-radius:9px;background:#edf5f8;color:#214f66!important;line-height:1.4}
     .result-access-summary b{display:block;color:inherit;font-size:11px;letter-spacing:.02em}
+    .result-species-status{display:block!important;margin-top:8px;padding:8px 10px;border-radius:9px;line-height:1.4}
+    .result-species-status b{display:block;color:inherit;font-size:11px;letter-spacing:.02em}
+    .result-species-found{background:#eef4e6;color:#3f6128!important}
+    .result-species-missing{background:#f4f1e9;color:#645f50!important}
     .access-directory{border:2px solid #7fa3b4;background:linear-gradient(135deg,#f2f8fa,#fffdf8)}
     .access-directory-intro{max-width:900px}
     .access-point-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:15px}
@@ -374,10 +378,11 @@
 </footer>
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
+<script src="official_species_index.js?v=55"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js?v=54"></script>
-<script src="access_point_directory.js?v=54"></script>
-<script src="regional_water_search.js?v=54"></script>
+<script src="official_water_overrides.js?v=55"></script>
+<script src="access_point_directory.js?v=55"></script>
+<script src="regional_water_search.js?v=55"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
 <script src="update_status.js"></script>
@@ -820,7 +825,7 @@ function genericBaitGuide(waterTypeValue){
 }
 function buildBaitSuggestions(report){
   const recent=recentlyReportedSpecies(report.recent_catch_report);
-  const official=officialSpeciesNames(report.official_species);
+  const official=report.species_summary?.names||officialSpeciesNames(report.official_species);
   const raw=[...recent,...official];
   const guides=[];
   const used=new Set();
@@ -1129,6 +1134,114 @@ function officialSpeciesNames(record){
   (record.stocked||[]).forEach(x=>names.push(x.name));
   (record.documented||[]).forEach(x=>names.push(x));
   return [...new Set(names)];
+}
+function canonicalSpeciesState(value){
+  return normalize(value)==="northern california"?"California":String(value||"");
+}
+function findIndexedSpecies(loc){
+  const dataset=window.FFO_OFFICIAL_SPECIES_INDEX||{states:{}};
+  const stateName=canonicalSpeciesState(loc?.state);
+  let rows=dataset.states?.[stateName]||[];
+  if(!rows.length)return null;
+
+  const locationNames=new Set([loc?.name,...(loc?.aliases||[])].map(normalize).filter(Boolean));
+  const displayName=normalize(loc?.display_name);
+  const countyName=normalize(loc?.county);
+  let matches=rows.map(row=>{
+    const names=[row.name,...(row.aliases||[])].map(normalize).filter(Boolean);
+    const exact=names.some(name=>locationNames.has(name));
+    const displayPrefix=!exact&&names.some(name=>displayName===name||displayName.startsWith(name+" "));
+    if(!exact&&!displayPrefix)return null;
+    const countyMatch=countyName&&!(row.counties||[]).length
+      ?false
+      :(row.counties||[]).some(county=>countyName.includes(normalize(county))||normalize(county).includes(countyName));
+    let distance=null;
+    if(Number.isFinite(Number(loc?.lat))&&Number.isFinite(Number(loc?.lon))&&Number.isFinite(Number(row.lat))&&Number.isFinite(Number(row.lon))){
+      distance=miles(Number(loc.lat),Number(loc.lon),Number(row.lat),Number(row.lon));
+    }
+    return{row,score:(exact?500:300)+(countyMatch?120:0)+(distance!==null&&distance<=15?100-Math.round(distance):0),countyMatch,distance};
+  }).filter(Boolean);
+  if(!matches.length)return null;
+  if(countyName&&matches.some(match=>match.countyMatch))matches=matches.filter(match=>match.countyMatch);
+  if(matches.length>1&&matches.some(match=>match.distance!==null&&match.distance<=15))matches=matches.filter(match=>match.distance!==null&&match.distance<=15);
+  if(matches.length>1&&!matches.some(match=>match.distance!==null&&match.distance<=15))return null;
+  matches.sort((a,b)=>b.score-a.score);
+  return matches[0].row;
+}
+function speciesLookupLinks(loc){
+  const stateSource=window.FFO_STATE_SOURCES?.byState?.(canonicalSpeciesState(loc?.state));
+  const query=[loc?.name,canonicalSpeciesState(loc?.state)].filter(Boolean).join(", ");
+  return{
+    official_url:stateSource?window.FFO_STATE_SOURCES.searchUrl(stateSource,loc?.name||""):"",
+    official_label:stateSource?`Search the official ${stateSource.state} fishing directory`:"",
+    google_url:`https://www.google.com/search?q=${encodeURIComponent(`fish species in ${query}`)}`,
+    submit_url:`submit-report.html?water=${encodeURIComponent(loc?.name||"")}&state=${encodeURIComponent(canonicalSpeciesState(loc?.state))}`
+  };
+}
+function speciesNamesFromAgencyReport(report){
+  const replacements={
+    "usually catchable rainbow trout unless the official schedule states otherwise":"Rainbow Trout",
+    "rainbow":"Rainbow Trout","cutthroat":"Cutthroat Trout","muskie tiger":"Tiger Muskie",
+    "bass white":"White Bass","crappie black":"Black Crappie","crappie white":"White Crappie",
+    "grayling arctic":"Arctic Grayling","catchable trout":"Trout — exact species not specified",
+    "all trout":"Trout — exact species not specified"
+  };
+  const names=[];
+  for(const value of recentlyReportedSpecies(report)){
+    for(const part of String(value||"").split(/[,;]/)){
+      const raw=part.trim();if(!raw)continue;
+      const key=raw.toLowerCase();
+      const label=replacements[key]||(/^[a-z\s-]+$|^[A-Z\s-]+$/.test(raw)?raw.toLowerCase().replace(/\b\w/g,char=>char.toUpperCase()):raw);
+      if(label&&!names.some(name=>normalize(name)===normalize(label)))names.push(label);
+    }
+  }
+  return names;
+}
+function speciesSummaryFor(loc,options={}){
+  const links=speciesLookupLinks(loc);
+  const curated=options.official===undefined?findOfficialSpecies(loc):options.official;
+  if(curated){
+    return{
+      status:"documented",specificity:"species",official:true,
+      names:officialSpeciesNames(curated),
+      source_name:curated.agency||"Official fish and wildlife agency",
+      source_url:curated.source_url||"",
+      evidence_label:"Exact official waterbody record",
+      note:"Agency recommendations, surveys, stocking entries, and other documented records remain separate in the source; this list is not a current bite report.",
+      source_checked:curated.source_checked||"",...links
+    };
+  }
+
+  const indexed=findIndexedSpecies(loc);
+  if(indexed){
+    return{
+      status:indexed.specificity==="group"?"documented-group":"documented",
+      specificity:indexed.specificity||"species",official:true,
+      names:[...(indexed.species||[])],source_name:indexed.source_name||"Official fish and wildlife agency",
+      source_url:indexed.source_url||"",evidence_label:indexed.evidence_type||"Official named-water record",
+      note:indexed.note||"Species documented in an official record for this named water; this is not a current bite report.",
+      source_checked:"",...links
+    };
+  }
+
+  const report=options.catchReport;
+  const reportNames=String(report?.report_kind||"").startsWith("official_")?speciesNamesFromAgencyReport(report):[];
+  if(reportNames.length){
+    return{
+      status:"official-report",specificity:reportNames.every(name=>name.includes("exact species not specified"))?"group":"report",official:true,names:reportNames,
+      source_name:report.agency||"Official fish and wildlife agency",source_url:report.source_url||"",
+      evidence_label:"Species named in a dated official fishing report",
+      note:"These fish were named in an agency report for this water. That report may not be a complete species inventory and does not guarantee a current bite.",
+      source_checked:report.published_date||"",...links
+    };
+  }
+
+  return{
+    status:"not-found",specificity:"none",official:false,names:[],source_name:"",source_url:"",
+    evidence_label:"No water-specific species record loaded",
+    note:"FFO did not find a water-specific species record in its current official datasets. Statewide fish lists are intentionally not shown as if they apply to this water.",
+    source_checked:"",...links
+  };
 }
 function reportPublishedAgeDays(value){
   if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;
@@ -1447,6 +1560,7 @@ async function makeReport(loc){
   const profile=findProfile(loc);
   const official=findOfficialSpecies(loc);
   const catchReport=findRecentCatchReport(loc);
+  const speciesSummary=speciesSummaryFor(loc,{official,catchReport});
   const knownAccess=window.FFO_ACCESS_POINTS?.knownForWater?.(loc)||loc.access_points||[];
   const settled=await Promise.allSettled([nws(loc.lat,loc.lon),usgs(loc.lat,loc.lon),tides(loc.lat,loc.lon,type)]);
   const w=settled[0].status==="fulfilled"?settled[0].value:{available:false,current:null,next_12h:{},forecast_periods:[],alerts:[]};
@@ -1460,6 +1574,7 @@ async function makeReport(loc){
   ];
   if(t.available)sources.push({name:"NOAA Tides & Currents",url:t.source_url,kind:"live"});
   if(official)sources.push({name:official.source_label,url:official.source_url,kind:"official-species"});
+  if(speciesSummary.source_url&&!sources.some(source=>source.url===speciesSummary.source_url))sources.push({name:`${speciesSummary.source_name} species evidence`,url:speciesSummary.source_url,kind:"official-species"});
   if(catchReport){
     if(catchReport.report_kind==="community")sources.push({name:"Approved angler report"+(catchReport.agency?` — ${catchReport.agency}`:""),url:"submit-report.html",kind:"community-catch"});
     else sources.push({name:catchReport.agency+" recent catch report",url:catchReport.source_url,kind:"official-catch"});
@@ -1475,7 +1590,7 @@ async function makeReport(loc){
     if(g.finder)sources.push({name:g.agency+" water finder",url:g.finder,kind:"official"});
     if(g.emergency)sources.push({name:g.agency+" emergency rules",url:g.emergency,kind:"official"});
   }
-  const officialNames=officialSpeciesNames(official);
+  const speciesNames=speciesSummary.names;
   const tech=profile?[...profile.tips,...genericTechniques(type,w,u)].slice(0,6):genericTechniques(type,w,u);
   return{
     generated_at:new Date().toISOString(),
@@ -1492,20 +1607,18 @@ async function makeReport(loc){
       official_access_sites:[...(loc.official_access_sites||[])],access_points:knownAccess,
       access_discovery_links:window.FFO_ACCESS_POINTS?.discoveryLinks?.(loc)||[]
     },
-    coverage:{level:official?"Official species match":loc.gnis_official?"Official regional water-name match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official},
-    profile,official_species:official,recent_catch_report:catchReport,
+    coverage:{level:speciesSummary.official?"Official species match":loc.gnis_official?"Official regional water-name match":profile?"Expanded waterbody profile":exp?"Expanded Northwest & Mountain West":"National baseline",expanded:exp,profile:!!profile,official_species:speciesSummary.official,official_name:!!loc.gnis_official},
+    profile,official_species:official,species_summary:speciesSummary,recent_catch_report:catchReport,
     outlook:outlook(w,u,t),
-    confidence:confidence(exp,w,u,t,profile,official),
+    confidence:confidence(exp,w,u,t,profile,speciesSummary.official?speciesSummary:null),
     weather:w,water:u,tides:t,
     regional:{
-      agency:g?.agency||official?.agency||null,
-      common_species:officialNames,
-      species_note:official
-        ?`Exact waterbody record from ${official.agency}; categories are kept separate so a survey or stocking record is not mistaken for a primary game-fish recommendation.`
-        :"No exact official waterbody species record is currently loaded. Statewide species are intentionally not shown."
+      agency:speciesSummary.source_name||g?.agency||official?.agency||null,
+      common_species:speciesNames,
+      species_note:speciesSummary.note
     },
     techniques:tech,sources,
-    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:!!official,official_name:!!loc.gnis_official,public_access:!!loc.public_access_verified,access_status:loc.access_status||"unknown",access_check_required:!!loc.access_check_required,verified_catch_report:!!catchReport,community_catch_report:catchReport?.report_kind==="community"},
+    verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:speciesSummary.official,official_name:!!loc.gnis_official,public_access:!!loc.public_access_verified,access_status:loc.access_status||"unknown",access_check_required:!!loc.access_check_required,verified_catch_report:!!catchReport,community_catch_report:catchReport?.report_kind==="community"},
     disclaimer:"Recent catch figures may come from dated agency reports or manually reviewed angler submissions and may no longer represent today’s bite. Community submissions are not independently verified. The conditions score remains an estimate. Always verify current regulations, closures, access, boating conditions and emergency information before fishing."
   };
 }
@@ -1523,11 +1636,13 @@ $("searchForm").addEventListener("submit",async e=>{
     }
     const townSearch=rows.some(r=>r.town_search);
     const source=stateSourceFor(q,rows);
-    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Each water shows its fishing-report status and any named access points already in FFO. Select a water for the free nationwide ramp, marina, campground, resort, and park lookup.</div>`+rows.map((r,i)=>{
+    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Every water shows its fish-species status, fishing-report status, and any named access points already in FFO. Select a water for sources and live lookup links.</div>`+rows.map((r,i)=>{
       const access=reportAccess(r,{public_access:!!r.public_access_verified,access_status:r.access_status||"unknown"});
       const currentReport=findRecentCatchReport(r),olderReport=currentReport?null:findOfficialReportLink(r);
+      const speciesSummary=speciesSummaryFor(r,{catchReport:currentReport});
       const accessPoints=window.FFO_ACCESS_POINTS?.knownForWater?.(r)||[];
       r.access_points=accessPoints;
+      r.species_summary=speciesSummary;
       const accessClass=access.status==="open"?"local-result":access.status==="restricted"?"gnis-result":"result-water";
       const accessBadge=`<span class="result-badge">${esc(access.title)}</span>`;
       const accessPointNames=accessPoints.slice(0,3).map(point=>point.name);
@@ -1541,11 +1656,16 @@ $("searchForm").addEventListener("submit",async e=>{
         :olderReport
           ?`<span class="result-report-status result-report-older"><b>OLDER OFFICIAL FISHING INFORMATION FOUND.</b> Select this water to open the dated agency source.</span>`
           :`<span class="result-report-status result-report-missing"><b>NO FISHING REPORT FOUND FOR THIS LOCATION.</b> If you have a fishing report, select this water and submit it to FFO.</span>`;
+      const speciesPreview=speciesSummary.names.slice(0,6);
+      const speciesStatus=speciesPreview.length
+        ?`<span class="result-species-status result-species-found"><b>${speciesSummary.specificity==="group"?"AGENCY FISH INFORMATION":"KNOWN FISH SPECIES"} (${speciesSummary.names.length}).</b> ${esc(speciesPreview.join(" · "))}${speciesSummary.names.length>speciesPreview.length?` · +${speciesSummary.names.length-speciesPreview.length} more`:""}. Select this water for the evidence source.</span>`
+        :`<span class="result-species-status result-species-missing"><b>NO WATER-SPECIFIC FISH SPECIES RECORD FOUND.</b> Select this water to check available official and Google sources for this exact location.</span>`;
       return`<button class="result ${accessClass}" data-index="${i}">
         <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
         <span>${esc(access.note)}</span>
         <span class="result-badges">${accessBadge}${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.approved_override?'<span class="result-badge">Approved directory correction</span>':r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official&&!r.local_directory?'<span class="result-badge">USGS official name</span>':""}${r.type==="river"?'<span class="result-badge">Use designated access points</span>':""}</span>
+        ${speciesStatus}
         ${accessPointStatus}
         ${reportStatus}
       </button>`;
@@ -1698,8 +1818,8 @@ function renderAccessPointDirectory(locationData){
 }
 function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v);
-  const officialSourceUrl=r.location.official_url||official?.source_url||"";
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v),speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),sp=speciesSummary.names||[];
+  const officialSourceUrl=r.location.official_url||speciesSummary.source_url||official?.source_url||"";
   const submitUrl=`submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
 
   $("coverageBadge").textContent=officialSourceUrl?"Official source available":"Location match — verify details";
@@ -1731,12 +1851,18 @@ function renderReport(r){
 
   cards.push(renderAccessPointDirectory(r.location));
 
-  if(official&&sp.length)cards.push(`<article class="card full species-summary-card">
-    <div class="eyebrow">Official waterbody record</div>
-    <h3>Documented fish species</h3>
-    <div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>
-    <p class="meta" style="margin-top:11px">${esc(official.agency)}${official.source_checked?` · Source checked ${esc(dateFmt(official.source_checked))}`:""}. Records may include agency recommendations, surveys, or stocking entries.</p>
-    ${official.source_url?`<div class="quick-links" style="margin-top:12px"><a href="${esc(official.source_url)}" target="_blank" rel="noopener">Open the exact official source ↗</a></div>`:""}
+  const speciesLinks=[];
+  const addSpeciesLink=(label,url)=>{if(url&&!speciesLinks.some(link=>link.url===url))speciesLinks.push({label,url});};
+  addSpeciesLink("Open the species evidence source",speciesSummary.source_url);
+  addSpeciesLink(speciesSummary.official_label||"Search the official fishing directory",speciesSummary.official_url);
+  addSpeciesLink("Search Google for species at this exact water",speciesSummary.google_url);
+  addSpeciesLink("Submit a fishing report to FFO",speciesSummary.submit_url||submitUrl);
+  cards.push(`<article class="card full species-summary-card">
+    <div class="eyebrow">${esc(speciesSummary.evidence_label)}</div>
+    <h3>${sp.length?(speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"):"NO WATER-SPECIFIC FISH SPECIES RECORD FOUND."}</h3>
+    ${sp.length?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>`:`<p>FFO did not find a species list tied to this exact water in its current official datasets. That does not mean the water has no fish; it means FFO will not substitute a statewide list or guess.</p><p>If you have a fishing report for this location, submit it to FFO so the species and location information can be reviewed and updated.</p>`}
+    <p class="meta" style="margin-top:11px">${speciesSummary.source_name?`${esc(speciesSummary.source_name)}. `:""}${esc(speciesSummary.note)}</p>
+    <div class="quick-links" style="margin-top:12px">${speciesLinks.map(link=>`<a href="${esc(link.url)}"${/^https?:/i.test(link.url)?' target="_blank" rel="noopener"':""}>${esc(link.label)} ↗</a>`).join("")}</div>
   </article>`);
 
   if(v.forecast){
@@ -1760,7 +1886,7 @@ function renderReport(r){
   const seenLinks=new Set();
   const addOfficialLink=(label,url)=>{if(!url||seenLinks.has(url))return;seenLinks.add(url);officialLinks.push({label,url});};
   addOfficialLink("Official water or access source",access.sourceUrl||r.location.official_url);
-  addOfficialLink("Official species source",official?.source_url);
+  addOfficialLink("Official species source",speciesSummary.source_url||official?.source_url);
   if(g){
     addOfficialLink("Current regulations",g.rules);
     addOfficialLink("Emergency changes",g.emergency);
@@ -1772,7 +1898,7 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],species=r.regional?.common_species||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Updated: ${dateFmt(r.generated_at)}`,
@@ -1789,7 +1915,12 @@ function reportText(r){
     communityReport?`Verification: Manually reviewed by FFO; not independently verified.`:"",
     catchReport?.source_url?`Original report: ${catchReport.source_url}`:"",
     !catchReport?`If you have a fishing report for this location, please submit it to FFO: ${submitUrl}`:"",
-    official&&species.length?`Official waterbody fish record (${official.agency}): ${species.join(", ")}`:"",
+    species.length?`${speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"}${speciesSummary.source_name?` (${speciesSummary.source_name})`:""}: ${species.join(", ")}`:`NO WATER-SPECIFIC FISH SPECIES RECORD FOUND FOR THIS LOCATION.`,
+    `Species evidence note: ${speciesSummary.note}`,
+    speciesSummary.source_url?`Species evidence source: ${speciesSummary.source_url}`:"",
+    speciesSummary.official_url?`Official species lookup: ${speciesSummary.official_url}`:"",
+    speciesSummary.google_url?`Google species lookup: ${speciesSummary.google_url}`:"",
+    speciesSummary.submit_url?`Submit a fishing report to FFO: ${speciesSummary.submit_url}`:"",
     v.forecast?`Live NWS weather: ${c.shortForecast||"Unavailable"}${c.temperature!=null?`, ${c.temperature}°${c.temperatureUnit||"F"}`:""}${c.windSpeed?`, wind ${c.windSpeed} ${c.windDirection||""}`:""}`:"",
     v.forecast&&n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",
     alerts.length?`Active weather alerts: ${alerts.map(a=>a.event||a.headline||"Weather alert").join("; ")}`:"",
@@ -2007,6 +2138,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=54"></script>
-<script src="pwa.js?v=54"></script></body>
+<script src="brand-shell.js?v=55"></script>
+<script src="pwa.js?v=55"></script></body>
 </html>

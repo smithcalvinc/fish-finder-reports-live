@@ -502,7 +502,7 @@
         resolve(window.FFO_OFFICIAL_ACCESS_INDEX||null);
       };
       const timeout=setTimeout(finish,8000);
-      script.src="official_access_index.js?v=54";
+      script.src="official_access_index.js?v=55";
       script.async=true;
       script.onload=finish;
       script.onerror=finish;
