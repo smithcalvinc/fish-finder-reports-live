@@ -126,6 +126,11 @@
     .source-stamp.warn{background:#fff0c9;color:#77591b}
     .result-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
     .result-badge{display:inline-flex;padding:3px 7px;border-radius:999px;background:#eef3ef;color:#426057;font-size:10px;font-weight:850}
+    .result-report-status{display:block!important;margin-top:8px;padding:8px 10px;border-radius:9px;line-height:1.4}
+    .result-report-status b{display:block;color:inherit;font-size:11px;letter-spacing:.02em}
+    .result-report-found{background:#e8f3ed;color:#1b624e!important}
+    .result-report-older{background:#fff3cf;color:#765716!important}
+    .result-report-missing{background:#f3f1eb;color:#625f55!important}
     @media(max-width:760px){
       .search-panel{padding:16px;border-radius:18px}
       .search-row button{width:100%;min-height:48px}
@@ -290,7 +295,7 @@
 <div class="report-head">
 <div><span class="badge" id="coverageBadge"></span><h2 id="reportTitle"></h2><div class="meta" id="generated"></div></div>
 <div class="report-actions"><button class="primary share-water-action" id="shareWater" type="button">Share This Water</button><button class="secondary" id="favoriteLocation">☆ Save Water</button><button class="secondary" id="copySummary">Copy Report Text</button><button class="secondary" id="copyLink">Copy Report Link</button><button class="secondary" onclick="window.print()">Print</button></div>
-</div><section class="report-next-actions" id="reportNextActions"><div><span class="eyebrow">Help keep this water useful</span><h3>Share it, report conditions, or correct the directory.</h3></div><div class="report-next-buttons"><a href="submit-report.html" id="submitThisWater">Submit a Fishing Report</a><a href="report-water.html" id="correctThisWater">Correct This Water</a><button data-install-ffo-app="" id="installFromReport" type="button">Install the App</button></div></section>
+</div><section class="report-next-actions" id="reportNextActions"><div><span class="eyebrow">Fishing report updates</span><h3>Have a fishing report for this location?</h3></div><div class="report-next-buttons"><a href="submit-report.html" id="submitThisWater">Submit a Fishing Report</a><a href="report-water.html" id="correctThisWater">Correct This Water</a><button data-install-ffo-app="" id="installFromReport" type="button">Install the App</button></div></section>
 <div class="grid" id="reportGrid"></div>
 </section>
 </main>
@@ -1066,36 +1071,72 @@ function officialSpeciesNames(record){
   (record.documented||[]).forEach(x=>names.push(x));
   return [...new Set(names)];
 }
+function reportPublishedAgeDays(value){
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(value||""))return null;
+  const publishedDate=new Date(value+"T00:00:00Z"),published=publishedDate.getTime();
+  if(!Number.isFinite(published)||publishedDate.toISOString().slice(0,10)!==value)return null;
+  const today=new Date(Date.now());
+  const todayUtc=Date.UTC(today.getUTCFullYear(),today.getUTCMonth(),today.getUTCDate());
+  return (todayUtc-published)/86400000;
+}
 function isPublishableAgencyReport(report){
   if(!report||report.review_required||report.source_status==="unreachable")return false;
   if(!String(report.report_kind||"").startsWith("official_"))return false;
-  if(!report.agency||!report.source_url||!/^\d{4}-\d{2}-\d{2}$/.test(report.published_date||""))return false;
-  const publishedDate=new Date(report.published_date+"T00:00:00Z");
-  const published=publishedDate.getTime();
-  if(!Number.isFinite(published)||publishedDate.toISOString().slice(0,10)!==report.published_date)return false;
-  const today=new Date(Date.now());
-  const todayUtc=Date.UTC(today.getUTCFullYear(),today.getUTCMonth(),today.getUTCDate());
-  const ageDays=(todayUtc-published)/86400000;
+  if(!report.agency||!report.source_url)return false;
+  const ageDays=reportPublishedAgeDays(report.published_date);
+  if(ageDays===null)return false;
   return ageDays>=0&&ageDays<=120&&report.freshness_status!=="stale";
 }
-function findRecentCatchReport(loc){
-  const official=window.FFO_RECENT_REPORTS||{reports:[]};
-  const dataset=(official.reports||[]).filter(isPublishableAgencyReport);
-  const haystack=normalize((loc.name||"")+" "+(loc.display_name||""));
-  const matches=dataset.filter(row=>{
-    if(row.state!==(loc.state||""))return false;
-    return (row.names||[]).some(name=>{
-      const needle=normalize(name);
-      return haystack===needle||haystack.startsWith(needle+" ")||haystack.includes(needle);
-    });
+function isPublishableCommunityReport(report){
+  if(!report||report.report_kind!=="community"||report.review_required)return false;
+  if(!report.approved_at||report.source_status!=="community-reviewed")return false;
+  const ageDays=reportPublishedAgeDays(report.published_date);
+  return ageDays!==null&&ageDays>=0&&ageDays<=120&&report.freshness_status!=="stale";
+}
+function isDisplayableFishingReport(report){
+  return isPublishableAgencyReport(report)||isPublishableCommunityReport(report);
+}
+function isLinkableAgencyReport(report){
+  if(!report||report.review_required||report.source_status==="unreachable")return false;
+  if(!String(report.report_kind||"").startsWith("official_"))return false;
+  if(!report.agency||!report.source_url)return false;
+  const ageDays=reportPublishedAgeDays(report.published_date);
+  return ageDays!==null&&ageDays>=0;
+}
+function reportMatchesLocation(report,loc){
+  const reportState=normalize(report?.state)==="northern california"?"california":normalize(report?.state);
+  const locationState=normalize(loc?.state)==="northern california"?"california":normalize(loc?.state);
+  if(reportState!==locationState)return false;
+  const haystack=normalize((loc?.name||"")+" "+(loc?.display_name||""));
+  return (report?.names||[]).some(name=>{
+    const needle=normalize(name);
+    return needle&&(haystack===needle||haystack.startsWith(needle+" ")||haystack.includes(needle));
   });
-  if(!matches.length)return null;
+}
+function newestMatchingReport(loc,dataset){
+  const matches=(dataset||[]).filter(report=>reportMatchesLocation(report,loc));
   matches.sort((a,b)=>{
     const dateDiff=new Date(b.published_date)-new Date(a.published_date);
     if(dateDiff!==0)return dateDiff;
+    const officialA=String(a.report_kind||"").startsWith("official_");
+    const officialB=String(b.report_kind||"").startsWith("official_");
+    if(officialA!==officialB)return officialA?-1:1;
     return Math.max(...(b.names||[""]).map(x=>normalize(x).length))-Math.max(...(a.names||[""]).map(x=>normalize(x).length));
   });
-  return matches[0];
+  return matches[0]||null;
+}
+function findRecentCatchReport(loc){
+  const official=window.FFO_RECENT_REPORTS||{reports:[]};
+  const community=window.FFO_COMMUNITY_REPORTS||{reports:[]};
+  const dataset=[
+    ...(official.reports||[]).filter(isPublishableAgencyReport),
+    ...(community.reports||[]).filter(isPublishableCommunityReport)
+  ];
+  return newestMatchingReport(loc,dataset);
+}
+function findOfficialReportLink(loc){
+  const official=window.FFO_RECENT_REPORTS||{reports:[]};
+  return newestMatchingReport(loc,(official.reports||[]).filter(isLinkableAgencyReport));
 }
 
 function recentlyReportedSpecies(report){
@@ -1386,13 +1427,22 @@ $("searchForm").addEventListener("submit",async e=>{
     const source=stateSourceFor(q,rows);
     $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Official geographic names fill gaps. Check the access badge and posted signs before fishing.</div>`+rows.map((r,i)=>{
       const access=reportAccess(r,{public_access:!!r.public_access_verified,access_status:r.access_status||"unknown"});
+      const currentReport=findRecentCatchReport(r),olderReport=currentReport?null:findOfficialReportLink(r);
       const accessClass=access.status==="open"?"local-result":access.status==="restricted"?"gnis-result":"result-water";
       const accessBadge=`<span class="result-badge">${esc(access.title)}</span>`;
+      const reportStatus=currentReport
+        ?currentReport.report_kind==="community"
+          ?`<span class="result-report-status result-report-found"><b>FFO ANGLER REPORT FOUND.</b> Manually reviewed submission dated ${esc(dateFmt(currentReport.published_date))}. Select this water to read it.</span>`
+          :`<span class="result-report-status result-report-found"><b>FISHING REPORT INFORMATION FOUND.</b> ${esc(currentReport.agency)} · ${esc(dateFmt(currentReport.published_date))}. Select this water to open the report and source.</span>`
+        :olderReport
+          ?`<span class="result-report-status result-report-older"><b>OLDER OFFICIAL FISHING INFORMATION FOUND.</b> Select this water to open the dated agency source.</span>`
+          :`<span class="result-report-status result-report-missing"><b>NO FISHING REPORT FOUND FOR THIS LOCATION.</b> If you have a fishing report, select this water and submit it to FFO.</span>`;
       return`<button class="result ${accessClass}" data-index="${i}">
         <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
         <span>${esc(access.note)}</span>
         <span class="result-badges">${accessBadge}${r.nearby_public?`<span class="result-badge">Near ${esc(r.nearby_town_label||"town")}</span>`:""}${r.approved_override?'<span class="result-badge">Approved directory correction</span>':r.local_directory?'<span class="result-badge">State-agency listing</span>':""}${r.gnis_official&&!r.local_directory?'<span class="result-badge">USGS official name</span>':""}${r.type==="river"?'<span class="result-badge">Use designated access points</span>':""}</span>
+        ${reportStatus}
       </button>`;
     }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
@@ -1451,19 +1501,35 @@ function reportAccess(locationData,verification){
 }
 function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isPublishableAgencyReport(rawCatchReport)?rawCatchReport:null,catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v);
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],sp=(r.regional||{}).common_species||[],cards=[],g=GUIDES[r.location.state],v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v);
   const officialSourceUrl=r.location.official_url||official?.source_url||"";
+  const submitUrl=`submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
 
   $("coverageBadge").textContent=officialSourceUrl?"Official source available":"Location match — verify details";
-  $("generated").textContent="Updated "+dateFmt(r.generated_at)+" · "+(catchReport?"Dated agency record: "+catchAge.label:"No recent dated agency record found");
+  $("generated").textContent="Updated "+dateFmt(r.generated_at)+" · "+(catchReport?(communityReport?"Dated FFO angler report: ":"Dated agency record: ")+catchAge.label:olderReport?"Older official report link available":"No fishing report found");
 
   cards.push(`<article class="card full official-record"><div class="eyebrow">Fishing access</div><h3>${esc(access.title)}</h3><p>${esc(access.note)}</p>${access.sourceUrl?`<div class="quick-links"><a href="${esc(access.sourceUrl)}" target="_blank" rel="noopener">Open the official source ↗</a></div>`:""}</article>`);
 
   if(catchReport)cards.push(`<article class="card full catch-report">
-    <div class="catch-header"><div><div class="eyebrow">Dated official agency record</div><h3 class="catch-headline">${esc(catchReport.headline)}</h3><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period||dateFmt(catchReport.published_date))}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span></div></div></div>
+    <div class="catch-header"><div><div class="eyebrow">${communityReport?"Manually reviewed FFO angler report":"Dated official agency record"}</div><h3 class="catch-headline">${esc(catchReport.headline)}</h3><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period||dateFmt(catchReport.published_date))}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span></div></div></div>
     ${(catchReport.catches||[]).length?`<div class="catch-grid">${catchReport.catches.map(x=>`<div class="catch-item"><span>${esc(x.species)}</span><b>${esc(x.metric)}</b><span>${esc(x.detail||"")}</span></div>`).join("")}</div>`:""}
-    ${(catchReport.conditions||[]).length?`<div class="species-section"><h4>Agency notes</h4>${list(catchReport.conditions)}</div>`:""}
-    <div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the original agency record ↗</a></div></div>
+    ${(catchReport.conditions||[]).length?`<div class="species-section"><h4>${communityReport?"Angler notes":"Agency notes"}</h4>${list(catchReport.conditions)}</div>`:""}
+    ${communityReport
+      ?`<div class="official-record"><strong>${esc(catchReport.agency||"Community angler")}</strong><span class="meta">Fishing date ${esc(dateFmt(catchReport.published_date))}</span>${catchReport.photo_url?`<div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.photo_url)}" target="_blank" rel="noopener">View submitted photo ↗</a></div>`:""}<p class="disclaimer">This submission was manually reviewed by FFO but was not independently verified.</p></div>`
+      :`<div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the original agency record ↗</a></div></div>`}
+  </article>`);
+
+  if(!catchReport&&olderReport)cards.push(`<article class="card full no-catch-report">
+    <div class="eyebrow">Fishing report status</div><h3>Older official fishing information available</h3>
+    <p>No current fishing report matched this location, but FFO found an older dated agency record. It may no longer describe present fishing conditions, so it is provided as a source link only.</p>
+    <div class="quick-links"><a href="${esc(olderReport.source_url)}" target="_blank" rel="noopener">Open the older ${esc(olderReport.agency)} record ↗</a>${g?.report?`<a href="${esc(g.report)}" target="_blank" rel="noopener">Check current ${esc(g.agency)} fishing information ↗</a>`:""}<a href="${esc(submitUrl)}">Submit a current fishing report to FFO ↗</a></div>
+  </article>`);
+
+  if(!catchReport&&!olderReport)cards.push(`<article class="card full no-catch-report">
+    <div class="eyebrow">Fishing report status</div><h3>NO FISHING REPORT FOUND FOR THIS LOCATION.</h3>
+    <p>FFO did not find a current or older fishing report matching this water in the report sources it checks.</p>
+    <p>If you have a fishing report for this location, please submit it to FFO so the location information can be updated.</p>
+    <div class="quick-links">${g?.report?`<a href="${esc(g.report)}" target="_blank" rel="noopener">Check ${esc(g.agency)} fishing information ↗</a>`:""}<a href="${esc(submitUrl)}">Submit a Fishing Report to FFO ↗</a></div>
   </article>`);
 
   if(official&&sp.length)cards.push(`<article class="card full species-summary-card">
@@ -1507,15 +1573,17 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],species=r.regional?.common_species||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isPublishableAgencyReport(rawCatchReport)?rawCatchReport:null,g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v);
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],species=r.regional?.common_species||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=GUIDES[r.location.state],v=r.verification||{},access=reportAccess(r.location,v),submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
     `Updated: ${dateFmt(r.generated_at)}`,
     `Access: ${access.title}. ${access.note}`,
     access.sourceUrl?`Official water or access source: ${access.sourceUrl}`:"",
-    catchReport?`Dated official agency record (${catchReport.report_period||dateFmt(catchReport.published_date)}): ${catchReport.headline}`:`Dated official agency record: No recent record matched this water.`,
+    catchReport?`${communityReport?"Manually reviewed FFO angler report":"Dated official agency record"} (${catchReport.report_period||dateFmt(catchReport.published_date)}): ${catchReport.headline}`:olderReport?`No current fishing report matched this water. Older official record: ${olderReport.source_url}`:`NO FISHING REPORT FOUND FOR THIS LOCATION.`,
     catchReport?`Report details: ${(catchReport.catches||[]).map(x=>`${x.species}: ${x.metric}`).join("; ")}`:"",
+    communityReport?`Verification: Manually reviewed by FFO; not independently verified.`:"",
     catchReport?.source_url?`Original report: ${catchReport.source_url}`:"",
+    !catchReport?`If you have a fishing report for this location, please submit it to FFO: ${submitUrl}`:"",
     official&&species.length?`Official waterbody fish record (${official.agency}): ${species.join(", ")}`:"",
     v.forecast?`Live NWS weather: ${c.shortForecast||"Unavailable"}${c.temperature!=null?`, ${c.temperature}°${c.temperatureUnit||"F"}`:""}${c.windSpeed?`, wind ${c.windSpeed} ${c.windDirection||""}`:""}`:"",
     v.forecast&&n.max_precip_percent!=null?`Maximum rain chance next 12 hours: ${fmt(n.max_precip_percent)}%`:"",

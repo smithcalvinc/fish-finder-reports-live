@@ -676,10 +676,12 @@
     body.ffo-focused-results #report-search > .regional-coverage,
     body.ffo-focused-results #report-search > .legend,
     body.ffo-focused-results #report-search #nearMe,
-    body.ffo-focused-results #reportNextActions,
     body.ffo-focused-results #report .report-actions button:not(#shareWater):not(#favoriteLocation){
       display:none!important;
     }
+    body.ffo-focused-results #reportNextActions{display:flex!important}
+    body.ffo-focused-results #reportNextActions #correctThisWater,
+    body.ffo-focused-results #reportNextActions #installFromReport{display:none!important}
     body.ffo-focused-results #report-search .search-row{
       grid-template-columns:minmax(0,1fr) auto auto;
     }
