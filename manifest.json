@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Fish Finder Outdoors Fishing Reports",
-  "short_name": "FFO Reports",
-  "description": "Search fishing waters near a town, check official state sources, and view reviewed angler reports.",
+  "name": "Fish Finder Outdoors Location Finder",
+  "short_name": "FFO Finder",
+  "description": "Find public fishing locations with maps, weather, known fish species, access information, and nearby camping, boat launches, and day-use areas.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

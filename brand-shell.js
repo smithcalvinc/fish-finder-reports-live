@@ -1,7 +1,17 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
-  const stateLinks=[['idaho-county-reports.html','Idaho County Reports'],['montana-county-reports.html','Montana County Reports'],['utah-county-reports.html','Utah County Reports'],['colorado-county-reports.html','Colorado County Reports'],['wyoming-county-reports.html','Wyoming County Reports']];
+  const stateLinks=[
+    ['idaho-county-reports.html','Idaho Locations'],
+    ['montana-county-reports.html','Montana Locations'],
+    ['wyoming-county-reports.html','Wyoming Locations'],
+    ['utah-county-reports.html','Utah Locations'],
+    ['nevada-county-reports.html','Nevada Locations'],
+    ['oregon-county-reports.html','Oregon Locations'],
+    ['washington-county-reports.html','Washington Locations'],
+    ['northern-california-county-reports.html','N. California Locations'],
+    ['colorado-county-reports.html','Colorado Locations']
+  ];
 
 
   function cleanEscapedReportMarkupText(value){
@@ -136,6 +146,8 @@
   const currentPage=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 
   if(nav){
+    nav.querySelectorAll('a[href="index.html"]').forEach(link=>{link.textContent='Fishing Locations';});
+    nav.querySelectorAll('a[href="report-water.html"]').forEach(link=>{link.textContent='Add or Correct a Location';});
     const submit=nav.querySelector('a[href="submit-report.html"]');
     const reusable=new Map();
     stateLinks.forEach(([href])=>{
@@ -179,6 +191,40 @@
 
   const reportPageState=COUNTY_REPORT_STATES[currentPage];
   if(reportPageState){
+    document.title=`${reportPageState} Fishing Locations | Fish Finder Outdoors`;
+    const descriptionMeta=document.querySelector('meta[name="description"]');
+    if(descriptionMeta)descriptionMeta.content=`Search publicly accessible fishing locations, maps, facilities, known species and optional dated reports across ${reportPageState}.`;
+
+    document.querySelectorAll('a[href="index.html"]').forEach(link=>{link.textContent='Fishing Locations';});
+    document.querySelectorAll('a[href="report-water.html"]').forEach(link=>{link.textContent='Add or Correct a Location';});
+    const betaBar=document.querySelector('.ffo-beta-bar');
+    const betaText=[...(betaBar?.childNodes||[])].find(node=>node.nodeType===Node.TEXT_NODE);
+    if(betaText)betaText.nodeValue='PUBLIC FISHING LOCATION DIRECTORY • DATED REPORTS SHOWN WHEN AVAILABLE • VERIFY ACCESS • ';
+
+    const hero=document.querySelector('.hero');
+    const stateName=reportPageState==='Northern California'?'Northern California':reportPageState;
+    const heroKicker=hero?.querySelector('.kicker');
+    const heroTitle=hero?.querySelector('h1');
+    const heroDescription=hero?.querySelector('p');
+    if(heroKicker)heroKicker.textContent=`${stateName} fishing location directory`;
+    if(heroTitle)heroTitle.textContent='Public fishing locations, county by county.';
+    if(heroDescription)heroDescription.textContent=`Search publicly accessible lakes, reservoirs, ponds, rivers, creeks and streams across ${stateName}. Open a location for maps, access details, known species, nearby amenities and an optional dated fishing report.`;
+    hero?.querySelectorAll('.top-links a').forEach(link=>{
+      if(link.getAttribute('href')==='index.html')link.textContent='← Main location finder';
+      if(link.getAttribute('href')==='report-water.html')link.textContent='Add or correct a location';
+    });
+
+    const reportOnlyFilter=document.getElementById('currentOnly');
+    reportOnlyFilter?.closest('.check')?.remove();
+    const waterSearchLabel=document.querySelector('label[for="waterSearch"]');
+    if(waterSearchLabel)waterSearchLabel.textContent='Water or species keyword';
+    document.querySelectorAll('.ffo-footer-title').forEach(title=>{
+      if((title.textContent||'').trim()==='Reports')title.textContent='Locations';
+    });
+    document.querySelectorAll('.ffo-footer-brand span span').forEach(tagline=>{
+      if(/beginner\s+friendly/i.test(tagline.textContent||''))tagline.textContent='Western fishing locations and access information.';
+    });
+
     const reportLinkStyle=document.createElement('style');
     reportLinkStyle.id='ffo-state-report-link-styles';
     reportLinkStyle.textContent=`
@@ -187,6 +233,7 @@
       .water-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
       .full-report-link{display:inline-flex;align-items:center;padding:10px 13px;border-radius:11px;background:#1f4d3a;color:#fff!important;text-decoration:none;font-weight:850}
       .full-report-link:hover{filter:brightness(1.08)}
+      .water-card .chip.current,.water-card .chip.recent,.water-card .chip.stale,.water-card .chip.none{display:none}
     `;
     if(!document.getElementById(reportLinkStyle.id))document.head.appendChild(reportLinkStyle);
 
@@ -224,7 +271,7 @@
       }
       titleLink.classList.add('water-title-link');
       titleLink.href=href;
-      titleLink.title=`Open the full fishing report for ${waterName}`;
+      titleLink.title=`Open fishing location details for ${waterName}`;
 
       let actions=card.querySelector('.water-actions');
       if(!actions){
@@ -236,10 +283,20 @@
       if(!button){
         button=document.createElement('a');
         button.className='full-report-link';
-        button.textContent='Open full fishing report →';
+        button.textContent='Open location details →';
         actions.appendChild(button);
       }
       button.href=href;
+
+      const datedInfoBox=[...card.querySelectorAll('.details .box')].find(box=>{
+        const title=box.querySelector('h3')?.textContent||'';
+        return /(latest|recent|report|matched|official information)/i.test(title)&&!/access/i.test(title);
+      });
+      const datedInfoTitle=datedInfoBox?.querySelector('h3');
+      if(datedInfoTitle)datedInfoTitle.textContent='Last dated fishing information (when available)';
+      card.querySelectorAll('.muted').forEach(note=>{
+        if(/^no (?:recent|current).*?(?:report|update|record)/i.test((note.textContent||'').trim()))note.textContent='Information not currently known. No dated fishing report has been matched to this location.';
+      });
     };
 
     const enhanceAllWaterCards=root=>{
@@ -256,7 +313,7 @@
 
   if(currentPage!=='index.html')return;
 
-  document.title='Find Fishing Waters | Fish Finder Outdoors';
+  document.title='Fishing Location Finder | Fish Finder Outdoors';
 
   /*
    * Safety gate: the original function generated bait/lure ideas from species,
@@ -419,15 +476,15 @@
     const intro=document.createElement('section');
     intro.className='ffo-human-intro';
     intro.innerHTML=`
-      <span class="ffo-byline">A note from Chris in Pocatello, Idaho</span>
-      <h1>Find the water first. Check the facts before you go.</h1>
-      <p>I built Fish Finder Outdoors because fishing information is scattered across agency sites, maps, and old social posts. Search a water or town below. The results separate official agency information, dated angler reports, and weather-based estimates so you can see what each claim is based on.</p>
+      <span class="ffo-byline">Fish Finder Outdoors · Powered by Mountain Dog Enterprises</span>
+      <h1>Fishing Location Finder</h1>
+      <p>Search a water or town below. Each location brings together available public-access evidence, a map, live weather, known fish species, camping, boat launches, day-use areas within five miles, and the last dated fishing report when one exists.</p>
       <p class="ffo-human-safety"><strong>Legal-method rule:</strong> FFO will not recommend bait, lures, flies, hooks, or presentations unless the exact water's current rules have been verified from the responsible state agency.</p>
     `;
     main.insertBefore(intro,search);
 
     const sectionLabel=search.querySelector(':scope > .ffo-section-label');
-    if(sectionLabel)sectionLabel.textContent='Built in Pocatello by an Idaho angler';
+    if(sectionLabel)sectionLabel.textContent='Nine-state public fishing location directory';
 
     const panel=search.querySelector('.ffo-beta-panel');
     if(panel){
@@ -435,7 +492,7 @@
     }
 
     const proof=search.querySelector('.tool-proof-line');
-    if(proof)proof.textContent='Official agency links • Dated angler reports • Legal methods withheld until verified';
+    if(proof)proof.textContent='15,501 official access records • Maps & weather • Five-mile facilities • Optional dated reports';
 
     const hint=search.querySelector('.hint');
     if(hint)hint.textContent='Town searches look roughly 50 miles. Always open the official source and verify current access, regulations, emergency changes, and posted signs before traveling.';
@@ -467,7 +524,7 @@
       const dot=pill.querySelector('.dot');
       pill.replaceChildren();
       if(dot)pill.appendChild(dot);
-      pill.appendChild(document.createTextNode(' Weather-based estimate (not a report)'));
+      pill.appendChild(document.createTextNode(' Weather-based planning information'));
     }
   });
 
@@ -478,8 +535,8 @@
     const paragraphs=seo.querySelectorAll(':scope .ffo-seo-inner > div:first-child p');
     if(label)label.textContent='How the search works';
     if(heading)heading.textContent='What the search checks—and what it cannot promise.';
-    if(paragraphs[0])paragraphs[0].textContent='The tool checks managed water records, official state directories, available measurements, and reviewed angler reports. Each type of information is labeled so you can judge it for yourself.';
-    if(paragraphs[1])paragraphs[1].textContent='No search can guarantee public shoreline access, current road conditions, legal tackle, or whether fish are biting. FFO withholds method recommendations unless the exact water rule has been verified.';
+    if(paragraphs[0])paragraphs[0].textContent='The finder checks managed-water records, official state directories, available maps, live weather, known species records, and nearby recreation facilities. A dated fishing report is shown only when one exists.';
+    if(paragraphs[1])paragraphs[1].textContent='No directory can guarantee every shoreline, current road condition, or open facility. Unknown details are labeled, and anglers should verify the official source and posted signs before traveling.';
   }
 
   const parseLocation=()=>{
@@ -680,7 +737,6 @@
       display:none!important;
     }
     body.ffo-focused-results #reportNextActions{display:flex!important}
-    body.ffo-focused-results #reportNextActions #correctThisWater,
     body.ffo-focused-results #reportNextActions #installFromReport{display:none!important}
     body.ffo-focused-results #report-search .search-row{
       grid-template-columns:minmax(0,1fr) auto auto;

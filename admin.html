@@ -40,8 +40,8 @@
 <button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
 <nav aria-label="Fish Finder Outdoors" class="ffo-nav">
 <a href="https://www.fishfinderoutdoors.com">Home</a>
-<a href="https://www.fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
-<a href="index.html">Fishing Reports</a>
+<a href="https://www.fishfinderoutdoors.com">Fishing Guides</a>
+<a href="index.html">Fishing Locations</a>
 <a href="https://www.fishfinderoutdoors.com/#trout">Trout</a>
 <a href="https://www.fishfinderoutdoors.com/#bass">Bass</a>
 <a href="https://www.fishfinderoutdoors.com/#panfish">Panfish</a>
@@ -52,7 +52,7 @@
 </div>
 </header>
 <div class="ffo-beta-bar">PRIVATE TOOL • Fish Finder Outdoors report management</div>
-<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Private management area</div><h1>Report approval dashboard</h1><p class="lede">Review report sources, approve emailed catch reports, and manage missing or private water corrections.</p><div class="actions"><a class="button secondary" href="index.html">← Report generator</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open water-correction form</a><a class="button primary hidden" id="actionsLink" rel="noopener" target="_blank">Open GitHub Actions</a></div></div></header>
+<header><div class="wrap"><strong>🎣 Fish Finder Outdoors</strong><div class="ffo-kicker" style="color:#1F4D3A;background:rgba(31,77,58,.08);border:1px solid rgba(31,77,58,.12)"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/>Private management area</div><h1>Location and report approval dashboard</h1><p class="lede">Review submitted locations and corrections, approve emailed catch reports, and run deliberate manual data refreshes.</p><div class="actions"><a class="button secondary" href="index.html">← Location finder</a><a class="button secondary" href="submit-report.html">Open catch form</a><a class="button secondary" href="report-water.html">Open location-correction form</a><a class="button primary hidden" id="actionsLink" rel="noopener" target="_blank">Open GitHub Actions</a></div></div></header>
 <main class="wrap">
 <section class="panel"><div class="summary" id="summary"></div><p class="meta" id="lastRun"></p></section>
 <section class="panel"><div class="actions"><label>Search <input id="sourceSearch" placeholder="Water, agency or status" style="min-width:220px"/></label><label>Show <select id="filter"><option value="all">All reports</option><option value="review">Review required</option><option value="stale">Stale</option><option value="aging">Aging</option><option value="unreachable">Source unreachable</option><option value="current">Current</option></select></label><button class="secondary" id="exportReview">Export review queue</button><button class="secondary" id="exportSubmissions">Export local submissions</button></div></section>

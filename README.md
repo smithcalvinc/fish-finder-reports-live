@@ -1,93 +1,69 @@
-# Fish Finder Outdoors — State-Agency-First Directory Build
+# Fish Finder Outdoors — Fishing Location Finder
 
-This is the proper regional beta architecture.
+Fish Finder Outdoors is a location-first directory for publicly accessible fishing waters in nine western states. It is designed for all anglers. Fishing reports are optional historical context, not the product's main focus.
 
-## Search hierarchy
+## Current coverage
 
-1. Approved state-agency and local verified records
-2. Approved missing-water corrections
-3. Official USGS geographic water names
-4. Map fallback records with access warnings
-5. Direct link to the correct official state fishing directory
+The bundled official-access snapshot was assembled on August 10, 2026 and contains 15,501 named location records:
 
-The search no longer treats one national access dataset as a complete fishing directory.
-The generated state-agency access index is searched directly; a water no longer
-depends on GNIS or a map provider returning the same name first. Compact water
-spellings such as `Clearlake` and `LakeOroville` are expanded before nationwide
-name lookup. Official records without coordinates remain searchable and never
-produce a false map marker at `0,0`.
+| Region | Records |
+| --- | ---: |
+| Idaho | 12,096 |
+| Montana | 739 |
+| Wyoming | 468 |
+| Utah | 860 |
+| Nevada | 26 |
+| Oregon | 52 |
+| Washington | 176 |
+| Northern California | 57 |
+| Colorado | 1,027 |
 
-## Sustainable correction workflow
+The directory searches imported state-agency and other public-access records first. Records without dependable coordinates remain searchable, but the app does not invent a map marker or substitute `0,0`.
+
+## What each location can show
+
+- Location map and directions when dependable coordinates are known
+- Current weather when a mapped location is opened and the weather service responds
+- Known fish species tied to the named water
+- Camping, boat launches, day-use areas and public shoreline access at the location or within five miles
+- The newest approved fishing report and its original report date, when one exists
+- Official source and regulation links when available
+
+Missing data is stated plainly as **Information not currently known.**
+
+Live weather and nearby amenity lookups happen only when a visitor opens a location. They do not rewrite the stored location or report data.
+
+## Fishing-report policy
+
+Visitors can submit reports through `submit-report.html`. Submissions are reviewed before publication. Once approved, a report remains available as that location's last dated report until a newer approved report replaces it. The app does not create placeholder reports, change report dates or remove a valid report merely because it is old.
+
+Approved reports live in `community_fishing_reports.js`. Agency report snapshots can remain in `recent_fishing_reports.js` as dated historical information.
+
+## Add or correct a location
 
 Visitors can use `report-water.html` to report:
 
-- A missing public fishing water
+- A missing publicly accessible fishing water
 - A private or closed water shown in search
-- Wrong access information
-- Wrong name or map location
+- Wrong public-access or facility information
+- An incorrect name, water type or map location
 
-In `admin.html`, paste the correction email, resolve or edit coordinates, then approve it.
+After review, approved additions and corrections are stored in `official_water_overrides.js`.
 
-The admin downloads one replacement file:
+## Data maintenance
 
-`official_water_overrides.js`
+All GitHub Actions in `.github/workflows/` are manual-only (`workflow_dispatch`). There are no scheduled or push-triggered data refreshes. An administrator can run a state builder deliberately when an official source has materially changed, review the generated diff, and then publish it.
 
-That file stores both:
+`official-sources.html` lists the responsible fish-and-wildlife source for each state. The search fallback warns users when access is not verified and directs them to the appropriate agency source.
 
-- Public water additions
-- Hidden private/closed-water corrections
+## Installable app
 
-## Official directory page
+The site is a Progressive Web App named **FFO Finder**. It provides an offline app shell while keeping current weather, maps and live nearby-amenity lookups network-first.
 
-`official-sources.html` lists a primary fish-and-wildlife fishing source for all 50 states.
+## Local verification
 
-FFO's deeper searchable datasets currently cover Idaho, Montana, Utah, Colorado,
-Wyoming, Nevada, Oregon, Washington and Northern California. Fish species are
-shown only when an official record is tied to the exact named water. When an
-exact record has not been imported, the result links to the responsible state
-agency and a Google search restricted to that agency's official domains.
-The current official access index contains 15,501 valid named records across
-those nine expanded state datasets.
+Run the location-finder acceptance checks before publication:
 
-## Upload
-
-Upload every included file to the root of the existing report-generator GitHub repository.
-Replace files with the same names and commit directly to `main`.
-
-Do not change `.github/workflows/update-fishing-reports.yml`.
-
-
-## Location-aware nearby-water shortcuts
-
-The old fixed Southeast Idaho shortcut buttons have been removed.
-
-The search page now:
-
-- Shows a **Fishing Waters Near You** section
-- Uses browser location only after permission is granted
-- Automatically refreshes nearby waters on later visits when permission is already granted
-- Searches approximately 50 miles around the visitor
-- Updates the shortcut buttons after any town search
-- Shows no Idaho-specific buttons to visitors in other states
-- Falls back to the official state directory when nearby data is incomplete
-
-
-## Installable app / PWA
-
-The Fishing Reports beta is now a complete Progressive Web App.
-
-- Opens in standalone app mode after installation
-- Uses the approved `ffo-logo-main.png` branding
-- Includes Android, desktop, iPhone and iPad installation support
-- Includes a service worker and offline app shell
-- Keeps live fishing, weather and map data network-first
-- Provides an Install App button when supported
-- Provides Add to Home Screen instructions for iPhone and iPad
-- Includes app shortcuts for Nearby Waters, Submit Report and Official Sources
-
-
-## Nearby-water reliability fix
-
-Location lookup no longer depends on receiving a state name from reverse geocoding.
-Verified local directory records are calculated directly from the visitor's coordinates
-and displayed immediately. The broader GNIS nearby-water query then adds more results.
+```bash
+python tests/verify_location_finder.py
+```

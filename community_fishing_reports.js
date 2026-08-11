@@ -1,7 +1,7 @@
-/* Manually approved Fish Finder Outdoors angler reports. */
+/* Manually approved Fish Finder Outdoors angler reports, retained by report date. */
 window.FFO_COMMUNITY_REPORTS = {
-  "version": "2026-07-19-phase6.3",
-  "updated_at": "2026-07-19",
-  "coverage_note": "Manually approved angler submissions. These reports are separate from official agency reports and are not independently verified.",
+  "version": "2026-08-10-location-finder-v1",
+  "updated_at": "2026-08-10",
+  "coverage_note": "Manually approved angler submissions are retained indefinitely as dated historical reports. The newest dated report for a water is shown until a newer approved report replaces it. Reports are not independently verified.",
   "reports": []
 };

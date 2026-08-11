@@ -9,7 +9,8 @@
   const USGS_STRUCTURES_SOURCE=
     "https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/25";
   const OVERPASS_QUERY="https://overpass-api.de/api/interpreter";
-  const CACHE_PREFIX="ffo:access-points:v1:";
+  const AMENITY_RADIUS_MILES=5;
+  const CACHE_PREFIX="ffo:location-amenities:v2:";
   const CACHE_AGE_MS=7*24*60*60*1000;
   const VERIFIED_STATUSES=new Set([
     "agency-verified","operator-verified","publisher-documented","official-state-inventory"
@@ -57,11 +58,7 @@
   }
 
   function radiusMiles(location){
-    const kind=normalize(`${location?.water_type||""} ${location?.type||""} ${location?.category||""}`);
-    if(/pond|lagoon/.test(kind))return 5;
-    if(/river|stream|creek|canal/.test(kind))return 10;
-    if(/bay|harbor|harbour|coast|ocean|sea/.test(kind))return 20;
-    return 15;
+    return AMENITY_RADIUS_MILES;
   }
 
   function directionsUrl(lat,lon){
@@ -94,6 +91,7 @@
       "concession":"Public site operated by concession or partner",
       "shoreline":"Shoreline fishing access",
       "boat-ramp":"Boat ramp",
+      "day-use":"Day-use area",
       "private-or-restricted":"Private or restricted candidate",
       "customer-access":"Customer access candidate",
       "pay-to-use-candidate":"Possible pay-to-use access",
@@ -186,7 +184,7 @@
     const state=clean(location?.state),entries=window.FFO_OFFICIAL_ACCESS_INDEX?.states?.[state]||[];
     const sources=window.FFO_OFFICIAL_ACCESS_INDEX?.sources||[];
     const selectedNames=locationNames(location),selected=normalize(location?.name);
-    const maximumDistance=radiusMiles(location)+5,points=[];
+    const maximumDistance=radiusMiles(location),points=[];
     for(const entry of entries){
       const entryNames=[entry.name,...(entry.aliases||[])].map(normalize).filter(Boolean);
       const exact=entryNames.some(name=>selectedNames.has(name));
@@ -195,7 +193,7 @@
       );
       if(!exact&&!related)continue;
       const distance=miles(location?.lat,location?.lon,entry.lat,entry.lon);
-      if(related&&distance!==null&&distance>maximumDistance)continue;
+      if(related&&(distance===null||distance>maximumDistance))continue;
       const source=sources[entry.source]||{};
       const base={
         access_type:entry.access_status==="restricted"?"public-fee":"public",
@@ -241,10 +239,10 @@
       url:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${query} near ${place}`)}`
     });
     return[
-      link("Find boat ramps","boat ramps fishing access"),
-      link("Find marinas and pay launches","marinas private pay boat launches"),
-      link("Find campgrounds and fishing resorts","campgrounds fishing resorts"),
-      link("Find public parks and land access","state parks city parks county parks BLM National Forest fishing access")
+      link("Find boat launches within 5 miles","boat launches boat ramps fishing access within 5 miles"),
+      link("Find camping within 5 miles","campgrounds campsites fishing access within 5 miles"),
+      link("Find day-use areas within 5 miles","day-use areas picnic sites parks within 5 miles"),
+      link("Find public shoreline access","public parks public land fishing access within 5 miles")
     ];
   }
 
@@ -325,6 +323,7 @@
     if(tags.leisure==="slipway")return{name:"Mapped boat ramp",type:"boat-ramp",amenities:["Boat ramp"]};
     if(tags.leisure==="marina")return{name:"Mapped marina",type:"map-candidate",amenities:["Marina or moorage"]};
     if(tags.tourism==="camp_site"||tags.tourism==="caravan_site")return{name:"Mapped campground",type:"map-candidate",amenities:["Camping"]};
+    if(tags.tourism==="picnic_site"||tags.leisure==="park"||tags.leisure==="recreation_ground")return{name:"Mapped day-use area",type:"day-use",amenities:["Day use"]};
     if(tags.man_made==="pier"||tags.man_made==="jetty")return{name:"Mapped pier",type:"map-candidate",amenities:["Dock or pier"]};
     return{name:"Mapped fishing area",type:"map-candidate",amenities:["Fishing area"]};
   }
@@ -342,8 +341,8 @@
     if(lat===null||lon===null)return[];
     const meters=Math.round(radius*1609.344);
     const query=`[out:json][timeout:7];(
-      nwr(around:${meters},${lat},${lon})["leisure"~"^(slipway|marina|fishing)$"];
-      nwr(around:${meters},${lat},${lon})["tourism"~"^(camp_site|caravan_site)$"];
+      nwr(around:${meters},${lat},${lon})["leisure"~"^(slipway|marina|fishing|park|recreation_ground)$"];
+      nwr(around:${meters},${lat},${lon})["tourism"~"^(camp_site|caravan_site|picnic_site)$"];
       nwr(around:${meters},${lat},${lon})["sport"="fishing"];
       nwr(around:${meters},${lat},${lon})["man_made"~"^(pier|jetty)$"]["name"];
     );out center 80;`;
@@ -415,7 +414,8 @@
   }
 
   window.FFO_ACCESS_POINTS={
-    version:"2026-08-10-free-nationwide-v1",
+    version:"2026-08-10-five-mile-location-amenities-v2",
+    amenityRadiusMiles:AMENITY_RADIUS_MILES,
     knownForWater,
     enrich,
     discoveryLinks,

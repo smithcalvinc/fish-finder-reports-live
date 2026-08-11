@@ -11,8 +11,13 @@ window.FFO_SITE_CONFIG = {
   submission_email: "mountain.dog.enterprises@gmail.com",
   beta_mode: true,
   beta_feedback_email: "mountain.dog.enterprises@gmail.com",
-  brand_tagline: "Idaho Built. Northwest Ready.",
+  brand_tagline: "Nine-State Fishing Location Finder",
+  location_snapshot_date: "2026-08-10",
+  facility_radius_miles: 5,
+  report_retention: "latest-dated-report-retained",
 
+  // These thresholds are retained only for private admin labels. They do not
+  // hide or expire a valid dated report in the public location finder.
   current_report_days: 14,
   aging_report_days: 45
 };

@@ -1,4 +1,4 @@
-/* Fish Finder Outdoors Fishing Reports PWA */
+/* Fish Finder Outdoors Location Finder PWA */
 (function(){
   "use strict";
 
@@ -28,7 +28,7 @@
       panel.setAttribute("role","status");
       document.body.appendChild(panel);
     }
-    panel.innerHTML=`<button type="button" class="ffo-install-close" aria-label="Close install instructions">×</button><strong>Install FFO Fishing Reports</strong><p>${message}</p>`;
+    panel.innerHTML=`<button type="button" class="ffo-install-close" aria-label="Close install instructions">×</button><strong>Install FFO Location Finder</strong><p>${message}</p>`;
     panel.hidden=false;
     panel.querySelector(".ffo-install-close")?.addEventListener("click",()=>{panel.hidden=true;});
   }
@@ -75,7 +75,7 @@
   function normalInstallLabel(){
     return window.matchMedia("(max-width:760px)").matches
       ?"Install App"
-      :"Install Fishing Reports App";
+      :"Install Location Finder";
   }
 
   if(isStandalone){
@@ -140,16 +140,8 @@
           });
         });
 
-        await registration.update().catch(()=>{});
-
-        const checkForUpdates=()=>registration.update().catch(()=>{});
-        window.addEventListener("focus",checkForUpdates);
-        document.addEventListener("visibilitychange",()=>{
-          if(document.visibilityState==="visible")checkForUpdates();
-        });
-        setInterval(checkForUpdates,15*60*1000);
       }catch(error){
-        console.warn("FFO Reports service worker could not register.",error);
+        console.warn("FFO Finder service worker could not register.",error);
       }
     });
   }
