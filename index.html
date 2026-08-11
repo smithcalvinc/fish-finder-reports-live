@@ -17,8 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&amp;family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#1F4D3A" name="theme-color"/>
-<meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." name="description"/>
-<title>Fishing Reports Near Me | Free Public Water Search</title>
+<meta content="Find public fishing locations by water name, town, local name, or coordinates. Check maps, weather, known fish species, access notes, and camping, boat launches, and day-use areas within five miles." name="description"/>
+<title>Fishing Location Finder | Fish Finder Outdoors</title>
 <style>
     :root{--ink:#14211e;--muted:#61706b;--paper:#f5f2e8;--card:#fffdf8;--green:#0d3c35;--green2:#176354;--gold:#d6a443;--line:#d8d4c8;--danger:#a53a2f;--blue:#245f80;--shadow:0 18px 55px rgba(24,47,41,.13)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#e8efe8 0,#f5f2e8 320px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
@@ -56,7 +56,7 @@
     .dataset-note{margin-top:9px;font-size:12px;color:var(--muted)}
 
     .catch-report{border:2px solid #2f6c58;background:linear-gradient(135deg,#eef8f2,#fffdf7);position:relative;overflow:hidden}
-    .catch-report:before{content:"RECENT REPORTED CATCH";position:absolute;right:-34px;top:20px;transform:rotate(35deg);background:#1f5b49;color:white;font-size:10px;font-weight:900;letter-spacing:.09em;padding:7px 42px}
+    .catch-report:before{content:"LAST FISHING REPORT";position:absolute;right:-34px;top:20px;transform:rotate(35deg);background:#1f5b49;color:white;font-size:10px;font-weight:900;letter-spacing:.09em;padding:7px 42px}
     .catch-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding-right:75px}
     .catch-headline{font-family:Georgia,serif;font-size:24px;line-height:1.15;margin:5px 0 8px}
     .catch-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
@@ -189,12 +189,12 @@
     @media(max-width:720px){.nearby-quick-heading{align-items:stretch;flex-direction:column}.nearby-location-button{width:100%}}
 </style>
 <link href="brand-shell.css" rel="stylesheet"/>
-<meta content="Fishing Reports Near Me | Fish Finder Outdoors" property="og:title"/>
-<meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." property="og:description"/>
+<meta content="Fishing Location Finder | Fish Finder Outdoors" property="og:title"/>
+<meta content="Find public fishing locations with maps, weather, known fish species, access notes, and nearby camping, boat launches, and day-use areas." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" property="og:image"/>
 <meta content="Fish Finder Outdoors Professional Beta v2.0 — state-agency-first directory" name="generator"/>
-<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://reports.fishfinderoutdoors.com/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Reports Near Me | Fish Finder Outdoors" name="twitter:title"/><meta content="Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports, weather, and current trip-planning information." name="twitter:description"/><meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" name="twitter:image"/><link href="https://reports.fishfinderoutdoors.com/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Reports","url":"https://reports.fishfinderoutdoors.com/","description":"Search public fishing waters by water name, town, local name, or coordinates. Check official state sources, access notes, reviewed angler reports and current trip-planning information.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/","logo":{"@type":"ImageObject","url":"https://reports.fishfinderoutdoors.com/ffo-logo-main.png"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official state fishing directory links","Access notes and public-water screening","Weather and water-condition summaries","Reviewed community fishing reports","Shareable water-specific report links","Missing-water and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "Does an empty result mean there is no fishing nearby?", "acceptedAnswer": {"@type": "Answer", "text": "No. It means the beta search did not return a reliable local match. Visitors should use the linked official state fishing directory or report the missing water."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Reports" name="apple-mobile-web-app-title"/><meta content="FFO Reports" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
+<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://reports.fishfinderoutdoors.com/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Location Finder | Fish Finder Outdoors" name="twitter:title"/><meta content="Find public fishing locations with maps, weather, species, access, and nearby recreation facilities." name="twitter:description"/><meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" name="twitter:image"/><link href="https://reports.fishfinderoutdoors.com/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Location Finder","url":"https://reports.fishfinderoutdoors.com/","description":"Find public fishing locations with official access sources, maps, live weather, known fish species, and camping, boat launches, and day-use areas within five miles.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/","logo":{"@type":"ImageObject","url":"https://reports.fishfinderoutdoors.com/ffo-logo-main.png"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official public-access sources","Fishing location maps","Live weather","Known fish species","Camping, boat launches, and day-use areas within five miles","Optional dated angler reports","Missing-location and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "How far from a fishing location are nearby facilities shown?", "acceptedAnswer": {"@type": "Answer", "text": "Camping, boat launches and day-use candidates are searched within five miles of a dependable mapped location."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Finder" name="apple-mobile-web-app-title"/><meta content="FFO Finder" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
 <body>
 <header class="ffo-site-header">
 <div class="ffo-header-inner">
@@ -205,8 +205,8 @@
 <button aria-expanded="false" aria-label="Open menu" class="ffo-menu-button" type="button">☰</button>
 <nav aria-label="Fish Finder Outdoors" class="ffo-nav">
 <a href="https://www.fishfinderoutdoors.com">Home</a>
-<a href="https://www.fishfinderoutdoors.com/#beginner-guide">Fishing Guides</a>
-<a class="active" href="index.html">Fishing Reports</a>
+<a href="https://www.fishfinderoutdoors.com">Fishing Guides</a>
+<a class="active" href="index.html">Fishing Locations</a>
 <a href="https://www.fishfinderoutdoors.com/#trout">Trout</a>
 <a href="https://www.fishfinderoutdoors.com/#bass">Bass</a>
 <a href="https://www.fishfinderoutdoors.com/#panfish">Panfish</a>
@@ -216,34 +216,34 @@
 </nav>
 </div>
 </header>
-<div class="ffo-beta-bar">STATE-AGENCY-FIRST BETA • Missing-water corrections now built in • <a href="mailto:mountain.dog.enterprises@gmail.com?subject=Fish%20Finder%20Outdoors%20Beta%20Feedback">Send beta feedback</a> • <button class="ffo-install-button" data-install-ffo-app="" hidden="" type="button">Install App</button></div>
+<div class="ffo-beta-bar">9-STATE PUBLIC FISHING LOCATION DIRECTORY • Dated reports stay with each location • <a href="report-water.html">Add or correct a location</a> • <button class="ffo-install-button" data-install-ffo-app="" hidden="" type="button">Install App</button></div>
 <section class="ffo-professional-hero">
 <div class="ffo-hero-grid">
 <div>
-<div class="ffo-kicker"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/> Free Fishing Reports Tool</div>
-<h1>Stop guessing where to fish.</h1>
-<p>Search public fishing waters near a town or by water name, compare official sources, check access notes, and read reviewed angler reports before you make the drive.</p>
+<div class="ffo-kicker"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/> Fishing Location Finder</div>
+<h1>Find a place to fish.</h1>
+<p>Search public lakes, reservoirs, ponds, rivers, creeks, and streams. Check maps, live weather, known fish species, access information, and recreation facilities before you make the drive.</p>
 <div class="ffo-hero-actions"><a class="ffo-hero-primary" href="#report-search">Search Fishing Waters</a><button class="ffo-hero-secondary" data-install-ffo-app="" type="button">Install the App</button></div>
 </div>
 <img alt="Fish Finder Outdoors — Built on Experience" class="ffo-hero-logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
 </div>
 </section>
-<section aria-label="Report tool features" class="ffo-trust-strip">
+<section aria-label="Location finder features" class="ffo-trust-strip">
 <div class="ffo-trust-inner">
 <div class="ffo-trust-item"><strong>9-State Region</strong><span>Idaho through the Northwest &amp; Mountain West</span></div>
 <div class="ffo-trust-item"><strong>Official Sources First</strong><span>Agency rules, access and fishing directories</span></div>
-<div class="ffo-trust-item"><strong>Water-Specific Sharing</strong><span>Copy or share a direct report link</span></div>
-<div class="ffo-trust-item"><strong>Community Improvements</strong><span>Reports and corrections reviewed before publishing</span></div>
+<div class="ffo-trust-item"><strong>Maps &amp; Live Weather</strong><span>Location details gathered when you search</span></div>
+<div class="ffo-trust-item"><strong>Community Improvements</strong><span>Locations and dated reports reviewed before publishing</span></div>
 </div>
 </section>
 <header class="hero" style="display:none">
 <div class="wrap">
-<div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Report Generator</strong></div></div>
-<h1>Current fishing conditions, gathered on demand.</h1>
-<p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the full Northwest and Mountain West region. Official names are checked against public-access records before results appear.</p>
+<div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Fishing Location Finder</strong></div></div>
+<h1>Public fishing locations, gathered in one place.</h1>
+<p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the nine-state region. Official names are checked against public-access records before results appear.</p>
 <span class="badge">Professional Beta · Official state sources first</span>
 <span class="source-stamp" id="sourceStamp">Official state-source layer active</span>
-<nav aria-label="Fishing report tools" class="utility-nav">
+<nav aria-label="Fishing location tools" class="utility-nav">
 <a href="submit-report.html">Submit a fishing report</a>
 <a href="admin.html">Source review dashboard</a>
 </nav>
@@ -252,18 +252,18 @@
 <main class="wrap">
 <section class="pwa-install-feature" id="pwaInstallFeature">
 <div class="pwa-install-icon">
-<img alt="Fish Finder Outdoors Fishing Reports app icon" src="app-icon-192.png"/>
+<img alt="Fish Finder Outdoors Location Finder app icon" src="app-icon-192.png"/>
 </div>
 <div class="pwa-install-copy">
 <span class="ffo-section-label">Use it like an app</span>
-<h2>Install FFO Fishing Reports</h2>
-<p>Install once, then open Fishing Reports from your phone or computer like a regular app—without the normal browser address bar.</p>
+<h2>Install FFO Location Finder</h2>
+<p>Install once, then open the Fishing Location Finder from your phone or computer like a regular app—without the normal browser address bar.</p>
 </div>
-<button class="primary pwa-install-primary" data-install-ffo-app="" type="button">Install Fishing Reports App</button>
+<button class="primary pwa-install-primary" data-install-ffo-app="" type="button">Install Location Finder App</button>
 </section>
 <section aria-label="Fishing location search" class="search-panel" id="report-search">
-<span class="ffo-section-label">Free beta report tool</span>
-<div class="ffo-beta-panel"><h2>Search a water or town.</h2><p>Search by official water name, local name, town, or coordinates. Every result shows its exact-water fish-species evidence status, fishing-report status and available access information.</p></div><div class="tool-proof-line">Free to use • Nationwide water-name search • All 50 state agencies linked • Direct water sharing built in</div>
+<span class="ffo-section-label">Fishing location finder</span>
+<div class="ffo-beta-panel"><h2>Search a water or town.</h2><p>Search by official water name, local name, town, or coordinates. Every location shows available public-access evidence, species information, map and weather data, nearby recreation facilities, and the last dated report when one exists.</p></div><div class="tool-proof-line">Free to use • 15,501 official public-access records • Nine expanded state datasets • Direct location sharing built in</div>
 <form class="search-row" id="searchForm">
 <input aria-label="Fishing location" autocomplete="off" id="locationInput" placeholder="Water or town: American Falls Reservoir or Pocatello"/>
 <button class="primary" type="submit">Find location</button>
@@ -282,7 +282,7 @@
 <div aria-live="polite" class="nearby-quick-status" id="nearbyQuickStatus">Your location is not shared unless you choose to use it.</div>
 <div aria-label="Nearby fishing water shortcuts" class="local-searches nearby-water-buttons" id="nearbyWaterButtons"></div>
 </section>
-<div class="search-help"><strong>Nationwide official-source routing:</strong> the responsible state fish and wildlife agency is attached to searches in all 50 states. Exact-water species names appear only when FFO can tie them to that water; statewide fish lists are never presented as lake-specific evidence. Known private and closed waters are hidden, while uncertain access is labeled.</div><div class="ffo-coverage-note"><strong>Can’t find a known water?</strong> <a href="report-water.html">Report a missing water or incorrect access</a>. Approved corrections become part of the search directory without rewriting the whole site.</div>
+<div class="search-help"><strong>Official-source routing:</strong> the responsible state fish and wildlife agency is attached to every search. Exact-water species names appear only when FFO can tie them to that water. Known private and closed waters are hidden, while uncertain access is labeled as unknown.</div><div class="ffo-coverage-note"><strong>Can’t find a known public fishing location?</strong> <a href="report-water.html">Add a missing location or correct access</a>. Approved additions become part of the directory.</div>
 <div class="regional-coverage">
 <strong>Expanded state datasets currently installed</strong>
 <div class="state-chips">
@@ -304,7 +304,7 @@
 </section>
 <section aria-label="Saved and recent fishing locations" class="saved-panel">
 <div class="saved-head">
-<div><h2>Your fishing waters</h2><div class="meta">Favorites and recent searches are saved only in this browser. Official source pages are checked automatically when the GitHub workflow is enabled.</div></div>
+<div><h2>Your fishing locations</h2><div class="meta">Favorites and recent searches are saved only in this browser. The installed state data is a source-backed snapshot; live weather and nearby facility lookups run only when you open a location.</div></div>
 <button class="secondary subtle-button" id="clearRecent" type="button">Clear recent</button>
 </div>
 <div class="saved-grid">
@@ -315,21 +315,21 @@
 <section aria-live="polite" class="report hidden" id="report">
 <div class="report-head">
 <div><span class="badge" id="coverageBadge"></span><h2 id="reportTitle"></h2><div class="meta" id="generated"></div></div>
-<div class="report-actions"><button class="primary share-water-action" id="shareWater" type="button">Share This Water</button><button class="secondary" id="favoriteLocation">☆ Save Water</button><button class="secondary" id="copySummary">Copy Report Text</button><button class="secondary" id="copyLink">Copy Report Link</button><button class="secondary" onclick="window.print()">Print</button></div>
-</div><section class="report-next-actions" id="reportNextActions"><div><span class="eyebrow">Fishing report updates</span><h3>Have a fishing report for this location?</h3></div><div class="report-next-buttons"><a href="submit-report.html" id="submitThisWater">Submit a Fishing Report</a><a href="report-water.html" id="correctThisWater">Correct This Water</a><button data-install-ffo-app="" id="installFromReport" type="button">Install the App</button></div></section>
+<div class="report-actions"><button class="primary share-water-action" id="shareWater" type="button">Share This Location</button><button class="secondary" id="favoriteLocation">☆ Save Location</button><button class="secondary" id="copySummary">Copy Location Details</button><button class="secondary" id="copyLink">Copy Location Link</button><button class="secondary" onclick="window.print()">Print</button></div>
+</div><section class="report-next-actions" id="reportNextActions"><div><span class="eyebrow">Optional fishing reports</span><h3>Fished this location recently?</h3></div><div class="report-next-buttons"><a href="submit-report.html" id="submitThisWater">Submit a Fishing Report</a><a href="report-water.html" id="correctThisWater">Correct This Location</a><button data-install-ffo-app="" id="installFromReport" type="button">Install the App</button></div></section>
 <div class="grid" id="reportGrid"></div>
 </section>
 </main>
 <section class="ffo-seo-section" id="beta-search-guide">
 <div class="ffo-seo-inner">
 <div>
-<span class="ffo-section-label">Nationwide fishing search beta</span>
-<h2>Find fishing waters near a town, then verify the details.</h2>
+<span class="ffo-section-label">Nine-state fishing location directory</span>
+<h2>Find public fishing locations near a town, then verify the details.</h2>
 <p>Enter a town, lake, reservoir, pond, river, stream or coordinate. For town searches, Fish Finder Outdoors looks for named fishing waters within roughly 50 miles when the available agency and geographic data support that search.</p>
 <p>No database contains every public fishing access point. Results therefore include the correct official state fishing directory, access labels and a missing-water correction form.</p>
 </div>
 <div class="ffo-seo-cards">
-<article><h3>Official state sources</h3><p>All 50 state fish and wildlife agencies are routed from nationwide results. Nine western state datasets currently provide deeper report, species and access indexing.</p></article>
+<article><h3>Official state sources</h3><p>All 50 state fish and wildlife agencies are routed from nationwide results. Nine western state datasets provide deeper location, species and access indexing.</p></article>
 <article><h3>Private-water screening</h3><p>Known private and closed waters are hidden. Fee, permit, seasonal and unconfirmed access are labeled instead of silently deleted.</p></article>
 <article><h3>Community corrections</h3><p>Anglers can report a missing water or incorrect access. Every correction is reviewed before it changes the public directory.</p></article>
 </div>
@@ -346,14 +346,14 @@
 <div>
 <a class="ffo-footer-brand" href="https://www.fishfinderoutdoors.com">
 <img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
-<span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Beginner friendly. Idaho built. Northwest ready.</span></span>
+<span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Idaho built. Northwest ready.</span></span>
 </a>
-<p style="max-width:420px;color:#a9bbb3">Beginner-friendly fishing guides, trustworthy report tools, and practical help for real days on the water.</p>
+<p style="max-width:420px;color:#a9bbb3">Fishing locations, practical guides, official source links, and useful help for real days on the water.</p>
 </div>
 <div>
 <div class="ffo-footer-title">Explore</div>
 <div class="ffo-footer-links">
-<a href="index.html">Fishing Reports</a>
+<a href="index.html">Fishing Locations</a>
 <a href="submit-report.html">Submit a Catch Report</a>
 <a href="official-sources.html">Official State Sources</a>
 <a href="report-water.html">Report Missing Water</a>
@@ -378,20 +378,20 @@
 </footer>
 <script src="site_config.js"></script>
 <script src="official_species_data.js"></script>
-<script src="official_species_index.js?v=58"></script>
+<script src="official_species_index.js?v=59"></script>
 <script src="official_state_sources.js"></script>
-<script src="official_water_overrides.js?v=58"></script>
-<script src="access_point_directory.js?v=58"></script>
-<script src="regional_water_search.js?v=58"></script>
+<script src="official_water_overrides.js?v=59"></script>
+<script src="access_point_directory.js?v=59"></script>
+<script src="regional_water_search.js?v=59"></script>
 <script src="recent_fishing_reports.js"></script>
 <script src="community_fishing_reports.js"></script>
-<script src="update_status.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 const state = {selected:null, report:null};
 const CACHE_PREFIX = "ffo:";
 const FAVORITES_KEY = "ffo:favorites:v2";
 const RECENTS_KEY = "ffo:recents:v2";
+const INFO_UNKNOWN = "Information not currently known.";
 let lastSearch = 0;
 
 const EXPANDED = new Set(["Idaho","Montana","Wyoming","Utah","Nevada","Oregon","Washington","California","Colorado"]);
@@ -1506,14 +1506,13 @@ function isPublishableAgencyReport(report){
   if(!String(report.report_kind||"").startsWith("official_"))return false;
   if(!report.agency||!report.source_url)return false;
   const ageDays=reportPublishedAgeDays(report.published_date);
-  if(ageDays===null)return false;
-  return ageDays>=0&&ageDays<=120&&report.freshness_status!=="stale";
+  return ageDays!==null&&ageDays>=0;
 }
 function isPublishableCommunityReport(report){
   if(!report||report.report_kind!=="community"||report.review_required)return false;
   if(!report.approved_at||report.source_status!=="community-reviewed")return false;
   const ageDays=reportPublishedAgeDays(report.published_date);
-  return ageDays!==null&&ageDays>=0&&ageDays<=120&&report.freshness_status!=="stale";
+  return ageDays!==null&&ageDays>=0;
 }
 function isDisplayableFishingReport(report){
   return isPublishableAgencyReport(report)||isPublishableCommunityReport(report);
@@ -1556,69 +1555,15 @@ function findRecentCatchReport(loc){
   ];
   return newestMatchingReport(loc,dataset);
 }
-function findOfficialReportLink(loc){
-  const official=window.FFO_RECENT_REPORTS||{reports:[]};
-  return newestMatchingReport(loc,(official.reports||[]).filter(isLinkableAgencyReport));
-}
-
 function recentlyReportedSpecies(report){
   if(!report)return[];
   const names=(report.catches||[]).map(x=>String(x.species||"").trim()).filter(Boolean);
   return [...new Set(names)];
 }
 
-function monitorStatus(){
-  return window.FFO_UPDATE_STATUS||{
-    last_run:null,mode:"not_configured",reports_total:0,unique_sources:0,
-    freshness:{current:0,aging:0,stale:0,unknown:0},
-    changed_reports:0,review_required:0,unreachable_sources:0
-  };
-}
-function reportSourceHealth(report){
-  if(report?.report_kind==="community"){
-    const age=reportAge(report);
-    if(age.days!=null&&age.days>45)return{label:"Older community report",className:"health-bad",detail:"This manually approved angler report is now older than 45 days."};
-    if(age.days!=null&&age.days>14)return{label:"Aging community report",className:"health-warn",detail:"This angler report was manually approved but is more than 14 days old."};
-    return{label:"Reviewed community report",className:"health-ok",detail:"Submitted by an angler and manually approved by Fish Finder Outdoors; not independently verified."};
-  }
-  if(!report)return{
-    label:"No report",className:"health-bad",detail:"No dated report matched this location."
-  };
-  if(report.review_required)return{
-    label:"Review required",className:"health-review",
-    detail:"The official source changed after this report was entered."
-  };
-  if(report.source_status==="unreachable")return{
-    label:"Source unreachable",className:"health-bad",
-    detail:report.source_error||"The last automatic source check could not reach the page."
-  };
-  if(report.freshness_status==="stale")return{
-    label:"Older report",className:"health-bad",
-    detail:`Published ${report.freshness_days??"many"} days ago. Treat it as historical context.`
-  };
-  if(report.freshness_status==="aging")return{
-    label:"Aging report",className:"health-warn",
-    detail:`Published ${report.freshness_days??""} days ago. Look for a newer local report.`
-  };
-  if(report.source_status==="baseline")return{
-    label:"Source baseline saved",className:"health-ok",
-    detail:"The monitor saved its first source fingerprint."
-  };
-  if(report.source_status==="ok")return{
-    label:"Source checked",className:"health-ok",
-    detail:"The official source matched its last monitored version."
-  };
-  return{
-    label:"Monitor pending",className:"health-warn",
-    detail:"Enable the GitHub workflow to check this source automatically."
-  };
-}
 function reportAge(report){
-  if(!report?.published_date)return{days:null,label:"Date unavailable",className:"report-age-stale"};
-  const days=Math.max(0,Math.floor((Date.now()-new Date(report.published_date+"T12:00:00").getTime())/86400000));
-  if(days<=7)return{days,label:days===0?"Published today":`${days} day${days===1?"":"s"} old`,className:"report-age-current"};
-  if(days<=21)return{days,label:`${days} days old`,className:"report-age-aging"};
-  return{days,label:`${days} days old — older report`,className:"report-age-stale"};
+  if(!report?.published_date)return{days:null,label:INFO_UNKNOWN,className:"report-age-stale"};
+  return{days:null,label:`Reported ${dateFmt(report.published_date)}`,className:"report-age-current"};
 }
 function saveRecent(loc){
   const item=storedLocation(loc),key=locationKey(item);
@@ -1872,7 +1817,7 @@ async function makeReport(loc){
     },
     techniques:tech,sources,
     verification:{forecast:w.available,water:u.available,tides:t.available,official_links:!!g,water_profile:!!profile,official_species:speciesSummary.official,official_name:!!loc.gnis_official,public_access:!!loc.public_access_verified,access_status:loc.access_status||"unknown",access_check_required:!!loc.access_check_required,verified_catch_report:!!catchReport,community_catch_report:catchReport?.report_kind==="community"},
-    disclaimer:"Recent catch figures may come from dated agency reports or manually reviewed angler submissions and may no longer represent today’s bite. Community submissions are not independently verified. The conditions score remains an estimate. Always verify current regulations, closures, access, boating conditions and emergency information before fishing."
+    disclaimer:"A fishing report is a dated historical observation, not a claim about today’s bite. Community submissions are reviewed but not independently verified. Live weather is requested only when a dependable coordinate is available. Always verify current regulations, closures, access, boating conditions and emergency information before fishing."
   };
 }
 
@@ -1894,9 +1839,9 @@ $("searchForm").addEventListener("submit",async e=>{
     }
     const townSearch=rows.some(r=>r.town_search);
     const source=stateSourceFor(q,rows);
-    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Every water shows its fish-species status, fishing-report status, and any named access points already in FFO. Select a water for sources and live lookup links.</div>`+rows.map((r,i)=>{
+    $("results").innerHTML=agencyPanel(source,q)+`<div class="search-help"><strong>${townSearch?`Fishing waters near ${esc(rows[0].nearby_town_label||q)}`:"Matching fishing waters"}</strong> State-agency and approved directory records appear first. Select a location for its map, weather, known fish species, access information, nearby facilities, and last dated report when available.</div>`+rows.map((r,i)=>{
       const access=reportAccess(r,{public_access:!!r.public_access_verified,access_status:r.access_status||"unknown"});
-      const currentReport=findRecentCatchReport(r),olderReport=currentReport?null:findOfficialReportLink(r);
+      const currentReport=findRecentCatchReport(r);
       const speciesSummary=r.species_summary||speciesSummaryFor(r,{catchReport:currentReport});
       const accessPoints=window.FFO_ACCESS_POINTS?.knownForWater?.(r)||[];
       r.access_points=accessPoints;
@@ -1905,22 +1850,18 @@ $("searchForm").addEventListener("submit",async e=>{
       const accessBadge=`<span class="result-badge">${esc(access.title)}</span>`;
       const accessPointNames=accessPoints.slice(0,3).map(point=>point.name);
       const accessPointStatus=accessPoints.length
-        ?`<span class="result-access-summary"><b>KNOWN ACCESS POINTS (${accessPoints.length}).</b> ${esc(accessPointNames.join(" · "))}${accessPoints.length>3?` · +${accessPoints.length-3} more`:""}. Select this water for sources, fees, directions, and nearby candidates.</span>`
-        :`<span class="result-access-summary"><b>ACCESS-POINT LOOKUP AVAILABLE.</b> Select this water to check nearby ramps, marinas, campgrounds, resorts, parks, and public-land facilities.</span>`;
+        ?`<span class="result-access-summary"><b>KNOWN ACCESS OR RECREATION POINTS (${accessPoints.length}).</b> ${esc(accessPointNames.join(" · "))}${accessPoints.length>3?` · +${accessPoints.length-3} more`:""}. Select this location for sources, directions, and facilities within five miles.</span>`
+        :`<span class="result-access-summary"><b>FIVE-MILE FACILITY LOOKUP AVAILABLE.</b> Select this location to check camping, boat launches, and day-use areas.</span>`;
       const reportStatus=currentReport
-        ?currentReport.report_kind==="community"
-          ?`<span class="result-report-status result-report-found"><b>FFO ANGLER REPORT FOUND.</b> Manually reviewed submission dated ${esc(dateFmt(currentReport.published_date))}. Select this water to read it.</span>`
-          :`<span class="result-report-status result-report-found"><b>FISHING REPORT INFORMATION FOUND.</b> ${esc(currentReport.agency)} · ${esc(dateFmt(currentReport.published_date))}. Select this water to open the report and source.</span>`
-        :olderReport
-          ?`<span class="result-report-status result-report-older"><b>OLDER OFFICIAL FISHING INFORMATION FOUND.</b> Select this water to open the dated agency source.</span>`
-          :`<span class="result-report-status result-report-missing"><b>NO FISHING REPORT FOUND FOR THIS LOCATION.</b> If you have a fishing report, select this water and submit it to FFO.</span>`;
+        ?`<span class="result-report-status result-report-found"><b>LAST FISHING REPORT · ${esc(dateFmt(currentReport.published_date))}</b> ${esc(currentReport.report_kind==="community"?"Reviewed FFO angler submission.":currentReport.agency||"Dated agency information.")}</span>`
+        :`<span class="result-report-status result-report-missing"><b>LAST FISHING REPORT</b> ${esc(INFO_UNKNOWN)}</span>`;
       const speciesPreview=speciesSummary.names.slice(0,6);
       const speciesAgency=window.FFO_STATE_SOURCES?.byState?.(canonicalSpeciesState(r.state))?.agency||"the responsible state agency";
       const speciesStatus=speciesPreview.length
         ?`<span class="result-species-status result-species-found"><b>${speciesSummary.specificity==="group"?"AGENCY FISH INFORMATION":"KNOWN FISH SPECIES"} (${speciesSummary.names.length}).</b> ${esc(speciesPreview.join(" · "))}${speciesSummary.names.length>speciesPreview.length?` · +${speciesSummary.names.length-speciesPreview.length} more`:""}. Select this water for the evidence source.</span>`
         :speciesSummary.official_exact
-          ?`<span class="result-species-status result-species-missing"><b>EXACT OFFICIAL WATER PAGE FOUND — SPECIES LIST COULD NOT BE LOADED.</b> Select this water to open the agency page directly.</span>`
-          :`<span class="result-species-status result-species-missing"><b>OFFICIAL SPECIES LOOKUP AVAILABLE — NO EXACT LIST LOADED.</b> Select this water to search ${esc(speciesAgency)} for this exact location.</span>`;
+          ?`<span class="result-species-status result-species-missing"><b>KNOWN FISH SPECIES</b> ${esc(INFO_UNKNOWN)} Open the exact agency page for any newer record.</span>`
+          :`<span class="result-species-status result-species-missing"><b>KNOWN FISH SPECIES</b> ${esc(INFO_UNKNOWN)} Select this location to search ${esc(speciesAgency)}.</span>`;
       return`<button class="result ${accessClass}" data-index="${i}">
         <strong>${isWaterResult(r)?"🌊 ":"📍 "}${esc(r.name)}</strong>
         <span>${esc(r.display_name)} · ${esc(r.type)}</span>
@@ -1930,7 +1871,7 @@ $("searchForm").addEventListener("submit",async e=>{
         ${accessPointStatus}
         ${reportStatus}
       </button>`;
-    }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known fishing water?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Send a directory correction</a>. Approved additions are stored separately so the directory can improve without breaking the report system.</div>`;
+    }).join("")+`<div class="ffo-coverage-note"><strong>Still missing a known public fishing location?</strong> <a href="report-water.html?q=${encodeURIComponent(q)}${source?`&state=${encodeURIComponent(source.state)}`:""}">Add or correct the location</a>. Approved additions become part of the directory.</div>`;
     document.querySelectorAll(".result").forEach(b=>b.addEventListener("click",()=>loadReport(rows[Number(b.dataset.index)])));
     if(townSearch){
       renderNearbyQuickWaters(rows,rows[0].nearby_town_label||q);
@@ -1943,7 +1884,7 @@ $("nearMe").addEventListener("click",()=>{
 });
 async function loadReport(loc){
   $("results").innerHTML="";$("report").className="report hidden";
-  status('<span class="pulse"></span> Gathering fishing reports, live conditions, named access points, and nearby ramps, marinas, campgrounds, resorts, and parks…');
+  status('<span class="pulse"></span> Gathering location details, live weather, known fish species, and camping, boat launches, and day-use areas within five miles…');
   try{
     const verifier=window.FFO_REGION_SEARCH?.verifyPublicAccess;
     if(isWaterResult(loc)&&verifier){
@@ -1981,7 +1922,7 @@ async function loadReport(loc){
     if(point){searchState.lat=String(point.lat);searchState.lon=String(point.lon);}
     const p=new URLSearchParams(searchState);
     history.replaceState(null,"","?"+p);$("report").scrollIntoView({behavior:"smooth",block:"start"});
-  }catch{status("The report could not be completed. Please try again.",true);}
+  }catch{status("The location details could not be completed. Please try again.",true);}
 }
 
 function mapLinks(locationData){
@@ -2042,7 +1983,7 @@ function renderAccessPointDirectory(locationData){
   const search=locationData.access_search||{};
   const checkedSources=[
     search.usgs_structures==="checked"?"USGS nearby campgrounds":"",
-    search.open_map==="checked"?"OpenStreetMap ramps, marinas, fishing sites, piers, and campgrounds":""
+    search.open_map==="checked"?"OpenStreetMap camping, boat launches, day-use areas, parks, fishing sites, and piers":""
   ].filter(Boolean);
   const pointItems=points.map(point=>{
     const verified=!!(point.verified||[
@@ -2070,50 +2011,41 @@ function renderAccessPointDirectory(locationData){
   }).join("");
   const correctionUrl=`report-water.html?q=${encodeURIComponent(locationData.name||"")}&state=${encodeURIComponent(locationData.state||"")}&kind=access`;
   return`<article class="card full access-directory">
-    <div class="eyebrow">Named access directory</div>
-    <h3>Known access points and nearby facilities</h3>
+    <div class="eyebrow">Location facilities</div>
+    <h3>Camping, boat launches &amp; day-use areas</h3>
     <p class="access-directory-intro">${points.length
-      ?`FFO found ${verifiedCount} source-backed access point${verifiedCount===1?"":"s"}${candidateCount?` and ${candidateCount} nearby map candidate${candidateCount===1?"":"s"}`:""}. Each entry is labeled separately so a nearby campground, marina, or ramp is not mistaken for confirmed fishing access.`
-      :"FFO has not yet matched a named access point to this water. Use the live Google lookup links below and send FFO any missing ramp, park, campground, resort, or shoreline access you verify."}</p>
+      ?`FFO found ${verifiedCount} source-backed location point${verifiedCount===1?"":"s"}${candidateCount?` and ${candidateCount} map candidate${candidateCount===1?"":"s"}`:""}. Official points tied to the water are included; live facility candidates are limited to five miles from the selected map point.`
+      :`${esc(INFO_UNKNOWN)} No named facility is currently matched to this water${locationCoordinates(locationData)?", and no live candidate was returned within five miles":" because a dependable map point is unavailable"}.`}</p>
     ${pointItems?`<div class="access-point-list">${pointItems}</div>`:""}
     <div class="access-discovery">
-      <p class="meta">${checkedSources.length?`Free nearby sources checked: ${esc(checkedSources.join("; "))}. `:""}Google links open live searches; FFO does not copy or claim verification of Google business listings. Confirm legal fishing access, ownership, fees, hours, closures, and posted signs with the agency or operator.</p>
-      <div class="quick-links">${discoveryLinks.map(link=>`<a href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.label)} ↗</a>`).join("")}<a href="${esc(correctionUrl)}">Report a missing or incorrect access point to FFO ↗</a></div>
+      <p class="meta">${checkedSources.length?`Five-mile sources checked: ${esc(checkedSources.join("; "))}. `:""}Map candidates do not prove fishing access. Confirm ownership, fees, hours, closures, launch conditions, and posted signs with the agency or operator.</p>
+      <div class="quick-links">${discoveryLinks.map(link=>`<a href="${esc(link.url)}" target="_blank" rel="noopener">${esc(link.label)} ↗</a>`).join("")}<a href="${esc(correctionUrl)}">Add or correct a facility ↗</a></div>
     </div>
   </article>`;
 }
 function renderReport(r){
   $("reportTitle").textContent=r.location.name+(r.location.state?" · "+r.location.state:"");
-  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],cards=[],g=guideForState(r.location.state),v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v),speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),sp=speciesSummary.names||[];
+  const w=r.weather||{},c=w.current||{},n=w.next_12h||{},alerts=w.alerts||[],td=(r.tides||{}).predictions||[],cards=[],g=guideForState(r.location.state),v=r.verification||{},official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,communityReport=catchReport?.report_kind==="community",catchAge=reportAge(catchReport),map=mapLinks(r.location),access=reportAccess(r.location,v),speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),sp=speciesSummary.names||[];
   const officialSourceUrl=r.location.official_url||speciesSummary.source_url||official?.source_url||"";
   const submitUrl=`submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
 
   $("coverageBadge").textContent=officialSourceUrl?"Official source available":"Location match — verify details";
-  $("generated").textContent="Updated "+dateFmt(r.generated_at)+" · "+(catchReport?(communityReport?"Dated FFO angler report: ":"Dated agency record: ")+catchAge.label:olderReport?"Older official report link available":"No fishing report found");
+  $("generated").textContent="Location details assembled "+dateFmt(r.generated_at)+" · Last fishing report: "+(catchReport?dateFmt(catchReport.published_date):INFO_UNKNOWN);
 
   cards.push(`<article class="card full official-record"><div class="eyebrow">Fishing access</div><h3>${esc(access.title)}</h3><p>${esc(access.note)}</p>${access.sourceUrl?`<div class="quick-links"><a href="${esc(access.sourceUrl)}" target="_blank" rel="noopener">Open the official source ↗</a></div>`:""}</article>`);
 
-  if(catchReport)cards.push(`<article class="card full catch-report">
-    <div class="catch-header"><div><div class="eyebrow">${communityReport?"Manually reviewed FFO angler report":"Dated official agency record"}</div><h3 class="catch-headline">${esc(catchReport.headline)}</h3><p>${esc(catchReport.summary)}</p><div class="catch-meta"><span class="catch-pill">${esc(catchReport.report_period||dateFmt(catchReport.published_date))}</span><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span></div></div></div>
+  const reportCard=catchReport?`<article class="card full catch-report">
+    <div class="catch-header"><div><div class="eyebrow">Last fishing report · ${esc(dateFmt(catchReport.published_date))}</div><h3 class="catch-headline">${esc(catchReport.headline||catchReport.title||"Fishing report")}</h3><p>${esc(catchReport.summary||"")}</p><div class="catch-meta"><span class="catch-pill ${catchAge.className}">${esc(catchAge.label)}</span><span class="catch-pill">${esc(communityReport?"Reviewed FFO angler submission":catchReport.agency||"Official agency record")}</span></div></div></div>
     ${(catchReport.catches||[]).length?`<div class="catch-grid">${catchReport.catches.map(x=>`<div class="catch-item"><span>${esc(x.species)}</span><b>${esc(x.metric)}</b><span>${esc(x.detail||"")}</span></div>`).join("")}</div>`:""}
     ${(catchReport.conditions||[]).length?`<div class="species-section"><h4>${communityReport?"Angler notes":"Agency notes"}</h4>${list(catchReport.conditions)}</div>`:""}
     ${communityReport
       ?`<div class="official-record"><strong>${esc(catchReport.agency||"Community angler")}</strong><span class="meta">Fishing date ${esc(dateFmt(catchReport.published_date))}</span>${catchReport.photo_url?`<div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.photo_url)}" target="_blank" rel="noopener">View submitted photo ↗</a></div>`:""}<p class="disclaimer">This submission was manually reviewed by FFO but was not independently verified.</p></div>`
-      :`<div class="official-record"><strong>${esc(catchReport.agency)}</strong><span class="meta">Published ${esc(dateFmt(catchReport.published_date))}</span><div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the original agency record ↗</a></div></div>`}
-  </article>`);
-
-  if(!catchReport&&olderReport)cards.push(`<article class="card full no-catch-report">
-    <div class="eyebrow">Fishing report status</div><h3>Older official fishing information available</h3>
-    <p>No current fishing report matched this location, but FFO found an older dated agency record. It may no longer describe present fishing conditions, so it is provided as a source link only.</p>
-    <div class="quick-links"><a href="${esc(olderReport.source_url)}" target="_blank" rel="noopener">Open the older ${esc(olderReport.agency)} record ↗</a>${g?.report?`<a href="${esc(g.report)}" target="_blank" rel="noopener">Check current ${esc(g.agency)} fishing information ↗</a>`:""}<a href="${esc(submitUrl)}">Submit a current fishing report to FFO ↗</a></div>
-  </article>`);
-
-  if(!catchReport&&!olderReport)cards.push(`<article class="card full no-catch-report">
-    <div class="eyebrow">Fishing report status</div><h3>NO FISHING REPORT FOUND FOR THIS LOCATION.</h3>
-    <p>FFO did not find a current or older fishing report matching this water in the report sources it checks.</p>
-    <p>If you have a fishing report for this location, please submit it to FFO so the location information can be updated.</p>
-    <div class="quick-links">${g?.report?`<a href="${esc(g.report)}" target="_blank" rel="noopener">Check ${esc(g.agency)} fishing information ↗</a>`:""}<a href="${esc(submitUrl)}">Submit a Fishing Report to FFO ↗</a></div>
-  </article>`);
+      :`<div class="official-record"><strong>${esc(catchReport.agency||"Official agency")}</strong><span class="meta">Report date ${esc(dateFmt(catchReport.published_date))}</span>${catchReport.source_url?`<div class="quick-links" style="margin-top:10px"><a href="${esc(catchReport.source_url)}" target="_blank" rel="noopener">Open the original agency record ↗</a></div>`:""}</div>`}
+  </article>`:`<article class="card full no-catch-report">
+    <div class="eyebrow">Last fishing report</div><h3>${esc(INFO_UNKNOWN)}</h3>
+    <p>Reports are optional and are not generated or refreshed when nobody submits one.</p>
+    <div class="quick-links"><a href="${esc(submitUrl)}">Submit a Fishing Report to FFO ↗</a></div>
+  </article>`;
 
   cards.push(renderAccessPointDirectory(r.location));
 
@@ -2125,8 +2057,8 @@ function renderReport(r){
   addSpeciesLink("Submit a fishing report to FFO",speciesSummary.submit_url||submitUrl);
   cards.push(`<article class="card full species-summary-card">
     <div class="eyebrow">${esc(speciesSummary.evidence_label)}</div>
-    <h3>${sp.length?(speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"):speciesSummary.official_exact?"EXACT OFFICIAL WATER PAGE FOUND — SPECIES LIST COULD NOT BE LOADED.":"NO WATER-SPECIFIC FISH SPECIES RECORD LOADED."}</h3>
-    ${sp.length?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>`:speciesSummary.official_exact?`<p>FFO matched the exact agency water page, but its species list could not be read during this search. Open that page below for the official list. FFO will not replace it with a statewide list or guess.</p>`:`<p>FFO did not find a species list tied to this exact water in its current official datasets. That does not mean the water has no fish; it means FFO will not substitute a statewide list or guess.</p><p>If you have a fishing report for this location, submit it to FFO so the species and location information can be reviewed and updated.</p>`}
+    <h3>${sp.length?(speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"):"Known fish species"}</h3>
+    ${sp.length?`<div class="species-tags">${sp.map(x=>`<span class="species-tag">${esc(x)}</span>`).join("")}</div>`:`<p><strong>${esc(INFO_UNKNOWN)}</strong></p><p>FFO has not loaded a species list tied to this exact water and will not substitute a statewide list or guess.</p>`}
     <p class="meta" style="margin-top:11px">${speciesSummary.source_name?`${esc(speciesSummary.source_name)}. `:""}${esc(speciesSummary.note)}</p>
     <div class="quick-links" style="margin-top:12px">${speciesLinks.map(link=>`<a href="${esc(link.url)}"${/^https?:/i.test(link.url)?' target="_blank" rel="noopener"':""}>${esc(link.label)} ↗</a>`).join("")}</div>
   </article>`);
@@ -2134,7 +2066,7 @@ function renderReport(r){
   if(v.forecast){
     const weatherUrl=`https://forecast.weather.gov/MapClick.php?lat=${Number(r.location.lat).toFixed(4)}&lon=${Number(r.location.lon).toFixed(4)}`;
     cards.push(`<article class="card ${alerts.length?"":"full"}"><h3>Live weather ${c.startTime?`<span class="fresh">${esc(ageLabel(c.startTime))}</span>`:""}</h3><div class="metric-grid">${metric("Current",c.shortForecast||"Unavailable")}${metric("Temperature",c.temperature!=null?c.temperature+"°"+(c.temperatureUnit||"F"):"—")}${metric("Wind",c.windSpeed?c.windSpeed+" "+(c.windDirection||""):"—")}${metric("Rain chance · 12 hours",n.max_precip_percent!=null?fmt(n.max_precip_percent)+"%":"—")}</div><div class="quick-links" style="margin-top:12px"><a href="${esc(weatherUrl)}" target="_blank" rel="noopener">Open the official NWS forecast ↗</a></div></article>`);
-  }
+  }else cards.push(`<article class="card full"><h3>Live weather</h3><p><strong>${esc(INFO_UNKNOWN)}</strong></p><p class="meta">A dependable coordinate is required to load the official National Weather Service forecast.</p></article>`);
 
   if(alerts.length)cards.push(`<article class="card"><h3>Active weather alerts</h3>${alerts.map(a=>`<div class="alert"><b>${esc(a.event||"Weather alert")}</b><div>${esc(a.headline||a.severity||"Check the official alert.")}</div></div>`).join("")}</article>`);
 
@@ -2146,7 +2078,9 @@ function renderReport(r){
     <div class="map-copy"><p class="meta">The marker is the selected search point, not a verified launch or shoreline-access point. Check the official water page before traveling.</p><span class="coords">${esc(map.coordinates)}</span></div>
     <iframe class="map-frame" title="Map of ${esc(r.location.name)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="${esc(map.embed)}"></iframe>
     <div class="quick-links"><a href="${esc(map.osm)}" target="_blank" rel="noopener">Open full map ↗</a><a href="${esc(map.directions)}" target="_blank" rel="noopener">Get directions ↗</a></div>
-  </article>`);
+  </article>`);else cards.push(`<article class="card full map-card"><h3>Fishing location map</h3><div class="map-copy"><p><strong>${esc(INFO_UNKNOWN)}</strong></p><p class="meta">No dependable coordinate is stored for this official directory record. FFO will not place a marker at a guessed location.</p></div></article>`);
+
+  cards.push(reportCard);
 
   const officialLinks=[];
   const seenLinks=new Set();
@@ -2164,25 +2098,25 @@ function renderReport(r){
   $("reportGrid").innerHTML=cards.join("");$("report").className="report";
 }
 function reportText(r){
-  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",olderReport=catchReport?null:findOfficialReportLink(r.location),g=guideForState(r.location.state),v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
+  const c=r.weather?.current||{},n=r.weather?.next_12h||{},alerts=r.weather?.alerts||[],official=r.official_species,rawCatchReport=r.recent_catch_report,catchReport=isDisplayableFishingReport(rawCatchReport)?rawCatchReport:null,speciesSummary=r.species_summary||speciesSummaryFor(r.location,{official,catchReport}),species=speciesSummary.names||[],communityReport=catchReport?.report_kind==="community",g=guideForState(r.location.state),v=r.verification||{},access=reportAccess(r.location,v),accessPoints=r.location.access_points||[],accessLinks=r.location.access_discovery_links||[],submitUrl=`https://reports.fishfinderoutdoors.com/submit-report.html?water=${encodeURIComponent(r.location.name||"")}&state=${encodeURIComponent(r.location.state||"")}`;
   const point=locationCoordinates(r.location);
   return [
     `FISH FINDER OUTDOORS — ${r.location.name}${r.location.state?`, ${r.location.state}`:""}`,
-    `Updated: ${dateFmt(r.generated_at)}`,
+    `Location details assembled: ${dateFmt(r.generated_at)}`,
     `Access: ${access.title}. ${access.note}`,
     access.sourceUrl?`Official water or access source: ${access.sourceUrl}`:"",
-    accessPoints.length?`Named access points (${accessPoints.length}):\n${accessPoints.map(point=>{
+    accessPoints.length?`Access and recreation points at this location or within 5 miles (${accessPoints.length}):\n${accessPoints.map(point=>{
       const label=point.verification_label||window.FFO_ACCESS_POINTS?.verificationLabel?.(point.verification_status)||"Confirm access";
       const links=[point.source_url&&`source ${point.source_url}`,point.directions_url&&`directions ${point.directions_url}`,point.google_url&&`Google ${point.google_url}`].filter(Boolean).join(" · ");
       return`- ${point.name} — ${label}${point.fee_note?`. ${point.fee_note}`:""}${links?` · ${links}`:""}`;
-    }).join("\n")}`:"No named access point is currently matched in FFO's directory.",
+    }).join("\n")}`:`Camping, boat launches and day-use areas: ${INFO_UNKNOWN}`,
     accessLinks.length?`Live access lookups:\n${accessLinks.map(link=>`- ${link.label}: ${link.url}`).join("\n")}`:"",
-    catchReport?`${communityReport?"Manually reviewed FFO angler report":"Dated official agency record"} (${catchReport.report_period||dateFmt(catchReport.published_date)}): ${catchReport.headline}`:olderReport?`No current fishing report matched this water. Older official record: ${olderReport.source_url}`:`NO FISHING REPORT FOUND FOR THIS LOCATION.`,
+    catchReport?`Last fishing report (${dateFmt(catchReport.published_date)}): ${catchReport.headline||catchReport.title||"Fishing report"}`:`Last fishing report: ${INFO_UNKNOWN}`,
     catchReport?`Report details: ${(catchReport.catches||[]).map(x=>`${x.species}: ${x.metric}`).join("; ")}`:"",
     communityReport?`Verification: Manually reviewed by FFO; not independently verified.`:"",
     catchReport?.source_url?`Original report: ${catchReport.source_url}`:"",
     !catchReport?`If you have a fishing report for this location, please submit it to FFO: ${submitUrl}`:"",
-    species.length?`${speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"}${speciesSummary.source_name?` (${speciesSummary.source_name})`:""}: ${species.join(", ")}`:speciesSummary.official_exact?`EXACT OFFICIAL WATER PAGE FOUND, BUT ITS SPECIES LIST COULD NOT BE LOADED.`:`NO WATER-SPECIFIC FISH SPECIES RECORD LOADED FOR THIS LOCATION.`,
+    species.length?`${speciesSummary.specificity==="group"?"Agency fish information":"Known fish species"}${speciesSummary.source_name?` (${speciesSummary.source_name})`:""}: ${species.join(", ")}`:`Known fish species: ${INFO_UNKNOWN}`,
     `Species evidence note: ${speciesSummary.note}`,
     speciesSummary.source_url?`Species evidence source: ${speciesSummary.source_url}`:"",
     speciesSummary.official_url?`Official species lookup: ${speciesSummary.official_url}`:"",
@@ -2353,19 +2287,14 @@ async function findNearbyQuickWaters({automatic=false}={}){
 $("loadNearbyWaters")?.addEventListener("click",()=>findNearbyQuickWaters());
 
 (function renderSourceStamp(){
-  const monitor=monitorStatus(),stamp=$("sourceStamp");
+  const stamp=$("sourceStamp");
   if(!stamp)return;
-  if(monitor.last_run){
-    stamp.textContent=`Official state-source layer active · report sources checked ${ageLabel(monitor.last_run)}`;
-    stamp.classList.toggle("warn",Boolean(monitor.review_required||monitor.unreachable_sources));
-  }else{
-    stamp.textContent="Official state-source layer active";
-    stamp.classList.add("warn");
-  }
+  stamp.textContent="Official location snapshot · automatic refresh disabled";
+  stamp.classList.remove("warn");
 })();
 function reportShareData(){
   const name=state.report?.location?.name||state.selected?.name||"Fishing water";
-  return{title:`${name} Fishing Report | Fish Finder Outdoors`,text:`Check ${name} in the free Fish Finder Outdoors report tool. Official sources, access notes, conditions and reviewed reports are linked in one place.`,url:location.href};
+  return{title:`${name} Fishing Location | Fish Finder Outdoors`,text:`Check ${name} in the Fish Finder Outdoors Location Finder for maps, weather, known fish species, access, nearby facilities, and the last dated report when available.`,url:location.href};
 }
 function updateReportActions(loc){
   const water=loc?.name||"";const stateName=loc?.state||"";
@@ -2375,9 +2304,9 @@ function updateReportActions(loc){
 }
 $("copySummary").addEventListener("click",async()=>{
   if(!state.report)return;const text=reportText(state.report);
-  try{await navigator.clipboard.writeText(text);$("copySummary").textContent="Report Copied";setTimeout(()=>$("copySummary").textContent="Copy Report Text",1800);}catch{prompt("Copy this report:",text);}
+  try{await navigator.clipboard.writeText(text);$("copySummary").textContent="Location Details Copied";setTimeout(()=>$("copySummary").textContent="Copy Location Details",1800);}catch{prompt("Copy these location details:",text);}
 });
-$("copyLink").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("copyLink").textContent="Link Copied";setTimeout(()=>$("copyLink").textContent="Copy Report Link",1800);}catch{prompt("Copy this report link:",location.href);}});
+$("copyLink").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(location.href);$("copyLink").textContent="Link Copied";setTimeout(()=>$("copyLink").textContent="Copy Location Link",1800);}catch{prompt("Copy this location link:",location.href);}});
 $("shareWater")?.addEventListener("click",async()=>{
   const data=reportShareData();
   try{if(navigator.share){await navigator.share(data);return;}await navigator.clipboard.writeText(data.url);$("shareWater").textContent="Water Link Copied";setTimeout(()=>$("shareWater").textContent="Share This Water",1800);}catch(error){if(error?.name!=="AbortError")prompt("Copy this water link:",data.url);}
@@ -2405,6 +2334,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=58"></script>
-<script src="pwa.js?v=58"></script></body>
+<script src="brand-shell.js?v=59"></script>
+<script src="pwa.js?v=59"></script></body>
 </html>
