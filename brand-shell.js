@@ -1,6 +1,7 @@
 (function(){
   const button=document.querySelector('.ffo-menu-button');
   const nav=document.querySelector('.ffo-nav');
+  let stateMenu=null;
   const stateLinks=[
     ['idaho-county-reports.html','Idaho Locations'],
     ['montana-county-reports.html','Montana Locations'],
@@ -149,6 +150,7 @@
     nav.querySelectorAll('a[href="index.html"]').forEach(link=>{link.textContent='Fishing Locations';});
     nav.querySelectorAll('a[href="report-water.html"]').forEach(link=>{link.textContent='Add or Correct a Location';});
     const submit=nav.querySelector('a[href="submit-report.html"]');
+    const priorStateMenu=nav.querySelector('.ffo-state-menu');
     const reusable=new Map();
     stateLinks.forEach(([href])=>{
       const matches=[...nav.querySelectorAll(`a[href="${href}"]`)];
@@ -156,6 +158,15 @@
       matches.forEach(link=>link.remove());
       if(keep)reusable.set(href,keep);
     });
+    priorStateMenu?.remove();
+    stateMenu=document.createElement('details');
+    stateMenu.className="ffo-state-menu";
+    const summary=document.createElement('summary');
+    summary.textContent='State Locations';
+    if(stateLinks.some(([href])=>currentPage===href))summary.classList.add('active');
+    const panel=document.createElement('div');
+    panel.className="ffo-state-menu-panel";
+    panel.setAttribute('aria-label','Fishing locations by state');
     stateLinks.forEach(([href,text])=>{
       const link=reusable.get(href)||document.createElement('a');
       link.href=href;
@@ -163,8 +174,10 @@
       link.classList.toggle('active',currentPage===href);
       if(currentPage===href)link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
-      if(submit)nav.insertBefore(link,submit);else nav.appendChild(link);
+      panel.appendChild(link);
     });
+    stateMenu.append(summary,panel);
+    if(submit)nav.insertBefore(stateMenu,submit);else nav.appendChild(stateMenu);
   }
 
   if(button&&nav){
@@ -173,8 +186,22 @@
       const open=nav.classList.toggle('open');
       button.setAttribute('aria-expanded',open?'true':'false');
       button.classList.toggle('open',open);
+      if(!open)stateMenu?.removeAttribute('open');
     });
-    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>nav.classList.remove('open')));
+    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      button.setAttribute('aria-expanded','false');
+      button.classList.remove('open');
+      stateMenu?.removeAttribute('open');
+    }));
+    stateMenu?.addEventListener('keydown',event=>{
+      if(event.key!=='Escape')return;
+      stateMenu.removeAttribute('open');
+      stateMenu.querySelector('summary')?.focus();
+    });
+    document.addEventListener('click',event=>{
+      if(stateMenu?.open&&!stateMenu.contains(event.target))stateMenu.removeAttribute('open');
+    });
   }
 
   const COUNTY_REPORT_STATES={
