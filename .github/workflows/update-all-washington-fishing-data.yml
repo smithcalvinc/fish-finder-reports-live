@@ -2,15 +2,6 @@ name: Update Washington Fishing Data — Official Public Access
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    # Only Washington-specific inputs trigger this writer. Shared species files
-    # and workflow edits use the staggered schedule or manual dispatch.
-    paths:
-      - "build_washington_fishing_data.py"
-  schedule:
-    - cron: "47 16 * * *"
 
 permissions:
   contents: write

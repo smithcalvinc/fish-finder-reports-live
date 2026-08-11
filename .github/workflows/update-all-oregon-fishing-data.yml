@@ -2,8 +2,6 @@ name: Update Oregon Fishing Data — Official Public Access
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "7 17 * * *"
 
 permissions:
   contents: write

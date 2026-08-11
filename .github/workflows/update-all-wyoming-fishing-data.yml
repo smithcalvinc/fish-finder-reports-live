@@ -2,15 +2,6 @@ name: Update All Wyoming Fishing Data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    # Only Wyoming-specific inputs trigger this writer. Workflow edits use the
-    # staggered schedule or manual dispatch to avoid cross-state push races.
-    paths:
-      - "build_wyoming_fishing_data.py"
-  schedule:
-    - cron: "17 15 * * *"
 
 permissions:
   contents: write

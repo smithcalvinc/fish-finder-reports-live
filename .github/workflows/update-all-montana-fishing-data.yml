@@ -2,17 +2,6 @@ name: Update All Montana Fishing Data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    # Only Montana-specific inputs trigger this writer. Workflow edits use the
-    # staggered schedule or manual dispatch to avoid cross-state push races.
-    paths:
-      - "build_montana_fishing_data.py"
-      - "data/montana_public_social_reports.csv"
-      - "config/montana_water_aliases.json"
-  schedule:
-    - cron: "47 13 * * *"
 
 permissions:
   contents: write

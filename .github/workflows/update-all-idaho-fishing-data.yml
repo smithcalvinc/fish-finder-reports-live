@@ -2,19 +2,6 @@ name: Update All Idaho Fishing Data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    # Only Idaho-specific inputs trigger this writer. Shared species files and
-    # workflow edits use the staggered schedule or manual dispatch.
-    paths:
-      - "build_idaho_public_fishing_access.py"
-      - "build_idaho_fishing_report_database.py"
-      - "config/fishing_report_sources.json"
-      - "config/water_aliases.json"
-      - "data/public_social_reports.csv"
-  schedule:
-    - cron: "17 13 * * *"
 
 permissions:
   contents: write

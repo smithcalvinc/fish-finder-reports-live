@@ -2,15 +2,6 @@ name: Update All Colorado Fishing Data
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    # Shared species files and workflow edits use the staggered schedule or
-    # manual dispatch so several state publishers do not race to update main.
-    paths:
-      - "build_colorado_fishing_data.py"
-  schedule:
-    - cron: "47 14 * * *"
 
 permissions:
   contents: write

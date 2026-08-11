@@ -2,8 +2,6 @@ name: Update All Nevada Fishing Data — Verified Public Access
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "37 15 * * *"
 
 permissions:
   contents: write
