@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-location-finder-v61";
+const CACHE_VERSION="ffo-location-finder-v62";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -11,14 +11,14 @@ const APP_SHELL=[
   "./oregon-county-reports.html",
   "./washington-county-reports.html",
   "./northern-california-county-reports.html",
-  "./brand-shell.css?v=61","./brand-shell.js?v=61","./pwa.js?v=61",
+  "./brand-shell.css?v=62","./brand-shell.js?v=62","./pwa.js?v=62",
   "./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
   "./apple-touch-icon.png","./ffo-logo-main.png","./ffo-hero.jpg",
   "./ffo-water-divider.jpg","./official-sources.html","./submit-report.html",
   "./report-water.html","./404.html","./site_config.js",
-  "./official_state_sources.js","./official_water_overrides.js?v=61",
-  "./access_point_directory.js?v=61","./regional_water_search.js?v=61","./official_species_data.js","./official_species_index.js?v=61",
+  "./official_state_sources.js","./official_water_overrides.js?v=62",
+  "./access_point_directory.js?v=62","./regional_water_search.js?v=62","./official_species_data.js","./official_species_index.js?v=62",
   "./fishing_report_search.js"
 ];
 
