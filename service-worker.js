@@ -1,4 +1,4 @@
-const CACHE_VERSION="ffo-location-finder-v65";
+const CACHE_VERSION="ffo-location-finder-v66";
 const STATIC_CACHE=`${CACHE_VERSION}-static`;
 const PAGE_CACHE=`${CACHE_VERSION}-pages`;
 
@@ -11,7 +11,7 @@ const APP_SHELL=[
   "./oregon-county-reports.html",
   "./washington-county-reports.html",
   "./northern-california-county-reports.html",
-  "./brand-shell.css?v=62","./brand-shell.js?v=65","./pwa.js?v=62",
+  "./brand-shell.css?v=62","./brand-shell.js?v=66","./pwa.js?v=62",
   "./share-water.html","./force-update.html","./manifest.json",
   "./app-icon-192.png","./app-icon-512.png","./app-icon-maskable-512.png",
   "./apple-touch-icon.png","./ffo-logo-main.png","./ffo-hero.jpg",

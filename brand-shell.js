@@ -661,7 +661,9 @@
       box-shadow:0 8px 24px rgba(0,25,20,.15);
     }
     .ffo-header-inner{min-height:78px;max-width:1220px}
-    .ffo-logo-link{color:var(--ffo-paper-light)}
+    .ffo-site-header .ffo-logo-link{
+      color:#faf6e7!important;
+    }
     .ffo-logo-link img{
       width:52px;
       height:52px;
@@ -671,49 +673,52 @@
       background:#b7aa83;
       object-fit:contain;
     }
-    .ffo-wordmark strong{
-      color:var(--ffo-paper-light);
+    .ffo-site-header .ffo-wordmark strong{
+      color:#faf6e7!important;
       font-size:1.32rem;
       font-weight:650;
       letter-spacing:.045em;
       line-height:1;
       text-transform:uppercase;
     }
-    .ffo-wordmark > span{
-      color:var(--ffo-gold);
+    .ffo-site-header .ffo-wordmark > span{
+      color:#d6a92e!important;
       font-size:.71rem;
       font-weight:700;
       letter-spacing:.16em;
       text-transform:uppercase;
     }
     .ffo-nav{gap:4px}
-    .ffo-nav a,.ffo-state-menu summary{
+    .ffo-site-header .ffo-nav a,
+    .ffo-site-header .ffo-state-menu summary{
       padding:10px 11px;
       border:0;
       border-bottom:2px solid transparent;
       border-radius:0;
-      color:rgba(255,253,243,.82);
+      color:rgba(255,253,243,.92)!important;
       font-size:.78rem;
       font-weight:600;
       letter-spacing:.045em;
       text-transform:uppercase;
     }
-    .ffo-nav a:hover,.ffo-nav a.active,.ffo-state-menu summary:hover{
+    .ffo-site-header .ffo-nav a:hover,
+    .ffo-site-header .ffo-nav a.active,
+    .ffo-site-header .ffo-state-menu summary:hover{
       border-bottom-color:var(--ffo-gold);
       background:transparent;
-      color:var(--ffo-gold);
+      color:#d6a92e!important;
     }
-    .ffo-nav .ffo-nav-cta{
+    .ffo-site-header .ffo-nav .ffo-nav-cta{
       border:1px solid var(--ffo-gold);
       background:var(--ffo-gold);
-      color:var(--ffo-night);
+      color:#052d27!important;
     }
-    .ffo-menu-button{
+    .ffo-site-header .ffo-menu-button{
       width:48px;
       height:48px;
       border:1px solid rgba(214,169,46,.52);
       border-radius:2px;
-      color:var(--ffo-paper-light);
+      color:#faf6e7!important;
       background:transparent;
     }
     .ffo-menu-button span,
@@ -1104,7 +1109,8 @@
         background:var(--ffo-night);
         box-shadow:0 18px 30px rgba(0,20,16,.24);
       }
-      .ffo-nav a,.ffo-state-menu summary{color:var(--ffo-paper-light)}
+      .ffo-site-header .ffo-nav a,
+      .ffo-site-header .ffo-state-menu summary{color:#faf6e7!important}
       .ffo-state-menu-panel{border-radius:2px;background:var(--ffo-night)}
       .ffo-hero-grid{grid-template-columns:minmax(0,1fr) 190px;gap:26px}
       .ffo-trust-inner{grid-template-columns:repeat(2,1fr)}
