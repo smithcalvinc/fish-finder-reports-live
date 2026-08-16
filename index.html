@@ -17,8 +17,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700;800&amp;family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#1F4D3A" name="theme-color"/>
-<meta content="Find public fishing locations by water name, town, local name, or coordinates. Check maps, weather, known fish species, access notes, and camping, boat launches, and day-use areas within five miles." name="description"/>
-<title>Fishing Location Finder | Fish Finder Outdoors</title>
+<meta content="Find public fishing locations by water, town, or coordinates. Check maps, weather, species, access, official sources, and dated reports when available." name="description"/>
+<title>Fishing Location Finder &amp; Reports | Fish Finder Outdoors</title>
 <style>
     :root{--ink:#14211e;--muted:#61706b;--paper:#f5f2e8;--card:#fffdf8;--green:#0d3c35;--green2:#176354;--gold:#d6a443;--line:#d8d4c8;--danger:#a53a2f;--blue:#245f80;--shadow:0 18px 55px rgba(24,47,41,.13)}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:linear-gradient(180deg,#e8efe8 0,#f5f2e8 320px);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
@@ -154,6 +154,9 @@
     .regional-coverage strong{display:block;color:var(--green);margin-bottom:7px}
     .state-chips{display:flex;flex-wrap:wrap;gap:6px}
     .state-chip{font-size:11px;font-weight:850;padding:5px 8px;border-radius:999px;background:white;border:1px solid #cfddd6;color:#315a4d}
+    .state-expansion-request{margin:12px 0 0;padding-top:12px;border-top:1px solid #cfddd6;font-size:13px;color:#42514c}
+    .state-expansion-request strong{display:inline;color:var(--green);margin:0}
+    .state-expansion-request a{display:inline-block;margin-top:8px;font-weight:850}
     .gnis-result{border-left:5px solid #245f80;background:#f3f8fb}
     .gnis-note{padding:11px 13px;border-radius:12px;background:#eef6fa;border:1px solid #c8dce7;margin-top:12px}
     .gnis-note strong{color:#245f80}
@@ -174,13 +177,13 @@
     @media(max-width:720px){.nearby-quick-heading{align-items:stretch;flex-direction:column}.nearby-location-button{width:100%}}
 </style>
 <link href="brand-shell.css?v=62" rel="stylesheet"/>
-<meta content="Fishing Location Finder | Fish Finder Outdoors" property="og:title"/>
-<meta content="Find public fishing locations with maps, weather, known fish species, access notes, and nearby camping, boat launches, and day-use areas." property="og:description"/>
+<meta content="Fishing Location Finder &amp; Reports | Fish Finder Outdoors" property="og:title"/>
+<meta content="Find public fishing locations by water, town, or coordinates. Check maps, weather, species, access, official sources, and dated reports when available." property="og:description"/>
 <meta content="website" property="og:type"/>
 <meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" property="og:image"/>
 <meta content="Fish Finder Outdoors Professional Beta v2.0 — state-agency-first directory" name="generator"/>
-<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://reports.fishfinderoutdoors.com/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Location Finder | Fish Finder Outdoors" name="twitter:title"/><meta content="Find public fishing locations with maps, weather, species, access, and nearby recreation facilities." name="twitter:description"/><meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" name="twitter:image"/><link href="https://reports.fishfinderoutdoors.com/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Location Finder","url":"https://reports.fishfinderoutdoors.com/","description":"Find public fishing locations with official access sources, maps, live weather, known fish species, and camping, boat launches, and day-use areas within five miles.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/","logo":{"@type":"ImageObject","url":"https://reports.fishfinderoutdoors.com/ffo-logo-main.png"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official public-access sources","Fishing location maps","Live weather","Known fish species","Camping, boat launches, and day-use areas within five miles","Optional dated angler reports","Missing-location and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "How far from a fishing location are nearby facilities shown?", "acceptedAnswer": {"@type": "Answer", "text": "Camping, boat launches and day-use candidates are searched within five miles of a dependable mapped location."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Finder" name="apple-mobile-web-app-title"/><meta content="FFO Finder" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
-<body>
+<meta content="index, follow, max-image-preview:large" name="robots"/><meta content="index, follow, max-image-preview:large" name="googlebot"/><meta content="Fish Finder Outdoors" name="author"/><meta content="https://reports.fishfinderoutdoors.com/" property="og:url"/><meta content="summary_large_image" name="twitter:card"/><meta content="Fishing Location Finder &amp; Reports | Fish Finder Outdoors" name="twitter:title"/><meta content="Find public fishing locations by water, town, or coordinates. Check maps, weather, species, access, official sources, and dated reports when available." name="twitter:description"/><meta content="https://reports.fishfinderoutdoors.com/ffo-hero.jpg" name="twitter:image"/><link href="https://reports.fishfinderoutdoors.com/" rel="canonical"/><link href="app-icon-192.png" rel="icon" type="image/png"/><link href="apple-touch-icon.png" rel="apple-touch-icon"/><script data-seo-schema="primary" type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Fish Finder Outdoors Fishing Location Finder","url":"https://reports.fishfinderoutdoors.com/","description":"Find public fishing locations by water, town, or coordinates. Check maps, weather, species, access, official sources, and dated reports when available.","isPartOf":{"@type":"WebSite","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/"},"publisher":{"@type":"Organization","name":"Fish Finder Outdoors","url":"https://www.fishfinderoutdoors.com/","logo":{"@type":"ImageObject","url":"https://reports.fishfinderoutdoors.com/ffo-logo-main.png"},"parentOrganization":{"@type":"Organization","name":"Mountain Dog Enterprises","url":"https://www.mountaindogenterprises.com/"}},"applicationCategory":"TravelApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Search by water name, town, local name, or coordinates","Official public-access sources","Fishing location maps","Live weather","Known fish species","Camping, boat launches, and day-use areas within five miles","Optional dated angler reports","Missing-location and access correction workflow"]}</script><link href="manifest.json" rel="manifest"/><script data-seo-schema="faq" type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How far does a town fishing search look?", "acceptedAnswer": {"@type": "Answer", "text": "Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification."}}, {"@type": "Question", "name": "How far from a fishing location are nearby facilities shown?", "acceptedAnswer": {"@type": "Answer", "text": "Camping, boat launches and day-use candidates are searched within five miles of a dependable mapped location."}}, {"@type": "Question", "name": "Are all listed fishing waters guaranteed public?", "acceptedAnswer": {"@type": "Answer", "text": "Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs."}}]}</script><meta content="yes" name="mobile-web-app-capable"/><meta content="yes" name="apple-mobile-web-app-capable"/><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/><meta content="FFO Finder" name="apple-mobile-web-app-title"/><meta content="FFO Finder" name="application-name"/><meta content="telephone=no" name="format-detection"/></head>
+<body class="ffo-finder-home">
 <header class="ffo-site-header">
 <div class="ffo-header-inner">
 <a class="ffo-logo-link" href="https://www.fishfinderoutdoors.com">
@@ -206,7 +209,7 @@
 <div class="ffo-hero-grid">
 <div>
 <div class="ffo-kicker"><img alt="" aria-hidden="true" src="ffo-logo-main.png"/> Fishing Location Finder</div>
-<h1>Find a place to fish.</h1>
+<h1>Find fishing locations and dated reports.</h1>
 <p>Search public lakes, reservoirs, ponds, rivers, creeks, and streams. Check maps, live weather, known fish species, access information, and recreation facilities before you make the drive.</p>
 <div class="ffo-hero-actions"><a class="ffo-hero-primary" href="#report-search">Search Fishing Waters</a><button class="ffo-hero-secondary" data-install-ffo-app="" type="button">Install the App</button></div>
 </div>
@@ -224,7 +227,7 @@
 <header class="hero" style="display:none">
 <div class="wrap">
 <div class="brand"><div class="mark">🎣</div><div><small>Fish Finder Outdoors</small><strong>Fishing Location Finder</strong></div></div>
-<h1>Public fishing locations, gathered in one place.</h1>
+<h2>Public fishing locations, gathered in one place.</h2>
 <p class="lede">Search any lake, reservoir, pond, river, stream, town or coordinates across the nine-state region. Official names are checked against public-access records before results appear.</p>
 <span class="badge">Professional Beta · Official state sources first</span>
 <span class="source-stamp" id="sourceStamp">Official state-source layer active</span>
@@ -277,6 +280,11 @@
 <span class="state-chip">Washington</span><span class="state-chip">Northern California</span>
 <span class="state-chip">Colorado</span>
 </div>
+<p class="state-expansion-request">
+<strong>Currently covering fishing locations across nine Western states, with additional regions coming in the future.</strong><br/>
+Don’t see your state? Let us know where you’d like FFO to expand next, and we’ll do our best to make it happen.<br/>
+<a href="https://www.fishfinderoutdoors.com/contact.html#state-request">Request your state</a>
+</p>
 </div>
 <div aria-label="Data type legend" class="legend">
 <span class="data-pill"><span class="dot live"></span>Live measured</span>
@@ -320,9 +328,10 @@
 </div>
 <div class="ffo-faq">
 <h2>Fishing search questions</h2>
-<details><summary>How far does a town search look?</summary><p>Approximately 50 miles. The actual results depend on available official water names, map coverage and the ability to identify the town correctly.</p></details>
+<details><summary>How far does a town fishing search look?</summary><p>Town searches look approximately 50 miles. Results depend on available official water names, map coverage and town identification.</p></details>
 <details><summary>Does an empty result mean there is no fishing nearby?</summary><p>No. It means the beta search did not return a reliable local match. Use the linked official state fishing directory or report the missing water.</p></details>
-<details><summary>Are all listed waters guaranteed public?</summary><p>No. Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Always verify current agency information and posted signs.</p></details>
+<details><summary>How far from a fishing location are nearby facilities shown?</summary><p>Camping, boat launches and day-use candidates are searched within five miles of a dependable mapped location.</p></details>
+<details><summary>Are all listed fishing waters guaranteed public?</summary><p>Known private and closed waters are filtered, but shoreline, launch and seasonal access can change. Anglers must verify current agency information and posted signs.</p></details>
 </div>
 </div>
 </section>
@@ -331,7 +340,7 @@
 <div>
 <a class="ffo-footer-brand" href="https://www.fishfinderoutdoors.com">
 <img alt="Fish Finder Outdoors logo" onerror="this.style.display='none'" src="ffo-logo-main.png"/>
-<span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Idaho built. Northwest ready.</span></span>
+<span><strong style="font-size:22px">Fish Finder Outdoors</strong><br/><span style="color:#a9bbb3">Beginner fishing made simpler.</span></span>
 </a>
 <p style="max-width:420px;color:#a9bbb3">Fishing locations, practical guides, official source links, and useful help for real days on the water.</p>
 </div>
@@ -2107,6 +2116,6 @@ renderSaved();
   if(p.get("near")==="1")setTimeout(()=>findNearbyQuickWaters(),100);
 })();
 </script>
-<script src="brand-shell.js?v=62"></script>
+<script src="brand-shell.js?v=65"></script>
 <script src="pwa.js?v=62"></script></body>
 </html>

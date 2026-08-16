@@ -132,10 +132,6 @@
 
   const reportPageState=COUNTY_REPORT_STATES[currentPage];
   if(reportPageState){
-    document.title=`${reportPageState} Fishing Locations | Fish Finder Outdoors`;
-    const descriptionMeta=document.querySelector('meta[name="description"]');
-    if(descriptionMeta)descriptionMeta.content=`Search publicly accessible fishing locations, maps, facilities, known species and optional dated reports across ${reportPageState}.`;
-
     document.querySelectorAll('a[href="index.html"]').forEach(link=>{link.textContent='Fishing Locations';});
     document.querySelectorAll('a[href="report-water.html"]').forEach(link=>{link.textContent='Add or Correct a Location';});
     const betaBar=document.querySelector('.ffo-beta-bar');
@@ -163,7 +159,7 @@
       if((title.textContent||'').trim()==='Reports')title.textContent='Locations';
     });
     document.querySelectorAll('.ffo-footer-brand span span').forEach(tagline=>{
-      if(/beginner\s+friendly/i.test(tagline.textContent||''))tagline.textContent='Western fishing locations and access information.';
+      if(/beginner\s+friendly/i.test(tagline.textContent||''))tagline.textContent='Beginner-friendly fishing locations and access information.';
     });
 
     const reportLinkStyle=document.createElement('style');
@@ -252,9 +248,63 @@
     }).observe(document.body,{childList:true,subtree:true});
   }
 
+  if(currentPage==='report-detail.html'){
+    const canonical=document.querySelector('link[rel="canonical"]');
+    const reportId=(new URLSearchParams(location.search).get('id')||'').trim();
+    const baseUrl=new URL('report-detail.html',location.origin).href;
+    const exactUrl=new URL(baseUrl);
+    if(reportId)exactUrl.searchParams.set('id',reportId);
+
+    const setMeta=(selector,value)=>{
+      const meta=document.querySelector(selector);
+      if(meta)meta.setAttribute('content',value);
+    };
+
+    const syncReportSeo=()=>{
+      const missingPanel=document.getElementById('reportMissing');
+      const reportArticle=document.getElementById('reportArticle');
+      const isMissing=!reportId||Boolean(missingPanel&&!missingPanel.hidden);
+      const isReady=Boolean(reportId&&reportArticle&&!reportArticle.hidden);
+      const robotsValue=isMissing?'noindex, follow':'index, follow, max-image-preview:large';
+      setMeta('meta[name="robots"]',robotsValue);
+      setMeta('meta[name="googlebot"]',robotsValue);
+
+      if(isMissing){
+        if(canonical)canonical.href=baseUrl;
+        setMeta('meta[property="og:url"]',baseUrl);
+        return;
+      }
+      if(!isReady)return;
+
+      const headline=(document.getElementById('reportHeadline')?.textContent||'').trim();
+      const water=(document.getElementById('reportWater')?.textContent||'').trim();
+      const title=headline&&headline!=='Fishing Report'
+        ?`${headline} | Fish Finder Outdoors`
+        :`${water||'Dated'} Fishing Report | Fish Finder Outdoors`;
+      const description=water
+        ?`View the dated fishing report for ${water}, including its source, species, conditions, and available report details. Verify current regulations and access before fishing.`
+        :'View this dated Fish Finder Outdoors fishing report, including its source, species, conditions, and available details.';
+
+      document.title=title;
+      if(canonical)canonical.href=exactUrl.href;
+      setMeta('meta[name="description"]',description);
+      setMeta('meta[property="og:title"]',title);
+      setMeta('meta[property="og:description"]',description);
+      setMeta('meta[property="og:url"]',exactUrl.href);
+      setMeta('meta[name="twitter:title"]',title);
+      setMeta('meta[name="twitter:description"]',description);
+    };
+
+    [document.getElementById('reportMissing'),document.getElementById('reportArticle')]
+      .filter(Boolean)
+      .forEach(element=>new MutationObserver(syncReportSeo)
+        .observe(element,{attributes:true,attributeFilter:['hidden'],childList:true,subtree:true}));
+    syncReportSeo();
+  }
+
   if(currentPage!=='index.html')return;
 
-  document.title='Fishing Location Finder | Fish Finder Outdoors';
+  document.title='Fishing Location Finder & Reports | Fish Finder Outdoors';
 
   const style=document.createElement('style');
   style.id='ffo-human-first-styles';
@@ -277,7 +327,7 @@
       font-size:13px;
       font-weight:800;
     }
-    .ffo-human-intro h1{
+    .ffo-human-intro h2{
       max-width:780px;
       margin:0 0 10px;
       color:#14211e;
@@ -349,7 +399,7 @@
     intro.className='ffo-human-intro';
     intro.innerHTML=`
       <span class="ffo-byline">Fish Finder Outdoors · Powered by Mountain Dog Enterprises</span>
-      <h1>Fishing Location Finder</h1>
+      <h2>Search public fishing locations.</h2>
       <p>Search a water or town below. Each location brings together available public-access evidence, a map, live weather, known fish species, camping, boat launches, day-use areas within five miles, and the last dated fishing report when one exists.</p>
     `;
     main.insertBefore(intro,search);
@@ -374,7 +424,7 @@
       const examples=document.createElement('div');
       examples.className='ffo-local-examples';
       examples.innerHTML=`
-        <span>Try a real Idaho water:</span>
+        <span>Try a featured fishing water:</span>
         <button class="ffo-local-example" type="button" data-water="American Falls Reservoir">American Falls Reservoir</button>
         <button class="ffo-local-example" type="button" data-water="Edson Fichter Pond">Edson Fichter Pond</button>
         <button class="ffo-local-example" type="button" data-water="Blackfoot Reservoir">Blackfoot Reservoir</button>
@@ -554,6 +604,564 @@
     }
   `;
   document.head.appendChild(resultsFirstStyle);
+
+  /* Shared visual layer for the professional FFO redesign. */
+  if(!document.querySelector('link[data-ffo-professional-font]')){
+    const fontLink=document.createElement('link');
+    fontLink.rel='stylesheet';
+    fontLink.href='https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap';
+    fontLink.dataset.ffoProfessionalFont='';
+    document.head.appendChild(fontLink);
+  }
+
+  const professionalTheme=document.createElement('style');
+  professionalTheme.id='ffo-professional-theme-20260814';
+  professionalTheme.textContent=`
+    :root{
+      --ffo-night:#052d27;
+      --ffo-forest:#0b4437;
+      --ffo-green:#17614e;
+      --ffo-gold:#d6a92e;
+      --ffo-paper:#f0ead2;
+      --ffo-paper-light:#faf6e7;
+      --ffo-ink:#17332c;
+      --ffo-muted:#607067;
+      --ffo-line:rgba(7,52,43,.20);
+      --ffo-shadow:0 18px 46px rgba(4,39,32,.10);
+    }
+    html{scroll-padding-top:92px}
+    body{
+      background:var(--ffo-paper);
+      color:var(--ffo-ink);
+      font-family:Inter,Arial,sans-serif;
+      line-height:1.62;
+    }
+    h1,h2,h3,h4,
+    .ffo-wordmark,
+    .ffo-nav,
+    .ffo-kicker,
+    .ffo-section-label,
+    button,
+    .primary,
+    .secondary,
+    .ffo-hero-primary,
+    .ffo-hero-secondary,
+    .ffo-footer-title{
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+    }
+    a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{
+      outline:3px solid var(--ffo-gold);
+      outline-offset:3px;
+    }
+    .ffo-site-header{
+      min-height:78px;
+      border:0;
+      border-bottom:1px solid rgba(214,169,46,.34);
+      background:var(--ffo-night);
+      box-shadow:0 8px 24px rgba(0,25,20,.15);
+    }
+    .ffo-header-inner{min-height:78px;max-width:1220px}
+    .ffo-logo-link{color:var(--ffo-paper-light)}
+    .ffo-logo-link img{
+      width:52px;
+      height:52px;
+      padding:2px;
+      border:1px solid rgba(214,169,46,.58);
+      border-radius:50%;
+      background:#b7aa83;
+      object-fit:contain;
+    }
+    .ffo-wordmark strong{
+      color:var(--ffo-paper-light);
+      font-size:1.32rem;
+      font-weight:650;
+      letter-spacing:.045em;
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .ffo-wordmark > span{
+      color:var(--ffo-gold);
+      font-size:.71rem;
+      font-weight:700;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+    }
+    .ffo-nav{gap:4px}
+    .ffo-nav a,.ffo-state-menu summary{
+      padding:10px 11px;
+      border:0;
+      border-bottom:2px solid transparent;
+      border-radius:0;
+      color:rgba(255,253,243,.82);
+      font-size:.78rem;
+      font-weight:600;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+    }
+    .ffo-nav a:hover,.ffo-nav a.active,.ffo-state-menu summary:hover{
+      border-bottom-color:var(--ffo-gold);
+      background:transparent;
+      color:var(--ffo-gold);
+    }
+    .ffo-nav .ffo-nav-cta{
+      border:1px solid var(--ffo-gold);
+      background:var(--ffo-gold);
+      color:var(--ffo-night);
+    }
+    .ffo-menu-button{
+      width:48px;
+      height:48px;
+      border:1px solid rgba(214,169,46,.52);
+      border-radius:2px;
+      color:var(--ffo-paper-light);
+      background:transparent;
+    }
+    .ffo-menu-button span,
+    .ffo-menu-button span::before,
+    .ffo-menu-button span::after{background:var(--ffo-paper-light)}
+    .ffo-beta-bar{
+      min-height:44px;
+      padding:8px 16px;
+      border:0;
+      background:var(--ffo-gold);
+      color:var(--ffo-night);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:.78rem;
+      font-weight:650;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .ffo-beta-bar a{color:var(--ffo-night);font-weight:700;text-decoration:underline}
+    .ffo-install-button{
+      border:1px solid var(--ffo-night);
+      border-radius:2px;
+      background:var(--ffo-night);
+      color:var(--ffo-paper-light);
+    }
+    .ffo-professional-hero{
+      position:relative;
+      overflow:hidden;
+      padding:clamp(70px,9vw,118px) 20px;
+      border:0;
+      border-bottom:8px solid var(--ffo-gold);
+      background:
+        linear-gradient(90deg,rgba(2,30,25,.96) 0%,rgba(2,30,25,.80) 48%,rgba(2,30,25,.30) 82%),
+        url("ffo-hero.jpg") center/cover no-repeat;
+      color:var(--ffo-paper-light);
+    }
+    .ffo-professional-hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      background:linear-gradient(0deg,rgba(2,30,25,.3),transparent 50%);
+    }
+    .ffo-hero-grid{
+      position:relative;
+      z-index:1;
+      max-width:1180px;
+      grid-template-columns:minmax(0,1fr) minmax(190px,300px);
+      gap:50px;
+    }
+    .ffo-kicker{
+      display:inline-flex;
+      margin:0 0 20px;
+      padding:0 0 12px;
+      border:0;
+      border-bottom:3px solid var(--ffo-gold);
+      border-radius:0;
+      background:transparent;
+      color:var(--ffo-gold);
+      font-size:.9rem;
+      font-weight:650;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+    .ffo-kicker img{display:none}
+    .ffo-professional-hero h1{
+      max-width:780px;
+      margin:0 0 24px;
+      color:var(--ffo-paper-light);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(4rem,8vw,7rem);
+      font-weight:650;
+      letter-spacing:-.025em;
+      line-height:.89;
+      text-transform:uppercase;
+      text-shadow:0 7px 28px rgba(0,0,0,.28);
+    }
+    .ffo-professional-hero p{
+      max-width:720px;
+      color:rgba(255,253,243,.88);
+      font-size:clamp(1rem,2vw,1.18rem);
+      line-height:1.62;
+    }
+    .ffo-hero-logo{
+      width:min(100%,270px);
+      padding:4px;
+      border:1px solid rgba(214,169,46,.48);
+      border-radius:50%;
+      background:#b7aa83;
+      box-shadow:0 20px 48px rgba(0,0,0,.25);
+    }
+    .ffo-hero-actions{gap:10px;margin-top:26px}
+    .ffo-hero-primary,.ffo-hero-secondary{
+      min-height:48px;
+      padding:12px 18px;
+      border:2px solid var(--ffo-gold);
+      border-radius:2px;
+      font-weight:650;
+      letter-spacing:.055em;
+      text-transform:uppercase;
+    }
+    .ffo-hero-primary{background:var(--ffo-gold);color:var(--ffo-night)}
+    .ffo-hero-secondary{background:transparent;color:var(--ffo-paper-light)}
+    .ffo-trust-strip{
+      padding:0;
+      border:0;
+      background:var(--ffo-forest);
+      color:var(--ffo-paper-light);
+    }
+    .ffo-trust-inner{
+      max-width:1180px;
+      gap:0;
+      padding:0 20px;
+    }
+    .ffo-trust-item{
+      min-height:126px;
+      padding:28px 24px;
+      border:0;
+      border-right:1px solid rgba(255,253,243,.17);
+      border-radius:0;
+      background:transparent;
+    }
+    .ffo-trust-item:last-child{border-right:0}
+    .ffo-trust-item strong{
+      color:var(--ffo-paper-light);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:1.18rem;
+      letter-spacing:.045em;
+      text-transform:uppercase;
+    }
+    .ffo-trust-item span{color:rgba(255,253,243,.68)}
+    main.wrap{max-width:1180px;padding-top:clamp(42px,7vw,78px);padding-bottom:40px}
+    body.ffo-finder-home main.wrap{display:flex;flex-direction:column}
+    body.ffo-finder-home #report-search{order:1}
+    body.ffo-finder-home .pwa-install-feature{order:2}
+    body.ffo-finder-home .saved-panel{order:3}
+    .search-panel,
+    .pwa-install-feature,
+    .saved-panel,
+    .report,
+    .ffo-detail-article,
+    .ffo-detail-status{
+      border:1px solid var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper-light);
+      box-shadow:none;
+    }
+    .search-panel{
+      padding:clamp(24px,5vw,50px);
+      border-top:8px solid var(--ffo-gold);
+    }
+    .ffo-section-label{
+      color:var(--ffo-green);
+      font-weight:650;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .ffo-beta-panel{padding:0;border:0;background:transparent}
+    .ffo-beta-panel h2{
+      margin:8px 0 12px;
+      color:var(--ffo-ink);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(2.8rem,6vw,5rem);
+      font-weight:650;
+      letter-spacing:-.015em;
+      line-height:.94;
+      text-transform:uppercase;
+    }
+    .ffo-beta-panel p{max-width:860px;color:var(--ffo-muted)}
+    .tool-proof-line{
+      margin:22px 0 16px;
+      padding:12px 14px;
+      border:0;
+      border-left:5px solid var(--ffo-gold);
+      border-radius:0;
+      background:var(--ffo-paper);
+      color:var(--ffo-ink);
+      font-weight:750;
+    }
+    .search-row{
+      gap:0;
+      margin:18px 0 14px;
+      border:2px solid var(--ffo-night);
+      background:var(--ffo-night);
+    }
+    .search-row input{
+      min-height:58px;
+      border:0;
+      border-radius:0;
+      background:var(--ffo-paper-light);
+      color:var(--ffo-ink);
+      font-size:1rem;
+    }
+    .search-row button,
+    button.primary,
+    button.secondary,
+    a.primary,
+    a.secondary{
+      min-height:46px;
+      border-radius:2px;
+      font-weight:650;
+      letter-spacing:.04em;
+    }
+    .search-row button{border-radius:0}
+    .search-row .primary,
+    button.primary,
+    a.primary{
+      border-color:var(--ffo-gold);
+      background:var(--ffo-gold);
+      color:var(--ffo-night);
+    }
+    .search-row .secondary,
+    button.secondary,
+    a.secondary{
+      border-color:var(--ffo-night);
+      background:var(--ffo-night);
+      color:var(--ffo-paper-light);
+    }
+    .search-row button:hover,
+    button.primary:hover,
+    a.primary:hover{filter:brightness(1.06)}
+    .hint,.meta{color:var(--ffo-muted)}
+    .nearby-quick-card{
+      border:1px solid var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper);
+      box-shadow:none;
+    }
+    .nearby-quick-heading h3{
+      color:var(--ffo-green);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(1.8rem,4vw,2.8rem);
+      text-transform:uppercase;
+    }
+    .nearby-quick-status,
+    .search-help,
+    .ffo-coverage-note,
+    .regional-coverage{
+      border-radius:2px;
+      box-shadow:none;
+    }
+    .regional-coverage{
+      border:1px solid var(--ffo-line);
+      background:var(--ffo-forest);
+      color:var(--ffo-paper-light);
+    }
+    .regional-coverage > strong{color:var(--ffo-gold)}
+    .state-chip,.data-pill{
+      border:1px solid var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper-light);
+      color:var(--ffo-ink);
+    }
+    .state-expansion-request{color:rgba(255,253,243,.74)}
+    .state-expansion-request a{color:var(--ffo-gold)}
+    .pwa-install-feature{
+      margin-top:26px;
+      padding:24px;
+      border-left:8px solid var(--ffo-green);
+    }
+    .pwa-install-feature h2,
+    .saved-panel h2,
+    .report h2{
+      color:var(--ffo-ink);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(2rem,4vw,3rem);
+      text-transform:uppercase;
+    }
+    .pwa-install-icon img{border-radius:2px}
+    .saved-panel{margin-top:26px;padding:28px}
+    .saved-group{
+      border:1px solid var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper);
+    }
+    .saved-chip{
+      border-radius:2px;
+      background:var(--ffo-paper-light);
+    }
+    #report-search.ffo-results-first-layout #results:not(:empty){
+      border:2px solid var(--ffo-green);
+      border-radius:2px;
+      background:var(--ffo-paper);
+    }
+    #report-search.ffo-results-first-layout #results .result,
+    .result{
+      border:1px solid var(--ffo-line);
+      border-left:6px solid var(--ffo-green);
+      border-radius:2px;
+      background:var(--ffo-paper-light);
+      box-shadow:none;
+    }
+    .result h3,.result strong{color:var(--ffo-ink)}
+    .result-badge,.chip,.badge,.species-tag,.catch-pill,.access-point-pill{
+      border-radius:2px;
+    }
+    .report{
+      border-top:8px solid var(--ffo-gold);
+      background:var(--ffo-paper-light);
+    }
+    .report-next-actions{
+      border-radius:2px;
+      background:var(--ffo-night);
+      color:var(--ffo-paper-light);
+    }
+    .report-next-actions h3{color:var(--ffo-paper-light)}
+    .report-next-buttons a,.report-next-buttons button{
+      border-radius:2px;
+      background:var(--ffo-gold);
+      color:var(--ffo-night);
+    }
+    .card,.metric,.official-record,.ffo-agency-panel,.access-point-item{
+      border-color:var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper-light);
+      box-shadow:none;
+    }
+    .card h3,.card h4{
+      color:var(--ffo-green);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      letter-spacing:.02em;
+      text-transform:uppercase;
+    }
+    .ffo-seo-section{
+      padding:clamp(54px,8vw,90px) 20px;
+      background:var(--ffo-forest);
+      color:var(--ffo-paper-light);
+    }
+    .ffo-seo-inner{max-width:1180px}
+    .ffo-seo-section h2{
+      color:var(--ffo-paper-light);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(2.8rem,6vw,5rem);
+      line-height:.95;
+      text-transform:uppercase;
+    }
+    .ffo-seo-section p{color:rgba(255,253,243,.75)}
+    .ffo-seo-cards article,
+    .ffo-faq details{
+      border:1px solid rgba(255,253,243,.18);
+      border-radius:2px;
+      background:rgba(255,255,255,.055);
+    }
+    .ffo-seo-cards h3,.ffo-faq h2,.ffo-faq summary{color:var(--ffo-paper-light)}
+    .ffo-faq details p{color:rgba(255,253,243,.75)}
+    .ffo-site-footer{
+      border:0;
+      border-top:8px solid var(--ffo-gold);
+      background:var(--ffo-night);
+    }
+    .ffo-footer-grid,.ffo-footer-fine{max-width:1180px}
+    .ffo-footer-brand img{
+      padding:3px;
+      border:1px solid rgba(214,169,46,.5);
+      border-radius:50%;
+      background:#b7aa83;
+    }
+    .ffo-footer-brand strong,.ffo-footer-title{
+      color:var(--ffo-paper-light);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .ffo-footer-title{color:var(--ffo-gold)}
+    .ffo-footer-links a{color:rgba(255,253,243,.72)}
+    .ffo-footer-links a:hover{color:var(--ffo-gold)}
+    .ffo-detail-wrap{max-width:1080px}
+    .ffo-detail-article{border-top:8px solid var(--ffo-gold)}
+    .ffo-detail-head h1{
+      color:var(--ffo-ink);
+      font-family:Oswald,"Arial Narrow",Arial,sans-serif;
+      font-size:clamp(2.8rem,7vw,5.6rem);
+      line-height:.94;
+      text-transform:uppercase;
+    }
+    .ffo-detail-card,.ffo-detail-summary{
+      border-color:var(--ffo-line);
+      border-radius:2px;
+      background:var(--ffo-paper);
+    }
+    body.ffo-focused-results main.wrap{padding-top:14px}
+    body.ffo-focused-results #report-search{
+      border-top-color:var(--ffo-gold);
+      background:var(--ffo-paper-light);
+    }
+    @media(max-width:940px){
+      .ffo-site-header,.ffo-header-inner{min-height:68px}
+      .ffo-nav{
+        border-bottom:6px solid var(--ffo-gold);
+        background:var(--ffo-night);
+        box-shadow:0 18px 30px rgba(0,20,16,.24);
+      }
+      .ffo-nav a,.ffo-state-menu summary{color:var(--ffo-paper-light)}
+      .ffo-state-menu-panel{border-radius:2px;background:var(--ffo-night)}
+      .ffo-hero-grid{grid-template-columns:minmax(0,1fr) 190px;gap:26px}
+      .ffo-trust-inner{grid-template-columns:repeat(2,1fr)}
+      .ffo-trust-item{border-bottom:1px solid rgba(255,253,243,.17)}
+      .ffo-trust-item:nth-child(2){border-right:0}
+    }
+    @media(max-width:720px){
+      .ffo-professional-hero{
+        min-height:560px;
+        padding:58px 18px;
+        background:
+          linear-gradient(90deg,rgba(2,30,25,.95),rgba(2,30,25,.63)),
+          url("ffo-hero.jpg") center/cover no-repeat;
+      }
+      .ffo-hero-grid{display:block}
+      .ffo-professional-hero h1{font-size:clamp(3.4rem,16vw,5rem)}
+      .ffo-hero-logo{display:none}
+      .ffo-hero-actions{align-items:stretch;flex-direction:column}
+      .ffo-hero-actions a,.ffo-hero-actions button{width:100%;text-align:center}
+      .ffo-trust-inner{grid-template-columns:1fr;padding:0}
+      .ffo-trust-item{
+        min-height:0;
+        padding:22px 20px;
+        border-right:0;
+        border-bottom:1px solid rgba(255,253,243,.17);
+      }
+      main.wrap{padding-top:34px}
+      .search-panel{padding:24px 18px}
+      .search-row{display:grid;grid-template-columns:1fr!important;border:0;background:transparent}
+      .search-row input{border:2px solid var(--ffo-night)}
+      .search-row button{border:0;margin-top:7px}
+      .nearby-quick-heading{align-items:stretch;flex-direction:column}
+      .pwa-install-feature{display:grid;grid-template-columns:auto 1fr}
+      .pwa-install-feature .pwa-install-primary{grid-column:1/-1;width:100%}
+      .saved-head{align-items:stretch;flex-direction:column}
+      .ffo-seo-cards{grid-template-columns:1fr}
+    }
+    @media(max-width:440px){
+      .ffo-logo-link img{width:44px;height:44px}
+      .ffo-wordmark strong{font-size:1.08rem}
+      .ffo-beta-bar{font-size:.7rem}
+      .ffo-professional-hero h1{font-size:clamp(3.2rem,15vw,4.1rem)}
+      .ffo-professional-hero p{font-size:.94rem}
+      .ffo-beta-panel h2{font-size:2.75rem}
+      .pwa-install-feature{grid-template-columns:1fr;text-align:left}
+    }
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{
+        scroll-behavior:auto!important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+      }
+    }
+  `;
+  document.head.appendChild(professionalTheme);
+
   organizePrimarySearchFlow();
 
   /* Keep the full landing page intact until search feedback or a report exists. */
